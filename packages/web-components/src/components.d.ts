@@ -7,8 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface EthangSideDrawer {
+        "drawerTitle": string;
         "open": boolean;
-        "title": string;
         "toggle": () => Promise<void>;
     }
 }
@@ -25,8 +25,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EthangSideDrawer {
+        "drawerTitle"?: string;
         "open"?: boolean;
-        "title"?: string;
     }
     interface IntrinsicElements {
         "ethang-side-drawer": EthangSideDrawer;

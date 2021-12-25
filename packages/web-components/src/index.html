@@ -7,45 +7,10 @@
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
     <title>EthanG Component Playground</title>
-    <style>
-      body {
-        font-family: sans-serif;
-      }
-
-      .side-nav ul {
-        list-style: none;
-      }
-
-      .side-nav li {
-        margin: 1rem 0;
-      }
-
-      .side-nav a {
-        text-decoration: none;
-        color: #000;
-      }
-    </style>
     <script type="module" src="/build/web-components.esm.js"></script>
     <script nomodule src="/build/web-components.js"></script>
   </head>
   <body>
-  <button id="side-drawer-button">Open Side Menu</button>
-  <ethang-side-drawer title="Main Menu">
-    <nav class="side-nav">
-      <ul>
-        <li><a href="/">link</a></li>
-        <li><a href="/">link</a></li>
-        <li><a href="/">link</a></li>
-      </ul>
-    </nav>
-  </ethang-side-drawer>
-  </body>
-  <script>
-    const sideDrawerButton = document.querySelector('#side-drawer-button')
-    const sideDrawer = document.querySelector('ethang-side-drawer');
 
-    sideDrawerButton.addEventListener('click', () => {
-      sideDrawer.toggle();
-    })
-  </script>
+  </body>
 </html>

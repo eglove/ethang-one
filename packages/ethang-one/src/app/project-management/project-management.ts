@@ -1,74 +1,54 @@
 #!/usr/bin/env node
+
 import inquirer from 'inquirer';
+import { execSync } from 'node:child_process';
 
 import { packageManager } from '../../main';
 import { runCommand } from '../run-command';
 import { UtilNrwl } from '../util-nrwl/util-nrwl';
-import { createProject } from './create-project';
-
-enum Actions {
-  createProjectCommand = 'Create Project',
-  removeProject = 'Remove Project',
-}
 
 export const projectManagement = async (): Promise<void> => {
-  const { action } = await inquirer.prompt<{ action: Actions }>([
+  const nrwl = new UtilNrwl();
+  await nrwl.setup();
+  const projectNames = nrwl.projectNames();
+
+  const { project } = await inquirer.prompt<{ project: string }>([
     {
-      choices: [
-        { name: Actions.createProjectCommand },
-        { name: Actions.removeProject },
-      ],
-      message: 'Choose Action',
-      name: 'action',
+      choices: projectNames.filter(
+        project => nrwl.findProject(project)?.data.generators
+      ),
+      message: 'Choose a project:',
+      name: 'project',
       type: 'list',
     },
   ]);
 
-  switch (action) {
-    case Actions.createProjectCommand: {
-      await createProject();
-      break;
-    }
+  const { generator } = await inquirer.prompt<{ generator: string }>([
+    {
+      choices: Object.keys(nrwl.findProject(project)?.data.generators),
+      message: 'Choose a generator:',
+      name: 'generator',
+      type: 'list',
+    },
+  ]);
 
-    case Actions.removeProject: {
-      const nrwl = new UtilNrwl();
-      await nrwl.setup();
-      const choices: Array<{ name: string }> = nrwl
-        .projectNames()
-        .map(projectName => {
-          return { name: projectName };
-        });
+  runCommand(
+    `${packageManager} nx g ${generator} --project=${project} --dryRun`
+  );
 
-      const { removeProject } = await inquirer.prompt<{
-        removeProject: string;
-      }>([
-        {
-          choices,
-          message: 'Choose a project to remove:',
-          name: 'removeProject',
-          type: 'list',
-        },
-      ]);
+  const { confirm } = await inquirer.prompt<{ confirm: boolean }>([
+    {
+      message: 'Does this look ok?',
+      name: 'confirm',
+      type: 'confirm',
+    },
+  ]);
 
-      const { confirm } = await inquirer.prompt<{ confirm: boolean }>([
-        {
-          message: `Are you sure you want to remove the project ${removeProject}? (Make sure to check it out first!)`,
-          name: 'confirm',
-          type: 'confirm',
-        },
-      ]);
-
-      if (confirm) {
-        runCommand(
-          `${packageManager} nx g @nrwl/workspace:remove ${removeProject}`
-        );
-      }
-
-      break;
-    }
-
-    default: {
-      process.exit(0);
-    }
+  if (confirm) {
+    execSync(`${packageManager} nx g ${generator} --project=${project}`);
+  } else {
+    projectManagement().catch((error: Error) => {
+      console.error(error);
+    });
   }
 };

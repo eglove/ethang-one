@@ -7,7 +7,7 @@ import { Component, h, JSX, Method, Prop, State } from '@stencil/core';
 })
 export class SideDrawer {
   @State() showContactInfo = false;
-  @Prop({ reflect: true }) title: string;
+  @Prop({ reflect: true }) drawerTitle: string;
   @Prop({ reflect: true }) open: boolean;
 
   @Method()
@@ -49,7 +49,7 @@ export class SideDrawer {
       />,
       <aside>
         <header>
-          <h1>{this.title}</h1>
+          <h1>{this.drawerTitle}</h1>
           <button onClick={this.onCloseDrawer}>❌</button>
         </header>
         <section id="tabs">
