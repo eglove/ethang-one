@@ -7,7 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface EthangSideDrawer {
+        "open": boolean;
         "title": string;
+        "toggle": () => Promise<void>;
     }
 }
 declare global {
@@ -23,6 +25,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface EthangSideDrawer {
+        "open"?: boolean;
         "title"?: string;
     }
     interface IntrinsicElements {
