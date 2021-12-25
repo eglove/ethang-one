@@ -59,6 +59,7 @@
     "@typescript-eslint/eslint-plugin": "~5.3.0",
     "@typescript-eslint/parser": "~5.3.0",
     "babel-loader": "^8.2.3",
+    "browserslist": "^4.19.1",
     "browserslist-config-google": "^3.0.1",
     "corepack": "^0.10.0",
     "cypress": "^9.1.0",

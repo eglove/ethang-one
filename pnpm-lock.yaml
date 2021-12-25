@@ -34,6 +34,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ~5.3.0
   '@typescript-eslint/parser': ~5.3.0
   babel-loader: ^8.2.3
+  browserslist: ^4.19.1
   browserslist-config-google: ^3.0.1
   colors: ^1.4.0
   core-js: ^3.6.5
@@ -126,6 +127,7 @@ devDependencies:
   '@typescript-eslint/eslint-plugin': 5.3.1_4653b7803b7453f5f37717b7e1448517
   '@typescript-eslint/parser': 5.3.1_eslint@8.2.0+typescript@4.4.4
   babel-loader: 8.2.3_26251eab09162b25a254715ee98d7c5c
+  browserslist: 4.19.1
   browserslist-config-google: 3.0.1
   corepack: 0.10.0
   cypress: 9.2.0
