@@ -45,7 +45,7 @@
     "@nrwl/workspace": "13.3.12",
     "@nxext/stencil": "^13.1.0",
     "@stencil/core": "^2.12.0",
-    "@stencil/eslint-plugin": "0.3.1",
+    "@stencil/eslint-plugin": "0.4.0",
     "@stencil/router": "^1.0.1",
     "@swc/core": "1.2.118",
     "@testing-library/react": "12.1.2",
