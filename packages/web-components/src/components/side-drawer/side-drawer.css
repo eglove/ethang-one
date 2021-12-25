@@ -1,10 +1,100 @@
 aside {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -100%;
+  z-index: 100;
+  display: none;
   width: 30rem;
   max-width: 80%;
   height: 100vh;
   background-color: #f3f3f3;
   box-shadow: 0 2px 8px rgba(0 0 0 / 26%);
+  transition: left 0.3s ease-out;
+}
+
+:host([open]) aside {
+  left: 0;
+  display: block;
+}
+
+header {
+  position: relative;
+  padding: 1rem;
+  color: #fff;
+  background-color: #000;
+}
+
+header button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+#tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+#tabs button {
+  width: 30%;
+  padding: 0.15rem 0;
+  font: inherit;
+  color: #000;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #000;
+}
+
+#tabs button.active,
+#tabs button:hover,
+#tabs button:active,
+#tabs button:focus {
+  color: #fff;
+  background: #000;
+}
+
+#contact-information {
+  padding: 0 1rem;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0 0 0 / 75%);
+  opacity: 0%;
+  transition: opacity 0.3s ease-out;
+}
+
+:host([open]) .backdrop {
+  display: block;
+  opacity: 100%;
+}
+
+@media (prefers-reduced-motion) {
+  aside {
+    transition: none;
+  }
+
+  .backdrop {
+    transition: none;
+  }
 }
