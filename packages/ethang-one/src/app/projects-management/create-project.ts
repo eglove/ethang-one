@@ -1,9 +1,11 @@
-import inquirer from 'inquirer';
+import inquirer, { Separator } from 'inquirer';
+import { execSync } from 'node:child_process';
 
-import { packageManager } from '../../main';
+import runEthanGOne, { packageManager } from '../../main';
 import { runCommand } from '../run-command';
 
 enum FrameworkType {
+  back = 'Go Back',
   node = 'node',
   stencil = 'stencil',
   workspace = 'workspace',
@@ -11,22 +13,37 @@ enum FrameworkType {
 
 enum ProjectType {
   app = 'Application',
+  back = 'Go Back',
   library = 'Library',
 }
 
 export const createProject = async (): Promise<void> => {
-  const { projectFramework } = await inquirer.prompt<{
+  const { projectFramework, projectType } = await inquirer.prompt<{
     projectFramework: FrameworkType;
+    projectType: ProjectType;
   }>([
     {
       choices: [
         { name: FrameworkType.node },
         { name: FrameworkType.stencil },
         { name: FrameworkType.workspace },
+        new Separator(),
+        { name: FrameworkType.back },
       ],
       message:
         'Choose project framework. (You will choose application or library next.',
       name: 'projectFramework',
+      type: 'list',
+    },
+    {
+      choices: [
+        { name: ProjectType.app },
+        { name: ProjectType.library },
+        new Separator(),
+        { name: ProjectType.back },
+      ],
+      message: 'Choose project type.',
+      name: 'projectType',
       type: 'list',
     },
   ]);
@@ -48,26 +65,15 @@ export const createProject = async (): Promise<void> => {
       break;
     }
 
+    case FrameworkType.back: {
+      await runEthanGOne();
+      break;
+    }
+
     default: {
       console.error('Invalid framework.');
     }
   }
-
-  const { projectType } = await inquirer.prompt<{ projectType: ProjectType }>([
-    {
-      choices: [
-        {
-          name: ProjectType.app,
-        },
-        {
-          name: ProjectType.library,
-        },
-      ],
-      message: 'Choose project type.',
-      name: 'projectType',
-      type: 'list',
-    },
-  ]);
 
   let typeString;
   switch (projectType) {
@@ -108,9 +114,13 @@ export const createProject = async (): Promise<void> => {
     ]);
 
     if (doItForReal) {
-      runCommand(
+      execSync(
         `${packageManager} nx g ${frameworkString}:${typeString} ${projectName}`
       );
+    } else {
+      createProject().catch(error => {
+        console.error(error);
+      });
     }
   }
 };

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import inquirer from 'inquirer';
+import inquirer, { Separator } from 'inquirer';
 import { execSync } from 'node:child_process';
 
-import {
+import runEthanGOne, {
   packageManager,
   packageManagerAdd,
   packageManagerInstallAll,
@@ -13,6 +13,7 @@ import { runCommand } from '../run-command';
 
 enum Option {
   add = 'Add New Dependenc(y|ies)',
+  back = 'Go Back',
   install = 'Install Dependencies',
   remove = 'Remove Dependenc(y|ies)',
 }
@@ -44,6 +45,8 @@ export const nodeDependencies = async (): Promise<void> => {
         { name: Option.add },
         { name: Option.install },
         { name: Option.remove },
+        new Separator(),
+        { name: Option.back },
       ],
       message: 'Choose action:',
       name: 'choice',
@@ -121,6 +124,11 @@ export const nodeDependencies = async (): Promise<void> => {
       ]);
 
       runCommand(`${packageManagerRemove} ${removePackages.join(' ')}`);
+      break;
+    }
+
+    case Option.back: {
+      await runEthanGOne();
       break;
     }
 
