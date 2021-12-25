@@ -90,3 +90,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  mainMerge:
+    name: Merge to Main
+    needs: [ codeQl, snykNode, sonar ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Merge to Main
+        uses: devmasx/merge-branch@1.4.0
+        with:
+          type: now
+          target_branch: master
+          github_token: ${{ github.token }}
