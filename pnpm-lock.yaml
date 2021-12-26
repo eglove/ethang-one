@@ -21,6 +21,7 @@ specifiers:
   '@nxext/stencil': ^13.1.0
   '@stencil/core': ^2.12.0
   '@stencil/eslint-plugin': ^0.4.0
+  '@stencil/react-output-target': ^0.2.0
   '@stencil/router': ^1.0.1
   '@swc/core': 1.2.118
   '@testing-library/react': 12.1.2
@@ -114,6 +115,7 @@ devDependencies:
   '@nxext/stencil': 13.1.0_69af605338c53ef26792f953096d1634
   '@stencil/core': 2.12.0
   '@stencil/eslint-plugin': 0.4.0_b36703868a46fb20acd83c321991ac3b
+  '@stencil/react-output-target': 0.2.0_@stencil+core@2.12.0
   '@stencil/router': 1.0.1
   '@swc/core': 1.2.118
   '@testing-library/react': 12.1.2_react-dom@17.0.2+react@17.0.2
@@ -3278,6 +3280,14 @@ packages:
       eslint-utils: 3.0.0_eslint@8.2.0
       tsutils: 3.0.0_typescript@4.4.4
       typescript: 4.4.4
+    dev: true
+
+  /@stencil/react-output-target/0.2.0_@stencil+core@2.12.0:
+    resolution: {integrity: sha512-xVqDn7XE7os8/Ant30bwHL+PF0+0+GGtHonF9/Acvy2Z58HHk10tGFXwJcMMHxF6zCMWrlHIJ76jqEe2gxZobg==}
+    peerDependencies:
+      '@stencil/core': ^2.9.0
+    dependencies:
+      '@stencil/core': 2.12.0
     dev: true
 
   /@stencil/router/1.0.1:
