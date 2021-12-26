@@ -11,7 +11,6 @@ export const runCommand = (command: string): void => {
   });
 
   process.on('beforeExit', () => {
-    console.log('Exiting...');
     childProcess.kill();
   });
 };
