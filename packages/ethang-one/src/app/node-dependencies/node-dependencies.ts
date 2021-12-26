@@ -93,8 +93,6 @@ export const nodeDependencies = async (): Promise<void> => {
         execSync(`${packageManager} ls --depth=0 --json`).toString()
       ) as DependencyObject[];
 
-      console.log(installedPackages);
-
       const productionDependencies = Object.keys(
         installedPackages[0].dependencies
       );
