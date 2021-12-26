@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "environment": "packages/environment",
     "ethang-one": "packages/ethang-one",
     "web-components": "packages/web-components"
   }

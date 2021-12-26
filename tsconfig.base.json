@@ -21,6 +21,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
+      "@ethan-gone/environment": ["packages/environment/src/index.ts"],
       "@ethan-gone/web-components": ["packages/web-components/src/index.ts"],
       "@ethang/web-components": ["dist/packages/web-components"],
       "@ethang/web-components/loader": ["dist/packages/web-components/loader"]

@@ -32,8 +32,16 @@ export const projectManagement = async (): Promise<void> => {
     },
   ]);
 
+  const { name } = await inquirer.prompt<{ name: string }>([
+    {
+      message: 'Enter a name:',
+      name: 'name',
+      type: 'input',
+    },
+  ]);
+
   runCommand(
-    `${packageManager} nx g ${generator} --project=${project} --dryRun`
+    `${packageManager} nx g ${generator} --project=${project} --name=${name} --dryRun`
   );
 
   const { confirm } = await inquirer.prompt<{ confirm: boolean }>([
@@ -45,7 +53,9 @@ export const projectManagement = async (): Promise<void> => {
   ]);
 
   if (confirm) {
-    execSync(`${packageManager} nx g ${generator} --project=${project}`);
+    execSync(
+      `${packageManager} nx g ${generator} --project=${project} --name=${name}`
+    );
   } else {
     projectManagement().catch((error: Error) => {
       console.error(error);

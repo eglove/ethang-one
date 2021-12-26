@@ -11,6 +11,9 @@ export namespace Components {
         "open": boolean;
         "toggle": () => Promise<void>;
     }
+    interface EthangStockPrice {
+        "stockSymbol": string;
+    }
 }
 declare global {
     interface HTMLEthangSideDrawerElement extends Components.EthangSideDrawer, HTMLStencilElement {
@@ -19,8 +22,15 @@ declare global {
         prototype: HTMLEthangSideDrawerElement;
         new (): HTMLEthangSideDrawerElement;
     };
+    interface HTMLEthangStockPriceElement extends Components.EthangStockPrice, HTMLStencilElement {
+    }
+    var HTMLEthangStockPriceElement: {
+        prototype: HTMLEthangStockPriceElement;
+        new (): HTMLEthangStockPriceElement;
+    };
     interface HTMLElementTagNameMap {
         "ethang-side-drawer": HTMLEthangSideDrawerElement;
+        "ethang-stock-price": HTMLEthangStockPriceElement;
     }
 }
 declare namespace LocalJSX {
@@ -28,8 +38,12 @@ declare namespace LocalJSX {
         "drawerTitle"?: string;
         "open"?: boolean;
     }
+    interface EthangStockPrice {
+        "stockSymbol"?: string;
+    }
     interface IntrinsicElements {
         "ethang-side-drawer": EthangSideDrawer;
+        "ethang-stock-price": EthangStockPrice;
     }
 }
 export { LocalJSX as JSX };
@@ -37,6 +51,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ethang-side-drawer": LocalJSX.EthangSideDrawer & JSXBase.HTMLAttributes<HTMLEthangSideDrawerElement>;
+            "ethang-stock-price": LocalJSX.EthangStockPrice & JSXBase.HTMLAttributes<HTMLEthangStockPriceElement>;
         }
     }
 }
