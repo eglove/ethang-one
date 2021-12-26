@@ -11,6 +11,10 @@ export namespace Components {
         "open": boolean;
         "toggle": () => Promise<void>;
     }
+    interface EthangSpinner {
+    }
+    interface EthangStockFinder {
+    }
     interface EthangStockPrice {
         "stockSymbol": string;
     }
@@ -22,6 +26,18 @@ declare global {
         prototype: HTMLEthangSideDrawerElement;
         new (): HTMLEthangSideDrawerElement;
     };
+    interface HTMLEthangSpinnerElement extends Components.EthangSpinner, HTMLStencilElement {
+    }
+    var HTMLEthangSpinnerElement: {
+        prototype: HTMLEthangSpinnerElement;
+        new (): HTMLEthangSpinnerElement;
+    };
+    interface HTMLEthangStockFinderElement extends Components.EthangStockFinder, HTMLStencilElement {
+    }
+    var HTMLEthangStockFinderElement: {
+        prototype: HTMLEthangStockFinderElement;
+        new (): HTMLEthangStockFinderElement;
+    };
     interface HTMLEthangStockPriceElement extends Components.EthangStockPrice, HTMLStencilElement {
     }
     var HTMLEthangStockPriceElement: {
@@ -30,6 +46,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "ethang-side-drawer": HTMLEthangSideDrawerElement;
+        "ethang-spinner": HTMLEthangSpinnerElement;
+        "ethang-stock-finder": HTMLEthangStockFinderElement;
         "ethang-stock-price": HTMLEthangStockPriceElement;
     }
 }
@@ -38,11 +56,18 @@ declare namespace LocalJSX {
         "drawerTitle"?: string;
         "open"?: boolean;
     }
+    interface EthangSpinner {
+    }
+    interface EthangStockFinder {
+        "onEgSymbolSelected"?: (event: CustomEvent<string>) => void;
+    }
     interface EthangStockPrice {
         "stockSymbol"?: string;
     }
     interface IntrinsicElements {
         "ethang-side-drawer": EthangSideDrawer;
+        "ethang-spinner": EthangSpinner;
+        "ethang-stock-finder": EthangStockFinder;
         "ethang-stock-price": EthangStockPrice;
     }
 }
@@ -51,6 +76,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ethang-side-drawer": LocalJSX.EthangSideDrawer & JSXBase.HTMLAttributes<HTMLEthangSideDrawerElement>;
+            "ethang-spinner": LocalJSX.EthangSpinner & JSXBase.HTMLAttributes<HTMLEthangSpinnerElement>;
+            "ethang-stock-finder": LocalJSX.EthangStockFinder & JSXBase.HTMLAttributes<HTMLEthangStockFinderElement>;
             "ethang-stock-price": LocalJSX.EthangStockPrice & JSXBase.HTMLAttributes<HTMLEthangStockPriceElement>;
         }
     }
