@@ -8,6 +8,10 @@
   border: 2px solid #800080;
 }
 
+:host(.error) {
+  border-color: #f00;
+}
+
 form input {
   display: block;
   padding: 0.15rem 0.25rem;

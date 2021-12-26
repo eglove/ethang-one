@@ -1,4 +1,4 @@
-import { Component, h, JSX, Prop, State, Watch } from '@stencil/core';
+import { Component, h, JSX, Listen, Prop, State, Watch } from '@stencil/core';
 
 import { environmentVariable } from '../../../../environment/src';
 import { EnvironmentKey } from '../../../../environment/src/lib/variables/enviroment.development';
@@ -13,15 +13,24 @@ export class StockPrice {
   @State() stockInput: string;
   @State() stockInputValid = false;
   @State() error: string;
+  @State() loading = false;
 
   @Prop({ reflect: true }) stockSymbol: string;
 
   stockInputElement = (<input />) as HTMLInputElement;
 
+  @Listen('egSymbolSelected', { target: 'body' })
+  onStockSymbolSelected(event: CustomEvent): void {
+    if (typeof event.detail === 'string' && event.detail !== this.stockSymbol) {
+      this.stockSymbol = event.detail;
+    }
+  }
+
   @Watch('stockSymbol')
   stockSymbolChanged(newValue: string, oldValue: string): void {
     if (newValue !== oldValue) {
       this.stockInput = newValue;
+      this.stockInputValid = true;
       this.fetchStockPrice(newValue);
     }
   }
@@ -63,6 +72,7 @@ export class StockPrice {
   }
 
   fetchStockPrice = (stockSymbol: string): void => {
+    this.loading = true;
     fetch(
       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${environmentVariable(
         EnvironmentKey.API_KEY_ALPHA_VANTANGE
@@ -70,7 +80,7 @@ export class StockPrice {
     )
       .then(async response => response.json())
       .then(data => {
-        if (data['Global Quote']['05. price']) {
+        if (data['Global Quote']?.['05. price']) {
           this.error = null;
           this.fetchedPrice = Number.parseFloat(
             data['Global Quote']['05. price']
@@ -80,12 +90,20 @@ export class StockPrice {
           throw new Error('Invalid symbol');
         }
 
+        this.loading = false;
         return null;
       })
       .catch((error: Error) => {
+        this.loading = false;
         this.error = error.message;
       });
   };
+
+  hostData(): { class: string } {
+    return {
+      class: this.error ? 'error' : '',
+    };
+  }
 
   render(): JSX.IntrinsicElements[] {
     let dataContent = (<p>Please enter a symbol.</p>) as HTMLElement;
@@ -93,6 +111,8 @@ export class StockPrice {
       dataContent = (<p>{this.error}</p>) as HTMLElement;
     } else if (this.fetchedPrice) {
       dataContent = (<p>Price: ${this.fetchedPrice}</p>) as HTMLElement;
+    } else if (this.loading) {
+      dataContent = (<ethang-spinner />) as HTMLElement;
     }
 
     return [
@@ -113,7 +133,7 @@ export class StockPrice {
           }}
           value={this.stockInput}
         />
-        <button type="submit" disabled={!this.stockInputValid}>
+        <button type="submit" disabled={!this.stockInputValid || this.loading}>
           Fetch
         </button>
       </form>,
