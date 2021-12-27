@@ -17,7 +17,7 @@ export const config: Config = {
     reactOutputTarget({
       componentCorePackage: '@ethang/web-components',
       includePolyfills: true,
-      proxiesFile: './react/react-proxies.ts',
+      proxiesFile: './react/index.ts',
     }),
   ],
   taskQueue: 'async',

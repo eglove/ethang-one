@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*.d.ts", "**/*.prod.ts", "**/*.e2e.ts", "**/*.spec.ts"],
+  "ignorePatterns": ["**/*.d.ts", "**/*.prod.ts", "**/*.e2e.ts", "**/*.spec.ts", "**/*.po.ts"],
   "plugins": [
     "@nrwl/nx"
   ],
