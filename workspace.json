@@ -3,6 +3,9 @@
   "projects": {
     "environment": "packages/environment",
     "ethang-one": "packages/ethang-one",
-    "web-components": "packages/web-components"
+    "react-components": "packages/react-components",
+    "web-components": "packages/web-components",
+    "website": "packages/website",
+    "website-e2e": "packages/website-e2e"
   }
 }
