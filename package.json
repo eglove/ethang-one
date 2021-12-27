@@ -52,7 +52,7 @@
     "@stencil/eslint-plugin": "^0.4.0",
     "@stencil/react-output-target": "^0.2.0",
     "@stencil/router": "^1.0.1",
-    "@swc/core": "1.2.118",
+    "@swc/core": "1.2.123",
     "@testing-library/react": "12.1.2",
     "@testing-library/react-hooks": "7.0.2",
     "@types/inquirer": "^8.1.3",
