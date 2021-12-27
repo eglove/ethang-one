@@ -19,6 +19,7 @@ specifiers:
   '@nrwl/web': 13.4.1
   '@nrwl/workspace': 13.3.12
   '@nxext/stencil': ^13.1.0
+  '@nxrs/cargo': ^0.3.1
   '@stencil/core': ^2.12.0
   '@stencil/eslint-plugin': ^0.4.0
   '@stencil/react-output-target': ^0.2.0
@@ -113,6 +114,7 @@ devDependencies:
   '@nrwl/web': 13.4.1_eb383b749dedc9e2e224b5ac0aea7494
   '@nrwl/workspace': 13.3.12_prettier@2.5.1+typescript@4.4.4
   '@nxext/stencil': 13.1.0_69af605338c53ef26792f953096d1634
+  '@nxrs/cargo': 0.3.1
   '@stencil/core': 2.12.0
   '@stencil/eslint-plugin': 0.4.0_b36703868a46fb20acd83c321991ac3b
   '@stencil/react-output-target': 0.2.0_@stencil+core@2.12.0
@@ -2337,6 +2339,17 @@ packages:
       - webpack
     dev: true
 
+  /@nrwl/devkit/12.7.2:
+    resolution: {integrity: sha512-Uk0DOkQ35sAMSMQPWNo+n4muDAueX651Seb66GSVbeHrFGNGPOM4X1iElYqocXevnMta1Q3xwragudXSdAnHkw==}
+    dependencies:
+      '@nrwl/tao': 12.7.2
+      ejs: 3.1.6
+      ignore: 5.2.0
+      rxjs: 6.6.7
+      semver: 7.3.4
+      tslib: 2.3.1
+    dev: true
+
   /@nrwl/devkit/13.3.12:
     resolution: {integrity: sha512-ZWUtiEpCXHh71mbb6+O9iSOdLFuwpBFB8C7CCxZ26aMYXO2rdMkr1D6KOdwd1Nw+08Q6B6GE3tWoTPgQOOe6Vw==}
     dependencies:
@@ -2732,6 +2745,22 @@ packages:
       - webpack
     dev: true
 
+  /@nrwl/tao/12.7.2:
+    resolution: {integrity: sha512-LnylUSOznJ+EDmJWu7vvQTnAERPTjKRHznShTe6eMoaJUH0ds3WSGMBxLUulzN2P5dWqO9u26GWMZpInYWwkfA==}
+    hasBin: true
+    dependencies:
+      chalk: 4.1.0
+      enquirer: 2.3.6
+      fs-extra: 9.1.0
+      jsonc-parser: 3.0.0
+      rxjs: 6.6.7
+      rxjs-for-await: 0.0.2_rxjs@6.6.7
+      semver: 7.3.4
+      tmp: 0.2.1
+      tslib: 2.3.1
+      yargs-parser: 20.0.0
+    dev: true
+
   /@nrwl/tao/13.3.12:
     resolution: {integrity: sha512-aHaq04q1uKsL3OYJd9q8NMpkpdUG57IU8YEbeP1a7xfsv1G+7BM5r49iX5/KlO/XLf8EiONHS/CQQ5F4omV+qg==}
     hasBin: true
@@ -3037,6 +3066,13 @@ packages:
       '@nrwl/workspace': 13.3.12_prettier@2.5.1+typescript@4.4.4
       '@stencil/core': 2.12.0
       ignore: 5.2.0
+    dev: true
+
+  /@nxrs/cargo/0.3.1:
+    resolution: {integrity: sha512-cyaRWvYUDGUXo/LPEvBooaTG/tZ/JSsuB+y3cmxcs81FezsRFWzCKfxGpcuVK2H2qLhjUX2LfQan7sLRm5wsOQ==}
+    dependencies:
+      '@nrwl/devkit': 12.7.2
+      chalk: 4.1.2
     dev: true
 
   /@parcel/watcher/2.0.4:
