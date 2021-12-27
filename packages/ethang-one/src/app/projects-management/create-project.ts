@@ -7,6 +7,7 @@ import { runCommand } from '../run-command';
 enum FrameworkType {
   back = 'Go Back',
   node = 'node',
+  rust = 'rust',
   stencil = 'stencil',
   workspace = 'workspace',
 }
@@ -25,6 +26,7 @@ export const createProject = async (): Promise<void> => {
     {
       choices: [
         { name: FrameworkType.node },
+        { name: FrameworkType.rust },
         { name: FrameworkType.stencil },
         { name: FrameworkType.workspace },
         new Separator(),
@@ -52,6 +54,11 @@ export const createProject = async (): Promise<void> => {
   switch (projectFramework) {
     case FrameworkType.node: {
       frameworkString = '@nrwl/node';
+      break;
+    }
+
+    case FrameworkType.rust: {
+      frameworkString = '@nxrs/cargo';
       break;
     }
 
