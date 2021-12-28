@@ -71,7 +71,7 @@
     "cypress": "^9.1.0",
     "eslint": "8.2.0",
     "eslint-config-next": "^12.0.7",
-    "eslint-config-prettier": "8.1.0",
+    "eslint-config-prettier": "8.3.0",
     "eslint-config-xo": "^0.39.0",
     "eslint-config-xo-react": "^0.25.0",
     "eslint-config-xo-typescript": "^0.47.1",
