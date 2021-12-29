@@ -4,6 +4,7 @@
     "environment": "packages/environment",
     "ethang-one": "packages/ethang-one",
     "react-components": "packages/react-components",
+    "util_wasm": "libs/util-wasm",
     "web-components": "packages/web-components",
     "website": "packages/website",
     "website-e2e": "packages/website-e2e"
