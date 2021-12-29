@@ -38,5 +38,9 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "exclude": ["node_modules", "tmp", "packages/react-components/src/lib/generated/**"]
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "packages/react-components/src/lib/generated/**"
+  ]
 }
