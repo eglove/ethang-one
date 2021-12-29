@@ -1,5 +1,3 @@
-use chrono;
-use url;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
@@ -62,15 +60,16 @@ pub fn schoool_url_to_name(url: &str) -> String {
     return "App Brewery".to_string();
   }
 
-  return url.to_string();
+  url.to_string()
 }
 
 #[wasm_bindgen]
 pub fn to_capitalized_words(s: &str) -> String {
-  let mut c = s.chars();
+  let c = s.chars();
   let mut result = String::new();
   let mut last_was_space = true;
-  while let Some(f) = c.next() {
+
+  for f in c {
     if f == ' ' {
       last_was_space = true;
     } else {
