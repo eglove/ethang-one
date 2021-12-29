@@ -1,1 +1,1 @@
-export * from './lib/generated/react-proxies';
+export * from './lib/generated/index';
