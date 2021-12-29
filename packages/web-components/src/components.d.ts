@@ -6,14 +6,16 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface EthangButton {
+        "buttonProperties"?: Record<string, unknown>;
+        "styleType"?: string;
+    }
     interface EthangSideDrawer {
         "drawerTitle": string;
         "open": boolean;
         "toggle": () => Promise<void>;
     }
     interface EthangSpinner {
-    }
-    interface EthangStarBackground {
     }
     interface EthangStockFinder {
     }
@@ -22,6 +24,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLEthangButtonElement extends Components.EthangButton, HTMLStencilElement {
+    }
+    var HTMLEthangButtonElement: {
+        prototype: HTMLEthangButtonElement;
+        new (): HTMLEthangButtonElement;
+    };
     interface HTMLEthangSideDrawerElement extends Components.EthangSideDrawer, HTMLStencilElement {
     }
     var HTMLEthangSideDrawerElement: {
@@ -33,12 +41,6 @@ declare global {
     var HTMLEthangSpinnerElement: {
         prototype: HTMLEthangSpinnerElement;
         new (): HTMLEthangSpinnerElement;
-    };
-    interface HTMLEthangStarBackgroundElement extends Components.EthangStarBackground, HTMLStencilElement {
-    }
-    var HTMLEthangStarBackgroundElement: {
-        prototype: HTMLEthangStarBackgroundElement;
-        new (): HTMLEthangStarBackgroundElement;
     };
     interface HTMLEthangStockFinderElement extends Components.EthangStockFinder, HTMLStencilElement {
     }
@@ -53,21 +55,23 @@ declare global {
         new (): HTMLEthangStockPriceElement;
     };
     interface HTMLElementTagNameMap {
+        "ethang-button": HTMLEthangButtonElement;
         "ethang-side-drawer": HTMLEthangSideDrawerElement;
         "ethang-spinner": HTMLEthangSpinnerElement;
-        "ethang-star-background": HTMLEthangStarBackgroundElement;
         "ethang-stock-finder": HTMLEthangStockFinderElement;
         "ethang-stock-price": HTMLEthangStockPriceElement;
     }
 }
 declare namespace LocalJSX {
+    interface EthangButton {
+        "buttonProperties"?: Record<string, unknown>;
+        "styleType"?: string;
+    }
     interface EthangSideDrawer {
         "drawerTitle"?: string;
         "open"?: boolean;
     }
     interface EthangSpinner {
-    }
-    interface EthangStarBackground {
     }
     interface EthangStockFinder {
         "onEgSymbolSelected"?: (event: CustomEvent<string>) => void;
@@ -76,9 +80,9 @@ declare namespace LocalJSX {
         "stockSymbol"?: string;
     }
     interface IntrinsicElements {
+        "ethang-button": EthangButton;
         "ethang-side-drawer": EthangSideDrawer;
         "ethang-spinner": EthangSpinner;
-        "ethang-star-background": EthangStarBackground;
         "ethang-stock-finder": EthangStockFinder;
         "ethang-stock-price": EthangStockPrice;
     }
@@ -87,9 +91,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ethang-button": LocalJSX.EthangButton & JSXBase.HTMLAttributes<HTMLEthangButtonElement>;
             "ethang-side-drawer": LocalJSX.EthangSideDrawer & JSXBase.HTMLAttributes<HTMLEthangSideDrawerElement>;
             "ethang-spinner": LocalJSX.EthangSpinner & JSXBase.HTMLAttributes<HTMLEthangSpinnerElement>;
-            "ethang-star-background": LocalJSX.EthangStarBackground & JSXBase.HTMLAttributes<HTMLEthangStarBackgroundElement>;
             "ethang-stock-finder": LocalJSX.EthangStockFinder & JSXBase.HTMLAttributes<HTMLEthangStockFinderElement>;
             "ethang-stock-price": LocalJSX.EthangStockPrice & JSXBase.HTMLAttributes<HTMLEthangStockPriceElement>;
         }

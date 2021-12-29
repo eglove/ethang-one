@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
+  globalStyle: '../../styles/global.css',
   namespace: 'web-components',
   outputTargets: [
     {
