@@ -1,7 +1,7 @@
 {
-  "root": "libs/util-wasm",
+  "root": "packages/util-wasm",
   "projectType": "library",
-  "sourceRoot": "libs/util-wasm/src",
+  "sourceRoot": "packages/util-wasm/src",
   "targets": {
     "test": {
       "executor": "@nxrs/cargo:test",
