@@ -21,7 +21,6 @@ pub fn convert_date(date: &str) -> String {
   dt
 }
 
-
 #[wasm_bindgen]
 pub fn get_local_date_time() -> String {
   let dt = chrono::Local::now();

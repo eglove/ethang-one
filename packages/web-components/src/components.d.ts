@@ -10,17 +10,9 @@ export namespace Components {
         "buttonProperties"?: Record<string, unknown>;
         "styleType"?: string;
     }
-    interface EthangSideDrawer {
-        "drawerTitle": string;
-        "open": boolean;
-        "toggle": () => Promise<void>;
-    }
-    interface EthangSpinner {
-    }
-    interface EthangStockFinder {
-    }
-    interface EthangStockPrice {
-        "stockSymbol": string;
+    interface EthangPublishUpdateTimes {
+        "published": string;
+        "updated": string;
     }
 }
 declare global {
@@ -30,36 +22,15 @@ declare global {
         prototype: HTMLEthangButtonElement;
         new (): HTMLEthangButtonElement;
     };
-    interface HTMLEthangSideDrawerElement extends Components.EthangSideDrawer, HTMLStencilElement {
+    interface HTMLEthangPublishUpdateTimesElement extends Components.EthangPublishUpdateTimes, HTMLStencilElement {
     }
-    var HTMLEthangSideDrawerElement: {
-        prototype: HTMLEthangSideDrawerElement;
-        new (): HTMLEthangSideDrawerElement;
-    };
-    interface HTMLEthangSpinnerElement extends Components.EthangSpinner, HTMLStencilElement {
-    }
-    var HTMLEthangSpinnerElement: {
-        prototype: HTMLEthangSpinnerElement;
-        new (): HTMLEthangSpinnerElement;
-    };
-    interface HTMLEthangStockFinderElement extends Components.EthangStockFinder, HTMLStencilElement {
-    }
-    var HTMLEthangStockFinderElement: {
-        prototype: HTMLEthangStockFinderElement;
-        new (): HTMLEthangStockFinderElement;
-    };
-    interface HTMLEthangStockPriceElement extends Components.EthangStockPrice, HTMLStencilElement {
-    }
-    var HTMLEthangStockPriceElement: {
-        prototype: HTMLEthangStockPriceElement;
-        new (): HTMLEthangStockPriceElement;
+    var HTMLEthangPublishUpdateTimesElement: {
+        prototype: HTMLEthangPublishUpdateTimesElement;
+        new (): HTMLEthangPublishUpdateTimesElement;
     };
     interface HTMLElementTagNameMap {
         "ethang-button": HTMLEthangButtonElement;
-        "ethang-side-drawer": HTMLEthangSideDrawerElement;
-        "ethang-spinner": HTMLEthangSpinnerElement;
-        "ethang-stock-finder": HTMLEthangStockFinderElement;
-        "ethang-stock-price": HTMLEthangStockPriceElement;
+        "ethang-publish-update-times": HTMLEthangPublishUpdateTimesElement;
     }
 }
 declare namespace LocalJSX {
@@ -67,24 +38,13 @@ declare namespace LocalJSX {
         "buttonProperties"?: Record<string, unknown>;
         "styleType"?: string;
     }
-    interface EthangSideDrawer {
-        "drawerTitle"?: string;
-        "open"?: boolean;
-    }
-    interface EthangSpinner {
-    }
-    interface EthangStockFinder {
-        "onEgSymbolSelected"?: (event: CustomEvent<string>) => void;
-    }
-    interface EthangStockPrice {
-        "stockSymbol"?: string;
+    interface EthangPublishUpdateTimes {
+        "published"?: string;
+        "updated"?: string;
     }
     interface IntrinsicElements {
         "ethang-button": EthangButton;
-        "ethang-side-drawer": EthangSideDrawer;
-        "ethang-spinner": EthangSpinner;
-        "ethang-stock-finder": EthangStockFinder;
-        "ethang-stock-price": EthangStockPrice;
+        "ethang-publish-update-times": EthangPublishUpdateTimes;
     }
 }
 export { LocalJSX as JSX };
@@ -92,10 +52,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "ethang-button": LocalJSX.EthangButton & JSXBase.HTMLAttributes<HTMLEthangButtonElement>;
-            "ethang-side-drawer": LocalJSX.EthangSideDrawer & JSXBase.HTMLAttributes<HTMLEthangSideDrawerElement>;
-            "ethang-spinner": LocalJSX.EthangSpinner & JSXBase.HTMLAttributes<HTMLEthangSpinnerElement>;
-            "ethang-stock-finder": LocalJSX.EthangStockFinder & JSXBase.HTMLAttributes<HTMLEthangStockFinderElement>;
-            "ethang-stock-price": LocalJSX.EthangStockPrice & JSXBase.HTMLAttributes<HTMLEthangStockPriceElement>;
+            "ethang-publish-update-times": LocalJSX.EthangPublishUpdateTimes & JSXBase.HTMLAttributes<HTMLEthangPublishUpdateTimesElement>;
         }
     }
 }
