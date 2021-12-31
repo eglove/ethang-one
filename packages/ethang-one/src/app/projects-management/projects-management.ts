@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import inquirer, { Separator } from 'inquirer';
+import inquirer, {Separator} from 'inquirer';
 
-import runEthanGOne, { packageManager } from '../../main';
-import { runCommand } from '../run-command';
-import { UtilNrwl } from '../util-nrwl/util-nrwl';
-import { createProject } from './create-project';
+import runEthanGOne, {packageManager} from '../../main';
+import {runCommand} from '../run-command';
+import {UtilNrwl} from '../util-nrwl/util-nrwl';
+import {createProject} from './create-project';
 
 enum Actions {
   back = 'Go Back',
@@ -13,13 +13,13 @@ enum Actions {
 }
 
 export const projectsManagement = async (): Promise<void> => {
-  const { action } = await inquirer.prompt<{ action: Actions }>([
+  const {action} = await inquirer.prompt<{action: Actions}>([
     {
       choices: [
-        { name: Actions.createProjectCommand },
-        { name: Actions.removeProject },
+        {name: Actions.createProjectCommand},
+        {name: Actions.removeProject},
         new Separator(),
-        { name: Actions.back },
+        {name: Actions.back},
       ],
       message: 'Choose Action',
       name: 'action',
@@ -36,13 +36,11 @@ export const projectsManagement = async (): Promise<void> => {
     case Actions.removeProject: {
       const nrwl = new UtilNrwl();
       await nrwl.setup();
-      const choices: Array<{ name: string }> = nrwl
+      const choices: Array<{name: string}> = nrwl
         .projectNames()
-        .map(projectName => {
-          return { name: projectName };
-        });
+        .map(projectName => ({name: projectName}));
 
-      const { removeProject } = await inquirer.prompt<{
+      const {removeProject} = await inquirer.prompt<{
         removeProject: string;
       }>([
         {
@@ -53,7 +51,7 @@ export const projectsManagement = async (): Promise<void> => {
         },
       ]);
 
-      const { confirm } = await inquirer.prompt<{ confirm: boolean }>([
+      const {confirm} = await inquirer.prompt<{confirm: boolean}>([
         {
           message: `Are you sure you want to remove the project ${removeProject}? (Make sure to check it out first!)`,
           name: 'confirm',
@@ -63,7 +61,7 @@ export const projectsManagement = async (): Promise<void> => {
 
       if (confirm) {
         runCommand(
-          `${packageManager} nx g @nrwl/workspace:remove ${removeProject}`
+          `${packageManager} nx g @nrwl/workspace:remove ${removeProject}`,
         );
       }
 
