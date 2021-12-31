@@ -1,7 +1,4 @@
-import { EthangStarBackground } from '@ethang-one/react-components';
 
-export function Index(): JSX.Element {
-  return <EthangStarBackground />;
-}
+const Index = (): JSX.Element => <div><p>hi</p></div>;
 
 export default Index;
