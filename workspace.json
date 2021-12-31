@@ -1,9 +1,12 @@
 {
   "version": 2,
   "projects": {
-    "environment": "packages/environment",
+    "apollo": "packages/apollo",
+    "computer-server": "packages/computer-server",
     "ethang-one": "packages/ethang-one",
+    "node-environment": "packages/node-environment",
     "react-components": "packages/react-components",
+    "util-typescript": "packages/util-typescript",
     "util_wasm": "packages/util-wasm",
     "web-components": "packages/web-components",
     "website": "packages/website",

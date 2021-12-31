@@ -1,20 +1,20 @@
 {
-  "root": "packages/environment",
-  "sourceRoot": "packages/environment/src",
+  "root": "packages/apollo",
+  "sourceRoot": "packages/apollo/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/environment/**/*.ts"]
+        "lintFilePatterns": ["packages/apollo/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/environment"],
+      "outputs": ["coverage/packages/apollo"],
       "options": {
-        "jestConfig": "packages/environment/jest.config.js",
+        "jestConfig": "packages/apollo/jest.config.js",
         "passWithNoTests": true
       }
     }

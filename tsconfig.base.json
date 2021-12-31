@@ -21,10 +21,15 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
+      "@ethang-one/apollo": ["packages/apollo/src/index.ts"],
       "@ethang-one/environment": ["packages/environment/src/index.ts"],
+      "@ethang-one/node-environment": [
+        "packages/node-environment/src/index.ts"
+      ],
       "@ethang-one/react-components": [
         "packages/react-components/src/index.ts"
       ],
+      "@ethang-one/util-typescript": ["packages/util-typescript/src/index.ts"],
       "@ethang-one/web-components": ["packages/web-components/src/index.ts"],
       "@ethang/web-components": ["dist/packages/web-components"],
       "@ethang/web-components/loader": ["dist/packages/web-components/loader"]
