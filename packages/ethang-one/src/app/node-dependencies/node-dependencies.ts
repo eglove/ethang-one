@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import inquirer, { Separator } from 'inquirer';
-import { execSync } from 'node:child_process';
+import inquirer, {Separator} from 'inquirer';
+import {execSync} from 'node:child_process';
 
 import runEthanGOne, {
   packageManager,
@@ -9,7 +9,7 @@ import runEthanGOne, {
   packageManagerInstallAll,
   packageManagerRemove,
 } from '../../main';
-import { runCommand } from '../run-command';
+import {runCommand} from '../run-command';
 
 enum Option {
   add = 'Add New Dependenc(y|ies)',
@@ -39,14 +39,14 @@ interface Dependency {
 }
 
 export const nodeDependencies = async (): Promise<void> => {
-  const { choice } = await inquirer.prompt<{ choice: Option }>([
+  const {choice} = await inquirer.prompt<{choice: Option}>([
     {
       choices: [
-        { name: Option.add },
-        { name: Option.install },
-        { name: Option.remove },
+        {name: Option.add},
+        {name: Option.install},
+        {name: Option.remove},
         new Separator(),
-        { name: Option.back },
+        {name: Option.back},
       ],
       message: 'Choose action:',
       name: 'choice',
@@ -56,16 +56,16 @@ export const nodeDependencies = async (): Promise<void> => {
 
   switch (choice) {
     case Option.add: {
-      const { type } = await inquirer.prompt<{ type: Type }>([
+      const {type} = await inquirer.prompt<{type: Type}>([
         {
-          choices: [{ name: Type.development }, { name: Type.production }],
+          choices: [{name: Type.development}, {name: Type.production}],
           message: 'What kind of dependencies are you installing?',
           name: 'type',
           type: 'list',
         },
       ]);
 
-      const { addDependencies } = await inquirer.prompt<{
+      const {addDependencies} = await inquirer.prompt<{
         addDependencies: string;
       }>([
         {
@@ -78,7 +78,7 @@ export const nodeDependencies = async (): Promise<void> => {
       runCommand(
         `${packageManagerAdd} ${addDependencies}${
           type === Type.development ? ' -D' : ''
-        }`
+        }`,
       );
       break;
     }
@@ -90,18 +90,18 @@ export const nodeDependencies = async (): Promise<void> => {
 
     case Option.remove: {
       const installedPackages = JSON.parse(
-        execSync(`${packageManager} ls --depth=0 --json`).toString()
+        execSync(`${packageManager} ls --depth=0 --json`).toString(),
       ) as DependencyObject[];
 
       const productionDependencies = Object.keys(
-        installedPackages[0].dependencies
+        installedPackages[0].dependencies,
       );
       const developmentDependencies = Object.keys(
-        installedPackages[0].devDependencies
+        installedPackages[0].devDependencies,
       );
 
       const unsavedDependencies = Object.keys(
-        installedPackages[0].unsavedDependencies
+        installedPackages[0].unsavedDependencies,
       );
 
       const allDependencies = [
@@ -110,7 +110,7 @@ export const nodeDependencies = async (): Promise<void> => {
         ...unsavedDependencies,
       ].sort((a, b) => a.localeCompare(b));
 
-      const { removePackages } = await inquirer.prompt<{
+      const {removePackages} = await inquirer.prompt<{
         removePackages: string[];
       }>([
         {

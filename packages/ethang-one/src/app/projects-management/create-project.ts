@@ -1,8 +1,8 @@
-import inquirer, { Separator } from 'inquirer';
-import { execSync } from 'node:child_process';
+import inquirer, {Separator} from 'inquirer';
+import {execSync} from 'node:child_process';
 
-import runEthanGOne, { packageManager } from '../../main';
-import { runCommand } from '../run-command';
+import runEthanGOne, {packageManager} from '../../main';
+import {runCommand} from '../run-command';
 
 enum FrameworkType {
   back = 'Go Back',
@@ -20,19 +20,19 @@ enum ProjectType {
 }
 
 export const createProject = async (): Promise<void> => {
-  const { projectFramework, projectType } = await inquirer.prompt<{
+  const {projectFramework, projectType} = await inquirer.prompt<{
     projectFramework: FrameworkType;
     projectType: ProjectType;
   }>([
     {
       choices: [
-        { name: FrameworkType.next },
-        { name: FrameworkType.node },
-        { name: FrameworkType.rust },
-        { name: FrameworkType.stencil },
-        { name: FrameworkType.workspace },
+        {name: FrameworkType.next},
+        {name: FrameworkType.node},
+        {name: FrameworkType.rust},
+        {name: FrameworkType.stencil},
+        {name: FrameworkType.workspace},
         new Separator(),
-        { name: FrameworkType.back },
+        {name: FrameworkType.back},
       ],
       message:
         'Choose project framework. (You will choose application or library next.',
@@ -41,10 +41,10 @@ export const createProject = async (): Promise<void> => {
     },
     {
       choices: [
-        { name: ProjectType.app },
-        { name: ProjectType.library },
+        {name: ProjectType.app},
+        {name: ProjectType.library},
         new Separator(),
-        { name: ProjectType.back },
+        {name: ProjectType.back},
       ],
       message: 'Choose project type.',
       name: 'projectType',
@@ -106,7 +106,7 @@ export const createProject = async (): Promise<void> => {
     }
   }
 
-  const { projectName } = await inquirer.prompt<{ projectName: string }>([
+  const {projectName} = await inquirer.prompt<{projectName: string}>([
     {
       message: 'Project Name:',
       name: 'projectName',
@@ -114,12 +114,12 @@ export const createProject = async (): Promise<void> => {
     },
   ]);
 
-  if (frameworkString && typeString) {
+  if (typeof frameworkString === 'string' && typeof typeString === 'string') {
     runCommand(
-      `${packageManager} nx g ${frameworkString}:${typeString} ${projectName} --dryRun`
+      `${packageManager} nx g ${frameworkString}:${typeString} ${projectName} --dryRun`,
     );
 
-    const { doItForReal } = await inquirer.prompt<{ doItForReal: boolean }>([
+    const {doItForReal} = await inquirer.prompt<{doItForReal: boolean}>([
       {
         message: 'Does this look ok?',
         name: 'doItForReal',
@@ -129,7 +129,7 @@ export const createProject = async (): Promise<void> => {
 
     if (doItForReal) {
       execSync(
-        `${packageManager} nx g ${frameworkString}:${typeString} ${projectName}`
+        `${packageManager} nx g ${frameworkString}:${typeString} ${projectName}`,
       );
     } else {
       createProject().catch(error => {
