@@ -1,106 +1,44 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*.d.ts", "**/*.prod.ts", "**/*.e2e.ts", "**/*.spec.ts", "**/*.po.ts"],
-  "plugins": [
-    "@nrwl/nx"
-  ],
   "overrides": [
     {
-      "excludedFiles": ["**/next-env.d.ts"],
       "files": [
         "*.ts",
         "*.tsx",
         "*.js",
         "*.jsx"
       ],
-      "rules": {
-        "@nrwl/nx/enforce-module-boundaries": [
-          "off",
-          {
-            "enforceBuildableLibDependency": true,
-            "allow": [],
-            "depConstraints": [
-              {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": [
-                  "*"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
       "extends": [
         "plugin:unicorn/recommended",
+        "xo-space",
+        "xo-typescript/space",
+        "plugin:cypress/recommended",
+        "plugin:@stencil/recommended",
+        "xo-react/space",
+        "next",
         "plugin:sonarjs/recommended",
-        "xo",
-        "xo-typescript",
-        "plugin:jsx-a11y/recommended",
-        "plugin:promise/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:@nrwl/nx/typescript",
-        "plugin:typescript-sort-keys/recommended",
-        "plugin:prettier/recommended",
-        "prettier"
+        "plugin:jsx-a11y/recommended"
+      ],
+      "plugins": [
+        "simple-import-sort"
       ],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "project": "./tsconfig.base.json"
       },
-      "plugins": [
-        "prettier",
-        "simple-import-sort"
-      ],
       "rules": {
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/explicit-function-return-type": [
           "error"
         ],
-        "import/prefer-default-export": "off",
-        "new-cap": "off",
-        "no-param-reassign": [
-          "error",
-          {
-            "props": true,
-            "ignorePropertyModificationsFor": [
-              "draft"
-            ]
-          }
-        ],
-        "prettier/prettier": [
-          "error",
-          {
-            "arrowParens": "avoid",
-            "trailingComma": "es5",
-            "singleQuote": true,
-            "printWidth": 80,
-            "endOfLine": "auto"
-          }
-        ],
         "react/react-in-jsx-scope": "off",
-        "react/require-default-props": "off",
-        "simple-import-sort/imports": "error",
+        "react-hooks/exhaustive-deps": "error",
         "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": "error",
+        "sonarjs/cognitive-complexity": 1,
         "sort-keys": "error",
-        "sort-vars": "error",
-        "unicorn/no-null": "off"
+        "@stencil/strict-boolean-conditions": 2
       }
-    },
-    {
-      "files": [
-        "*.js",
-        "*.jsx"
-      ],
-      "extends": [
-        "plugin:@nrwl/nx/javascript"
-      ],
-      "rules": {}
     }
   ]
 }
