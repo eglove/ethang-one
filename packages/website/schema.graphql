@@ -1,0 +1,4850 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type AffectedRowsOutput {
+    count: Int!
+}
+
+type AggregateBlog {
+    _count: BlogCountAggregate
+    _max: BlogMaxAggregate
+    _min: BlogMinAggregate
+}
+
+type AggregateBlogAuthor {
+    _count: BlogAuthorCountAggregate
+    _max: BlogAuthorMaxAggregate
+    _min: BlogAuthorMinAggregate
+}
+
+type AggregateCourse {
+    _avg: CourseAvgAggregate
+    _count: CourseCountAggregate
+    _max: CourseMaxAggregate
+    _min: CourseMinAggregate
+    _sum: CourseSumAggregate
+}
+
+type AggregateCourseInstructor {
+    _count: CourseInstructorCountAggregate
+    _max: CourseInstructorMaxAggregate
+    _min: CourseInstructorMinAggregate
+}
+
+type AggregateImage {
+    _count: ImageCountAggregate
+    _max: ImageMaxAggregate
+    _min: ImageMinAggregate
+}
+
+type AggregatePerson {
+    _count: PersonCountAggregate
+    _max: PersonMaxAggregate
+    _min: PersonMinAggregate
+}
+
+type AggregateProject {
+    _count: ProjectCountAggregate
+    _max: ProjectMaxAggregate
+    _min: ProjectMinAggregate
+}
+
+type AggregateProjectContributor {
+    _count: ProjectContributorCountAggregate
+    _max: ProjectContributorMaxAggregate
+    _min: ProjectContributorMinAggregate
+}
+
+type AggregateSchool {
+    _count: SchoolCountAggregate
+    _max: SchoolMaxAggregate
+    _min: SchoolMinAggregate
+}
+
+type AggregateTechnologyLogo {
+    _count: TechnologyLogoCountAggregate
+    _max: TechnologyLogoMaxAggregate
+    _min: TechnologyLogoMinAggregate
+}
+
+type AggregateUser {
+    _count: UserCountAggregate
+    _max: UserMaxAggregate
+    _min: UserMinAggregate
+}
+
+type Blog {
+    BlogAuthor(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthor!]!
+    Image: Image!
+    _count: BlogCount
+    content: String!
+    createdAt: DateTime!
+    id: String!
+    imageId: String!
+    slug: String!
+    title: String!
+    updatedAt: DateTime!
+}
+
+type BlogAuthor {
+    Blog: Blog!
+    Person: Person!
+    blogId: String!
+    createdAt: DateTime!
+    id: String!
+    personId: String!
+    updatedAt: DateTime!
+}
+
+type BlogAuthorCountAggregate {
+    _all: Int!
+    blogId: Int!
+    createdAt: Int!
+    id: Int!
+    personId: Int!
+    updatedAt: Int!
+}
+
+type BlogAuthorGroupBy {
+    _count: BlogAuthorCountAggregate
+    _max: BlogAuthorMaxAggregate
+    _min: BlogAuthorMinAggregate
+    blogId: String!
+    createdAt: DateTime!
+    id: String!
+    personId: String!
+    updatedAt: DateTime!
+}
+
+type BlogAuthorMaxAggregate {
+    blogId: String
+    createdAt: DateTime
+    id: String
+    personId: String
+    updatedAt: DateTime
+}
+
+type BlogAuthorMinAggregate {
+    blogId: String
+    createdAt: DateTime
+    id: String
+    personId: String
+    updatedAt: DateTime
+}
+
+type BlogCount {
+    BlogAuthor: Int!
+}
+
+type BlogCountAggregate {
+    _all: Int!
+    content: Int!
+    createdAt: Int!
+    id: Int!
+    imageId: Int!
+    slug: Int!
+    title: Int!
+    updatedAt: Int!
+}
+
+type BlogGroupBy {
+    _count: BlogCountAggregate
+    _max: BlogMaxAggregate
+    _min: BlogMinAggregate
+    content: String!
+    createdAt: DateTime!
+    id: String!
+    imageId: String!
+    slug: String!
+    title: String!
+    updatedAt: DateTime!
+}
+
+type BlogMaxAggregate {
+    content: String
+    createdAt: DateTime
+    id: String
+    imageId: String
+    slug: String
+    title: String
+    updatedAt: DateTime
+}
+
+type BlogMinAggregate {
+    content: String
+    createdAt: DateTime
+    id: String
+    imageId: String
+    slug: String
+    title: String
+    updatedAt: DateTime
+}
+
+type Course {
+    CourseInstructor(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructor!]!
+    School: School!
+    _count: CourseCount
+    complete: Boolean!
+    courseUrls: [String!]!
+    createdAt: DateTime!
+    duration: Float!
+    id: String!
+    order: Int!
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean!
+    schoolId: String!
+    title: String!
+    updatedAt: DateTime!
+    yearUpdated: Int!
+}
+
+type CourseAvgAggregate {
+    duration: Float
+    order: Float
+    yearUpdated: Float
+}
+
+type CourseCount {
+    CourseInstructor: Int!
+}
+
+type CourseCountAggregate {
+    _all: Int!
+    complete: Int!
+    courseUrls: Int!
+    createdAt: Int!
+    duration: Int!
+    id: Int!
+    order: Int!
+    rating: Int!
+    ratingUrl: Int!
+    recommended: Int!
+    schoolId: Int!
+    title: Int!
+    updatedAt: Int!
+    yearUpdated: Int!
+}
+
+type CourseGroupBy {
+    _avg: CourseAvgAggregate
+    _count: CourseCountAggregate
+    _max: CourseMaxAggregate
+    _min: CourseMinAggregate
+    _sum: CourseSumAggregate
+    complete: Boolean!
+    courseUrls: [String!]
+    createdAt: DateTime!
+    duration: Float!
+    id: String!
+    order: Int!
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean!
+    schoolId: String!
+    title: String!
+    updatedAt: DateTime!
+    yearUpdated: Int!
+}
+
+type CourseInstructor {
+    Course: Course!
+    Person: Person!
+    courseId: String!
+    createdAt: DateTime!
+    id: String!
+    instructorId: String!
+    updatedAt: DateTime!
+}
+
+type CourseInstructorCountAggregate {
+    _all: Int!
+    courseId: Int!
+    createdAt: Int!
+    id: Int!
+    instructorId: Int!
+    updatedAt: Int!
+}
+
+type CourseInstructorGroupBy {
+    _count: CourseInstructorCountAggregate
+    _max: CourseInstructorMaxAggregate
+    _min: CourseInstructorMinAggregate
+    courseId: String!
+    createdAt: DateTime!
+    id: String!
+    instructorId: String!
+    updatedAt: DateTime!
+}
+
+type CourseInstructorMaxAggregate {
+    courseId: String
+    createdAt: DateTime
+    id: String
+    instructorId: String
+    updatedAt: DateTime
+}
+
+type CourseInstructorMinAggregate {
+    courseId: String
+    createdAt: DateTime
+    id: String
+    instructorId: String
+    updatedAt: DateTime
+}
+
+type CourseMaxAggregate {
+    complete: Boolean
+    createdAt: DateTime
+    duration: Float
+    id: String
+    order: Int
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean
+    schoolId: String
+    title: String
+    updatedAt: DateTime
+    yearUpdated: Int
+}
+
+type CourseMinAggregate {
+    complete: Boolean
+    createdAt: DateTime
+    duration: Float
+    id: String
+    order: Int
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean
+    schoolId: String
+    title: String
+    updatedAt: DateTime
+    yearUpdated: Int
+}
+
+type CourseSumAggregate {
+    duration: Float
+    order: Int
+    yearUpdated: Int
+}
+
+type Image {
+    Blog(cursor: BlogWhereUniqueInput, distinct: [BlogScalarFieldEnum!], orderBy: [BlogOrderByWithRelationInput!], skip: Int, take: Int, where: BlogWhereInput): [Blog!]!
+    Person(cursor: PersonWhereUniqueInput, distinct: [PersonScalarFieldEnum!], orderBy: [PersonOrderByWithRelationInput!], skip: Int, take: Int, where: PersonWhereInput): [Person!]!
+    Project(cursor: ProjectWhereUniqueInput, distinct: [ProjectScalarFieldEnum!], orderBy: [ProjectOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectWhereInput): [Project!]!
+    School(cursor: SchoolWhereUniqueInput, distinct: [SchoolScalarFieldEnum!], orderBy: [SchoolOrderByWithRelationInput!], skip: Int, take: Int, where: SchoolWhereInput): [School!]!
+    TechnologyLogo: TechnologyLogo
+    _count: ImageCount
+    altText: String!
+    createdAt: DateTime!
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+type ImageCount {
+    Blog: Int!
+    Person: Int!
+    Project: Int!
+    School: Int!
+}
+
+type ImageCountAggregate {
+    _all: Int!
+    altText: Int!
+    createdAt: Int!
+    height: Int!
+    id: Int!
+    updatedAt: Int!
+    url: Int!
+    width: Int!
+}
+
+type ImageGroupBy {
+    _count: ImageCountAggregate
+    _max: ImageMaxAggregate
+    _min: ImageMinAggregate
+    altText: String!
+    createdAt: DateTime!
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+type ImageMaxAggregate {
+    altText: String
+    createdAt: DateTime
+    height: String
+    id: String
+    updatedAt: DateTime
+    url: String
+    width: String
+}
+
+type ImageMinAggregate {
+    altText: String
+    createdAt: DateTime
+    height: String
+    id: String
+    updatedAt: DateTime
+    url: String
+    width: String
+}
+
+type Mutation {
+    createBlog(data: BlogCreateInput!): Blog!
+    createBlogAuthor(data: BlogAuthorCreateInput!): BlogAuthor!
+    createCourse(data: CourseCreateInput!): Course!
+    createCourseInstructor(data: CourseInstructorCreateInput!): CourseInstructor!
+    createImage(data: ImageCreateInput!): Image!
+    createManyBlog(data: [BlogCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyBlogAuthor(data: [BlogAuthorCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyCourse(data: [CourseCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyCourseInstructor(data: [CourseInstructorCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyImage(data: [ImageCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyPerson(data: [PersonCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyProject(data: [ProjectCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyProjectContributor(data: [ProjectContributorCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManySchool(data: [SchoolCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyTechnologyLogo(data: [TechnologyLogoCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createManyUser(data: [UserCreateManyInput!]!, skipDuplicates: Boolean): AffectedRowsOutput!
+    createPerson(data: PersonCreateInput!): Person!
+    createProject(data: ProjectCreateInput!): Project!
+    createProjectContributor(data: ProjectContributorCreateInput!): ProjectContributor!
+    createSchool(data: SchoolCreateInput!): School!
+    createTechnologyLogo(data: TechnologyLogoCreateInput!): TechnologyLogo!
+    createUser(data: UserCreateInput!): User!
+    deleteBlog(where: BlogWhereUniqueInput!): Blog
+    deleteBlogAuthor(where: BlogAuthorWhereUniqueInput!): BlogAuthor
+    deleteCourse(where: CourseWhereUniqueInput!): Course
+    deleteCourseInstructor(where: CourseInstructorWhereUniqueInput!): CourseInstructor
+    deleteImage(where: ImageWhereUniqueInput!): Image
+    deleteManyBlog(where: BlogWhereInput): AffectedRowsOutput!
+    deleteManyBlogAuthor(where: BlogAuthorWhereInput): AffectedRowsOutput!
+    deleteManyCourse(where: CourseWhereInput): AffectedRowsOutput!
+    deleteManyCourseInstructor(where: CourseInstructorWhereInput): AffectedRowsOutput!
+    deleteManyImage(where: ImageWhereInput): AffectedRowsOutput!
+    deleteManyPerson(where: PersonWhereInput): AffectedRowsOutput!
+    deleteManyProject(where: ProjectWhereInput): AffectedRowsOutput!
+    deleteManyProjectContributor(where: ProjectContributorWhereInput): AffectedRowsOutput!
+    deleteManySchool(where: SchoolWhereInput): AffectedRowsOutput!
+    deleteManyTechnologyLogo(where: TechnologyLogoWhereInput): AffectedRowsOutput!
+    deleteManyUser(where: UserWhereInput): AffectedRowsOutput!
+    deletePerson(where: PersonWhereUniqueInput!): Person
+    deleteProject(where: ProjectWhereUniqueInput!): Project
+    deleteProjectContributor(where: ProjectContributorWhereUniqueInput!): ProjectContributor
+    deleteSchool(where: SchoolWhereUniqueInput!): School
+    deleteTechnologyLogo(where: TechnologyLogoWhereUniqueInput!): TechnologyLogo
+    deleteUser(where: UserWhereUniqueInput!): User
+    updateBlog(data: BlogUpdateInput!, where: BlogWhereUniqueInput!): Blog
+    updateBlogAuthor(data: BlogAuthorUpdateInput!, where: BlogAuthorWhereUniqueInput!): BlogAuthor
+    updateCourse(data: CourseUpdateInput!, where: CourseWhereUniqueInput!): Course
+    updateCourseInstructor(data: CourseInstructorUpdateInput!, where: CourseInstructorWhereUniqueInput!): CourseInstructor
+    updateImage(data: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image
+    updateManyBlog(data: BlogUpdateManyMutationInput!, where: BlogWhereInput): AffectedRowsOutput!
+    updateManyBlogAuthor(data: BlogAuthorUpdateManyMutationInput!, where: BlogAuthorWhereInput): AffectedRowsOutput!
+    updateManyCourse(data: CourseUpdateManyMutationInput!, where: CourseWhereInput): AffectedRowsOutput!
+    updateManyCourseInstructor(data: CourseInstructorUpdateManyMutationInput!, where: CourseInstructorWhereInput): AffectedRowsOutput!
+    updateManyImage(data: ImageUpdateManyMutationInput!, where: ImageWhereInput): AffectedRowsOutput!
+    updateManyPerson(data: PersonUpdateManyMutationInput!, where: PersonWhereInput): AffectedRowsOutput!
+    updateManyProject(data: ProjectUpdateManyMutationInput!, where: ProjectWhereInput): AffectedRowsOutput!
+    updateManyProjectContributor(data: ProjectContributorUpdateManyMutationInput!, where: ProjectContributorWhereInput): AffectedRowsOutput!
+    updateManySchool(data: SchoolUpdateManyMutationInput!, where: SchoolWhereInput): AffectedRowsOutput!
+    updateManyTechnologyLogo(data: TechnologyLogoUpdateManyMutationInput!, where: TechnologyLogoWhereInput): AffectedRowsOutput!
+    updateManyUser(data: UserUpdateManyMutationInput!, where: UserWhereInput): AffectedRowsOutput!
+    updatePerson(data: PersonUpdateInput!, where: PersonWhereUniqueInput!): Person
+    updateProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
+    updateProjectContributor(data: ProjectContributorUpdateInput!, where: ProjectContributorWhereUniqueInput!): ProjectContributor
+    updateSchool(data: SchoolUpdateInput!, where: SchoolWhereUniqueInput!): School
+    updateTechnologyLogo(data: TechnologyLogoUpdateInput!, where: TechnologyLogoWhereUniqueInput!): TechnologyLogo
+    updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+    upsertBlog(create: BlogCreateInput!, update: BlogUpdateInput!, where: BlogWhereUniqueInput!): Blog!
+    upsertBlogAuthor(create: BlogAuthorCreateInput!, update: BlogAuthorUpdateInput!, where: BlogAuthorWhereUniqueInput!): BlogAuthor!
+    upsertCourse(create: CourseCreateInput!, update: CourseUpdateInput!, where: CourseWhereUniqueInput!): Course!
+    upsertCourseInstructor(create: CourseInstructorCreateInput!, update: CourseInstructorUpdateInput!, where: CourseInstructorWhereUniqueInput!): CourseInstructor!
+    upsertImage(create: ImageCreateInput!, update: ImageUpdateInput!, where: ImageWhereUniqueInput!): Image!
+    upsertPerson(create: PersonCreateInput!, update: PersonUpdateInput!, where: PersonWhereUniqueInput!): Person!
+    upsertProject(create: ProjectCreateInput!, update: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project!
+    upsertProjectContributor(create: ProjectContributorCreateInput!, update: ProjectContributorUpdateInput!, where: ProjectContributorWhereUniqueInput!): ProjectContributor!
+    upsertSchool(create: SchoolCreateInput!, update: SchoolUpdateInput!, where: SchoolWhereUniqueInput!): School!
+    upsertTechnologyLogo(create: TechnologyLogoCreateInput!, update: TechnologyLogoUpdateInput!, where: TechnologyLogoWhereUniqueInput!): TechnologyLogo!
+    upsertUser(create: UserCreateInput!, update: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+}
+
+type Person {
+    BlogAuthor(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthor!]!
+    CourseInstructor(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructor!]!
+    Image: Image
+    ProjectContributor(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributor!]!
+    User(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
+    _count: PersonCount
+    createdAt: DateTime!
+    firstName: String!
+    githubUrl: String
+    id: String!
+    imageId: String
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+type PersonCount {
+    BlogAuthor: Int!
+    CourseInstructor: Int!
+    ProjectContributor: Int!
+    User: Int!
+}
+
+type PersonCountAggregate {
+    _all: Int!
+    createdAt: Int!
+    firstName: Int!
+    githubUrl: Int!
+    id: Int!
+    imageId: Int!
+    lastName: Int!
+    linkedinUrl: Int!
+    summary: Int!
+    updatedAt: Int!
+    websiteUrl: Int!
+}
+
+type PersonGroupBy {
+    _count: PersonCountAggregate
+    _max: PersonMaxAggregate
+    _min: PersonMinAggregate
+    createdAt: DateTime!
+    firstName: String!
+    githubUrl: String
+    id: String!
+    imageId: String
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+type PersonMaxAggregate {
+    createdAt: DateTime
+    firstName: String
+    githubUrl: String
+    id: String
+    imageId: String
+    lastName: String
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime
+    websiteUrl: String
+}
+
+type PersonMinAggregate {
+    createdAt: DateTime
+    firstName: String
+    githubUrl: String
+    id: String
+    imageId: String
+    lastName: String
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime
+    websiteUrl: String
+}
+
+type Project {
+    Image: Image!
+    ProjectContributor(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributor!]!
+    _count: ProjectCount
+    createdAt: DateTime!
+    githubUrl: String
+    id: String!
+    imageId: String!
+    name: String!
+    projectUrl: String
+    slug: String!
+    summary: String!
+    updatedAt: DateTime!
+}
+
+type ProjectContributor {
+    Person: Person!
+    Project: Project!
+    contributorId: String!
+    createdAt: DateTime!
+    id: String!
+    projectId: String!
+    updatedAt: DateTime!
+}
+
+type ProjectContributorCountAggregate {
+    _all: Int!
+    contributorId: Int!
+    createdAt: Int!
+    id: Int!
+    projectId: Int!
+    updatedAt: Int!
+}
+
+type ProjectContributorGroupBy {
+    _count: ProjectContributorCountAggregate
+    _max: ProjectContributorMaxAggregate
+    _min: ProjectContributorMinAggregate
+    contributorId: String!
+    createdAt: DateTime!
+    id: String!
+    projectId: String!
+    updatedAt: DateTime!
+}
+
+type ProjectContributorMaxAggregate {
+    contributorId: String
+    createdAt: DateTime
+    id: String
+    projectId: String
+    updatedAt: DateTime
+}
+
+type ProjectContributorMinAggregate {
+    contributorId: String
+    createdAt: DateTime
+    id: String
+    projectId: String
+    updatedAt: DateTime
+}
+
+type ProjectCount {
+    ProjectContributor: Int!
+}
+
+type ProjectCountAggregate {
+    _all: Int!
+    createdAt: Int!
+    githubUrl: Int!
+    id: Int!
+    imageId: Int!
+    name: Int!
+    projectUrl: Int!
+    slug: Int!
+    summary: Int!
+    updatedAt: Int!
+}
+
+type ProjectGroupBy {
+    _count: ProjectCountAggregate
+    _max: ProjectMaxAggregate
+    _min: ProjectMinAggregate
+    createdAt: DateTime!
+    githubUrl: String
+    id: String!
+    imageId: String!
+    name: String!
+    projectUrl: String
+    slug: String!
+    summary: String!
+    updatedAt: DateTime!
+}
+
+type ProjectMaxAggregate {
+    createdAt: DateTime
+    githubUrl: String
+    id: String
+    imageId: String
+    name: String
+    projectUrl: String
+    slug: String
+    summary: String
+    updatedAt: DateTime
+}
+
+type ProjectMinAggregate {
+    createdAt: DateTime
+    githubUrl: String
+    id: String
+    imageId: String
+    name: String
+    projectUrl: String
+    slug: String
+    summary: String
+    updatedAt: DateTime
+}
+
+type Query {
+    aggregateBlog(cursor: BlogWhereUniqueInput, orderBy: [BlogOrderByWithRelationInput!], skip: Int, take: Int, where: BlogWhereInput): AggregateBlog!
+    aggregateBlogAuthor(cursor: BlogAuthorWhereUniqueInput, orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): AggregateBlogAuthor!
+    aggregateCourse(cursor: CourseWhereUniqueInput, orderBy: [CourseOrderByWithRelationInput!], skip: Int, take: Int, where: CourseWhereInput): AggregateCourse!
+    aggregateCourseInstructor(cursor: CourseInstructorWhereUniqueInput, orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): AggregateCourseInstructor!
+    aggregateImage(cursor: ImageWhereUniqueInput, orderBy: [ImageOrderByWithRelationInput!], skip: Int, take: Int, where: ImageWhereInput): AggregateImage!
+    aggregatePerson(cursor: PersonWhereUniqueInput, orderBy: [PersonOrderByWithRelationInput!], skip: Int, take: Int, where: PersonWhereInput): AggregatePerson!
+    aggregateProject(cursor: ProjectWhereUniqueInput, orderBy: [ProjectOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectWhereInput): AggregateProject!
+    aggregateProjectContributor(cursor: ProjectContributorWhereUniqueInput, orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): AggregateProjectContributor!
+    aggregateSchool(cursor: SchoolWhereUniqueInput, orderBy: [SchoolOrderByWithRelationInput!], skip: Int, take: Int, where: SchoolWhereInput): AggregateSchool!
+    aggregateTechnologyLogo(cursor: TechnologyLogoWhereUniqueInput, orderBy: [TechnologyLogoOrderByWithRelationInput!], skip: Int, take: Int, where: TechnologyLogoWhereInput): AggregateTechnologyLogo!
+    aggregateUser(cursor: UserWhereUniqueInput, orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): AggregateUser!
+    blog(where: BlogWhereUniqueInput!): Blog
+    blogAuthor(where: BlogAuthorWhereUniqueInput!): BlogAuthor
+    blogAuthors(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthor!]!
+    blogs(cursor: BlogWhereUniqueInput, distinct: [BlogScalarFieldEnum!], orderBy: [BlogOrderByWithRelationInput!], skip: Int, take: Int, where: BlogWhereInput): [Blog!]!
+    course(where: CourseWhereUniqueInput!): Course
+    courseInstructor(where: CourseInstructorWhereUniqueInput!): CourseInstructor
+    courseInstructors(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructor!]!
+    courses(cursor: CourseWhereUniqueInput, distinct: [CourseScalarFieldEnum!], orderBy: [CourseOrderByWithRelationInput!], skip: Int, take: Int, where: CourseWhereInput): [Course!]!
+    findFirstBlog(cursor: BlogWhereUniqueInput, distinct: [BlogScalarFieldEnum!], orderBy: [BlogOrderByWithRelationInput!], skip: Int, take: Int, where: BlogWhereInput): Blog
+    findFirstBlogAuthor(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): BlogAuthor
+    findFirstCourse(cursor: CourseWhereUniqueInput, distinct: [CourseScalarFieldEnum!], orderBy: [CourseOrderByWithRelationInput!], skip: Int, take: Int, where: CourseWhereInput): Course
+    findFirstCourseInstructor(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): CourseInstructor
+    findFirstImage(cursor: ImageWhereUniqueInput, distinct: [ImageScalarFieldEnum!], orderBy: [ImageOrderByWithRelationInput!], skip: Int, take: Int, where: ImageWhereInput): Image
+    findFirstPerson(cursor: PersonWhereUniqueInput, distinct: [PersonScalarFieldEnum!], orderBy: [PersonOrderByWithRelationInput!], skip: Int, take: Int, where: PersonWhereInput): Person
+    findFirstProject(cursor: ProjectWhereUniqueInput, distinct: [ProjectScalarFieldEnum!], orderBy: [ProjectOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectWhereInput): Project
+    findFirstProjectContributor(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): ProjectContributor
+    findFirstSchool(cursor: SchoolWhereUniqueInput, distinct: [SchoolScalarFieldEnum!], orderBy: [SchoolOrderByWithRelationInput!], skip: Int, take: Int, where: SchoolWhereInput): School
+    findFirstTechnologyLogo(cursor: TechnologyLogoWhereUniqueInput, distinct: [TechnologyLogoScalarFieldEnum!], orderBy: [TechnologyLogoOrderByWithRelationInput!], skip: Int, take: Int, where: TechnologyLogoWhereInput): TechnologyLogo
+    findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): User
+    groupByBlog(by: [BlogScalarFieldEnum!]!, having: BlogScalarWhereWithAggregatesInput, orderBy: [BlogOrderByWithAggregationInput!], skip: Int, take: Int, where: BlogWhereInput): [BlogGroupBy!]!
+    groupByBlogAuthor(by: [BlogAuthorScalarFieldEnum!]!, having: BlogAuthorScalarWhereWithAggregatesInput, orderBy: [BlogAuthorOrderByWithAggregationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthorGroupBy!]!
+    groupByCourse(by: [CourseScalarFieldEnum!]!, having: CourseScalarWhereWithAggregatesInput, orderBy: [CourseOrderByWithAggregationInput!], skip: Int, take: Int, where: CourseWhereInput): [CourseGroupBy!]!
+    groupByCourseInstructor(by: [CourseInstructorScalarFieldEnum!]!, having: CourseInstructorScalarWhereWithAggregatesInput, orderBy: [CourseInstructorOrderByWithAggregationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructorGroupBy!]!
+    groupByImage(by: [ImageScalarFieldEnum!]!, having: ImageScalarWhereWithAggregatesInput, orderBy: [ImageOrderByWithAggregationInput!], skip: Int, take: Int, where: ImageWhereInput): [ImageGroupBy!]!
+    groupByPerson(by: [PersonScalarFieldEnum!]!, having: PersonScalarWhereWithAggregatesInput, orderBy: [PersonOrderByWithAggregationInput!], skip: Int, take: Int, where: PersonWhereInput): [PersonGroupBy!]!
+    groupByProject(by: [ProjectScalarFieldEnum!]!, having: ProjectScalarWhereWithAggregatesInput, orderBy: [ProjectOrderByWithAggregationInput!], skip: Int, take: Int, where: ProjectWhereInput): [ProjectGroupBy!]!
+    groupByProjectContributor(by: [ProjectContributorScalarFieldEnum!]!, having: ProjectContributorScalarWhereWithAggregatesInput, orderBy: [ProjectContributorOrderByWithAggregationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributorGroupBy!]!
+    groupBySchool(by: [SchoolScalarFieldEnum!]!, having: SchoolScalarWhereWithAggregatesInput, orderBy: [SchoolOrderByWithAggregationInput!], skip: Int, take: Int, where: SchoolWhereInput): [SchoolGroupBy!]!
+    groupByTechnologyLogo(by: [TechnologyLogoScalarFieldEnum!]!, having: TechnologyLogoScalarWhereWithAggregatesInput, orderBy: [TechnologyLogoOrderByWithAggregationInput!], skip: Int, take: Int, where: TechnologyLogoWhereInput): [TechnologyLogoGroupBy!]!
+    groupByUser(by: [UserScalarFieldEnum!]!, having: UserScalarWhereWithAggregatesInput, orderBy: [UserOrderByWithAggregationInput!], skip: Int, take: Int, where: UserWhereInput): [UserGroupBy!]!
+    image(where: ImageWhereUniqueInput!): Image
+    images(cursor: ImageWhereUniqueInput, distinct: [ImageScalarFieldEnum!], orderBy: [ImageOrderByWithRelationInput!], skip: Int, take: Int, where: ImageWhereInput): [Image!]!
+    people(cursor: PersonWhereUniqueInput, distinct: [PersonScalarFieldEnum!], orderBy: [PersonOrderByWithRelationInput!], skip: Int, take: Int, where: PersonWhereInput): [Person!]!
+    person(where: PersonWhereUniqueInput!): Person
+    project(where: ProjectWhereUniqueInput!): Project
+    projectContributor(where: ProjectContributorWhereUniqueInput!): ProjectContributor
+    projectContributors(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributor!]!
+    projects(cursor: ProjectWhereUniqueInput, distinct: [ProjectScalarFieldEnum!], orderBy: [ProjectOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectWhereInput): [Project!]!
+    school(where: SchoolWhereUniqueInput!): School
+    schools(cursor: SchoolWhereUniqueInput, distinct: [SchoolScalarFieldEnum!], orderBy: [SchoolOrderByWithRelationInput!], skip: Int, take: Int, where: SchoolWhereInput): [School!]!
+    technologyLogo(where: TechnologyLogoWhereUniqueInput!): TechnologyLogo
+    technologyLogos(cursor: TechnologyLogoWhereUniqueInput, distinct: [TechnologyLogoScalarFieldEnum!], orderBy: [TechnologyLogoOrderByWithRelationInput!], skip: Int, take: Int, where: TechnologyLogoWhereInput): [TechnologyLogo!]!
+    user(where: UserWhereUniqueInput!): User
+    users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
+}
+
+type School {
+    Course(cursor: CourseWhereUniqueInput, distinct: [CourseScalarFieldEnum!], orderBy: [CourseOrderByWithRelationInput!], skip: Int, take: Int, where: CourseWhereInput): [Course!]!
+    Image: Image!
+    _count: SchoolCount
+    createdAt: DateTime!
+    description: String!
+    id: String!
+    imageId: String!
+    name: String!
+    updatedAt: DateTime!
+    url: String!
+}
+
+type SchoolCount {
+    Course: Int!
+}
+
+type SchoolCountAggregate {
+    _all: Int!
+    createdAt: Int!
+    description: Int!
+    id: Int!
+    imageId: Int!
+    name: Int!
+    updatedAt: Int!
+    url: Int!
+}
+
+type SchoolGroupBy {
+    _count: SchoolCountAggregate
+    _max: SchoolMaxAggregate
+    _min: SchoolMinAggregate
+    createdAt: DateTime!
+    description: String!
+    id: String!
+    imageId: String!
+    name: String!
+    updatedAt: DateTime!
+    url: String!
+}
+
+type SchoolMaxAggregate {
+    createdAt: DateTime
+    description: String
+    id: String
+    imageId: String
+    name: String
+    updatedAt: DateTime
+    url: String
+}
+
+type SchoolMinAggregate {
+    createdAt: DateTime
+    description: String
+    id: String
+    imageId: String
+    name: String
+    updatedAt: DateTime
+    url: String
+}
+
+type TechnologyLogo {
+    Image: Image!
+    createdAt: DateTime!
+    id: String!
+    imageId: String!
+    isOnHomepage: Boolean!
+    name: String!
+    updatedAt: DateTime!
+}
+
+type TechnologyLogoCountAggregate {
+    _all: Int!
+    createdAt: Int!
+    id: Int!
+    imageId: Int!
+    isOnHomepage: Int!
+    name: Int!
+    updatedAt: Int!
+}
+
+type TechnologyLogoGroupBy {
+    _count: TechnologyLogoCountAggregate
+    _max: TechnologyLogoMaxAggregate
+    _min: TechnologyLogoMinAggregate
+    createdAt: DateTime!
+    id: String!
+    imageId: String!
+    isOnHomepage: Boolean!
+    name: String!
+    updatedAt: DateTime!
+}
+
+type TechnologyLogoMaxAggregate {
+    createdAt: DateTime
+    id: String
+    imageId: String
+    isOnHomepage: Boolean
+    name: String
+    updatedAt: DateTime
+}
+
+type TechnologyLogoMinAggregate {
+    createdAt: DateTime
+    id: String
+    imageId: String
+    isOnHomepage: Boolean
+    name: String
+    updatedAt: DateTime
+}
+
+type User {
+    Person: Person!
+    createdAt: DateTime!
+    id: String!
+    password: String!
+    personId: String!
+    role: Role!
+    updatedAt: DateTime!
+    username: String!
+}
+
+type UserCountAggregate {
+    _all: Int!
+    createdAt: Int!
+    id: Int!
+    password: Int!
+    personId: Int!
+    role: Int!
+    updatedAt: Int!
+    username: Int!
+}
+
+type UserGroupBy {
+    _count: UserCountAggregate
+    _max: UserMaxAggregate
+    _min: UserMinAggregate
+    createdAt: DateTime!
+    id: String!
+    password: String!
+    personId: String!
+    role: Role!
+    updatedAt: DateTime!
+    username: String!
+}
+
+type UserMaxAggregate {
+    createdAt: DateTime
+    id: String
+    password: String
+    personId: String
+    role: Role
+    updatedAt: DateTime
+    username: String
+}
+
+type UserMinAggregate {
+    createdAt: DateTime
+    id: String
+    password: String
+    personId: String
+    role: Role
+    updatedAt: DateTime
+    username: String
+}
+
+enum BlogAuthorScalarFieldEnum {
+    blogId
+    createdAt
+    id
+    personId
+    updatedAt
+}
+
+enum BlogScalarFieldEnum {
+    content
+    createdAt
+    id
+    imageId
+    slug
+    title
+    updatedAt
+}
+
+enum CourseInstructorScalarFieldEnum {
+    courseId
+    createdAt
+    id
+    instructorId
+    updatedAt
+}
+
+enum CourseScalarFieldEnum {
+    complete
+    courseUrls
+    createdAt
+    duration
+    id
+    order
+    rating
+    ratingUrl
+    recommended
+    schoolId
+    title
+    updatedAt
+    yearUpdated
+}
+
+enum ImageScalarFieldEnum {
+    altText
+    createdAt
+    height
+    id
+    updatedAt
+    url
+    width
+}
+
+enum PersonScalarFieldEnum {
+    createdAt
+    firstName
+    githubUrl
+    id
+    imageId
+    lastName
+    linkedinUrl
+    summary
+    updatedAt
+    websiteUrl
+}
+
+enum ProjectContributorScalarFieldEnum {
+    contributorId
+    createdAt
+    id
+    projectId
+    updatedAt
+}
+
+enum ProjectScalarFieldEnum {
+    createdAt
+    githubUrl
+    id
+    imageId
+    name
+    projectUrl
+    slug
+    summary
+    updatedAt
+}
+
+enum QueryMode {
+    default
+    insensitive
+}
+
+enum Rating {
+    FIVE
+    FOUR
+    ONE
+    THREE
+    TWO
+}
+
+enum Role {
+    ADMIN
+    USER
+}
+
+enum SchoolScalarFieldEnum {
+    createdAt
+    description
+    id
+    imageId
+    name
+    updatedAt
+    url
+}
+
+enum SortOrder {
+    asc
+    desc
+}
+
+enum TechnologyLogoScalarFieldEnum {
+    createdAt
+    id
+    imageId
+    isOnHomepage
+    name
+    updatedAt
+}
+
+enum UserScalarFieldEnum {
+    createdAt
+    id
+    password
+    personId
+    role
+    updatedAt
+    username
+}
+
+"The javascript `Date` as string. Type represents date and time as the ISO Date string."
+scalar DateTime
+
+input BlogAuthorCountOrderByAggregateInput {
+    blogId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    personId: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogAuthorCreateInput {
+    Blog: BlogCreateNestedOneWithoutBlogAuthorInput!
+    Person: PersonCreateNestedOneWithoutBlogAuthorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input BlogAuthorCreateManyBlogInput {
+    createdAt: DateTime
+    id: String!
+    personId: String!
+    updatedAt: DateTime!
+}
+
+input BlogAuthorCreateManyBlogInputEnvelope {
+    data: [BlogAuthorCreateManyBlogInput!]!
+    skipDuplicates: Boolean
+}
+
+input BlogAuthorCreateManyInput {
+    blogId: String!
+    createdAt: DateTime
+    id: String!
+    personId: String!
+    updatedAt: DateTime!
+}
+
+input BlogAuthorCreateManyPersonInput {
+    blogId: String!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input BlogAuthorCreateManyPersonInputEnvelope {
+    data: [BlogAuthorCreateManyPersonInput!]!
+    skipDuplicates: Boolean
+}
+
+input BlogAuthorCreateNestedManyWithoutBlogInput {
+    connect: [BlogAuthorWhereUniqueInput!]
+    connectOrCreate: [BlogAuthorCreateOrConnectWithoutBlogInput!]
+    create: [BlogAuthorCreateWithoutBlogInput!]
+    createMany: BlogAuthorCreateManyBlogInputEnvelope
+}
+
+input BlogAuthorCreateNestedManyWithoutPersonInput {
+    connect: [BlogAuthorWhereUniqueInput!]
+    connectOrCreate: [BlogAuthorCreateOrConnectWithoutPersonInput!]
+    create: [BlogAuthorCreateWithoutPersonInput!]
+    createMany: BlogAuthorCreateManyPersonInputEnvelope
+}
+
+input BlogAuthorCreateOrConnectWithoutBlogInput {
+    create: BlogAuthorCreateWithoutBlogInput!
+    where: BlogAuthorWhereUniqueInput!
+}
+
+input BlogAuthorCreateOrConnectWithoutPersonInput {
+    create: BlogAuthorCreateWithoutPersonInput!
+    where: BlogAuthorWhereUniqueInput!
+}
+
+input BlogAuthorCreateWithoutBlogInput {
+    Person: PersonCreateNestedOneWithoutBlogAuthorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input BlogAuthorCreateWithoutPersonInput {
+    Blog: BlogCreateNestedOneWithoutBlogAuthorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input BlogAuthorListRelationFilter {
+    every: BlogAuthorWhereInput
+    none: BlogAuthorWhereInput
+    some: BlogAuthorWhereInput
+}
+
+input BlogAuthorMaxOrderByAggregateInput {
+    blogId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    personId: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogAuthorMinOrderByAggregateInput {
+    blogId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    personId: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogAuthorOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input BlogAuthorOrderByWithAggregationInput {
+    _count: BlogAuthorCountOrderByAggregateInput
+    _max: BlogAuthorMaxOrderByAggregateInput
+    _min: BlogAuthorMinOrderByAggregateInput
+    blogId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    personId: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogAuthorOrderByWithRelationInput {
+    Blog: BlogOrderByWithRelationInput
+    Person: PersonOrderByWithRelationInput
+    blogId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    personId: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogAuthorScalarWhereInput {
+    AND: [BlogAuthorScalarWhereInput!]
+    NOT: [BlogAuthorScalarWhereInput!]
+    OR: [BlogAuthorScalarWhereInput!]
+    blogId: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    personId: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input BlogAuthorScalarWhereWithAggregatesInput {
+    AND: [BlogAuthorScalarWhereWithAggregatesInput!]
+    NOT: [BlogAuthorScalarWhereWithAggregatesInput!]
+    OR: [BlogAuthorScalarWhereWithAggregatesInput!]
+    blogId: StringWithAggregatesFilter
+    createdAt: DateTimeWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    personId: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+}
+
+input BlogAuthorUpdateInput {
+    Blog: BlogUpdateOneRequiredWithoutBlogAuthorInput
+    Person: PersonUpdateOneRequiredWithoutBlogAuthorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogAuthorUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogAuthorUpdateManyWithWhereWithoutBlogInput {
+    data: BlogAuthorUpdateManyMutationInput!
+    where: BlogAuthorScalarWhereInput!
+}
+
+input BlogAuthorUpdateManyWithWhereWithoutPersonInput {
+    data: BlogAuthorUpdateManyMutationInput!
+    where: BlogAuthorScalarWhereInput!
+}
+
+input BlogAuthorUpdateManyWithoutBlogInput {
+    connect: [BlogAuthorWhereUniqueInput!]
+    connectOrCreate: [BlogAuthorCreateOrConnectWithoutBlogInput!]
+    create: [BlogAuthorCreateWithoutBlogInput!]
+    createMany: BlogAuthorCreateManyBlogInputEnvelope
+    delete: [BlogAuthorWhereUniqueInput!]
+    deleteMany: [BlogAuthorScalarWhereInput!]
+    disconnect: [BlogAuthorWhereUniqueInput!]
+    set: [BlogAuthorWhereUniqueInput!]
+    update: [BlogAuthorUpdateWithWhereUniqueWithoutBlogInput!]
+    updateMany: [BlogAuthorUpdateManyWithWhereWithoutBlogInput!]
+    upsert: [BlogAuthorUpsertWithWhereUniqueWithoutBlogInput!]
+}
+
+input BlogAuthorUpdateManyWithoutPersonInput {
+    connect: [BlogAuthorWhereUniqueInput!]
+    connectOrCreate: [BlogAuthorCreateOrConnectWithoutPersonInput!]
+    create: [BlogAuthorCreateWithoutPersonInput!]
+    createMany: BlogAuthorCreateManyPersonInputEnvelope
+    delete: [BlogAuthorWhereUniqueInput!]
+    deleteMany: [BlogAuthorScalarWhereInput!]
+    disconnect: [BlogAuthorWhereUniqueInput!]
+    set: [BlogAuthorWhereUniqueInput!]
+    update: [BlogAuthorUpdateWithWhereUniqueWithoutPersonInput!]
+    updateMany: [BlogAuthorUpdateManyWithWhereWithoutPersonInput!]
+    upsert: [BlogAuthorUpsertWithWhereUniqueWithoutPersonInput!]
+}
+
+input BlogAuthorUpdateWithWhereUniqueWithoutBlogInput {
+    data: BlogAuthorUpdateWithoutBlogInput!
+    where: BlogAuthorWhereUniqueInput!
+}
+
+input BlogAuthorUpdateWithWhereUniqueWithoutPersonInput {
+    data: BlogAuthorUpdateWithoutPersonInput!
+    where: BlogAuthorWhereUniqueInput!
+}
+
+input BlogAuthorUpdateWithoutBlogInput {
+    Person: PersonUpdateOneRequiredWithoutBlogAuthorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogAuthorUpdateWithoutPersonInput {
+    Blog: BlogUpdateOneRequiredWithoutBlogAuthorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogAuthorUpsertWithWhereUniqueWithoutBlogInput {
+    create: BlogAuthorCreateWithoutBlogInput!
+    update: BlogAuthorUpdateWithoutBlogInput!
+    where: BlogAuthorWhereUniqueInput!
+}
+
+input BlogAuthorUpsertWithWhereUniqueWithoutPersonInput {
+    create: BlogAuthorCreateWithoutPersonInput!
+    update: BlogAuthorUpdateWithoutPersonInput!
+    where: BlogAuthorWhereUniqueInput!
+}
+
+input BlogAuthorWhereInput {
+    AND: [BlogAuthorWhereInput!]
+    Blog: BlogRelationFilter
+    NOT: [BlogAuthorWhereInput!]
+    OR: [BlogAuthorWhereInput!]
+    Person: PersonRelationFilter
+    blogId: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    personId: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input BlogAuthorWhereUniqueInput {
+    id: String
+}
+
+input BlogCountOrderByAggregateInput {
+    content: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    slug: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogCreateInput {
+    BlogAuthor: BlogAuthorCreateNestedManyWithoutBlogInput
+    Image: ImageCreateNestedOneWithoutBlogInput!
+    content: String!
+    createdAt: DateTime
+    id: String!
+    slug: String!
+    title: String!
+    updatedAt: DateTime!
+}
+
+input BlogCreateManyImageInput {
+    content: String!
+    createdAt: DateTime
+    id: String!
+    slug: String!
+    title: String!
+    updatedAt: DateTime!
+}
+
+input BlogCreateManyImageInputEnvelope {
+    data: [BlogCreateManyImageInput!]!
+    skipDuplicates: Boolean
+}
+
+input BlogCreateManyInput {
+    content: String!
+    createdAt: DateTime
+    id: String!
+    imageId: String!
+    slug: String!
+    title: String!
+    updatedAt: DateTime!
+}
+
+input BlogCreateNestedManyWithoutImageInput {
+    connect: [BlogWhereUniqueInput!]
+    connectOrCreate: [BlogCreateOrConnectWithoutImageInput!]
+    create: [BlogCreateWithoutImageInput!]
+    createMany: BlogCreateManyImageInputEnvelope
+}
+
+input BlogCreateNestedOneWithoutBlogAuthorInput {
+    connect: BlogWhereUniqueInput
+    connectOrCreate: BlogCreateOrConnectWithoutBlogAuthorInput
+    create: BlogCreateWithoutBlogAuthorInput
+}
+
+input BlogCreateOrConnectWithoutBlogAuthorInput {
+    create: BlogCreateWithoutBlogAuthorInput!
+    where: BlogWhereUniqueInput!
+}
+
+input BlogCreateOrConnectWithoutImageInput {
+    create: BlogCreateWithoutImageInput!
+    where: BlogWhereUniqueInput!
+}
+
+input BlogCreateWithoutBlogAuthorInput {
+    Image: ImageCreateNestedOneWithoutBlogInput!
+    content: String!
+    createdAt: DateTime
+    id: String!
+    slug: String!
+    title: String!
+    updatedAt: DateTime!
+}
+
+input BlogCreateWithoutImageInput {
+    BlogAuthor: BlogAuthorCreateNestedManyWithoutBlogInput
+    content: String!
+    createdAt: DateTime
+    id: String!
+    slug: String!
+    title: String!
+    updatedAt: DateTime!
+}
+
+input BlogListRelationFilter {
+    every: BlogWhereInput
+    none: BlogWhereInput
+    some: BlogWhereInput
+}
+
+input BlogMaxOrderByAggregateInput {
+    content: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    slug: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogMinOrderByAggregateInput {
+    content: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    slug: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input BlogOrderByWithAggregationInput {
+    _count: BlogCountOrderByAggregateInput
+    _max: BlogMaxOrderByAggregateInput
+    _min: BlogMinOrderByAggregateInput
+    content: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    slug: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogOrderByWithRelationInput {
+    BlogAuthor: BlogAuthorOrderByRelationAggregateInput
+    Image: ImageOrderByWithRelationInput
+    content: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    slug: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+}
+
+input BlogRelationFilter {
+    is: BlogWhereInput
+    isNot: BlogWhereInput
+}
+
+input BlogScalarWhereInput {
+    AND: [BlogScalarWhereInput!]
+    NOT: [BlogScalarWhereInput!]
+    OR: [BlogScalarWhereInput!]
+    content: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    imageId: StringFilter
+    slug: StringFilter
+    title: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input BlogScalarWhereWithAggregatesInput {
+    AND: [BlogScalarWhereWithAggregatesInput!]
+    NOT: [BlogScalarWhereWithAggregatesInput!]
+    OR: [BlogScalarWhereWithAggregatesInput!]
+    content: StringWithAggregatesFilter
+    createdAt: DateTimeWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    imageId: StringWithAggregatesFilter
+    slug: StringWithAggregatesFilter
+    title: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+}
+
+input BlogUpdateInput {
+    BlogAuthor: BlogAuthorUpdateManyWithoutBlogInput
+    Image: ImageUpdateOneRequiredWithoutBlogInput
+    content: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogUpdateManyMutationInput {
+    content: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogUpdateManyWithWhereWithoutImageInput {
+    data: BlogUpdateManyMutationInput!
+    where: BlogScalarWhereInput!
+}
+
+input BlogUpdateManyWithoutImageInput {
+    connect: [BlogWhereUniqueInput!]
+    connectOrCreate: [BlogCreateOrConnectWithoutImageInput!]
+    create: [BlogCreateWithoutImageInput!]
+    createMany: BlogCreateManyImageInputEnvelope
+    delete: [BlogWhereUniqueInput!]
+    deleteMany: [BlogScalarWhereInput!]
+    disconnect: [BlogWhereUniqueInput!]
+    set: [BlogWhereUniqueInput!]
+    update: [BlogUpdateWithWhereUniqueWithoutImageInput!]
+    updateMany: [BlogUpdateManyWithWhereWithoutImageInput!]
+    upsert: [BlogUpsertWithWhereUniqueWithoutImageInput!]
+}
+
+input BlogUpdateOneRequiredWithoutBlogAuthorInput {
+    connect: BlogWhereUniqueInput
+    connectOrCreate: BlogCreateOrConnectWithoutBlogAuthorInput
+    create: BlogCreateWithoutBlogAuthorInput
+    update: BlogUpdateWithoutBlogAuthorInput
+    upsert: BlogUpsertWithoutBlogAuthorInput
+}
+
+input BlogUpdateWithWhereUniqueWithoutImageInput {
+    data: BlogUpdateWithoutImageInput!
+    where: BlogWhereUniqueInput!
+}
+
+input BlogUpdateWithoutBlogAuthorInput {
+    Image: ImageUpdateOneRequiredWithoutBlogInput
+    content: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogUpdateWithoutImageInput {
+    BlogAuthor: BlogAuthorUpdateManyWithoutBlogInput
+    content: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogUpsertWithWhereUniqueWithoutImageInput {
+    create: BlogCreateWithoutImageInput!
+    update: BlogUpdateWithoutImageInput!
+    where: BlogWhereUniqueInput!
+}
+
+input BlogUpsertWithoutBlogAuthorInput {
+    create: BlogCreateWithoutBlogAuthorInput!
+    update: BlogUpdateWithoutBlogAuthorInput!
+}
+
+input BlogWhereInput {
+    AND: [BlogWhereInput!]
+    BlogAuthor: BlogAuthorListRelationFilter
+    Image: ImageRelationFilter
+    NOT: [BlogWhereInput!]
+    OR: [BlogWhereInput!]
+    content: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    imageId: StringFilter
+    slug: StringFilter
+    title: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input BlogWhereUniqueInput {
+    id: String
+    slug: String
+}
+
+input BoolFieldUpdateOperationsInput {
+    set: Boolean
+}
+
+input BoolFilter {
+    equals: Boolean
+    not: NestedBoolFilter
+}
+
+input BoolWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedBoolFilter
+    _min: NestedBoolFilter
+    equals: Boolean
+    not: NestedBoolWithAggregatesFilter
+}
+
+input CourseAvgOrderByAggregateInput {
+    duration: SortOrder
+    order: SortOrder
+    yearUpdated: SortOrder
+}
+
+input CourseCountOrderByAggregateInput {
+    complete: SortOrder
+    courseUrls: SortOrder
+    createdAt: SortOrder
+    duration: SortOrder
+    id: SortOrder
+    order: SortOrder
+    rating: SortOrder
+    ratingUrl: SortOrder
+    recommended: SortOrder
+    schoolId: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+    yearUpdated: SortOrder
+}
+
+input CourseCreateInput {
+    CourseInstructor: CourseInstructorCreateNestedManyWithoutCourseInput
+    School: SchoolCreateNestedOneWithoutCourseInput!
+    complete: Boolean!
+    courseUrls: CourseCreatecourseUrlsInput
+    createdAt: DateTime
+    duration: Float!
+    id: String!
+    order: Int!
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean!
+    title: String!
+    updatedAt: DateTime!
+    yearUpdated: Int!
+}
+
+input CourseCreateManyInput {
+    complete: Boolean!
+    courseUrls: CourseCreateManycourseUrlsInput
+    createdAt: DateTime
+    duration: Float!
+    id: String!
+    order: Int!
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean!
+    schoolId: String!
+    title: String!
+    updatedAt: DateTime!
+    yearUpdated: Int!
+}
+
+input CourseCreateManySchoolInput {
+    complete: Boolean!
+    courseUrls: CourseCreateManycourseUrlsInput
+    createdAt: DateTime
+    duration: Float!
+    id: String!
+    order: Int!
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean!
+    title: String!
+    updatedAt: DateTime!
+    yearUpdated: Int!
+}
+
+input CourseCreateManySchoolInputEnvelope {
+    data: [CourseCreateManySchoolInput!]!
+    skipDuplicates: Boolean
+}
+
+input CourseCreateManycourseUrlsInput {
+    set: [String!]!
+}
+
+input CourseCreateNestedManyWithoutSchoolInput {
+    connect: [CourseWhereUniqueInput!]
+    connectOrCreate: [CourseCreateOrConnectWithoutSchoolInput!]
+    create: [CourseCreateWithoutSchoolInput!]
+    createMany: CourseCreateManySchoolInputEnvelope
+}
+
+input CourseCreateNestedOneWithoutCourseInstructorInput {
+    connect: CourseWhereUniqueInput
+    connectOrCreate: CourseCreateOrConnectWithoutCourseInstructorInput
+    create: CourseCreateWithoutCourseInstructorInput
+}
+
+input CourseCreateOrConnectWithoutCourseInstructorInput {
+    create: CourseCreateWithoutCourseInstructorInput!
+    where: CourseWhereUniqueInput!
+}
+
+input CourseCreateOrConnectWithoutSchoolInput {
+    create: CourseCreateWithoutSchoolInput!
+    where: CourseWhereUniqueInput!
+}
+
+input CourseCreateWithoutCourseInstructorInput {
+    School: SchoolCreateNestedOneWithoutCourseInput!
+    complete: Boolean!
+    courseUrls: CourseCreatecourseUrlsInput
+    createdAt: DateTime
+    duration: Float!
+    id: String!
+    order: Int!
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean!
+    title: String!
+    updatedAt: DateTime!
+    yearUpdated: Int!
+}
+
+input CourseCreateWithoutSchoolInput {
+    CourseInstructor: CourseInstructorCreateNestedManyWithoutCourseInput
+    complete: Boolean!
+    courseUrls: CourseCreatecourseUrlsInput
+    createdAt: DateTime
+    duration: Float!
+    id: String!
+    order: Int!
+    rating: Rating
+    ratingUrl: String
+    recommended: Boolean!
+    title: String!
+    updatedAt: DateTime!
+    yearUpdated: Int!
+}
+
+input CourseCreatecourseUrlsInput {
+    set: [String!]!
+}
+
+input CourseInstructorCountOrderByAggregateInput {
+    courseId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    instructorId: SortOrder
+    updatedAt: SortOrder
+}
+
+input CourseInstructorCreateInput {
+    Course: CourseCreateNestedOneWithoutCourseInstructorInput!
+    Person: PersonCreateNestedOneWithoutCourseInstructorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input CourseInstructorCreateManyCourseInput {
+    createdAt: DateTime
+    id: String!
+    instructorId: String!
+    updatedAt: DateTime!
+}
+
+input CourseInstructorCreateManyCourseInputEnvelope {
+    data: [CourseInstructorCreateManyCourseInput!]!
+    skipDuplicates: Boolean
+}
+
+input CourseInstructorCreateManyInput {
+    courseId: String!
+    createdAt: DateTime
+    id: String!
+    instructorId: String!
+    updatedAt: DateTime!
+}
+
+input CourseInstructorCreateManyPersonInput {
+    courseId: String!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input CourseInstructorCreateManyPersonInputEnvelope {
+    data: [CourseInstructorCreateManyPersonInput!]!
+    skipDuplicates: Boolean
+}
+
+input CourseInstructorCreateNestedManyWithoutCourseInput {
+    connect: [CourseInstructorWhereUniqueInput!]
+    connectOrCreate: [CourseInstructorCreateOrConnectWithoutCourseInput!]
+    create: [CourseInstructorCreateWithoutCourseInput!]
+    createMany: CourseInstructorCreateManyCourseInputEnvelope
+}
+
+input CourseInstructorCreateNestedManyWithoutPersonInput {
+    connect: [CourseInstructorWhereUniqueInput!]
+    connectOrCreate: [CourseInstructorCreateOrConnectWithoutPersonInput!]
+    create: [CourseInstructorCreateWithoutPersonInput!]
+    createMany: CourseInstructorCreateManyPersonInputEnvelope
+}
+
+input CourseInstructorCreateOrConnectWithoutCourseInput {
+    create: CourseInstructorCreateWithoutCourseInput!
+    where: CourseInstructorWhereUniqueInput!
+}
+
+input CourseInstructorCreateOrConnectWithoutPersonInput {
+    create: CourseInstructorCreateWithoutPersonInput!
+    where: CourseInstructorWhereUniqueInput!
+}
+
+input CourseInstructorCreateWithoutCourseInput {
+    Person: PersonCreateNestedOneWithoutCourseInstructorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input CourseInstructorCreateWithoutPersonInput {
+    Course: CourseCreateNestedOneWithoutCourseInstructorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input CourseInstructorListRelationFilter {
+    every: CourseInstructorWhereInput
+    none: CourseInstructorWhereInput
+    some: CourseInstructorWhereInput
+}
+
+input CourseInstructorMaxOrderByAggregateInput {
+    courseId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    instructorId: SortOrder
+    updatedAt: SortOrder
+}
+
+input CourseInstructorMinOrderByAggregateInput {
+    courseId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    instructorId: SortOrder
+    updatedAt: SortOrder
+}
+
+input CourseInstructorOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input CourseInstructorOrderByWithAggregationInput {
+    _count: CourseInstructorCountOrderByAggregateInput
+    _max: CourseInstructorMaxOrderByAggregateInput
+    _min: CourseInstructorMinOrderByAggregateInput
+    courseId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    instructorId: SortOrder
+    updatedAt: SortOrder
+}
+
+input CourseInstructorOrderByWithRelationInput {
+    Course: CourseOrderByWithRelationInput
+    Person: PersonOrderByWithRelationInput
+    courseId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    instructorId: SortOrder
+    updatedAt: SortOrder
+}
+
+input CourseInstructorScalarWhereInput {
+    AND: [CourseInstructorScalarWhereInput!]
+    NOT: [CourseInstructorScalarWhereInput!]
+    OR: [CourseInstructorScalarWhereInput!]
+    courseId: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    instructorId: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input CourseInstructorScalarWhereWithAggregatesInput {
+    AND: [CourseInstructorScalarWhereWithAggregatesInput!]
+    NOT: [CourseInstructorScalarWhereWithAggregatesInput!]
+    OR: [CourseInstructorScalarWhereWithAggregatesInput!]
+    courseId: StringWithAggregatesFilter
+    createdAt: DateTimeWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    instructorId: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+}
+
+input CourseInstructorUpdateInput {
+    Course: CourseUpdateOneRequiredWithoutCourseInstructorInput
+    Person: PersonUpdateOneRequiredWithoutCourseInstructorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CourseInstructorUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CourseInstructorUpdateManyWithWhereWithoutCourseInput {
+    data: CourseInstructorUpdateManyMutationInput!
+    where: CourseInstructorScalarWhereInput!
+}
+
+input CourseInstructorUpdateManyWithWhereWithoutPersonInput {
+    data: CourseInstructorUpdateManyMutationInput!
+    where: CourseInstructorScalarWhereInput!
+}
+
+input CourseInstructorUpdateManyWithoutCourseInput {
+    connect: [CourseInstructorWhereUniqueInput!]
+    connectOrCreate: [CourseInstructorCreateOrConnectWithoutCourseInput!]
+    create: [CourseInstructorCreateWithoutCourseInput!]
+    createMany: CourseInstructorCreateManyCourseInputEnvelope
+    delete: [CourseInstructorWhereUniqueInput!]
+    deleteMany: [CourseInstructorScalarWhereInput!]
+    disconnect: [CourseInstructorWhereUniqueInput!]
+    set: [CourseInstructorWhereUniqueInput!]
+    update: [CourseInstructorUpdateWithWhereUniqueWithoutCourseInput!]
+    updateMany: [CourseInstructorUpdateManyWithWhereWithoutCourseInput!]
+    upsert: [CourseInstructorUpsertWithWhereUniqueWithoutCourseInput!]
+}
+
+input CourseInstructorUpdateManyWithoutPersonInput {
+    connect: [CourseInstructorWhereUniqueInput!]
+    connectOrCreate: [CourseInstructorCreateOrConnectWithoutPersonInput!]
+    create: [CourseInstructorCreateWithoutPersonInput!]
+    createMany: CourseInstructorCreateManyPersonInputEnvelope
+    delete: [CourseInstructorWhereUniqueInput!]
+    deleteMany: [CourseInstructorScalarWhereInput!]
+    disconnect: [CourseInstructorWhereUniqueInput!]
+    set: [CourseInstructorWhereUniqueInput!]
+    update: [CourseInstructorUpdateWithWhereUniqueWithoutPersonInput!]
+    updateMany: [CourseInstructorUpdateManyWithWhereWithoutPersonInput!]
+    upsert: [CourseInstructorUpsertWithWhereUniqueWithoutPersonInput!]
+}
+
+input CourseInstructorUpdateWithWhereUniqueWithoutCourseInput {
+    data: CourseInstructorUpdateWithoutCourseInput!
+    where: CourseInstructorWhereUniqueInput!
+}
+
+input CourseInstructorUpdateWithWhereUniqueWithoutPersonInput {
+    data: CourseInstructorUpdateWithoutPersonInput!
+    where: CourseInstructorWhereUniqueInput!
+}
+
+input CourseInstructorUpdateWithoutCourseInput {
+    Person: PersonUpdateOneRequiredWithoutCourseInstructorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CourseInstructorUpdateWithoutPersonInput {
+    Course: CourseUpdateOneRequiredWithoutCourseInstructorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input CourseInstructorUpsertWithWhereUniqueWithoutCourseInput {
+    create: CourseInstructorCreateWithoutCourseInput!
+    update: CourseInstructorUpdateWithoutCourseInput!
+    where: CourseInstructorWhereUniqueInput!
+}
+
+input CourseInstructorUpsertWithWhereUniqueWithoutPersonInput {
+    create: CourseInstructorCreateWithoutPersonInput!
+    update: CourseInstructorUpdateWithoutPersonInput!
+    where: CourseInstructorWhereUniqueInput!
+}
+
+input CourseInstructorWhereInput {
+    AND: [CourseInstructorWhereInput!]
+    Course: CourseRelationFilter
+    NOT: [CourseInstructorWhereInput!]
+    OR: [CourseInstructorWhereInput!]
+    Person: PersonRelationFilter
+    courseId: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    instructorId: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input CourseInstructorWhereUniqueInput {
+    id: String
+}
+
+input CourseListRelationFilter {
+    every: CourseWhereInput
+    none: CourseWhereInput
+    some: CourseWhereInput
+}
+
+input CourseMaxOrderByAggregateInput {
+    complete: SortOrder
+    createdAt: SortOrder
+    duration: SortOrder
+    id: SortOrder
+    order: SortOrder
+    rating: SortOrder
+    ratingUrl: SortOrder
+    recommended: SortOrder
+    schoolId: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+    yearUpdated: SortOrder
+}
+
+input CourseMinOrderByAggregateInput {
+    complete: SortOrder
+    createdAt: SortOrder
+    duration: SortOrder
+    id: SortOrder
+    order: SortOrder
+    rating: SortOrder
+    ratingUrl: SortOrder
+    recommended: SortOrder
+    schoolId: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+    yearUpdated: SortOrder
+}
+
+input CourseOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input CourseOrderByWithAggregationInput {
+    _avg: CourseAvgOrderByAggregateInput
+    _count: CourseCountOrderByAggregateInput
+    _max: CourseMaxOrderByAggregateInput
+    _min: CourseMinOrderByAggregateInput
+    _sum: CourseSumOrderByAggregateInput
+    complete: SortOrder
+    courseUrls: SortOrder
+    createdAt: SortOrder
+    duration: SortOrder
+    id: SortOrder
+    order: SortOrder
+    rating: SortOrder
+    ratingUrl: SortOrder
+    recommended: SortOrder
+    schoolId: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+    yearUpdated: SortOrder
+}
+
+input CourseOrderByWithRelationInput {
+    CourseInstructor: CourseInstructorOrderByRelationAggregateInput
+    School: SchoolOrderByWithRelationInput
+    complete: SortOrder
+    courseUrls: SortOrder
+    createdAt: SortOrder
+    duration: SortOrder
+    id: SortOrder
+    order: SortOrder
+    rating: SortOrder
+    ratingUrl: SortOrder
+    recommended: SortOrder
+    schoolId: SortOrder
+    title: SortOrder
+    updatedAt: SortOrder
+    yearUpdated: SortOrder
+}
+
+input CourseRelationFilter {
+    is: CourseWhereInput
+    isNot: CourseWhereInput
+}
+
+input CourseScalarWhereInput {
+    AND: [CourseScalarWhereInput!]
+    NOT: [CourseScalarWhereInput!]
+    OR: [CourseScalarWhereInput!]
+    complete: BoolFilter
+    courseUrls: StringNullableListFilter
+    createdAt: DateTimeFilter
+    duration: FloatFilter
+    id: StringFilter
+    order: IntFilter
+    rating: EnumRatingNullableFilter
+    ratingUrl: StringNullableFilter
+    recommended: BoolFilter
+    schoolId: StringFilter
+    title: StringFilter
+    updatedAt: DateTimeFilter
+    yearUpdated: IntFilter
+}
+
+input CourseScalarWhereWithAggregatesInput {
+    AND: [CourseScalarWhereWithAggregatesInput!]
+    NOT: [CourseScalarWhereWithAggregatesInput!]
+    OR: [CourseScalarWhereWithAggregatesInput!]
+    complete: BoolWithAggregatesFilter
+    courseUrls: StringNullableListFilter
+    createdAt: DateTimeWithAggregatesFilter
+    duration: FloatWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    order: IntWithAggregatesFilter
+    rating: EnumRatingNullableWithAggregatesFilter
+    ratingUrl: StringNullableWithAggregatesFilter
+    recommended: BoolWithAggregatesFilter
+    schoolId: StringWithAggregatesFilter
+    title: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+    yearUpdated: IntWithAggregatesFilter
+}
+
+input CourseSumOrderByAggregateInput {
+    duration: SortOrder
+    order: SortOrder
+    yearUpdated: SortOrder
+}
+
+input CourseUpdateInput {
+    CourseInstructor: CourseInstructorUpdateManyWithoutCourseInput
+    School: SchoolUpdateOneRequiredWithoutCourseInput
+    complete: BoolFieldUpdateOperationsInput
+    courseUrls: CourseUpdatecourseUrlsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    duration: FloatFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    order: IntFieldUpdateOperationsInput
+    rating: NullableEnumRatingFieldUpdateOperationsInput
+    ratingUrl: NullableStringFieldUpdateOperationsInput
+    recommended: BoolFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    yearUpdated: IntFieldUpdateOperationsInput
+}
+
+input CourseUpdateManyMutationInput {
+    complete: BoolFieldUpdateOperationsInput
+    courseUrls: CourseUpdatecourseUrlsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    duration: FloatFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    order: IntFieldUpdateOperationsInput
+    rating: NullableEnumRatingFieldUpdateOperationsInput
+    ratingUrl: NullableStringFieldUpdateOperationsInput
+    recommended: BoolFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    yearUpdated: IntFieldUpdateOperationsInput
+}
+
+input CourseUpdateManyWithWhereWithoutSchoolInput {
+    data: CourseUpdateManyMutationInput!
+    where: CourseScalarWhereInput!
+}
+
+input CourseUpdateManyWithoutSchoolInput {
+    connect: [CourseWhereUniqueInput!]
+    connectOrCreate: [CourseCreateOrConnectWithoutSchoolInput!]
+    create: [CourseCreateWithoutSchoolInput!]
+    createMany: CourseCreateManySchoolInputEnvelope
+    delete: [CourseWhereUniqueInput!]
+    deleteMany: [CourseScalarWhereInput!]
+    disconnect: [CourseWhereUniqueInput!]
+    set: [CourseWhereUniqueInput!]
+    update: [CourseUpdateWithWhereUniqueWithoutSchoolInput!]
+    updateMany: [CourseUpdateManyWithWhereWithoutSchoolInput!]
+    upsert: [CourseUpsertWithWhereUniqueWithoutSchoolInput!]
+}
+
+input CourseUpdateOneRequiredWithoutCourseInstructorInput {
+    connect: CourseWhereUniqueInput
+    connectOrCreate: CourseCreateOrConnectWithoutCourseInstructorInput
+    create: CourseCreateWithoutCourseInstructorInput
+    update: CourseUpdateWithoutCourseInstructorInput
+    upsert: CourseUpsertWithoutCourseInstructorInput
+}
+
+input CourseUpdateWithWhereUniqueWithoutSchoolInput {
+    data: CourseUpdateWithoutSchoolInput!
+    where: CourseWhereUniqueInput!
+}
+
+input CourseUpdateWithoutCourseInstructorInput {
+    School: SchoolUpdateOneRequiredWithoutCourseInput
+    complete: BoolFieldUpdateOperationsInput
+    courseUrls: CourseUpdatecourseUrlsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    duration: FloatFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    order: IntFieldUpdateOperationsInput
+    rating: NullableEnumRatingFieldUpdateOperationsInput
+    ratingUrl: NullableStringFieldUpdateOperationsInput
+    recommended: BoolFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    yearUpdated: IntFieldUpdateOperationsInput
+}
+
+input CourseUpdateWithoutSchoolInput {
+    CourseInstructor: CourseInstructorUpdateManyWithoutCourseInput
+    complete: BoolFieldUpdateOperationsInput
+    courseUrls: CourseUpdatecourseUrlsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    duration: FloatFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    order: IntFieldUpdateOperationsInput
+    rating: NullableEnumRatingFieldUpdateOperationsInput
+    ratingUrl: NullableStringFieldUpdateOperationsInput
+    recommended: BoolFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    yearUpdated: IntFieldUpdateOperationsInput
+}
+
+input CourseUpdatecourseUrlsInput {
+    push: [String!]
+    set: [String!]
+}
+
+input CourseUpsertWithWhereUniqueWithoutSchoolInput {
+    create: CourseCreateWithoutSchoolInput!
+    update: CourseUpdateWithoutSchoolInput!
+    where: CourseWhereUniqueInput!
+}
+
+input CourseUpsertWithoutCourseInstructorInput {
+    create: CourseCreateWithoutCourseInstructorInput!
+    update: CourseUpdateWithoutCourseInstructorInput!
+}
+
+input CourseWhereInput {
+    AND: [CourseWhereInput!]
+    CourseInstructor: CourseInstructorListRelationFilter
+    NOT: [CourseWhereInput!]
+    OR: [CourseWhereInput!]
+    School: SchoolRelationFilter
+    complete: BoolFilter
+    courseUrls: StringNullableListFilter
+    createdAt: DateTimeFilter
+    duration: FloatFilter
+    id: StringFilter
+    order: IntFilter
+    rating: EnumRatingNullableFilter
+    ratingUrl: StringNullableFilter
+    recommended: BoolFilter
+    schoolId: StringFilter
+    title: StringFilter
+    updatedAt: DateTimeFilter
+    yearUpdated: IntFilter
+}
+
+input CourseWhereUniqueInput {
+    id: String
+}
+
+input DateTimeFieldUpdateOperationsInput {
+    set: DateTime
+}
+
+input DateTimeFilter {
+    equals: DateTime
+    gt: DateTime
+    gte: DateTime
+    in: [DateTime!]
+    lt: DateTime
+    lte: DateTime
+    not: NestedDateTimeFilter
+    notIn: [DateTime!]
+}
+
+input DateTimeWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedDateTimeFilter
+    _min: NestedDateTimeFilter
+    equals: DateTime
+    gt: DateTime
+    gte: DateTime
+    in: [DateTime!]
+    lt: DateTime
+    lte: DateTime
+    not: NestedDateTimeWithAggregatesFilter
+    notIn: [DateTime!]
+}
+
+input EnumRatingNullableFilter {
+    equals: Rating
+    in: [Rating!]
+    not: NestedEnumRatingNullableFilter
+    notIn: [Rating!]
+}
+
+input EnumRatingNullableWithAggregatesFilter {
+    _count: NestedIntNullableFilter
+    _max: NestedEnumRatingNullableFilter
+    _min: NestedEnumRatingNullableFilter
+    equals: Rating
+    in: [Rating!]
+    not: NestedEnumRatingNullableWithAggregatesFilter
+    notIn: [Rating!]
+}
+
+input EnumRoleFieldUpdateOperationsInput {
+    set: Role
+}
+
+input EnumRoleFilter {
+    equals: Role
+    in: [Role!]
+    not: NestedEnumRoleFilter
+    notIn: [Role!]
+}
+
+input EnumRoleWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedEnumRoleFilter
+    _min: NestedEnumRoleFilter
+    equals: Role
+    in: [Role!]
+    not: NestedEnumRoleWithAggregatesFilter
+    notIn: [Role!]
+}
+
+input FloatFieldUpdateOperationsInput {
+    decrement: Float
+    divide: Float
+    increment: Float
+    multiply: Float
+    set: Float
+}
+
+input FloatFilter {
+    equals: Float
+    gt: Float
+    gte: Float
+    in: [Float!]
+    lt: Float
+    lte: Float
+    not: NestedFloatFilter
+    notIn: [Float!]
+}
+
+input FloatWithAggregatesFilter {
+    _avg: NestedFloatFilter
+    _count: NestedIntFilter
+    _max: NestedFloatFilter
+    _min: NestedFloatFilter
+    _sum: NestedFloatFilter
+    equals: Float
+    gt: Float
+    gte: Float
+    in: [Float!]
+    lt: Float
+    lte: Float
+    not: NestedFloatWithAggregatesFilter
+    notIn: [Float!]
+}
+
+input ImageCountOrderByAggregateInput {
+    altText: SortOrder
+    createdAt: SortOrder
+    height: SortOrder
+    id: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+    width: SortOrder
+}
+
+input ImageCreateInput {
+    Blog: BlogCreateNestedManyWithoutImageInput
+    Person: PersonCreateNestedManyWithoutImageInput
+    Project: ProjectCreateNestedManyWithoutImageInput
+    School: SchoolCreateNestedManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+    altText: String!
+    createdAt: DateTime
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+input ImageCreateManyInput {
+    altText: String!
+    createdAt: DateTime
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+input ImageCreateNestedOneWithoutBlogInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutBlogInput
+    create: ImageCreateWithoutBlogInput
+}
+
+input ImageCreateNestedOneWithoutPersonInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutPersonInput
+    create: ImageCreateWithoutPersonInput
+}
+
+input ImageCreateNestedOneWithoutProjectInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutProjectInput
+    create: ImageCreateWithoutProjectInput
+}
+
+input ImageCreateNestedOneWithoutSchoolInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutSchoolInput
+    create: ImageCreateWithoutSchoolInput
+}
+
+input ImageCreateNestedOneWithoutTechnologyLogoInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutTechnologyLogoInput
+    create: ImageCreateWithoutTechnologyLogoInput
+}
+
+input ImageCreateOrConnectWithoutBlogInput {
+    create: ImageCreateWithoutBlogInput!
+    where: ImageWhereUniqueInput!
+}
+
+input ImageCreateOrConnectWithoutPersonInput {
+    create: ImageCreateWithoutPersonInput!
+    where: ImageWhereUniqueInput!
+}
+
+input ImageCreateOrConnectWithoutProjectInput {
+    create: ImageCreateWithoutProjectInput!
+    where: ImageWhereUniqueInput!
+}
+
+input ImageCreateOrConnectWithoutSchoolInput {
+    create: ImageCreateWithoutSchoolInput!
+    where: ImageWhereUniqueInput!
+}
+
+input ImageCreateOrConnectWithoutTechnologyLogoInput {
+    create: ImageCreateWithoutTechnologyLogoInput!
+    where: ImageWhereUniqueInput!
+}
+
+input ImageCreateWithoutBlogInput {
+    Person: PersonCreateNestedManyWithoutImageInput
+    Project: ProjectCreateNestedManyWithoutImageInput
+    School: SchoolCreateNestedManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+    altText: String!
+    createdAt: DateTime
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+input ImageCreateWithoutPersonInput {
+    Blog: BlogCreateNestedManyWithoutImageInput
+    Project: ProjectCreateNestedManyWithoutImageInput
+    School: SchoolCreateNestedManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+    altText: String!
+    createdAt: DateTime
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+input ImageCreateWithoutProjectInput {
+    Blog: BlogCreateNestedManyWithoutImageInput
+    Person: PersonCreateNestedManyWithoutImageInput
+    School: SchoolCreateNestedManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+    altText: String!
+    createdAt: DateTime
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+input ImageCreateWithoutSchoolInput {
+    Blog: BlogCreateNestedManyWithoutImageInput
+    Person: PersonCreateNestedManyWithoutImageInput
+    Project: ProjectCreateNestedManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+    altText: String!
+    createdAt: DateTime
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+input ImageCreateWithoutTechnologyLogoInput {
+    Blog: BlogCreateNestedManyWithoutImageInput
+    Person: PersonCreateNestedManyWithoutImageInput
+    Project: ProjectCreateNestedManyWithoutImageInput
+    School: SchoolCreateNestedManyWithoutImageInput
+    altText: String!
+    createdAt: DateTime
+    height: String!
+    id: String!
+    updatedAt: DateTime!
+    url: String!
+    width: String!
+}
+
+input ImageMaxOrderByAggregateInput {
+    altText: SortOrder
+    createdAt: SortOrder
+    height: SortOrder
+    id: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+    width: SortOrder
+}
+
+input ImageMinOrderByAggregateInput {
+    altText: SortOrder
+    createdAt: SortOrder
+    height: SortOrder
+    id: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+    width: SortOrder
+}
+
+input ImageOrderByWithAggregationInput {
+    _count: ImageCountOrderByAggregateInput
+    _max: ImageMaxOrderByAggregateInput
+    _min: ImageMinOrderByAggregateInput
+    altText: SortOrder
+    createdAt: SortOrder
+    height: SortOrder
+    id: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+    width: SortOrder
+}
+
+input ImageOrderByWithRelationInput {
+    Blog: BlogOrderByRelationAggregateInput
+    Person: PersonOrderByRelationAggregateInput
+    Project: ProjectOrderByRelationAggregateInput
+    School: SchoolOrderByRelationAggregateInput
+    TechnologyLogo: TechnologyLogoOrderByWithRelationInput
+    altText: SortOrder
+    createdAt: SortOrder
+    height: SortOrder
+    id: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+    width: SortOrder
+}
+
+input ImageRelationFilter {
+    is: ImageWhereInput
+    isNot: ImageWhereInput
+}
+
+input ImageScalarWhereWithAggregatesInput {
+    AND: [ImageScalarWhereWithAggregatesInput!]
+    NOT: [ImageScalarWhereWithAggregatesInput!]
+    OR: [ImageScalarWhereWithAggregatesInput!]
+    altText: StringWithAggregatesFilter
+    createdAt: DateTimeWithAggregatesFilter
+    height: StringWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+    url: StringWithAggregatesFilter
+    width: StringWithAggregatesFilter
+}
+
+input ImageUpdateInput {
+    Blog: BlogUpdateManyWithoutImageInput
+    Person: PersonUpdateManyWithoutImageInput
+    Project: ProjectUpdateManyWithoutImageInput
+    School: SchoolUpdateManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+    altText: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    height: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+    width: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateManyMutationInput {
+    altText: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    height: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+    width: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateOneRequiredWithoutBlogInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutBlogInput
+    create: ImageCreateWithoutBlogInput
+    update: ImageUpdateWithoutBlogInput
+    upsert: ImageUpsertWithoutBlogInput
+}
+
+input ImageUpdateOneRequiredWithoutProjectInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutProjectInput
+    create: ImageCreateWithoutProjectInput
+    update: ImageUpdateWithoutProjectInput
+    upsert: ImageUpsertWithoutProjectInput
+}
+
+input ImageUpdateOneRequiredWithoutSchoolInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutSchoolInput
+    create: ImageCreateWithoutSchoolInput
+    update: ImageUpdateWithoutSchoolInput
+    upsert: ImageUpsertWithoutSchoolInput
+}
+
+input ImageUpdateOneRequiredWithoutTechnologyLogoInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutTechnologyLogoInput
+    create: ImageCreateWithoutTechnologyLogoInput
+    update: ImageUpdateWithoutTechnologyLogoInput
+    upsert: ImageUpsertWithoutTechnologyLogoInput
+}
+
+input ImageUpdateOneWithoutPersonInput {
+    connect: ImageWhereUniqueInput
+    connectOrCreate: ImageCreateOrConnectWithoutPersonInput
+    create: ImageCreateWithoutPersonInput
+    delete: Boolean
+    disconnect: Boolean
+    update: ImageUpdateWithoutPersonInput
+    upsert: ImageUpsertWithoutPersonInput
+}
+
+input ImageUpdateWithoutBlogInput {
+    Person: PersonUpdateManyWithoutImageInput
+    Project: ProjectUpdateManyWithoutImageInput
+    School: SchoolUpdateManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+    altText: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    height: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+    width: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateWithoutPersonInput {
+    Blog: BlogUpdateManyWithoutImageInput
+    Project: ProjectUpdateManyWithoutImageInput
+    School: SchoolUpdateManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+    altText: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    height: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+    width: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateWithoutProjectInput {
+    Blog: BlogUpdateManyWithoutImageInput
+    Person: PersonUpdateManyWithoutImageInput
+    School: SchoolUpdateManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+    altText: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    height: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+    width: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateWithoutSchoolInput {
+    Blog: BlogUpdateManyWithoutImageInput
+    Person: PersonUpdateManyWithoutImageInput
+    Project: ProjectUpdateManyWithoutImageInput
+    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+    altText: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    height: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+    width: StringFieldUpdateOperationsInput
+}
+
+input ImageUpdateWithoutTechnologyLogoInput {
+    Blog: BlogUpdateManyWithoutImageInput
+    Person: PersonUpdateManyWithoutImageInput
+    Project: ProjectUpdateManyWithoutImageInput
+    School: SchoolUpdateManyWithoutImageInput
+    altText: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    height: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+    width: StringFieldUpdateOperationsInput
+}
+
+input ImageUpsertWithoutBlogInput {
+    create: ImageCreateWithoutBlogInput!
+    update: ImageUpdateWithoutBlogInput!
+}
+
+input ImageUpsertWithoutPersonInput {
+    create: ImageCreateWithoutPersonInput!
+    update: ImageUpdateWithoutPersonInput!
+}
+
+input ImageUpsertWithoutProjectInput {
+    create: ImageCreateWithoutProjectInput!
+    update: ImageUpdateWithoutProjectInput!
+}
+
+input ImageUpsertWithoutSchoolInput {
+    create: ImageCreateWithoutSchoolInput!
+    update: ImageUpdateWithoutSchoolInput!
+}
+
+input ImageUpsertWithoutTechnologyLogoInput {
+    create: ImageCreateWithoutTechnologyLogoInput!
+    update: ImageUpdateWithoutTechnologyLogoInput!
+}
+
+input ImageWhereInput {
+    AND: [ImageWhereInput!]
+    Blog: BlogListRelationFilter
+    NOT: [ImageWhereInput!]
+    OR: [ImageWhereInput!]
+    Person: PersonListRelationFilter
+    Project: ProjectListRelationFilter
+    School: SchoolListRelationFilter
+    TechnologyLogo: TechnologyLogoRelationFilter
+    altText: StringFilter
+    createdAt: DateTimeFilter
+    height: StringFilter
+    id: StringFilter
+    updatedAt: DateTimeFilter
+    url: StringFilter
+    width: StringFilter
+}
+
+input ImageWhereUniqueInput {
+    id: String
+    url: String
+}
+
+input IntFieldUpdateOperationsInput {
+    decrement: Int
+    divide: Int
+    increment: Int
+    multiply: Int
+    set: Int
+}
+
+input IntFilter {
+    equals: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    not: NestedIntFilter
+    notIn: [Int!]
+}
+
+input IntWithAggregatesFilter {
+    _avg: NestedFloatFilter
+    _count: NestedIntFilter
+    _max: NestedIntFilter
+    _min: NestedIntFilter
+    _sum: NestedIntFilter
+    equals: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    not: NestedIntWithAggregatesFilter
+    notIn: [Int!]
+}
+
+input NestedBoolFilter {
+    equals: Boolean
+    not: NestedBoolFilter
+}
+
+input NestedBoolWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedBoolFilter
+    _min: NestedBoolFilter
+    equals: Boolean
+    not: NestedBoolWithAggregatesFilter
+}
+
+input NestedDateTimeFilter {
+    equals: DateTime
+    gt: DateTime
+    gte: DateTime
+    in: [DateTime!]
+    lt: DateTime
+    lte: DateTime
+    not: NestedDateTimeFilter
+    notIn: [DateTime!]
+}
+
+input NestedDateTimeWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedDateTimeFilter
+    _min: NestedDateTimeFilter
+    equals: DateTime
+    gt: DateTime
+    gte: DateTime
+    in: [DateTime!]
+    lt: DateTime
+    lte: DateTime
+    not: NestedDateTimeWithAggregatesFilter
+    notIn: [DateTime!]
+}
+
+input NestedEnumRatingNullableFilter {
+    equals: Rating
+    in: [Rating!]
+    not: NestedEnumRatingNullableFilter
+    notIn: [Rating!]
+}
+
+input NestedEnumRatingNullableWithAggregatesFilter {
+    _count: NestedIntNullableFilter
+    _max: NestedEnumRatingNullableFilter
+    _min: NestedEnumRatingNullableFilter
+    equals: Rating
+    in: [Rating!]
+    not: NestedEnumRatingNullableWithAggregatesFilter
+    notIn: [Rating!]
+}
+
+input NestedEnumRoleFilter {
+    equals: Role
+    in: [Role!]
+    not: NestedEnumRoleFilter
+    notIn: [Role!]
+}
+
+input NestedEnumRoleWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedEnumRoleFilter
+    _min: NestedEnumRoleFilter
+    equals: Role
+    in: [Role!]
+    not: NestedEnumRoleWithAggregatesFilter
+    notIn: [Role!]
+}
+
+input NestedFloatFilter {
+    equals: Float
+    gt: Float
+    gte: Float
+    in: [Float!]
+    lt: Float
+    lte: Float
+    not: NestedFloatFilter
+    notIn: [Float!]
+}
+
+input NestedFloatWithAggregatesFilter {
+    _avg: NestedFloatFilter
+    _count: NestedIntFilter
+    _max: NestedFloatFilter
+    _min: NestedFloatFilter
+    _sum: NestedFloatFilter
+    equals: Float
+    gt: Float
+    gte: Float
+    in: [Float!]
+    lt: Float
+    lte: Float
+    not: NestedFloatWithAggregatesFilter
+    notIn: [Float!]
+}
+
+input NestedIntFilter {
+    equals: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    not: NestedIntFilter
+    notIn: [Int!]
+}
+
+input NestedIntNullableFilter {
+    equals: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    not: NestedIntNullableFilter
+    notIn: [Int!]
+}
+
+input NestedIntWithAggregatesFilter {
+    _avg: NestedFloatFilter
+    _count: NestedIntFilter
+    _max: NestedIntFilter
+    _min: NestedIntFilter
+    _sum: NestedIntFilter
+    equals: Int
+    gt: Int
+    gte: Int
+    in: [Int!]
+    lt: Int
+    lte: Int
+    not: NestedIntWithAggregatesFilter
+    notIn: [Int!]
+}
+
+input NestedStringFilter {
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    not: NestedStringFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input NestedStringNullableFilter {
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    not: NestedStringNullableFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input NestedStringNullableWithAggregatesFilter {
+    _count: NestedIntNullableFilter
+    _max: NestedStringNullableFilter
+    _min: NestedStringNullableFilter
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    not: NestedStringNullableWithAggregatesFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input NestedStringWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedStringFilter
+    _min: NestedStringFilter
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    not: NestedStringWithAggregatesFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input NullableEnumRatingFieldUpdateOperationsInput {
+    set: Rating
+}
+
+input NullableStringFieldUpdateOperationsInput {
+    set: String
+}
+
+input PersonCountOrderByAggregateInput {
+    createdAt: SortOrder
+    firstName: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    lastName: SortOrder
+    linkedinUrl: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+    websiteUrl: SortOrder
+}
+
+input PersonCreateInput {
+    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
+    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
+    Image: ImageCreateNestedOneWithoutPersonInput
+    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+    User: UserCreateNestedManyWithoutPersonInput
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonCreateManyImageInput {
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonCreateManyImageInputEnvelope {
+    data: [PersonCreateManyImageInput!]!
+    skipDuplicates: Boolean
+}
+
+input PersonCreateManyInput {
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    imageId: String
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonCreateNestedManyWithoutImageInput {
+    connect: [PersonWhereUniqueInput!]
+    connectOrCreate: [PersonCreateOrConnectWithoutImageInput!]
+    create: [PersonCreateWithoutImageInput!]
+    createMany: PersonCreateManyImageInputEnvelope
+}
+
+input PersonCreateNestedOneWithoutBlogAuthorInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutBlogAuthorInput
+    create: PersonCreateWithoutBlogAuthorInput
+}
+
+input PersonCreateNestedOneWithoutCourseInstructorInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutCourseInstructorInput
+    create: PersonCreateWithoutCourseInstructorInput
+}
+
+input PersonCreateNestedOneWithoutProjectContributorInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutProjectContributorInput
+    create: PersonCreateWithoutProjectContributorInput
+}
+
+input PersonCreateNestedOneWithoutUserInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutUserInput
+    create: PersonCreateWithoutUserInput
+}
+
+input PersonCreateOrConnectWithoutBlogAuthorInput {
+    create: PersonCreateWithoutBlogAuthorInput!
+    where: PersonWhereUniqueInput!
+}
+
+input PersonCreateOrConnectWithoutCourseInstructorInput {
+    create: PersonCreateWithoutCourseInstructorInput!
+    where: PersonWhereUniqueInput!
+}
+
+input PersonCreateOrConnectWithoutImageInput {
+    create: PersonCreateWithoutImageInput!
+    where: PersonWhereUniqueInput!
+}
+
+input PersonCreateOrConnectWithoutProjectContributorInput {
+    create: PersonCreateWithoutProjectContributorInput!
+    where: PersonWhereUniqueInput!
+}
+
+input PersonCreateOrConnectWithoutUserInput {
+    create: PersonCreateWithoutUserInput!
+    where: PersonWhereUniqueInput!
+}
+
+input PersonCreateWithoutBlogAuthorInput {
+    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
+    Image: ImageCreateNestedOneWithoutPersonInput
+    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+    User: UserCreateNestedManyWithoutPersonInput
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonCreateWithoutCourseInstructorInput {
+    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
+    Image: ImageCreateNestedOneWithoutPersonInput
+    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+    User: UserCreateNestedManyWithoutPersonInput
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonCreateWithoutImageInput {
+    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
+    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
+    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+    User: UserCreateNestedManyWithoutPersonInput
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonCreateWithoutProjectContributorInput {
+    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
+    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
+    Image: ImageCreateNestedOneWithoutPersonInput
+    User: UserCreateNestedManyWithoutPersonInput
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonCreateWithoutUserInput {
+    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
+    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
+    Image: ImageCreateNestedOneWithoutPersonInput
+    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+    createdAt: DateTime
+    firstName: String!
+    githubUrl: String
+    id: String!
+    lastName: String!
+    linkedinUrl: String
+    summary: String
+    updatedAt: DateTime!
+    websiteUrl: String
+}
+
+input PersonListRelationFilter {
+    every: PersonWhereInput
+    none: PersonWhereInput
+    some: PersonWhereInput
+}
+
+input PersonMaxOrderByAggregateInput {
+    createdAt: SortOrder
+    firstName: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    lastName: SortOrder
+    linkedinUrl: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+    websiteUrl: SortOrder
+}
+
+input PersonMinOrderByAggregateInput {
+    createdAt: SortOrder
+    firstName: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    lastName: SortOrder
+    linkedinUrl: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+    websiteUrl: SortOrder
+}
+
+input PersonOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input PersonOrderByWithAggregationInput {
+    _count: PersonCountOrderByAggregateInput
+    _max: PersonMaxOrderByAggregateInput
+    _min: PersonMinOrderByAggregateInput
+    createdAt: SortOrder
+    firstName: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    lastName: SortOrder
+    linkedinUrl: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+    websiteUrl: SortOrder
+}
+
+input PersonOrderByWithRelationInput {
+    BlogAuthor: BlogAuthorOrderByRelationAggregateInput
+    CourseInstructor: CourseInstructorOrderByRelationAggregateInput
+    Image: ImageOrderByWithRelationInput
+    ProjectContributor: ProjectContributorOrderByRelationAggregateInput
+    User: UserOrderByRelationAggregateInput
+    createdAt: SortOrder
+    firstName: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    lastName: SortOrder
+    linkedinUrl: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+    websiteUrl: SortOrder
+}
+
+input PersonRelationFilter {
+    is: PersonWhereInput
+    isNot: PersonWhereInput
+}
+
+input PersonScalarWhereInput {
+    AND: [PersonScalarWhereInput!]
+    NOT: [PersonScalarWhereInput!]
+    OR: [PersonScalarWhereInput!]
+    createdAt: DateTimeFilter
+    firstName: StringFilter
+    githubUrl: StringNullableFilter
+    id: StringFilter
+    imageId: StringNullableFilter
+    lastName: StringFilter
+    linkedinUrl: StringNullableFilter
+    summary: StringNullableFilter
+    updatedAt: DateTimeFilter
+    websiteUrl: StringNullableFilter
+}
+
+input PersonScalarWhereWithAggregatesInput {
+    AND: [PersonScalarWhereWithAggregatesInput!]
+    NOT: [PersonScalarWhereWithAggregatesInput!]
+    OR: [PersonScalarWhereWithAggregatesInput!]
+    createdAt: DateTimeWithAggregatesFilter
+    firstName: StringWithAggregatesFilter
+    githubUrl: StringNullableWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    imageId: StringNullableWithAggregatesFilter
+    lastName: StringWithAggregatesFilter
+    linkedinUrl: StringNullableWithAggregatesFilter
+    summary: StringNullableWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+    websiteUrl: StringNullableWithAggregatesFilter
+}
+
+input PersonUpdateInput {
+    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
+    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
+    Image: ImageUpdateOneWithoutPersonInput
+    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+    User: UserUpdateManyWithoutPersonInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    firstName: StringFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    lastName: StringFieldUpdateOperationsInput
+    linkedinUrl: NullableStringFieldUpdateOperationsInput
+    summary: NullableStringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    websiteUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input PersonUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    firstName: StringFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    lastName: StringFieldUpdateOperationsInput
+    linkedinUrl: NullableStringFieldUpdateOperationsInput
+    summary: NullableStringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    websiteUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input PersonUpdateManyWithWhereWithoutImageInput {
+    data: PersonUpdateManyMutationInput!
+    where: PersonScalarWhereInput!
+}
+
+input PersonUpdateManyWithoutImageInput {
+    connect: [PersonWhereUniqueInput!]
+    connectOrCreate: [PersonCreateOrConnectWithoutImageInput!]
+    create: [PersonCreateWithoutImageInput!]
+    createMany: PersonCreateManyImageInputEnvelope
+    delete: [PersonWhereUniqueInput!]
+    deleteMany: [PersonScalarWhereInput!]
+    disconnect: [PersonWhereUniqueInput!]
+    set: [PersonWhereUniqueInput!]
+    update: [PersonUpdateWithWhereUniqueWithoutImageInput!]
+    updateMany: [PersonUpdateManyWithWhereWithoutImageInput!]
+    upsert: [PersonUpsertWithWhereUniqueWithoutImageInput!]
+}
+
+input PersonUpdateOneRequiredWithoutBlogAuthorInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutBlogAuthorInput
+    create: PersonCreateWithoutBlogAuthorInput
+    update: PersonUpdateWithoutBlogAuthorInput
+    upsert: PersonUpsertWithoutBlogAuthorInput
+}
+
+input PersonUpdateOneRequiredWithoutCourseInstructorInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutCourseInstructorInput
+    create: PersonCreateWithoutCourseInstructorInput
+    update: PersonUpdateWithoutCourseInstructorInput
+    upsert: PersonUpsertWithoutCourseInstructorInput
+}
+
+input PersonUpdateOneRequiredWithoutProjectContributorInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutProjectContributorInput
+    create: PersonCreateWithoutProjectContributorInput
+    update: PersonUpdateWithoutProjectContributorInput
+    upsert: PersonUpsertWithoutProjectContributorInput
+}
+
+input PersonUpdateOneRequiredWithoutUserInput {
+    connect: PersonWhereUniqueInput
+    connectOrCreate: PersonCreateOrConnectWithoutUserInput
+    create: PersonCreateWithoutUserInput
+    update: PersonUpdateWithoutUserInput
+    upsert: PersonUpsertWithoutUserInput
+}
+
+input PersonUpdateWithWhereUniqueWithoutImageInput {
+    data: PersonUpdateWithoutImageInput!
+    where: PersonWhereUniqueInput!
+}
+
+input PersonUpdateWithoutBlogAuthorInput {
+    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
+    Image: ImageUpdateOneWithoutPersonInput
+    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+    User: UserUpdateManyWithoutPersonInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    firstName: StringFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    lastName: StringFieldUpdateOperationsInput
+    linkedinUrl: NullableStringFieldUpdateOperationsInput
+    summary: NullableStringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    websiteUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input PersonUpdateWithoutCourseInstructorInput {
+    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
+    Image: ImageUpdateOneWithoutPersonInput
+    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+    User: UserUpdateManyWithoutPersonInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    firstName: StringFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    lastName: StringFieldUpdateOperationsInput
+    linkedinUrl: NullableStringFieldUpdateOperationsInput
+    summary: NullableStringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    websiteUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input PersonUpdateWithoutImageInput {
+    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
+    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
+    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+    User: UserUpdateManyWithoutPersonInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    firstName: StringFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    lastName: StringFieldUpdateOperationsInput
+    linkedinUrl: NullableStringFieldUpdateOperationsInput
+    summary: NullableStringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    websiteUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input PersonUpdateWithoutProjectContributorInput {
+    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
+    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
+    Image: ImageUpdateOneWithoutPersonInput
+    User: UserUpdateManyWithoutPersonInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    firstName: StringFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    lastName: StringFieldUpdateOperationsInput
+    linkedinUrl: NullableStringFieldUpdateOperationsInput
+    summary: NullableStringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    websiteUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input PersonUpdateWithoutUserInput {
+    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
+    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
+    Image: ImageUpdateOneWithoutPersonInput
+    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    firstName: StringFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    lastName: StringFieldUpdateOperationsInput
+    linkedinUrl: NullableStringFieldUpdateOperationsInput
+    summary: NullableStringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    websiteUrl: NullableStringFieldUpdateOperationsInput
+}
+
+input PersonUpsertWithWhereUniqueWithoutImageInput {
+    create: PersonCreateWithoutImageInput!
+    update: PersonUpdateWithoutImageInput!
+    where: PersonWhereUniqueInput!
+}
+
+input PersonUpsertWithoutBlogAuthorInput {
+    create: PersonCreateWithoutBlogAuthorInput!
+    update: PersonUpdateWithoutBlogAuthorInput!
+}
+
+input PersonUpsertWithoutCourseInstructorInput {
+    create: PersonCreateWithoutCourseInstructorInput!
+    update: PersonUpdateWithoutCourseInstructorInput!
+}
+
+input PersonUpsertWithoutProjectContributorInput {
+    create: PersonCreateWithoutProjectContributorInput!
+    update: PersonUpdateWithoutProjectContributorInput!
+}
+
+input PersonUpsertWithoutUserInput {
+    create: PersonCreateWithoutUserInput!
+    update: PersonUpdateWithoutUserInput!
+}
+
+input PersonWhereInput {
+    AND: [PersonWhereInput!]
+    BlogAuthor: BlogAuthorListRelationFilter
+    CourseInstructor: CourseInstructorListRelationFilter
+    Image: ImageRelationFilter
+    NOT: [PersonWhereInput!]
+    OR: [PersonWhereInput!]
+    ProjectContributor: ProjectContributorListRelationFilter
+    User: UserListRelationFilter
+    createdAt: DateTimeFilter
+    firstName: StringFilter
+    githubUrl: StringNullableFilter
+    id: StringFilter
+    imageId: StringNullableFilter
+    lastName: StringFilter
+    linkedinUrl: StringNullableFilter
+    summary: StringNullableFilter
+    updatedAt: DateTimeFilter
+    websiteUrl: StringNullableFilter
+}
+
+input PersonWhereUniqueInput {
+    id: String
+}
+
+input ProjectContributorCountOrderByAggregateInput {
+    contributorId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    projectId: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectContributorCreateInput {
+    Person: PersonCreateNestedOneWithoutProjectContributorInput!
+    Project: ProjectCreateNestedOneWithoutProjectContributorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input ProjectContributorCreateManyInput {
+    contributorId: String!
+    createdAt: DateTime
+    id: String!
+    projectId: String!
+    updatedAt: DateTime!
+}
+
+input ProjectContributorCreateManyPersonInput {
+    createdAt: DateTime
+    id: String!
+    projectId: String!
+    updatedAt: DateTime!
+}
+
+input ProjectContributorCreateManyPersonInputEnvelope {
+    data: [ProjectContributorCreateManyPersonInput!]!
+    skipDuplicates: Boolean
+}
+
+input ProjectContributorCreateManyProjectInput {
+    contributorId: String!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input ProjectContributorCreateManyProjectInputEnvelope {
+    data: [ProjectContributorCreateManyProjectInput!]!
+    skipDuplicates: Boolean
+}
+
+input ProjectContributorCreateNestedManyWithoutPersonInput {
+    connect: [ProjectContributorWhereUniqueInput!]
+    connectOrCreate: [ProjectContributorCreateOrConnectWithoutPersonInput!]
+    create: [ProjectContributorCreateWithoutPersonInput!]
+    createMany: ProjectContributorCreateManyPersonInputEnvelope
+}
+
+input ProjectContributorCreateNestedManyWithoutProjectInput {
+    connect: [ProjectContributorWhereUniqueInput!]
+    connectOrCreate: [ProjectContributorCreateOrConnectWithoutProjectInput!]
+    create: [ProjectContributorCreateWithoutProjectInput!]
+    createMany: ProjectContributorCreateManyProjectInputEnvelope
+}
+
+input ProjectContributorCreateOrConnectWithoutPersonInput {
+    create: ProjectContributorCreateWithoutPersonInput!
+    where: ProjectContributorWhereUniqueInput!
+}
+
+input ProjectContributorCreateOrConnectWithoutProjectInput {
+    create: ProjectContributorCreateWithoutProjectInput!
+    where: ProjectContributorWhereUniqueInput!
+}
+
+input ProjectContributorCreateWithoutPersonInput {
+    Project: ProjectCreateNestedOneWithoutProjectContributorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input ProjectContributorCreateWithoutProjectInput {
+    Person: PersonCreateNestedOneWithoutProjectContributorInput!
+    createdAt: DateTime
+    id: String!
+    updatedAt: DateTime!
+}
+
+input ProjectContributorListRelationFilter {
+    every: ProjectContributorWhereInput
+    none: ProjectContributorWhereInput
+    some: ProjectContributorWhereInput
+}
+
+input ProjectContributorMaxOrderByAggregateInput {
+    contributorId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    projectId: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectContributorMinOrderByAggregateInput {
+    contributorId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    projectId: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectContributorOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input ProjectContributorOrderByWithAggregationInput {
+    _count: ProjectContributorCountOrderByAggregateInput
+    _max: ProjectContributorMaxOrderByAggregateInput
+    _min: ProjectContributorMinOrderByAggregateInput
+    contributorId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    projectId: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectContributorOrderByWithRelationInput {
+    Person: PersonOrderByWithRelationInput
+    Project: ProjectOrderByWithRelationInput
+    contributorId: SortOrder
+    createdAt: SortOrder
+    id: SortOrder
+    projectId: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectContributorScalarWhereInput {
+    AND: [ProjectContributorScalarWhereInput!]
+    NOT: [ProjectContributorScalarWhereInput!]
+    OR: [ProjectContributorScalarWhereInput!]
+    contributorId: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    projectId: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input ProjectContributorScalarWhereWithAggregatesInput {
+    AND: [ProjectContributorScalarWhereWithAggregatesInput!]
+    NOT: [ProjectContributorScalarWhereWithAggregatesInput!]
+    OR: [ProjectContributorScalarWhereWithAggregatesInput!]
+    contributorId: StringWithAggregatesFilter
+    createdAt: DateTimeWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    projectId: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+}
+
+input ProjectContributorUpdateInput {
+    Person: PersonUpdateOneRequiredWithoutProjectContributorInput
+    Project: ProjectUpdateOneRequiredWithoutProjectContributorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectContributorUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectContributorUpdateManyWithWhereWithoutPersonInput {
+    data: ProjectContributorUpdateManyMutationInput!
+    where: ProjectContributorScalarWhereInput!
+}
+
+input ProjectContributorUpdateManyWithWhereWithoutProjectInput {
+    data: ProjectContributorUpdateManyMutationInput!
+    where: ProjectContributorScalarWhereInput!
+}
+
+input ProjectContributorUpdateManyWithoutPersonInput {
+    connect: [ProjectContributorWhereUniqueInput!]
+    connectOrCreate: [ProjectContributorCreateOrConnectWithoutPersonInput!]
+    create: [ProjectContributorCreateWithoutPersonInput!]
+    createMany: ProjectContributorCreateManyPersonInputEnvelope
+    delete: [ProjectContributorWhereUniqueInput!]
+    deleteMany: [ProjectContributorScalarWhereInput!]
+    disconnect: [ProjectContributorWhereUniqueInput!]
+    set: [ProjectContributorWhereUniqueInput!]
+    update: [ProjectContributorUpdateWithWhereUniqueWithoutPersonInput!]
+    updateMany: [ProjectContributorUpdateManyWithWhereWithoutPersonInput!]
+    upsert: [ProjectContributorUpsertWithWhereUniqueWithoutPersonInput!]
+}
+
+input ProjectContributorUpdateManyWithoutProjectInput {
+    connect: [ProjectContributorWhereUniqueInput!]
+    connectOrCreate: [ProjectContributorCreateOrConnectWithoutProjectInput!]
+    create: [ProjectContributorCreateWithoutProjectInput!]
+    createMany: ProjectContributorCreateManyProjectInputEnvelope
+    delete: [ProjectContributorWhereUniqueInput!]
+    deleteMany: [ProjectContributorScalarWhereInput!]
+    disconnect: [ProjectContributorWhereUniqueInput!]
+    set: [ProjectContributorWhereUniqueInput!]
+    update: [ProjectContributorUpdateWithWhereUniqueWithoutProjectInput!]
+    updateMany: [ProjectContributorUpdateManyWithWhereWithoutProjectInput!]
+    upsert: [ProjectContributorUpsertWithWhereUniqueWithoutProjectInput!]
+}
+
+input ProjectContributorUpdateWithWhereUniqueWithoutPersonInput {
+    data: ProjectContributorUpdateWithoutPersonInput!
+    where: ProjectContributorWhereUniqueInput!
+}
+
+input ProjectContributorUpdateWithWhereUniqueWithoutProjectInput {
+    data: ProjectContributorUpdateWithoutProjectInput!
+    where: ProjectContributorWhereUniqueInput!
+}
+
+input ProjectContributorUpdateWithoutPersonInput {
+    Project: ProjectUpdateOneRequiredWithoutProjectContributorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectContributorUpdateWithoutProjectInput {
+    Person: PersonUpdateOneRequiredWithoutProjectContributorInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectContributorUpsertWithWhereUniqueWithoutPersonInput {
+    create: ProjectContributorCreateWithoutPersonInput!
+    update: ProjectContributorUpdateWithoutPersonInput!
+    where: ProjectContributorWhereUniqueInput!
+}
+
+input ProjectContributorUpsertWithWhereUniqueWithoutProjectInput {
+    create: ProjectContributorCreateWithoutProjectInput!
+    update: ProjectContributorUpdateWithoutProjectInput!
+    where: ProjectContributorWhereUniqueInput!
+}
+
+input ProjectContributorWhereInput {
+    AND: [ProjectContributorWhereInput!]
+    NOT: [ProjectContributorWhereInput!]
+    OR: [ProjectContributorWhereInput!]
+    Person: PersonRelationFilter
+    Project: ProjectRelationFilter
+    contributorId: StringFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    projectId: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input ProjectContributorWhereUniqueInput {
+    id: String
+}
+
+input ProjectCountOrderByAggregateInput {
+    createdAt: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    projectUrl: SortOrder
+    slug: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectCreateInput {
+    Image: ImageCreateNestedOneWithoutProjectInput!
+    ProjectContributor: ProjectContributorCreateNestedManyWithoutProjectInput
+    createdAt: DateTime
+    githubUrl: String
+    id: String!
+    name: String!
+    projectUrl: String
+    slug: String!
+    summary: String!
+    updatedAt: DateTime!
+}
+
+input ProjectCreateManyImageInput {
+    createdAt: DateTime
+    githubUrl: String
+    id: String!
+    name: String!
+    projectUrl: String
+    slug: String!
+    summary: String!
+    updatedAt: DateTime!
+}
+
+input ProjectCreateManyImageInputEnvelope {
+    data: [ProjectCreateManyImageInput!]!
+    skipDuplicates: Boolean
+}
+
+input ProjectCreateManyInput {
+    createdAt: DateTime
+    githubUrl: String
+    id: String!
+    imageId: String!
+    name: String!
+    projectUrl: String
+    slug: String!
+    summary: String!
+    updatedAt: DateTime!
+}
+
+input ProjectCreateNestedManyWithoutImageInput {
+    connect: [ProjectWhereUniqueInput!]
+    connectOrCreate: [ProjectCreateOrConnectWithoutImageInput!]
+    create: [ProjectCreateWithoutImageInput!]
+    createMany: ProjectCreateManyImageInputEnvelope
+}
+
+input ProjectCreateNestedOneWithoutProjectContributorInput {
+    connect: ProjectWhereUniqueInput
+    connectOrCreate: ProjectCreateOrConnectWithoutProjectContributorInput
+    create: ProjectCreateWithoutProjectContributorInput
+}
+
+input ProjectCreateOrConnectWithoutImageInput {
+    create: ProjectCreateWithoutImageInput!
+    where: ProjectWhereUniqueInput!
+}
+
+input ProjectCreateOrConnectWithoutProjectContributorInput {
+    create: ProjectCreateWithoutProjectContributorInput!
+    where: ProjectWhereUniqueInput!
+}
+
+input ProjectCreateWithoutImageInput {
+    ProjectContributor: ProjectContributorCreateNestedManyWithoutProjectInput
+    createdAt: DateTime
+    githubUrl: String
+    id: String!
+    name: String!
+    projectUrl: String
+    slug: String!
+    summary: String!
+    updatedAt: DateTime!
+}
+
+input ProjectCreateWithoutProjectContributorInput {
+    Image: ImageCreateNestedOneWithoutProjectInput!
+    createdAt: DateTime
+    githubUrl: String
+    id: String!
+    name: String!
+    projectUrl: String
+    slug: String!
+    summary: String!
+    updatedAt: DateTime!
+}
+
+input ProjectListRelationFilter {
+    every: ProjectWhereInput
+    none: ProjectWhereInput
+    some: ProjectWhereInput
+}
+
+input ProjectMaxOrderByAggregateInput {
+    createdAt: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    projectUrl: SortOrder
+    slug: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectMinOrderByAggregateInput {
+    createdAt: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    projectUrl: SortOrder
+    slug: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input ProjectOrderByWithAggregationInput {
+    _count: ProjectCountOrderByAggregateInput
+    _max: ProjectMaxOrderByAggregateInput
+    _min: ProjectMinOrderByAggregateInput
+    createdAt: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    projectUrl: SortOrder
+    slug: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectOrderByWithRelationInput {
+    Image: ImageOrderByWithRelationInput
+    ProjectContributor: ProjectContributorOrderByRelationAggregateInput
+    createdAt: SortOrder
+    githubUrl: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    projectUrl: SortOrder
+    slug: SortOrder
+    summary: SortOrder
+    updatedAt: SortOrder
+}
+
+input ProjectRelationFilter {
+    is: ProjectWhereInput
+    isNot: ProjectWhereInput
+}
+
+input ProjectScalarWhereInput {
+    AND: [ProjectScalarWhereInput!]
+    NOT: [ProjectScalarWhereInput!]
+    OR: [ProjectScalarWhereInput!]
+    createdAt: DateTimeFilter
+    githubUrl: StringNullableFilter
+    id: StringFilter
+    imageId: StringFilter
+    name: StringFilter
+    projectUrl: StringNullableFilter
+    slug: StringFilter
+    summary: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input ProjectScalarWhereWithAggregatesInput {
+    AND: [ProjectScalarWhereWithAggregatesInput!]
+    NOT: [ProjectScalarWhereWithAggregatesInput!]
+    OR: [ProjectScalarWhereWithAggregatesInput!]
+    createdAt: DateTimeWithAggregatesFilter
+    githubUrl: StringNullableWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    imageId: StringWithAggregatesFilter
+    name: StringWithAggregatesFilter
+    projectUrl: StringNullableWithAggregatesFilter
+    slug: StringWithAggregatesFilter
+    summary: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+}
+
+input ProjectUpdateInput {
+    Image: ImageUpdateOneRequiredWithoutProjectInput
+    ProjectContributor: ProjectContributorUpdateManyWithoutProjectInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    projectUrl: NullableStringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    summary: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    projectUrl: NullableStringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    summary: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateManyWithWhereWithoutImageInput {
+    data: ProjectUpdateManyMutationInput!
+    where: ProjectScalarWhereInput!
+}
+
+input ProjectUpdateManyWithoutImageInput {
+    connect: [ProjectWhereUniqueInput!]
+    connectOrCreate: [ProjectCreateOrConnectWithoutImageInput!]
+    create: [ProjectCreateWithoutImageInput!]
+    createMany: ProjectCreateManyImageInputEnvelope
+    delete: [ProjectWhereUniqueInput!]
+    deleteMany: [ProjectScalarWhereInput!]
+    disconnect: [ProjectWhereUniqueInput!]
+    set: [ProjectWhereUniqueInput!]
+    update: [ProjectUpdateWithWhereUniqueWithoutImageInput!]
+    updateMany: [ProjectUpdateManyWithWhereWithoutImageInput!]
+    upsert: [ProjectUpsertWithWhereUniqueWithoutImageInput!]
+}
+
+input ProjectUpdateOneRequiredWithoutProjectContributorInput {
+    connect: ProjectWhereUniqueInput
+    connectOrCreate: ProjectCreateOrConnectWithoutProjectContributorInput
+    create: ProjectCreateWithoutProjectContributorInput
+    update: ProjectUpdateWithoutProjectContributorInput
+    upsert: ProjectUpsertWithoutProjectContributorInput
+}
+
+input ProjectUpdateWithWhereUniqueWithoutImageInput {
+    data: ProjectUpdateWithoutImageInput!
+    where: ProjectWhereUniqueInput!
+}
+
+input ProjectUpdateWithoutImageInput {
+    ProjectContributor: ProjectContributorUpdateManyWithoutProjectInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    projectUrl: NullableStringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    summary: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateWithoutProjectContributorInput {
+    Image: ImageUpdateOneRequiredWithoutProjectInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    projectUrl: NullableStringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    summary: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpsertWithWhereUniqueWithoutImageInput {
+    create: ProjectCreateWithoutImageInput!
+    update: ProjectUpdateWithoutImageInput!
+    where: ProjectWhereUniqueInput!
+}
+
+input ProjectUpsertWithoutProjectContributorInput {
+    create: ProjectCreateWithoutProjectContributorInput!
+    update: ProjectUpdateWithoutProjectContributorInput!
+}
+
+input ProjectWhereInput {
+    AND: [ProjectWhereInput!]
+    Image: ImageRelationFilter
+    NOT: [ProjectWhereInput!]
+    OR: [ProjectWhereInput!]
+    ProjectContributor: ProjectContributorListRelationFilter
+    createdAt: DateTimeFilter
+    githubUrl: StringNullableFilter
+    id: StringFilter
+    imageId: StringFilter
+    name: StringFilter
+    projectUrl: StringNullableFilter
+    slug: StringFilter
+    summary: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input ProjectWhereUniqueInput {
+    id: String
+    slug: String
+}
+
+input SchoolCountOrderByAggregateInput {
+    createdAt: SortOrder
+    description: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+}
+
+input SchoolCreateInput {
+    Course: CourseCreateNestedManyWithoutSchoolInput
+    Image: ImageCreateNestedOneWithoutSchoolInput!
+    createdAt: DateTime
+    description: String!
+    id: String!
+    name: String!
+    updatedAt: DateTime!
+    url: String!
+}
+
+input SchoolCreateManyImageInput {
+    createdAt: DateTime
+    description: String!
+    id: String!
+    name: String!
+    updatedAt: DateTime!
+    url: String!
+}
+
+input SchoolCreateManyImageInputEnvelope {
+    data: [SchoolCreateManyImageInput!]!
+    skipDuplicates: Boolean
+}
+
+input SchoolCreateManyInput {
+    createdAt: DateTime
+    description: String!
+    id: String!
+    imageId: String!
+    name: String!
+    updatedAt: DateTime!
+    url: String!
+}
+
+input SchoolCreateNestedManyWithoutImageInput {
+    connect: [SchoolWhereUniqueInput!]
+    connectOrCreate: [SchoolCreateOrConnectWithoutImageInput!]
+    create: [SchoolCreateWithoutImageInput!]
+    createMany: SchoolCreateManyImageInputEnvelope
+}
+
+input SchoolCreateNestedOneWithoutCourseInput {
+    connect: SchoolWhereUniqueInput
+    connectOrCreate: SchoolCreateOrConnectWithoutCourseInput
+    create: SchoolCreateWithoutCourseInput
+}
+
+input SchoolCreateOrConnectWithoutCourseInput {
+    create: SchoolCreateWithoutCourseInput!
+    where: SchoolWhereUniqueInput!
+}
+
+input SchoolCreateOrConnectWithoutImageInput {
+    create: SchoolCreateWithoutImageInput!
+    where: SchoolWhereUniqueInput!
+}
+
+input SchoolCreateWithoutCourseInput {
+    Image: ImageCreateNestedOneWithoutSchoolInput!
+    createdAt: DateTime
+    description: String!
+    id: String!
+    name: String!
+    updatedAt: DateTime!
+    url: String!
+}
+
+input SchoolCreateWithoutImageInput {
+    Course: CourseCreateNestedManyWithoutSchoolInput
+    createdAt: DateTime
+    description: String!
+    id: String!
+    name: String!
+    updatedAt: DateTime!
+    url: String!
+}
+
+input SchoolListRelationFilter {
+    every: SchoolWhereInput
+    none: SchoolWhereInput
+    some: SchoolWhereInput
+}
+
+input SchoolMaxOrderByAggregateInput {
+    createdAt: SortOrder
+    description: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+}
+
+input SchoolMinOrderByAggregateInput {
+    createdAt: SortOrder
+    description: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+}
+
+input SchoolOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input SchoolOrderByWithAggregationInput {
+    _count: SchoolCountOrderByAggregateInput
+    _max: SchoolMaxOrderByAggregateInput
+    _min: SchoolMinOrderByAggregateInput
+    createdAt: SortOrder
+    description: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+}
+
+input SchoolOrderByWithRelationInput {
+    Course: CourseOrderByRelationAggregateInput
+    Image: ImageOrderByWithRelationInput
+    createdAt: SortOrder
+    description: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+    url: SortOrder
+}
+
+input SchoolRelationFilter {
+    is: SchoolWhereInput
+    isNot: SchoolWhereInput
+}
+
+input SchoolScalarWhereInput {
+    AND: [SchoolScalarWhereInput!]
+    NOT: [SchoolScalarWhereInput!]
+    OR: [SchoolScalarWhereInput!]
+    createdAt: DateTimeFilter
+    description: StringFilter
+    id: StringFilter
+    imageId: StringFilter
+    name: StringFilter
+    updatedAt: DateTimeFilter
+    url: StringFilter
+}
+
+input SchoolScalarWhereWithAggregatesInput {
+    AND: [SchoolScalarWhereWithAggregatesInput!]
+    NOT: [SchoolScalarWhereWithAggregatesInput!]
+    OR: [SchoolScalarWhereWithAggregatesInput!]
+    createdAt: DateTimeWithAggregatesFilter
+    description: StringWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    imageId: StringWithAggregatesFilter
+    name: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+    url: StringWithAggregatesFilter
+}
+
+input SchoolUpdateInput {
+    Course: CourseUpdateManyWithoutSchoolInput
+    Image: ImageUpdateOneRequiredWithoutSchoolInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    description: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+}
+
+input SchoolUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    description: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+}
+
+input SchoolUpdateManyWithWhereWithoutImageInput {
+    data: SchoolUpdateManyMutationInput!
+    where: SchoolScalarWhereInput!
+}
+
+input SchoolUpdateManyWithoutImageInput {
+    connect: [SchoolWhereUniqueInput!]
+    connectOrCreate: [SchoolCreateOrConnectWithoutImageInput!]
+    create: [SchoolCreateWithoutImageInput!]
+    createMany: SchoolCreateManyImageInputEnvelope
+    delete: [SchoolWhereUniqueInput!]
+    deleteMany: [SchoolScalarWhereInput!]
+    disconnect: [SchoolWhereUniqueInput!]
+    set: [SchoolWhereUniqueInput!]
+    update: [SchoolUpdateWithWhereUniqueWithoutImageInput!]
+    updateMany: [SchoolUpdateManyWithWhereWithoutImageInput!]
+    upsert: [SchoolUpsertWithWhereUniqueWithoutImageInput!]
+}
+
+input SchoolUpdateOneRequiredWithoutCourseInput {
+    connect: SchoolWhereUniqueInput
+    connectOrCreate: SchoolCreateOrConnectWithoutCourseInput
+    create: SchoolCreateWithoutCourseInput
+    update: SchoolUpdateWithoutCourseInput
+    upsert: SchoolUpsertWithoutCourseInput
+}
+
+input SchoolUpdateWithWhereUniqueWithoutImageInput {
+    data: SchoolUpdateWithoutImageInput!
+    where: SchoolWhereUniqueInput!
+}
+
+input SchoolUpdateWithoutCourseInput {
+    Image: ImageUpdateOneRequiredWithoutSchoolInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    description: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+}
+
+input SchoolUpdateWithoutImageInput {
+    Course: CourseUpdateManyWithoutSchoolInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    description: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+}
+
+input SchoolUpsertWithWhereUniqueWithoutImageInput {
+    create: SchoolCreateWithoutImageInput!
+    update: SchoolUpdateWithoutImageInput!
+    where: SchoolWhereUniqueInput!
+}
+
+input SchoolUpsertWithoutCourseInput {
+    create: SchoolCreateWithoutCourseInput!
+    update: SchoolUpdateWithoutCourseInput!
+}
+
+input SchoolWhereInput {
+    AND: [SchoolWhereInput!]
+    Course: CourseListRelationFilter
+    Image: ImageRelationFilter
+    NOT: [SchoolWhereInput!]
+    OR: [SchoolWhereInput!]
+    createdAt: DateTimeFilter
+    description: StringFilter
+    id: StringFilter
+    imageId: StringFilter
+    name: StringFilter
+    updatedAt: DateTimeFilter
+    url: StringFilter
+}
+
+input SchoolWhereUniqueInput {
+    id: String
+    url: String
+}
+
+input StringFieldUpdateOperationsInput {
+    set: String
+}
+
+input StringFilter {
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    mode: QueryMode
+    not: NestedStringFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input StringNullableFilter {
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    mode: QueryMode
+    not: NestedStringNullableFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input StringNullableListFilter {
+    equals: [String!]
+    has: String
+    hasEvery: [String!]
+    hasSome: [String!]
+    isEmpty: Boolean
+}
+
+input StringNullableWithAggregatesFilter {
+    _count: NestedIntNullableFilter
+    _max: NestedStringNullableFilter
+    _min: NestedStringNullableFilter
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    mode: QueryMode
+    not: NestedStringNullableWithAggregatesFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input StringWithAggregatesFilter {
+    _count: NestedIntFilter
+    _max: NestedStringFilter
+    _min: NestedStringFilter
+    contains: String
+    endsWith: String
+    equals: String
+    gt: String
+    gte: String
+    in: [String!]
+    lt: String
+    lte: String
+    mode: QueryMode
+    not: NestedStringWithAggregatesFilter
+    notIn: [String!]
+    startsWith: String
+}
+
+input TechnologyLogoCountOrderByAggregateInput {
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    isOnHomepage: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+}
+
+input TechnologyLogoCreateInput {
+    Image: ImageCreateNestedOneWithoutTechnologyLogoInput!
+    createdAt: DateTime
+    id: String!
+    isOnHomepage: Boolean!
+    name: String!
+    updatedAt: DateTime!
+}
+
+input TechnologyLogoCreateManyInput {
+    createdAt: DateTime
+    id: String!
+    imageId: String!
+    isOnHomepage: Boolean!
+    name: String!
+    updatedAt: DateTime!
+}
+
+input TechnologyLogoCreateNestedOneWithoutImageInput {
+    connect: TechnologyLogoWhereUniqueInput
+    connectOrCreate: TechnologyLogoCreateOrConnectWithoutImageInput
+    create: TechnologyLogoCreateWithoutImageInput
+}
+
+input TechnologyLogoCreateOrConnectWithoutImageInput {
+    create: TechnologyLogoCreateWithoutImageInput!
+    where: TechnologyLogoWhereUniqueInput!
+}
+
+input TechnologyLogoCreateWithoutImageInput {
+    createdAt: DateTime
+    id: String!
+    isOnHomepage: Boolean!
+    name: String!
+    updatedAt: DateTime!
+}
+
+input TechnologyLogoMaxOrderByAggregateInput {
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    isOnHomepage: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+}
+
+input TechnologyLogoMinOrderByAggregateInput {
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    isOnHomepage: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+}
+
+input TechnologyLogoOrderByWithAggregationInput {
+    _count: TechnologyLogoCountOrderByAggregateInput
+    _max: TechnologyLogoMaxOrderByAggregateInput
+    _min: TechnologyLogoMinOrderByAggregateInput
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    isOnHomepage: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+}
+
+input TechnologyLogoOrderByWithRelationInput {
+    Image: ImageOrderByWithRelationInput
+    createdAt: SortOrder
+    id: SortOrder
+    imageId: SortOrder
+    isOnHomepage: SortOrder
+    name: SortOrder
+    updatedAt: SortOrder
+}
+
+input TechnologyLogoRelationFilter {
+    is: TechnologyLogoWhereInput
+    isNot: TechnologyLogoWhereInput
+}
+
+input TechnologyLogoScalarWhereWithAggregatesInput {
+    AND: [TechnologyLogoScalarWhereWithAggregatesInput!]
+    NOT: [TechnologyLogoScalarWhereWithAggregatesInput!]
+    OR: [TechnologyLogoScalarWhereWithAggregatesInput!]
+    createdAt: DateTimeWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    imageId: StringWithAggregatesFilter
+    isOnHomepage: BoolWithAggregatesFilter
+    name: StringWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+}
+
+input TechnologyLogoUpdateInput {
+    Image: ImageUpdateOneRequiredWithoutTechnologyLogoInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    isOnHomepage: BoolFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input TechnologyLogoUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    isOnHomepage: BoolFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input TechnologyLogoUpdateOneWithoutImageInput {
+    connect: TechnologyLogoWhereUniqueInput
+    connectOrCreate: TechnologyLogoCreateOrConnectWithoutImageInput
+    create: TechnologyLogoCreateWithoutImageInput
+    delete: Boolean
+    disconnect: Boolean
+    update: TechnologyLogoUpdateWithoutImageInput
+    upsert: TechnologyLogoUpsertWithoutImageInput
+}
+
+input TechnologyLogoUpdateWithoutImageInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    isOnHomepage: BoolFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input TechnologyLogoUpsertWithoutImageInput {
+    create: TechnologyLogoCreateWithoutImageInput!
+    update: TechnologyLogoUpdateWithoutImageInput!
+}
+
+input TechnologyLogoWhereInput {
+    AND: [TechnologyLogoWhereInput!]
+    Image: ImageRelationFilter
+    NOT: [TechnologyLogoWhereInput!]
+    OR: [TechnologyLogoWhereInput!]
+    createdAt: DateTimeFilter
+    id: StringFilter
+    imageId: StringFilter
+    isOnHomepage: BoolFilter
+    name: StringFilter
+    updatedAt: DateTimeFilter
+}
+
+input TechnologyLogoWhereUniqueInput {
+    id: String
+    imageId: String
+}
+
+input UserCountOrderByAggregateInput {
+    createdAt: SortOrder
+    id: SortOrder
+    password: SortOrder
+    personId: SortOrder
+    role: SortOrder
+    updatedAt: SortOrder
+    username: SortOrder
+}
+
+input UserCreateInput {
+    Person: PersonCreateNestedOneWithoutUserInput!
+    createdAt: DateTime
+    id: String!
+    password: String!
+    role: Role
+    updatedAt: DateTime!
+    username: String!
+}
+
+input UserCreateManyInput {
+    createdAt: DateTime
+    id: String!
+    password: String!
+    personId: String!
+    role: Role
+    updatedAt: DateTime!
+    username: String!
+}
+
+input UserCreateManyPersonInput {
+    createdAt: DateTime
+    id: String!
+    password: String!
+    role: Role
+    updatedAt: DateTime!
+    username: String!
+}
+
+input UserCreateManyPersonInputEnvelope {
+    data: [UserCreateManyPersonInput!]!
+    skipDuplicates: Boolean
+}
+
+input UserCreateNestedManyWithoutPersonInput {
+    connect: [UserWhereUniqueInput!]
+    connectOrCreate: [UserCreateOrConnectWithoutPersonInput!]
+    create: [UserCreateWithoutPersonInput!]
+    createMany: UserCreateManyPersonInputEnvelope
+}
+
+input UserCreateOrConnectWithoutPersonInput {
+    create: UserCreateWithoutPersonInput!
+    where: UserWhereUniqueInput!
+}
+
+input UserCreateWithoutPersonInput {
+    createdAt: DateTime
+    id: String!
+    password: String!
+    role: Role
+    updatedAt: DateTime!
+    username: String!
+}
+
+input UserListRelationFilter {
+    every: UserWhereInput
+    none: UserWhereInput
+    some: UserWhereInput
+}
+
+input UserMaxOrderByAggregateInput {
+    createdAt: SortOrder
+    id: SortOrder
+    password: SortOrder
+    personId: SortOrder
+    role: SortOrder
+    updatedAt: SortOrder
+    username: SortOrder
+}
+
+input UserMinOrderByAggregateInput {
+    createdAt: SortOrder
+    id: SortOrder
+    password: SortOrder
+    personId: SortOrder
+    role: SortOrder
+    updatedAt: SortOrder
+    username: SortOrder
+}
+
+input UserOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
+input UserOrderByWithAggregationInput {
+    _count: UserCountOrderByAggregateInput
+    _max: UserMaxOrderByAggregateInput
+    _min: UserMinOrderByAggregateInput
+    createdAt: SortOrder
+    id: SortOrder
+    password: SortOrder
+    personId: SortOrder
+    role: SortOrder
+    updatedAt: SortOrder
+    username: SortOrder
+}
+
+input UserOrderByWithRelationInput {
+    Person: PersonOrderByWithRelationInput
+    createdAt: SortOrder
+    id: SortOrder
+    password: SortOrder
+    personId: SortOrder
+    role: SortOrder
+    updatedAt: SortOrder
+    username: SortOrder
+}
+
+input UserScalarWhereInput {
+    AND: [UserScalarWhereInput!]
+    NOT: [UserScalarWhereInput!]
+    OR: [UserScalarWhereInput!]
+    createdAt: DateTimeFilter
+    id: StringFilter
+    password: StringFilter
+    personId: StringFilter
+    role: EnumRoleFilter
+    updatedAt: DateTimeFilter
+    username: StringFilter
+}
+
+input UserScalarWhereWithAggregatesInput {
+    AND: [UserScalarWhereWithAggregatesInput!]
+    NOT: [UserScalarWhereWithAggregatesInput!]
+    OR: [UserScalarWhereWithAggregatesInput!]
+    createdAt: DateTimeWithAggregatesFilter
+    id: StringWithAggregatesFilter
+    password: StringWithAggregatesFilter
+    personId: StringWithAggregatesFilter
+    role: EnumRoleWithAggregatesFilter
+    updatedAt: DateTimeWithAggregatesFilter
+    username: StringWithAggregatesFilter
+}
+
+input UserUpdateInput {
+    Person: PersonUpdateOneRequiredWithoutUserInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    password: StringFieldUpdateOperationsInput
+    role: EnumRoleFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    username: StringFieldUpdateOperationsInput
+}
+
+input UserUpdateManyMutationInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    password: StringFieldUpdateOperationsInput
+    role: EnumRoleFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    username: StringFieldUpdateOperationsInput
+}
+
+input UserUpdateManyWithWhereWithoutPersonInput {
+    data: UserUpdateManyMutationInput!
+    where: UserScalarWhereInput!
+}
+
+input UserUpdateManyWithoutPersonInput {
+    connect: [UserWhereUniqueInput!]
+    connectOrCreate: [UserCreateOrConnectWithoutPersonInput!]
+    create: [UserCreateWithoutPersonInput!]
+    createMany: UserCreateManyPersonInputEnvelope
+    delete: [UserWhereUniqueInput!]
+    deleteMany: [UserScalarWhereInput!]
+    disconnect: [UserWhereUniqueInput!]
+    set: [UserWhereUniqueInput!]
+    update: [UserUpdateWithWhereUniqueWithoutPersonInput!]
+    updateMany: [UserUpdateManyWithWhereWithoutPersonInput!]
+    upsert: [UserUpsertWithWhereUniqueWithoutPersonInput!]
+}
+
+input UserUpdateWithWhereUniqueWithoutPersonInput {
+    data: UserUpdateWithoutPersonInput!
+    where: UserWhereUniqueInput!
+}
+
+input UserUpdateWithoutPersonInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    password: StringFieldUpdateOperationsInput
+    role: EnumRoleFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    username: StringFieldUpdateOperationsInput
+}
+
+input UserUpsertWithWhereUniqueWithoutPersonInput {
+    create: UserCreateWithoutPersonInput!
+    update: UserUpdateWithoutPersonInput!
+    where: UserWhereUniqueInput!
+}
+
+input UserUserCredentials_username_password_unique_constraintCompoundUniqueInput {
+    password: String!
+    username: String!
+}
+
+input UserWhereInput {
+    AND: [UserWhereInput!]
+    NOT: [UserWhereInput!]
+    OR: [UserWhereInput!]
+    Person: PersonRelationFilter
+    createdAt: DateTimeFilter
+    id: StringFilter
+    password: StringFilter
+    personId: StringFilter
+    role: EnumRoleFilter
+    updatedAt: DateTimeFilter
+    username: StringFilter
+}
+
+input UserWhereUniqueInput {
+    UserCredentials_username_password_unique_constraint: UserUserCredentials_username_password_unique_constraintCompoundUniqueInput
+    id: String
+    username: String
+}

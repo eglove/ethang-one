@@ -4,8 +4,10 @@ import {environmentVariablesProduction} from './environment-variables-production
 export const PACKAGE_MANAGER = 'npx pnpm';
 
 export enum ENV_KEYS {
-  NEXT_PUBLIC_GRAPHQL_DEVELOPMENT_ROOT = 'NEXT_PUBLIC_GRAPHQL_DEVELOPMENT_ROOT',
-  NEXT_PUBLIC_DEVELOPMENT_ROOT = 'NEXT_PUBLIC_DEVELOPMENT_ROOT',
+  CRYPTO_TOKEN = 'CRYPTO_TOKEN',
+  GRAPHQL_ROOT = 'GRAPHQL_ROOT',
+  PORT = 'PORT',
+  WEBSITE_DATABASE_URL = 'WEBSITE_DATABASE_URL',
 }
 
 export class Constant {

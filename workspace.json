@@ -9,6 +9,7 @@
     "util_wasm": "packages/util-wasm",
     "web-components": "packages/web-components",
     "website": "packages/website",
-    "website-e2e": "packages/website-e2e"
+    "website-e2e": "packages/website-e2e",
+    "website-server": "packages/website-server"
   }
 }

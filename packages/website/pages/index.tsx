@@ -1,4 +1,7 @@
+import type {NextPage} from 'next';
 
-const Index = (): JSX.Element => <div><p>hi</p></div>;
+import {HomeLayout} from '../components/Home/home-layout';
+
+const Index: NextPage = () => <HomeLayout/>;
 
 export default Index;

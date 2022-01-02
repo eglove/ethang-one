@@ -1,0 +1,50 @@
+.MasonryContainer {
+    padding: var(--large-space);
+}
+
+.ProjectContainer {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: var(--small-space);
+    margin: var(--small-space);
+    border: 1px solid var(--border-color);
+}
+
+.ProjectImage {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.IconContainer {
+    width: 40px;
+    height: 40px;
+}
+
+.ProjectInfo {
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: var(--large-space);
+    place-items: center;
+    width: auto;
+    padding: 20px;
+    font-size: 20px;
+    color: var(--font-color);
+    text-align: center;
+    background-color: var(--background-color);
+    opacity: 0%;
+    transition: 0.5s ease;
+}
+
+.ProjectContainer:hover .ProjectInfo, .ProjectContainer:focus .ProjectInfo {
+    opacity: 100%;
+}
+
+@media (prefers-reduced-motion) {
+    .ProjectInfo {
+        transition: none;
+    }
+}

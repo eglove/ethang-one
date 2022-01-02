@@ -1,0 +1,11 @@
+.HomeText {
+    text-align: center;
+}
+
+.Logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--large-space);
+    justify-content: center;
+    margin: var(--large-space);
+}
