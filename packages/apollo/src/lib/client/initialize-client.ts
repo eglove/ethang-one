@@ -9,7 +9,6 @@ import {
 } from '@apollo/client';
 import {BatchHttpLink} from '@apollo/client/link/batch-http';
 import {onError} from '@apollo/client/link/error';
-import {ENV_KEYS, getConst} from '@ethang-one/node-environment';
 import {isBrowser} from '@ethang-one/util-typescript';
 import {LocalStorageWrapper, persistCache} from 'apollo3-cache-persist';
 
@@ -75,7 +74,9 @@ export class ApolloClientInit {
 
   private readonly setHttpLink = (): void => {
     this.httpLink = new BatchHttpLink({
-      uri: getConst(ENV_KEYS.GRAPHQL_ROOT),
+      uri: process.env.NODE_ENV === 'development'
+        ? 'http://localhost:4000/graphql'
+        : 'https://lit-crag-99008.herokuapp.com/graphql',
     });
   };
 
