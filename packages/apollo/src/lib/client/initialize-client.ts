@@ -75,8 +75,8 @@ export class ApolloClientInit {
   private readonly setHttpLink = (): void => {
     this.httpLink = new BatchHttpLink({
       uri: process.env.NODE_ENV === 'development'
-        ? 'http://localhost:4000/graphql'
-        : 'https://lit-crag-99008.herokuapp.com/graphql',
+        ? process.env.NX_WEBSITE_SERVER_URL_DEV
+        : process.env.NX_WEBSITE_SERVER_URL,
     });
   };
 

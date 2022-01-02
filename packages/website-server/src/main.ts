@@ -1,7 +1,6 @@
 /* eslint-disable new-cap */
 import 'reflect-metadata';
 
-import {ENV_KEYS, getConst} from '@ethang-one/node-environment';
 import {resolvers} from '@generated/type-graphql';
 import {PrismaClient} from '@prisma/client';
 import {ApolloServer} from 'apollo-server';
@@ -16,7 +15,7 @@ const startServer = async (): Promise<void> => {
   const prisma = new PrismaClient({
     datasources: {
       db: {
-        url: getConst(ENV_KEYS.WEBSITE_DATABASE_URL),
+        url: process.env.NX_DATABASE_URL,
       },
     },
   });
@@ -44,9 +43,9 @@ const startServer = async (): Promise<void> => {
   });
 
   server
-    .listen(getConst(ENV_KEYS.PORT), async () => {
+    .listen('4000', async () => {
       console.log(
-        `🚀 GraphQL server is running on http://localhost:${getConst(ENV_KEYS.PORT)}/graphql`,
+        `🚀 GraphQL server is running on http://localhost:${'4000'}/graphql`,
       );
     })
     .catch((error: Error) => {

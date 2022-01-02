@@ -3,7 +3,6 @@
   "projects": {
     "apollo": "packages/apollo",
     "ethang-one": "packages/ethang-one",
-    "node-environment": "packages/node-environment",
     "react-components": "packages/react-components",
     "util-typescript": "packages/util-typescript",
     "util_wasm": "packages/util-wasm",
