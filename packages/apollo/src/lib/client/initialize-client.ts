@@ -77,8 +77,8 @@ export class ApolloClientInit {
     this.httpLink = new BatchHttpLink({
       uri:
         process.env.NODE_ENV === 'development'
-          ? getConst(ENV_KEYS.NEXT_PUBLIC_GRAPHQL_DEVELOPMENT_ROOT)
-          : getConst(ENV_KEYS.NEXT_PUBLIC_DEVELOPMENT_ROOT),
+          ? getConst(ENV_KEYS.NEXT_PUBLIC_GRAPHQL_ROOT)
+          : getConst(ENV_KEYS.NEXT_PUBLIC_ROOT),
     });
   };
 

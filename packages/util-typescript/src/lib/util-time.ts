@@ -79,7 +79,7 @@ export const defaultDateTimeInputFormat = (
   return `${newDate.getFullYear()}-${month}-${dateDay}T${hours}:${minutes}`;
 };
 
-export const humanReadableLocalDateTime = (dateTime: Date): string => {
+export const humanReadableLocalDateTime = (dateTime: Date | string): string => {
   const options = {
     day: 'numeric',
     hour: 'numeric',
