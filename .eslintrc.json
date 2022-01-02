@@ -28,11 +28,11 @@
         "project": "./tsconfig.base.json"
       },
       "rules": {
+        "@next/next/no-html-link-for-pages": ["error", "/packages/website/pages"],
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/explicit-function-return-type": [
           "error"
         ],
-        "no-html-link-for-pages": "off",
         "react/react-in-jsx-scope": "off",
         "react-hooks/exhaustive-deps": "error",
         "simple-import-sort/exports": "error",
