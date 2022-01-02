@@ -7,14 +7,14 @@ export const blogsQuery = gql`
       title
       slug
       imageId
-      Image {
+      featuredImage {
         url
         altText
         width
         height
       }
-      BlogAuthor {
-        Person {
+      authors {
+        author {
           firstName
           lastName
         }

@@ -100,11 +100,11 @@ export type AggregateUser = {
 
 export type Blog = {
   __typename?: 'Blog';
-  BlogAuthor: Array<BlogAuthor>;
-  Image: Image;
-  _count?: Maybe<BlogCount>;
+  _count: BlogCount;
+  authors: Array<BlogAuthor>;
   content: Scalars['String'];
   createdAt: Scalars['DateTime'];
+  featuredImage: Image;
   id: Scalars['String'];
   imageId: Scalars['String'];
   slug: Scalars['String'];
@@ -113,7 +113,7 @@ export type Blog = {
 };
 
 
-export type BlogBlogAuthorArgs = {
+export type BlogAuthorsArgs = {
   cursor?: InputMaybe<BlogAuthorWhereUniqueInput>;
   distinct?: InputMaybe<Array<BlogAuthorScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<BlogAuthorOrderByWithRelationInput>>;
@@ -124,8 +124,8 @@ export type BlogBlogAuthorArgs = {
 
 export type BlogAuthor = {
   __typename?: 'BlogAuthor';
-  Blog: Blog;
-  Person: Person;
+  author: Person;
+  blog: Blog;
   blogId: Scalars['String'];
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
@@ -152,18 +152,30 @@ export type BlogAuthorCountOrderByAggregateInput = {
 };
 
 export type BlogAuthorCreateInput = {
-  Blog: BlogCreateNestedOneWithoutBlogAuthorInput;
-  Person: PersonCreateNestedOneWithoutBlogAuthorInput;
+  author: PersonCreateNestedOneWithoutBlogsInput;
+  blog: BlogCreateNestedOneWithoutAuthorsInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type BlogAuthorCreateManyAuthorInput = {
+  blogId: Scalars['String'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type BlogAuthorCreateManyAuthorInputEnvelope = {
+  data: Array<BlogAuthorCreateManyAuthorInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type BlogAuthorCreateManyBlogInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   personId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type BlogAuthorCreateManyBlogInputEnvelope = {
@@ -174,21 +186,16 @@ export type BlogAuthorCreateManyBlogInputEnvelope = {
 export type BlogAuthorCreateManyInput = {
   blogId: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   personId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type BlogAuthorCreateManyPersonInput = {
-  blogId: Scalars['String'];
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-};
-
-export type BlogAuthorCreateManyPersonInputEnvelope = {
-  data: Array<BlogAuthorCreateManyPersonInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+export type BlogAuthorCreateNestedManyWithoutAuthorInput = {
+  connect?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<BlogAuthorCreateOrConnectWithoutAuthorInput>>;
+  create?: InputMaybe<Array<BlogAuthorCreateWithoutAuthorInput>>;
+  createMany?: InputMaybe<BlogAuthorCreateManyAuthorInputEnvelope>;
 };
 
 export type BlogAuthorCreateNestedManyWithoutBlogInput = {
@@ -198,11 +205,9 @@ export type BlogAuthorCreateNestedManyWithoutBlogInput = {
   createMany?: InputMaybe<BlogAuthorCreateManyBlogInputEnvelope>;
 };
 
-export type BlogAuthorCreateNestedManyWithoutPersonInput = {
-  connect?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<BlogAuthorCreateOrConnectWithoutPersonInput>>;
-  create?: InputMaybe<Array<BlogAuthorCreateWithoutPersonInput>>;
-  createMany?: InputMaybe<BlogAuthorCreateManyPersonInputEnvelope>;
+export type BlogAuthorCreateOrConnectWithoutAuthorInput = {
+  create: BlogAuthorCreateWithoutAuthorInput;
+  where: BlogAuthorWhereUniqueInput;
 };
 
 export type BlogAuthorCreateOrConnectWithoutBlogInput = {
@@ -210,23 +215,18 @@ export type BlogAuthorCreateOrConnectWithoutBlogInput = {
   where: BlogAuthorWhereUniqueInput;
 };
 
-export type BlogAuthorCreateOrConnectWithoutPersonInput = {
-  create: BlogAuthorCreateWithoutPersonInput;
-  where: BlogAuthorWhereUniqueInput;
+export type BlogAuthorCreateWithoutAuthorInput = {
+  blog: BlogCreateNestedOneWithoutAuthorsInput;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type BlogAuthorCreateWithoutBlogInput = {
-  Person: PersonCreateNestedOneWithoutBlogAuthorInput;
+  author: PersonCreateNestedOneWithoutBlogsInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-};
-
-export type BlogAuthorCreateWithoutPersonInput = {
-  Blog: BlogCreateNestedOneWithoutBlogAuthorInput;
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type BlogAuthorGroupBy = {
@@ -297,8 +297,8 @@ export type BlogAuthorOrderByWithAggregationInput = {
 };
 
 export type BlogAuthorOrderByWithRelationInput = {
-  Blog?: InputMaybe<BlogOrderByWithRelationInput>;
-  Person?: InputMaybe<PersonOrderByWithRelationInput>;
+  author?: InputMaybe<PersonOrderByWithRelationInput>;
+  blog?: InputMaybe<BlogOrderByWithRelationInput>;
   blogId?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
@@ -337,8 +337,8 @@ export type BlogAuthorScalarWhereWithAggregatesInput = {
 };
 
 export type BlogAuthorUpdateInput = {
-  Blog?: InputMaybe<BlogUpdateOneRequiredWithoutBlogAuthorInput>;
-  Person?: InputMaybe<PersonUpdateOneRequiredWithoutBlogAuthorInput>;
+  author?: InputMaybe<PersonUpdateOneRequiredWithoutBlogsInput>;
+  blog?: InputMaybe<BlogUpdateOneRequiredWithoutAuthorsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -350,14 +350,28 @@ export type BlogAuthorUpdateManyMutationInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
+export type BlogAuthorUpdateManyWithWhereWithoutAuthorInput = {
+  data: BlogAuthorUpdateManyMutationInput;
+  where: BlogAuthorScalarWhereInput;
+};
+
 export type BlogAuthorUpdateManyWithWhereWithoutBlogInput = {
   data: BlogAuthorUpdateManyMutationInput;
   where: BlogAuthorScalarWhereInput;
 };
 
-export type BlogAuthorUpdateManyWithWhereWithoutPersonInput = {
-  data: BlogAuthorUpdateManyMutationInput;
-  where: BlogAuthorScalarWhereInput;
+export type BlogAuthorUpdateManyWithoutAuthorInput = {
+  connect?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<BlogAuthorCreateOrConnectWithoutAuthorInput>>;
+  create?: InputMaybe<Array<BlogAuthorCreateWithoutAuthorInput>>;
+  createMany?: InputMaybe<BlogAuthorCreateManyAuthorInputEnvelope>;
+  delete?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<BlogAuthorScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
+  set?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
+  update?: InputMaybe<Array<BlogAuthorUpdateWithWhereUniqueWithoutAuthorInput>>;
+  updateMany?: InputMaybe<Array<BlogAuthorUpdateManyWithWhereWithoutAuthorInput>>;
+  upsert?: InputMaybe<Array<BlogAuthorUpsertWithWhereUniqueWithoutAuthorInput>>;
 };
 
 export type BlogAuthorUpdateManyWithoutBlogInput = {
@@ -374,18 +388,9 @@ export type BlogAuthorUpdateManyWithoutBlogInput = {
   upsert?: InputMaybe<Array<BlogAuthorUpsertWithWhereUniqueWithoutBlogInput>>;
 };
 
-export type BlogAuthorUpdateManyWithoutPersonInput = {
-  connect?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<BlogAuthorCreateOrConnectWithoutPersonInput>>;
-  create?: InputMaybe<Array<BlogAuthorCreateWithoutPersonInput>>;
-  createMany?: InputMaybe<BlogAuthorCreateManyPersonInputEnvelope>;
-  delete?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
-  deleteMany?: InputMaybe<Array<BlogAuthorScalarWhereInput>>;
-  disconnect?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
-  set?: InputMaybe<Array<BlogAuthorWhereUniqueInput>>;
-  update?: InputMaybe<Array<BlogAuthorUpdateWithWhereUniqueWithoutPersonInput>>;
-  updateMany?: InputMaybe<Array<BlogAuthorUpdateManyWithWhereWithoutPersonInput>>;
-  upsert?: InputMaybe<Array<BlogAuthorUpsertWithWhereUniqueWithoutPersonInput>>;
+export type BlogAuthorUpdateWithWhereUniqueWithoutAuthorInput = {
+  data: BlogAuthorUpdateWithoutAuthorInput;
+  where: BlogAuthorWhereUniqueInput;
 };
 
 export type BlogAuthorUpdateWithWhereUniqueWithoutBlogInput = {
@@ -393,23 +398,24 @@ export type BlogAuthorUpdateWithWhereUniqueWithoutBlogInput = {
   where: BlogAuthorWhereUniqueInput;
 };
 
-export type BlogAuthorUpdateWithWhereUniqueWithoutPersonInput = {
-  data: BlogAuthorUpdateWithoutPersonInput;
-  where: BlogAuthorWhereUniqueInput;
+export type BlogAuthorUpdateWithoutAuthorInput = {
+  blog?: InputMaybe<BlogUpdateOneRequiredWithoutAuthorsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
 export type BlogAuthorUpdateWithoutBlogInput = {
-  Person?: InputMaybe<PersonUpdateOneRequiredWithoutBlogAuthorInput>;
+  author?: InputMaybe<PersonUpdateOneRequiredWithoutBlogsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type BlogAuthorUpdateWithoutPersonInput = {
-  Blog?: InputMaybe<BlogUpdateOneRequiredWithoutBlogAuthorInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+export type BlogAuthorUpsertWithWhereUniqueWithoutAuthorInput = {
+  create: BlogAuthorCreateWithoutAuthorInput;
+  update: BlogAuthorUpdateWithoutAuthorInput;
+  where: BlogAuthorWhereUniqueInput;
 };
 
 export type BlogAuthorUpsertWithWhereUniqueWithoutBlogInput = {
@@ -418,18 +424,12 @@ export type BlogAuthorUpsertWithWhereUniqueWithoutBlogInput = {
   where: BlogAuthorWhereUniqueInput;
 };
 
-export type BlogAuthorUpsertWithWhereUniqueWithoutPersonInput = {
-  create: BlogAuthorCreateWithoutPersonInput;
-  update: BlogAuthorUpdateWithoutPersonInput;
-  where: BlogAuthorWhereUniqueInput;
-};
-
 export type BlogAuthorWhereInput = {
   AND?: InputMaybe<Array<BlogAuthorWhereInput>>;
-  Blog?: InputMaybe<BlogRelationFilter>;
   NOT?: InputMaybe<Array<BlogAuthorWhereInput>>;
   OR?: InputMaybe<Array<BlogAuthorWhereInput>>;
-  Person?: InputMaybe<PersonRelationFilter>;
+  author?: InputMaybe<PersonRelationFilter>;
+  blog?: InputMaybe<BlogRelationFilter>;
   blogId?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
@@ -443,7 +443,7 @@ export type BlogAuthorWhereUniqueInput = {
 
 export type BlogCount = {
   __typename?: 'BlogCount';
-  BlogAuthor: Scalars['Int'];
+  authors: Scalars['Int'];
 };
 
 export type BlogCountAggregate = {
@@ -469,81 +469,81 @@ export type BlogCountOrderByAggregateInput = {
 };
 
 export type BlogCreateInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorCreateNestedManyWithoutBlogInput>;
-  Image: ImageCreateNestedOneWithoutBlogInput;
+  authors?: InputMaybe<BlogAuthorCreateNestedManyWithoutBlogInput>;
   content: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  featuredImage: ImageCreateNestedOneWithoutBlogsInput;
+  id?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type BlogCreateManyImageInput = {
+export type BlogCreateManyFeaturedImageInput = {
   content: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type BlogCreateManyImageInputEnvelope = {
-  data: Array<BlogCreateManyImageInput>;
+export type BlogCreateManyFeaturedImageInputEnvelope = {
+  data: Array<BlogCreateManyFeaturedImageInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type BlogCreateManyInput = {
   content: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   imageId: Scalars['String'];
   slug: Scalars['String'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type BlogCreateNestedManyWithoutImageInput = {
+export type BlogCreateNestedManyWithoutFeaturedImageInput = {
   connect?: InputMaybe<Array<BlogWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<BlogCreateOrConnectWithoutImageInput>>;
-  create?: InputMaybe<Array<BlogCreateWithoutImageInput>>;
-  createMany?: InputMaybe<BlogCreateManyImageInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<BlogCreateOrConnectWithoutFeaturedImageInput>>;
+  create?: InputMaybe<Array<BlogCreateWithoutFeaturedImageInput>>;
+  createMany?: InputMaybe<BlogCreateManyFeaturedImageInputEnvelope>;
 };
 
-export type BlogCreateNestedOneWithoutBlogAuthorInput = {
+export type BlogCreateNestedOneWithoutAuthorsInput = {
   connect?: InputMaybe<BlogWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<BlogCreateOrConnectWithoutBlogAuthorInput>;
-  create?: InputMaybe<BlogCreateWithoutBlogAuthorInput>;
+  connectOrCreate?: InputMaybe<BlogCreateOrConnectWithoutAuthorsInput>;
+  create?: InputMaybe<BlogCreateWithoutAuthorsInput>;
 };
 
-export type BlogCreateOrConnectWithoutBlogAuthorInput = {
-  create: BlogCreateWithoutBlogAuthorInput;
+export type BlogCreateOrConnectWithoutAuthorsInput = {
+  create: BlogCreateWithoutAuthorsInput;
   where: BlogWhereUniqueInput;
 };
 
-export type BlogCreateOrConnectWithoutImageInput = {
-  create: BlogCreateWithoutImageInput;
+export type BlogCreateOrConnectWithoutFeaturedImageInput = {
+  create: BlogCreateWithoutFeaturedImageInput;
   where: BlogWhereUniqueInput;
 };
 
-export type BlogCreateWithoutBlogAuthorInput = {
-  Image: ImageCreateNestedOneWithoutBlogInput;
+export type BlogCreateWithoutAuthorsInput = {
   content: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  featuredImage: ImageCreateNestedOneWithoutBlogsInput;
+  id?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type BlogCreateWithoutImageInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorCreateNestedManyWithoutBlogInput>;
+export type BlogCreateWithoutFeaturedImageInput = {
+  authors?: InputMaybe<BlogAuthorCreateNestedManyWithoutBlogInput>;
   content: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type BlogGroupBy = {
@@ -626,10 +626,10 @@ export type BlogOrderByWithAggregationInput = {
 };
 
 export type BlogOrderByWithRelationInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorOrderByRelationAggregateInput>;
-  Image?: InputMaybe<ImageOrderByWithRelationInput>;
+  authors?: InputMaybe<BlogAuthorOrderByRelationAggregateInput>;
   content?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
+  featuredImage?: InputMaybe<ImageOrderByWithRelationInput>;
   id?: InputMaybe<SortOrder>;
   imageId?: InputMaybe<SortOrder>;
   slug?: InputMaybe<SortOrder>;
@@ -679,10 +679,10 @@ export type BlogScalarWhereWithAggregatesInput = {
 };
 
 export type BlogUpdateInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorUpdateManyWithoutBlogInput>;
-  Image?: InputMaybe<ImageUpdateOneRequiredWithoutBlogInput>;
+  authors?: InputMaybe<BlogAuthorUpdateManyWithoutBlogInput>;
   content?: InputMaybe<StringFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  featuredImage?: InputMaybe<ImageUpdateOneRequiredWithoutBlogsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   slug?: InputMaybe<StringFieldUpdateOperationsInput>;
   title?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -698,40 +698,50 @@ export type BlogUpdateManyMutationInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type BlogUpdateManyWithWhereWithoutImageInput = {
+export type BlogUpdateManyWithWhereWithoutFeaturedImageInput = {
   data: BlogUpdateManyMutationInput;
   where: BlogScalarWhereInput;
 };
 
-export type BlogUpdateManyWithoutImageInput = {
+export type BlogUpdateManyWithoutFeaturedImageInput = {
   connect?: InputMaybe<Array<BlogWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<BlogCreateOrConnectWithoutImageInput>>;
-  create?: InputMaybe<Array<BlogCreateWithoutImageInput>>;
-  createMany?: InputMaybe<BlogCreateManyImageInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<BlogCreateOrConnectWithoutFeaturedImageInput>>;
+  create?: InputMaybe<Array<BlogCreateWithoutFeaturedImageInput>>;
+  createMany?: InputMaybe<BlogCreateManyFeaturedImageInputEnvelope>;
   delete?: InputMaybe<Array<BlogWhereUniqueInput>>;
   deleteMany?: InputMaybe<Array<BlogScalarWhereInput>>;
   disconnect?: InputMaybe<Array<BlogWhereUniqueInput>>;
   set?: InputMaybe<Array<BlogWhereUniqueInput>>;
-  update?: InputMaybe<Array<BlogUpdateWithWhereUniqueWithoutImageInput>>;
-  updateMany?: InputMaybe<Array<BlogUpdateManyWithWhereWithoutImageInput>>;
-  upsert?: InputMaybe<Array<BlogUpsertWithWhereUniqueWithoutImageInput>>;
+  update?: InputMaybe<Array<BlogUpdateWithWhereUniqueWithoutFeaturedImageInput>>;
+  updateMany?: InputMaybe<Array<BlogUpdateManyWithWhereWithoutFeaturedImageInput>>;
+  upsert?: InputMaybe<Array<BlogUpsertWithWhereUniqueWithoutFeaturedImageInput>>;
 };
 
-export type BlogUpdateOneRequiredWithoutBlogAuthorInput = {
+export type BlogUpdateOneRequiredWithoutAuthorsInput = {
   connect?: InputMaybe<BlogWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<BlogCreateOrConnectWithoutBlogAuthorInput>;
-  create?: InputMaybe<BlogCreateWithoutBlogAuthorInput>;
-  update?: InputMaybe<BlogUpdateWithoutBlogAuthorInput>;
-  upsert?: InputMaybe<BlogUpsertWithoutBlogAuthorInput>;
+  connectOrCreate?: InputMaybe<BlogCreateOrConnectWithoutAuthorsInput>;
+  create?: InputMaybe<BlogCreateWithoutAuthorsInput>;
+  update?: InputMaybe<BlogUpdateWithoutAuthorsInput>;
+  upsert?: InputMaybe<BlogUpsertWithoutAuthorsInput>;
 };
 
-export type BlogUpdateWithWhereUniqueWithoutImageInput = {
-  data: BlogUpdateWithoutImageInput;
+export type BlogUpdateWithWhereUniqueWithoutFeaturedImageInput = {
+  data: BlogUpdateWithoutFeaturedImageInput;
   where: BlogWhereUniqueInput;
 };
 
-export type BlogUpdateWithoutBlogAuthorInput = {
-  Image?: InputMaybe<ImageUpdateOneRequiredWithoutBlogInput>;
+export type BlogUpdateWithoutAuthorsInput = {
+  content?: InputMaybe<StringFieldUpdateOperationsInput>;
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  featuredImage?: InputMaybe<ImageUpdateOneRequiredWithoutBlogsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  slug?: InputMaybe<StringFieldUpdateOperationsInput>;
+  title?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type BlogUpdateWithoutFeaturedImageInput = {
+  authors?: InputMaybe<BlogAuthorUpdateManyWithoutBlogInput>;
   content?: InputMaybe<StringFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -740,35 +750,25 @@ export type BlogUpdateWithoutBlogAuthorInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type BlogUpdateWithoutImageInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorUpdateManyWithoutBlogInput>;
-  content?: InputMaybe<StringFieldUpdateOperationsInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  slug?: InputMaybe<StringFieldUpdateOperationsInput>;
-  title?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type BlogUpsertWithWhereUniqueWithoutImageInput = {
-  create: BlogCreateWithoutImageInput;
-  update: BlogUpdateWithoutImageInput;
+export type BlogUpsertWithWhereUniqueWithoutFeaturedImageInput = {
+  create: BlogCreateWithoutFeaturedImageInput;
+  update: BlogUpdateWithoutFeaturedImageInput;
   where: BlogWhereUniqueInput;
 };
 
-export type BlogUpsertWithoutBlogAuthorInput = {
-  create: BlogCreateWithoutBlogAuthorInput;
-  update: BlogUpdateWithoutBlogAuthorInput;
+export type BlogUpsertWithoutAuthorsInput = {
+  create: BlogCreateWithoutAuthorsInput;
+  update: BlogUpdateWithoutAuthorsInput;
 };
 
 export type BlogWhereInput = {
   AND?: InputMaybe<Array<BlogWhereInput>>;
-  BlogAuthor?: InputMaybe<BlogAuthorListRelationFilter>;
-  Image?: InputMaybe<ImageRelationFilter>;
   NOT?: InputMaybe<Array<BlogWhereInput>>;
   OR?: InputMaybe<Array<BlogWhereInput>>;
+  authors?: InputMaybe<BlogAuthorListRelationFilter>;
   content?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
+  featuredImage?: InputMaybe<ImageRelationFilter>;
   id?: InputMaybe<StringFilter>;
   imageId?: InputMaybe<StringFilter>;
   slug?: InputMaybe<StringFilter>;
@@ -800,18 +800,18 @@ export type BoolWithAggregatesFilter = {
 
 export type Course = {
   __typename?: 'Course';
-  CourseInstructor: Array<CourseInstructor>;
-  School: School;
-  _count?: Maybe<CourseCount>;
+  _count: CourseCount;
   complete: Scalars['Boolean'];
   courseUrls: Array<Scalars['String']>;
   createdAt: Scalars['DateTime'];
   duration: Scalars['Float'];
   id: Scalars['String'];
+  instructors: Array<CourseInstructor>;
   order: Scalars['Int'];
   rating?: Maybe<Rating>;
   ratingUrl?: Maybe<Scalars['String']>;
   recommended: Scalars['Boolean'];
+  school: School;
   schoolId: Scalars['String'];
   title: Scalars['String'];
   updatedAt: Scalars['DateTime'];
@@ -819,7 +819,7 @@ export type Course = {
 };
 
 
-export type CourseCourseInstructorArgs = {
+export type CourseInstructorsArgs = {
   cursor?: InputMaybe<CourseInstructorWhereUniqueInput>;
   distinct?: InputMaybe<Array<CourseInstructorScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<CourseInstructorOrderByWithRelationInput>>;
@@ -843,7 +843,7 @@ export type CourseAvgOrderByAggregateInput = {
 
 export type CourseCount = {
   __typename?: 'CourseCount';
-  CourseInstructor: Scalars['Int'];
+  instructors: Scalars['Int'];
 };
 
 export type CourseCountAggregate = {
@@ -881,19 +881,19 @@ export type CourseCountOrderByAggregateInput = {
 };
 
 export type CourseCreateInput = {
-  CourseInstructor?: InputMaybe<CourseInstructorCreateNestedManyWithoutCourseInput>;
-  School: SchoolCreateNestedOneWithoutCourseInput;
   complete: Scalars['Boolean'];
   courseUrls?: InputMaybe<CourseCreatecourseUrlsInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   duration: Scalars['Float'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  instructors?: InputMaybe<CourseInstructorCreateNestedManyWithoutCourseInput>;
   order: Scalars['Int'];
   rating?: InputMaybe<Rating>;
   ratingUrl?: InputMaybe<Scalars['String']>;
   recommended: Scalars['Boolean'];
+  school: SchoolCreateNestedOneWithoutCoursesInput;
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   yearUpdated: Scalars['Int'];
 };
 
@@ -902,14 +902,14 @@ export type CourseCreateManyInput = {
   courseUrls?: InputMaybe<CourseCreateManycourseUrlsInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   duration: Scalars['Float'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   order: Scalars['Int'];
   rating?: InputMaybe<Rating>;
   ratingUrl?: InputMaybe<Scalars['String']>;
   recommended: Scalars['Boolean'];
   schoolId: Scalars['String'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   yearUpdated: Scalars['Int'];
 };
 
@@ -918,13 +918,13 @@ export type CourseCreateManySchoolInput = {
   courseUrls?: InputMaybe<CourseCreateManycourseUrlsInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   duration: Scalars['Float'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   order: Scalars['Int'];
   rating?: InputMaybe<Rating>;
   ratingUrl?: InputMaybe<Scalars['String']>;
   recommended: Scalars['Boolean'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   yearUpdated: Scalars['Int'];
 };
 
@@ -944,14 +944,14 @@ export type CourseCreateNestedManyWithoutSchoolInput = {
   createMany?: InputMaybe<CourseCreateManySchoolInputEnvelope>;
 };
 
-export type CourseCreateNestedOneWithoutCourseInstructorInput = {
+export type CourseCreateNestedOneWithoutInstructorsInput = {
   connect?: InputMaybe<CourseWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<CourseCreateOrConnectWithoutCourseInstructorInput>;
-  create?: InputMaybe<CourseCreateWithoutCourseInstructorInput>;
+  connectOrCreate?: InputMaybe<CourseCreateOrConnectWithoutInstructorsInput>;
+  create?: InputMaybe<CourseCreateWithoutInstructorsInput>;
 };
 
-export type CourseCreateOrConnectWithoutCourseInstructorInput = {
-  create: CourseCreateWithoutCourseInstructorInput;
+export type CourseCreateOrConnectWithoutInstructorsInput = {
+  create: CourseCreateWithoutInstructorsInput;
   where: CourseWhereUniqueInput;
 };
 
@@ -960,35 +960,35 @@ export type CourseCreateOrConnectWithoutSchoolInput = {
   where: CourseWhereUniqueInput;
 };
 
-export type CourseCreateWithoutCourseInstructorInput = {
-  School: SchoolCreateNestedOneWithoutCourseInput;
+export type CourseCreateWithoutInstructorsInput = {
   complete: Scalars['Boolean'];
   courseUrls?: InputMaybe<CourseCreatecourseUrlsInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   duration: Scalars['Float'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   order: Scalars['Int'];
   rating?: InputMaybe<Rating>;
   ratingUrl?: InputMaybe<Scalars['String']>;
   recommended: Scalars['Boolean'];
+  school: SchoolCreateNestedOneWithoutCoursesInput;
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   yearUpdated: Scalars['Int'];
 };
 
 export type CourseCreateWithoutSchoolInput = {
-  CourseInstructor?: InputMaybe<CourseInstructorCreateNestedManyWithoutCourseInput>;
   complete: Scalars['Boolean'];
   courseUrls?: InputMaybe<CourseCreatecourseUrlsInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   duration: Scalars['Float'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  instructors?: InputMaybe<CourseInstructorCreateNestedManyWithoutCourseInput>;
   order: Scalars['Int'];
   rating?: InputMaybe<Rating>;
   ratingUrl?: InputMaybe<Scalars['String']>;
   recommended: Scalars['Boolean'];
   title: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   yearUpdated: Scalars['Int'];
 };
 
@@ -1020,11 +1020,11 @@ export type CourseGroupBy = {
 
 export type CourseInstructor = {
   __typename?: 'CourseInstructor';
-  Course: Course;
-  Person: Person;
+  course: Course;
   courseId: Scalars['String'];
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
+  instructor: Person;
   instructorId: Scalars['String'];
   updatedAt: Scalars['DateTime'];
 };
@@ -1048,18 +1048,18 @@ export type CourseInstructorCountOrderByAggregateInput = {
 };
 
 export type CourseInstructorCreateInput = {
-  Course: CourseCreateNestedOneWithoutCourseInstructorInput;
-  Person: PersonCreateNestedOneWithoutCourseInstructorInput;
+  course: CourseCreateNestedOneWithoutInstructorsInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  instructor: PersonCreateNestedOneWithoutCoursesInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type CourseInstructorCreateManyCourseInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   instructorId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type CourseInstructorCreateManyCourseInputEnvelope = {
@@ -1070,20 +1070,20 @@ export type CourseInstructorCreateManyCourseInputEnvelope = {
 export type CourseInstructorCreateManyInput = {
   courseId: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   instructorId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type CourseInstructorCreateManyPersonInput = {
+export type CourseInstructorCreateManyInstructorInput = {
   courseId: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type CourseInstructorCreateManyPersonInputEnvelope = {
-  data: Array<CourseInstructorCreateManyPersonInput>;
+export type CourseInstructorCreateManyInstructorInputEnvelope = {
+  data: Array<CourseInstructorCreateManyInstructorInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
@@ -1094,11 +1094,11 @@ export type CourseInstructorCreateNestedManyWithoutCourseInput = {
   createMany?: InputMaybe<CourseInstructorCreateManyCourseInputEnvelope>;
 };
 
-export type CourseInstructorCreateNestedManyWithoutPersonInput = {
+export type CourseInstructorCreateNestedManyWithoutInstructorInput = {
   connect?: InputMaybe<Array<CourseInstructorWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<CourseInstructorCreateOrConnectWithoutPersonInput>>;
-  create?: InputMaybe<Array<CourseInstructorCreateWithoutPersonInput>>;
-  createMany?: InputMaybe<CourseInstructorCreateManyPersonInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<CourseInstructorCreateOrConnectWithoutInstructorInput>>;
+  create?: InputMaybe<Array<CourseInstructorCreateWithoutInstructorInput>>;
+  createMany?: InputMaybe<CourseInstructorCreateManyInstructorInputEnvelope>;
 };
 
 export type CourseInstructorCreateOrConnectWithoutCourseInput = {
@@ -1106,23 +1106,23 @@ export type CourseInstructorCreateOrConnectWithoutCourseInput = {
   where: CourseInstructorWhereUniqueInput;
 };
 
-export type CourseInstructorCreateOrConnectWithoutPersonInput = {
-  create: CourseInstructorCreateWithoutPersonInput;
+export type CourseInstructorCreateOrConnectWithoutInstructorInput = {
+  create: CourseInstructorCreateWithoutInstructorInput;
   where: CourseInstructorWhereUniqueInput;
 };
 
 export type CourseInstructorCreateWithoutCourseInput = {
-  Person: PersonCreateNestedOneWithoutCourseInstructorInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  instructor: PersonCreateNestedOneWithoutCoursesInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type CourseInstructorCreateWithoutPersonInput = {
-  Course: CourseCreateNestedOneWithoutCourseInstructorInput;
+export type CourseInstructorCreateWithoutInstructorInput = {
+  course: CourseCreateNestedOneWithoutInstructorsInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type CourseInstructorGroupBy = {
@@ -1193,11 +1193,11 @@ export type CourseInstructorOrderByWithAggregationInput = {
 };
 
 export type CourseInstructorOrderByWithRelationInput = {
-  Course?: InputMaybe<CourseOrderByWithRelationInput>;
-  Person?: InputMaybe<PersonOrderByWithRelationInput>;
+  course?: InputMaybe<CourseOrderByWithRelationInput>;
   courseId?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
+  instructor?: InputMaybe<PersonOrderByWithRelationInput>;
   instructorId?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
 };
@@ -1233,10 +1233,10 @@ export type CourseInstructorScalarWhereWithAggregatesInput = {
 };
 
 export type CourseInstructorUpdateInput = {
-  Course?: InputMaybe<CourseUpdateOneRequiredWithoutCourseInstructorInput>;
-  Person?: InputMaybe<PersonUpdateOneRequiredWithoutCourseInstructorInput>;
+  course?: InputMaybe<CourseUpdateOneRequiredWithoutInstructorsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  instructor?: InputMaybe<PersonUpdateOneRequiredWithoutCoursesInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -1251,7 +1251,7 @@ export type CourseInstructorUpdateManyWithWhereWithoutCourseInput = {
   where: CourseInstructorScalarWhereInput;
 };
 
-export type CourseInstructorUpdateManyWithWhereWithoutPersonInput = {
+export type CourseInstructorUpdateManyWithWhereWithoutInstructorInput = {
   data: CourseInstructorUpdateManyMutationInput;
   where: CourseInstructorScalarWhereInput;
 };
@@ -1270,18 +1270,18 @@ export type CourseInstructorUpdateManyWithoutCourseInput = {
   upsert?: InputMaybe<Array<CourseInstructorUpsertWithWhereUniqueWithoutCourseInput>>;
 };
 
-export type CourseInstructorUpdateManyWithoutPersonInput = {
+export type CourseInstructorUpdateManyWithoutInstructorInput = {
   connect?: InputMaybe<Array<CourseInstructorWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<CourseInstructorCreateOrConnectWithoutPersonInput>>;
-  create?: InputMaybe<Array<CourseInstructorCreateWithoutPersonInput>>;
-  createMany?: InputMaybe<CourseInstructorCreateManyPersonInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<CourseInstructorCreateOrConnectWithoutInstructorInput>>;
+  create?: InputMaybe<Array<CourseInstructorCreateWithoutInstructorInput>>;
+  createMany?: InputMaybe<CourseInstructorCreateManyInstructorInputEnvelope>;
   delete?: InputMaybe<Array<CourseInstructorWhereUniqueInput>>;
   deleteMany?: InputMaybe<Array<CourseInstructorScalarWhereInput>>;
   disconnect?: InputMaybe<Array<CourseInstructorWhereUniqueInput>>;
   set?: InputMaybe<Array<CourseInstructorWhereUniqueInput>>;
-  update?: InputMaybe<Array<CourseInstructorUpdateWithWhereUniqueWithoutPersonInput>>;
-  updateMany?: InputMaybe<Array<CourseInstructorUpdateManyWithWhereWithoutPersonInput>>;
-  upsert?: InputMaybe<Array<CourseInstructorUpsertWithWhereUniqueWithoutPersonInput>>;
+  update?: InputMaybe<Array<CourseInstructorUpdateWithWhereUniqueWithoutInstructorInput>>;
+  updateMany?: InputMaybe<Array<CourseInstructorUpdateManyWithWhereWithoutInstructorInput>>;
+  upsert?: InputMaybe<Array<CourseInstructorUpsertWithWhereUniqueWithoutInstructorInput>>;
 };
 
 export type CourseInstructorUpdateWithWhereUniqueWithoutCourseInput = {
@@ -1289,20 +1289,20 @@ export type CourseInstructorUpdateWithWhereUniqueWithoutCourseInput = {
   where: CourseInstructorWhereUniqueInput;
 };
 
-export type CourseInstructorUpdateWithWhereUniqueWithoutPersonInput = {
-  data: CourseInstructorUpdateWithoutPersonInput;
+export type CourseInstructorUpdateWithWhereUniqueWithoutInstructorInput = {
+  data: CourseInstructorUpdateWithoutInstructorInput;
   where: CourseInstructorWhereUniqueInput;
 };
 
 export type CourseInstructorUpdateWithoutCourseInput = {
-  Person?: InputMaybe<PersonUpdateOneRequiredWithoutCourseInstructorInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  instructor?: InputMaybe<PersonUpdateOneRequiredWithoutCoursesInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type CourseInstructorUpdateWithoutPersonInput = {
-  Course?: InputMaybe<CourseUpdateOneRequiredWithoutCourseInstructorInput>;
+export type CourseInstructorUpdateWithoutInstructorInput = {
+  course?: InputMaybe<CourseUpdateOneRequiredWithoutInstructorsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -1314,21 +1314,21 @@ export type CourseInstructorUpsertWithWhereUniqueWithoutCourseInput = {
   where: CourseInstructorWhereUniqueInput;
 };
 
-export type CourseInstructorUpsertWithWhereUniqueWithoutPersonInput = {
-  create: CourseInstructorCreateWithoutPersonInput;
-  update: CourseInstructorUpdateWithoutPersonInput;
+export type CourseInstructorUpsertWithWhereUniqueWithoutInstructorInput = {
+  create: CourseInstructorCreateWithoutInstructorInput;
+  update: CourseInstructorUpdateWithoutInstructorInput;
   where: CourseInstructorWhereUniqueInput;
 };
 
 export type CourseInstructorWhereInput = {
   AND?: InputMaybe<Array<CourseInstructorWhereInput>>;
-  Course?: InputMaybe<CourseRelationFilter>;
   NOT?: InputMaybe<Array<CourseInstructorWhereInput>>;
   OR?: InputMaybe<Array<CourseInstructorWhereInput>>;
-  Person?: InputMaybe<PersonRelationFilter>;
+  course?: InputMaybe<CourseRelationFilter>;
   courseId?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
+  instructor?: InputMaybe<PersonRelationFilter>;
   instructorId?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
 };
@@ -1431,17 +1431,17 @@ export type CourseOrderByWithAggregationInput = {
 };
 
 export type CourseOrderByWithRelationInput = {
-  CourseInstructor?: InputMaybe<CourseInstructorOrderByRelationAggregateInput>;
-  School?: InputMaybe<SchoolOrderByWithRelationInput>;
   complete?: InputMaybe<SortOrder>;
   courseUrls?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
   duration?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
+  instructors?: InputMaybe<CourseInstructorOrderByRelationAggregateInput>;
   order?: InputMaybe<SortOrder>;
   rating?: InputMaybe<SortOrder>;
   ratingUrl?: InputMaybe<SortOrder>;
   recommended?: InputMaybe<SortOrder>;
+  school?: InputMaybe<SchoolOrderByWithRelationInput>;
   schoolId?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
@@ -1521,17 +1521,17 @@ export type CourseSumOrderByAggregateInput = {
 };
 
 export type CourseUpdateInput = {
-  CourseInstructor?: InputMaybe<CourseInstructorUpdateManyWithoutCourseInput>;
-  School?: InputMaybe<SchoolUpdateOneRequiredWithoutCourseInput>;
   complete?: InputMaybe<BoolFieldUpdateOperationsInput>;
   courseUrls?: InputMaybe<CourseUpdatecourseUrlsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   duration?: InputMaybe<FloatFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  instructors?: InputMaybe<CourseInstructorUpdateManyWithoutCourseInput>;
   order?: InputMaybe<IntFieldUpdateOperationsInput>;
   rating?: InputMaybe<NullableEnumRatingFieldUpdateOperationsInput>;
   ratingUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   recommended?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  school?: InputMaybe<SchoolUpdateOneRequiredWithoutCoursesInput>;
   title?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   yearUpdated?: InputMaybe<IntFieldUpdateOperationsInput>;
@@ -1571,12 +1571,12 @@ export type CourseUpdateManyWithoutSchoolInput = {
   upsert?: InputMaybe<Array<CourseUpsertWithWhereUniqueWithoutSchoolInput>>;
 };
 
-export type CourseUpdateOneRequiredWithoutCourseInstructorInput = {
+export type CourseUpdateOneRequiredWithoutInstructorsInput = {
   connect?: InputMaybe<CourseWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<CourseCreateOrConnectWithoutCourseInstructorInput>;
-  create?: InputMaybe<CourseCreateWithoutCourseInstructorInput>;
-  update?: InputMaybe<CourseUpdateWithoutCourseInstructorInput>;
-  upsert?: InputMaybe<CourseUpsertWithoutCourseInstructorInput>;
+  connectOrCreate?: InputMaybe<CourseCreateOrConnectWithoutInstructorsInput>;
+  create?: InputMaybe<CourseCreateWithoutInstructorsInput>;
+  update?: InputMaybe<CourseUpdateWithoutInstructorsInput>;
+  upsert?: InputMaybe<CourseUpsertWithoutInstructorsInput>;
 };
 
 export type CourseUpdateWithWhereUniqueWithoutSchoolInput = {
@@ -1584,8 +1584,7 @@ export type CourseUpdateWithWhereUniqueWithoutSchoolInput = {
   where: CourseWhereUniqueInput;
 };
 
-export type CourseUpdateWithoutCourseInstructorInput = {
-  School?: InputMaybe<SchoolUpdateOneRequiredWithoutCourseInput>;
+export type CourseUpdateWithoutInstructorsInput = {
   complete?: InputMaybe<BoolFieldUpdateOperationsInput>;
   courseUrls?: InputMaybe<CourseUpdatecourseUrlsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
@@ -1595,18 +1594,19 @@ export type CourseUpdateWithoutCourseInstructorInput = {
   rating?: InputMaybe<NullableEnumRatingFieldUpdateOperationsInput>;
   ratingUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   recommended?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  school?: InputMaybe<SchoolUpdateOneRequiredWithoutCoursesInput>;
   title?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   yearUpdated?: InputMaybe<IntFieldUpdateOperationsInput>;
 };
 
 export type CourseUpdateWithoutSchoolInput = {
-  CourseInstructor?: InputMaybe<CourseInstructorUpdateManyWithoutCourseInput>;
   complete?: InputMaybe<BoolFieldUpdateOperationsInput>;
   courseUrls?: InputMaybe<CourseUpdatecourseUrlsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   duration?: InputMaybe<FloatFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  instructors?: InputMaybe<CourseInstructorUpdateManyWithoutCourseInput>;
   order?: InputMaybe<IntFieldUpdateOperationsInput>;
   rating?: InputMaybe<NullableEnumRatingFieldUpdateOperationsInput>;
   ratingUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
@@ -1627,26 +1627,26 @@ export type CourseUpsertWithWhereUniqueWithoutSchoolInput = {
   where: CourseWhereUniqueInput;
 };
 
-export type CourseUpsertWithoutCourseInstructorInput = {
-  create: CourseCreateWithoutCourseInstructorInput;
-  update: CourseUpdateWithoutCourseInstructorInput;
+export type CourseUpsertWithoutInstructorsInput = {
+  create: CourseCreateWithoutInstructorsInput;
+  update: CourseUpdateWithoutInstructorsInput;
 };
 
 export type CourseWhereInput = {
   AND?: InputMaybe<Array<CourseWhereInput>>;
-  CourseInstructor?: InputMaybe<CourseInstructorListRelationFilter>;
   NOT?: InputMaybe<Array<CourseWhereInput>>;
   OR?: InputMaybe<Array<CourseWhereInput>>;
-  School?: InputMaybe<SchoolRelationFilter>;
   complete?: InputMaybe<BoolFilter>;
   courseUrls?: InputMaybe<StringNullableListFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   duration?: InputMaybe<FloatFilter>;
   id?: InputMaybe<StringFilter>;
+  instructors?: InputMaybe<CourseInstructorListRelationFilter>;
   order?: InputMaybe<IntFilter>;
   rating?: InputMaybe<EnumRatingNullableFilter>;
   ratingUrl?: InputMaybe<StringNullableFilter>;
   recommended?: InputMaybe<BoolFilter>;
+  school?: InputMaybe<SchoolRelationFilter>;
   schoolId?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
@@ -1761,23 +1761,33 @@ export type FloatWithAggregatesFilter = {
 
 export type Image = {
   __typename?: 'Image';
-  Blog: Array<Blog>;
-  Person: Array<Person>;
-  Project: Array<Project>;
-  School: Array<School>;
-  TechnologyLogo?: Maybe<TechnologyLogo>;
-  _count?: Maybe<ImageCount>;
+  TechnologyLogos: Array<TechnologyLogo>;
+  _count: ImageCount;
   altText: Scalars['String'];
+  blogs: Array<Blog>;
   createdAt: Scalars['DateTime'];
   height: Scalars['String'];
   id: Scalars['String'];
+  persons: Array<Person>;
+  projects: Array<Project>;
+  schools: Array<School>;
   updatedAt: Scalars['DateTime'];
   url: Scalars['String'];
   width: Scalars['String'];
 };
 
 
-export type ImageBlogArgs = {
+export type ImageTechnologyLogosArgs = {
+  cursor?: InputMaybe<TechnologyLogoWhereUniqueInput>;
+  distinct?: InputMaybe<Array<TechnologyLogoScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<TechnologyLogoOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TechnologyLogoWhereInput>;
+};
+
+
+export type ImageBlogsArgs = {
   cursor?: InputMaybe<BlogWhereUniqueInput>;
   distinct?: InputMaybe<Array<BlogScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<BlogOrderByWithRelationInput>>;
@@ -1787,7 +1797,7 @@ export type ImageBlogArgs = {
 };
 
 
-export type ImagePersonArgs = {
+export type ImagePersonsArgs = {
   cursor?: InputMaybe<PersonWhereUniqueInput>;
   distinct?: InputMaybe<Array<PersonScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<PersonOrderByWithRelationInput>>;
@@ -1797,7 +1807,7 @@ export type ImagePersonArgs = {
 };
 
 
-export type ImageProjectArgs = {
+export type ImageProjectsArgs = {
   cursor?: InputMaybe<ProjectWhereUniqueInput>;
   distinct?: InputMaybe<Array<ProjectScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<ProjectOrderByWithRelationInput>>;
@@ -1807,7 +1817,7 @@ export type ImageProjectArgs = {
 };
 
 
-export type ImageSchoolArgs = {
+export type ImageSchoolsArgs = {
   cursor?: InputMaybe<SchoolWhereUniqueInput>;
   distinct?: InputMaybe<Array<SchoolScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<SchoolOrderByWithRelationInput>>;
@@ -1818,10 +1828,11 @@ export type ImageSchoolArgs = {
 
 export type ImageCount = {
   __typename?: 'ImageCount';
-  Blog: Scalars['Int'];
-  Person: Scalars['Int'];
-  Project: Scalars['Int'];
-  School: Scalars['Int'];
+  TechnologyLogos: Scalars['Int'];
+  blogs: Scalars['Int'];
+  persons: Scalars['Int'];
+  projects: Scalars['Int'];
+  schools: Scalars['Int'];
 };
 
 export type ImageCountAggregate = {
@@ -1847,16 +1858,16 @@ export type ImageCountOrderByAggregateInput = {
 };
 
 export type ImageCreateInput = {
-  Blog?: InputMaybe<BlogCreateNestedManyWithoutImageInput>;
-  Person?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectCreateNestedManyWithoutImageInput>;
-  School?: InputMaybe<SchoolCreateNestedManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoCreateNestedOneWithoutImageInput>;
+  TechnologyLogos?: InputMaybe<TechnologyLogoCreateNestedManyWithoutLogoInput>;
   altText: Scalars['String'];
+  blogs?: InputMaybe<BlogCreateNestedManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   height: Scalars['String'];
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  persons?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectCreateNestedManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolCreateNestedManyWithoutLogoInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width: Scalars['String'];
 };
@@ -1865,133 +1876,133 @@ export type ImageCreateManyInput = {
   altText: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
   height: Scalars['String'];
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width: Scalars['String'];
 };
 
-export type ImageCreateNestedOneWithoutBlogInput = {
+export type ImageCreateNestedOneWithoutBlogsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutBlogInput>;
-  create?: InputMaybe<ImageCreateWithoutBlogInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutBlogsInput>;
+  create?: InputMaybe<ImageCreateWithoutBlogsInput>;
 };
 
-export type ImageCreateNestedOneWithoutPersonInput = {
+export type ImageCreateNestedOneWithoutPersonsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutPersonInput>;
-  create?: InputMaybe<ImageCreateWithoutPersonInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutPersonsInput>;
+  create?: InputMaybe<ImageCreateWithoutPersonsInput>;
 };
 
-export type ImageCreateNestedOneWithoutProjectInput = {
+export type ImageCreateNestedOneWithoutProjectsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutProjectInput>;
-  create?: InputMaybe<ImageCreateWithoutProjectInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutProjectsInput>;
+  create?: InputMaybe<ImageCreateWithoutProjectsInput>;
 };
 
-export type ImageCreateNestedOneWithoutSchoolInput = {
+export type ImageCreateNestedOneWithoutSchoolsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutSchoolInput>;
-  create?: InputMaybe<ImageCreateWithoutSchoolInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutSchoolsInput>;
+  create?: InputMaybe<ImageCreateWithoutSchoolsInput>;
 };
 
-export type ImageCreateNestedOneWithoutTechnologyLogoInput = {
+export type ImageCreateNestedOneWithoutTechnologyLogosInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutTechnologyLogoInput>;
-  create?: InputMaybe<ImageCreateWithoutTechnologyLogoInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutTechnologyLogosInput>;
+  create?: InputMaybe<ImageCreateWithoutTechnologyLogosInput>;
 };
 
-export type ImageCreateOrConnectWithoutBlogInput = {
-  create: ImageCreateWithoutBlogInput;
+export type ImageCreateOrConnectWithoutBlogsInput = {
+  create: ImageCreateWithoutBlogsInput;
   where: ImageWhereUniqueInput;
 };
 
-export type ImageCreateOrConnectWithoutPersonInput = {
-  create: ImageCreateWithoutPersonInput;
+export type ImageCreateOrConnectWithoutPersonsInput = {
+  create: ImageCreateWithoutPersonsInput;
   where: ImageWhereUniqueInput;
 };
 
-export type ImageCreateOrConnectWithoutProjectInput = {
-  create: ImageCreateWithoutProjectInput;
+export type ImageCreateOrConnectWithoutProjectsInput = {
+  create: ImageCreateWithoutProjectsInput;
   where: ImageWhereUniqueInput;
 };
 
-export type ImageCreateOrConnectWithoutSchoolInput = {
-  create: ImageCreateWithoutSchoolInput;
+export type ImageCreateOrConnectWithoutSchoolsInput = {
+  create: ImageCreateWithoutSchoolsInput;
   where: ImageWhereUniqueInput;
 };
 
-export type ImageCreateOrConnectWithoutTechnologyLogoInput = {
-  create: ImageCreateWithoutTechnologyLogoInput;
+export type ImageCreateOrConnectWithoutTechnologyLogosInput = {
+  create: ImageCreateWithoutTechnologyLogosInput;
   where: ImageWhereUniqueInput;
 };
 
-export type ImageCreateWithoutBlogInput = {
-  Person?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectCreateNestedManyWithoutImageInput>;
-  School?: InputMaybe<SchoolCreateNestedManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoCreateNestedOneWithoutImageInput>;
+export type ImageCreateWithoutBlogsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoCreateNestedManyWithoutLogoInput>;
   altText: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
   height: Scalars['String'];
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  persons?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectCreateNestedManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolCreateNestedManyWithoutLogoInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width: Scalars['String'];
 };
 
-export type ImageCreateWithoutPersonInput = {
-  Blog?: InputMaybe<BlogCreateNestedManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectCreateNestedManyWithoutImageInput>;
-  School?: InputMaybe<SchoolCreateNestedManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoCreateNestedOneWithoutImageInput>;
+export type ImageCreateWithoutPersonsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoCreateNestedManyWithoutLogoInput>;
   altText: Scalars['String'];
+  blogs?: InputMaybe<BlogCreateNestedManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   height: Scalars['String'];
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  projects?: InputMaybe<ProjectCreateNestedManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolCreateNestedManyWithoutLogoInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width: Scalars['String'];
 };
 
-export type ImageCreateWithoutProjectInput = {
-  Blog?: InputMaybe<BlogCreateNestedManyWithoutImageInput>;
-  Person?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
-  School?: InputMaybe<SchoolCreateNestedManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoCreateNestedOneWithoutImageInput>;
+export type ImageCreateWithoutProjectsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoCreateNestedManyWithoutLogoInput>;
   altText: Scalars['String'];
+  blogs?: InputMaybe<BlogCreateNestedManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   height: Scalars['String'];
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  persons?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
+  schools?: InputMaybe<SchoolCreateNestedManyWithoutLogoInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width: Scalars['String'];
 };
 
-export type ImageCreateWithoutSchoolInput = {
-  Blog?: InputMaybe<BlogCreateNestedManyWithoutImageInput>;
-  Person?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectCreateNestedManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoCreateNestedOneWithoutImageInput>;
+export type ImageCreateWithoutSchoolsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoCreateNestedManyWithoutLogoInput>;
   altText: Scalars['String'];
+  blogs?: InputMaybe<BlogCreateNestedManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   height: Scalars['String'];
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  persons?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectCreateNestedManyWithoutFeaturedImageInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width: Scalars['String'];
 };
 
-export type ImageCreateWithoutTechnologyLogoInput = {
-  Blog?: InputMaybe<BlogCreateNestedManyWithoutImageInput>;
-  Person?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectCreateNestedManyWithoutImageInput>;
-  School?: InputMaybe<SchoolCreateNestedManyWithoutImageInput>;
+export type ImageCreateWithoutTechnologyLogosInput = {
   altText: Scalars['String'];
+  blogs?: InputMaybe<BlogCreateNestedManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   height: Scalars['String'];
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  persons?: InputMaybe<PersonCreateNestedManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectCreateNestedManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolCreateNestedManyWithoutLogoInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
   width: Scalars['String'];
 };
@@ -2066,15 +2077,15 @@ export type ImageOrderByWithAggregationInput = {
 };
 
 export type ImageOrderByWithRelationInput = {
-  Blog?: InputMaybe<BlogOrderByRelationAggregateInput>;
-  Person?: InputMaybe<PersonOrderByRelationAggregateInput>;
-  Project?: InputMaybe<ProjectOrderByRelationAggregateInput>;
-  School?: InputMaybe<SchoolOrderByRelationAggregateInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoOrderByWithRelationInput>;
+  TechnologyLogos?: InputMaybe<TechnologyLogoOrderByRelationAggregateInput>;
   altText?: InputMaybe<SortOrder>;
+  blogs?: InputMaybe<BlogOrderByRelationAggregateInput>;
   createdAt?: InputMaybe<SortOrder>;
   height?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
+  persons?: InputMaybe<PersonOrderByRelationAggregateInput>;
+  projects?: InputMaybe<ProjectOrderByRelationAggregateInput>;
+  schools?: InputMaybe<SchoolOrderByRelationAggregateInput>;
   updatedAt?: InputMaybe<SortOrder>;
   url?: InputMaybe<SortOrder>;
   width?: InputMaybe<SortOrder>;
@@ -2109,15 +2120,15 @@ export type ImageScalarWhereWithAggregatesInput = {
 };
 
 export type ImageUpdateInput = {
-  Blog?: InputMaybe<BlogUpdateManyWithoutImageInput>;
-  Person?: InputMaybe<PersonUpdateManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectUpdateManyWithoutImageInput>;
-  School?: InputMaybe<SchoolUpdateManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoUpdateOneWithoutImageInput>;
+  TechnologyLogos?: InputMaybe<TechnologyLogoUpdateManyWithoutLogoInput>;
   altText?: InputMaybe<StringFieldUpdateOperationsInput>;
+  blogs?: InputMaybe<BlogUpdateManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   height?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  persons?: InputMaybe<PersonUpdateManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectUpdateManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolUpdateManyWithoutLogoInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
   width?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -2133,156 +2144,156 @@ export type ImageUpdateManyMutationInput = {
   width?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type ImageUpdateOneRequiredWithoutBlogInput = {
+export type ImageUpdateOneRequiredWithoutBlogsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutBlogInput>;
-  create?: InputMaybe<ImageCreateWithoutBlogInput>;
-  update?: InputMaybe<ImageUpdateWithoutBlogInput>;
-  upsert?: InputMaybe<ImageUpsertWithoutBlogInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutBlogsInput>;
+  create?: InputMaybe<ImageCreateWithoutBlogsInput>;
+  update?: InputMaybe<ImageUpdateWithoutBlogsInput>;
+  upsert?: InputMaybe<ImageUpsertWithoutBlogsInput>;
 };
 
-export type ImageUpdateOneRequiredWithoutProjectInput = {
+export type ImageUpdateOneRequiredWithoutProjectsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutProjectInput>;
-  create?: InputMaybe<ImageCreateWithoutProjectInput>;
-  update?: InputMaybe<ImageUpdateWithoutProjectInput>;
-  upsert?: InputMaybe<ImageUpsertWithoutProjectInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutProjectsInput>;
+  create?: InputMaybe<ImageCreateWithoutProjectsInput>;
+  update?: InputMaybe<ImageUpdateWithoutProjectsInput>;
+  upsert?: InputMaybe<ImageUpsertWithoutProjectsInput>;
 };
 
-export type ImageUpdateOneRequiredWithoutSchoolInput = {
+export type ImageUpdateOneRequiredWithoutSchoolsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutSchoolInput>;
-  create?: InputMaybe<ImageCreateWithoutSchoolInput>;
-  update?: InputMaybe<ImageUpdateWithoutSchoolInput>;
-  upsert?: InputMaybe<ImageUpsertWithoutSchoolInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutSchoolsInput>;
+  create?: InputMaybe<ImageCreateWithoutSchoolsInput>;
+  update?: InputMaybe<ImageUpdateWithoutSchoolsInput>;
+  upsert?: InputMaybe<ImageUpsertWithoutSchoolsInput>;
 };
 
-export type ImageUpdateOneRequiredWithoutTechnologyLogoInput = {
+export type ImageUpdateOneRequiredWithoutTechnologyLogosInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutTechnologyLogoInput>;
-  create?: InputMaybe<ImageCreateWithoutTechnologyLogoInput>;
-  update?: InputMaybe<ImageUpdateWithoutTechnologyLogoInput>;
-  upsert?: InputMaybe<ImageUpsertWithoutTechnologyLogoInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutTechnologyLogosInput>;
+  create?: InputMaybe<ImageCreateWithoutTechnologyLogosInput>;
+  update?: InputMaybe<ImageUpdateWithoutTechnologyLogosInput>;
+  upsert?: InputMaybe<ImageUpsertWithoutTechnologyLogosInput>;
 };
 
-export type ImageUpdateOneWithoutPersonInput = {
+export type ImageUpdateOneWithoutPersonsInput = {
   connect?: InputMaybe<ImageWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutPersonInput>;
-  create?: InputMaybe<ImageCreateWithoutPersonInput>;
+  connectOrCreate?: InputMaybe<ImageCreateOrConnectWithoutPersonsInput>;
+  create?: InputMaybe<ImageCreateWithoutPersonsInput>;
   delete?: InputMaybe<Scalars['Boolean']>;
   disconnect?: InputMaybe<Scalars['Boolean']>;
-  update?: InputMaybe<ImageUpdateWithoutPersonInput>;
-  upsert?: InputMaybe<ImageUpsertWithoutPersonInput>;
+  update?: InputMaybe<ImageUpdateWithoutPersonsInput>;
+  upsert?: InputMaybe<ImageUpsertWithoutPersonsInput>;
 };
 
-export type ImageUpdateWithoutBlogInput = {
-  Person?: InputMaybe<PersonUpdateManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectUpdateManyWithoutImageInput>;
-  School?: InputMaybe<SchoolUpdateManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoUpdateOneWithoutImageInput>;
+export type ImageUpdateWithoutBlogsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoUpdateManyWithoutLogoInput>;
   altText?: InputMaybe<StringFieldUpdateOperationsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   height?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  persons?: InputMaybe<PersonUpdateManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectUpdateManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolUpdateManyWithoutLogoInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
   width?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type ImageUpdateWithoutPersonInput = {
-  Blog?: InputMaybe<BlogUpdateManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectUpdateManyWithoutImageInput>;
-  School?: InputMaybe<SchoolUpdateManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoUpdateOneWithoutImageInput>;
+export type ImageUpdateWithoutPersonsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoUpdateManyWithoutLogoInput>;
   altText?: InputMaybe<StringFieldUpdateOperationsInput>;
+  blogs?: InputMaybe<BlogUpdateManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   height?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  projects?: InputMaybe<ProjectUpdateManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolUpdateManyWithoutLogoInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
   width?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type ImageUpdateWithoutProjectInput = {
-  Blog?: InputMaybe<BlogUpdateManyWithoutImageInput>;
-  Person?: InputMaybe<PersonUpdateManyWithoutImageInput>;
-  School?: InputMaybe<SchoolUpdateManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoUpdateOneWithoutImageInput>;
+export type ImageUpdateWithoutProjectsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoUpdateManyWithoutLogoInput>;
   altText?: InputMaybe<StringFieldUpdateOperationsInput>;
+  blogs?: InputMaybe<BlogUpdateManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   height?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  persons?: InputMaybe<PersonUpdateManyWithoutImageInput>;
+  schools?: InputMaybe<SchoolUpdateManyWithoutLogoInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
   width?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type ImageUpdateWithoutSchoolInput = {
-  Blog?: InputMaybe<BlogUpdateManyWithoutImageInput>;
-  Person?: InputMaybe<PersonUpdateManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectUpdateManyWithoutImageInput>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoUpdateOneWithoutImageInput>;
+export type ImageUpdateWithoutSchoolsInput = {
+  TechnologyLogos?: InputMaybe<TechnologyLogoUpdateManyWithoutLogoInput>;
   altText?: InputMaybe<StringFieldUpdateOperationsInput>;
+  blogs?: InputMaybe<BlogUpdateManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   height?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  persons?: InputMaybe<PersonUpdateManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectUpdateManyWithoutFeaturedImageInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
   width?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type ImageUpdateWithoutTechnologyLogoInput = {
-  Blog?: InputMaybe<BlogUpdateManyWithoutImageInput>;
-  Person?: InputMaybe<PersonUpdateManyWithoutImageInput>;
-  Project?: InputMaybe<ProjectUpdateManyWithoutImageInput>;
-  School?: InputMaybe<SchoolUpdateManyWithoutImageInput>;
+export type ImageUpdateWithoutTechnologyLogosInput = {
   altText?: InputMaybe<StringFieldUpdateOperationsInput>;
+  blogs?: InputMaybe<BlogUpdateManyWithoutFeaturedImageInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   height?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  persons?: InputMaybe<PersonUpdateManyWithoutImageInput>;
+  projects?: InputMaybe<ProjectUpdateManyWithoutFeaturedImageInput>;
+  schools?: InputMaybe<SchoolUpdateManyWithoutLogoInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
   width?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type ImageUpsertWithoutBlogInput = {
-  create: ImageCreateWithoutBlogInput;
-  update: ImageUpdateWithoutBlogInput;
+export type ImageUpsertWithoutBlogsInput = {
+  create: ImageCreateWithoutBlogsInput;
+  update: ImageUpdateWithoutBlogsInput;
 };
 
-export type ImageUpsertWithoutPersonInput = {
-  create: ImageCreateWithoutPersonInput;
-  update: ImageUpdateWithoutPersonInput;
+export type ImageUpsertWithoutPersonsInput = {
+  create: ImageCreateWithoutPersonsInput;
+  update: ImageUpdateWithoutPersonsInput;
 };
 
-export type ImageUpsertWithoutProjectInput = {
-  create: ImageCreateWithoutProjectInput;
-  update: ImageUpdateWithoutProjectInput;
+export type ImageUpsertWithoutProjectsInput = {
+  create: ImageCreateWithoutProjectsInput;
+  update: ImageUpdateWithoutProjectsInput;
 };
 
-export type ImageUpsertWithoutSchoolInput = {
-  create: ImageCreateWithoutSchoolInput;
-  update: ImageUpdateWithoutSchoolInput;
+export type ImageUpsertWithoutSchoolsInput = {
+  create: ImageCreateWithoutSchoolsInput;
+  update: ImageUpdateWithoutSchoolsInput;
 };
 
-export type ImageUpsertWithoutTechnologyLogoInput = {
-  create: ImageCreateWithoutTechnologyLogoInput;
-  update: ImageUpdateWithoutTechnologyLogoInput;
+export type ImageUpsertWithoutTechnologyLogosInput = {
+  create: ImageCreateWithoutTechnologyLogosInput;
+  update: ImageUpdateWithoutTechnologyLogosInput;
 };
 
 export type ImageWhereInput = {
   AND?: InputMaybe<Array<ImageWhereInput>>;
-  Blog?: InputMaybe<BlogListRelationFilter>;
   NOT?: InputMaybe<Array<ImageWhereInput>>;
   OR?: InputMaybe<Array<ImageWhereInput>>;
-  Person?: InputMaybe<PersonListRelationFilter>;
-  Project?: InputMaybe<ProjectListRelationFilter>;
-  School?: InputMaybe<SchoolListRelationFilter>;
-  TechnologyLogo?: InputMaybe<TechnologyLogoRelationFilter>;
+  TechnologyLogos?: InputMaybe<TechnologyLogoListRelationFilter>;
   altText?: InputMaybe<StringFilter>;
+  blogs?: InputMaybe<BlogListRelationFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   height?: InputMaybe<StringFilter>;
   id?: InputMaybe<StringFilter>;
+  persons?: InputMaybe<PersonListRelationFilter>;
+  projects?: InputMaybe<ProjectListRelationFilter>;
+  schools?: InputMaybe<SchoolListRelationFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
   url?: InputMaybe<StringFilter>;
   width?: InputMaybe<StringFilter>;
@@ -3058,52 +3069,22 @@ export type NullableStringFieldUpdateOperationsInput = {
 
 export type Person = {
   __typename?: 'Person';
-  BlogAuthor: Array<BlogAuthor>;
-  CourseInstructor: Array<CourseInstructor>;
-  Image?: Maybe<Image>;
-  ProjectContributor: Array<ProjectContributor>;
   User: Array<User>;
-  _count?: Maybe<PersonCount>;
+  _count: PersonCount;
+  blogs: Array<BlogAuthor>;
+  courses: Array<CourseInstructor>;
   createdAt: Scalars['DateTime'];
   firstName: Scalars['String'];
   githubUrl?: Maybe<Scalars['String']>;
   id: Scalars['String'];
+  image?: Maybe<Image>;
   imageId?: Maybe<Scalars['String']>;
   lastName: Scalars['String'];
   linkedinUrl?: Maybe<Scalars['String']>;
+  projects: Array<ProjectContributor>;
   summary?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
   websiteUrl?: Maybe<Scalars['String']>;
-};
-
-
-export type PersonBlogAuthorArgs = {
-  cursor?: InputMaybe<BlogAuthorWhereUniqueInput>;
-  distinct?: InputMaybe<Array<BlogAuthorScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<BlogAuthorOrderByWithRelationInput>>;
-  skip?: InputMaybe<Scalars['Int']>;
-  take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<BlogAuthorWhereInput>;
-};
-
-
-export type PersonCourseInstructorArgs = {
-  cursor?: InputMaybe<CourseInstructorWhereUniqueInput>;
-  distinct?: InputMaybe<Array<CourseInstructorScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<CourseInstructorOrderByWithRelationInput>>;
-  skip?: InputMaybe<Scalars['Int']>;
-  take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<CourseInstructorWhereInput>;
-};
-
-
-export type PersonProjectContributorArgs = {
-  cursor?: InputMaybe<ProjectContributorWhereUniqueInput>;
-  distinct?: InputMaybe<Array<ProjectContributorScalarFieldEnum>>;
-  orderBy?: InputMaybe<Array<ProjectContributorOrderByWithRelationInput>>;
-  skip?: InputMaybe<Scalars['Int']>;
-  take?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<ProjectContributorWhereInput>;
 };
 
 
@@ -3116,12 +3097,42 @@ export type PersonUserArgs = {
   where?: InputMaybe<UserWhereInput>;
 };
 
+
+export type PersonBlogsArgs = {
+  cursor?: InputMaybe<BlogAuthorWhereUniqueInput>;
+  distinct?: InputMaybe<Array<BlogAuthorScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<BlogAuthorOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<BlogAuthorWhereInput>;
+};
+
+
+export type PersonCoursesArgs = {
+  cursor?: InputMaybe<CourseInstructorWhereUniqueInput>;
+  distinct?: InputMaybe<Array<CourseInstructorScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<CourseInstructorOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<CourseInstructorWhereInput>;
+};
+
+
+export type PersonProjectsArgs = {
+  cursor?: InputMaybe<ProjectContributorWhereUniqueInput>;
+  distinct?: InputMaybe<Array<ProjectContributorScalarFieldEnum>>;
+  orderBy?: InputMaybe<Array<ProjectContributorOrderByWithRelationInput>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ProjectContributorWhereInput>;
+};
+
 export type PersonCount = {
   __typename?: 'PersonCount';
-  BlogAuthor: Scalars['Int'];
-  CourseInstructor: Scalars['Int'];
-  ProjectContributor: Scalars['Int'];
   User: Scalars['Int'];
+  blogs: Scalars['Int'];
+  courses: Scalars['Int'];
+  projects: Scalars['Int'];
 };
 
 export type PersonCountAggregate = {
@@ -3153,19 +3164,19 @@ export type PersonCountOrderByAggregateInput = {
 };
 
 export type PersonCreateInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorCreateNestedManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorCreateNestedManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageCreateNestedOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorCreateNestedManyWithoutPersonInput>;
   User?: InputMaybe<UserCreateNestedManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorCreateNestedManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorCreateNestedManyWithoutInstructorInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<ImageCreateNestedOneWithoutPersonsInput>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
+  projects?: InputMaybe<ProjectContributorCreateNestedManyWithoutContributorInput>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
@@ -3173,11 +3184,11 @@ export type PersonCreateManyImageInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
@@ -3190,12 +3201,12 @@ export type PersonCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   imageId?: InputMaybe<Scalars['String']>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
@@ -3206,22 +3217,22 @@ export type PersonCreateNestedManyWithoutImageInput = {
   createMany?: InputMaybe<PersonCreateManyImageInputEnvelope>;
 };
 
-export type PersonCreateNestedOneWithoutBlogAuthorInput = {
+export type PersonCreateNestedOneWithoutBlogsInput = {
   connect?: InputMaybe<PersonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutBlogAuthorInput>;
-  create?: InputMaybe<PersonCreateWithoutBlogAuthorInput>;
+  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutBlogsInput>;
+  create?: InputMaybe<PersonCreateWithoutBlogsInput>;
 };
 
-export type PersonCreateNestedOneWithoutCourseInstructorInput = {
+export type PersonCreateNestedOneWithoutCoursesInput = {
   connect?: InputMaybe<PersonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutCourseInstructorInput>;
-  create?: InputMaybe<PersonCreateWithoutCourseInstructorInput>;
+  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutCoursesInput>;
+  create?: InputMaybe<PersonCreateWithoutCoursesInput>;
 };
 
-export type PersonCreateNestedOneWithoutProjectContributorInput = {
+export type PersonCreateNestedOneWithoutProjectsInput = {
   connect?: InputMaybe<PersonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutProjectContributorInput>;
-  create?: InputMaybe<PersonCreateWithoutProjectContributorInput>;
+  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutProjectsInput>;
+  create?: InputMaybe<PersonCreateWithoutProjectsInput>;
 };
 
 export type PersonCreateNestedOneWithoutUserInput = {
@@ -3230,13 +3241,13 @@ export type PersonCreateNestedOneWithoutUserInput = {
   create?: InputMaybe<PersonCreateWithoutUserInput>;
 };
 
-export type PersonCreateOrConnectWithoutBlogAuthorInput = {
-  create: PersonCreateWithoutBlogAuthorInput;
+export type PersonCreateOrConnectWithoutBlogsInput = {
+  create: PersonCreateWithoutBlogsInput;
   where: PersonWhereUniqueInput;
 };
 
-export type PersonCreateOrConnectWithoutCourseInstructorInput = {
-  create: PersonCreateWithoutCourseInstructorInput;
+export type PersonCreateOrConnectWithoutCoursesInput = {
+  create: PersonCreateWithoutCoursesInput;
   where: PersonWhereUniqueInput;
 };
 
@@ -3245,8 +3256,8 @@ export type PersonCreateOrConnectWithoutImageInput = {
   where: PersonWhereUniqueInput;
 };
 
-export type PersonCreateOrConnectWithoutProjectContributorInput = {
-  create: PersonCreateWithoutProjectContributorInput;
+export type PersonCreateOrConnectWithoutProjectsInput = {
+  create: PersonCreateWithoutProjectsInput;
   where: PersonWhereUniqueInput;
 };
 
@@ -3255,83 +3266,83 @@ export type PersonCreateOrConnectWithoutUserInput = {
   where: PersonWhereUniqueInput;
 };
 
-export type PersonCreateWithoutBlogAuthorInput = {
-  CourseInstructor?: InputMaybe<CourseInstructorCreateNestedManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageCreateNestedOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorCreateNestedManyWithoutPersonInput>;
+export type PersonCreateWithoutBlogsInput = {
   User?: InputMaybe<UserCreateNestedManyWithoutPersonInput>;
+  courses?: InputMaybe<CourseInstructorCreateNestedManyWithoutInstructorInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<ImageCreateNestedOneWithoutPersonsInput>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
+  projects?: InputMaybe<ProjectContributorCreateNestedManyWithoutContributorInput>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
-export type PersonCreateWithoutCourseInstructorInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorCreateNestedManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageCreateNestedOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorCreateNestedManyWithoutPersonInput>;
+export type PersonCreateWithoutCoursesInput = {
   User?: InputMaybe<UserCreateNestedManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorCreateNestedManyWithoutAuthorInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<ImageCreateNestedOneWithoutPersonsInput>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
+  projects?: InputMaybe<ProjectContributorCreateNestedManyWithoutContributorInput>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
 export type PersonCreateWithoutImageInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorCreateNestedManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorCreateNestedManyWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorCreateNestedManyWithoutPersonInput>;
   User?: InputMaybe<UserCreateNestedManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorCreateNestedManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorCreateNestedManyWithoutInstructorInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
+  projects?: InputMaybe<ProjectContributorCreateNestedManyWithoutContributorInput>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
-export type PersonCreateWithoutProjectContributorInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorCreateNestedManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorCreateNestedManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageCreateNestedOneWithoutPersonInput>;
+export type PersonCreateWithoutProjectsInput = {
   User?: InputMaybe<UserCreateNestedManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorCreateNestedManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorCreateNestedManyWithoutInstructorInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<ImageCreateNestedOneWithoutPersonsInput>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
 export type PersonCreateWithoutUserInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorCreateNestedManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorCreateNestedManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageCreateNestedOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorCreateNestedManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorCreateNestedManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorCreateNestedManyWithoutInstructorInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   firstName: Scalars['String'];
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<ImageCreateNestedOneWithoutPersonsInput>;
   lastName: Scalars['String'];
   linkedinUrl?: InputMaybe<Scalars['String']>;
+  projects?: InputMaybe<ProjectContributorCreateNestedManyWithoutContributorInput>;
   summary?: InputMaybe<Scalars['String']>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   websiteUrl?: InputMaybe<Scalars['String']>;
 };
 
@@ -3433,18 +3444,18 @@ export type PersonOrderByWithAggregationInput = {
 };
 
 export type PersonOrderByWithRelationInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorOrderByRelationAggregateInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorOrderByRelationAggregateInput>;
-  Image?: InputMaybe<ImageOrderByWithRelationInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorOrderByRelationAggregateInput>;
   User?: InputMaybe<UserOrderByRelationAggregateInput>;
+  blogs?: InputMaybe<BlogAuthorOrderByRelationAggregateInput>;
+  courses?: InputMaybe<CourseInstructorOrderByRelationAggregateInput>;
   createdAt?: InputMaybe<SortOrder>;
   firstName?: InputMaybe<SortOrder>;
   githubUrl?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageOrderByWithRelationInput>;
   imageId?: InputMaybe<SortOrder>;
   lastName?: InputMaybe<SortOrder>;
   linkedinUrl?: InputMaybe<SortOrder>;
+  projects?: InputMaybe<ProjectContributorOrderByRelationAggregateInput>;
   summary?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
   websiteUrl?: InputMaybe<SortOrder>;
@@ -3501,17 +3512,17 @@ export type PersonScalarWhereWithAggregatesInput = {
 };
 
 export type PersonUpdateInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorUpdateManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorUpdateManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageUpdateOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorUpdateManyWithoutPersonInput>;
   User?: InputMaybe<UserUpdateManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorUpdateManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorUpdateManyWithoutInstructorInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: InputMaybe<StringFieldUpdateOperationsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  image?: InputMaybe<ImageUpdateOneWithoutPersonsInput>;
   lastName?: InputMaybe<StringFieldUpdateOperationsInput>;
   linkedinUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  projects?: InputMaybe<ProjectContributorUpdateManyWithoutContributorInput>;
   summary?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   websiteUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
@@ -3548,28 +3559,28 @@ export type PersonUpdateManyWithoutImageInput = {
   upsert?: InputMaybe<Array<PersonUpsertWithWhereUniqueWithoutImageInput>>;
 };
 
-export type PersonUpdateOneRequiredWithoutBlogAuthorInput = {
+export type PersonUpdateOneRequiredWithoutBlogsInput = {
   connect?: InputMaybe<PersonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutBlogAuthorInput>;
-  create?: InputMaybe<PersonCreateWithoutBlogAuthorInput>;
-  update?: InputMaybe<PersonUpdateWithoutBlogAuthorInput>;
-  upsert?: InputMaybe<PersonUpsertWithoutBlogAuthorInput>;
+  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutBlogsInput>;
+  create?: InputMaybe<PersonCreateWithoutBlogsInput>;
+  update?: InputMaybe<PersonUpdateWithoutBlogsInput>;
+  upsert?: InputMaybe<PersonUpsertWithoutBlogsInput>;
 };
 
-export type PersonUpdateOneRequiredWithoutCourseInstructorInput = {
+export type PersonUpdateOneRequiredWithoutCoursesInput = {
   connect?: InputMaybe<PersonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutCourseInstructorInput>;
-  create?: InputMaybe<PersonCreateWithoutCourseInstructorInput>;
-  update?: InputMaybe<PersonUpdateWithoutCourseInstructorInput>;
-  upsert?: InputMaybe<PersonUpsertWithoutCourseInstructorInput>;
+  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutCoursesInput>;
+  create?: InputMaybe<PersonCreateWithoutCoursesInput>;
+  update?: InputMaybe<PersonUpdateWithoutCoursesInput>;
+  upsert?: InputMaybe<PersonUpsertWithoutCoursesInput>;
 };
 
-export type PersonUpdateOneRequiredWithoutProjectContributorInput = {
+export type PersonUpdateOneRequiredWithoutProjectsInput = {
   connect?: InputMaybe<PersonWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutProjectContributorInput>;
-  create?: InputMaybe<PersonCreateWithoutProjectContributorInput>;
-  update?: InputMaybe<PersonUpdateWithoutProjectContributorInput>;
-  upsert?: InputMaybe<PersonUpsertWithoutProjectContributorInput>;
+  connectOrCreate?: InputMaybe<PersonCreateOrConnectWithoutProjectsInput>;
+  create?: InputMaybe<PersonCreateWithoutProjectsInput>;
+  update?: InputMaybe<PersonUpdateWithoutProjectsInput>;
+  upsert?: InputMaybe<PersonUpsertWithoutProjectsInput>;
 };
 
 export type PersonUpdateOneRequiredWithoutUserInput = {
@@ -3585,63 +3596,63 @@ export type PersonUpdateWithWhereUniqueWithoutImageInput = {
   where: PersonWhereUniqueInput;
 };
 
-export type PersonUpdateWithoutBlogAuthorInput = {
-  CourseInstructor?: InputMaybe<CourseInstructorUpdateManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageUpdateOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorUpdateManyWithoutPersonInput>;
+export type PersonUpdateWithoutBlogsInput = {
   User?: InputMaybe<UserUpdateManyWithoutPersonInput>;
+  courses?: InputMaybe<CourseInstructorUpdateManyWithoutInstructorInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: InputMaybe<StringFieldUpdateOperationsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  image?: InputMaybe<ImageUpdateOneWithoutPersonsInput>;
   lastName?: InputMaybe<StringFieldUpdateOperationsInput>;
   linkedinUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  projects?: InputMaybe<ProjectContributorUpdateManyWithoutContributorInput>;
   summary?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   websiteUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
 };
 
-export type PersonUpdateWithoutCourseInstructorInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorUpdateManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageUpdateOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorUpdateManyWithoutPersonInput>;
+export type PersonUpdateWithoutCoursesInput = {
   User?: InputMaybe<UserUpdateManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorUpdateManyWithoutAuthorInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: InputMaybe<StringFieldUpdateOperationsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  image?: InputMaybe<ImageUpdateOneWithoutPersonsInput>;
   lastName?: InputMaybe<StringFieldUpdateOperationsInput>;
   linkedinUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  projects?: InputMaybe<ProjectContributorUpdateManyWithoutContributorInput>;
   summary?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   websiteUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
 };
 
 export type PersonUpdateWithoutImageInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorUpdateManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorUpdateManyWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorUpdateManyWithoutPersonInput>;
   User?: InputMaybe<UserUpdateManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorUpdateManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorUpdateManyWithoutInstructorInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: InputMaybe<StringFieldUpdateOperationsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   lastName?: InputMaybe<StringFieldUpdateOperationsInput>;
   linkedinUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  projects?: InputMaybe<ProjectContributorUpdateManyWithoutContributorInput>;
   summary?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   websiteUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
 };
 
-export type PersonUpdateWithoutProjectContributorInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorUpdateManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorUpdateManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageUpdateOneWithoutPersonInput>;
+export type PersonUpdateWithoutProjectsInput = {
   User?: InputMaybe<UserUpdateManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorUpdateManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorUpdateManyWithoutInstructorInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: InputMaybe<StringFieldUpdateOperationsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  image?: InputMaybe<ImageUpdateOneWithoutPersonsInput>;
   lastName?: InputMaybe<StringFieldUpdateOperationsInput>;
   linkedinUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   summary?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
@@ -3650,16 +3661,16 @@ export type PersonUpdateWithoutProjectContributorInput = {
 };
 
 export type PersonUpdateWithoutUserInput = {
-  BlogAuthor?: InputMaybe<BlogAuthorUpdateManyWithoutPersonInput>;
-  CourseInstructor?: InputMaybe<CourseInstructorUpdateManyWithoutPersonInput>;
-  Image?: InputMaybe<ImageUpdateOneWithoutPersonInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorUpdateManyWithoutPersonInput>;
+  blogs?: InputMaybe<BlogAuthorUpdateManyWithoutAuthorInput>;
+  courses?: InputMaybe<CourseInstructorUpdateManyWithoutInstructorInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   firstName?: InputMaybe<StringFieldUpdateOperationsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  image?: InputMaybe<ImageUpdateOneWithoutPersonsInput>;
   lastName?: InputMaybe<StringFieldUpdateOperationsInput>;
   linkedinUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  projects?: InputMaybe<ProjectContributorUpdateManyWithoutContributorInput>;
   summary?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   websiteUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
@@ -3671,19 +3682,19 @@ export type PersonUpsertWithWhereUniqueWithoutImageInput = {
   where: PersonWhereUniqueInput;
 };
 
-export type PersonUpsertWithoutBlogAuthorInput = {
-  create: PersonCreateWithoutBlogAuthorInput;
-  update: PersonUpdateWithoutBlogAuthorInput;
+export type PersonUpsertWithoutBlogsInput = {
+  create: PersonCreateWithoutBlogsInput;
+  update: PersonUpdateWithoutBlogsInput;
 };
 
-export type PersonUpsertWithoutCourseInstructorInput = {
-  create: PersonCreateWithoutCourseInstructorInput;
-  update: PersonUpdateWithoutCourseInstructorInput;
+export type PersonUpsertWithoutCoursesInput = {
+  create: PersonCreateWithoutCoursesInput;
+  update: PersonUpdateWithoutCoursesInput;
 };
 
-export type PersonUpsertWithoutProjectContributorInput = {
-  create: PersonCreateWithoutProjectContributorInput;
-  update: PersonUpdateWithoutProjectContributorInput;
+export type PersonUpsertWithoutProjectsInput = {
+  create: PersonCreateWithoutProjectsInput;
+  update: PersonUpdateWithoutProjectsInput;
 };
 
 export type PersonUpsertWithoutUserInput = {
@@ -3693,20 +3704,20 @@ export type PersonUpsertWithoutUserInput = {
 
 export type PersonWhereInput = {
   AND?: InputMaybe<Array<PersonWhereInput>>;
-  BlogAuthor?: InputMaybe<BlogAuthorListRelationFilter>;
-  CourseInstructor?: InputMaybe<CourseInstructorListRelationFilter>;
-  Image?: InputMaybe<ImageRelationFilter>;
   NOT?: InputMaybe<Array<PersonWhereInput>>;
   OR?: InputMaybe<Array<PersonWhereInput>>;
-  ProjectContributor?: InputMaybe<ProjectContributorListRelationFilter>;
   User?: InputMaybe<UserListRelationFilter>;
+  blogs?: InputMaybe<BlogAuthorListRelationFilter>;
+  courses?: InputMaybe<CourseInstructorListRelationFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   firstName?: InputMaybe<StringFilter>;
   githubUrl?: InputMaybe<StringNullableFilter>;
   id?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageRelationFilter>;
   imageId?: InputMaybe<StringNullableFilter>;
   lastName?: InputMaybe<StringFilter>;
   linkedinUrl?: InputMaybe<StringNullableFilter>;
+  projects?: InputMaybe<ProjectContributorListRelationFilter>;
   summary?: InputMaybe<StringNullableFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
   websiteUrl?: InputMaybe<StringNullableFilter>;
@@ -3718,10 +3729,10 @@ export type PersonWhereUniqueInput = {
 
 export type Project = {
   __typename?: 'Project';
-  Image: Image;
-  ProjectContributor: Array<ProjectContributor>;
-  _count?: Maybe<ProjectCount>;
+  _count: ProjectCount;
+  contributors: Array<ProjectContributor>;
   createdAt: Scalars['DateTime'];
+  featuredImage: Image;
   githubUrl?: Maybe<Scalars['String']>;
   id: Scalars['String'];
   imageId: Scalars['String'];
@@ -3733,7 +3744,7 @@ export type Project = {
 };
 
 
-export type ProjectProjectContributorArgs = {
+export type ProjectContributorsArgs = {
   cursor?: InputMaybe<ProjectContributorWhereUniqueInput>;
   distinct?: InputMaybe<Array<ProjectContributorScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<ProjectContributorOrderByWithRelationInput>>;
@@ -3744,11 +3755,11 @@ export type ProjectProjectContributorArgs = {
 
 export type ProjectContributor = {
   __typename?: 'ProjectContributor';
-  Person: Person;
-  Project: Project;
+  contributor: Person;
   contributorId: Scalars['String'];
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
+  project: Project;
   projectId: Scalars['String'];
   updatedAt: Scalars['DateTime'];
 };
@@ -3772,38 +3783,38 @@ export type ProjectContributorCountOrderByAggregateInput = {
 };
 
 export type ProjectContributorCreateInput = {
-  Person: PersonCreateNestedOneWithoutProjectContributorInput;
-  Project: ProjectCreateNestedOneWithoutProjectContributorInput;
+  contributor: PersonCreateNestedOneWithoutProjectsInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  project: ProjectCreateNestedOneWithoutContributorsInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type ProjectContributorCreateManyContributorInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  projectId: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type ProjectContributorCreateManyContributorInputEnvelope = {
+  data: Array<ProjectContributorCreateManyContributorInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type ProjectContributorCreateManyInput = {
   contributorId: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   projectId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-};
-
-export type ProjectContributorCreateManyPersonInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  projectId: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-};
-
-export type ProjectContributorCreateManyPersonInputEnvelope = {
-  data: Array<ProjectContributorCreateManyPersonInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type ProjectContributorCreateManyProjectInput = {
   contributorId: Scalars['String'];
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type ProjectContributorCreateManyProjectInputEnvelope = {
@@ -3811,11 +3822,11 @@ export type ProjectContributorCreateManyProjectInputEnvelope = {
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type ProjectContributorCreateNestedManyWithoutPersonInput = {
+export type ProjectContributorCreateNestedManyWithoutContributorInput = {
   connect?: InputMaybe<Array<ProjectContributorWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<ProjectContributorCreateOrConnectWithoutPersonInput>>;
-  create?: InputMaybe<Array<ProjectContributorCreateWithoutPersonInput>>;
-  createMany?: InputMaybe<ProjectContributorCreateManyPersonInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<ProjectContributorCreateOrConnectWithoutContributorInput>>;
+  create?: InputMaybe<Array<ProjectContributorCreateWithoutContributorInput>>;
+  createMany?: InputMaybe<ProjectContributorCreateManyContributorInputEnvelope>;
 };
 
 export type ProjectContributorCreateNestedManyWithoutProjectInput = {
@@ -3825,8 +3836,8 @@ export type ProjectContributorCreateNestedManyWithoutProjectInput = {
   createMany?: InputMaybe<ProjectContributorCreateManyProjectInputEnvelope>;
 };
 
-export type ProjectContributorCreateOrConnectWithoutPersonInput = {
-  create: ProjectContributorCreateWithoutPersonInput;
+export type ProjectContributorCreateOrConnectWithoutContributorInput = {
+  create: ProjectContributorCreateWithoutContributorInput;
   where: ProjectContributorWhereUniqueInput;
 };
 
@@ -3835,18 +3846,18 @@ export type ProjectContributorCreateOrConnectWithoutProjectInput = {
   where: ProjectContributorWhereUniqueInput;
 };
 
-export type ProjectContributorCreateWithoutPersonInput = {
-  Project: ProjectCreateNestedOneWithoutProjectContributorInput;
+export type ProjectContributorCreateWithoutContributorInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  project: ProjectCreateNestedOneWithoutContributorsInput;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type ProjectContributorCreateWithoutProjectInput = {
-  Person: PersonCreateNestedOneWithoutProjectContributorInput;
+  contributor: PersonCreateNestedOneWithoutProjectsInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  id?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type ProjectContributorGroupBy = {
@@ -3917,11 +3928,11 @@ export type ProjectContributorOrderByWithAggregationInput = {
 };
 
 export type ProjectContributorOrderByWithRelationInput = {
-  Person?: InputMaybe<PersonOrderByWithRelationInput>;
-  Project?: InputMaybe<ProjectOrderByWithRelationInput>;
+  contributor?: InputMaybe<PersonOrderByWithRelationInput>;
   contributorId?: InputMaybe<SortOrder>;
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
+  project?: InputMaybe<ProjectOrderByWithRelationInput>;
   projectId?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
 };
@@ -3957,10 +3968,10 @@ export type ProjectContributorScalarWhereWithAggregatesInput = {
 };
 
 export type ProjectContributorUpdateInput = {
-  Person?: InputMaybe<PersonUpdateOneRequiredWithoutProjectContributorInput>;
-  Project?: InputMaybe<ProjectUpdateOneRequiredWithoutProjectContributorInput>;
+  contributor?: InputMaybe<PersonUpdateOneRequiredWithoutProjectsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  project?: InputMaybe<ProjectUpdateOneRequiredWithoutContributorsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
@@ -3970,7 +3981,7 @@ export type ProjectContributorUpdateManyMutationInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type ProjectContributorUpdateManyWithWhereWithoutPersonInput = {
+export type ProjectContributorUpdateManyWithWhereWithoutContributorInput = {
   data: ProjectContributorUpdateManyMutationInput;
   where: ProjectContributorScalarWhereInput;
 };
@@ -3980,18 +3991,18 @@ export type ProjectContributorUpdateManyWithWhereWithoutProjectInput = {
   where: ProjectContributorScalarWhereInput;
 };
 
-export type ProjectContributorUpdateManyWithoutPersonInput = {
+export type ProjectContributorUpdateManyWithoutContributorInput = {
   connect?: InputMaybe<Array<ProjectContributorWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<ProjectContributorCreateOrConnectWithoutPersonInput>>;
-  create?: InputMaybe<Array<ProjectContributorCreateWithoutPersonInput>>;
-  createMany?: InputMaybe<ProjectContributorCreateManyPersonInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<ProjectContributorCreateOrConnectWithoutContributorInput>>;
+  create?: InputMaybe<Array<ProjectContributorCreateWithoutContributorInput>>;
+  createMany?: InputMaybe<ProjectContributorCreateManyContributorInputEnvelope>;
   delete?: InputMaybe<Array<ProjectContributorWhereUniqueInput>>;
   deleteMany?: InputMaybe<Array<ProjectContributorScalarWhereInput>>;
   disconnect?: InputMaybe<Array<ProjectContributorWhereUniqueInput>>;
   set?: InputMaybe<Array<ProjectContributorWhereUniqueInput>>;
-  update?: InputMaybe<Array<ProjectContributorUpdateWithWhereUniqueWithoutPersonInput>>;
-  updateMany?: InputMaybe<Array<ProjectContributorUpdateManyWithWhereWithoutPersonInput>>;
-  upsert?: InputMaybe<Array<ProjectContributorUpsertWithWhereUniqueWithoutPersonInput>>;
+  update?: InputMaybe<Array<ProjectContributorUpdateWithWhereUniqueWithoutContributorInput>>;
+  updateMany?: InputMaybe<Array<ProjectContributorUpdateManyWithWhereWithoutContributorInput>>;
+  upsert?: InputMaybe<Array<ProjectContributorUpsertWithWhereUniqueWithoutContributorInput>>;
 };
 
 export type ProjectContributorUpdateManyWithoutProjectInput = {
@@ -4008,8 +4019,8 @@ export type ProjectContributorUpdateManyWithoutProjectInput = {
   upsert?: InputMaybe<Array<ProjectContributorUpsertWithWhereUniqueWithoutProjectInput>>;
 };
 
-export type ProjectContributorUpdateWithWhereUniqueWithoutPersonInput = {
-  data: ProjectContributorUpdateWithoutPersonInput;
+export type ProjectContributorUpdateWithWhereUniqueWithoutContributorInput = {
+  data: ProjectContributorUpdateWithoutContributorInput;
   where: ProjectContributorWhereUniqueInput;
 };
 
@@ -4018,23 +4029,23 @@ export type ProjectContributorUpdateWithWhereUniqueWithoutProjectInput = {
   where: ProjectContributorWhereUniqueInput;
 };
 
-export type ProjectContributorUpdateWithoutPersonInput = {
-  Project?: InputMaybe<ProjectUpdateOneRequiredWithoutProjectContributorInput>;
+export type ProjectContributorUpdateWithoutContributorInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  project?: InputMaybe<ProjectUpdateOneRequiredWithoutContributorsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
 export type ProjectContributorUpdateWithoutProjectInput = {
-  Person?: InputMaybe<PersonUpdateOneRequiredWithoutProjectContributorInput>;
+  contributor?: InputMaybe<PersonUpdateOneRequiredWithoutProjectsInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type ProjectContributorUpsertWithWhereUniqueWithoutPersonInput = {
-  create: ProjectContributorCreateWithoutPersonInput;
-  update: ProjectContributorUpdateWithoutPersonInput;
+export type ProjectContributorUpsertWithWhereUniqueWithoutContributorInput = {
+  create: ProjectContributorCreateWithoutContributorInput;
+  update: ProjectContributorUpdateWithoutContributorInput;
   where: ProjectContributorWhereUniqueInput;
 };
 
@@ -4048,11 +4059,11 @@ export type ProjectContributorWhereInput = {
   AND?: InputMaybe<Array<ProjectContributorWhereInput>>;
   NOT?: InputMaybe<Array<ProjectContributorWhereInput>>;
   OR?: InputMaybe<Array<ProjectContributorWhereInput>>;
-  Person?: InputMaybe<PersonRelationFilter>;
-  Project?: InputMaybe<ProjectRelationFilter>;
+  contributor?: InputMaybe<PersonRelationFilter>;
   contributorId?: InputMaybe<StringFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
+  project?: InputMaybe<ProjectRelationFilter>;
   projectId?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
 };
@@ -4063,7 +4074,7 @@ export type ProjectContributorWhereUniqueInput = {
 
 export type ProjectCount = {
   __typename?: 'ProjectCount';
-  ProjectContributor: Scalars['Int'];
+  contributors: Scalars['Int'];
 };
 
 export type ProjectCountAggregate = {
@@ -4093,91 +4104,91 @@ export type ProjectCountOrderByAggregateInput = {
 };
 
 export type ProjectCreateInput = {
-  Image: ImageCreateNestedOneWithoutProjectInput;
-  ProjectContributor?: InputMaybe<ProjectContributorCreateNestedManyWithoutProjectInput>;
+  contributors?: InputMaybe<ProjectContributorCreateNestedManyWithoutProjectInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  featuredImage: ImageCreateNestedOneWithoutProjectsInput;
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
   projectUrl?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   summary: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type ProjectCreateManyImageInput = {
+export type ProjectCreateManyFeaturedImageInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
   projectUrl?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   summary: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type ProjectCreateManyImageInputEnvelope = {
-  data: Array<ProjectCreateManyImageInput>;
+export type ProjectCreateManyFeaturedImageInputEnvelope = {
+  data: Array<ProjectCreateManyFeaturedImageInput>;
   skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type ProjectCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   imageId: Scalars['String'];
   name: Scalars['String'];
   projectUrl?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   summary: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type ProjectCreateNestedManyWithoutImageInput = {
+export type ProjectCreateNestedManyWithoutFeaturedImageInput = {
   connect?: InputMaybe<Array<ProjectWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<ProjectCreateOrConnectWithoutImageInput>>;
-  create?: InputMaybe<Array<ProjectCreateWithoutImageInput>>;
-  createMany?: InputMaybe<ProjectCreateManyImageInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<ProjectCreateOrConnectWithoutFeaturedImageInput>>;
+  create?: InputMaybe<Array<ProjectCreateWithoutFeaturedImageInput>>;
+  createMany?: InputMaybe<ProjectCreateManyFeaturedImageInputEnvelope>;
 };
 
-export type ProjectCreateNestedOneWithoutProjectContributorInput = {
+export type ProjectCreateNestedOneWithoutContributorsInput = {
   connect?: InputMaybe<ProjectWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ProjectCreateOrConnectWithoutProjectContributorInput>;
-  create?: InputMaybe<ProjectCreateWithoutProjectContributorInput>;
+  connectOrCreate?: InputMaybe<ProjectCreateOrConnectWithoutContributorsInput>;
+  create?: InputMaybe<ProjectCreateWithoutContributorsInput>;
 };
 
-export type ProjectCreateOrConnectWithoutImageInput = {
-  create: ProjectCreateWithoutImageInput;
+export type ProjectCreateOrConnectWithoutContributorsInput = {
+  create: ProjectCreateWithoutContributorsInput;
   where: ProjectWhereUniqueInput;
 };
 
-export type ProjectCreateOrConnectWithoutProjectContributorInput = {
-  create: ProjectCreateWithoutProjectContributorInput;
+export type ProjectCreateOrConnectWithoutFeaturedImageInput = {
+  create: ProjectCreateWithoutFeaturedImageInput;
   where: ProjectWhereUniqueInput;
 };
 
-export type ProjectCreateWithoutImageInput = {
-  ProjectContributor?: InputMaybe<ProjectContributorCreateNestedManyWithoutProjectInput>;
+export type ProjectCreateWithoutContributorsInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  featuredImage: ImageCreateNestedOneWithoutProjectsInput;
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
   projectUrl?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   summary: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type ProjectCreateWithoutProjectContributorInput = {
-  Image: ImageCreateNestedOneWithoutProjectInput;
+export type ProjectCreateWithoutFeaturedImageInput = {
+  contributors?: InputMaybe<ProjectContributorCreateNestedManyWithoutProjectInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   githubUrl?: InputMaybe<Scalars['String']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
   projectUrl?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   summary: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type ProjectGroupBy = {
@@ -4272,9 +4283,9 @@ export type ProjectOrderByWithAggregationInput = {
 };
 
 export type ProjectOrderByWithRelationInput = {
-  Image?: InputMaybe<ImageOrderByWithRelationInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorOrderByRelationAggregateInput>;
+  contributors?: InputMaybe<ProjectContributorOrderByRelationAggregateInput>;
   createdAt?: InputMaybe<SortOrder>;
+  featuredImage?: InputMaybe<ImageOrderByWithRelationInput>;
   githubUrl?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   imageId?: InputMaybe<SortOrder>;
@@ -4333,9 +4344,9 @@ export type ProjectScalarWhereWithAggregatesInput = {
 };
 
 export type ProjectUpdateInput = {
-  Image?: InputMaybe<ImageUpdateOneRequiredWithoutProjectInput>;
-  ProjectContributor?: InputMaybe<ProjectContributorUpdateManyWithoutProjectInput>;
+  contributors?: InputMaybe<ProjectContributorUpdateManyWithoutProjectInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  featuredImage?: InputMaybe<ImageUpdateOneRequiredWithoutProjectsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -4356,40 +4367,52 @@ export type ProjectUpdateManyMutationInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type ProjectUpdateManyWithWhereWithoutImageInput = {
+export type ProjectUpdateManyWithWhereWithoutFeaturedImageInput = {
   data: ProjectUpdateManyMutationInput;
   where: ProjectScalarWhereInput;
 };
 
-export type ProjectUpdateManyWithoutImageInput = {
+export type ProjectUpdateManyWithoutFeaturedImageInput = {
   connect?: InputMaybe<Array<ProjectWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<ProjectCreateOrConnectWithoutImageInput>>;
-  create?: InputMaybe<Array<ProjectCreateWithoutImageInput>>;
-  createMany?: InputMaybe<ProjectCreateManyImageInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<ProjectCreateOrConnectWithoutFeaturedImageInput>>;
+  create?: InputMaybe<Array<ProjectCreateWithoutFeaturedImageInput>>;
+  createMany?: InputMaybe<ProjectCreateManyFeaturedImageInputEnvelope>;
   delete?: InputMaybe<Array<ProjectWhereUniqueInput>>;
   deleteMany?: InputMaybe<Array<ProjectScalarWhereInput>>;
   disconnect?: InputMaybe<Array<ProjectWhereUniqueInput>>;
   set?: InputMaybe<Array<ProjectWhereUniqueInput>>;
-  update?: InputMaybe<Array<ProjectUpdateWithWhereUniqueWithoutImageInput>>;
-  updateMany?: InputMaybe<Array<ProjectUpdateManyWithWhereWithoutImageInput>>;
-  upsert?: InputMaybe<Array<ProjectUpsertWithWhereUniqueWithoutImageInput>>;
+  update?: InputMaybe<Array<ProjectUpdateWithWhereUniqueWithoutFeaturedImageInput>>;
+  updateMany?: InputMaybe<Array<ProjectUpdateManyWithWhereWithoutFeaturedImageInput>>;
+  upsert?: InputMaybe<Array<ProjectUpsertWithWhereUniqueWithoutFeaturedImageInput>>;
 };
 
-export type ProjectUpdateOneRequiredWithoutProjectContributorInput = {
+export type ProjectUpdateOneRequiredWithoutContributorsInput = {
   connect?: InputMaybe<ProjectWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<ProjectCreateOrConnectWithoutProjectContributorInput>;
-  create?: InputMaybe<ProjectCreateWithoutProjectContributorInput>;
-  update?: InputMaybe<ProjectUpdateWithoutProjectContributorInput>;
-  upsert?: InputMaybe<ProjectUpsertWithoutProjectContributorInput>;
+  connectOrCreate?: InputMaybe<ProjectCreateOrConnectWithoutContributorsInput>;
+  create?: InputMaybe<ProjectCreateWithoutContributorsInput>;
+  update?: InputMaybe<ProjectUpdateWithoutContributorsInput>;
+  upsert?: InputMaybe<ProjectUpsertWithoutContributorsInput>;
 };
 
-export type ProjectUpdateWithWhereUniqueWithoutImageInput = {
-  data: ProjectUpdateWithoutImageInput;
+export type ProjectUpdateWithWhereUniqueWithoutFeaturedImageInput = {
+  data: ProjectUpdateWithoutFeaturedImageInput;
   where: ProjectWhereUniqueInput;
 };
 
-export type ProjectUpdateWithoutImageInput = {
-  ProjectContributor?: InputMaybe<ProjectContributorUpdateManyWithoutProjectInput>;
+export type ProjectUpdateWithoutContributorsInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  featuredImage?: InputMaybe<ImageUpdateOneRequiredWithoutProjectsInput>;
+  githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  name?: InputMaybe<StringFieldUpdateOperationsInput>;
+  projectUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
+  slug?: InputMaybe<StringFieldUpdateOperationsInput>;
+  summary?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+};
+
+export type ProjectUpdateWithoutFeaturedImageInput = {
+  contributors?: InputMaybe<ProjectContributorUpdateManyWithoutProjectInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -4400,36 +4423,24 @@ export type ProjectUpdateWithoutImageInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type ProjectUpdateWithoutProjectContributorInput = {
-  Image?: InputMaybe<ImageUpdateOneRequiredWithoutProjectInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  githubUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  name?: InputMaybe<StringFieldUpdateOperationsInput>;
-  projectUrl?: InputMaybe<NullableStringFieldUpdateOperationsInput>;
-  slug?: InputMaybe<StringFieldUpdateOperationsInput>;
-  summary?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-};
-
-export type ProjectUpsertWithWhereUniqueWithoutImageInput = {
-  create: ProjectCreateWithoutImageInput;
-  update: ProjectUpdateWithoutImageInput;
+export type ProjectUpsertWithWhereUniqueWithoutFeaturedImageInput = {
+  create: ProjectCreateWithoutFeaturedImageInput;
+  update: ProjectUpdateWithoutFeaturedImageInput;
   where: ProjectWhereUniqueInput;
 };
 
-export type ProjectUpsertWithoutProjectContributorInput = {
-  create: ProjectCreateWithoutProjectContributorInput;
-  update: ProjectUpdateWithoutProjectContributorInput;
+export type ProjectUpsertWithoutContributorsInput = {
+  create: ProjectCreateWithoutContributorsInput;
+  update: ProjectUpdateWithoutContributorsInput;
 };
 
 export type ProjectWhereInput = {
   AND?: InputMaybe<Array<ProjectWhereInput>>;
-  Image?: InputMaybe<ImageRelationFilter>;
   NOT?: InputMaybe<Array<ProjectWhereInput>>;
   OR?: InputMaybe<Array<ProjectWhereInput>>;
-  ProjectContributor?: InputMaybe<ProjectContributorListRelationFilter>;
+  contributors?: InputMaybe<ProjectContributorListRelationFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
+  featuredImage?: InputMaybe<ImageRelationFilter>;
   githubUrl?: InputMaybe<StringNullableFilter>;
   id?: InputMaybe<StringFilter>;
   imageId?: InputMaybe<StringFilter>;
@@ -5008,20 +5019,20 @@ export enum Role {
 
 export type School = {
   __typename?: 'School';
-  Course: Array<Course>;
-  Image: Image;
-  _count?: Maybe<SchoolCount>;
+  _count: SchoolCount;
+  courses: Array<Course>;
   createdAt: Scalars['DateTime'];
   description: Scalars['String'];
   id: Scalars['String'];
   imageId: Scalars['String'];
+  logo: Image;
   name: Scalars['String'];
   updatedAt: Scalars['DateTime'];
   url: Scalars['String'];
 };
 
 
-export type SchoolCourseArgs = {
+export type SchoolCoursesArgs = {
   cursor?: InputMaybe<CourseWhereUniqueInput>;
   distinct?: InputMaybe<Array<CourseScalarFieldEnum>>;
   orderBy?: InputMaybe<Array<CourseOrderByWithRelationInput>>;
@@ -5032,7 +5043,7 @@ export type SchoolCourseArgs = {
 
 export type SchoolCount = {
   __typename?: 'SchoolCount';
-  Course: Scalars['Int'];
+  courses: Scalars['Int'];
 };
 
 export type SchoolCountAggregate = {
@@ -5058,80 +5069,80 @@ export type SchoolCountOrderByAggregateInput = {
 };
 
 export type SchoolCreateInput = {
-  Course?: InputMaybe<CourseCreateNestedManyWithoutSchoolInput>;
-  Image: ImageCreateNestedOneWithoutSchoolInput;
+  courses?: InputMaybe<CourseCreateNestedManyWithoutSchoolInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   description: Scalars['String'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  logo: ImageCreateNestedOneWithoutSchoolsInput;
   name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
-};
-
-export type SchoolCreateManyImageInput = {
-  createdAt?: InputMaybe<Scalars['DateTime']>;
-  description: Scalars['String'];
-  id: Scalars['String'];
-  name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
-  url: Scalars['String'];
-};
-
-export type SchoolCreateManyImageInputEnvelope = {
-  data: Array<SchoolCreateManyImageInput>;
-  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type SchoolCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   description: Scalars['String'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   imageId: Scalars['String'];
   name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
 };
 
-export type SchoolCreateNestedManyWithoutImageInput = {
+export type SchoolCreateManyLogoInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  description: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  name: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  url: Scalars['String'];
+};
+
+export type SchoolCreateManyLogoInputEnvelope = {
+  data: Array<SchoolCreateManyLogoInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type SchoolCreateNestedManyWithoutLogoInput = {
   connect?: InputMaybe<Array<SchoolWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<SchoolCreateOrConnectWithoutImageInput>>;
-  create?: InputMaybe<Array<SchoolCreateWithoutImageInput>>;
-  createMany?: InputMaybe<SchoolCreateManyImageInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<SchoolCreateOrConnectWithoutLogoInput>>;
+  create?: InputMaybe<Array<SchoolCreateWithoutLogoInput>>;
+  createMany?: InputMaybe<SchoolCreateManyLogoInputEnvelope>;
 };
 
-export type SchoolCreateNestedOneWithoutCourseInput = {
+export type SchoolCreateNestedOneWithoutCoursesInput = {
   connect?: InputMaybe<SchoolWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<SchoolCreateOrConnectWithoutCourseInput>;
-  create?: InputMaybe<SchoolCreateWithoutCourseInput>;
+  connectOrCreate?: InputMaybe<SchoolCreateOrConnectWithoutCoursesInput>;
+  create?: InputMaybe<SchoolCreateWithoutCoursesInput>;
 };
 
-export type SchoolCreateOrConnectWithoutCourseInput = {
-  create: SchoolCreateWithoutCourseInput;
+export type SchoolCreateOrConnectWithoutCoursesInput = {
+  create: SchoolCreateWithoutCoursesInput;
   where: SchoolWhereUniqueInput;
 };
 
-export type SchoolCreateOrConnectWithoutImageInput = {
-  create: SchoolCreateWithoutImageInput;
+export type SchoolCreateOrConnectWithoutLogoInput = {
+  create: SchoolCreateWithoutLogoInput;
   where: SchoolWhereUniqueInput;
 };
 
-export type SchoolCreateWithoutCourseInput = {
-  Image: ImageCreateNestedOneWithoutSchoolInput;
+export type SchoolCreateWithoutCoursesInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   description: Scalars['String'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
+  logo: ImageCreateNestedOneWithoutSchoolsInput;
   name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
 };
 
-export type SchoolCreateWithoutImageInput = {
-  Course?: InputMaybe<CourseCreateNestedManyWithoutSchoolInput>;
+export type SchoolCreateWithoutLogoInput = {
+  courses?: InputMaybe<CourseCreateNestedManyWithoutSchoolInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   description: Scalars['String'];
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   url: Scalars['String'];
 };
 
@@ -5215,12 +5226,12 @@ export type SchoolOrderByWithAggregationInput = {
 };
 
 export type SchoolOrderByWithRelationInput = {
-  Course?: InputMaybe<CourseOrderByRelationAggregateInput>;
-  Image?: InputMaybe<ImageOrderByWithRelationInput>;
+  courses?: InputMaybe<CourseOrderByRelationAggregateInput>;
   createdAt?: InputMaybe<SortOrder>;
   description?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   imageId?: InputMaybe<SortOrder>;
+  logo?: InputMaybe<ImageOrderByWithRelationInput>;
   name?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
   url?: InputMaybe<SortOrder>;
@@ -5268,11 +5279,11 @@ export type SchoolScalarWhereWithAggregatesInput = {
 };
 
 export type SchoolUpdateInput = {
-  Course?: InputMaybe<CourseUpdateManyWithoutSchoolInput>;
-  Image?: InputMaybe<ImageUpdateOneRequiredWithoutSchoolInput>;
+  courses?: InputMaybe<CourseUpdateManyWithoutSchoolInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   description?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  logo?: InputMaybe<ImageUpdateOneRequiredWithoutSchoolsInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -5287,40 +5298,50 @@ export type SchoolUpdateManyMutationInput = {
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type SchoolUpdateManyWithWhereWithoutImageInput = {
+export type SchoolUpdateManyWithWhereWithoutLogoInput = {
   data: SchoolUpdateManyMutationInput;
   where: SchoolScalarWhereInput;
 };
 
-export type SchoolUpdateManyWithoutImageInput = {
+export type SchoolUpdateManyWithoutLogoInput = {
   connect?: InputMaybe<Array<SchoolWhereUniqueInput>>;
-  connectOrCreate?: InputMaybe<Array<SchoolCreateOrConnectWithoutImageInput>>;
-  create?: InputMaybe<Array<SchoolCreateWithoutImageInput>>;
-  createMany?: InputMaybe<SchoolCreateManyImageInputEnvelope>;
+  connectOrCreate?: InputMaybe<Array<SchoolCreateOrConnectWithoutLogoInput>>;
+  create?: InputMaybe<Array<SchoolCreateWithoutLogoInput>>;
+  createMany?: InputMaybe<SchoolCreateManyLogoInputEnvelope>;
   delete?: InputMaybe<Array<SchoolWhereUniqueInput>>;
   deleteMany?: InputMaybe<Array<SchoolScalarWhereInput>>;
   disconnect?: InputMaybe<Array<SchoolWhereUniqueInput>>;
   set?: InputMaybe<Array<SchoolWhereUniqueInput>>;
-  update?: InputMaybe<Array<SchoolUpdateWithWhereUniqueWithoutImageInput>>;
-  updateMany?: InputMaybe<Array<SchoolUpdateManyWithWhereWithoutImageInput>>;
-  upsert?: InputMaybe<Array<SchoolUpsertWithWhereUniqueWithoutImageInput>>;
+  update?: InputMaybe<Array<SchoolUpdateWithWhereUniqueWithoutLogoInput>>;
+  updateMany?: InputMaybe<Array<SchoolUpdateManyWithWhereWithoutLogoInput>>;
+  upsert?: InputMaybe<Array<SchoolUpsertWithWhereUniqueWithoutLogoInput>>;
 };
 
-export type SchoolUpdateOneRequiredWithoutCourseInput = {
+export type SchoolUpdateOneRequiredWithoutCoursesInput = {
   connect?: InputMaybe<SchoolWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<SchoolCreateOrConnectWithoutCourseInput>;
-  create?: InputMaybe<SchoolCreateWithoutCourseInput>;
-  update?: InputMaybe<SchoolUpdateWithoutCourseInput>;
-  upsert?: InputMaybe<SchoolUpsertWithoutCourseInput>;
+  connectOrCreate?: InputMaybe<SchoolCreateOrConnectWithoutCoursesInput>;
+  create?: InputMaybe<SchoolCreateWithoutCoursesInput>;
+  update?: InputMaybe<SchoolUpdateWithoutCoursesInput>;
+  upsert?: InputMaybe<SchoolUpsertWithoutCoursesInput>;
 };
 
-export type SchoolUpdateWithWhereUniqueWithoutImageInput = {
-  data: SchoolUpdateWithoutImageInput;
+export type SchoolUpdateWithWhereUniqueWithoutLogoInput = {
+  data: SchoolUpdateWithoutLogoInput;
   where: SchoolWhereUniqueInput;
 };
 
-export type SchoolUpdateWithoutCourseInput = {
-  Image?: InputMaybe<ImageUpdateOneRequiredWithoutSchoolInput>;
+export type SchoolUpdateWithoutCoursesInput = {
+  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  description?: InputMaybe<StringFieldUpdateOperationsInput>;
+  id?: InputMaybe<StringFieldUpdateOperationsInput>;
+  logo?: InputMaybe<ImageUpdateOneRequiredWithoutSchoolsInput>;
+  name?: InputMaybe<StringFieldUpdateOperationsInput>;
+  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
+  url?: InputMaybe<StringFieldUpdateOperationsInput>;
+};
+
+export type SchoolUpdateWithoutLogoInput = {
+  courses?: InputMaybe<CourseUpdateManyWithoutSchoolInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   description?: InputMaybe<StringFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -5329,37 +5350,27 @@ export type SchoolUpdateWithoutCourseInput = {
   url?: InputMaybe<StringFieldUpdateOperationsInput>;
 };
 
-export type SchoolUpdateWithoutImageInput = {
-  Course?: InputMaybe<CourseUpdateManyWithoutSchoolInput>;
-  createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  description?: InputMaybe<StringFieldUpdateOperationsInput>;
-  id?: InputMaybe<StringFieldUpdateOperationsInput>;
-  name?: InputMaybe<StringFieldUpdateOperationsInput>;
-  updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
-  url?: InputMaybe<StringFieldUpdateOperationsInput>;
-};
-
-export type SchoolUpsertWithWhereUniqueWithoutImageInput = {
-  create: SchoolCreateWithoutImageInput;
-  update: SchoolUpdateWithoutImageInput;
+export type SchoolUpsertWithWhereUniqueWithoutLogoInput = {
+  create: SchoolCreateWithoutLogoInput;
+  update: SchoolUpdateWithoutLogoInput;
   where: SchoolWhereUniqueInput;
 };
 
-export type SchoolUpsertWithoutCourseInput = {
-  create: SchoolCreateWithoutCourseInput;
-  update: SchoolUpdateWithoutCourseInput;
+export type SchoolUpsertWithoutCoursesInput = {
+  create: SchoolCreateWithoutCoursesInput;
+  update: SchoolUpdateWithoutCoursesInput;
 };
 
 export type SchoolWhereInput = {
   AND?: InputMaybe<Array<SchoolWhereInput>>;
-  Course?: InputMaybe<CourseListRelationFilter>;
-  Image?: InputMaybe<ImageRelationFilter>;
   NOT?: InputMaybe<Array<SchoolWhereInput>>;
   OR?: InputMaybe<Array<SchoolWhereInput>>;
+  courses?: InputMaybe<CourseListRelationFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   description?: InputMaybe<StringFilter>;
   id?: InputMaybe<StringFilter>;
   imageId?: InputMaybe<StringFilter>;
+  logo?: InputMaybe<ImageRelationFilter>;
   name?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
   url?: InputMaybe<StringFilter>;
@@ -5455,11 +5466,11 @@ export type StringWithAggregatesFilter = {
 
 export type TechnologyLogo = {
   __typename?: 'TechnologyLogo';
-  Image: Image;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   imageId: Scalars['String'];
   isOnHomepage: Scalars['Boolean'];
+  logo: Image;
   name: Scalars['String'];
   updatedAt: Scalars['DateTime'];
 };
@@ -5485,40 +5496,54 @@ export type TechnologyLogoCountOrderByAggregateInput = {
 };
 
 export type TechnologyLogoCreateInput = {
-  Image: ImageCreateNestedOneWithoutTechnologyLogoInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   isOnHomepage: Scalars['Boolean'];
+  logo: ImageCreateNestedOneWithoutTechnologyLogosInput;
   name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type TechnologyLogoCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   imageId: Scalars['String'];
   isOnHomepage: Scalars['Boolean'];
   name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type TechnologyLogoCreateNestedOneWithoutImageInput = {
-  connect?: InputMaybe<TechnologyLogoWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<TechnologyLogoCreateOrConnectWithoutImageInput>;
-  create?: InputMaybe<TechnologyLogoCreateWithoutImageInput>;
+export type TechnologyLogoCreateManyLogoInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  id?: InputMaybe<Scalars['String']>;
+  isOnHomepage: Scalars['Boolean'];
+  name: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
-export type TechnologyLogoCreateOrConnectWithoutImageInput = {
-  create: TechnologyLogoCreateWithoutImageInput;
+export type TechnologyLogoCreateManyLogoInputEnvelope = {
+  data: Array<TechnologyLogoCreateManyLogoInput>;
+  skipDuplicates?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type TechnologyLogoCreateNestedManyWithoutLogoInput = {
+  connect?: InputMaybe<Array<TechnologyLogoWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<TechnologyLogoCreateOrConnectWithoutLogoInput>>;
+  create?: InputMaybe<Array<TechnologyLogoCreateWithoutLogoInput>>;
+  createMany?: InputMaybe<TechnologyLogoCreateManyLogoInputEnvelope>;
+};
+
+export type TechnologyLogoCreateOrConnectWithoutLogoInput = {
+  create: TechnologyLogoCreateWithoutLogoInput;
   where: TechnologyLogoWhereUniqueInput;
 };
 
-export type TechnologyLogoCreateWithoutImageInput = {
+export type TechnologyLogoCreateWithoutLogoInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   isOnHomepage: Scalars['Boolean'];
   name: Scalars['String'];
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export type TechnologyLogoGroupBy = {
@@ -5532,6 +5557,12 @@ export type TechnologyLogoGroupBy = {
   isOnHomepage: Scalars['Boolean'];
   name: Scalars['String'];
   updatedAt: Scalars['DateTime'];
+};
+
+export type TechnologyLogoListRelationFilter = {
+  every?: InputMaybe<TechnologyLogoWhereInput>;
+  none?: InputMaybe<TechnologyLogoWhereInput>;
+  some?: InputMaybe<TechnologyLogoWhereInput>;
 };
 
 export type TechnologyLogoMaxAggregate = {
@@ -5572,6 +5603,10 @@ export type TechnologyLogoMinOrderByAggregateInput = {
   updatedAt?: InputMaybe<SortOrder>;
 };
 
+export type TechnologyLogoOrderByRelationAggregateInput = {
+  _count?: InputMaybe<SortOrder>;
+};
+
 export type TechnologyLogoOrderByWithAggregationInput = {
   _count?: InputMaybe<TechnologyLogoCountOrderByAggregateInput>;
   _max?: InputMaybe<TechnologyLogoMaxOrderByAggregateInput>;
@@ -5585,18 +5620,13 @@ export type TechnologyLogoOrderByWithAggregationInput = {
 };
 
 export type TechnologyLogoOrderByWithRelationInput = {
-  Image?: InputMaybe<ImageOrderByWithRelationInput>;
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   imageId?: InputMaybe<SortOrder>;
   isOnHomepage?: InputMaybe<SortOrder>;
+  logo?: InputMaybe<ImageOrderByWithRelationInput>;
   name?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
-};
-
-export type TechnologyLogoRelationFilter = {
-  is?: InputMaybe<TechnologyLogoWhereInput>;
-  isNot?: InputMaybe<TechnologyLogoWhereInput>;
 };
 
 export enum TechnologyLogoScalarFieldEnum {
@@ -5607,6 +5637,18 @@ export enum TechnologyLogoScalarFieldEnum {
   Name = 'name',
   UpdatedAt = 'updatedAt'
 }
+
+export type TechnologyLogoScalarWhereInput = {
+  AND?: InputMaybe<Array<TechnologyLogoScalarWhereInput>>;
+  NOT?: InputMaybe<Array<TechnologyLogoScalarWhereInput>>;
+  OR?: InputMaybe<Array<TechnologyLogoScalarWhereInput>>;
+  createdAt?: InputMaybe<DateTimeFilter>;
+  id?: InputMaybe<StringFilter>;
+  imageId?: InputMaybe<StringFilter>;
+  isOnHomepage?: InputMaybe<BoolFilter>;
+  name?: InputMaybe<StringFilter>;
+  updatedAt?: InputMaybe<DateTimeFilter>;
+};
 
 export type TechnologyLogoScalarWhereWithAggregatesInput = {
   AND?: InputMaybe<Array<TechnologyLogoScalarWhereWithAggregatesInput>>;
@@ -5621,10 +5663,10 @@ export type TechnologyLogoScalarWhereWithAggregatesInput = {
 };
 
 export type TechnologyLogoUpdateInput = {
-  Image?: InputMaybe<ImageUpdateOneRequiredWithoutTechnologyLogoInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   isOnHomepage?: InputMaybe<BoolFieldUpdateOperationsInput>;
+  logo?: InputMaybe<ImageUpdateOneRequiredWithoutTechnologyLogosInput>;
   name?: InputMaybe<StringFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
@@ -5637,17 +5679,31 @@ export type TechnologyLogoUpdateManyMutationInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type TechnologyLogoUpdateOneWithoutImageInput = {
-  connect?: InputMaybe<TechnologyLogoWhereUniqueInput>;
-  connectOrCreate?: InputMaybe<TechnologyLogoCreateOrConnectWithoutImageInput>;
-  create?: InputMaybe<TechnologyLogoCreateWithoutImageInput>;
-  delete?: InputMaybe<Scalars['Boolean']>;
-  disconnect?: InputMaybe<Scalars['Boolean']>;
-  update?: InputMaybe<TechnologyLogoUpdateWithoutImageInput>;
-  upsert?: InputMaybe<TechnologyLogoUpsertWithoutImageInput>;
+export type TechnologyLogoUpdateManyWithWhereWithoutLogoInput = {
+  data: TechnologyLogoUpdateManyMutationInput;
+  where: TechnologyLogoScalarWhereInput;
 };
 
-export type TechnologyLogoUpdateWithoutImageInput = {
+export type TechnologyLogoUpdateManyWithoutLogoInput = {
+  connect?: InputMaybe<Array<TechnologyLogoWhereUniqueInput>>;
+  connectOrCreate?: InputMaybe<Array<TechnologyLogoCreateOrConnectWithoutLogoInput>>;
+  create?: InputMaybe<Array<TechnologyLogoCreateWithoutLogoInput>>;
+  createMany?: InputMaybe<TechnologyLogoCreateManyLogoInputEnvelope>;
+  delete?: InputMaybe<Array<TechnologyLogoWhereUniqueInput>>;
+  deleteMany?: InputMaybe<Array<TechnologyLogoScalarWhereInput>>;
+  disconnect?: InputMaybe<Array<TechnologyLogoWhereUniqueInput>>;
+  set?: InputMaybe<Array<TechnologyLogoWhereUniqueInput>>;
+  update?: InputMaybe<Array<TechnologyLogoUpdateWithWhereUniqueWithoutLogoInput>>;
+  updateMany?: InputMaybe<Array<TechnologyLogoUpdateManyWithWhereWithoutLogoInput>>;
+  upsert?: InputMaybe<Array<TechnologyLogoUpsertWithWhereUniqueWithoutLogoInput>>;
+};
+
+export type TechnologyLogoUpdateWithWhereUniqueWithoutLogoInput = {
+  data: TechnologyLogoUpdateWithoutLogoInput;
+  where: TechnologyLogoWhereUniqueInput;
+};
+
+export type TechnologyLogoUpdateWithoutLogoInput = {
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   isOnHomepage?: InputMaybe<BoolFieldUpdateOperationsInput>;
@@ -5655,20 +5711,21 @@ export type TechnologyLogoUpdateWithoutImageInput = {
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
 };
 
-export type TechnologyLogoUpsertWithoutImageInput = {
-  create: TechnologyLogoCreateWithoutImageInput;
-  update: TechnologyLogoUpdateWithoutImageInput;
+export type TechnologyLogoUpsertWithWhereUniqueWithoutLogoInput = {
+  create: TechnologyLogoCreateWithoutLogoInput;
+  update: TechnologyLogoUpdateWithoutLogoInput;
+  where: TechnologyLogoWhereUniqueInput;
 };
 
 export type TechnologyLogoWhereInput = {
   AND?: InputMaybe<Array<TechnologyLogoWhereInput>>;
-  Image?: InputMaybe<ImageRelationFilter>;
   NOT?: InputMaybe<Array<TechnologyLogoWhereInput>>;
   OR?: InputMaybe<Array<TechnologyLogoWhereInput>>;
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
   imageId?: InputMaybe<StringFilter>;
   isOnHomepage?: InputMaybe<BoolFilter>;
+  logo?: InputMaybe<ImageRelationFilter>;
   name?: InputMaybe<StringFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
 };
@@ -5680,10 +5737,10 @@ export type TechnologyLogoWhereUniqueInput = {
 
 export type User = {
   __typename?: 'User';
-  Person: Person;
   createdAt: Scalars['DateTime'];
   id: Scalars['String'];
   password: Scalars['String'];
+  person: Person;
   personId: Scalars['String'];
   role: Role;
   updatedAt: Scalars['DateTime'];
@@ -5713,31 +5770,31 @@ export type UserCountOrderByAggregateInput = {
 };
 
 export type UserCreateInput = {
-  Person: PersonCreateNestedOneWithoutUserInput;
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   password: Scalars['String'];
+  person: PersonCreateNestedOneWithoutUserInput;
   role?: InputMaybe<Role>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   username: Scalars['String'];
 };
 
 export type UserCreateManyInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   password: Scalars['String'];
   personId: Scalars['String'];
   role?: InputMaybe<Role>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   username: Scalars['String'];
 };
 
 export type UserCreateManyPersonInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   password: Scalars['String'];
   role?: InputMaybe<Role>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   username: Scalars['String'];
 };
 
@@ -5760,10 +5817,10 @@ export type UserCreateOrConnectWithoutPersonInput = {
 
 export type UserCreateWithoutPersonInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
-  id: Scalars['String'];
+  id?: InputMaybe<Scalars['String']>;
   password: Scalars['String'];
   role?: InputMaybe<Role>;
-  updatedAt: Scalars['DateTime'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
   username: Scalars['String'];
 };
 
@@ -5847,10 +5904,10 @@ export type UserOrderByWithAggregationInput = {
 };
 
 export type UserOrderByWithRelationInput = {
-  Person?: InputMaybe<PersonOrderByWithRelationInput>;
   createdAt?: InputMaybe<SortOrder>;
   id?: InputMaybe<SortOrder>;
   password?: InputMaybe<SortOrder>;
+  person?: InputMaybe<PersonOrderByWithRelationInput>;
   personId?: InputMaybe<SortOrder>;
   role?: InputMaybe<SortOrder>;
   updatedAt?: InputMaybe<SortOrder>;
@@ -5894,10 +5951,10 @@ export type UserScalarWhereWithAggregatesInput = {
 };
 
 export type UserUpdateInput = {
-  Person?: InputMaybe<PersonUpdateOneRequiredWithoutUserInput>;
   createdAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   id?: InputMaybe<StringFieldUpdateOperationsInput>;
   password?: InputMaybe<StringFieldUpdateOperationsInput>;
+  person?: InputMaybe<PersonUpdateOneRequiredWithoutUserInput>;
   role?: InputMaybe<EnumRoleFieldUpdateOperationsInput>;
   updatedAt?: InputMaybe<DateTimeFieldUpdateOperationsInput>;
   username?: InputMaybe<StringFieldUpdateOperationsInput>;
@@ -5951,7 +6008,7 @@ export type UserUpsertWithWhereUniqueWithoutPersonInput = {
   where: UserWhereUniqueInput;
 };
 
-export type UserUserCredentials_Username_Password_Unique_ConstraintCompoundUniqueInput = {
+export type UserUsernamePasswordCompoundUniqueInput = {
   password: Scalars['String'];
   username: Scalars['String'];
 };
@@ -5960,10 +6017,10 @@ export type UserWhereInput = {
   AND?: InputMaybe<Array<UserWhereInput>>;
   NOT?: InputMaybe<Array<UserWhereInput>>;
   OR?: InputMaybe<Array<UserWhereInput>>;
-  Person?: InputMaybe<PersonRelationFilter>;
   createdAt?: InputMaybe<DateTimeFilter>;
   id?: InputMaybe<StringFilter>;
   password?: InputMaybe<StringFilter>;
+  person?: InputMaybe<PersonRelationFilter>;
   personId?: InputMaybe<StringFilter>;
   role?: InputMaybe<EnumRoleFilter>;
   updatedAt?: InputMaybe<DateTimeFilter>;
@@ -5971,7 +6028,7 @@ export type UserWhereInput = {
 };
 
 export type UserWhereUniqueInput = {
-  UserCredentials_username_password_unique_constraint?: InputMaybe<UserUserCredentials_Username_Password_Unique_ConstraintCompoundUniqueInput>;
   id?: InputMaybe<Scalars['String']>;
   username?: InputMaybe<Scalars['String']>;
+  username_password?: InputMaybe<UserUsernamePasswordCompoundUniqueInput>;
 };

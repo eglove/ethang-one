@@ -1,6 +1,6 @@
 import {useQuery} from '@apollo/client';
 import {randomizedArray} from '@ethang-one/util-typescript';
-import {default as ImageComponent} from 'next/image';
+import Image from 'next/image';
 
 import {Query} from '../../graphql/types';
 import {Container} from '../common/container/container';
@@ -35,19 +35,19 @@ export const HomeLayout = (): JSX.Element => {
         <div className={styles.Logos}>
           {data?.technologyLogos
             && randomizedArray(data.technologyLogos.length).map(logoIndex => {
-              const {Image} = data.technologyLogos[logoIndex];
+              const {logo} = data.technologyLogos[logoIndex];
 
               return (
                 <div
-                  key={Image.id}
+                  key={logo.id}
                   style={{
                     backgroundColor: 'rgba(255,255,255, 0.1)',
                     padding: 'var(--small-space)',
                   }}
                 >
-                  <ImageComponent
-                    src={Image.url}
-                    alt={Image.altText}
+                  <Image
+                    src={logo.url}
+                    alt={logo.altText}
                     width={100}
                     height={100}
                   />

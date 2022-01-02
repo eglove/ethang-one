@@ -8,14 +8,14 @@ export const blogQuery = gql`
       title
       content
       imageId
-      Image {
+      featuredImage {
         url
         width
         altText
         height
       }
-      BlogAuthor {
-        Person {
+      authors {
+        author {
           firstName
           lastName
         }

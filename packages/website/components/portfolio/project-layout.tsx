@@ -5,20 +5,11 @@ import {useRouter} from 'next/router';
 import {useState} from 'react';
 import {default as reactHtmlParser} from 'react-html-parser';
 
-import {Image as image, Person, Project, ProjectContributor, Query} from '../../graphql/types';
+import {Query} from '../../graphql/types';
 import {CreateUpdateTimes} from '../common/create-update-times/create-update-times';
 import {HeadTag} from '../common/head-tag/head-tag';
 import {LinkComponent} from '../common/link-component/link-component';
 import {projectLayoutQuery} from './project-layout-gql';
-
-interface ProjectExtended extends Project {
-  contributors: ContributorExtended[];
-  featuredImage: image;
-}
-
-interface ContributorExtended extends ProjectContributor {
-  contributor: Person;
-}
 
 export const ProjectLayout = (): JSX.Element => {
   const router = useRouter();
@@ -28,7 +19,7 @@ export const ProjectLayout = (): JSX.Element => {
     fetchPolicy: 'cache-and-network',
     onCompleted: data => {
       setContributorNames(
-        data.project.ProjectContributor.map(contributor => `${contributor.Person.firstName} ${contributor.Person.lastName}`),
+        data.project.contributors.map(contributor => `${contributor.contributor.firstName} ${contributor.contributor.lastName}`),
       );
     },
     skip: typeof router.query.slug !== 'string',
@@ -46,7 +37,7 @@ export const ProjectLayout = (): JSX.Element => {
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
-      {(data?.project as ProjectExtended) && (
+      {data?.project && (
         <>
           <HeadTag title={data.project.name}/>
           <h1>{data.project.name}</h1>
@@ -71,10 +62,10 @@ export const ProjectLayout = (): JSX.Element => {
           <div>{reactHtmlParser(data.project.summary)}</div>
           <div style={{display: 'grid', placeItems: 'center'}}>
             <Image
-              src={data?.project.Image.url}
-              alt={data?.project.Image.altText}
-              width={data?.project.Image.width}
-              height={data?.project.Image.height}
+              src={data?.project.featuredImage.url}
+              alt={data?.project.featuredImage.altText}
+              width={data?.project.featuredImage.width}
+              height={data?.project.featuredImage.height}
             />
           </div>
         </>

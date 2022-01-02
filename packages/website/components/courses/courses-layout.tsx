@@ -73,13 +73,13 @@ export const CoursesLayout = (): JSX.Element => {
               <LinkComponent
                 content={
                   <Image
-                    src={course.School.Image.url}
-                    alt={course.School.Image.altText}
+                    src={course.school.logo.url}
+                    alt={course.school.logo.altText}
                     width={25}
                     height={25}
                   />
                 }
-                href={course.School.url}
+                href={course.school.url}
               />
             </div>
 
@@ -96,7 +96,7 @@ export const CoursesLayout = (): JSX.Element => {
             </div>
             <div className={styles.CourseItem}>
               {formatList(
-                course.CourseInstructor.map(instructor => `${instructor.Person.firstName} ${instructor.Person.lastName}`),
+                course.instructors.map(instructor => `${instructor.instructor.firstName} ${instructor.instructor.lastName}`),
               )}
             </div>
             <div className={styles.CourseItem}>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import {useEffect, useState} from 'react';
 import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry';
 
-import {Image as image, Project, Query} from '../../graphql/types';
+import {Query} from '../../graphql/types';
 import githubImage from '../../public/images/github.png';
 import globeImage from '../../public/images/globe.svg';
 import {HeadTag} from '../common/head-tag/head-tag';
@@ -12,10 +12,6 @@ import {LinkComponent} from '../common/link-component/link-component';
 import {LoadingImage} from '../common/loading-image/loading-image';
 import styles from './portfolios-layout.module.css';
 import {portfoliosLayoutQuery} from './portfolios-layout-gql';
-
-interface WithFeaturedImage extends Project {
-  featuredImage: image;
-}
 
 export const PortfoliosLayout = (): JSX.Element => {
   const {data, loading, error} = useQuery<Query>(portfoliosLayoutQuery);
@@ -59,7 +55,7 @@ export const PortfoliosLayout = (): JSX.Element => {
       >
         {data?.projects
           && randomizedArray(data.projects.length).map(projectIndex => {
-            const project = data.projects?.[projectIndex] as WithFeaturedImage;
+            const project = data.projects?.[projectIndex];
 
             return (
               <ResponsiveMasonry key={uuid()}>

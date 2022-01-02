@@ -10,7 +10,7 @@ export const portfoliosLayoutQuery = gql`
       projectUrl
       summary
       imageId
-      featuredImage: Image {
+      featuredImage {
         url
         altText
         width

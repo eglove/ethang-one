@@ -11,14 +11,14 @@ export const projectLayoutQuery = gql`
       name
       imageId
       id
-      Image {
+      featuredImage {
         url
         altText
         width
         height
       }
-      ProjectContributor {
-        Person {
+      contributors {
+        contributor {
           firstName
           lastName
         }

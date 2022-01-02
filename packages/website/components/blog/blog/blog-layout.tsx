@@ -25,10 +25,10 @@ export const BlogLayout = (): JSX.Element | undefined => {
   const {data, error} = useQuery<Query>(blogQuery, {
     fetchPolicy: 'cache-and-network',
     onCompleted: data => {
-      if (data?.blog?.BlogAuthor && data.blog.BlogAuthor.length > 0) {
+      if (data?.blog?.authors && data.blog.authors.length > 0) {
         setAuthors(
           formatList(
-            data.blog.BlogAuthor.map(author => `${author.Person.firstName} ${author.Person.lastName}`),
+            data.blog.authors.map(author => `${author.author.firstName} ${author.author.lastName}`),
           ),
         );
       }
@@ -60,10 +60,10 @@ export const BlogLayout = (): JSX.Element | undefined => {
           </div>
           <div>
             <Image
-              alt={data.blog.Image.altText}
-              src={data.blog.Image.url}
-              height={data.blog.Image.height}
-              width={data.blog.Image.width}
+              alt={data.blog.featuredImage.altText}
+              src={data.blog.featuredImage.url}
+              height={data.blog.featuredImage.height}
+              width={data.blog.featuredImage.width}
             />
           </div>
         </div>

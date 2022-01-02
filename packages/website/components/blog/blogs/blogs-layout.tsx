@@ -36,8 +36,8 @@ export const BlogsLayout = (): JSX.Element => {
               <div
                 className={styles.BlogContent}
                 style={{
-                  background: `url(${blog.Image.url}) center no-repeat`,
-                  height: `${blog.Image.height}px`,
+                  background: `url(${blog.featuredImage.url}) center no-repeat`,
+                  height: `${blog.featuredImage.height}px`,
                   maxHeight: '300px',
                   width: '100%',
                 }}
@@ -45,7 +45,7 @@ export const BlogsLayout = (): JSX.Element => {
                 <h2>{blog.title}</h2>
                 <div>
                   {formatList(
-                    blog.BlogAuthor.map(author => `${author.Person.firstName} ${author.Person.lastName}`),
+                    blog.authors.map(author => `${author.author.firstName} ${author.author.lastName}`),
                   )}
                 </div>
                 <CreateUpdateTimes

@@ -18,17 +18,17 @@ export const coursesLayoutQuery = gql`
       duration
       schoolId
       complete
-      School {
+      school {
         url
-        Image {
+        logo {
           url
           altText
           width
           height
         }
       }
-      CourseInstructor {
-        Person {
+      instructors {
+        instructor {
           firstName
           lastName
         }
@@ -41,7 +41,7 @@ export const courseLinksQuery = gql`
   query School($where: SchoolWhereUniqueInput!) {
     school(where: $where) {
       name
-      Image {
+      logo {
         url
         altText
         height

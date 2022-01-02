@@ -78,11 +78,11 @@ type AggregateUser {
 }
 
 type Blog {
-    BlogAuthor(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthor!]!
-    Image: Image!
-    _count: BlogCount
+    _count: BlogCount!
+    authors(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthor!]!
     content: String!
     createdAt: DateTime!
+    featuredImage: Image!
     id: String!
     imageId: String!
     slug: String!
@@ -91,8 +91,8 @@ type Blog {
 }
 
 type BlogAuthor {
-    Blog: Blog!
-    Person: Person!
+    author: Person!
+    blog: Blog!
     blogId: String!
     createdAt: DateTime!
     id: String!
@@ -137,7 +137,7 @@ type BlogAuthorMinAggregate {
 }
 
 type BlogCount {
-    BlogAuthor: Int!
+    authors: Int!
 }
 
 type BlogCountAggregate {
@@ -185,18 +185,18 @@ type BlogMinAggregate {
 }
 
 type Course {
-    CourseInstructor(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructor!]!
-    School: School!
-    _count: CourseCount
+    _count: CourseCount!
     complete: Boolean!
     courseUrls: [String!]!
     createdAt: DateTime!
     duration: Float!
     id: String!
+    instructors(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructor!]!
     order: Int!
     rating: Rating
     ratingUrl: String
     recommended: Boolean!
+    school: School!
     schoolId: String!
     title: String!
     updatedAt: DateTime!
@@ -210,7 +210,7 @@ type CourseAvgAggregate {
 }
 
 type CourseCount {
-    CourseInstructor: Int!
+    instructors: Int!
 }
 
 type CourseCountAggregate {
@@ -252,11 +252,11 @@ type CourseGroupBy {
 }
 
 type CourseInstructor {
-    Course: Course!
-    Person: Person!
+    course: Course!
     courseId: String!
     createdAt: DateTime!
     id: String!
+    instructor: Person!
     instructorId: String!
     updatedAt: DateTime!
 }
@@ -334,26 +334,27 @@ type CourseSumAggregate {
 }
 
 type Image {
-    Blog(cursor: BlogWhereUniqueInput, distinct: [BlogScalarFieldEnum!], orderBy: [BlogOrderByWithRelationInput!], skip: Int, take: Int, where: BlogWhereInput): [Blog!]!
-    Person(cursor: PersonWhereUniqueInput, distinct: [PersonScalarFieldEnum!], orderBy: [PersonOrderByWithRelationInput!], skip: Int, take: Int, where: PersonWhereInput): [Person!]!
-    Project(cursor: ProjectWhereUniqueInput, distinct: [ProjectScalarFieldEnum!], orderBy: [ProjectOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectWhereInput): [Project!]!
-    School(cursor: SchoolWhereUniqueInput, distinct: [SchoolScalarFieldEnum!], orderBy: [SchoolOrderByWithRelationInput!], skip: Int, take: Int, where: SchoolWhereInput): [School!]!
-    TechnologyLogo: TechnologyLogo
-    _count: ImageCount
+    TechnologyLogos(cursor: TechnologyLogoWhereUniqueInput, distinct: [TechnologyLogoScalarFieldEnum!], orderBy: [TechnologyLogoOrderByWithRelationInput!], skip: Int, take: Int, where: TechnologyLogoWhereInput): [TechnologyLogo!]!
+    _count: ImageCount!
     altText: String!
+    blogs(cursor: BlogWhereUniqueInput, distinct: [BlogScalarFieldEnum!], orderBy: [BlogOrderByWithRelationInput!], skip: Int, take: Int, where: BlogWhereInput): [Blog!]!
     createdAt: DateTime!
     height: String!
     id: String!
+    persons(cursor: PersonWhereUniqueInput, distinct: [PersonScalarFieldEnum!], orderBy: [PersonOrderByWithRelationInput!], skip: Int, take: Int, where: PersonWhereInput): [Person!]!
+    projects(cursor: ProjectWhereUniqueInput, distinct: [ProjectScalarFieldEnum!], orderBy: [ProjectOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectWhereInput): [Project!]!
+    schools(cursor: SchoolWhereUniqueInput, distinct: [SchoolScalarFieldEnum!], orderBy: [SchoolOrderByWithRelationInput!], skip: Int, take: Int, where: SchoolWhereInput): [School!]!
     updatedAt: DateTime!
     url: String!
     width: String!
 }
 
 type ImageCount {
-    Blog: Int!
-    Person: Int!
-    Project: Int!
-    School: Int!
+    TechnologyLogos: Int!
+    blogs: Int!
+    persons: Int!
+    projects: Int!
+    schools: Int!
 }
 
 type ImageCountAggregate {
@@ -481,29 +482,29 @@ type Mutation {
 }
 
 type Person {
-    BlogAuthor(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthor!]!
-    CourseInstructor(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructor!]!
-    Image: Image
-    ProjectContributor(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributor!]!
     User(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
-    _count: PersonCount
+    _count: PersonCount!
+    blogs(cursor: BlogAuthorWhereUniqueInput, distinct: [BlogAuthorScalarFieldEnum!], orderBy: [BlogAuthorOrderByWithRelationInput!], skip: Int, take: Int, where: BlogAuthorWhereInput): [BlogAuthor!]!
+    courses(cursor: CourseInstructorWhereUniqueInput, distinct: [CourseInstructorScalarFieldEnum!], orderBy: [CourseInstructorOrderByWithRelationInput!], skip: Int, take: Int, where: CourseInstructorWhereInput): [CourseInstructor!]!
     createdAt: DateTime!
     firstName: String!
     githubUrl: String
     id: String!
+    image: Image
     imageId: String
     lastName: String!
     linkedinUrl: String
+    projects(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributor!]!
     summary: String
     updatedAt: DateTime!
     websiteUrl: String
 }
 
 type PersonCount {
-    BlogAuthor: Int!
-    CourseInstructor: Int!
-    ProjectContributor: Int!
     User: Int!
+    blogs: Int!
+    courses: Int!
+    projects: Int!
 }
 
 type PersonCountAggregate {
@@ -563,10 +564,10 @@ type PersonMinAggregate {
 }
 
 type Project {
-    Image: Image!
-    ProjectContributor(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributor!]!
-    _count: ProjectCount
+    _count: ProjectCount!
+    contributors(cursor: ProjectContributorWhereUniqueInput, distinct: [ProjectContributorScalarFieldEnum!], orderBy: [ProjectContributorOrderByWithRelationInput!], skip: Int, take: Int, where: ProjectContributorWhereInput): [ProjectContributor!]!
     createdAt: DateTime!
+    featuredImage: Image!
     githubUrl: String
     id: String!
     imageId: String!
@@ -578,11 +579,11 @@ type Project {
 }
 
 type ProjectContributor {
-    Person: Person!
-    Project: Project!
+    contributor: Person!
     contributorId: String!
     createdAt: DateTime!
     id: String!
+    project: Project!
     projectId: String!
     updatedAt: DateTime!
 }
@@ -624,7 +625,7 @@ type ProjectContributorMinAggregate {
 }
 
 type ProjectCount {
-    ProjectContributor: Int!
+    contributors: Int!
 }
 
 type ProjectCountAggregate {
@@ -738,20 +739,20 @@ type Query {
 }
 
 type School {
-    Course(cursor: CourseWhereUniqueInput, distinct: [CourseScalarFieldEnum!], orderBy: [CourseOrderByWithRelationInput!], skip: Int, take: Int, where: CourseWhereInput): [Course!]!
-    Image: Image!
-    _count: SchoolCount
+    _count: SchoolCount!
+    courses(cursor: CourseWhereUniqueInput, distinct: [CourseScalarFieldEnum!], orderBy: [CourseOrderByWithRelationInput!], skip: Int, take: Int, where: CourseWhereInput): [Course!]!
     createdAt: DateTime!
     description: String!
     id: String!
     imageId: String!
+    logo: Image!
     name: String!
     updatedAt: DateTime!
     url: String!
 }
 
 type SchoolCount {
-    Course: Int!
+    courses: Int!
 }
 
 type SchoolCountAggregate {
@@ -799,11 +800,11 @@ type SchoolMinAggregate {
 }
 
 type TechnologyLogo {
-    Image: Image!
     createdAt: DateTime!
     id: String!
     imageId: String!
     isOnHomepage: Boolean!
+    logo: Image!
     name: String!
     updatedAt: DateTime!
 }
@@ -849,10 +850,10 @@ type TechnologyLogoMinAggregate {
 }
 
 type User {
-    Person: Person!
     createdAt: DateTime!
     id: String!
     password: String!
+    person: Person!
     personId: String!
     role: Role!
     updatedAt: DateTime!
@@ -1052,18 +1053,30 @@ input BlogAuthorCountOrderByAggregateInput {
 }
 
 input BlogAuthorCreateInput {
-    Blog: BlogCreateNestedOneWithoutBlogAuthorInput!
-    Person: PersonCreateNestedOneWithoutBlogAuthorInput!
+    author: PersonCreateNestedOneWithoutBlogsInput!
+    blog: BlogCreateNestedOneWithoutAuthorsInput!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    updatedAt: DateTime
+}
+
+input BlogAuthorCreateManyAuthorInput {
+    blogId: String!
+    createdAt: DateTime
+    id: String
+    updatedAt: DateTime
+}
+
+input BlogAuthorCreateManyAuthorInputEnvelope {
+    data: [BlogAuthorCreateManyAuthorInput!]!
+    skipDuplicates: Boolean
 }
 
 input BlogAuthorCreateManyBlogInput {
     createdAt: DateTime
-    id: String!
+    id: String
     personId: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
 input BlogAuthorCreateManyBlogInputEnvelope {
@@ -1074,21 +1087,16 @@ input BlogAuthorCreateManyBlogInputEnvelope {
 input BlogAuthorCreateManyInput {
     blogId: String!
     createdAt: DateTime
-    id: String!
+    id: String
     personId: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input BlogAuthorCreateManyPersonInput {
-    blogId: String!
-    createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
-}
-
-input BlogAuthorCreateManyPersonInputEnvelope {
-    data: [BlogAuthorCreateManyPersonInput!]!
-    skipDuplicates: Boolean
+input BlogAuthorCreateNestedManyWithoutAuthorInput {
+    connect: [BlogAuthorWhereUniqueInput!]
+    connectOrCreate: [BlogAuthorCreateOrConnectWithoutAuthorInput!]
+    create: [BlogAuthorCreateWithoutAuthorInput!]
+    createMany: BlogAuthorCreateManyAuthorInputEnvelope
 }
 
 input BlogAuthorCreateNestedManyWithoutBlogInput {
@@ -1098,11 +1106,9 @@ input BlogAuthorCreateNestedManyWithoutBlogInput {
     createMany: BlogAuthorCreateManyBlogInputEnvelope
 }
 
-input BlogAuthorCreateNestedManyWithoutPersonInput {
-    connect: [BlogAuthorWhereUniqueInput!]
-    connectOrCreate: [BlogAuthorCreateOrConnectWithoutPersonInput!]
-    create: [BlogAuthorCreateWithoutPersonInput!]
-    createMany: BlogAuthorCreateManyPersonInputEnvelope
+input BlogAuthorCreateOrConnectWithoutAuthorInput {
+    create: BlogAuthorCreateWithoutAuthorInput!
+    where: BlogAuthorWhereUniqueInput!
 }
 
 input BlogAuthorCreateOrConnectWithoutBlogInput {
@@ -1110,23 +1116,18 @@ input BlogAuthorCreateOrConnectWithoutBlogInput {
     where: BlogAuthorWhereUniqueInput!
 }
 
-input BlogAuthorCreateOrConnectWithoutPersonInput {
-    create: BlogAuthorCreateWithoutPersonInput!
-    where: BlogAuthorWhereUniqueInput!
+input BlogAuthorCreateWithoutAuthorInput {
+    blog: BlogCreateNestedOneWithoutAuthorsInput!
+    createdAt: DateTime
+    id: String
+    updatedAt: DateTime
 }
 
 input BlogAuthorCreateWithoutBlogInput {
-    Person: PersonCreateNestedOneWithoutBlogAuthorInput!
+    author: PersonCreateNestedOneWithoutBlogsInput!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
-}
-
-input BlogAuthorCreateWithoutPersonInput {
-    Blog: BlogCreateNestedOneWithoutBlogAuthorInput!
-    createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    updatedAt: DateTime
 }
 
 input BlogAuthorListRelationFilter {
@@ -1167,8 +1168,8 @@ input BlogAuthorOrderByWithAggregationInput {
 }
 
 input BlogAuthorOrderByWithRelationInput {
-    Blog: BlogOrderByWithRelationInput
-    Person: PersonOrderByWithRelationInput
+    author: PersonOrderByWithRelationInput
+    blog: BlogOrderByWithRelationInput
     blogId: SortOrder
     createdAt: SortOrder
     id: SortOrder
@@ -1199,8 +1200,8 @@ input BlogAuthorScalarWhereWithAggregatesInput {
 }
 
 input BlogAuthorUpdateInput {
-    Blog: BlogUpdateOneRequiredWithoutBlogAuthorInput
-    Person: PersonUpdateOneRequiredWithoutBlogAuthorInput
+    author: PersonUpdateOneRequiredWithoutBlogsInput
+    blog: BlogUpdateOneRequiredWithoutAuthorsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
@@ -1212,14 +1213,28 @@ input BlogAuthorUpdateManyMutationInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
+input BlogAuthorUpdateManyWithWhereWithoutAuthorInput {
+    data: BlogAuthorUpdateManyMutationInput!
+    where: BlogAuthorScalarWhereInput!
+}
+
 input BlogAuthorUpdateManyWithWhereWithoutBlogInput {
     data: BlogAuthorUpdateManyMutationInput!
     where: BlogAuthorScalarWhereInput!
 }
 
-input BlogAuthorUpdateManyWithWhereWithoutPersonInput {
-    data: BlogAuthorUpdateManyMutationInput!
-    where: BlogAuthorScalarWhereInput!
+input BlogAuthorUpdateManyWithoutAuthorInput {
+    connect: [BlogAuthorWhereUniqueInput!]
+    connectOrCreate: [BlogAuthorCreateOrConnectWithoutAuthorInput!]
+    create: [BlogAuthorCreateWithoutAuthorInput!]
+    createMany: BlogAuthorCreateManyAuthorInputEnvelope
+    delete: [BlogAuthorWhereUniqueInput!]
+    deleteMany: [BlogAuthorScalarWhereInput!]
+    disconnect: [BlogAuthorWhereUniqueInput!]
+    set: [BlogAuthorWhereUniqueInput!]
+    update: [BlogAuthorUpdateWithWhereUniqueWithoutAuthorInput!]
+    updateMany: [BlogAuthorUpdateManyWithWhereWithoutAuthorInput!]
+    upsert: [BlogAuthorUpsertWithWhereUniqueWithoutAuthorInput!]
 }
 
 input BlogAuthorUpdateManyWithoutBlogInput {
@@ -1236,18 +1251,9 @@ input BlogAuthorUpdateManyWithoutBlogInput {
     upsert: [BlogAuthorUpsertWithWhereUniqueWithoutBlogInput!]
 }
 
-input BlogAuthorUpdateManyWithoutPersonInput {
-    connect: [BlogAuthorWhereUniqueInput!]
-    connectOrCreate: [BlogAuthorCreateOrConnectWithoutPersonInput!]
-    create: [BlogAuthorCreateWithoutPersonInput!]
-    createMany: BlogAuthorCreateManyPersonInputEnvelope
-    delete: [BlogAuthorWhereUniqueInput!]
-    deleteMany: [BlogAuthorScalarWhereInput!]
-    disconnect: [BlogAuthorWhereUniqueInput!]
-    set: [BlogAuthorWhereUniqueInput!]
-    update: [BlogAuthorUpdateWithWhereUniqueWithoutPersonInput!]
-    updateMany: [BlogAuthorUpdateManyWithWhereWithoutPersonInput!]
-    upsert: [BlogAuthorUpsertWithWhereUniqueWithoutPersonInput!]
+input BlogAuthorUpdateWithWhereUniqueWithoutAuthorInput {
+    data: BlogAuthorUpdateWithoutAuthorInput!
+    where: BlogAuthorWhereUniqueInput!
 }
 
 input BlogAuthorUpdateWithWhereUniqueWithoutBlogInput {
@@ -1255,23 +1261,24 @@ input BlogAuthorUpdateWithWhereUniqueWithoutBlogInput {
     where: BlogAuthorWhereUniqueInput!
 }
 
-input BlogAuthorUpdateWithWhereUniqueWithoutPersonInput {
-    data: BlogAuthorUpdateWithoutPersonInput!
-    where: BlogAuthorWhereUniqueInput!
+input BlogAuthorUpdateWithoutAuthorInput {
+    blog: BlogUpdateOneRequiredWithoutAuthorsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input BlogAuthorUpdateWithoutBlogInput {
-    Person: PersonUpdateOneRequiredWithoutBlogAuthorInput
+    author: PersonUpdateOneRequiredWithoutBlogsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input BlogAuthorUpdateWithoutPersonInput {
-    Blog: BlogUpdateOneRequiredWithoutBlogAuthorInput
-    createdAt: DateTimeFieldUpdateOperationsInput
-    id: StringFieldUpdateOperationsInput
-    updatedAt: DateTimeFieldUpdateOperationsInput
+input BlogAuthorUpsertWithWhereUniqueWithoutAuthorInput {
+    create: BlogAuthorCreateWithoutAuthorInput!
+    update: BlogAuthorUpdateWithoutAuthorInput!
+    where: BlogAuthorWhereUniqueInput!
 }
 
 input BlogAuthorUpsertWithWhereUniqueWithoutBlogInput {
@@ -1280,18 +1287,12 @@ input BlogAuthorUpsertWithWhereUniqueWithoutBlogInput {
     where: BlogAuthorWhereUniqueInput!
 }
 
-input BlogAuthorUpsertWithWhereUniqueWithoutPersonInput {
-    create: BlogAuthorCreateWithoutPersonInput!
-    update: BlogAuthorUpdateWithoutPersonInput!
-    where: BlogAuthorWhereUniqueInput!
-}
-
 input BlogAuthorWhereInput {
     AND: [BlogAuthorWhereInput!]
-    Blog: BlogRelationFilter
     NOT: [BlogAuthorWhereInput!]
     OR: [BlogAuthorWhereInput!]
-    Person: PersonRelationFilter
+    author: PersonRelationFilter
+    blog: BlogRelationFilter
     blogId: StringFilter
     createdAt: DateTimeFilter
     id: StringFilter
@@ -1314,81 +1315,81 @@ input BlogCountOrderByAggregateInput {
 }
 
 input BlogCreateInput {
-    BlogAuthor: BlogAuthorCreateNestedManyWithoutBlogInput
-    Image: ImageCreateNestedOneWithoutBlogInput!
+    authors: BlogAuthorCreateNestedManyWithoutBlogInput
     content: String!
     createdAt: DateTime
-    id: String!
+    featuredImage: ImageCreateNestedOneWithoutBlogsInput!
+    id: String
     slug: String!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input BlogCreateManyImageInput {
+input BlogCreateManyFeaturedImageInput {
     content: String!
     createdAt: DateTime
-    id: String!
+    id: String
     slug: String!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input BlogCreateManyImageInputEnvelope {
-    data: [BlogCreateManyImageInput!]!
+input BlogCreateManyFeaturedImageInputEnvelope {
+    data: [BlogCreateManyFeaturedImageInput!]!
     skipDuplicates: Boolean
 }
 
 input BlogCreateManyInput {
     content: String!
     createdAt: DateTime
-    id: String!
+    id: String
     imageId: String!
     slug: String!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input BlogCreateNestedManyWithoutImageInput {
+input BlogCreateNestedManyWithoutFeaturedImageInput {
     connect: [BlogWhereUniqueInput!]
-    connectOrCreate: [BlogCreateOrConnectWithoutImageInput!]
-    create: [BlogCreateWithoutImageInput!]
-    createMany: BlogCreateManyImageInputEnvelope
+    connectOrCreate: [BlogCreateOrConnectWithoutFeaturedImageInput!]
+    create: [BlogCreateWithoutFeaturedImageInput!]
+    createMany: BlogCreateManyFeaturedImageInputEnvelope
 }
 
-input BlogCreateNestedOneWithoutBlogAuthorInput {
+input BlogCreateNestedOneWithoutAuthorsInput {
     connect: BlogWhereUniqueInput
-    connectOrCreate: BlogCreateOrConnectWithoutBlogAuthorInput
-    create: BlogCreateWithoutBlogAuthorInput
+    connectOrCreate: BlogCreateOrConnectWithoutAuthorsInput
+    create: BlogCreateWithoutAuthorsInput
 }
 
-input BlogCreateOrConnectWithoutBlogAuthorInput {
-    create: BlogCreateWithoutBlogAuthorInput!
+input BlogCreateOrConnectWithoutAuthorsInput {
+    create: BlogCreateWithoutAuthorsInput!
     where: BlogWhereUniqueInput!
 }
 
-input BlogCreateOrConnectWithoutImageInput {
-    create: BlogCreateWithoutImageInput!
+input BlogCreateOrConnectWithoutFeaturedImageInput {
+    create: BlogCreateWithoutFeaturedImageInput!
     where: BlogWhereUniqueInput!
 }
 
-input BlogCreateWithoutBlogAuthorInput {
-    Image: ImageCreateNestedOneWithoutBlogInput!
+input BlogCreateWithoutAuthorsInput {
     content: String!
     createdAt: DateTime
-    id: String!
+    featuredImage: ImageCreateNestedOneWithoutBlogsInput!
+    id: String
     slug: String!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input BlogCreateWithoutImageInput {
-    BlogAuthor: BlogAuthorCreateNestedManyWithoutBlogInput
+input BlogCreateWithoutFeaturedImageInput {
+    authors: BlogAuthorCreateNestedManyWithoutBlogInput
     content: String!
     createdAt: DateTime
-    id: String!
+    id: String
     slug: String!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
 input BlogListRelationFilter {
@@ -1435,10 +1436,10 @@ input BlogOrderByWithAggregationInput {
 }
 
 input BlogOrderByWithRelationInput {
-    BlogAuthor: BlogAuthorOrderByRelationAggregateInput
-    Image: ImageOrderByWithRelationInput
+    authors: BlogAuthorOrderByRelationAggregateInput
     content: SortOrder
     createdAt: SortOrder
+    featuredImage: ImageOrderByWithRelationInput
     id: SortOrder
     imageId: SortOrder
     slug: SortOrder
@@ -1478,10 +1479,10 @@ input BlogScalarWhereWithAggregatesInput {
 }
 
 input BlogUpdateInput {
-    BlogAuthor: BlogAuthorUpdateManyWithoutBlogInput
-    Image: ImageUpdateOneRequiredWithoutBlogInput
+    authors: BlogAuthorUpdateManyWithoutBlogInput
     content: StringFieldUpdateOperationsInput
     createdAt: DateTimeFieldUpdateOperationsInput
+    featuredImage: ImageUpdateOneRequiredWithoutBlogsInput
     id: StringFieldUpdateOperationsInput
     slug: StringFieldUpdateOperationsInput
     title: StringFieldUpdateOperationsInput
@@ -1497,40 +1498,50 @@ input BlogUpdateManyMutationInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input BlogUpdateManyWithWhereWithoutImageInput {
+input BlogUpdateManyWithWhereWithoutFeaturedImageInput {
     data: BlogUpdateManyMutationInput!
     where: BlogScalarWhereInput!
 }
 
-input BlogUpdateManyWithoutImageInput {
+input BlogUpdateManyWithoutFeaturedImageInput {
     connect: [BlogWhereUniqueInput!]
-    connectOrCreate: [BlogCreateOrConnectWithoutImageInput!]
-    create: [BlogCreateWithoutImageInput!]
-    createMany: BlogCreateManyImageInputEnvelope
+    connectOrCreate: [BlogCreateOrConnectWithoutFeaturedImageInput!]
+    create: [BlogCreateWithoutFeaturedImageInput!]
+    createMany: BlogCreateManyFeaturedImageInputEnvelope
     delete: [BlogWhereUniqueInput!]
     deleteMany: [BlogScalarWhereInput!]
     disconnect: [BlogWhereUniqueInput!]
     set: [BlogWhereUniqueInput!]
-    update: [BlogUpdateWithWhereUniqueWithoutImageInput!]
-    updateMany: [BlogUpdateManyWithWhereWithoutImageInput!]
-    upsert: [BlogUpsertWithWhereUniqueWithoutImageInput!]
+    update: [BlogUpdateWithWhereUniqueWithoutFeaturedImageInput!]
+    updateMany: [BlogUpdateManyWithWhereWithoutFeaturedImageInput!]
+    upsert: [BlogUpsertWithWhereUniqueWithoutFeaturedImageInput!]
 }
 
-input BlogUpdateOneRequiredWithoutBlogAuthorInput {
+input BlogUpdateOneRequiredWithoutAuthorsInput {
     connect: BlogWhereUniqueInput
-    connectOrCreate: BlogCreateOrConnectWithoutBlogAuthorInput
-    create: BlogCreateWithoutBlogAuthorInput
-    update: BlogUpdateWithoutBlogAuthorInput
-    upsert: BlogUpsertWithoutBlogAuthorInput
+    connectOrCreate: BlogCreateOrConnectWithoutAuthorsInput
+    create: BlogCreateWithoutAuthorsInput
+    update: BlogUpdateWithoutAuthorsInput
+    upsert: BlogUpsertWithoutAuthorsInput
 }
 
-input BlogUpdateWithWhereUniqueWithoutImageInput {
-    data: BlogUpdateWithoutImageInput!
+input BlogUpdateWithWhereUniqueWithoutFeaturedImageInput {
+    data: BlogUpdateWithoutFeaturedImageInput!
     where: BlogWhereUniqueInput!
 }
 
-input BlogUpdateWithoutBlogAuthorInput {
-    Image: ImageUpdateOneRequiredWithoutBlogInput
+input BlogUpdateWithoutAuthorsInput {
+    content: StringFieldUpdateOperationsInput
+    createdAt: DateTimeFieldUpdateOperationsInput
+    featuredImage: ImageUpdateOneRequiredWithoutBlogsInput
+    id: StringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    title: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input BlogUpdateWithoutFeaturedImageInput {
+    authors: BlogAuthorUpdateManyWithoutBlogInput
     content: StringFieldUpdateOperationsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
@@ -1539,35 +1550,25 @@ input BlogUpdateWithoutBlogAuthorInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input BlogUpdateWithoutImageInput {
-    BlogAuthor: BlogAuthorUpdateManyWithoutBlogInput
-    content: StringFieldUpdateOperationsInput
-    createdAt: DateTimeFieldUpdateOperationsInput
-    id: StringFieldUpdateOperationsInput
-    slug: StringFieldUpdateOperationsInput
-    title: StringFieldUpdateOperationsInput
-    updatedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input BlogUpsertWithWhereUniqueWithoutImageInput {
-    create: BlogCreateWithoutImageInput!
-    update: BlogUpdateWithoutImageInput!
+input BlogUpsertWithWhereUniqueWithoutFeaturedImageInput {
+    create: BlogCreateWithoutFeaturedImageInput!
+    update: BlogUpdateWithoutFeaturedImageInput!
     where: BlogWhereUniqueInput!
 }
 
-input BlogUpsertWithoutBlogAuthorInput {
-    create: BlogCreateWithoutBlogAuthorInput!
-    update: BlogUpdateWithoutBlogAuthorInput!
+input BlogUpsertWithoutAuthorsInput {
+    create: BlogCreateWithoutAuthorsInput!
+    update: BlogUpdateWithoutAuthorsInput!
 }
 
 input BlogWhereInput {
     AND: [BlogWhereInput!]
-    BlogAuthor: BlogAuthorListRelationFilter
-    Image: ImageRelationFilter
     NOT: [BlogWhereInput!]
     OR: [BlogWhereInput!]
+    authors: BlogAuthorListRelationFilter
     content: StringFilter
     createdAt: DateTimeFilter
+    featuredImage: ImageRelationFilter
     id: StringFilter
     imageId: StringFilter
     slug: StringFilter
@@ -1620,19 +1621,19 @@ input CourseCountOrderByAggregateInput {
 }
 
 input CourseCreateInput {
-    CourseInstructor: CourseInstructorCreateNestedManyWithoutCourseInput
-    School: SchoolCreateNestedOneWithoutCourseInput!
     complete: Boolean!
     courseUrls: CourseCreatecourseUrlsInput
     createdAt: DateTime
     duration: Float!
-    id: String!
+    id: String
+    instructors: CourseInstructorCreateNestedManyWithoutCourseInput
     order: Int!
     rating: Rating
     ratingUrl: String
     recommended: Boolean!
+    school: SchoolCreateNestedOneWithoutCoursesInput!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     yearUpdated: Int!
 }
 
@@ -1641,14 +1642,14 @@ input CourseCreateManyInput {
     courseUrls: CourseCreateManycourseUrlsInput
     createdAt: DateTime
     duration: Float!
-    id: String!
+    id: String
     order: Int!
     rating: Rating
     ratingUrl: String
     recommended: Boolean!
     schoolId: String!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     yearUpdated: Int!
 }
 
@@ -1657,13 +1658,13 @@ input CourseCreateManySchoolInput {
     courseUrls: CourseCreateManycourseUrlsInput
     createdAt: DateTime
     duration: Float!
-    id: String!
+    id: String
     order: Int!
     rating: Rating
     ratingUrl: String
     recommended: Boolean!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     yearUpdated: Int!
 }
 
@@ -1683,14 +1684,14 @@ input CourseCreateNestedManyWithoutSchoolInput {
     createMany: CourseCreateManySchoolInputEnvelope
 }
 
-input CourseCreateNestedOneWithoutCourseInstructorInput {
+input CourseCreateNestedOneWithoutInstructorsInput {
     connect: CourseWhereUniqueInput
-    connectOrCreate: CourseCreateOrConnectWithoutCourseInstructorInput
-    create: CourseCreateWithoutCourseInstructorInput
+    connectOrCreate: CourseCreateOrConnectWithoutInstructorsInput
+    create: CourseCreateWithoutInstructorsInput
 }
 
-input CourseCreateOrConnectWithoutCourseInstructorInput {
-    create: CourseCreateWithoutCourseInstructorInput!
+input CourseCreateOrConnectWithoutInstructorsInput {
+    create: CourseCreateWithoutInstructorsInput!
     where: CourseWhereUniqueInput!
 }
 
@@ -1699,35 +1700,35 @@ input CourseCreateOrConnectWithoutSchoolInput {
     where: CourseWhereUniqueInput!
 }
 
-input CourseCreateWithoutCourseInstructorInput {
-    School: SchoolCreateNestedOneWithoutCourseInput!
+input CourseCreateWithoutInstructorsInput {
     complete: Boolean!
     courseUrls: CourseCreatecourseUrlsInput
     createdAt: DateTime
     duration: Float!
-    id: String!
+    id: String
     order: Int!
     rating: Rating
     ratingUrl: String
     recommended: Boolean!
+    school: SchoolCreateNestedOneWithoutCoursesInput!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     yearUpdated: Int!
 }
 
 input CourseCreateWithoutSchoolInput {
-    CourseInstructor: CourseInstructorCreateNestedManyWithoutCourseInput
     complete: Boolean!
     courseUrls: CourseCreatecourseUrlsInput
     createdAt: DateTime
     duration: Float!
-    id: String!
+    id: String
+    instructors: CourseInstructorCreateNestedManyWithoutCourseInput
     order: Int!
     rating: Rating
     ratingUrl: String
     recommended: Boolean!
     title: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     yearUpdated: Int!
 }
 
@@ -1744,18 +1745,18 @@ input CourseInstructorCountOrderByAggregateInput {
 }
 
 input CourseInstructorCreateInput {
-    Course: CourseCreateNestedOneWithoutCourseInstructorInput!
-    Person: PersonCreateNestedOneWithoutCourseInstructorInput!
+    course: CourseCreateNestedOneWithoutInstructorsInput!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    instructor: PersonCreateNestedOneWithoutCoursesInput!
+    updatedAt: DateTime
 }
 
 input CourseInstructorCreateManyCourseInput {
     createdAt: DateTime
-    id: String!
+    id: String
     instructorId: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
 input CourseInstructorCreateManyCourseInputEnvelope {
@@ -1766,20 +1767,20 @@ input CourseInstructorCreateManyCourseInputEnvelope {
 input CourseInstructorCreateManyInput {
     courseId: String!
     createdAt: DateTime
-    id: String!
+    id: String
     instructorId: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input CourseInstructorCreateManyPersonInput {
+input CourseInstructorCreateManyInstructorInput {
     courseId: String!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    updatedAt: DateTime
 }
 
-input CourseInstructorCreateManyPersonInputEnvelope {
-    data: [CourseInstructorCreateManyPersonInput!]!
+input CourseInstructorCreateManyInstructorInputEnvelope {
+    data: [CourseInstructorCreateManyInstructorInput!]!
     skipDuplicates: Boolean
 }
 
@@ -1790,11 +1791,11 @@ input CourseInstructorCreateNestedManyWithoutCourseInput {
     createMany: CourseInstructorCreateManyCourseInputEnvelope
 }
 
-input CourseInstructorCreateNestedManyWithoutPersonInput {
+input CourseInstructorCreateNestedManyWithoutInstructorInput {
     connect: [CourseInstructorWhereUniqueInput!]
-    connectOrCreate: [CourseInstructorCreateOrConnectWithoutPersonInput!]
-    create: [CourseInstructorCreateWithoutPersonInput!]
-    createMany: CourseInstructorCreateManyPersonInputEnvelope
+    connectOrCreate: [CourseInstructorCreateOrConnectWithoutInstructorInput!]
+    create: [CourseInstructorCreateWithoutInstructorInput!]
+    createMany: CourseInstructorCreateManyInstructorInputEnvelope
 }
 
 input CourseInstructorCreateOrConnectWithoutCourseInput {
@@ -1802,23 +1803,23 @@ input CourseInstructorCreateOrConnectWithoutCourseInput {
     where: CourseInstructorWhereUniqueInput!
 }
 
-input CourseInstructorCreateOrConnectWithoutPersonInput {
-    create: CourseInstructorCreateWithoutPersonInput!
+input CourseInstructorCreateOrConnectWithoutInstructorInput {
+    create: CourseInstructorCreateWithoutInstructorInput!
     where: CourseInstructorWhereUniqueInput!
 }
 
 input CourseInstructorCreateWithoutCourseInput {
-    Person: PersonCreateNestedOneWithoutCourseInstructorInput!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    instructor: PersonCreateNestedOneWithoutCoursesInput!
+    updatedAt: DateTime
 }
 
-input CourseInstructorCreateWithoutPersonInput {
-    Course: CourseCreateNestedOneWithoutCourseInstructorInput!
+input CourseInstructorCreateWithoutInstructorInput {
+    course: CourseCreateNestedOneWithoutInstructorsInput!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    updatedAt: DateTime
 }
 
 input CourseInstructorListRelationFilter {
@@ -1859,11 +1860,11 @@ input CourseInstructorOrderByWithAggregationInput {
 }
 
 input CourseInstructorOrderByWithRelationInput {
-    Course: CourseOrderByWithRelationInput
-    Person: PersonOrderByWithRelationInput
+    course: CourseOrderByWithRelationInput
     courseId: SortOrder
     createdAt: SortOrder
     id: SortOrder
+    instructor: PersonOrderByWithRelationInput
     instructorId: SortOrder
     updatedAt: SortOrder
 }
@@ -1891,10 +1892,10 @@ input CourseInstructorScalarWhereWithAggregatesInput {
 }
 
 input CourseInstructorUpdateInput {
-    Course: CourseUpdateOneRequiredWithoutCourseInstructorInput
-    Person: PersonUpdateOneRequiredWithoutCourseInstructorInput
+    course: CourseUpdateOneRequiredWithoutInstructorsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    instructor: PersonUpdateOneRequiredWithoutCoursesInput
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -1909,7 +1910,7 @@ input CourseInstructorUpdateManyWithWhereWithoutCourseInput {
     where: CourseInstructorScalarWhereInput!
 }
 
-input CourseInstructorUpdateManyWithWhereWithoutPersonInput {
+input CourseInstructorUpdateManyWithWhereWithoutInstructorInput {
     data: CourseInstructorUpdateManyMutationInput!
     where: CourseInstructorScalarWhereInput!
 }
@@ -1928,18 +1929,18 @@ input CourseInstructorUpdateManyWithoutCourseInput {
     upsert: [CourseInstructorUpsertWithWhereUniqueWithoutCourseInput!]
 }
 
-input CourseInstructorUpdateManyWithoutPersonInput {
+input CourseInstructorUpdateManyWithoutInstructorInput {
     connect: [CourseInstructorWhereUniqueInput!]
-    connectOrCreate: [CourseInstructorCreateOrConnectWithoutPersonInput!]
-    create: [CourseInstructorCreateWithoutPersonInput!]
-    createMany: CourseInstructorCreateManyPersonInputEnvelope
+    connectOrCreate: [CourseInstructorCreateOrConnectWithoutInstructorInput!]
+    create: [CourseInstructorCreateWithoutInstructorInput!]
+    createMany: CourseInstructorCreateManyInstructorInputEnvelope
     delete: [CourseInstructorWhereUniqueInput!]
     deleteMany: [CourseInstructorScalarWhereInput!]
     disconnect: [CourseInstructorWhereUniqueInput!]
     set: [CourseInstructorWhereUniqueInput!]
-    update: [CourseInstructorUpdateWithWhereUniqueWithoutPersonInput!]
-    updateMany: [CourseInstructorUpdateManyWithWhereWithoutPersonInput!]
-    upsert: [CourseInstructorUpsertWithWhereUniqueWithoutPersonInput!]
+    update: [CourseInstructorUpdateWithWhereUniqueWithoutInstructorInput!]
+    updateMany: [CourseInstructorUpdateManyWithWhereWithoutInstructorInput!]
+    upsert: [CourseInstructorUpsertWithWhereUniqueWithoutInstructorInput!]
 }
 
 input CourseInstructorUpdateWithWhereUniqueWithoutCourseInput {
@@ -1947,20 +1948,20 @@ input CourseInstructorUpdateWithWhereUniqueWithoutCourseInput {
     where: CourseInstructorWhereUniqueInput!
 }
 
-input CourseInstructorUpdateWithWhereUniqueWithoutPersonInput {
-    data: CourseInstructorUpdateWithoutPersonInput!
+input CourseInstructorUpdateWithWhereUniqueWithoutInstructorInput {
+    data: CourseInstructorUpdateWithoutInstructorInput!
     where: CourseInstructorWhereUniqueInput!
 }
 
 input CourseInstructorUpdateWithoutCourseInput {
-    Person: PersonUpdateOneRequiredWithoutCourseInstructorInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    instructor: PersonUpdateOneRequiredWithoutCoursesInput
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input CourseInstructorUpdateWithoutPersonInput {
-    Course: CourseUpdateOneRequiredWithoutCourseInstructorInput
+input CourseInstructorUpdateWithoutInstructorInput {
+    course: CourseUpdateOneRequiredWithoutInstructorsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
@@ -1972,21 +1973,21 @@ input CourseInstructorUpsertWithWhereUniqueWithoutCourseInput {
     where: CourseInstructorWhereUniqueInput!
 }
 
-input CourseInstructorUpsertWithWhereUniqueWithoutPersonInput {
-    create: CourseInstructorCreateWithoutPersonInput!
-    update: CourseInstructorUpdateWithoutPersonInput!
+input CourseInstructorUpsertWithWhereUniqueWithoutInstructorInput {
+    create: CourseInstructorCreateWithoutInstructorInput!
+    update: CourseInstructorUpdateWithoutInstructorInput!
     where: CourseInstructorWhereUniqueInput!
 }
 
 input CourseInstructorWhereInput {
     AND: [CourseInstructorWhereInput!]
-    Course: CourseRelationFilter
     NOT: [CourseInstructorWhereInput!]
     OR: [CourseInstructorWhereInput!]
-    Person: PersonRelationFilter
+    course: CourseRelationFilter
     courseId: StringFilter
     createdAt: DateTimeFilter
     id: StringFilter
+    instructor: PersonRelationFilter
     instructorId: StringFilter
     updatedAt: DateTimeFilter
 }
@@ -2057,17 +2058,17 @@ input CourseOrderByWithAggregationInput {
 }
 
 input CourseOrderByWithRelationInput {
-    CourseInstructor: CourseInstructorOrderByRelationAggregateInput
-    School: SchoolOrderByWithRelationInput
     complete: SortOrder
     courseUrls: SortOrder
     createdAt: SortOrder
     duration: SortOrder
     id: SortOrder
+    instructors: CourseInstructorOrderByRelationAggregateInput
     order: SortOrder
     rating: SortOrder
     ratingUrl: SortOrder
     recommended: SortOrder
+    school: SchoolOrderByWithRelationInput
     schoolId: SortOrder
     title: SortOrder
     updatedAt: SortOrder
@@ -2124,17 +2125,17 @@ input CourseSumOrderByAggregateInput {
 }
 
 input CourseUpdateInput {
-    CourseInstructor: CourseInstructorUpdateManyWithoutCourseInput
-    School: SchoolUpdateOneRequiredWithoutCourseInput
     complete: BoolFieldUpdateOperationsInput
     courseUrls: CourseUpdatecourseUrlsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     duration: FloatFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    instructors: CourseInstructorUpdateManyWithoutCourseInput
     order: IntFieldUpdateOperationsInput
     rating: NullableEnumRatingFieldUpdateOperationsInput
     ratingUrl: NullableStringFieldUpdateOperationsInput
     recommended: BoolFieldUpdateOperationsInput
+    school: SchoolUpdateOneRequiredWithoutCoursesInput
     title: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     yearUpdated: IntFieldUpdateOperationsInput
@@ -2174,12 +2175,12 @@ input CourseUpdateManyWithoutSchoolInput {
     upsert: [CourseUpsertWithWhereUniqueWithoutSchoolInput!]
 }
 
-input CourseUpdateOneRequiredWithoutCourseInstructorInput {
+input CourseUpdateOneRequiredWithoutInstructorsInput {
     connect: CourseWhereUniqueInput
-    connectOrCreate: CourseCreateOrConnectWithoutCourseInstructorInput
-    create: CourseCreateWithoutCourseInstructorInput
-    update: CourseUpdateWithoutCourseInstructorInput
-    upsert: CourseUpsertWithoutCourseInstructorInput
+    connectOrCreate: CourseCreateOrConnectWithoutInstructorsInput
+    create: CourseCreateWithoutInstructorsInput
+    update: CourseUpdateWithoutInstructorsInput
+    upsert: CourseUpsertWithoutInstructorsInput
 }
 
 input CourseUpdateWithWhereUniqueWithoutSchoolInput {
@@ -2187,8 +2188,7 @@ input CourseUpdateWithWhereUniqueWithoutSchoolInput {
     where: CourseWhereUniqueInput!
 }
 
-input CourseUpdateWithoutCourseInstructorInput {
-    School: SchoolUpdateOneRequiredWithoutCourseInput
+input CourseUpdateWithoutInstructorsInput {
     complete: BoolFieldUpdateOperationsInput
     courseUrls: CourseUpdatecourseUrlsInput
     createdAt: DateTimeFieldUpdateOperationsInput
@@ -2198,18 +2198,19 @@ input CourseUpdateWithoutCourseInstructorInput {
     rating: NullableEnumRatingFieldUpdateOperationsInput
     ratingUrl: NullableStringFieldUpdateOperationsInput
     recommended: BoolFieldUpdateOperationsInput
+    school: SchoolUpdateOneRequiredWithoutCoursesInput
     title: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     yearUpdated: IntFieldUpdateOperationsInput
 }
 
 input CourseUpdateWithoutSchoolInput {
-    CourseInstructor: CourseInstructorUpdateManyWithoutCourseInput
     complete: BoolFieldUpdateOperationsInput
     courseUrls: CourseUpdatecourseUrlsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     duration: FloatFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    instructors: CourseInstructorUpdateManyWithoutCourseInput
     order: IntFieldUpdateOperationsInput
     rating: NullableEnumRatingFieldUpdateOperationsInput
     ratingUrl: NullableStringFieldUpdateOperationsInput
@@ -2230,26 +2231,26 @@ input CourseUpsertWithWhereUniqueWithoutSchoolInput {
     where: CourseWhereUniqueInput!
 }
 
-input CourseUpsertWithoutCourseInstructorInput {
-    create: CourseCreateWithoutCourseInstructorInput!
-    update: CourseUpdateWithoutCourseInstructorInput!
+input CourseUpsertWithoutInstructorsInput {
+    create: CourseCreateWithoutInstructorsInput!
+    update: CourseUpdateWithoutInstructorsInput!
 }
 
 input CourseWhereInput {
     AND: [CourseWhereInput!]
-    CourseInstructor: CourseInstructorListRelationFilter
     NOT: [CourseWhereInput!]
     OR: [CourseWhereInput!]
-    School: SchoolRelationFilter
     complete: BoolFilter
     courseUrls: StringNullableListFilter
     createdAt: DateTimeFilter
     duration: FloatFilter
     id: StringFilter
+    instructors: CourseInstructorListRelationFilter
     order: IntFilter
     rating: EnumRatingNullableFilter
     ratingUrl: StringNullableFilter
     recommended: BoolFilter
+    school: SchoolRelationFilter
     schoolId: StringFilter
     title: StringFilter
     updatedAt: DateTimeFilter
@@ -2373,16 +2374,16 @@ input ImageCountOrderByAggregateInput {
 }
 
 input ImageCreateInput {
-    Blog: BlogCreateNestedManyWithoutImageInput
-    Person: PersonCreateNestedManyWithoutImageInput
-    Project: ProjectCreateNestedManyWithoutImageInput
-    School: SchoolCreateNestedManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+    TechnologyLogos: TechnologyLogoCreateNestedManyWithoutLogoInput
     altText: String!
+    blogs: BlogCreateNestedManyWithoutFeaturedImageInput
     createdAt: DateTime
     height: String!
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    persons: PersonCreateNestedManyWithoutImageInput
+    projects: ProjectCreateNestedManyWithoutFeaturedImageInput
+    schools: SchoolCreateNestedManyWithoutLogoInput
+    updatedAt: DateTime
     url: String!
     width: String!
 }
@@ -2391,133 +2392,133 @@ input ImageCreateManyInput {
     altText: String!
     createdAt: DateTime
     height: String!
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    updatedAt: DateTime
     url: String!
     width: String!
 }
 
-input ImageCreateNestedOneWithoutBlogInput {
+input ImageCreateNestedOneWithoutBlogsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutBlogInput
-    create: ImageCreateWithoutBlogInput
+    connectOrCreate: ImageCreateOrConnectWithoutBlogsInput
+    create: ImageCreateWithoutBlogsInput
 }
 
-input ImageCreateNestedOneWithoutPersonInput {
+input ImageCreateNestedOneWithoutPersonsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutPersonInput
-    create: ImageCreateWithoutPersonInput
+    connectOrCreate: ImageCreateOrConnectWithoutPersonsInput
+    create: ImageCreateWithoutPersonsInput
 }
 
-input ImageCreateNestedOneWithoutProjectInput {
+input ImageCreateNestedOneWithoutProjectsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutProjectInput
-    create: ImageCreateWithoutProjectInput
+    connectOrCreate: ImageCreateOrConnectWithoutProjectsInput
+    create: ImageCreateWithoutProjectsInput
 }
 
-input ImageCreateNestedOneWithoutSchoolInput {
+input ImageCreateNestedOneWithoutSchoolsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutSchoolInput
-    create: ImageCreateWithoutSchoolInput
+    connectOrCreate: ImageCreateOrConnectWithoutSchoolsInput
+    create: ImageCreateWithoutSchoolsInput
 }
 
-input ImageCreateNestedOneWithoutTechnologyLogoInput {
+input ImageCreateNestedOneWithoutTechnologyLogosInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutTechnologyLogoInput
-    create: ImageCreateWithoutTechnologyLogoInput
+    connectOrCreate: ImageCreateOrConnectWithoutTechnologyLogosInput
+    create: ImageCreateWithoutTechnologyLogosInput
 }
 
-input ImageCreateOrConnectWithoutBlogInput {
-    create: ImageCreateWithoutBlogInput!
+input ImageCreateOrConnectWithoutBlogsInput {
+    create: ImageCreateWithoutBlogsInput!
     where: ImageWhereUniqueInput!
 }
 
-input ImageCreateOrConnectWithoutPersonInput {
-    create: ImageCreateWithoutPersonInput!
+input ImageCreateOrConnectWithoutPersonsInput {
+    create: ImageCreateWithoutPersonsInput!
     where: ImageWhereUniqueInput!
 }
 
-input ImageCreateOrConnectWithoutProjectInput {
-    create: ImageCreateWithoutProjectInput!
+input ImageCreateOrConnectWithoutProjectsInput {
+    create: ImageCreateWithoutProjectsInput!
     where: ImageWhereUniqueInput!
 }
 
-input ImageCreateOrConnectWithoutSchoolInput {
-    create: ImageCreateWithoutSchoolInput!
+input ImageCreateOrConnectWithoutSchoolsInput {
+    create: ImageCreateWithoutSchoolsInput!
     where: ImageWhereUniqueInput!
 }
 
-input ImageCreateOrConnectWithoutTechnologyLogoInput {
-    create: ImageCreateWithoutTechnologyLogoInput!
+input ImageCreateOrConnectWithoutTechnologyLogosInput {
+    create: ImageCreateWithoutTechnologyLogosInput!
     where: ImageWhereUniqueInput!
 }
 
-input ImageCreateWithoutBlogInput {
-    Person: PersonCreateNestedManyWithoutImageInput
-    Project: ProjectCreateNestedManyWithoutImageInput
-    School: SchoolCreateNestedManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+input ImageCreateWithoutBlogsInput {
+    TechnologyLogos: TechnologyLogoCreateNestedManyWithoutLogoInput
     altText: String!
     createdAt: DateTime
     height: String!
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    persons: PersonCreateNestedManyWithoutImageInput
+    projects: ProjectCreateNestedManyWithoutFeaturedImageInput
+    schools: SchoolCreateNestedManyWithoutLogoInput
+    updatedAt: DateTime
     url: String!
     width: String!
 }
 
-input ImageCreateWithoutPersonInput {
-    Blog: BlogCreateNestedManyWithoutImageInput
-    Project: ProjectCreateNestedManyWithoutImageInput
-    School: SchoolCreateNestedManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+input ImageCreateWithoutPersonsInput {
+    TechnologyLogos: TechnologyLogoCreateNestedManyWithoutLogoInput
     altText: String!
+    blogs: BlogCreateNestedManyWithoutFeaturedImageInput
     createdAt: DateTime
     height: String!
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    projects: ProjectCreateNestedManyWithoutFeaturedImageInput
+    schools: SchoolCreateNestedManyWithoutLogoInput
+    updatedAt: DateTime
     url: String!
     width: String!
 }
 
-input ImageCreateWithoutProjectInput {
-    Blog: BlogCreateNestedManyWithoutImageInput
-    Person: PersonCreateNestedManyWithoutImageInput
-    School: SchoolCreateNestedManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+input ImageCreateWithoutProjectsInput {
+    TechnologyLogos: TechnologyLogoCreateNestedManyWithoutLogoInput
     altText: String!
+    blogs: BlogCreateNestedManyWithoutFeaturedImageInput
     createdAt: DateTime
     height: String!
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    persons: PersonCreateNestedManyWithoutImageInput
+    schools: SchoolCreateNestedManyWithoutLogoInput
+    updatedAt: DateTime
     url: String!
     width: String!
 }
 
-input ImageCreateWithoutSchoolInput {
-    Blog: BlogCreateNestedManyWithoutImageInput
-    Person: PersonCreateNestedManyWithoutImageInput
-    Project: ProjectCreateNestedManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoCreateNestedOneWithoutImageInput
+input ImageCreateWithoutSchoolsInput {
+    TechnologyLogos: TechnologyLogoCreateNestedManyWithoutLogoInput
     altText: String!
+    blogs: BlogCreateNestedManyWithoutFeaturedImageInput
     createdAt: DateTime
     height: String!
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    persons: PersonCreateNestedManyWithoutImageInput
+    projects: ProjectCreateNestedManyWithoutFeaturedImageInput
+    updatedAt: DateTime
     url: String!
     width: String!
 }
 
-input ImageCreateWithoutTechnologyLogoInput {
-    Blog: BlogCreateNestedManyWithoutImageInput
-    Person: PersonCreateNestedManyWithoutImageInput
-    Project: ProjectCreateNestedManyWithoutImageInput
-    School: SchoolCreateNestedManyWithoutImageInput
+input ImageCreateWithoutTechnologyLogosInput {
     altText: String!
+    blogs: BlogCreateNestedManyWithoutFeaturedImageInput
     createdAt: DateTime
     height: String!
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    persons: PersonCreateNestedManyWithoutImageInput
+    projects: ProjectCreateNestedManyWithoutFeaturedImageInput
+    schools: SchoolCreateNestedManyWithoutLogoInput
+    updatedAt: DateTime
     url: String!
     width: String!
 }
@@ -2556,15 +2557,15 @@ input ImageOrderByWithAggregationInput {
 }
 
 input ImageOrderByWithRelationInput {
-    Blog: BlogOrderByRelationAggregateInput
-    Person: PersonOrderByRelationAggregateInput
-    Project: ProjectOrderByRelationAggregateInput
-    School: SchoolOrderByRelationAggregateInput
-    TechnologyLogo: TechnologyLogoOrderByWithRelationInput
+    TechnologyLogos: TechnologyLogoOrderByRelationAggregateInput
     altText: SortOrder
+    blogs: BlogOrderByRelationAggregateInput
     createdAt: SortOrder
     height: SortOrder
     id: SortOrder
+    persons: PersonOrderByRelationAggregateInput
+    projects: ProjectOrderByRelationAggregateInput
+    schools: SchoolOrderByRelationAggregateInput
     updatedAt: SortOrder
     url: SortOrder
     width: SortOrder
@@ -2589,15 +2590,15 @@ input ImageScalarWhereWithAggregatesInput {
 }
 
 input ImageUpdateInput {
-    Blog: BlogUpdateManyWithoutImageInput
-    Person: PersonUpdateManyWithoutImageInput
-    Project: ProjectUpdateManyWithoutImageInput
-    School: SchoolUpdateManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+    TechnologyLogos: TechnologyLogoUpdateManyWithoutLogoInput
     altText: StringFieldUpdateOperationsInput
+    blogs: BlogUpdateManyWithoutFeaturedImageInput
     createdAt: DateTimeFieldUpdateOperationsInput
     height: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    persons: PersonUpdateManyWithoutImageInput
+    projects: ProjectUpdateManyWithoutFeaturedImageInput
+    schools: SchoolUpdateManyWithoutLogoInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     url: StringFieldUpdateOperationsInput
     width: StringFieldUpdateOperationsInput
@@ -2613,156 +2614,156 @@ input ImageUpdateManyMutationInput {
     width: StringFieldUpdateOperationsInput
 }
 
-input ImageUpdateOneRequiredWithoutBlogInput {
+input ImageUpdateOneRequiredWithoutBlogsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutBlogInput
-    create: ImageCreateWithoutBlogInput
-    update: ImageUpdateWithoutBlogInput
-    upsert: ImageUpsertWithoutBlogInput
+    connectOrCreate: ImageCreateOrConnectWithoutBlogsInput
+    create: ImageCreateWithoutBlogsInput
+    update: ImageUpdateWithoutBlogsInput
+    upsert: ImageUpsertWithoutBlogsInput
 }
 
-input ImageUpdateOneRequiredWithoutProjectInput {
+input ImageUpdateOneRequiredWithoutProjectsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutProjectInput
-    create: ImageCreateWithoutProjectInput
-    update: ImageUpdateWithoutProjectInput
-    upsert: ImageUpsertWithoutProjectInput
+    connectOrCreate: ImageCreateOrConnectWithoutProjectsInput
+    create: ImageCreateWithoutProjectsInput
+    update: ImageUpdateWithoutProjectsInput
+    upsert: ImageUpsertWithoutProjectsInput
 }
 
-input ImageUpdateOneRequiredWithoutSchoolInput {
+input ImageUpdateOneRequiredWithoutSchoolsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutSchoolInput
-    create: ImageCreateWithoutSchoolInput
-    update: ImageUpdateWithoutSchoolInput
-    upsert: ImageUpsertWithoutSchoolInput
+    connectOrCreate: ImageCreateOrConnectWithoutSchoolsInput
+    create: ImageCreateWithoutSchoolsInput
+    update: ImageUpdateWithoutSchoolsInput
+    upsert: ImageUpsertWithoutSchoolsInput
 }
 
-input ImageUpdateOneRequiredWithoutTechnologyLogoInput {
+input ImageUpdateOneRequiredWithoutTechnologyLogosInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutTechnologyLogoInput
-    create: ImageCreateWithoutTechnologyLogoInput
-    update: ImageUpdateWithoutTechnologyLogoInput
-    upsert: ImageUpsertWithoutTechnologyLogoInput
+    connectOrCreate: ImageCreateOrConnectWithoutTechnologyLogosInput
+    create: ImageCreateWithoutTechnologyLogosInput
+    update: ImageUpdateWithoutTechnologyLogosInput
+    upsert: ImageUpsertWithoutTechnologyLogosInput
 }
 
-input ImageUpdateOneWithoutPersonInput {
+input ImageUpdateOneWithoutPersonsInput {
     connect: ImageWhereUniqueInput
-    connectOrCreate: ImageCreateOrConnectWithoutPersonInput
-    create: ImageCreateWithoutPersonInput
+    connectOrCreate: ImageCreateOrConnectWithoutPersonsInput
+    create: ImageCreateWithoutPersonsInput
     delete: Boolean
     disconnect: Boolean
-    update: ImageUpdateWithoutPersonInput
-    upsert: ImageUpsertWithoutPersonInput
+    update: ImageUpdateWithoutPersonsInput
+    upsert: ImageUpsertWithoutPersonsInput
 }
 
-input ImageUpdateWithoutBlogInput {
-    Person: PersonUpdateManyWithoutImageInput
-    Project: ProjectUpdateManyWithoutImageInput
-    School: SchoolUpdateManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+input ImageUpdateWithoutBlogsInput {
+    TechnologyLogos: TechnologyLogoUpdateManyWithoutLogoInput
     altText: StringFieldUpdateOperationsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     height: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    persons: PersonUpdateManyWithoutImageInput
+    projects: ProjectUpdateManyWithoutFeaturedImageInput
+    schools: SchoolUpdateManyWithoutLogoInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     url: StringFieldUpdateOperationsInput
     width: StringFieldUpdateOperationsInput
 }
 
-input ImageUpdateWithoutPersonInput {
-    Blog: BlogUpdateManyWithoutImageInput
-    Project: ProjectUpdateManyWithoutImageInput
-    School: SchoolUpdateManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+input ImageUpdateWithoutPersonsInput {
+    TechnologyLogos: TechnologyLogoUpdateManyWithoutLogoInput
     altText: StringFieldUpdateOperationsInput
+    blogs: BlogUpdateManyWithoutFeaturedImageInput
     createdAt: DateTimeFieldUpdateOperationsInput
     height: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    projects: ProjectUpdateManyWithoutFeaturedImageInput
+    schools: SchoolUpdateManyWithoutLogoInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     url: StringFieldUpdateOperationsInput
     width: StringFieldUpdateOperationsInput
 }
 
-input ImageUpdateWithoutProjectInput {
-    Blog: BlogUpdateManyWithoutImageInput
-    Person: PersonUpdateManyWithoutImageInput
-    School: SchoolUpdateManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+input ImageUpdateWithoutProjectsInput {
+    TechnologyLogos: TechnologyLogoUpdateManyWithoutLogoInput
     altText: StringFieldUpdateOperationsInput
+    blogs: BlogUpdateManyWithoutFeaturedImageInput
     createdAt: DateTimeFieldUpdateOperationsInput
     height: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    persons: PersonUpdateManyWithoutImageInput
+    schools: SchoolUpdateManyWithoutLogoInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     url: StringFieldUpdateOperationsInput
     width: StringFieldUpdateOperationsInput
 }
 
-input ImageUpdateWithoutSchoolInput {
-    Blog: BlogUpdateManyWithoutImageInput
-    Person: PersonUpdateManyWithoutImageInput
-    Project: ProjectUpdateManyWithoutImageInput
-    TechnologyLogo: TechnologyLogoUpdateOneWithoutImageInput
+input ImageUpdateWithoutSchoolsInput {
+    TechnologyLogos: TechnologyLogoUpdateManyWithoutLogoInput
     altText: StringFieldUpdateOperationsInput
+    blogs: BlogUpdateManyWithoutFeaturedImageInput
     createdAt: DateTimeFieldUpdateOperationsInput
     height: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    persons: PersonUpdateManyWithoutImageInput
+    projects: ProjectUpdateManyWithoutFeaturedImageInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     url: StringFieldUpdateOperationsInput
     width: StringFieldUpdateOperationsInput
 }
 
-input ImageUpdateWithoutTechnologyLogoInput {
-    Blog: BlogUpdateManyWithoutImageInput
-    Person: PersonUpdateManyWithoutImageInput
-    Project: ProjectUpdateManyWithoutImageInput
-    School: SchoolUpdateManyWithoutImageInput
+input ImageUpdateWithoutTechnologyLogosInput {
     altText: StringFieldUpdateOperationsInput
+    blogs: BlogUpdateManyWithoutFeaturedImageInput
     createdAt: DateTimeFieldUpdateOperationsInput
     height: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    persons: PersonUpdateManyWithoutImageInput
+    projects: ProjectUpdateManyWithoutFeaturedImageInput
+    schools: SchoolUpdateManyWithoutLogoInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     url: StringFieldUpdateOperationsInput
     width: StringFieldUpdateOperationsInput
 }
 
-input ImageUpsertWithoutBlogInput {
-    create: ImageCreateWithoutBlogInput!
-    update: ImageUpdateWithoutBlogInput!
+input ImageUpsertWithoutBlogsInput {
+    create: ImageCreateWithoutBlogsInput!
+    update: ImageUpdateWithoutBlogsInput!
 }
 
-input ImageUpsertWithoutPersonInput {
-    create: ImageCreateWithoutPersonInput!
-    update: ImageUpdateWithoutPersonInput!
+input ImageUpsertWithoutPersonsInput {
+    create: ImageCreateWithoutPersonsInput!
+    update: ImageUpdateWithoutPersonsInput!
 }
 
-input ImageUpsertWithoutProjectInput {
-    create: ImageCreateWithoutProjectInput!
-    update: ImageUpdateWithoutProjectInput!
+input ImageUpsertWithoutProjectsInput {
+    create: ImageCreateWithoutProjectsInput!
+    update: ImageUpdateWithoutProjectsInput!
 }
 
-input ImageUpsertWithoutSchoolInput {
-    create: ImageCreateWithoutSchoolInput!
-    update: ImageUpdateWithoutSchoolInput!
+input ImageUpsertWithoutSchoolsInput {
+    create: ImageCreateWithoutSchoolsInput!
+    update: ImageUpdateWithoutSchoolsInput!
 }
 
-input ImageUpsertWithoutTechnologyLogoInput {
-    create: ImageCreateWithoutTechnologyLogoInput!
-    update: ImageUpdateWithoutTechnologyLogoInput!
+input ImageUpsertWithoutTechnologyLogosInput {
+    create: ImageCreateWithoutTechnologyLogosInput!
+    update: ImageUpdateWithoutTechnologyLogosInput!
 }
 
 input ImageWhereInput {
     AND: [ImageWhereInput!]
-    Blog: BlogListRelationFilter
     NOT: [ImageWhereInput!]
     OR: [ImageWhereInput!]
-    Person: PersonListRelationFilter
-    Project: ProjectListRelationFilter
-    School: SchoolListRelationFilter
-    TechnologyLogo: TechnologyLogoRelationFilter
+    TechnologyLogos: TechnologyLogoListRelationFilter
     altText: StringFilter
+    blogs: BlogListRelationFilter
     createdAt: DateTimeFilter
     height: StringFilter
     id: StringFilter
+    persons: PersonListRelationFilter
+    projects: ProjectListRelationFilter
+    schools: SchoolListRelationFilter
     updatedAt: DateTimeFilter
     url: StringFilter
     width: StringFilter
@@ -3029,19 +3030,19 @@ input PersonCountOrderByAggregateInput {
 }
 
 input PersonCreateInput {
-    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
-    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
-    Image: ImageCreateNestedOneWithoutPersonInput
-    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
     User: UserCreateNestedManyWithoutPersonInput
+    blogs: BlogAuthorCreateNestedManyWithoutAuthorInput
+    courses: CourseInstructorCreateNestedManyWithoutInstructorInput
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
+    image: ImageCreateNestedOneWithoutPersonsInput
     lastName: String!
     linkedinUrl: String
+    projects: ProjectContributorCreateNestedManyWithoutContributorInput
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
@@ -3049,11 +3050,11 @@ input PersonCreateManyImageInput {
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
     lastName: String!
     linkedinUrl: String
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
@@ -3066,12 +3067,12 @@ input PersonCreateManyInput {
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
     imageId: String
     lastName: String!
     linkedinUrl: String
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
@@ -3082,22 +3083,22 @@ input PersonCreateNestedManyWithoutImageInput {
     createMany: PersonCreateManyImageInputEnvelope
 }
 
-input PersonCreateNestedOneWithoutBlogAuthorInput {
+input PersonCreateNestedOneWithoutBlogsInput {
     connect: PersonWhereUniqueInput
-    connectOrCreate: PersonCreateOrConnectWithoutBlogAuthorInput
-    create: PersonCreateWithoutBlogAuthorInput
+    connectOrCreate: PersonCreateOrConnectWithoutBlogsInput
+    create: PersonCreateWithoutBlogsInput
 }
 
-input PersonCreateNestedOneWithoutCourseInstructorInput {
+input PersonCreateNestedOneWithoutCoursesInput {
     connect: PersonWhereUniqueInput
-    connectOrCreate: PersonCreateOrConnectWithoutCourseInstructorInput
-    create: PersonCreateWithoutCourseInstructorInput
+    connectOrCreate: PersonCreateOrConnectWithoutCoursesInput
+    create: PersonCreateWithoutCoursesInput
 }
 
-input PersonCreateNestedOneWithoutProjectContributorInput {
+input PersonCreateNestedOneWithoutProjectsInput {
     connect: PersonWhereUniqueInput
-    connectOrCreate: PersonCreateOrConnectWithoutProjectContributorInput
-    create: PersonCreateWithoutProjectContributorInput
+    connectOrCreate: PersonCreateOrConnectWithoutProjectsInput
+    create: PersonCreateWithoutProjectsInput
 }
 
 input PersonCreateNestedOneWithoutUserInput {
@@ -3106,13 +3107,13 @@ input PersonCreateNestedOneWithoutUserInput {
     create: PersonCreateWithoutUserInput
 }
 
-input PersonCreateOrConnectWithoutBlogAuthorInput {
-    create: PersonCreateWithoutBlogAuthorInput!
+input PersonCreateOrConnectWithoutBlogsInput {
+    create: PersonCreateWithoutBlogsInput!
     where: PersonWhereUniqueInput!
 }
 
-input PersonCreateOrConnectWithoutCourseInstructorInput {
-    create: PersonCreateWithoutCourseInstructorInput!
+input PersonCreateOrConnectWithoutCoursesInput {
+    create: PersonCreateWithoutCoursesInput!
     where: PersonWhereUniqueInput!
 }
 
@@ -3121,8 +3122,8 @@ input PersonCreateOrConnectWithoutImageInput {
     where: PersonWhereUniqueInput!
 }
 
-input PersonCreateOrConnectWithoutProjectContributorInput {
-    create: PersonCreateWithoutProjectContributorInput!
+input PersonCreateOrConnectWithoutProjectsInput {
+    create: PersonCreateWithoutProjectsInput!
     where: PersonWhereUniqueInput!
 }
 
@@ -3131,83 +3132,83 @@ input PersonCreateOrConnectWithoutUserInput {
     where: PersonWhereUniqueInput!
 }
 
-input PersonCreateWithoutBlogAuthorInput {
-    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
-    Image: ImageCreateNestedOneWithoutPersonInput
-    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+input PersonCreateWithoutBlogsInput {
     User: UserCreateNestedManyWithoutPersonInput
+    courses: CourseInstructorCreateNestedManyWithoutInstructorInput
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
+    image: ImageCreateNestedOneWithoutPersonsInput
     lastName: String!
     linkedinUrl: String
+    projects: ProjectContributorCreateNestedManyWithoutContributorInput
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
-input PersonCreateWithoutCourseInstructorInput {
-    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
-    Image: ImageCreateNestedOneWithoutPersonInput
-    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+input PersonCreateWithoutCoursesInput {
     User: UserCreateNestedManyWithoutPersonInput
+    blogs: BlogAuthorCreateNestedManyWithoutAuthorInput
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
+    image: ImageCreateNestedOneWithoutPersonsInput
     lastName: String!
     linkedinUrl: String
+    projects: ProjectContributorCreateNestedManyWithoutContributorInput
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
 input PersonCreateWithoutImageInput {
-    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
-    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
-    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
     User: UserCreateNestedManyWithoutPersonInput
+    blogs: BlogAuthorCreateNestedManyWithoutAuthorInput
+    courses: CourseInstructorCreateNestedManyWithoutInstructorInput
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
     lastName: String!
     linkedinUrl: String
+    projects: ProjectContributorCreateNestedManyWithoutContributorInput
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
-input PersonCreateWithoutProjectContributorInput {
-    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
-    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
-    Image: ImageCreateNestedOneWithoutPersonInput
+input PersonCreateWithoutProjectsInput {
     User: UserCreateNestedManyWithoutPersonInput
+    blogs: BlogAuthorCreateNestedManyWithoutAuthorInput
+    courses: CourseInstructorCreateNestedManyWithoutInstructorInput
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
+    image: ImageCreateNestedOneWithoutPersonsInput
     lastName: String!
     linkedinUrl: String
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
 input PersonCreateWithoutUserInput {
-    BlogAuthor: BlogAuthorCreateNestedManyWithoutPersonInput
-    CourseInstructor: CourseInstructorCreateNestedManyWithoutPersonInput
-    Image: ImageCreateNestedOneWithoutPersonInput
-    ProjectContributor: ProjectContributorCreateNestedManyWithoutPersonInput
+    blogs: BlogAuthorCreateNestedManyWithoutAuthorInput
+    courses: CourseInstructorCreateNestedManyWithoutInstructorInput
     createdAt: DateTime
     firstName: String!
     githubUrl: String
-    id: String!
+    id: String
+    image: ImageCreateNestedOneWithoutPersonsInput
     lastName: String!
     linkedinUrl: String
+    projects: ProjectContributorCreateNestedManyWithoutContributorInput
     summary: String
-    updatedAt: DateTime!
+    updatedAt: DateTime
     websiteUrl: String
 }
 
@@ -3264,18 +3265,18 @@ input PersonOrderByWithAggregationInput {
 }
 
 input PersonOrderByWithRelationInput {
-    BlogAuthor: BlogAuthorOrderByRelationAggregateInput
-    CourseInstructor: CourseInstructorOrderByRelationAggregateInput
-    Image: ImageOrderByWithRelationInput
-    ProjectContributor: ProjectContributorOrderByRelationAggregateInput
     User: UserOrderByRelationAggregateInput
+    blogs: BlogAuthorOrderByRelationAggregateInput
+    courses: CourseInstructorOrderByRelationAggregateInput
     createdAt: SortOrder
     firstName: SortOrder
     githubUrl: SortOrder
     id: SortOrder
+    image: ImageOrderByWithRelationInput
     imageId: SortOrder
     lastName: SortOrder
     linkedinUrl: SortOrder
+    projects: ProjectContributorOrderByRelationAggregateInput
     summary: SortOrder
     updatedAt: SortOrder
     websiteUrl: SortOrder
@@ -3319,17 +3320,17 @@ input PersonScalarWhereWithAggregatesInput {
 }
 
 input PersonUpdateInput {
-    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
-    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
-    Image: ImageUpdateOneWithoutPersonInput
-    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
     User: UserUpdateManyWithoutPersonInput
+    blogs: BlogAuthorUpdateManyWithoutAuthorInput
+    courses: CourseInstructorUpdateManyWithoutInstructorInput
     createdAt: DateTimeFieldUpdateOperationsInput
     firstName: StringFieldUpdateOperationsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    image: ImageUpdateOneWithoutPersonsInput
     lastName: StringFieldUpdateOperationsInput
     linkedinUrl: NullableStringFieldUpdateOperationsInput
+    projects: ProjectContributorUpdateManyWithoutContributorInput
     summary: NullableStringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     websiteUrl: NullableStringFieldUpdateOperationsInput
@@ -3366,28 +3367,28 @@ input PersonUpdateManyWithoutImageInput {
     upsert: [PersonUpsertWithWhereUniqueWithoutImageInput!]
 }
 
-input PersonUpdateOneRequiredWithoutBlogAuthorInput {
+input PersonUpdateOneRequiredWithoutBlogsInput {
     connect: PersonWhereUniqueInput
-    connectOrCreate: PersonCreateOrConnectWithoutBlogAuthorInput
-    create: PersonCreateWithoutBlogAuthorInput
-    update: PersonUpdateWithoutBlogAuthorInput
-    upsert: PersonUpsertWithoutBlogAuthorInput
+    connectOrCreate: PersonCreateOrConnectWithoutBlogsInput
+    create: PersonCreateWithoutBlogsInput
+    update: PersonUpdateWithoutBlogsInput
+    upsert: PersonUpsertWithoutBlogsInput
 }
 
-input PersonUpdateOneRequiredWithoutCourseInstructorInput {
+input PersonUpdateOneRequiredWithoutCoursesInput {
     connect: PersonWhereUniqueInput
-    connectOrCreate: PersonCreateOrConnectWithoutCourseInstructorInput
-    create: PersonCreateWithoutCourseInstructorInput
-    update: PersonUpdateWithoutCourseInstructorInput
-    upsert: PersonUpsertWithoutCourseInstructorInput
+    connectOrCreate: PersonCreateOrConnectWithoutCoursesInput
+    create: PersonCreateWithoutCoursesInput
+    update: PersonUpdateWithoutCoursesInput
+    upsert: PersonUpsertWithoutCoursesInput
 }
 
-input PersonUpdateOneRequiredWithoutProjectContributorInput {
+input PersonUpdateOneRequiredWithoutProjectsInput {
     connect: PersonWhereUniqueInput
-    connectOrCreate: PersonCreateOrConnectWithoutProjectContributorInput
-    create: PersonCreateWithoutProjectContributorInput
-    update: PersonUpdateWithoutProjectContributorInput
-    upsert: PersonUpsertWithoutProjectContributorInput
+    connectOrCreate: PersonCreateOrConnectWithoutProjectsInput
+    create: PersonCreateWithoutProjectsInput
+    update: PersonUpdateWithoutProjectsInput
+    upsert: PersonUpsertWithoutProjectsInput
 }
 
 input PersonUpdateOneRequiredWithoutUserInput {
@@ -3403,63 +3404,63 @@ input PersonUpdateWithWhereUniqueWithoutImageInput {
     where: PersonWhereUniqueInput!
 }
 
-input PersonUpdateWithoutBlogAuthorInput {
-    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
-    Image: ImageUpdateOneWithoutPersonInput
-    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+input PersonUpdateWithoutBlogsInput {
     User: UserUpdateManyWithoutPersonInput
+    courses: CourseInstructorUpdateManyWithoutInstructorInput
     createdAt: DateTimeFieldUpdateOperationsInput
     firstName: StringFieldUpdateOperationsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    image: ImageUpdateOneWithoutPersonsInput
     lastName: StringFieldUpdateOperationsInput
     linkedinUrl: NullableStringFieldUpdateOperationsInput
+    projects: ProjectContributorUpdateManyWithoutContributorInput
     summary: NullableStringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     websiteUrl: NullableStringFieldUpdateOperationsInput
 }
 
-input PersonUpdateWithoutCourseInstructorInput {
-    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
-    Image: ImageUpdateOneWithoutPersonInput
-    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+input PersonUpdateWithoutCoursesInput {
     User: UserUpdateManyWithoutPersonInput
+    blogs: BlogAuthorUpdateManyWithoutAuthorInput
     createdAt: DateTimeFieldUpdateOperationsInput
     firstName: StringFieldUpdateOperationsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    image: ImageUpdateOneWithoutPersonsInput
     lastName: StringFieldUpdateOperationsInput
     linkedinUrl: NullableStringFieldUpdateOperationsInput
+    projects: ProjectContributorUpdateManyWithoutContributorInput
     summary: NullableStringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     websiteUrl: NullableStringFieldUpdateOperationsInput
 }
 
 input PersonUpdateWithoutImageInput {
-    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
-    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
-    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
     User: UserUpdateManyWithoutPersonInput
+    blogs: BlogAuthorUpdateManyWithoutAuthorInput
+    courses: CourseInstructorUpdateManyWithoutInstructorInput
     createdAt: DateTimeFieldUpdateOperationsInput
     firstName: StringFieldUpdateOperationsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     lastName: StringFieldUpdateOperationsInput
     linkedinUrl: NullableStringFieldUpdateOperationsInput
+    projects: ProjectContributorUpdateManyWithoutContributorInput
     summary: NullableStringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     websiteUrl: NullableStringFieldUpdateOperationsInput
 }
 
-input PersonUpdateWithoutProjectContributorInput {
-    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
-    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
-    Image: ImageUpdateOneWithoutPersonInput
+input PersonUpdateWithoutProjectsInput {
     User: UserUpdateManyWithoutPersonInput
+    blogs: BlogAuthorUpdateManyWithoutAuthorInput
+    courses: CourseInstructorUpdateManyWithoutInstructorInput
     createdAt: DateTimeFieldUpdateOperationsInput
     firstName: StringFieldUpdateOperationsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    image: ImageUpdateOneWithoutPersonsInput
     lastName: StringFieldUpdateOperationsInput
     linkedinUrl: NullableStringFieldUpdateOperationsInput
     summary: NullableStringFieldUpdateOperationsInput
@@ -3468,16 +3469,16 @@ input PersonUpdateWithoutProjectContributorInput {
 }
 
 input PersonUpdateWithoutUserInput {
-    BlogAuthor: BlogAuthorUpdateManyWithoutPersonInput
-    CourseInstructor: CourseInstructorUpdateManyWithoutPersonInput
-    Image: ImageUpdateOneWithoutPersonInput
-    ProjectContributor: ProjectContributorUpdateManyWithoutPersonInput
+    blogs: BlogAuthorUpdateManyWithoutAuthorInput
+    courses: CourseInstructorUpdateManyWithoutInstructorInput
     createdAt: DateTimeFieldUpdateOperationsInput
     firstName: StringFieldUpdateOperationsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    image: ImageUpdateOneWithoutPersonsInput
     lastName: StringFieldUpdateOperationsInput
     linkedinUrl: NullableStringFieldUpdateOperationsInput
+    projects: ProjectContributorUpdateManyWithoutContributorInput
     summary: NullableStringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     websiteUrl: NullableStringFieldUpdateOperationsInput
@@ -3489,19 +3490,19 @@ input PersonUpsertWithWhereUniqueWithoutImageInput {
     where: PersonWhereUniqueInput!
 }
 
-input PersonUpsertWithoutBlogAuthorInput {
-    create: PersonCreateWithoutBlogAuthorInput!
-    update: PersonUpdateWithoutBlogAuthorInput!
+input PersonUpsertWithoutBlogsInput {
+    create: PersonCreateWithoutBlogsInput!
+    update: PersonUpdateWithoutBlogsInput!
 }
 
-input PersonUpsertWithoutCourseInstructorInput {
-    create: PersonCreateWithoutCourseInstructorInput!
-    update: PersonUpdateWithoutCourseInstructorInput!
+input PersonUpsertWithoutCoursesInput {
+    create: PersonCreateWithoutCoursesInput!
+    update: PersonUpdateWithoutCoursesInput!
 }
 
-input PersonUpsertWithoutProjectContributorInput {
-    create: PersonCreateWithoutProjectContributorInput!
-    update: PersonUpdateWithoutProjectContributorInput!
+input PersonUpsertWithoutProjectsInput {
+    create: PersonCreateWithoutProjectsInput!
+    update: PersonUpdateWithoutProjectsInput!
 }
 
 input PersonUpsertWithoutUserInput {
@@ -3511,20 +3512,20 @@ input PersonUpsertWithoutUserInput {
 
 input PersonWhereInput {
     AND: [PersonWhereInput!]
-    BlogAuthor: BlogAuthorListRelationFilter
-    CourseInstructor: CourseInstructorListRelationFilter
-    Image: ImageRelationFilter
     NOT: [PersonWhereInput!]
     OR: [PersonWhereInput!]
-    ProjectContributor: ProjectContributorListRelationFilter
     User: UserListRelationFilter
+    blogs: BlogAuthorListRelationFilter
+    courses: CourseInstructorListRelationFilter
     createdAt: DateTimeFilter
     firstName: StringFilter
     githubUrl: StringNullableFilter
     id: StringFilter
+    image: ImageRelationFilter
     imageId: StringNullableFilter
     lastName: StringFilter
     linkedinUrl: StringNullableFilter
+    projects: ProjectContributorListRelationFilter
     summary: StringNullableFilter
     updatedAt: DateTimeFilter
     websiteUrl: StringNullableFilter
@@ -3543,38 +3544,38 @@ input ProjectContributorCountOrderByAggregateInput {
 }
 
 input ProjectContributorCreateInput {
-    Person: PersonCreateNestedOneWithoutProjectContributorInput!
-    Project: ProjectCreateNestedOneWithoutProjectContributorInput!
+    contributor: PersonCreateNestedOneWithoutProjectsInput!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    project: ProjectCreateNestedOneWithoutContributorsInput!
+    updatedAt: DateTime
+}
+
+input ProjectContributorCreateManyContributorInput {
+    createdAt: DateTime
+    id: String
+    projectId: String!
+    updatedAt: DateTime
+}
+
+input ProjectContributorCreateManyContributorInputEnvelope {
+    data: [ProjectContributorCreateManyContributorInput!]!
+    skipDuplicates: Boolean
 }
 
 input ProjectContributorCreateManyInput {
     contributorId: String!
     createdAt: DateTime
-    id: String!
+    id: String
     projectId: String!
-    updatedAt: DateTime!
-}
-
-input ProjectContributorCreateManyPersonInput {
-    createdAt: DateTime
-    id: String!
-    projectId: String!
-    updatedAt: DateTime!
-}
-
-input ProjectContributorCreateManyPersonInputEnvelope {
-    data: [ProjectContributorCreateManyPersonInput!]!
-    skipDuplicates: Boolean
+    updatedAt: DateTime
 }
 
 input ProjectContributorCreateManyProjectInput {
     contributorId: String!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    updatedAt: DateTime
 }
 
 input ProjectContributorCreateManyProjectInputEnvelope {
@@ -3582,11 +3583,11 @@ input ProjectContributorCreateManyProjectInputEnvelope {
     skipDuplicates: Boolean
 }
 
-input ProjectContributorCreateNestedManyWithoutPersonInput {
+input ProjectContributorCreateNestedManyWithoutContributorInput {
     connect: [ProjectContributorWhereUniqueInput!]
-    connectOrCreate: [ProjectContributorCreateOrConnectWithoutPersonInput!]
-    create: [ProjectContributorCreateWithoutPersonInput!]
-    createMany: ProjectContributorCreateManyPersonInputEnvelope
+    connectOrCreate: [ProjectContributorCreateOrConnectWithoutContributorInput!]
+    create: [ProjectContributorCreateWithoutContributorInput!]
+    createMany: ProjectContributorCreateManyContributorInputEnvelope
 }
 
 input ProjectContributorCreateNestedManyWithoutProjectInput {
@@ -3596,8 +3597,8 @@ input ProjectContributorCreateNestedManyWithoutProjectInput {
     createMany: ProjectContributorCreateManyProjectInputEnvelope
 }
 
-input ProjectContributorCreateOrConnectWithoutPersonInput {
-    create: ProjectContributorCreateWithoutPersonInput!
+input ProjectContributorCreateOrConnectWithoutContributorInput {
+    create: ProjectContributorCreateWithoutContributorInput!
     where: ProjectContributorWhereUniqueInput!
 }
 
@@ -3606,18 +3607,18 @@ input ProjectContributorCreateOrConnectWithoutProjectInput {
     where: ProjectContributorWhereUniqueInput!
 }
 
-input ProjectContributorCreateWithoutPersonInput {
-    Project: ProjectCreateNestedOneWithoutProjectContributorInput!
+input ProjectContributorCreateWithoutContributorInput {
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    project: ProjectCreateNestedOneWithoutContributorsInput!
+    updatedAt: DateTime
 }
 
 input ProjectContributorCreateWithoutProjectInput {
-    Person: PersonCreateNestedOneWithoutProjectContributorInput!
+    contributor: PersonCreateNestedOneWithoutProjectsInput!
     createdAt: DateTime
-    id: String!
-    updatedAt: DateTime!
+    id: String
+    updatedAt: DateTime
 }
 
 input ProjectContributorListRelationFilter {
@@ -3658,11 +3659,11 @@ input ProjectContributorOrderByWithAggregationInput {
 }
 
 input ProjectContributorOrderByWithRelationInput {
-    Person: PersonOrderByWithRelationInput
-    Project: ProjectOrderByWithRelationInput
+    contributor: PersonOrderByWithRelationInput
     contributorId: SortOrder
     createdAt: SortOrder
     id: SortOrder
+    project: ProjectOrderByWithRelationInput
     projectId: SortOrder
     updatedAt: SortOrder
 }
@@ -3690,10 +3691,10 @@ input ProjectContributorScalarWhereWithAggregatesInput {
 }
 
 input ProjectContributorUpdateInput {
-    Person: PersonUpdateOneRequiredWithoutProjectContributorInput
-    Project: ProjectUpdateOneRequiredWithoutProjectContributorInput
+    contributor: PersonUpdateOneRequiredWithoutProjectsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    project: ProjectUpdateOneRequiredWithoutContributorsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
@@ -3703,7 +3704,7 @@ input ProjectContributorUpdateManyMutationInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ProjectContributorUpdateManyWithWhereWithoutPersonInput {
+input ProjectContributorUpdateManyWithWhereWithoutContributorInput {
     data: ProjectContributorUpdateManyMutationInput!
     where: ProjectContributorScalarWhereInput!
 }
@@ -3713,18 +3714,18 @@ input ProjectContributorUpdateManyWithWhereWithoutProjectInput {
     where: ProjectContributorScalarWhereInput!
 }
 
-input ProjectContributorUpdateManyWithoutPersonInput {
+input ProjectContributorUpdateManyWithoutContributorInput {
     connect: [ProjectContributorWhereUniqueInput!]
-    connectOrCreate: [ProjectContributorCreateOrConnectWithoutPersonInput!]
-    create: [ProjectContributorCreateWithoutPersonInput!]
-    createMany: ProjectContributorCreateManyPersonInputEnvelope
+    connectOrCreate: [ProjectContributorCreateOrConnectWithoutContributorInput!]
+    create: [ProjectContributorCreateWithoutContributorInput!]
+    createMany: ProjectContributorCreateManyContributorInputEnvelope
     delete: [ProjectContributorWhereUniqueInput!]
     deleteMany: [ProjectContributorScalarWhereInput!]
     disconnect: [ProjectContributorWhereUniqueInput!]
     set: [ProjectContributorWhereUniqueInput!]
-    update: [ProjectContributorUpdateWithWhereUniqueWithoutPersonInput!]
-    updateMany: [ProjectContributorUpdateManyWithWhereWithoutPersonInput!]
-    upsert: [ProjectContributorUpsertWithWhereUniqueWithoutPersonInput!]
+    update: [ProjectContributorUpdateWithWhereUniqueWithoutContributorInput!]
+    updateMany: [ProjectContributorUpdateManyWithWhereWithoutContributorInput!]
+    upsert: [ProjectContributorUpsertWithWhereUniqueWithoutContributorInput!]
 }
 
 input ProjectContributorUpdateManyWithoutProjectInput {
@@ -3741,8 +3742,8 @@ input ProjectContributorUpdateManyWithoutProjectInput {
     upsert: [ProjectContributorUpsertWithWhereUniqueWithoutProjectInput!]
 }
 
-input ProjectContributorUpdateWithWhereUniqueWithoutPersonInput {
-    data: ProjectContributorUpdateWithoutPersonInput!
+input ProjectContributorUpdateWithWhereUniqueWithoutContributorInput {
+    data: ProjectContributorUpdateWithoutContributorInput!
     where: ProjectContributorWhereUniqueInput!
 }
 
@@ -3751,23 +3752,23 @@ input ProjectContributorUpdateWithWhereUniqueWithoutProjectInput {
     where: ProjectContributorWhereUniqueInput!
 }
 
-input ProjectContributorUpdateWithoutPersonInput {
-    Project: ProjectUpdateOneRequiredWithoutProjectContributorInput
+input ProjectContributorUpdateWithoutContributorInput {
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    project: ProjectUpdateOneRequiredWithoutContributorsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ProjectContributorUpdateWithoutProjectInput {
-    Person: PersonUpdateOneRequiredWithoutProjectContributorInput
+    contributor: PersonUpdateOneRequiredWithoutProjectsInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ProjectContributorUpsertWithWhereUniqueWithoutPersonInput {
-    create: ProjectContributorCreateWithoutPersonInput!
-    update: ProjectContributorUpdateWithoutPersonInput!
+input ProjectContributorUpsertWithWhereUniqueWithoutContributorInput {
+    create: ProjectContributorCreateWithoutContributorInput!
+    update: ProjectContributorUpdateWithoutContributorInput!
     where: ProjectContributorWhereUniqueInput!
 }
 
@@ -3781,11 +3782,11 @@ input ProjectContributorWhereInput {
     AND: [ProjectContributorWhereInput!]
     NOT: [ProjectContributorWhereInput!]
     OR: [ProjectContributorWhereInput!]
-    Person: PersonRelationFilter
-    Project: ProjectRelationFilter
+    contributor: PersonRelationFilter
     contributorId: StringFilter
     createdAt: DateTimeFilter
     id: StringFilter
+    project: ProjectRelationFilter
     projectId: StringFilter
     updatedAt: DateTimeFilter
 }
@@ -3807,91 +3808,91 @@ input ProjectCountOrderByAggregateInput {
 }
 
 input ProjectCreateInput {
-    Image: ImageCreateNestedOneWithoutProjectInput!
-    ProjectContributor: ProjectContributorCreateNestedManyWithoutProjectInput
+    contributors: ProjectContributorCreateNestedManyWithoutProjectInput
     createdAt: DateTime
+    featuredImage: ImageCreateNestedOneWithoutProjectsInput!
     githubUrl: String
-    id: String!
+    id: String
     name: String!
     projectUrl: String
     slug: String!
     summary: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input ProjectCreateManyImageInput {
+input ProjectCreateManyFeaturedImageInput {
     createdAt: DateTime
     githubUrl: String
-    id: String!
+    id: String
     name: String!
     projectUrl: String
     slug: String!
     summary: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input ProjectCreateManyImageInputEnvelope {
-    data: [ProjectCreateManyImageInput!]!
+input ProjectCreateManyFeaturedImageInputEnvelope {
+    data: [ProjectCreateManyFeaturedImageInput!]!
     skipDuplicates: Boolean
 }
 
 input ProjectCreateManyInput {
     createdAt: DateTime
     githubUrl: String
-    id: String!
+    id: String
     imageId: String!
     name: String!
     projectUrl: String
     slug: String!
     summary: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input ProjectCreateNestedManyWithoutImageInput {
+input ProjectCreateNestedManyWithoutFeaturedImageInput {
     connect: [ProjectWhereUniqueInput!]
-    connectOrCreate: [ProjectCreateOrConnectWithoutImageInput!]
-    create: [ProjectCreateWithoutImageInput!]
-    createMany: ProjectCreateManyImageInputEnvelope
+    connectOrCreate: [ProjectCreateOrConnectWithoutFeaturedImageInput!]
+    create: [ProjectCreateWithoutFeaturedImageInput!]
+    createMany: ProjectCreateManyFeaturedImageInputEnvelope
 }
 
-input ProjectCreateNestedOneWithoutProjectContributorInput {
+input ProjectCreateNestedOneWithoutContributorsInput {
     connect: ProjectWhereUniqueInput
-    connectOrCreate: ProjectCreateOrConnectWithoutProjectContributorInput
-    create: ProjectCreateWithoutProjectContributorInput
+    connectOrCreate: ProjectCreateOrConnectWithoutContributorsInput
+    create: ProjectCreateWithoutContributorsInput
 }
 
-input ProjectCreateOrConnectWithoutImageInput {
-    create: ProjectCreateWithoutImageInput!
+input ProjectCreateOrConnectWithoutContributorsInput {
+    create: ProjectCreateWithoutContributorsInput!
     where: ProjectWhereUniqueInput!
 }
 
-input ProjectCreateOrConnectWithoutProjectContributorInput {
-    create: ProjectCreateWithoutProjectContributorInput!
+input ProjectCreateOrConnectWithoutFeaturedImageInput {
+    create: ProjectCreateWithoutFeaturedImageInput!
     where: ProjectWhereUniqueInput!
 }
 
-input ProjectCreateWithoutImageInput {
-    ProjectContributor: ProjectContributorCreateNestedManyWithoutProjectInput
+input ProjectCreateWithoutContributorsInput {
     createdAt: DateTime
+    featuredImage: ImageCreateNestedOneWithoutProjectsInput!
     githubUrl: String
-    id: String!
+    id: String
     name: String!
     projectUrl: String
     slug: String!
     summary: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input ProjectCreateWithoutProjectContributorInput {
-    Image: ImageCreateNestedOneWithoutProjectInput!
+input ProjectCreateWithoutFeaturedImageInput {
+    contributors: ProjectContributorCreateNestedManyWithoutProjectInput
     createdAt: DateTime
     githubUrl: String
-    id: String!
+    id: String
     name: String!
     projectUrl: String
     slug: String!
     summary: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
 input ProjectListRelationFilter {
@@ -3944,9 +3945,9 @@ input ProjectOrderByWithAggregationInput {
 }
 
 input ProjectOrderByWithRelationInput {
-    Image: ImageOrderByWithRelationInput
-    ProjectContributor: ProjectContributorOrderByRelationAggregateInput
+    contributors: ProjectContributorOrderByRelationAggregateInput
     createdAt: SortOrder
+    featuredImage: ImageOrderByWithRelationInput
     githubUrl: SortOrder
     id: SortOrder
     imageId: SortOrder
@@ -3993,9 +3994,9 @@ input ProjectScalarWhereWithAggregatesInput {
 }
 
 input ProjectUpdateInput {
-    Image: ImageUpdateOneRequiredWithoutProjectInput
-    ProjectContributor: ProjectContributorUpdateManyWithoutProjectInput
+    contributors: ProjectContributorUpdateManyWithoutProjectInput
     createdAt: DateTimeFieldUpdateOperationsInput
+    featuredImage: ImageUpdateOneRequiredWithoutProjectsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     name: StringFieldUpdateOperationsInput
@@ -4016,40 +4017,52 @@ input ProjectUpdateManyMutationInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ProjectUpdateManyWithWhereWithoutImageInput {
+input ProjectUpdateManyWithWhereWithoutFeaturedImageInput {
     data: ProjectUpdateManyMutationInput!
     where: ProjectScalarWhereInput!
 }
 
-input ProjectUpdateManyWithoutImageInput {
+input ProjectUpdateManyWithoutFeaturedImageInput {
     connect: [ProjectWhereUniqueInput!]
-    connectOrCreate: [ProjectCreateOrConnectWithoutImageInput!]
-    create: [ProjectCreateWithoutImageInput!]
-    createMany: ProjectCreateManyImageInputEnvelope
+    connectOrCreate: [ProjectCreateOrConnectWithoutFeaturedImageInput!]
+    create: [ProjectCreateWithoutFeaturedImageInput!]
+    createMany: ProjectCreateManyFeaturedImageInputEnvelope
     delete: [ProjectWhereUniqueInput!]
     deleteMany: [ProjectScalarWhereInput!]
     disconnect: [ProjectWhereUniqueInput!]
     set: [ProjectWhereUniqueInput!]
-    update: [ProjectUpdateWithWhereUniqueWithoutImageInput!]
-    updateMany: [ProjectUpdateManyWithWhereWithoutImageInput!]
-    upsert: [ProjectUpsertWithWhereUniqueWithoutImageInput!]
+    update: [ProjectUpdateWithWhereUniqueWithoutFeaturedImageInput!]
+    updateMany: [ProjectUpdateManyWithWhereWithoutFeaturedImageInput!]
+    upsert: [ProjectUpsertWithWhereUniqueWithoutFeaturedImageInput!]
 }
 
-input ProjectUpdateOneRequiredWithoutProjectContributorInput {
+input ProjectUpdateOneRequiredWithoutContributorsInput {
     connect: ProjectWhereUniqueInput
-    connectOrCreate: ProjectCreateOrConnectWithoutProjectContributorInput
-    create: ProjectCreateWithoutProjectContributorInput
-    update: ProjectUpdateWithoutProjectContributorInput
-    upsert: ProjectUpsertWithoutProjectContributorInput
+    connectOrCreate: ProjectCreateOrConnectWithoutContributorsInput
+    create: ProjectCreateWithoutContributorsInput
+    update: ProjectUpdateWithoutContributorsInput
+    upsert: ProjectUpsertWithoutContributorsInput
 }
 
-input ProjectUpdateWithWhereUniqueWithoutImageInput {
-    data: ProjectUpdateWithoutImageInput!
+input ProjectUpdateWithWhereUniqueWithoutFeaturedImageInput {
+    data: ProjectUpdateWithoutFeaturedImageInput!
     where: ProjectWhereUniqueInput!
 }
 
-input ProjectUpdateWithoutImageInput {
-    ProjectContributor: ProjectContributorUpdateManyWithoutProjectInput
+input ProjectUpdateWithoutContributorsInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    featuredImage: ImageUpdateOneRequiredWithoutProjectsInput
+    githubUrl: NullableStringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    name: StringFieldUpdateOperationsInput
+    projectUrl: NullableStringFieldUpdateOperationsInput
+    slug: StringFieldUpdateOperationsInput
+    summary: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateWithoutFeaturedImageInput {
+    contributors: ProjectContributorUpdateManyWithoutProjectInput
     createdAt: DateTimeFieldUpdateOperationsInput
     githubUrl: NullableStringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
@@ -4060,36 +4073,24 @@ input ProjectUpdateWithoutImageInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input ProjectUpdateWithoutProjectContributorInput {
-    Image: ImageUpdateOneRequiredWithoutProjectInput
-    createdAt: DateTimeFieldUpdateOperationsInput
-    githubUrl: NullableStringFieldUpdateOperationsInput
-    id: StringFieldUpdateOperationsInput
-    name: StringFieldUpdateOperationsInput
-    projectUrl: NullableStringFieldUpdateOperationsInput
-    slug: StringFieldUpdateOperationsInput
-    summary: StringFieldUpdateOperationsInput
-    updatedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input ProjectUpsertWithWhereUniqueWithoutImageInput {
-    create: ProjectCreateWithoutImageInput!
-    update: ProjectUpdateWithoutImageInput!
+input ProjectUpsertWithWhereUniqueWithoutFeaturedImageInput {
+    create: ProjectCreateWithoutFeaturedImageInput!
+    update: ProjectUpdateWithoutFeaturedImageInput!
     where: ProjectWhereUniqueInput!
 }
 
-input ProjectUpsertWithoutProjectContributorInput {
-    create: ProjectCreateWithoutProjectContributorInput!
-    update: ProjectUpdateWithoutProjectContributorInput!
+input ProjectUpsertWithoutContributorsInput {
+    create: ProjectCreateWithoutContributorsInput!
+    update: ProjectUpdateWithoutContributorsInput!
 }
 
 input ProjectWhereInput {
     AND: [ProjectWhereInput!]
-    Image: ImageRelationFilter
     NOT: [ProjectWhereInput!]
     OR: [ProjectWhereInput!]
-    ProjectContributor: ProjectContributorListRelationFilter
+    contributors: ProjectContributorListRelationFilter
     createdAt: DateTimeFilter
+    featuredImage: ImageRelationFilter
     githubUrl: StringNullableFilter
     id: StringFilter
     imageId: StringFilter
@@ -4116,80 +4117,80 @@ input SchoolCountOrderByAggregateInput {
 }
 
 input SchoolCreateInput {
-    Course: CourseCreateNestedManyWithoutSchoolInput
-    Image: ImageCreateNestedOneWithoutSchoolInput!
+    courses: CourseCreateNestedManyWithoutSchoolInput
     createdAt: DateTime
     description: String!
-    id: String!
+    id: String
+    logo: ImageCreateNestedOneWithoutSchoolsInput!
     name: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     url: String!
-}
-
-input SchoolCreateManyImageInput {
-    createdAt: DateTime
-    description: String!
-    id: String!
-    name: String!
-    updatedAt: DateTime!
-    url: String!
-}
-
-input SchoolCreateManyImageInputEnvelope {
-    data: [SchoolCreateManyImageInput!]!
-    skipDuplicates: Boolean
 }
 
 input SchoolCreateManyInput {
     createdAt: DateTime
     description: String!
-    id: String!
+    id: String
     imageId: String!
     name: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     url: String!
 }
 
-input SchoolCreateNestedManyWithoutImageInput {
+input SchoolCreateManyLogoInput {
+    createdAt: DateTime
+    description: String!
+    id: String
+    name: String!
+    updatedAt: DateTime
+    url: String!
+}
+
+input SchoolCreateManyLogoInputEnvelope {
+    data: [SchoolCreateManyLogoInput!]!
+    skipDuplicates: Boolean
+}
+
+input SchoolCreateNestedManyWithoutLogoInput {
     connect: [SchoolWhereUniqueInput!]
-    connectOrCreate: [SchoolCreateOrConnectWithoutImageInput!]
-    create: [SchoolCreateWithoutImageInput!]
-    createMany: SchoolCreateManyImageInputEnvelope
+    connectOrCreate: [SchoolCreateOrConnectWithoutLogoInput!]
+    create: [SchoolCreateWithoutLogoInput!]
+    createMany: SchoolCreateManyLogoInputEnvelope
 }
 
-input SchoolCreateNestedOneWithoutCourseInput {
+input SchoolCreateNestedOneWithoutCoursesInput {
     connect: SchoolWhereUniqueInput
-    connectOrCreate: SchoolCreateOrConnectWithoutCourseInput
-    create: SchoolCreateWithoutCourseInput
+    connectOrCreate: SchoolCreateOrConnectWithoutCoursesInput
+    create: SchoolCreateWithoutCoursesInput
 }
 
-input SchoolCreateOrConnectWithoutCourseInput {
-    create: SchoolCreateWithoutCourseInput!
+input SchoolCreateOrConnectWithoutCoursesInput {
+    create: SchoolCreateWithoutCoursesInput!
     where: SchoolWhereUniqueInput!
 }
 
-input SchoolCreateOrConnectWithoutImageInput {
-    create: SchoolCreateWithoutImageInput!
+input SchoolCreateOrConnectWithoutLogoInput {
+    create: SchoolCreateWithoutLogoInput!
     where: SchoolWhereUniqueInput!
 }
 
-input SchoolCreateWithoutCourseInput {
-    Image: ImageCreateNestedOneWithoutSchoolInput!
+input SchoolCreateWithoutCoursesInput {
     createdAt: DateTime
     description: String!
-    id: String!
+    id: String
+    logo: ImageCreateNestedOneWithoutSchoolsInput!
     name: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     url: String!
 }
 
-input SchoolCreateWithoutImageInput {
-    Course: CourseCreateNestedManyWithoutSchoolInput
+input SchoolCreateWithoutLogoInput {
+    courses: CourseCreateNestedManyWithoutSchoolInput
     createdAt: DateTime
     description: String!
-    id: String!
+    id: String
     name: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
     url: String!
 }
 
@@ -4237,12 +4238,12 @@ input SchoolOrderByWithAggregationInput {
 }
 
 input SchoolOrderByWithRelationInput {
-    Course: CourseOrderByRelationAggregateInput
-    Image: ImageOrderByWithRelationInput
+    courses: CourseOrderByRelationAggregateInput
     createdAt: SortOrder
     description: SortOrder
     id: SortOrder
     imageId: SortOrder
+    logo: ImageOrderByWithRelationInput
     name: SortOrder
     updatedAt: SortOrder
     url: SortOrder
@@ -4280,11 +4281,11 @@ input SchoolScalarWhereWithAggregatesInput {
 }
 
 input SchoolUpdateInput {
-    Course: CourseUpdateManyWithoutSchoolInput
-    Image: ImageUpdateOneRequiredWithoutSchoolInput
+    courses: CourseUpdateManyWithoutSchoolInput
     createdAt: DateTimeFieldUpdateOperationsInput
     description: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
+    logo: ImageUpdateOneRequiredWithoutSchoolsInput
     name: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     url: StringFieldUpdateOperationsInput
@@ -4299,40 +4300,50 @@ input SchoolUpdateManyMutationInput {
     url: StringFieldUpdateOperationsInput
 }
 
-input SchoolUpdateManyWithWhereWithoutImageInput {
+input SchoolUpdateManyWithWhereWithoutLogoInput {
     data: SchoolUpdateManyMutationInput!
     where: SchoolScalarWhereInput!
 }
 
-input SchoolUpdateManyWithoutImageInput {
+input SchoolUpdateManyWithoutLogoInput {
     connect: [SchoolWhereUniqueInput!]
-    connectOrCreate: [SchoolCreateOrConnectWithoutImageInput!]
-    create: [SchoolCreateWithoutImageInput!]
-    createMany: SchoolCreateManyImageInputEnvelope
+    connectOrCreate: [SchoolCreateOrConnectWithoutLogoInput!]
+    create: [SchoolCreateWithoutLogoInput!]
+    createMany: SchoolCreateManyLogoInputEnvelope
     delete: [SchoolWhereUniqueInput!]
     deleteMany: [SchoolScalarWhereInput!]
     disconnect: [SchoolWhereUniqueInput!]
     set: [SchoolWhereUniqueInput!]
-    update: [SchoolUpdateWithWhereUniqueWithoutImageInput!]
-    updateMany: [SchoolUpdateManyWithWhereWithoutImageInput!]
-    upsert: [SchoolUpsertWithWhereUniqueWithoutImageInput!]
+    update: [SchoolUpdateWithWhereUniqueWithoutLogoInput!]
+    updateMany: [SchoolUpdateManyWithWhereWithoutLogoInput!]
+    upsert: [SchoolUpsertWithWhereUniqueWithoutLogoInput!]
 }
 
-input SchoolUpdateOneRequiredWithoutCourseInput {
+input SchoolUpdateOneRequiredWithoutCoursesInput {
     connect: SchoolWhereUniqueInput
-    connectOrCreate: SchoolCreateOrConnectWithoutCourseInput
-    create: SchoolCreateWithoutCourseInput
-    update: SchoolUpdateWithoutCourseInput
-    upsert: SchoolUpsertWithoutCourseInput
+    connectOrCreate: SchoolCreateOrConnectWithoutCoursesInput
+    create: SchoolCreateWithoutCoursesInput
+    update: SchoolUpdateWithoutCoursesInput
+    upsert: SchoolUpsertWithoutCoursesInput
 }
 
-input SchoolUpdateWithWhereUniqueWithoutImageInput {
-    data: SchoolUpdateWithoutImageInput!
+input SchoolUpdateWithWhereUniqueWithoutLogoInput {
+    data: SchoolUpdateWithoutLogoInput!
     where: SchoolWhereUniqueInput!
 }
 
-input SchoolUpdateWithoutCourseInput {
-    Image: ImageUpdateOneRequiredWithoutSchoolInput
+input SchoolUpdateWithoutCoursesInput {
+    createdAt: DateTimeFieldUpdateOperationsInput
+    description: StringFieldUpdateOperationsInput
+    id: StringFieldUpdateOperationsInput
+    logo: ImageUpdateOneRequiredWithoutSchoolsInput
+    name: StringFieldUpdateOperationsInput
+    updatedAt: DateTimeFieldUpdateOperationsInput
+    url: StringFieldUpdateOperationsInput
+}
+
+input SchoolUpdateWithoutLogoInput {
+    courses: CourseUpdateManyWithoutSchoolInput
     createdAt: DateTimeFieldUpdateOperationsInput
     description: StringFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
@@ -4341,37 +4352,27 @@ input SchoolUpdateWithoutCourseInput {
     url: StringFieldUpdateOperationsInput
 }
 
-input SchoolUpdateWithoutImageInput {
-    Course: CourseUpdateManyWithoutSchoolInput
-    createdAt: DateTimeFieldUpdateOperationsInput
-    description: StringFieldUpdateOperationsInput
-    id: StringFieldUpdateOperationsInput
-    name: StringFieldUpdateOperationsInput
-    updatedAt: DateTimeFieldUpdateOperationsInput
-    url: StringFieldUpdateOperationsInput
-}
-
-input SchoolUpsertWithWhereUniqueWithoutImageInput {
-    create: SchoolCreateWithoutImageInput!
-    update: SchoolUpdateWithoutImageInput!
+input SchoolUpsertWithWhereUniqueWithoutLogoInput {
+    create: SchoolCreateWithoutLogoInput!
+    update: SchoolUpdateWithoutLogoInput!
     where: SchoolWhereUniqueInput!
 }
 
-input SchoolUpsertWithoutCourseInput {
-    create: SchoolCreateWithoutCourseInput!
-    update: SchoolUpdateWithoutCourseInput!
+input SchoolUpsertWithoutCoursesInput {
+    create: SchoolCreateWithoutCoursesInput!
+    update: SchoolUpdateWithoutCoursesInput!
 }
 
 input SchoolWhereInput {
     AND: [SchoolWhereInput!]
-    Course: CourseListRelationFilter
-    Image: ImageRelationFilter
     NOT: [SchoolWhereInput!]
     OR: [SchoolWhereInput!]
+    courses: CourseListRelationFilter
     createdAt: DateTimeFilter
     description: StringFilter
     id: StringFilter
     imageId: StringFilter
+    logo: ImageRelationFilter
     name: StringFilter
     updatedAt: DateTimeFilter
     url: StringFilter
@@ -4470,40 +4471,60 @@ input TechnologyLogoCountOrderByAggregateInput {
 }
 
 input TechnologyLogoCreateInput {
-    Image: ImageCreateNestedOneWithoutTechnologyLogoInput!
     createdAt: DateTime
-    id: String!
+    id: String
     isOnHomepage: Boolean!
+    logo: ImageCreateNestedOneWithoutTechnologyLogosInput!
     name: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
 input TechnologyLogoCreateManyInput {
     createdAt: DateTime
-    id: String!
+    id: String
     imageId: String!
     isOnHomepage: Boolean!
     name: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
 }
 
-input TechnologyLogoCreateNestedOneWithoutImageInput {
-    connect: TechnologyLogoWhereUniqueInput
-    connectOrCreate: TechnologyLogoCreateOrConnectWithoutImageInput
-    create: TechnologyLogoCreateWithoutImageInput
+input TechnologyLogoCreateManyLogoInput {
+    createdAt: DateTime
+    id: String
+    isOnHomepage: Boolean!
+    name: String!
+    updatedAt: DateTime
 }
 
-input TechnologyLogoCreateOrConnectWithoutImageInput {
-    create: TechnologyLogoCreateWithoutImageInput!
+input TechnologyLogoCreateManyLogoInputEnvelope {
+    data: [TechnologyLogoCreateManyLogoInput!]!
+    skipDuplicates: Boolean
+}
+
+input TechnologyLogoCreateNestedManyWithoutLogoInput {
+    connect: [TechnologyLogoWhereUniqueInput!]
+    connectOrCreate: [TechnologyLogoCreateOrConnectWithoutLogoInput!]
+    create: [TechnologyLogoCreateWithoutLogoInput!]
+    createMany: TechnologyLogoCreateManyLogoInputEnvelope
+}
+
+input TechnologyLogoCreateOrConnectWithoutLogoInput {
+    create: TechnologyLogoCreateWithoutLogoInput!
     where: TechnologyLogoWhereUniqueInput!
 }
 
-input TechnologyLogoCreateWithoutImageInput {
+input TechnologyLogoCreateWithoutLogoInput {
     createdAt: DateTime
-    id: String!
+    id: String
     isOnHomepage: Boolean!
     name: String!
-    updatedAt: DateTime!
+    updatedAt: DateTime
+}
+
+input TechnologyLogoListRelationFilter {
+    every: TechnologyLogoWhereInput
+    none: TechnologyLogoWhereInput
+    some: TechnologyLogoWhereInput
 }
 
 input TechnologyLogoMaxOrderByAggregateInput {
@@ -4524,6 +4545,10 @@ input TechnologyLogoMinOrderByAggregateInput {
     updatedAt: SortOrder
 }
 
+input TechnologyLogoOrderByRelationAggregateInput {
+    _count: SortOrder
+}
+
 input TechnologyLogoOrderByWithAggregationInput {
     _count: TechnologyLogoCountOrderByAggregateInput
     _max: TechnologyLogoMaxOrderByAggregateInput
@@ -4537,18 +4562,25 @@ input TechnologyLogoOrderByWithAggregationInput {
 }
 
 input TechnologyLogoOrderByWithRelationInput {
-    Image: ImageOrderByWithRelationInput
     createdAt: SortOrder
     id: SortOrder
     imageId: SortOrder
     isOnHomepage: SortOrder
+    logo: ImageOrderByWithRelationInput
     name: SortOrder
     updatedAt: SortOrder
 }
 
-input TechnologyLogoRelationFilter {
-    is: TechnologyLogoWhereInput
-    isNot: TechnologyLogoWhereInput
+input TechnologyLogoScalarWhereInput {
+    AND: [TechnologyLogoScalarWhereInput!]
+    NOT: [TechnologyLogoScalarWhereInput!]
+    OR: [TechnologyLogoScalarWhereInput!]
+    createdAt: DateTimeFilter
+    id: StringFilter
+    imageId: StringFilter
+    isOnHomepage: BoolFilter
+    name: StringFilter
+    updatedAt: DateTimeFilter
 }
 
 input TechnologyLogoScalarWhereWithAggregatesInput {
@@ -4564,10 +4596,10 @@ input TechnologyLogoScalarWhereWithAggregatesInput {
 }
 
 input TechnologyLogoUpdateInput {
-    Image: ImageUpdateOneRequiredWithoutTechnologyLogoInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     isOnHomepage: BoolFieldUpdateOperationsInput
+    logo: ImageUpdateOneRequiredWithoutTechnologyLogosInput
     name: StringFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
@@ -4580,17 +4612,31 @@ input TechnologyLogoUpdateManyMutationInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input TechnologyLogoUpdateOneWithoutImageInput {
-    connect: TechnologyLogoWhereUniqueInput
-    connectOrCreate: TechnologyLogoCreateOrConnectWithoutImageInput
-    create: TechnologyLogoCreateWithoutImageInput
-    delete: Boolean
-    disconnect: Boolean
-    update: TechnologyLogoUpdateWithoutImageInput
-    upsert: TechnologyLogoUpsertWithoutImageInput
+input TechnologyLogoUpdateManyWithWhereWithoutLogoInput {
+    data: TechnologyLogoUpdateManyMutationInput!
+    where: TechnologyLogoScalarWhereInput!
 }
 
-input TechnologyLogoUpdateWithoutImageInput {
+input TechnologyLogoUpdateManyWithoutLogoInput {
+    connect: [TechnologyLogoWhereUniqueInput!]
+    connectOrCreate: [TechnologyLogoCreateOrConnectWithoutLogoInput!]
+    create: [TechnologyLogoCreateWithoutLogoInput!]
+    createMany: TechnologyLogoCreateManyLogoInputEnvelope
+    delete: [TechnologyLogoWhereUniqueInput!]
+    deleteMany: [TechnologyLogoScalarWhereInput!]
+    disconnect: [TechnologyLogoWhereUniqueInput!]
+    set: [TechnologyLogoWhereUniqueInput!]
+    update: [TechnologyLogoUpdateWithWhereUniqueWithoutLogoInput!]
+    updateMany: [TechnologyLogoUpdateManyWithWhereWithoutLogoInput!]
+    upsert: [TechnologyLogoUpsertWithWhereUniqueWithoutLogoInput!]
+}
+
+input TechnologyLogoUpdateWithWhereUniqueWithoutLogoInput {
+    data: TechnologyLogoUpdateWithoutLogoInput!
+    where: TechnologyLogoWhereUniqueInput!
+}
+
+input TechnologyLogoUpdateWithoutLogoInput {
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     isOnHomepage: BoolFieldUpdateOperationsInput
@@ -4598,20 +4644,21 @@ input TechnologyLogoUpdateWithoutImageInput {
     updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
-input TechnologyLogoUpsertWithoutImageInput {
-    create: TechnologyLogoCreateWithoutImageInput!
-    update: TechnologyLogoUpdateWithoutImageInput!
+input TechnologyLogoUpsertWithWhereUniqueWithoutLogoInput {
+    create: TechnologyLogoCreateWithoutLogoInput!
+    update: TechnologyLogoUpdateWithoutLogoInput!
+    where: TechnologyLogoWhereUniqueInput!
 }
 
 input TechnologyLogoWhereInput {
     AND: [TechnologyLogoWhereInput!]
-    Image: ImageRelationFilter
     NOT: [TechnologyLogoWhereInput!]
     OR: [TechnologyLogoWhereInput!]
     createdAt: DateTimeFilter
     id: StringFilter
     imageId: StringFilter
     isOnHomepage: BoolFilter
+    logo: ImageRelationFilter
     name: StringFilter
     updatedAt: DateTimeFilter
 }
@@ -4632,31 +4679,31 @@ input UserCountOrderByAggregateInput {
 }
 
 input UserCreateInput {
-    Person: PersonCreateNestedOneWithoutUserInput!
     createdAt: DateTime
-    id: String!
+    id: String
     password: String!
+    person: PersonCreateNestedOneWithoutUserInput!
     role: Role
-    updatedAt: DateTime!
+    updatedAt: DateTime
     username: String!
 }
 
 input UserCreateManyInput {
     createdAt: DateTime
-    id: String!
+    id: String
     password: String!
     personId: String!
     role: Role
-    updatedAt: DateTime!
+    updatedAt: DateTime
     username: String!
 }
 
 input UserCreateManyPersonInput {
     createdAt: DateTime
-    id: String!
+    id: String
     password: String!
     role: Role
-    updatedAt: DateTime!
+    updatedAt: DateTime
     username: String!
 }
 
@@ -4679,10 +4726,10 @@ input UserCreateOrConnectWithoutPersonInput {
 
 input UserCreateWithoutPersonInput {
     createdAt: DateTime
-    id: String!
+    id: String
     password: String!
     role: Role
-    updatedAt: DateTime!
+    updatedAt: DateTime
     username: String!
 }
 
@@ -4730,10 +4777,10 @@ input UserOrderByWithAggregationInput {
 }
 
 input UserOrderByWithRelationInput {
-    Person: PersonOrderByWithRelationInput
     createdAt: SortOrder
     id: SortOrder
     password: SortOrder
+    person: PersonOrderByWithRelationInput
     personId: SortOrder
     role: SortOrder
     updatedAt: SortOrder
@@ -4767,10 +4814,10 @@ input UserScalarWhereWithAggregatesInput {
 }
 
 input UserUpdateInput {
-    Person: PersonUpdateOneRequiredWithoutUserInput
     createdAt: DateTimeFieldUpdateOperationsInput
     id: StringFieldUpdateOperationsInput
     password: StringFieldUpdateOperationsInput
+    person: PersonUpdateOneRequiredWithoutUserInput
     role: EnumRoleFieldUpdateOperationsInput
     updatedAt: DateTimeFieldUpdateOperationsInput
     username: StringFieldUpdateOperationsInput
@@ -4824,7 +4871,7 @@ input UserUpsertWithWhereUniqueWithoutPersonInput {
     where: UserWhereUniqueInput!
 }
 
-input UserUserCredentials_username_password_unique_constraintCompoundUniqueInput {
+input UserUsernamePasswordCompoundUniqueInput {
     password: String!
     username: String!
 }
@@ -4833,10 +4880,10 @@ input UserWhereInput {
     AND: [UserWhereInput!]
     NOT: [UserWhereInput!]
     OR: [UserWhereInput!]
-    Person: PersonRelationFilter
     createdAt: DateTimeFilter
     id: StringFilter
     password: StringFilter
+    person: PersonRelationFilter
     personId: StringFilter
     role: EnumRoleFilter
     updatedAt: DateTimeFilter
@@ -4844,7 +4891,7 @@ input UserWhereInput {
 }
 
 input UserWhereUniqueInput {
-    UserCredentials_username_password_unique_constraint: UserUserCredentials_username_password_unique_constraintCompoundUniqueInput
     id: String
     username: String
+    username_password: UserUsernamePasswordCompoundUniqueInput
 }
