@@ -50,7 +50,7 @@ export const PortfoliosLayout = (): JSX.Element => {
       <HeadTag title="Portfolio"/>
       <Masonry
         gutter="10"
-        columnsCount={columns}
+        columnscount={columns}
         className={styles.MasonryContainer}
       >
         {data?.projects

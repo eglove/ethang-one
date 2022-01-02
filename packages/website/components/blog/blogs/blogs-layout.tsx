@@ -28,7 +28,6 @@ export const BlogsLayout = (): JSX.Element => {
       {data?.blogs?.map(blog => (
         <div
           key={blog.id}
-          className={styles.BlogsContainer}
           style={{height: '300px'}}
         >
           <LinkComponent

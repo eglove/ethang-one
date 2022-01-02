@@ -87,10 +87,10 @@ export const CoursesLayout = (): JSX.Element => {
               <div>{course.title}</div>
               <div className={styles.CourseUrls}>
                 {course.courseUrls.map(url => (
-                  <>
+                  <span key={url}>
                     <CourseLink key={uuid()} url={url}/>
                         &emsp;
-                  </>
+                  </span>
                 ))}
               </div>
             </div>

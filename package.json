@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "deps": "npx pnpm i",
+    "prisma": "npx prisma db pull --schema .\\packages\\website-server\\src\\schema.prisma && npx prisma generate --schema .\\packages\\website-server\\src\\schema.prisma",
     "buildEg": "npx nx build ethang-one",
     "eg": "node dist/packages/ethang-one/main.js",
     "prepare": "husky install"

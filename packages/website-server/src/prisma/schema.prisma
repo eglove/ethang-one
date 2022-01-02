@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "./prisma"
 }
 
 generator typegraphql {
@@ -12,145 +13,150 @@ datasource db {
 }
 
 model Blog {
-  id         String       @id @db.Uuid
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime
-  title      String
-  slug       String       @unique
-  content    String
-  imageId    String       @db.Uuid
-  Image      Image        @relation(fields: [imageId], references: [id])
-  BlogAuthor BlogAuthor[]
+  id            String       @id @default(uuid()) @db.Uuid
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  title         String
+  slug          String       @unique
+  content       String
+  imageId       String       @db.Uuid
+  featuredImage Image        @relation(fields: [imageId], references: [id])
+  authors       BlogAuthor[]
 }
 
 model BlogAuthor {
-  id        String   @id @db.Uuid
+  id        String   @id @default(uuid()) @db.Uuid
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
   blogId    String   @db.Uuid
   personId  String   @db.Uuid
-  Blog      Blog     @relation(fields: [blogId], references: [id])
-  Person    Person   @relation(fields: [personId], references: [id])
-}
-
-model Course {
-  id               String             @id @db.Uuid
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime
-  title            String
-  yearUpdated      Int
-  recommended      Boolean
-  duration         Float
-  schoolId         String             @db.Uuid
-  courseUrls       String[]
-  complete         Boolean
-  order            Int
-  rating           Rating?
-  ratingUrl        String?
-  School           School             @relation(fields: [schoolId], references: [id])
-  CourseInstructor CourseInstructor[]
-}
-
-model CourseInstructor {
-  id           String   @id @db.Uuid
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime
-  instructorId String   @db.Uuid
-  courseId     String   @db.Uuid
-  Course       Course   @relation(fields: [courseId], references: [id])
-  Person       Person   @relation(fields: [instructorId], references: [id])
-}
-
-model Image {
-  id             String          @id @db.Uuid
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime
-  url            String          @unique
-  altText        String
-  height         String
-  width          String
-  Blog           Blog[]
-  Person         Person[]
-  Project        Project[]
-  School         School[]
-  TechnologyLogo TechnologyLogo?
-}
-
-model Person {
-  id                 String               @id @db.Uuid
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime
-  websiteUrl         String?
-  githubUrl          String?
-  linkedinUrl        String?
-  summary            String?
-  imageId            String?              @db.Uuid
-  firstName          String
-  lastName           String
-  Image              Image?               @relation(fields: [imageId], references: [id])
-  BlogAuthor         BlogAuthor[]
-  CourseInstructor   CourseInstructor[]
-  ProjectContributor ProjectContributor[]
-  User               User[]
+  blog      Blog     @relation(fields: [blogId], references: [id])
+  author    Person   @relation(fields: [personId], references: [id])
 }
 
 model Project {
-  id                 String               @id @db.Uuid
-  createdAt          DateTime             @default(now())
-  updatedAt          DateTime
-  name               String
-  slug               String               @unique
-  githubUrl          String?
-  projectUrl         String?
-  summary            String
-  imageId            String               @db.Uuid
-  Image              Image                @relation(fields: [imageId], references: [id])
-  ProjectContributor ProjectContributor[]
+  id            String               @id @default(uuid()) @db.Uuid
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+  name          String
+  slug          String               @unique
+  githubUrl     String?
+  projectUrl    String?
+  summary       String
+  imageId       String               @db.Uuid
+  featuredImage Image                @relation(fields: [imageId], references: [id])
+  contributors  ProjectContributor[]
 }
 
 model ProjectContributor {
-  id            String   @id @db.Uuid
+  id            String   @id @default(uuid()) @db.Uuid
   createdAt     DateTime @default(now())
-  updatedAt     DateTime
+  updatedAt     DateTime @updatedAt
   contributorId String   @db.Uuid
   projectId     String   @db.Uuid
-  Person        Person   @relation(fields: [contributorId], references: [id])
-  Project       Project  @relation(fields: [projectId], references: [id])
+  contributor   Person   @relation(fields: [contributorId], references: [id])
+  project       Project  @relation(fields: [projectId], references: [id])
+}
+
+model Person {
+  id          String               @id @default(uuid()) @db.Uuid
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+  websiteUrl  String?
+  githubUrl   String?
+  linkedinUrl String?
+  summary     String?
+  imageId     String?              @db.Uuid
+  firstName   String
+  lastName    String
+  image       Image?               @relation(fields: [imageId], references: [id])
+  blogs       BlogAuthor[]
+  courses     CourseInstructor[]
+  projects    ProjectContributor[]
+  User        User[]
+}
+
+model Course {
+  id          String             @id @default(uuid()) @db.Uuid
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  title       String
+  yearUpdated Int
+  recommended Boolean
+  duration    Float
+  schoolId    String             @db.Uuid
+  courseUrls  String[]
+  complete    Boolean
+  order       Int
+  rating      Rating?
+  ratingUrl   String?
+  school      School             @relation(fields: [schoolId], references: [id])
+  instructors CourseInstructor[]
+}
+
+model CourseInstructor {
+  id           String   @id @default(uuid()) @db.Uuid
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  instructorId String   @db.Uuid
+  courseId     String   @db.Uuid
+  course       Course   @relation(fields: [courseId], references: [id])
+  instructor   Person   @relation(fields: [instructorId], references: [id])
 }
 
 model School {
-  id          String   @id @db.Uuid
+  id          String   @id @default(uuid()) @db.Uuid
   createdAt   DateTime @default(now())
-  updatedAt   DateTime
+  updatedAt   DateTime @updatedAt
   name        String
   url         String   @unique
   description String
   imageId     String   @db.Uuid
-  Image       Image    @relation(fields: [imageId], references: [id])
-  Course      Course[]
+  logo        Image    @relation(fields: [imageId], references: [id])
+  courses     Course[]
 }
 
 model TechnologyLogo {
-  id           String   @id @db.Uuid
+  id           String   @id @default(uuid()) @db.Uuid
   createdAt    DateTime @default(now())
-  updatedAt    DateTime
+  updatedAt    DateTime @updatedAt
   name         String
   isOnHomepage Boolean
   imageId      String   @unique @db.Uuid
-  Image        Image    @relation(fields: [imageId], references: [id])
+  logo         Image    @relation(fields: [imageId], references: [id])
+}
+
+model Image {
+  id              String          @id @default(uuid()) @db.Uuid
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  url             String          @unique
+  altText         String
+  height          String
+  width           String
+  blogs           Blog[]
+  persons         Person[]
+  projects        Project[]
+  schools         School[]
+  TechnologyLogos TechnologyLogo?
 }
 
 model User {
-  id        String   @id @db.Uuid
+  id        String   @id @default(uuid()) @db.Uuid
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @updatedAt
   username  String   @unique
   password  String
   personId  String   @db.Uuid
   role      Role     @default(USER)
-  Person    Person   @relation(fields: [personId], references: [id])
+  person    Person   @relation(fields: [personId], references: [id])
 
-  @@unique([username, password], name: "UserCredentials_username_password_unique_constraint")
+  @@unique([username, password], map: "UserCredentials_username_password_unique_constraint")
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 enum Rating {
@@ -159,9 +165,4 @@ enum Rating {
   THREE
   FOUR
   FIVE
-}
-
-enum Role {
-  USER
-  ADMIN
 }
