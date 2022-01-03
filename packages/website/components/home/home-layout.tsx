@@ -40,10 +40,7 @@ export const HomeLayout = (): JSX.Element => {
               return (
                 <div
                   key={logo.id}
-                  style={{
-                    backgroundColor: 'rgba(255,255,255, 0.1)',
-                    padding: 'var(--small-space)',
-                  }}
+                  className={styles.LogoContainer}
                 >
                   <Image
                     src={logo.url}
