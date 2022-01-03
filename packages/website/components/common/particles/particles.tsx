@@ -5,7 +5,7 @@ export const ParticlesContainer = (): JSX.Element => {
     autoPlay: true,
     background: {
       color: {
-        value: '#000',
+        value: '#000228',
       },
       image: '',
       opacity: 1,
@@ -93,14 +93,14 @@ export const ParticlesContainer = (): JSX.Element => {
                 value: '#ffffff',
               },
               stop: {
-                value: '#000000',
+                value: '#000228',
               },
             },
             radius: 1000,
           },
           shadow: {
             color: {
-              value: '#000000',
+              value: '#000228',
             },
             length: 2000,
           },
