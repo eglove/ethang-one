@@ -6,7 +6,7 @@ const withNx = require('@nrwl/next/plugins/with-nx');
  **/
 const nextConfig = {
   images: {
-    domains: ['res.cloudinary.com'],
+    domains: ['res.cloudinary.com', 'ph-files.imgix.net'],
     formats: ['image/avif', 'image/webp'],
   },
   nx: {
