@@ -81,14 +81,14 @@ model Course {
   updatedAt   DateTime           @updatedAt
   title       String
   yearUpdated Int
-  rating      Rating?
-  ratingUrl   String?
   recommended Boolean
   duration    Float
   schoolId    String             @db.Uuid
   courseUrls  String[]
   complete    Boolean
   order       Int
+  rating      Rating?
+  ratingUrl   String?
   school      School             @relation(fields: [schoolId], references: [id])
   instructors CourseInstructor[]
 }
@@ -126,10 +126,10 @@ model TechnologyLogo {
 }
 
 model Image {
-  id              String           @id @default(uuid()) @db.Uuid
-  createdAt       DateTime         @default(now())
-  updatedAt       DateTime         @updatedAt
-  url             String           @unique
+  id              String          @id @default(uuid()) @db.Uuid
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  url             String          @unique
   altText         String
   height          String
   width           String
@@ -137,7 +137,7 @@ model Image {
   persons         Person[]
   projects        Project[]
   schools         School[]
-  TechnologyLogos TechnologyLogo[]
+  TechnologyLogos TechnologyLogo?
 }
 
 model User {
