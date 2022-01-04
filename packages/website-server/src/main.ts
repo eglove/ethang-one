@@ -11,6 +11,8 @@ import {
 } from 'apollo-server-core';
 import {buildSchema} from 'type-graphql';
 
+const isDevelopment = process.env.MODE === 'DEV';
+
 const startServer = async (): Promise<void> => {
   const prisma = new PrismaClient({
     datasources: {
@@ -20,7 +22,7 @@ const startServer = async (): Promise<void> => {
     },
   });
 
-  const plugins = process.env.NODE_ENV === 'development'
+  const plugins = isDevelopment
     ? [ApolloServerPluginLandingPageLocalDefault(), ApolloServerPluginInlineTrace()]
     : [ApolloServerPluginLandingPageDisabled()];
 
@@ -37,13 +39,13 @@ const startServer = async (): Promise<void> => {
       credentials: true,
       origin: '*',
     },
-    introspection: process.env.NODE_ENV === 'development',
+    introspection: isDevelopment,
     plugins: [...plugins],
     schema,
   });
 
   server
-    .listen('4000', async () => {
+    .listen(isDevelopment ? '4000' : '80', async () => {
       console.log(
         `🚀 GraphQL server is running on http://localhost:${'4000'}/graphql`,
       );

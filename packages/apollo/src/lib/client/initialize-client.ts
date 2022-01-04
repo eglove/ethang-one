@@ -74,9 +74,7 @@ export class ApolloClientInit {
 
   private readonly setHttpLink = (): void => {
     this.httpLink = new BatchHttpLink({
-      uri: process.env.NODE_ENV === 'development'
-        ? process.env.NX_WEBSITE_SERVER_URL_DEV
-        : process.env.NX_WEBSITE_SERVER_URL,
+      uri: process.env.NX_WEBSITE_SERVER_URL,
     });
   };
 
