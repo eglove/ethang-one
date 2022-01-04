@@ -22,4 +22,3 @@ Use `npm run eg` to use it.
 ## Website Extras
 
 * [Newest Product Hunt Posts](https://www.ethang.dev/product-hunt)
-
