@@ -23,7 +23,7 @@ specifiers:
   '@nrwl/tao': 13.4.2
   '@nrwl/web': 13.4.2
   '@nrwl/workspace': 13.4.2
-  '@nxext/stencil': ^13.1.0
+  '@nxext/stencil': ^13.1.1
   '@nxrs/cargo': ^0.3.1
   '@prisma/client': ^3.7.0
   '@stencil/core': ^2.12.0
@@ -171,7 +171,7 @@ devDependencies:
   '@nrwl/tao': 13.4.2
   '@nrwl/web': 13.4.2_90747c71e119e623b9ca620043956c60
   '@nrwl/workspace': 13.4.2_prettier@2.5.1+typescript@4.5.4
-  '@nxext/stencil': 13.1.0_cc9e247e2803575c7c88e1880206367c
+  '@nxext/stencil': 13.1.1_cc9e247e2803575c7c88e1880206367c
   '@nxrs/cargo': 0.3.1
   '@stencil/core': 2.12.0
   '@stencil/eslint-plugin': 0.4.0_1ba5f1452bab65a94c4dabe1dbeb3f42
@@ -3898,8 +3898,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@nxext/stencil/13.1.0_cc9e247e2803575c7c88e1880206367c:
-    resolution: {integrity: sha512-LbV28Ud4a/6sEPted9AomdqZMFrQ35IZzaZx1k7vpxAX8nd+BUtIN3ereQ8mDxQt3oii9QNUeNa33Ymb7vwYIg==}
+  /@nxext/stencil/13.1.1_cc9e247e2803575c7c88e1880206367c:
+    resolution: {integrity: sha512-Dui7+MH9ZzKxaWMHZBI2AboU3NQ/mX5gPz11jMBlhxlJJcNeFE7fOgVyiVpFZPtHBCdQSZG+s2wAaDqcJA5bXw==}
     peerDependencies:
       '@nrwl/angular': ^13.0.1
       '@nrwl/jest': ^13.0.1
@@ -3907,10 +3907,10 @@ packages:
       '@nrwl/react': ^13.0.1
       '@nrwl/storybook': ^13.0.1
       '@nrwl/workspace': ^13.0.1
-      '@stencil/core': ^2.9.0
+      '@stencil/core': ^2.11.0
     dependencies:
       '@nrwl/angular': 13.4.2_039510daa61b82faca0d6e620b5421d0
-      '@nrwl/devkit': 13.4.2
+      '@nrwl/devkit': 13.4.3
       '@nrwl/jest': 13.4.2
       '@nrwl/linter': 13.4.2_typescript@4.5.4
       '@nrwl/react': 13.4.2_71d4cc3d4c8bb19d92f1bbfdba8920ec
