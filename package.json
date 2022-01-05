@@ -27,7 +27,7 @@
     "apollo-server": "^3.6.1",
     "apollo-server-core": "^3.6.1",
     "apollo3-cache-persist": "^0.13.0",
-    "class-validator": "^0.13.2",
+    "class-validator": "^0.12.0-refactor.5",
     "colors": "^1.4.0",
     "core-js": "^3.6.5",
     "express": "^4.17.2",

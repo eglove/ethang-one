@@ -51,7 +51,7 @@ specifiers:
   babel-loader: ^8.2.3
   browserslist: ^4.19.1
   browserslist-config-google: ^3.0.1
-  class-validator: ^0.13.2
+  class-validator: ^0.12.0-refactor.5
   colors: ^1.4.0
   core-js: ^3.6.5
   cross-env: ^7.0.3
@@ -123,7 +123,7 @@ dependencies:
   apollo-server: 3.6.1_graphql@15.8.0
   apollo-server-core: 3.6.1_graphql@15.8.0
   apollo3-cache-persist: 0.13.0_@apollo+client@3.5.6
-  class-validator: 0.13.2
+  class-validator: 0.12.2
   colors: 1.4.0
   core-js: 3.20.1
   express: 4.17.2
@@ -147,7 +147,7 @@ dependencies:
   socket.io-client: 4.4.0
   tslib: 2.3.1
   tsparticles: 1.37.6
-  type-graphql: 1.1.1_aea24acf06b899fbc466d3b3b949c72d
+  type-graphql: 1.1.1_2d29296d701afc9fb198b50646f9b1dd
   uuid: 8.3.2
 
 devDependencies:
@@ -5059,6 +5059,10 @@ packages:
     resolution: {integrity: sha512-0LbEEx1zxrYB3pgpd1M5lEhLcXjKJnYghvhTRgaBeUivLHMDM1TzF3IJ6hXU2+8uA4Xz+5BA63mtZo5DjVT8iA==}
     dev: true
 
+  /@types/validator/13.0.0:
+    resolution: {integrity: sha512-WAy5txG7aFX8Vw3sloEKp5p/t/Xt8jD3GRD9DacnFv6Vo8ubudAsRTXgxpQwU0mpzY/H8U4db3roDuCMjShBmw==}
+    dev: false
+
   /@types/webpack-sources/0.1.9:
     resolution: {integrity: sha512-bvzMnzqoK16PQIC8AYHNdW45eREJQMd6WG/msQWX5V2+vZmODCOPb4TJcbgRljTZZTwTM4wUMcsI8FftNA7new==}
     dependencies:
@@ -6639,11 +6643,13 @@ packages:
   /cjs-module-lexer/1.2.2:
     resolution: {integrity: sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==}
 
-  /class-validator/0.13.2:
-    resolution: {integrity: sha512-yBUcQy07FPlGzUjoLuUfIOXzgynnQPPruyK1Ge2B74k9ROwnle1E+NxLWnUv5OLU8hA/qL5leAE9XnXq3byaBw==}
+  /class-validator/0.12.2:
+    resolution: {integrity: sha512-TDzPzp8BmpsbPhQpccB3jMUE/3pK0TyqamrK0kcx+ZeFytMA+O6q87JZZGObHHnoo9GM8vl/JppIyKWeEA/EVw==}
     dependencies:
-      libphonenumber-js: 1.9.44
-      validator: 13.7.0
+      '@types/validator': 13.0.0
+      google-libphonenumber: 3.2.26
+      tslib: 2.3.1
+      validator: 13.0.0
     dev: false
 
   /classnames/2.2.6:
@@ -9273,6 +9279,11 @@ packages:
     resolution: {integrity: sha1-L0SUrIkZ43Z8XLtpHp9GMyQoXUM=}
     dev: true
 
+  /google-libphonenumber/3.2.26:
+    resolution: {integrity: sha512-qyjAKef1oC2vG81RNy1f5Mk9lYE/H3HC885DCOlFs9ca3QfsqEUnXWOTPXTgEtHnTq1x3vpQgtDbX3Vba/o2ow==}
+    engines: {node: '>=0.10'}
+    dev: false
+
   /got/9.6.0:
     resolution: {integrity: sha512-R7eWptXuGYxwijs0eV+v3o6+XH1IqVK8dJOEecQfTmkncw9AV4dcw/Dhxi8MdlqPthxxpZyizMzyg8RTmEsG+Q==}
     engines: {node: '>=8.6'}
@@ -11200,10 +11211,6 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-
-  /libphonenumber-js/1.9.44:
-    resolution: {integrity: sha512-zhw8nUMJuQf7jG1dZfEOKKOS6M3QYIv3HnvB/vGohNd0QfxIQcObH3a6Y6s350H+9xgBeOXClOJkS0hJ0yvS3g==}
-    dev: false
 
   /license-webpack-plugin/2.3.15:
     resolution: {integrity: sha512-reA0yvwvkkFMRsyqVikTcLGFXmgWKPVXrFaR3tRvAnFoZozM4zvwlNNQxuB5Il6fgTtS7nGkrIPm9xS2KZtu7g==}
@@ -15883,7 +15890,7 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /type-graphql/1.1.1_aea24acf06b899fbc466d3b3b949c72d:
+  /type-graphql/1.1.1_2d29296d701afc9fb198b50646f9b1dd:
     resolution: {integrity: sha512-iOOWVn0ehCYMukmnXStbkRwFE9dcjt7/oDcBS1JyQZo9CbhlIll4lHHps54HMEk4A4c8bUPd+DjK8w1/ZrxB4A==}
     engines: {node: '>= 10.3'}
     requiresBuild: true
@@ -15894,7 +15901,7 @@ packages:
       '@types/glob': 7.2.0
       '@types/node': 17.0.4
       '@types/semver': 7.3.9
-      class-validator: 0.13.2
+      class-validator: 0.12.2
       glob: 7.2.0
       graphql: 15.8.0
       graphql-query-complexity: 0.7.2_graphql@15.8.0
@@ -15944,7 +15951,7 @@ packages:
       semver: 7.3.5
       ts-morph: 13.0.2
       tslib: 2.3.1
-      type-graphql: 1.1.1_aea24acf06b899fbc466d3b3b949c72d
+      type-graphql: 1.1.1_2d29296d701afc9fb198b50646f9b1dd
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -16208,8 +16215,8 @@ packages:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
 
-  /validator/13.7.0:
-    resolution: {integrity: sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==}
+  /validator/13.0.0:
+    resolution: {integrity: sha512-anYx5fURbgF04lQV18nEQWZ/3wHGnxiKdG4aL8J+jEDsm98n/sU/bey+tYk6tnGJzm7ioh5FoqrAiQ6m03IgaA==}
     engines: {node: '>= 0.10'}
     dev: false
 
