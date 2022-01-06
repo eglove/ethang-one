@@ -1,43 +1,42 @@
 import inquirer from 'inquirer';
+import fs from 'node:fs';
 
 import {packageManager} from '../../main';
 import {runCommand} from '../run-command';
-import {UtilNrwl} from '../util-nrwl/util-nrwl';
 
 export const buildOrRunProjects = async (): Promise<void> => {
-  const nrwl = new UtilNrwl();
-  await nrwl.setup();
+  const {projects} = JSON.parse(fs.readFileSync('./workspace.json').toString()) as Record<string, string>;
 
-  const targets = nrwl.projectNodes?.map(project => Object.keys(project.data.targets));
-  const uniqueTargets = [...new Set(targets?.flat())];
+  const {chosenProjects} = await inquirer.prompt<{chosenProjects: string[]}>([
+    {
+      choices: Object.keys(projects),
+      message: 'Choose project(s):',
+      name: 'chosenProjects',
+      type: 'checkbox',
+    },
+  ]);
+
+  let targets: string[] = [];
+  for (const chosenProject of chosenProjects) {
+    // @ts-expect-error Assume this will be ok.
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    const projectJson = JSON.parse(fs.readFileSync(`./${projects[chosenProject]}/project.json`).toString()) as Record<string, {targets: Record<string, unknown>}>;
+    targets.push(...Object.keys(projectJson.targets));
+  }
+
+  targets = [...new Set(targets)];
 
   const {target} = await inquirer.prompt<{target: string}>([
     {
-      choices: uniqueTargets,
-      message: 'Choose Target',
+      choices: targets,
+      message: 'Choose a target:',
       name: 'target',
       type: 'list',
     },
   ]);
 
-  const {projects} = await inquirer.prompt<{
-    projects: string[];
-    target: string;
-  }>([
-    {
-      choices: nrwl.projectNames().filter(project => (
-        Object.keys(nrwl.findProject(project)?.data.targets).includes(
-          target,
-        ) && project !== 'ethang-one'
-      )),
-      message: 'Choose Project(s)',
-      name: 'projects',
-      type: 'checkbox',
-    },
-  ]);
-
   runCommand(
-    `${packageManager} nx run-many --target=${target} ---projects=${projects.join(
+    `${packageManager} nx run-many --target=${target} ---projects=${chosenProjects.join(
       ',',
     )}`,
   );
