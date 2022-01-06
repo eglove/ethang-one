@@ -33,6 +33,7 @@
         "@typescript-eslint/explicit-function-return-type": [
           "error"
         ],
+        "arrow-body-style": ["error", "always"],
         "capitalized-comments": "off",
         "react/react-in-jsx-scope": "off",
         "react-hooks/exhaustive-deps": "error",
