@@ -2,6 +2,7 @@
 import inquirer, {Separator} from 'inquirer';
 
 import {nodeDependencies} from './app/node-dependencies/node-dependencies';
+import {prismaBuild} from './app/prisma-build/prisma-build';
 import {buildOrRunProjects} from './app/project-management/build-or-run-projects';
 import {projectManagement} from './app/project-management/project-management';
 import {projectsManagement} from './app/projects-management/projects-management';
@@ -17,6 +18,7 @@ enum Option {
   projectManagementCommand = 'Project Generate (New Component, New Page, etc.)',
   nodeDependenciesCommand = 'Manage NPM dependencies.',
   projectsManagementCommand = 'Manage Project List (Create New, Remove)',
+  prismaBuild = 'Introspect Databases, Generate Prisma Stuff',
 }
 
 async function runEthanGOne(): Promise<void> {
@@ -27,6 +29,7 @@ async function runEthanGOne(): Promise<void> {
         {name: Option.projectManagementCommand},
         {name: Option.nodeDependenciesCommand},
         {name: Option.projectsManagementCommand},
+        {name: Option.prismaBuild},
         new Separator(),
         {name: Option.exit},
       ],
@@ -54,6 +57,11 @@ async function runEthanGOne(): Promise<void> {
 
     case Option.projectsManagementCommand: {
       await projectsManagement();
+      break;
+    }
+
+    case Option.prismaBuild: {
+      prismaBuild();
       break;
     }
 
