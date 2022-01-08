@@ -18,10 +18,12 @@
         "xo-react/space",
         "next",
         "plugin:sonarjs/recommended",
-        "plugin:jsx-a11y/recommended"
+        "plugin:jsx-a11y/recommended",
+        "prettier"
       ],
       "plugins": [
-        "simple-import-sort"
+        "simple-import-sort",
+        "prettier"
       ],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
@@ -35,6 +37,16 @@
         ],
         "arrow-body-style": ["error", "always"],
         "capitalized-comments": "off",
+        "prettier/prettier": [
+          "error",
+          {
+            "arrowParens": "avoid",
+            "trailingComma": "es5",
+            "singleQuote": true,
+            "printWidth": 80,
+            "endOfLine": "auto"
+          }
+        ],
         "react/react-in-jsx-scope": "off",
         "react-hooks/exhaustive-deps": "error",
         "simple-import-sort/exports": "error",
