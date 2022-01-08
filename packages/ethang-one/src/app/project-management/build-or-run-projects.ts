@@ -1,4 +1,4 @@
-import { runCommand } from '@ethang-one/util-typescript';
+import { runCommand } from '@ethang-one/util-cli';
 import inquirer from 'inquirer';
 import fs from 'node:fs';
 

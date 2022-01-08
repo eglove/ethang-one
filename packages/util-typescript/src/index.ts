@@ -1,5 +1,4 @@
 export * from './lib/util-array';
-export * from './lib/util-cli';
 export * from './lib/util-device';
 export * from './lib/util-http';
 export * from './lib/util-json';

@@ -1,4 +1,4 @@
-import { execSyncCommand } from '@ethang-one/util-typescript';
+import { execSyncCommand } from '@ethang-one/util-cli';
 
 import { Shell } from '../../constants';
 

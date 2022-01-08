@@ -1,4 +1,4 @@
-import { runCommand } from '@ethang-one/util-typescript';
+import { runCommand } from '@ethang-one/util-cli';
 import inquirer, { Separator } from 'inquirer';
 import { execSync } from 'node:child_process';
 
