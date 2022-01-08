@@ -28,12 +28,14 @@ export const ProductHuntLayout = (): JSX.Element => {
     };
 
     fetch('https://api.producthunt.com/v2/api/graphql', requestOptions)
-      .then(async response => response.text())
+      .then(async response => {
+        return response.text();
+      })
       .then(result => {
         setData(JSON.parse(result).data);
       })
       .catch(error => {
-        console.log('error', error);
+        console.error('error', error);
       });
   }, []);
 
@@ -45,24 +47,28 @@ export const ProductHuntLayout = (): JSX.Element => {
     return (
       <Container>
         <HeadTag title="Product Hunt"/>
-        <div className={styles.ProductHuntContainer}>
-          {data.posts.edges.map(post => (
-            <div key={post.node.id}>
-              <div className={styles.ProductHuntTitle}>{post.node.name}</div>
-              <div>{post.node.description}</div>
-              <div className={styles.Links}>
-                {post.node.productLinks.map(productLink => (
-                  <div key={productLink.url}><LinkComponent
-                    content={productLink.type} href={productLink.url}/>&emsp;
-                  </div>
-                ))}
+        <div className={styles.ProductHuntContainer as string}>
+          {data.posts.edges.map(post => {
+            return (
+              <div key={post.node.id}>
+                <div className={styles.ProductHuntTitle as string}>{post.node.name}</div>
+                <div>{post.node.description}</div>
+                <div className={styles.Links as string}>
+                  {post.node.productLinks.map(productLink => {
+                    return (
+                      <div key={productLink.url}><LinkComponent
+                        content={productLink.type} href={productLink.url}/>&emsp;
+                      </div>
+                    );
+                  })}
+                </div>
+                <div>{typeof post.node.media[0].videoUrl === 'string'
+                  ? <YouTubeEmbed id={getYouTubeID(post.node.media[0].videoUrl)} title={post.node.name}/>
+                  : <img style={{paddingTop: '1rem'}} src={post.node.media[0].url} alt={post.node.name}/>}
+                </div>
               </div>
-              <div>{typeof post.node.media[0].videoUrl === 'string'
-                ? <YouTubeEmbed id={getYouTubeID(post.node.media[0].videoUrl)} title={post.node.name}/>
-                : <img style={{paddingTop: '1rem'}} src={post.node.media[0].url} alt={post.node.name}/>}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     );

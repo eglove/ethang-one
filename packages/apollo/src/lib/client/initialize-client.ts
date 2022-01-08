@@ -40,7 +40,9 @@ export class ApolloClientInit {
   }
 
   private readonly setAuthLink = (): void => {
-    this.authLink = new ApolloLink((operation, forward) => forward(operation));
+    this.authLink = new ApolloLink((operation, forward) => {
+      return forward(operation);
+    });
   };
 
   private readonly setCache = (): void => {
@@ -65,7 +67,7 @@ export class ApolloClientInit {
       }
 
       if (networkError) {
-        console.log(
+        console.error(
           `[Network error]: ${networkError.name}: ${networkError.message}`,
         );
       }

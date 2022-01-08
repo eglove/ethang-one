@@ -40,8 +40,6 @@ export class HermitStream {
   }
 
   getHermitStreams = async (): Promise<void> => {
-    console.log(process.env.NX_TWICH_AUTHORIZATION, process.env.NX_TWITCH_CLIENT_ID);
-
     const responses = await Promise.all(
       this.urls.map(async url => {
         return fetch(url, {
