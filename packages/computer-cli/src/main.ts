@@ -6,7 +6,7 @@ import { repoUpdate } from './app/commands/morning-scripts/repo-update';
 import { ubuntuUpdate } from './app/commands/morning-scripts/ubuntu-update';
 import { windowsUpdate } from './app/commands/morning-scripts/windows-update';
 
-async function startServer(): Promise<void> {
+async function start(): Promise<void> {
   // Sync
   windowsUpdate();
 
@@ -25,6 +25,6 @@ async function startServer(): Promise<void> {
   openLinks();
 }
 
-startServer().catch((error: Error) => {
+start().catch((error: Error) => {
   console.error(`Your server did an oopsie. ${error.message}`);
 });

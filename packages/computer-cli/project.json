@@ -1,16 +1,16 @@
 {
-  "root": "packages/computer-server",
-  "sourceRoot": "packages/computer-server/src",
+  "root": "packages/computer-cli",
+  "sourceRoot": "packages/computer-cli/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nrwl/node:build",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/computer-server",
-        "main": "packages/computer-server/src/main.ts",
-        "tsConfig": "packages/computer-server/tsconfig.app.json",
-        "assets": ["packages/computer-server/src/assets"]
+        "outputPath": "dist/packages/computer-cli",
+        "main": "packages/computer-cli/src/main.ts",
+        "tsConfig": "packages/computer-cli/tsconfig.app.json",
+        "assets": ["packages/computer-cli/src/assets"]
       },
       "configurations": {
         "production": {
@@ -19,8 +19,8 @@
           "inspect": false,
           "fileReplacements": [
             {
-              "replace": "packages/computer-server/src/environments/environment.ts",
-              "with": "packages/computer-server/src/environments/environment.prod.ts"
+              "replace": "packages/computer-cli/src/environments/environment.ts",
+              "with": "packages/computer-cli/src/environments/environment.prod.ts"
             }
           ]
         }
@@ -29,21 +29,21 @@
     "serve": {
       "executor": "@nrwl/node:execute",
       "options": {
-        "buildTarget": "computer-server:build"
+        "buildTarget": "computer-cli:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/computer-server/**/*.ts"]
+        "lintFilePatterns": ["packages/computer-cli/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/computer-server"],
+      "outputs": ["coverage/packages/computer-cli"],
       "options": {
-        "jestConfig": "packages/computer-server/jest.config.js",
+        "jestConfig": "packages/computer-cli/jest.config.js",
         "passWithNoTests": true
       }
     }
