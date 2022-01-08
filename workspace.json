@@ -5,6 +5,7 @@
     "computer-cli": "packages/computer-cli",
     "ethang-one": "packages/ethang-one",
     "react-components": "packages/react-components",
+    "react-hooks": "packages/react-hooks",
     "util-typescript": "packages/util-typescript",
     "util_wasm": "packages/util-wasm",
     "web-components": "packages/web-components",
