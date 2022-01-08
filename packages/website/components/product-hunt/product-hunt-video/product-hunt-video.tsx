@@ -6,7 +6,5 @@ interface ProductHuntVideoProperties {
 }
 
 export const ProductHuntVideo = ({videoTitle, videoUrl}: ProductHuntVideoProperties): JSX.Element => {
-  console.log('hi');
-
   return <YouTubeEmbed id={videoTitle} title={videoUrl}/>;
 };

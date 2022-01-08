@@ -46,16 +46,16 @@ const startServer = async (): Promise<void> => {
 
   server
     .listen(isDevelopment ? '4000' : '80', async () => {
-      console.log(
+      console.info(
         `🚀 GraphQL server is running on http://localhost:${'4000'}/graphql`,
       );
     })
     .catch((error: Error) => {
-      console.log(error);
+      console.error(error);
     });
 };
 
 startServer().catch((error: Error) => {
-  console.log(error);
+  console.error(error);
 });
 
