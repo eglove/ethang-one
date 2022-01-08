@@ -1,27 +1,33 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 
-export const useLocalStorage = (
+export const useLocalStorage = <ValueType>(
   key: string,
-  initialValue: string
-): [any, (value: any) => void] => {
-  const [storedValue, setStoredValue] = useState<unknown>(() => {
-    const item = window.localStorage.getItem(key);
+  defaultValue: ValueType | (() => ValueType),
+  { serialize = JSON.stringify, deserialize = JSON.parse } = {}
+): [ValueType, Dispatch<SetStateAction<ValueType>>] => {
+  const [state, setState] = useState<ValueType>(() => {
+    const valueInLocalStorage = window.localStorage.getItem(key);
 
-    if (item === null) {
-      return initialValue;
+    if (valueInLocalStorage === null) {
+      return defaultValue instanceof Function ? defaultValue() : defaultValue;
     }
 
-    try {
-      return JSON.parse(item) as JSON;
-    } catch {
-      return item;
-    }
+    return deserialize(valueInLocalStorage) as ValueType;
   });
 
-  const setValue = (value: unknown): void => {
-    setStoredValue(value);
-    window.localStorage.setItem(key, JSON.stringify(value));
-  };
+  const previousKeyReference = useRef(key);
 
-  return [storedValue, setValue];
+  useEffect(() => {
+    const previousKey = previousKeyReference.current;
+
+    if (previousKey !== key) {
+      window.localStorage.removeItem(key);
+    }
+
+    previousKeyReference.current = key;
+
+    window.localStorage.setItem(key, serialize(key));
+  }, [key, serialize, state]);
+
+  return [state, setState];
 };
