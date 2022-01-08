@@ -1,5 +1,7 @@
 import { execSyncCommand } from '@ethang-one/util-typescript';
 
+import { Shell } from '../../constants';
+
 const morningLinks = [
   'https://mail.google.com/chat/u/1/#chat',
   'https://mail.google.com/mail/u/1/#inbox',
@@ -27,6 +29,6 @@ export const openLinks = (): void => {
   }
 
   for (const link of linksToOpen) {
-    execSyncCommand(`Start-Process Chrome ${link}`, 'pwsh');
+    execSyncCommand(`Start-Process Chrome ${link}`, Shell.pwsh);
   }
 };

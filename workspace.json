@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "apollo": "packages/apollo",
+    "computer-server": "packages/computer-server",
     "ethang-one": "packages/ethang-one",
     "react-components": "packages/react-components",
     "util-typescript": "packages/util-typescript",

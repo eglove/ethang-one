@@ -1,5 +1,7 @@
 import { runCommand } from '@ethang-one/util-typescript';
 
+import { Shell } from '../../constants';
+
 export const clearDocker = async (): Promise<void> => {
   runCommand(
     [
@@ -9,6 +11,6 @@ export const clearDocker = async (): Promise<void> => {
       'docker rmi $(docker images -a -q) -f',
       'docker system prune -a -f',
     ],
-    'pwsh'
+    Shell.pwsh
   );
 };
