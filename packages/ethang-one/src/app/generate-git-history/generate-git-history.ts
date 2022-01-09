@@ -18,7 +18,7 @@ export const generateGitHistory = (): void => {
     const formattedDate = humanReadableLocalDateTime(date);
 
     execSyncCommand(
-      `echo "The GitHub contribution graph is a lie." > fake-history.txt`
+      `echo "The GitHub contribution graph is a lie. ${formattedDate}" > fake-history.txt`
     );
     execSyncCommand('git add fake-history.txt');
     execSyncCommand(
