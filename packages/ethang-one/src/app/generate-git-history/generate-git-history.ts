@@ -1,4 +1,4 @@
-import { runCommand } from '@ethang-one/util-cli';
+import { execSyncCommand } from '@ethang-one/util-cli';
 import {
   addDays,
   arrayOfDaysBetweenDays,
@@ -17,10 +17,12 @@ export const generateGitHistory = (): void => {
   for (const date of commitList) {
     const formattedDate = humanReadableLocalDateTime(date);
 
-    runCommand([
-      `echo "${formattedDate}" > fake-history.txt`,
-      'git add fake-history.txt',
-      `git commit --quiet --date "${formattedDate}" -m "fake commit" --no-verify`,
-    ]);
+    execSyncCommand(
+      `echo "The GitHub contribution graph is a lie." > fake-history.txt`
+    );
+    execSyncCommand('git add fake-history.txt');
+    execSyncCommand(
+      `git commit --quiet --date "${formattedDate}" -m "fake commit" --no-verify`
+    );
   }
 };
