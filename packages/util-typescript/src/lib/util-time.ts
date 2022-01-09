@@ -3,21 +3,46 @@ export type DateObjectArgumentTypes = Date | string | number;
 
 export const addDays = (
   date: DateObjectArgumentTypes,
-  daystoAdd: number,
+  daysToAdd: number
 ): Date => {
   const newDate = new Date(date);
-  newDate.setDate(newDate.getDate() + daystoAdd);
+  newDate.setDate(newDate.getDate() + daysToAdd);
   return newDate;
+};
+
+interface IArrayOfDaysBetweenDays {
+  endDate: string | number | Date;
+  skip?: number;
+  startDate: string | number | Date;
+}
+export const arrayOfDaysBetweenDays = ({
+  endDate,
+  skip = 1,
+  startDate,
+}: IArrayOfDaysBetweenDays): Date[] => {
+  const start = toDateObject(startDate);
+  const end = toDateObject(endDate);
+  const dateList = [];
+  let currentDate = start;
+
+  while (currentDate.valueOf() <= end.valueOf()) {
+    dateList.push(currentDate);
+    currentDate = addDays(currentDate, skip);
+  }
+
+  return dateList;
 };
 
 export const convertTimeZone = (
   date: Date | string,
-  tzString: string = new Intl.DateTimeFormat().resolvedOptions().timeZone,
-): Date => new Date(
-  (typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', {
-    timeZone: tzString,
-  }),
-);
+  tzString: string = new Intl.DateTimeFormat().resolvedOptions().timeZone
+): Date => {
+  return new Date(
+    (typeof date === 'string' ? new Date(date) : date).toLocaleString('en-US', {
+      timeZone: tzString,
+    })
+  );
+};
 
 export const getNearestDate = (dateArray: Date[] | string[]): Date => {
   const now = new Date();
@@ -30,8 +55,8 @@ export const getNearestDate = (dateArray: Date[] | string[]): Date => {
     }
 
     if (
-      (now > newDate && now.getTime() - newDate.getTime() < nearestDate)
-      || (now < newDate && newDate.getTime() - now.getTime() < nearestDate)
+      (now > newDate && now.getTime() - newDate.getTime() < nearestDate) ||
+      (now < newDate && newDate.getTime() - now.getTime() < nearestDate)
     ) {
       nearestDate = newDate.getTime();
     }
@@ -42,7 +67,7 @@ export const getNearestDate = (dateArray: Date[] | string[]): Date => {
 
 export const dayStartEnd = (
   date: Date | string | number,
-  startOrEnd: 'start' | 'end',
+  startOrEnd: 'start' | 'end'
 ): Date => {
   if (startOrEnd === 'start') {
     const startTime = new Date(date);
@@ -59,20 +84,20 @@ export const dayStartEnd = (
 
 // Default format needed for HTML input forms
 export const defaultDateTimeInputFormat = (
-  date: Date | number | string,
+  date: Date | number | string
 ): string => {
   const newDate = new Date(date);
 
-  const month
-    = newDate.getMonth() + 1 < 10
+  const month =
+    newDate.getMonth() + 1 < 10
       ? `0${newDate.getMonth() + 1}`
       : newDate.getMonth() + 1;
-  const dateDay
-    = newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
-  const hours
-    = newDate.getHours() < 10 ? `0${newDate.getHours()}` : newDate.getHours();
-  const minutes
-    = newDate.getMinutes() < 10
+  const dateDay =
+    newDate.getDate() < 10 ? `0${newDate.getDate()}` : newDate.getDate();
+  const hours =
+    newDate.getHours() < 10 ? `0${newDate.getHours()}` : newDate.getHours();
+  const minutes =
+    newDate.getMinutes() < 10
       ? `0${newDate.getMinutes()}`
       : newDate.getMinutes();
 
@@ -93,18 +118,27 @@ export const humanReadableLocalDateTime = (dateTime: Date | string): string => {
   // @ts-expect-error Option values are correct
   // eslint-disable-next-line new-cap
   return Intl.DateTimeFormat('en-US', options).format(
-    convertTimeZone(dateTime),
+    convertTimeZone(dateTime)
   );
+};
+
+export const toDateObject = (date: DateObjectArgumentTypes): Date => {
+  if (typeof date === 'string' || typeof date === 'number') {
+    return new Date(date);
+  }
+
+  return date;
 };
 
 export const animationInterval = (
   ms: number,
   signal: AbortSignal,
-  callback: IntervalCallback,
+  callback: IntervalCallback
 ): void => {
-  const start = typeof document.timeline === 'undefined'
-    ? performance.now()
-    : document.timeline.currentTime;
+  const start =
+    typeof document.timeline === 'undefined'
+      ? performance.now()
+      : document.timeline.currentTime;
 
   const frame = (time: number): void => {
     if (signal.aborted) {
@@ -121,7 +155,9 @@ export const animationInterval = (
       const roundedElapsed = Math.round(elapsed / ms) * ms;
       const targetNext = start + roundedElapsed + ms;
       const delay = targetNext - performance.now();
-      setTimeout(() => requestAnimationFrame(frame), delay);
+      setTimeout(() => {
+        return requestAnimationFrame(frame);
+      }, delay);
     }
   };
 
