@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-import inquirer, {Separator} from 'inquirer';
+import inquirer, { Separator } from 'inquirer';
 
-import {nodeDependencies} from './app/node-dependencies/node-dependencies';
-import {prismaBuild} from './app/prisma-build/prisma-build';
-import {buildOrRunProjects} from './app/project-management/build-or-run-projects';
-import {projectManagement} from './app/project-management/project-management';
-import {projectsManagement} from './app/projects-management/projects-management';
+import { generateGitHistory } from './app/generate-git-history/generate-git-history';
+import { nodeDependencies } from './app/node-dependencies/node-dependencies';
+import { prismaBuild } from './app/prisma-build/prisma-build';
+import { buildOrRunProjects } from './app/project-management/build-or-run-projects';
+import { projectManagement } from './app/project-management/project-management';
+import { projectsManagement } from './app/projects-management/projects-management';
 
 export const packageManager = 'npx pnpm';
 export const packageManagerInstallAll = `${packageManager} i`;
@@ -15,6 +16,7 @@ export const packageManagerRemove = `${packageManager} remove`;
 enum Option {
   exit = 'Exit',
   buildOrRunProjectCommand = 'Build or Run Project(s)',
+  generateHistory = 'Generate Git History',
   projectManagementCommand = 'Project Generate (New Component, New Page, etc.)',
   nodeDependenciesCommand = 'Manage NPM dependencies.',
   projectsManagementCommand = 'Manage Project List (Create New, Remove)',
@@ -22,16 +24,17 @@ enum Option {
 }
 
 async function runEthanGOne(): Promise<void> {
-  const {option} = await inquirer.prompt<{option: Option}>([
+  const { option } = await inquirer.prompt<{ option: Option }>([
     {
       choices: [
-        {name: Option.buildOrRunProjectCommand},
-        {name: Option.projectManagementCommand},
-        {name: Option.nodeDependenciesCommand},
-        {name: Option.projectsManagementCommand},
-        {name: Option.prismaBuild},
+        { name: Option.buildOrRunProjectCommand },
+        { name: Option.projectManagementCommand },
+        { name: Option.nodeDependenciesCommand },
+        { name: Option.projectsManagementCommand },
+        { name: Option.prismaBuild },
+        { name: Option.generateHistory },
         new Separator(),
-        {name: Option.exit},
+        { name: Option.exit },
       ],
       message: 'Choose an option:',
       name: 'option',
@@ -62,6 +65,11 @@ async function runEthanGOne(): Promise<void> {
 
     case Option.prismaBuild: {
       prismaBuild();
+      break;
+    }
+
+    case Option.generateHistory: {
+      generateGitHistory();
       break;
     }
 
