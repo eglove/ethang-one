@@ -20,7 +20,7 @@ export const generateGitHistory = (): void => {
     runCommand([
       `echo "${formattedDate}" > fake-history.txt`,
       'git add fake-history.txt',
-      `git commit --quiet --date "${date.valueOf()}" -m "fake commit"`,
+      `git commit --quiet --date "${date.valueOf()}" -m "fake commit" --no-verify`,
     ]);
   }
 };
