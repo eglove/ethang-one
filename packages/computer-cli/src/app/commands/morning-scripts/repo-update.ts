@@ -15,7 +15,7 @@ export const repoUpdate = (): void => {
 
   const commitMessage = `Automatic Update: ${new Date().toISOString()}`;
   runCommand(
-    ['git add .', `git commit -m ${commitMessage}`, 'git push'],
+    ['git add .', `git commit -m "${commitMessage}"`, 'git push'],
     Shell.pwsh
   );
 };
