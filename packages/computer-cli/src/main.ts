@@ -4,12 +4,8 @@ import { repoUpdate } from './app/commands/morning-scripts/repo-update';
 import { ubuntuUpdate } from './app/commands/morning-scripts/ubuntu-update';
 
 async function start(): Promise<void> {
-  // Async
-  Promise.all([chocolateyUpdate(), ubuntuUpdate()]).catch((error: Error) => {
-    console.error(error);
-  });
-
-  // Sync
+  chocolateyUpdate();
+  ubuntuUpdate();
   repoUpdate();
   openLinks();
 }

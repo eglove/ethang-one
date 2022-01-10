@@ -2,7 +2,7 @@ import { runCommand } from '@ethang-one/util-cli';
 
 import { Shell } from '../../constants';
 
-export const ubuntuUpdate = async (): Promise<void> => {
+export const ubuntuUpdate = (): void => {
   const password = process.env.WSL_PASSWORD;
 
   if (typeof password === 'string') {
