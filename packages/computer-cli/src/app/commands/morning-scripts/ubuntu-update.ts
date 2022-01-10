@@ -3,7 +3,7 @@ import { runCommand } from '@ethang-one/util-cli';
 import { Shell } from '../../constants';
 
 export const ubuntuUpdate = (): void => {
-  const password = process.env.WSL_PASSWORD;
+  const password = process.env.NX_WSL_PASSWORD;
 
   if (typeof password === 'string') {
     runCommand(
