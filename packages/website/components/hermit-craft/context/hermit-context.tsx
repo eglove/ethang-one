@@ -1,13 +1,17 @@
-import {createContext, Dispatch, useContext} from 'react';
-import {useImmerReducer} from 'use-immer';
+import { createContext, Dispatch, useContext } from 'react';
+import { useImmerReducer } from 'use-immer';
 
-import {HermitAction, hermitReducer, HermitState} from './hermit-reducer';
+import {
+  HermitAction,
+  hermitReducer,
+  HermitStateProperties,
+} from './hermit-reducer';
 
 interface HermitContextWrapperProperties {
   children: JSX.Element | JSX.Element[];
 }
 
-export const HermitStateContext = createContext<HermitState>({});
+export const HermitStateContext = createContext<HermitStateProperties>({});
 HermitStateContext.displayName = 'HermitState';
 
 // @ts-expect-error Default will be set by immer
@@ -28,11 +32,10 @@ export const HermitContextWrapper = ({
   );
 };
 
-export const useHermitStateContext = (): HermitState => {
+export const useHermitStateContext = (): HermitStateProperties => {
   return useContext(HermitStateContext);
 };
 
 export const useHermitDispatchContext = (): Dispatch<HermitAction> => {
   return useContext(HermitDispatchContext);
 };
-
