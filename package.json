@@ -65,7 +65,7 @@
     "@graphql-codegen/typescript": "^2.4.2",
     "@next/eslint-plugin-next": "^12.0.7",
     "@nrwl/angular": "13.4.3",
-    "@nrwl/cli": "13.4.3",
+    "@nrwl/cli": "13.4.4",
     "@nrwl/cypress": "13.4.3",
     "@nrwl/devkit": "13.4.3",
     "@nrwl/eslint-plugin-nx": "13.4.3",
