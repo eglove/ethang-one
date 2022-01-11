@@ -23,9 +23,6 @@ export const hermitReducer = (
   action: HermitAction
 ): void => {
   const newState = new HermitState(draft);
-  for (const key of Object.keys(draft)) {
-    newState[key] = draft[key] as unknown;
-  }
 
   const hermitStateMethods = Object.getOwnPropertyNames(HermitState.prototype);
 
