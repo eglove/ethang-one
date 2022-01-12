@@ -77,6 +77,24 @@ jobs:
         with:
           args: --severity-threshold=low
 
+  snykSarif:
+    needs: [ browsersUpdate ]
+    name: Snyk Sarif
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: snyk.sarif
+
   sonar:
     needs: [ browsersUpdate ]
     name: Sonar Analysis
