@@ -8,7 +8,7 @@ export const repoUpdate = (): void => {
 
   if (isGitStatusClean) {
     execSyncCommand(
-      `Add-Content -Path ${PROJECT_ROOT}/src/assets/the-graph.txt The GitHub contribution graph is a lie.`,
+      `Add-Content -Path ${PROJECT_ROOT}/src/assets/the-graph.txt "The GitHub contribution graph is a lie."`,
       Shell.pwsh
     );
   }
