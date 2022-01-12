@@ -21,7 +21,7 @@ jobs:
             ${{ runner.os }}-
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.11.0
+          version: latest
           run_install: true
       - name: Update Browsers List
         run: pnpm browserslist --update-db
@@ -68,7 +68,7 @@ jobs:
             ${{ runner.os }}-
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.11.0
+          version: latest
           run_install: true
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
@@ -83,6 +83,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Cache PNPM modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: latest
+          run_install: true
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         continue-on-error: true
