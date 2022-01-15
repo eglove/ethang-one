@@ -1,4 +1,4 @@
-import { LiveReload } from 'remix';
+import { LiveReload, Outlet } from 'remix';
 
 const App = (): JSX.Element => {
   return (
@@ -8,7 +8,7 @@ const App = (): JSX.Element => {
         <title>Remix: So great, it&apos;s funny!</title>
       </head>
       <body>
-        Hello world
+        <Outlet />
         {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
       </body>
     </html>
