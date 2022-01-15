@@ -3,7 +3,7 @@ import { json, Link, useActionData, useSearchParams } from 'remix';
 
 import stylesUrl from '../styles/login.css';
 import { db as database } from '../utils/db.server';
-import { createUserSession, login } from '../utils/session.server';
+import { createUserSession, login, register } from '../utils/session.server';
 
 export const links: LinksFunction = () => {
   return [{ href: stylesUrl, rel: 'stylesheet' }];
@@ -89,12 +89,9 @@ export const action: ActionFunction = async ({ request }) => {
         });
       }
 
-      // create the user
-      // create their session and redirect to /jokes
-      return badRequest({
-        fields,
-        formError: 'Not implemented',
-      });
+      const user = await register({ password, username });
+
+      return createUserSession(user.id, `jokes/${redirectTo}`);
     }
 
     default: {
