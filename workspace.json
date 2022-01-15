@@ -6,6 +6,7 @@
     "ethang-one": "packages/ethang-one",
     "react-components": "packages/react-components",
     "react-hooks": "packages/react-hooks",
+    "remix-jokes": "packages/remix-jokes",
     "util-cli": "packages/util-cli",
     "util-typescript": "packages/util-typescript",
     "util_wasm": "packages/util-wasm",

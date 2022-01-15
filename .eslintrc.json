@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["*.d.ts"],
+  "ignorePatterns": ["*.d.ts", "packages/**/build", "packages/**/.cache"],
   "overrides": [
     {
       "files": [
@@ -30,7 +30,7 @@
         "project": "./tsconfig.base.json"
       },
       "rules": {
-        "@next/next/no-html-link-for-pages": ["error", "/packages/webiste/pages/"],
+        "@next/next/no-html-link-for-pages": ["error", "/packages/website/pages/"],
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/explicit-function-return-type": [
           "error"
