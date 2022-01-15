@@ -4,6 +4,7 @@ import { Joke } from '@prisma/client';
 import { useLoaderData } from '@remix-run/react';
 import {
   ActionFunction,
+  Form,
   Link,
   LoaderFunction,
   MetaFunction,
@@ -135,12 +136,12 @@ const JokeId = (): JSX.Element => {
       <p>{data.joke.content}</p>
       <Link to=".">{data.joke.name} Permalink</Link>
       {data.isOwner ? (
-        <form method="post">
+        <Form method="post">
           <input type="hidden" name="_method" value="delete" />
           <button type="submit" className="button">
             Delete
           </button>
-        </form>
+        </Form>
       ) : null}
     </div>
   );
