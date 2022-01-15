@@ -1,7 +1,24 @@
-import { ActionFunction, redirect, useActionData } from 'remix';
+import {
+  ActionFunction,
+  Link,
+  LoaderFunction,
+  redirect,
+  useActionData,
+  useCatch,
+} from 'remix';
 
 import { db as database } from '../../utils/db.server';
-import { requireUserId } from '../../utils/session.server';
+import { getUserId, requireUserId } from '../../utils/session.server';
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const userId = await getUserId(request);
+  if (typeof userId !== 'string') {
+    // eslint-disable-next-line @typescript-eslint/no-throw-literal
+    throw new Response('Unauthorized', { status: 401 });
+  }
+
+  return {};
+};
 
 const validateJokeName = (name: string): string | undefined => {
   if (name.length < 3) {
@@ -12,6 +29,19 @@ const validateJokeName = (name: string): string | undefined => {
 const validateJokeContent = (content: string): string | undefined => {
   if (content.length < 10) {
     return 'Joke content must be at least 10 characters long.';
+  }
+};
+
+export const CatchBoundary = (): JSX.Element | undefined => {
+  const caught = useCatch();
+
+  if (caught.status === 401) {
+    return (
+      <div className="error-container">
+        <p>You must be logged in to create a joke.</p>
+        <Link to="/login">Login</Link>
+      </div>
+    );
   }
 };
 

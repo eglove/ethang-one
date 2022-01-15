@@ -1,4 +1,4 @@
-import { Links, LinksFunction, LiveReload, Outlet } from 'remix';
+import { Links, LinksFunction, LiveReload, Outlet, useCatch } from 'remix';
 
 import globalStylesUrl from './styles/global.css';
 import globalLargeStylesUrl from './styles/global-large.css';
@@ -21,6 +21,20 @@ export const links: LinksFunction = () => {
       rel: 'stylesheet',
     },
   ];
+};
+
+export const CatchBoundary = (): JSX.Element => {
+  const caught = useCatch();
+
+  return (
+    <Document title={`${caught.status} ${caught.statusText}`}>
+      <div className="error-container">
+        <h1>
+          {caught.status} {caught.statusText}
+        </h1>
+      </div>
+    </Document>
+  );
 };
 
 export const ErrorBoundary = ({ error }: { error: Error }): JSX.Element => {
