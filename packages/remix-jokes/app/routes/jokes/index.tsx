@@ -16,6 +16,10 @@ export const loader: LoaderFunction = async (): Promise<Joke> => {
   return jokes[0];
 };
 
+export const ErrorBoundary = (): JSX.Element => {
+  return <div className="error-container">I did a whoopsies.</div>;
+};
+
 const JokesIndex = (): JSX.Element => {
   const data = useLoaderData<Joke>();
 

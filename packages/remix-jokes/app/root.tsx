@@ -23,19 +23,44 @@ export const links: LinksFunction = () => {
   ];
 };
 
-const App = (): JSX.Element => {
+export const ErrorBoundary = ({ error }: { error: Error }): JSX.Element => {
+  return (
+    <Document>
+      <div className="error-container">
+        <h1>Something went wrong!</h1>
+        <p>{error.message}</p>
+      </div>
+    </Document>
+  );
+};
+
+export const Document = ({
+  children,
+  title = `Remix: So great, it's funny!`,
+}: {
+  children: JSX.Element;
+  title?: string;
+}): JSX.Element => {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <title>Remix: So great, it&apos;s funny!</title>
+        <title>{title}</title>
         <Links />
       </head>
       <body>
-        <Outlet />
+        {children}
         {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
       </body>
     </html>
+  );
+};
+
+const App = (): JSX.Element => {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
   );
 };
 

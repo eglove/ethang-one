@@ -15,6 +15,14 @@ const validateJokeContent = (content: string): string | undefined => {
   }
 };
 
+export const ErrorBoundary = (): JSX.Element => {
+  return (
+    <div className="error-container">
+      Something unexpected went wrong. Sorry about that.
+    </div>
+  );
+};
+
 type ActionResponse = {
   fieldErrors?: {
     content?: string;

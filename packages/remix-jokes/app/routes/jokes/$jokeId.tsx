@@ -2,7 +2,7 @@
 
 import { Joke } from '@prisma/client';
 import { useLoaderData } from '@remix-run/react';
-import { LoaderFunction } from 'remix';
+import { LoaderFunction, useParams } from 'remix';
 
 import { db as database } from '../../utils/db.server';
 
@@ -23,6 +23,15 @@ export const loader: LoaderFunction = async ({
   }
 
   return joke;
+};
+
+export const ErrorBoundary = (): JSX.Element => {
+  const { jokeId } = useParams();
+  return (
+    <div className="error-container">{`There was an error loading joke by the id ${
+      jokeId ?? 'unknown'
+    }. Sorry.`}</div>
+  );
 };
 
 const JokeId = (): JSX.Element => {
