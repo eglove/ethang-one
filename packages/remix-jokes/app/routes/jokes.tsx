@@ -1,6 +1,9 @@
-import { Link, LinksFunction, Outlet } from 'remix';
+import { Joke } from '@prisma/client';
+import { useLoaderData } from '@remix-run/react';
+import { Link, LinksFunction, LoaderFunction, Outlet } from 'remix';
 
 import stylesUrl from '../styles/jokes.css';
+import { db as database } from '../utils/db.server';
 
 export const links: LinksFunction = () => {
   return [
@@ -11,7 +14,22 @@ export const links: LinksFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = async (): Promise<
+  Array<Pick<Joke, 'id' | 'name'>>
+> => {
+  return database.joke.findMany({
+    orderBy: { createdAt: 'desc' },
+    select: {
+      id: true,
+      name: true,
+    },
+    take: 5,
+  });
+};
+
 const Jokes = (): JSX.Element => {
+  const data = useLoaderData<Array<Pick<Joke, 'id' | 'name'>>>();
+
   return (
     <div className="jokes-layout">
       <header className="jokes-header">
@@ -30,9 +48,13 @@ const Jokes = (): JSX.Element => {
             <Link to=".">Get a random joke</Link>
             <p>Here are a few more jokes to check out:</p>
             <ul>
-              <li>
-                <Link to="some-joke-id">Hippo</Link>
-              </li>
+              {data.map(joke => {
+                return (
+                  <li key={joke.id}>
+                    <Link to={joke.id}>{joke.name}</Link>
+                  </li>
+                );
+              })}
             </ul>
             <Link to="new" className="button">
               Add your own

@@ -1,8 +1,29 @@
+import { Joke } from '@prisma/client';
+import { useLoaderData } from '@remix-run/react';
+import { Link, LoaderFunction } from 'remix';
+
+import { db as database } from '../../utils/db.server';
+
+export const loader: LoaderFunction = async (): Promise<Joke> => {
+  const count = await database.joke.count();
+  const randomRowNumber = Math.floor(Math.random() * count);
+
+  const jokes = await database.joke.findMany({
+    skip: randomRowNumber,
+    take: 1,
+  });
+
+  return jokes[0];
+};
+
 const JokesIndex = (): JSX.Element => {
+  const data = useLoaderData<Joke>();
+
   return (
     <div>
       <p>Here&apos;s a random joke:</p>
-      <p>I was wondering why the frisbee was getting bigger, then it hit me.</p>
+      <p>{data.content}</p>
+      <Link to={data.id}>&ldquo;{data.name}&rdquo; Permalink</Link>
     </div>
   );
 };
