@@ -37,9 +37,19 @@ const getJokes = (): Array<{ content: string; name: string }> => {
 };
 
 async function seed(): Promise<void> {
+  const kody = await database.user.create({
+    data: {
+      // this is a hashed version of "twixrox"
+      passwordHash:
+        '$2b$10$K7L1OJ45/4Y2nIvhRVpCe.FSmhDdWoXehVzJptJ/op0lSsvqNu/1u',
+      username: 'kody',
+    },
+  });
+
   await Promise.all(
     getJokes().map(joke => {
-      return database.joke.create({ data: joke });
+      const data = { jokesterId: kody.id, ...joke };
+      return database.joke.create({ data });
     })
   );
 }
