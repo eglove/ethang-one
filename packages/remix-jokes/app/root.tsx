@@ -1,4 +1,27 @@
-import { LiveReload, Outlet } from 'remix';
+import { Links, LinksFunction, LiveReload, Outlet } from 'remix';
+
+import globalStylesUrl from './styles/global.css';
+import globalLargeStylesUrl from './styles/global-large.css';
+import globalMediumStylesUrl from './styles/global-medium.css';
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      href: globalStylesUrl,
+      rel: 'stylesheet',
+    },
+    {
+      href: globalMediumStylesUrl,
+      media: 'print, (min-width: 640px)',
+      rel: 'stylesheet',
+    },
+    {
+      href: globalLargeStylesUrl,
+      media: 'screen and (min-width: 1024px)',
+      rel: 'stylesheet',
+    },
+  ];
+};
 
 const App = (): JSX.Element => {
   return (
@@ -6,6 +29,7 @@ const App = (): JSX.Element => {
       <head>
         <meta charSet="utf-8" />
         <title>Remix: So great, it&apos;s funny!</title>
+        <Links />
       </head>
       <body>
         <Outlet />

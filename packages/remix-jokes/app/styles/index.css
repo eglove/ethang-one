@@ -1,0 +1,75 @@
+/*
+ * when the user visits this page, this style will apply, when they leave, it
+ * will get unloaded, so don't worry so much about conflicting styles between
+ * pages!
+ */
+
+body {
+  background-image: var(--gradient-background);
+}
+
+.container {
+  min-height: inherit;
+}
+
+.container,
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+h1 {
+  margin: 0;
+  line-height: 0.5;
+  text-align: center;
+  text-shadow: 0 3px 0 rgb(0 0 0 / 75%);
+}
+
+h1 span {
+  display: block;
+  font-size: 4.5rem;
+  line-height: 1;
+  text-shadow: 0 0.2em 0.5em rgb(0 0 0 / 50%), 0 5px 0
+  rgb(0 0 0 / 75%);
+  text-transform: uppercase;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  line-height: 1;
+  list-style: none;
+}
+
+nav ul a:hover, nav ul a:focus {
+  text-decoration-thickness: 1px;
+  text-decoration-style: wavy;
+}
+
+@media print, (min-width: 640px) {
+  h1 span {
+    font-size: 6rem;
+  }
+
+  nav ul {
+    gap: 1.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 span {
+    font-size: 8rem;
+  }
+}
