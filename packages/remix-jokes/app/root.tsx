@@ -1,4 +1,12 @@
-import { Links, LinksFunction, LiveReload, Outlet, useCatch } from 'remix';
+import {
+  Links,
+  LinksFunction,
+  LiveReload,
+  Meta,
+  MetaFunction,
+  Outlet,
+  useCatch,
+} from 'remix';
 
 import globalStylesUrl from './styles/global.css';
 import globalLargeStylesUrl from './styles/global-large.css';
@@ -48,6 +56,20 @@ export const ErrorBoundary = ({ error }: { error: Error }): JSX.Element => {
   );
 };
 
+export const meta: MetaFunction = () => {
+  const description = `Learn Remix and laugh at the same time!`;
+  return {
+    description,
+    keywords: 'Remix,jokes',
+    'twitter:card': 'summary_large_image',
+    'twitter:creator': '@remix_run',
+    'twitter:description': description,
+    'twitter:image': 'https://remix-jokes.lol/social.png',
+    'twitter:site': '@remix_run',
+    'twitter:title': 'Remix Jokes',
+  };
+};
+
 export const Document = ({
   children,
   title = `Remix: So great, it's funny!`,
@@ -59,6 +81,7 @@ export const Document = ({
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
+        <Meta />
         <title>{title}</title>
         <Links />
       </head>

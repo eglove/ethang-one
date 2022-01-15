@@ -6,6 +6,7 @@ import {
   ActionFunction,
   Link,
   LoaderFunction,
+  MetaFunction,
   redirect,
   useCatch,
   useParams,
@@ -18,6 +19,25 @@ type LoaderReturn = {
   isOwner: boolean;
   joke: Pick<Joke, 'content' | 'jokesterId' | 'name'>;
 };
+
+export const meta: MetaFunction = ({
+  data,
+}: {
+  data: LoaderReturn | undefined;
+}) => {
+  if (typeof data === 'undefined') {
+    return {
+      description: 'No joke found',
+      title: 'No joke',
+    };
+  }
+
+  return {
+    description: `Enjoy the "${data.joke.name}" joke and much more`,
+    title: `"${data.joke.name}" joke`,
+  };
+};
+
 export const loader: LoaderFunction = async ({
   request,
   params,
