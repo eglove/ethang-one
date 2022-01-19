@@ -84,7 +84,7 @@
     "@nrwl/remix": "^1.0.0-beta.8",
     "@nrwl/storybook": "13.4.5",
     "@nrwl/tao": "13.4.5",
-    "@nrwl/web": "13.4.5",
+    "@nrwl/web": "13.4.6",
     "@nrwl/workspace": "13.4.5",
     "@nxext/stencil": "^13.1.2",
     "@nxrs/cargo": "^0.3.2",
