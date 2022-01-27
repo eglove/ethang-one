@@ -1,15 +1,18 @@
-import {useEffect, useMemo} from 'react';
+import { useEffect, useMemo } from 'react';
 
-import {Container} from '../../../common/container/container';
-import {HermitStream} from '../../api/hermit-stream';
-import {useGetHermitStreams} from '../../api/use-get-hermit-streams';
-import {useHermitDispatchContext, useHermitStateContext} from '../../context/hermit-context';
-import {HermitActionEnum} from '../../context/hermit-reducer';
-import {HermitTwitchEmbed} from '../hermit-twitch-embed/hermit-twitch-embed';
-import {HermitsCurrentlyStreaming} from '../hermits-currently-streaming/hermits-currently-streaming';
+import { Container } from '../../../common/container/container';
+import { HermitStream } from '../../api/hermit-stream';
+import { useGetHermitStreams } from '../../api/use-get-hermit-streams';
+import {
+  useHermitDispatchContext,
+  useHermitStateContext,
+} from '../../context/hermit-context';
+import { HermitActionEnum } from '../../context/hermit-reducer';
+import { HermitTwitchEmbed } from '../hermit-twitch-embed/hermit-twitch-embed';
+import { HermitsCurrentlyStreaming } from '../hermits-currently-streaming/hermits-currently-streaming';
 
 export const HermitStreamHome = (): JSX.Element => {
-  const {availableStreams} = useHermitStateContext();
+  const { availableStreams } = useHermitStateContext();
   const hermitDispatch = useHermitDispatchContext();
   const hermitStream = useMemo(() => {
     return new HermitStream();
@@ -36,8 +39,8 @@ export const HermitStreamHome = (): JSX.Element => {
     return (
       <Container>
         <div>
-          <HermitTwitchEmbed/>
-          <HermitsCurrentlyStreaming/>
+          <HermitTwitchEmbed />
+          <HermitsCurrentlyStreaming />
         </div>
       </Container>
     );

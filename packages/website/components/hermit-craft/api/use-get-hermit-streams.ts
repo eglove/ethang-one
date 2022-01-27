@@ -1,9 +1,9 @@
-import {animationInterval} from '@ethang-one/util-typescript';
-import {useEffect} from 'react';
+import { animationInterval } from '@ethang-one/util-typescript';
+import { useEffect } from 'react';
 
-import {useHermitDispatchContext} from '../context/hermit-context';
-import {HermitActionEnum} from '../context/hermit-reducer';
-import {HermitStream} from './hermit-stream';
+import { useHermitDispatchContext } from '../context/hermit-context';
+import { HermitActionEnum } from '../context/hermit-reducer';
+import { HermitStream } from './hermit-stream';
 
 const NEW_HERMIT_INTERVAL = 60_000;
 
@@ -24,7 +24,7 @@ export const useGetHermitStreams = (hermitStream: HermitStream): void => {
 
       hermitDispatch({
         payload: hermitStream.availableStreams,
-        type: HermitActionEnum.setAvailableStreams,
+        type: HermitActionEnum.availableStreams,
       });
     };
 

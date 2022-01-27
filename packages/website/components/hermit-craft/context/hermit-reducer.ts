@@ -1,47 +1,49 @@
-import {DataEntity} from '../types/hermit-craft-types';
+import { DataEntity } from '../types/hermit-craft-types';
+import { HermitState } from './hermit-state';
 
-export type HermitState = {
+export interface HermitStateProperties {
   availableStreams?: DataEntity[];
   currentlyWatching?: string;
   notCurrentlyWatching?: DataEntity[];
-};
+}
 
 export enum HermitActionEnum {
-  setAvailableStreams = 'setAvailableStreams',
-  setHermitWatching = 'setHermitWatching',
+  availableStreams = 'availableStreams',
+  currentlyWatching = 'currentlyWatching',
   visitHermitHome = 'visitHermitHome',
 }
 
-export type HermitAction = {type: HermitActionEnum; payload?: unknown};
+export type HermitAction = {
+  type: HermitActionEnum;
+  payload?: unknown;
+};
 
-export const hermitReducer = (draft: HermitState, action: HermitAction): void => {
-  switch (action.type) {
-    case HermitActionEnum.visitHermitHome: {
-      const availableStreams = action.payload as DataEntity[];
+export const hermitReducer = (
+  draft: HermitStateProperties,
+  action: HermitAction
+): void => {
+  const newState = new HermitState(draft);
 
-      draft.availableStreams = availableStreams;
-      draft.currentlyWatching = availableStreams?.[0]?.id;
-      draft.notCurrentlyWatching = availableStreams && availableStreams.length > 0 ? availableStreams.filter(stream => {
-        return stream.id !== availableStreams[0].id;
-      }) : [];
-      return;
+  const hermitStateMethods = Object.getOwnPropertyNames(HermitState.prototype);
+
+  if (hermitStateMethods.includes(action.type)) {
+    const methodToCall = newState[action.type] as unknown;
+
+    if (typeof methodToCall === 'function') {
+      // @ts-expect-error If it's a function is callable.
+      newState[action.type](action.payload);
+    } else {
+      // @ts-expect-error If there's a payload, we're setting
+      newState[action.type] = action.payload;
     }
+  } else {
+    throw new Error(
+      `action.type should be one of ${hermitStateMethods.toString()}`
+    );
+  }
 
-    case HermitActionEnum.setAvailableStreams: {
-      draft.availableStreams = action.payload as DataEntity[];
-      return;
-    }
-
-    case HermitActionEnum.setHermitWatching: {
-      draft.currentlyWatching = action.payload as string;
-      draft.notCurrentlyWatching = draft.availableStreams?.filter(stream => {
-        return stream.id !== action.payload;
-      });
-      return;
-    }
-
-    default: {
-      throw new Error('action.type must be a typeof HermitActionEnum');
-    }
+  for (const key of Object.keys(newState)) {
+    const publicKey = key.slice(1);
+    draft[publicKey] = newState[publicKey] as unknown;
   }
 };

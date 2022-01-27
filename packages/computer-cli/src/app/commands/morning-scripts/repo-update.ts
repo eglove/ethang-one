@@ -8,14 +8,14 @@ export const repoUpdate = (): void => {
 
   if (isGitStatusClean) {
     execSyncCommand(
-      `Add-Content -Path ${PROJECT_ROOT}/src/assets/the-graph.txt The GitHub contribution graph is a lie.`,
+      `Add-Content -Path ${PROJECT_ROOT}/src/assets/the-graph.txt "The GitHub contribution graph is a lie."`,
       Shell.pwsh
     );
   }
 
   const commitMessage = `Automatic Update: ${new Date().toISOString()}`;
   runCommand(
-    ['git add .', `git commit -m ${commitMessage}`, 'git push'],
+    ['git add .', `git commit -m "${commitMessage}"`, 'git push'],
     Shell.pwsh
   );
 };

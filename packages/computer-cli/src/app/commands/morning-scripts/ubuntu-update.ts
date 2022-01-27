@@ -1,14 +1,11 @@
 import { runCommand } from '@ethang-one/util-cli';
 
 import { Shell } from '../../constants';
+import { ubuntuPassword } from '../../constants-ignored';
 
-export const ubuntuUpdate = async (): Promise<void> => {
-  const password = process.env.WSL_PASSWORD;
-
-  if (typeof password === 'string') {
-    runCommand(
-      `ubuntu run 'echo ${password} | sudo -S apt update && sudo apt upgrade -y && sudo apt autoremove -y'`,
-      Shell.pwsh
-    );
-  }
+export const ubuntuUpdate = (): void => {
+  runCommand(
+    `ubuntu run 'echo ${ubuntuPassword} | sudo -S apt update && sudo apt upgrade -y && sudo apt autoremove -y'`,
+    Shell.pwsh
+  );
 };

@@ -4,6 +4,7 @@
     "apollo": "packages/apollo",
     "computer-cli": "packages/computer-cli",
     "ethang-one": "packages/ethang-one",
+    "prisma-connection": "packages/prisma-connection",
     "react-components": "packages/react-components",
     "react-hooks": "packages/react-hooks",
     "util-cli": "packages/util-cli",

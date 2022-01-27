@@ -232,7 +232,7 @@ dist
 # public
 
 # vuepress build output
-.vuepress/dist
+.vuepressdist
 
 # Serverless directories
 .serverless/
@@ -341,3 +341,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/node,react,macos,windows,jetbrains,visualstudiocode,rust
+
+# Remix files
+apps/**/build
+apps/**/.cache
+packages/**/build
+packages/**/.cache

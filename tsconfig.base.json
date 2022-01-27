@@ -23,6 +23,9 @@
     "paths": {
       "@ethang-one/apollo": ["packages/apollo/src/index.ts"],
       "@ethang-one/environment": ["packages/environment/src/index.ts"],
+      "@ethang-one/prisma-connection": [
+        "packages/prisma-connection/src/index.ts"
+      ],
       "@ethang-one/react-components": [
         "packages/react-components/src/index.ts"
       ],

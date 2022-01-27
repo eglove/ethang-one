@@ -12,6 +12,7 @@ const financeLinks = [
   'https://www.paypal.com/',
   'https://smile.amazon.com/gp/css/order-history?ie=UTF8&ref_=nav_youraccount_orders&',
   'https://docs.google.com/spreadsheets/d/1NRRzw3Ok7my5xRIG6AKKoBadOK3Sca4ZoMg2vhKHxoA/edit',
+  'https://google.syf.com/login/',
   'https://themagnolia.residentportal.com/resident_portal',
   'https://www.ameren.com/',
   'https://www.chase.com/',

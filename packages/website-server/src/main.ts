@@ -1,15 +1,15 @@
 /* eslint-disable new-cap */
 import 'reflect-metadata';
 
-import {resolvers} from '@generated/type-graphql';
-import {PrismaClient} from '@prisma/client';
-import {ApolloServer} from 'apollo-server';
+import { resolvers } from '@generated/type-graphql';
+import { PrismaClient } from '@prisma/client';
+import { ApolloServer } from 'apollo-server';
 import {
   ApolloServerPluginInlineTrace,
   ApolloServerPluginLandingPageDisabled,
   ApolloServerPluginLandingPageLocalDefault,
 } from 'apollo-server-core';
-import {buildSchema} from 'type-graphql';
+import { buildSchema } from 'type-graphql';
 
 const isDevelopment = process.env.MODE === 'DEV';
 
@@ -23,7 +23,10 @@ const startServer = async (): Promise<void> => {
   });
 
   const plugins = isDevelopment
-    ? [ApolloServerPluginLandingPageLocalDefault(), ApolloServerPluginInlineTrace()]
+    ? [
+        ApolloServerPluginLandingPageLocalDefault(),
+        ApolloServerPluginInlineTrace(),
+      ]
     : [ApolloServerPluginLandingPageDisabled()];
 
   const schema = await buildSchema({
@@ -47,7 +50,7 @@ const startServer = async (): Promise<void> => {
   server
     .listen(isDevelopment ? '4000' : '80', async () => {
       console.info(
-        `🚀 GraphQL server is running on http://localhost:${'4000'}/graphql`,
+        `🚀 GraphQL server is running on http://localhost:${'4000'}/graphql`
       );
     })
     .catch((error: Error) => {
@@ -58,4 +61,3 @@ const startServer = async (): Promise<void> => {
 startServer().catch((error: Error) => {
   console.error(error);
 });
-
