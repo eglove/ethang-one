@@ -73,7 +73,7 @@
     "@nrwl/next": "13.6.1",
     "@nrwl/node": "13.6.1",
     "@nrwl/nx-cloud": "13.1.2",
-    "@nrwl/react": "13.6.1",
+    "@nrwl/react": "13.7.1",
     "@nrwl/storybook": "13.6.1",
     "@nrwl/tao": "13.6.1",
     "@nrwl/web": "13.6.1",
