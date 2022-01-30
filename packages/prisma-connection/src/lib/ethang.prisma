@@ -49,6 +49,20 @@ model Course {
   ratingUrl        String?
   School           School             @relation(fields: [schoolId], references: [id])
   CourseInstructor CourseInstructor[]
+  CourseUrl        CourseUrl[]
+}
+
+model CourseUrl {
+  id        String   @id @default(uuid()) @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  courseId  String   @db.Uuid
+  url       String   @unique
+  schoolId  String   @db.Uuid
+  Course    Course   @relation(fields: [courseId], references: [id])
+  School    School   @relation(fields: [schoolId], references: [id])
+
+  @@unique([courseId, url, schoolId])
 }
 
 model CourseInstructor {
@@ -119,15 +133,16 @@ model ProjectContributor {
 }
 
 model School {
-  id          String   @id @db.Uuid
-  createdAt   DateTime @default(now())
+  id          String      @id @db.Uuid
+  createdAt   DateTime    @default(now())
   updatedAt   DateTime
   name        String
-  url         String   @unique
+  url         String      @unique
   description String
-  imageId     String   @db.Uuid
-  Image       Image    @relation(fields: [imageId], references: [id])
+  imageId     String      @db.Uuid
+  Image       Image       @relation(fields: [imageId], references: [id])
   Course      Course[]
+  CourseUrl   CourseUrl[]
 }
 
 model TechnologyLogo {
