@@ -2,31 +2,15 @@ import '../../../styles/global.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'highlight.js/styles/github.css';
 
-import {ApolloProvider} from '@apollo/client';
-import {ApolloClientInit} from '@ethang-one/apollo';
-import {AppProps} from 'next/app';
+import { AppProps } from 'next/app';
 
-import {Page} from '../components/common/page/page';
-import {reactiveVariableFields} from '../graphql/reactive-variables';
+import { Page } from '../components/common/page/page';
 
-const app = ({Component, pageProps}: AppProps): JSX.Element => {
-  const apolloClient = new ApolloClientInit({
-    typePolicies: {
-      Query: {
-        fields: {
-          ...reactiveVariableFields,
-        },
-        merge: true,
-      },
-    },
-  });
-
+const app = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
-    <ApolloProvider client={apolloClient.client}>
-      <Page>
-        <Component {...pageProps}/>
-      </Page>
-    </ApolloProvider>
+    <Page>
+      <Component {...pageProps} />
+    </Page>
   );
 };
 
