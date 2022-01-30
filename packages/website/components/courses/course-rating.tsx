@@ -1,11 +1,10 @@
-import {Maybe} from '../../graphql/types';
-import {LinkComponent} from '../common/link-component/link-component';
+import { LinkComponent } from '../common/link-component/link-component';
 import styles from './courses.module.css';
 
 interface CourseRatingProperties {
   complete: boolean;
-  rating: Maybe<string> | undefined;
-  ratingUrl: Maybe<string> | undefined;
+  rating?: string;
+  ratingUrl?: string;
 }
 
 export const CourseRating = ({
@@ -15,11 +14,11 @@ export const CourseRating = ({
 }: CourseRatingProperties): JSX.Element | undefined => {
   const ratingLink = (
     content_: string,
-    ratingStyle_: string,
+    ratingStyle_: string
   ): JSX.Element | undefined => {
     if (typeof rating === 'string' && typeof ratingUrl !== 'string') {
       return (
-        <span className={`${styles.Rating} ${ratingStyle_}`}>
+        <span className={`${styles.Rating as string} ${ratingStyle_}`}>
           <div>{content_}</div>
         </span>
       );
@@ -27,8 +26,8 @@ export const CourseRating = ({
 
     if (typeof rating === 'string' && typeof ratingUrl === 'string') {
       return (
-        <span className={`${styles.Rating} ${ratingStyle_}`}>
-          <LinkComponent content={content_} href={ratingUrl}/>
+        <span className={`${styles.Rating as string} ${ratingStyle_}`}>
+          <LinkComponent content={content_} href={ratingUrl} />
         </span>
       );
     }
