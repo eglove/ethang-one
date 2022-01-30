@@ -1,56 +1,43 @@
-import {useQuery} from '@apollo/client';
-import {randomizedArray} from '@ethang-one/util-typescript';
+import { Image as Logo } from '@ethang-one/prisma-connection';
+import { randomizedArray } from '@ethang-one/util-typescript';
 import Image from 'next/image';
 
-import {Query} from '../../graphql/types';
-import {Container} from '../common/container/container';
-import {HeadTag} from '../common/head-tag/head-tag';
-import {LinkComponent} from '../common/link-component/link-component';
+import { Container } from '../common/container/container';
+import { HeadTag } from '../common/head-tag/head-tag';
+import { LinkComponent } from '../common/link-component/link-component';
 import styles from './home.module.css';
-import {homeQuery} from './home-gql';
 
-export const HomeLayout = (): JSX.Element => {
-  const {data} = useQuery<Query>(homeQuery, {
-    fetchPolicy: 'cache-and-network',
-    variables: {
-      where: {
-        isOnHomepage: {
-          equals: true,
-        },
-      },
-    },
-  });
+interface HomeLayoutProperties {
+  logos: Logo[];
+}
 
+export const HomeLayout = ({ logos }: HomeLayoutProperties): JSX.Element => {
   return (
     <Container>
-      <HeadTag title="Home"/>
-      <div className={styles.HomeText}>
+      <HeadTag title="Home" />
+      <div className={styles.HomeText as string}>
         <h1>I&apos;m Ethan Glover</h1>
         <h2>I&apos;m a developer.</h2>
         <h3>What kind of developer?</h3>
         <p>I&apos;ve worked with these technologies.</p>
         <p>
-          <LinkComponent content="Learn more about me here." href="/about-me"/>
+          <LinkComponent content="Learn more about me here." href="/about-me" />
         </p>
-        <div className={styles.Logos}>
-          {data?.technologyLogos
-            && randomizedArray(data.technologyLogos.length).map(logoIndex => {
-              const {logo} = data.technologyLogos[logoIndex];
+        <div className={styles.Logos as string}>
+          {randomizedArray(logos?.length).map(logoIndex => {
+            const logo = logos[logoIndex];
 
-              return (
-                <div
-                  key={logo.id}
-                  className={styles.LogoContainer}
-                >
-                  <Image
-                    src={logo.url}
-                    alt={logo.altText}
-                    width={100}
-                    height={100}
-                  />
-                </div>
-              );
-            })}
+            return (
+              <div key={logo.id} className={styles.LogoContainer as string}>
+                <Image
+                  src={logo.url}
+                  alt={logo.altText}
+                  width={100}
+                  height={100}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </Container>
