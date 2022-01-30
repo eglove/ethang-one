@@ -19,7 +19,7 @@ export async function getStaticProps(): Promise<Record<string, unknown>> {
 
   const courses = await prisma.course.findMany({
     orderBy: {
-      order: 'desc',
+      order: 'asc',
     },
     select: {
       CourseInstructor: {
