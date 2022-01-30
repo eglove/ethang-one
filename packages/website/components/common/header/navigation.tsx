@@ -1,12 +1,8 @@
-import {LinkComponent} from '../link-component/link-component';
+import { LinkComponent } from '../link-component/link-component';
 import styles from './header.module.css';
 
 export const Navigation = (): JSX.Element => {
   const navLinks = [
-    {
-      link: '/portfolio',
-      title: 'Portfolio',
-    },
     {
       link: '/blog',
       title: 'Blog',
@@ -18,15 +14,17 @@ export const Navigation = (): JSX.Element => {
   ];
 
   return (
-    <nav className={styles.Navigation}>
-      {navLinks.map(navLink => (
-        <LinkComponent
-          key={navLink.title}
-          className={styles.NavigationLink}
-          href={navLink.link}
-          content={navLink.title}
-        />
-      ))}
+    <nav className={styles.Navigation as string}>
+      {navLinks.map(navLink => {
+        return (
+          <LinkComponent
+            key={navLink.title}
+            className={styles.NavigationLink as string}
+            href={navLink.link}
+            content={navLink.title}
+          />
+        );
+      })}
     </nav>
   );
 };

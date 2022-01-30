@@ -36,6 +36,18 @@ export interface Course {
   ratingUrl?: string;
   School: School;
   CourseInstructor?: CourseInstructor[];
+  CourseUrl?: CourseUrl[];
+}
+
+export interface CourseUrl {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  courseId: string;
+  url: string;
+  schoolId: string;
+  Course: Course;
+  School: School;
 }
 
 export interface CourseInstructor {
@@ -115,6 +127,7 @@ export interface School {
   imageId: string;
   Image: Image;
   Course?: Course[];
+  CourseUrl?: CourseUrl[];
 }
 
 export interface TechnologyLogo {
