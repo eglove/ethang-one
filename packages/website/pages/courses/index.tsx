@@ -56,7 +56,6 @@ export async function getStaticProps(): Promise<Record<string, unknown>> {
         },
       },
       complete: true,
-      courseUrls: true,
       createdAt: true,
       duration: true,
       id: true,
