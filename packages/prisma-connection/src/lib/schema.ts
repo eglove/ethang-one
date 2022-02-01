@@ -29,7 +29,6 @@ export interface Course {
   recommended: boolean;
   duration: number;
   schoolId: string;
-  courseUrls?: string[];
   complete: boolean;
   order: number;
   rating?: Rating;
