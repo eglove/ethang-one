@@ -27,7 +27,7 @@
     "apollo-server-core": "^3.6.1",
     "apollo3-cache-persist": "^0.13.0",
     "bcryptjs": "^2.4.3",
-    "colors": "^1.4.0",
+    "chalk": "^5.0.0",
     "core-js": "^3.6.5",
     "express": "^4.17.2",
     "fast-xml-parser": "^4.0.1",
