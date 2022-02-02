@@ -21,7 +21,7 @@
   "dependencies": {
     "@angular/core": "^13.2.0",
     "@apollo/client": "^3.5.8",
-    "@nrwl/next": "13.7.1",
+    "@nrwl/next": "13.7.2",
     "@prisma/client": "^3.9.0",
     "apollo-server": "^3.6.2",
     "apollo-server-core": "^3.6.1",
@@ -70,7 +70,7 @@
     "@nrwl/jest": "13.7.1",
     "@nrwl/js": "13.7.1",
     "@nrwl/linter": "13.7.1",
-    "@nrwl/next": "13.7.1",
+    "@nrwl/next": "13.7.2",
     "@nrwl/node": "13.7.1",
     "@nrwl/nx-cloud": "13.1.2",
     "@nrwl/react": "13.7.1",
