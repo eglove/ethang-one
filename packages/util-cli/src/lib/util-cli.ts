@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import colors from 'colors';
+import chalk from 'chalk';
 import { execSync, spawn } from 'node:child_process';
 
 export const runCommand = (
@@ -9,7 +9,7 @@ export const runCommand = (
   const commandToRun =
     typeof command === 'string' ? command : command.join(' && ');
 
-  console.info(colors.bgBlue(colors.white(`Running command: ${commandToRun}`)));
+  console.info(chalk.bgBlue.white(`Running command: ${commandToRun}`));
   const childProcess = spawn(commandToRun, {
     shell: shell ?? true,
     stdio: 'inherit',
@@ -21,7 +21,7 @@ export const runCommand = (
 };
 
 export const execSyncCommand = (command: string, shell?: string): Buffer => {
-  console.info(colors.bgBlue(colors.white(`Running command: ${command}`)));
+  console.info(chalk.bgBlue.white(`Running command: ${command}`));
 
   return execSync(command, { shell });
 };

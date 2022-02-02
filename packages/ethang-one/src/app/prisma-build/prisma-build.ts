@@ -1,5 +1,5 @@
 import { execSyncCommand } from '@ethang-one/util-cli';
-import colors from 'colors';
+import chalk from 'chalk';
 import fs from 'node:fs';
 
 import { packageManagerInstallAll } from '../../main';
@@ -26,18 +26,18 @@ export const prismaBuild = (): void => {
 
   fs.rmSync('./src', { recursive: true });
 
-  console.info(colors.bgBlue(colors.white('Removing old @generated.')));
+  console.info(chalk.bgBlue.white('Removing old @generated.'));
   const oldGenExists = fs.existsSync(GENERATED_DIRECTORY);
   if (oldGenExists) {
     fs.rmSync(GENERATED_DIRECTORY, { recursive: true });
   }
 
-  console.info(colors.bgBlue(colors.white('Adding new @generated.')));
+  console.info(chalk.bgBlue.white('Adding new @generated.'));
   fs.renameSync(
     `./${PRISMA_CONNECTION_DIRECTORY}/node_modules/@generated`,
     GENERATED_DIRECTORY
   );
-  console.info(colors.bgBlue(colors.white('Cleaning up.')));
+  console.info(chalk.bgBlue.white('Cleaning up.'));
   fs.rmSync(`./${PRISMA_CONNECTION_DIRECTORY}/node_modules`, {
     recursive: true,
   });
