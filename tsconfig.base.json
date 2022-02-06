@@ -21,6 +21,7 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
+      "@ethang-one/algorithms": ["packages/algorithms/src/index.ts"],
       "@ethang-one/apollo": ["packages/apollo/src/index.ts"],
       "@ethang-one/environment": ["packages/environment/src/index.ts"],
       "@ethang-one/prisma-connection": [

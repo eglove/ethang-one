@@ -10,17 +10,18 @@ Use `npm run eg` to use it.
 
 ## Projects
 
-* [Apollo Utilities](https://github.com/eglove/ethang-one/tree/master/packages/apollo)
-* [Computer CLI](https://github.com/eglove/ethang-one/tree/master/packages/computer-cli)
-* [EthanG One CLI](https://github.com/eglove/ethang-one/tree/master/packages/ethang-one)
-* [React Components](https://github.com/eglove/ethang-one/tree/master/packages/react-components)
-* [React Hooks](https://github.com/eglove/ethang-one/tree/master/packages/react-hooks)
-* [CLI Utilities](https://github.com/eglove/ethang-one/tree/master/packages/util-cli)
-* [TypeScript Utilities](https://github.com/eglove/ethang-one/tree/master/packages/util-typescript)
-* [Web Assembly Utilities](https://github.com/eglove/ethang-one/tree/master/packages/util-wasm)
-* [Native Web Components](https://github.com/eglove/ethang-one/tree/master/packages/web-components)
-* [Website](https://github.com/eglove/ethang-one/tree/master/packages/website)
-* [Website Server](https://github.com/eglove/ethang-one/tree/master/packages/website-server)
+* [Algorithms](./packages/algorithms)
+* [Apollo Utilities](./packages/apollo)
+* [Computer CLI](./packages/computer-cli)
+* [EthanG One CLI](./packages/ethang-one)
+* [React Components](./packages/react-components)
+* [React Hooks](./packages/react-hooks)
+* [CLI Utilities](./packages/util-cli)
+* [TypeScript Utilities](./packages/util-typescript)
+* [Web Assembly Utilities](./packages/util-wasm)
+* [Native Web Components](./packages/web-components)
+* [Website](./packages/website)
+* [Website Server](./packages/website-server)
 
 ## Website
 
