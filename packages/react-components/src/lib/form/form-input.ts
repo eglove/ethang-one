@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 import { toCapitalizedWords } from '@ethang-one/util-typescript';
 
 import { InputType } from './types';
@@ -9,7 +10,6 @@ type SelectOption = {
 
 type FormInputConfig = {
   hideLabel?: boolean;
-  id?: string;
   inputProperties?: Record<string, unknown>;
   label?: string;
   labelProperties?: JSX.IntrinsicElements['label'];
@@ -35,7 +35,10 @@ export class FormInput {
 
   constructor(name: string, config: FormInputConfig) {
     this.hideLabel = config.hideLabel ?? false;
-    this.id = config.id ?? name;
+    this.id =
+      typeof config.inputProperties?.['id'] === 'string'
+        ? config.inputProperties['id']
+        : name;
     this.inputProperties = config.inputProperties;
     this.label = config.label ?? toCapitalizedWords(name);
     this.labelProperties = config.labelProperties;
