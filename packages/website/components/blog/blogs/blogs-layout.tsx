@@ -18,33 +18,34 @@ export const BlogsLayout = ({ blogs }: BlogsLayoutProperties): JSX.Element => {
         return (
           <div key={blog.id} style={{ height: '300px' }}>
             <LinkComponent
-              content={
-                <div
-                  className={styles.BlogContent as string}
-                  style={{
-                    background: `url(${blog.Image.url}) center no-repeat`,
-                    height: `${blog.Image.height}px`,
-                    maxHeight: '300px',
-                    width: '100%',
-                  }}
-                >
-                  <h2>{blog.title}</h2>
-                  <div>
-                    {formatList(
-                      blog.BlogAuthor.map(author => {
-                        return `${author.Person.firstName} ${author.Person.lastName}`;
-                      })
-                    )}
-                  </div>
-                  <CreateUpdateTimes
-                    created={blog.createdAt as unknown as string}
-                    updated={blog.updatedAt as unknown as string}
-                  />
+              linkProperties={{
+                className: styles.BlogLink as string,
+                href: `/blog/${blog.slug}`,
+              }}
+            >
+              <div
+                className={styles.BlogContent as string}
+                style={{
+                  background: `url(${blog.Image.url}) center no-repeat`,
+                  height: `${blog.Image.height}px`,
+                  maxHeight: '300px',
+                  width: '100%',
+                }}
+              >
+                <h2>{blog.title}</h2>
+                <div>
+                  {formatList(
+                    blog.BlogAuthor.map(author => {
+                      return `${author.Person.firstName} ${author.Person.lastName}`;
+                    })
+                  )}
                 </div>
-              }
-              href={`/blog/${blog.slug}`}
-              className={styles.BlogLink as string}
-            />
+                <CreateUpdateTimes
+                  created={blog.createdAt as unknown as string}
+                  updated={blog.updatedAt as unknown as string}
+                />
+              </div>
+            </LinkComponent>
           </div>
         );
       })}

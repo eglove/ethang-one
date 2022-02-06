@@ -1,8 +1,8 @@
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 export const capitalizeFirstLetter = (
   string: string,
-  lowercaseRest = false,
+  lowercaseRest = false
 ): string => {
   if (string === '') {
     return string;
@@ -24,7 +24,9 @@ export const camelCaseToWordString = (string: string): string => {
   return words.charAt(0).toUpperCase() + words.slice(1);
 };
 
-export const lowercaseFirstLetter = (string: string): string => string.charAt(0).toLowerCase() + string.slice(1);
+export const lowercaseFirstLetter = (string: string): string => {
+  return string.charAt(0).toLowerCase() + string.slice(1);
+};
 
 export const formatList = (list: string[]): string => {
   // Pop last element if empty in cases where split is used
@@ -54,12 +56,18 @@ export const formatPhoneNumber = (string: string): string | undefined => {
   return undefined;
 };
 
-export const removeNonAplhaNumericChars = (string: string): string => string.replace(/\W/g, '');
+export const removeNonAplhaNumericChars = (string: string): string => {
+  return string.replace(/\W/g, '');
+};
 
 export const toCapitalizedWords = (string: string): string => {
   const words = string.match(/[A-Za-z][a-z]*|\d+/g) ?? [];
 
-  return words.map(element => capitalizeFirstLetter(element)).join(' ');
+  return words
+    .map(element => {
+      return capitalizeFirstLetter(element);
+    })
+    .join(' ');
 };
 
 export const wordStringToCamelCase = (string: string, split = ' '): string => {
@@ -68,4 +76,6 @@ export const wordStringToCamelCase = (string: string, split = ' '): string => {
   return `${firstWord}${words.slice(1).join('')}`;
 };
 
-export const uuid = (): string => uuidv4() || crypto.getRandomValues(new Uint32Array(3)).join('');
+export const uuid = (): string => {
+  return uuidv4() || crypto.getRandomValues(new Uint32Array(3)).join('');
+};

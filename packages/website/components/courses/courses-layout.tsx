@@ -56,17 +56,14 @@ export const CoursesLayout = ({
                 />
               </div>
               <div className={styles.CourseItem as string}>
-                <LinkComponent
-                  content={
-                    <Image
-                      src={course.School.Image.url}
-                      alt={course.School.Image.altText}
-                      width={25}
-                      height={25}
-                    />
-                  }
-                  href={course.School.url}
-                />
+                <LinkComponent linkProperties={{ href: course.School.url }}>
+                  <Image
+                    src={course.School.Image.url}
+                    alt={course.School.Image.altText}
+                    width={25}
+                    height={25}
+                  />
+                </LinkComponent>
               </div>
 
               <div className={styles.CourseItem as string}>
@@ -75,10 +72,9 @@ export const CoursesLayout = ({
                   {course.CourseUrl.map(courseUrl => {
                     return (
                       <span key={courseUrl.url}>
-                        <LinkComponent
-                          content={courseUrl.School.name}
-                          href={courseUrl.url}
-                        />
+                        <LinkComponent linkProperties={{ href: courseUrl.url }}>
+                          {courseUrl.School.name}
+                        </LinkComponent>
                         &ensp;
                       </span>
                     );

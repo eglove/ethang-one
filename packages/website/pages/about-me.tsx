@@ -1,38 +1,47 @@
 import getYouTubeID from 'get-youtube-id';
 import Image from 'next/image';
 
-import {Container} from '../components/common/container/container';
-import {HeadTag} from '../components/common/head-tag/head-tag';
-import {LinkComponent} from '../components/common/link-component/link-component';
+import { Container } from '../components/common/container/container';
+import { HeadTag } from '../components/common/head-tag/head-tag';
+import { LinkComponent } from '../components/common/link-component/link-component';
 import styles from '../components/common/styles/common.module.css';
-import {YouTubeEmbed} from '../components/common/youtube-embed/youtube-embed';
+import { YouTubeEmbed } from '../components/common/youtube-embed/youtube-embed';
 import changeVsConsequence from '../public/images/changevsconsequence.png';
 
 const AboutMe = (): JSX.Element => {
   const cdcSystemsThinking = getYouTubeID(
-    'https://www.youtube.com/watch?v=Fo3ndxVOZEo',
+    'https://www.youtube.com/watch?v=Fo3ndxVOZEo'
   );
 
   return (
     <Container>
-      <HeadTag title="About Me"/>
+      <HeadTag title="About Me" />
       <h1 id="aboutMe">About Me</h1>
-      <ul className={styles.toc}>
+      <ul className={styles.toc as string}>
         <li>
-          <LinkComponent href="#systemsThinking" content="Systems Thinking"/>
+          <LinkComponent linkProperties={{ href: '#systemsThinking' }}>
+            Systems Thinking
+          </LinkComponent>
         </li>
         <li>
-          <LinkComponent href="#standardization" content="Standardization"/>
+          <LinkComponent linkProperties={{ href: '#standardization' }}>
+            Standardization
+          </LinkComponent>
         </li>
         <li>
-          <LinkComponent href="#stoicism" content="Stoicism"/>
+          <LinkComponent linkProperties={{ href: '#stoicism' }}>
+            Stoicism
+          </LinkComponent>
         </li>
         <li>
-          <LinkComponent href="#learning" content="Learning"/>
+          <LinkComponent linkProperties={{ href: '#learning' }}>
+            Learning
+          </LinkComponent>
         </li>
       </ul>
       <h2 id="systemsThinking">
-        Systems Thinking <LinkComponent href="#aboutMe" content="⤴"/>
+        Systems Thinking{' '}
+        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
       </h2>
       <p>
         First. <b>I tend to be a systems thinker.</b> There is great value in
@@ -60,7 +69,7 @@ const AboutMe = (): JSX.Element => {
           consequences.
         </b>
       </p>
-      <div style={{display: 'grid', placeItems: 'center'}}>
+      <div style={{ display: 'grid', placeItems: 'center' }}>
         <Image
           placeholder="blur"
           src={changeVsConsequence}
@@ -82,20 +91,23 @@ const AboutMe = (): JSX.Element => {
         />
       )}
       <h2 id="standardization">
-        Standardization <LinkComponent href="#aboutMe" content="⤴"/>
+        Standardization{' '}
+        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
       </h2>
       <p>
         I love standardization in languages, and I understand the value of them.
         The most clear example is SQL, standardized under{' '}
         <LinkComponent
-          href="https://www.iso.org/standard/63555.html"
-          content="ISO/IEC 9075-1:2016"
-        />
+          linkProperties={{ href: 'https://www.iso.org/standard/63555.html' }}
+        >
+          ISO/IEC 9075-1:2016
+        </LinkComponent>
         . Or the JavaScript standards of{' '}
         <LinkComponent
-          href="https://www.ecma-international.org/"
-          content="Ecma International"
-        />
+          linkProperties={{ href: 'https://www.ecma-international.org/' }}
+        >
+          Ecma International
+        </LinkComponent>
         . These standardizations allow frameworks to build on top of something
         very stable with the best support. They also allow for the scenario of
         knowing SQL and JavaScript and easily being able to jump into MySQL or
@@ -114,9 +126,12 @@ const AboutMe = (): JSX.Element => {
         the long term stability of your own marketability. (Frameworks come and
         go.) It also allows you to employ the{' '}
         <LinkComponent
-          href="https://en.wikipedia.org/wiki/Rule_of_least_power"
-          content="Rule of least power"
-        />
+          linkProperties={{
+            href: 'https://en.wikipedia.org/wiki/Rule_of_least_power',
+          }}
+        >
+          Rule of least power
+        </LinkComponent>
         . By not overvaluing frameworks it&apos;s hard not to notice their
         sometimes overly complex solutions whose abstractions can be harder to
         use, and slower in performance than what its trying to abstract. This is
@@ -138,7 +153,8 @@ const AboutMe = (): JSX.Element => {
         often, the tools we take for granted are not doing us any favors.
       </p>
       <h2 id="stoicism">
-        Stoicism <LinkComponent href="#aboutMe" content="⤴"/>
+        Stoicism{' '}
+        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
       </h2>
       <p>
         Stoicism can mean different things to different people. What I take from
@@ -160,7 +176,8 @@ const AboutMe = (): JSX.Element => {
         I&apos;m perfectly consistent with it.
       </p>
       <h2 id="learning">
-        Learning <LinkComponent href="#aboutMe" content="⤴"/>
+        Learning{' '}
+        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
       </h2>
       <p>
         I learn by association. Just as I mentioned in the systems thinking
@@ -171,11 +188,11 @@ const AboutMe = (): JSX.Element => {
       <p>
         I try to have a broad range of knowledge across a lot of languages and
         frameworks. As evidenced by my{' '}
-        <LinkComponent href="/" content="home page"/>. If I talk about the
-        disadvantage of your personal favorite, I say that in reference to all
-        of the others I&apos;ve worked with. It&apos;s not an insult. If I talk
-        about the advantage of something, it is most likely not an argument, it
-        is a statement.
+        <LinkComponent linkProperties={{ href: '/' }}>home page</LinkComponent>.
+        If I talk about the disadvantage of your personal favorite, I say that
+        in reference to all of the others I&apos;ve worked with. It&apos;s not
+        an insult. If I talk about the advantage of something, it is most likely
+        not an argument, it is a statement.
       </p>
       <p>
         Wanting to branch out and learn as much as possible has been a point of
@@ -194,14 +211,16 @@ const AboutMe = (): JSX.Element => {
       </p>
       <p>
         I love learning. I love tracking down the best courses on learning. My{' '}
-        <LinkComponent href="/courses" content="recommended courses"/> page is
-        a page, not a blog post. Because it is an important, permanent fixture
-        of this site and who I am. Always a plan to learn something new. Always
-        looking to create relationships between what I have learned and what I
-        haven&apos;t. Not choosing a favorite to stick to, but understanding
-        programming as a whole.
+        <LinkComponent linkProperties={{ href: '/courses' }}>
+          recommended courses
+        </LinkComponent>{' '}
+        page is a page, not a blog post. Because it is an important, permanent
+        fixture of this site and who I am. Always a plan to learn something new.
+        Always looking to create relationships between what I have learned and
+        what I haven&apos;t. Not choosing a favorite to stick to, but
+        understanding programming as a whole.
       </p>
-      <hr/>
+      <hr />
       <p>Please checkout my GitHub and LinkedIn linked below. ↘</p>
     </Container>
   );

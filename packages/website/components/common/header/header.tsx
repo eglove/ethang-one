@@ -8,10 +8,10 @@ export const Header = (): JSX.Element => {
   return (
     <header>
       <LinkComponent
-        styles={{ textDecoration: 'none' }}
-        content={headerContent}
-        href="/"
-      />
+        linkProperties={{ href: '/', style: { textDecoration: 'none' } }}
+      >
+        {headerContent}
+      </LinkComponent>
       <Navigation />
     </header>
   );

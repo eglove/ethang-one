@@ -64,9 +64,10 @@ export const ProductHuntLayout = (): JSX.Element => {
                     return (
                       <div key={productLink.url}>
                         <LinkComponent
-                          content={productLink.type}
-                          href={productLink.url}
-                        />
+                          linkProperties={{ href: productLink.url }}
+                        >
+                          {productLink.type}
+                        </LinkComponent>
                         &emsp;
                       </div>
                     );
