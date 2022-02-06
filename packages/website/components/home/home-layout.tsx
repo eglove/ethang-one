@@ -1,5 +1,5 @@
 import { Image as Logo } from '@ethang-one/prisma-connection';
-import { randomizedArray } from '@ethang-one/util-typescript';
+import { shuffleArray } from '@ethang-one/util-typescript';
 import Image from 'next/image';
 
 import { Container } from '../common/container/container';
@@ -21,12 +21,12 @@ export const HomeLayout = ({ logos }: HomeLayoutProperties): JSX.Element => {
         <h3>What kind of developer?</h3>
         <p>I&apos;ve worked with these technologies.</p>
         <p>
-          <LinkComponent content="Learn more about me here." href="/about-me" />
+          <LinkComponent linkProperties={{ href: '/about-me' }}>
+            Learn more about me here.
+          </LinkComponent>
         </p>
         <div className={styles.Logos as string}>
-          {randomizedArray(logos?.length).map(logoIndex => {
-            const logo = logos[logoIndex];
-
+          {shuffleArray(logos).map(logo => {
             return (
               <div key={logo.id} className={styles.LogoContainer as string}>
                 <Image

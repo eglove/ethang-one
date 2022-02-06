@@ -19,10 +19,14 @@ export const Navigation = (): JSX.Element => {
         return (
           <LinkComponent
             key={navLink.title}
-            className={styles.NavigationLink as string}
-            href={navLink.link}
-            content={navLink.title}
-          />
+            linkProperties={{
+              className: styles.NavigationLink as string,
+              href: navLink.link,
+              key: navLink.title,
+            }}
+          >
+            {navLink.title}
+          </LinkComponent>
         );
       })}
     </nav>

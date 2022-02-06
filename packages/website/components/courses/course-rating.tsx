@@ -27,7 +27,9 @@ export const CourseRating = ({
     if (typeof rating === 'string' && typeof ratingUrl === 'string') {
       return (
         <span className={`${styles.Rating as string} ${ratingStyle_}`}>
-          <LinkComponent content={content_} href={ratingUrl} />
+          <LinkComponent linkProperties={{ href: ratingUrl }}>
+            {content_}
+          </LinkComponent>
         </span>
       );
     }

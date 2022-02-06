@@ -7,10 +7,10 @@ import {
   InMemoryCacheConfig,
   NormalizedCacheObject,
 } from '@apollo/client';
-import {BatchHttpLink} from '@apollo/client/link/batch-http';
-import {onError} from '@apollo/client/link/error';
-import {isBrowser} from '@ethang-one/util-typescript';
-import {LocalStorageWrapper, persistCache} from 'apollo3-cache-persist';
+import { BatchHttpLink } from '@apollo/client/link/batch-http';
+import { onError } from '@apollo/client/link/error';
+import { isBrowser } from '@ethang-one/util-typescript';
+import { LocalStorageWrapper, persistCache } from 'apollo3-cache-persist';
 
 export class ApolloClientInit {
   public cache?: ApolloCache<NormalizedCacheObject>;
@@ -50,7 +50,7 @@ export class ApolloClientInit {
   };
 
   private readonly setErrorLink = (): void => {
-    this.errorLink = onError(({graphQLErrors, networkError}) => {
+    this.errorLink = onError(({ graphQLErrors, networkError }) => {
       if (graphQLErrors) {
         for (const error of graphQLErrors) {
           let errorMessage = '[GraphQL error]:';
@@ -68,7 +68,7 @@ export class ApolloClientInit {
 
       if (networkError) {
         console.error(
-          `[Network error]: ${networkError.name}: ${networkError.message}`,
+          `[Network error]: ${networkError.name}: ${networkError.message}`
         );
       }
     });

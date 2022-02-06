@@ -1,4 +1,4 @@
-import {XMLParser} from 'fast-xml-parser';
+import { XMLParser } from 'fast-xml-parser';
 
 export const xmlToJson = <JSONType>(xmlString: string): JSONType => {
   const parser = new XMLParser();

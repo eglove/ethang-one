@@ -1,44 +1,36 @@
-import {isBrowser, isValidUrl, locationOrigin} from '@ethang-one/util-typescript';
+import {
+  isBrowser,
+  isValidUrl,
+  locationOrigin,
+} from '@ethang-one/util-typescript';
 import Link from 'next/link';
 
 interface LinkComponentProperties {
-  className?: string;
-  content: string | JSX.Element | StaticImageData;
-  href: string;
-  styles?: Record<string, string>;
+  children: JSX.Element | JSX.Element[] | string;
+  linkProperties?: JSX.IntrinsicElements['a'];
 }
 
 export const LinkComponent = ({
-  content,
-  href,
-  className,
-  styles,
+  children,
+  linkProperties,
 }: LinkComponentProperties): JSX.Element => {
   let linkOrigin = null;
-  if (isValidUrl(href)) {
-    linkOrigin = new URL(href).origin;
+  if (isValidUrl(linkProperties.href)) {
+    linkOrigin = new URL(linkProperties.href).origin;
   }
 
   if (isBrowser && linkOrigin !== locationOrigin() && linkOrigin !== null) {
     return (
-      <a
-        className={className}
-        style={styles}
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {content}
+      <a {...linkProperties} target="_blank" rel="noreferrer">
+        {children}
       </a>
     );
   }
 
   return (
-    <Link href={href}>
-      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a className={className} style={styles}>
-        {content}
-      </a>
+    <Link href={linkProperties.href}>
+      {/* eslint-disable-next-line react/jsx-no-target-blank */}
+      <a {...linkProperties}>{children}</a>
     </Link>
   );
 };

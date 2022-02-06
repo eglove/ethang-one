@@ -1,11 +1,13 @@
-import {makeVar, ReactiveVar} from '@apollo/client';
-import {isClient} from '@ethang-one/util-typescript';
+import { makeVar, ReactiveVar } from '@apollo/client';
+import { isClient } from '@ethang-one/util-typescript';
 
-const getCleanValueForStorage = (value: unknown): string => typeof value === 'string' ? value : JSON.stringify(value);
+const getCleanValueForStorage = (value: unknown): string => {
+  return typeof value === 'string' ? value : JSON.stringify(value);
+};
 
 export const makeVariablePersisted = <Type>(
   initialValue: Type,
-  storageName: string,
+  storageName: string
 ): ReactiveVar<Type> => {
   if (isClient) {
     let value = initialValue;
@@ -32,7 +34,7 @@ export const makeVariablePersisted = <Type>(
         } else {
           globalThis.localStorage?.setItem(
             storageName,
-            getCleanValueForStorage(newValue),
+            getCleanValueForStorage(newValue)
           );
         }
       } catch {

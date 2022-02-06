@@ -6,13 +6,12 @@ export enum HTTP_METHOD {
   PUT = 'PUT',
 }
 
-export const JSON_HEADER = {'Content-Type': 'application/json'};
+export const JSON_HEADER = { 'Content-Type': 'application/json' };
 
 export const isBrowser = typeof window !== 'undefined';
-export const jsonHeader = {'Content-Type': 'application/json'};
 
 export const isClient = Boolean(
-  typeof window !== 'undefined' && window.document,
+  typeof window !== 'undefined' && window.document
 );
 
 export const locationOrigin = (): string => {
@@ -36,13 +35,13 @@ export const removeQueryParameters = (): void => {
     globalThis.history.replaceState(
       undefined,
       '',
-      globalThis.location.pathname,
+      globalThis.location.pathname
     );
   }
 };
 
 export const successfullySettledPromises = async <Type>(
-  promises: Array<Promise<Type>>,
+  promises: Array<Promise<Type>>
 ): Promise<Type[]> => {
   const data = await Promise.allSettled(promises);
 
