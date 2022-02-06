@@ -96,7 +96,7 @@ specifiers:
   react-responsive-masonry: ^2.1.4
   react-test-renderer: ^17.0.2
   react-toastify: ^8.1.1
-  react-tsparticles: ^1.40.0
+  react-tsparticles: ^1.40.1
   reflect-metadata: ^0.1.13
   regenerator-runtime: ^0.13.9
   rxjs: ^7.4.0
@@ -113,7 +113,7 @@ specifiers:
   ts-jest: ^27.1.3
   ts-toolbelt: ^9.6.0
   tslib: ^2.0.0
-  tsparticles: ^1.40.0
+  tsparticles: ^1.40.1
   typescript: ^4.5.5
   typescript-plugin-css-modules: ^3.4.0
   use-immer: ^0.6.0
@@ -149,13 +149,13 @@ dependencies:
   react-player: 2.9.0_react@17.0.2
   react-responsive-masonry: 2.1.4_react-dom@17.0.2+react@17.0.2
   react-toastify: 8.1.1_react-dom@17.0.2+react@17.0.2
-  react-tsparticles: 1.40.0_react@17.0.2
+  react-tsparticles: 1.40.1_react@17.0.2
   reflect-metadata: 0.1.13
   regenerator-runtime: 0.13.9
   socket.io: 4.4.1
   socket.io-client: 4.4.1
   tslib: 2.3.1
-  tsparticles: 1.40.0
+  tsparticles: 1.40.1
   use-immer: 0.6.0_immer@9.0.12+react@17.0.2
   uuid: 8.3.2
   zone.js: 0.11.4
@@ -11816,15 +11816,15 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /react-tsparticles/1.40.0_react@17.0.2:
-    resolution: {integrity: sha512-qbEVRLsBKGVpuvy6xkTL2NAREXpUHvQvysRXajq2QRhAt44O2toPyozhO0yBhH6wnypr5LGU7zZoz7UN0PIN7w==}
+  /react-tsparticles/1.40.1_react@17.0.2:
+    resolution: {integrity: sha512-Q3hDMSsjBEG51UGgnfCvuFrNi4PldPvN+R8acngz3r3Sdw15PgjowGQrrzb9goxTBi2ObvBQ0S5l76ZBZYtp0w==}
     requiresBuild: true
     peerDependencies:
       react: '>=16'
     dependencies:
       fast-deep-equal: 3.1.3
       react: 17.0.2
-      tsparticles: 1.40.0
+      tsparticles: 1.40.1
     dev: false
 
   /react/17.0.2:
@@ -13631,8 +13631,8 @@ packages:
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
 
-  /tsparticles/1.40.0:
-    resolution: {integrity: sha512-BqmVHm1+w0lRW7+lawZ1Mych2J5AgYKDLs+CpnDk/KBeOOwwEa9y1x7Sp0lUz21TZN0wfwmUnu2rlYsS/QfhEA==}
+  /tsparticles/1.40.1:
+    resolution: {integrity: sha512-YuFbADZ2f769LZU/RHfpr3vgT38zYCA9pI48bv+K3K1Y3b5PvWNc+Z6kRnCK5bR20lE2ATSmORsSgE8jhHOB0w==}
     requiresBuild: true
     dev: false
 
