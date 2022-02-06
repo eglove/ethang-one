@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["*.d.ts", "packages/**/build", "packages/**/.cache"],
+  "ignorePatterns": ["*.d.ts", "packages/**/build", "packages/**/.cache", "**/jest.config.js"],
   "overrides": [
     {
       "files": [

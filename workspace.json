@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "algorithms": "packages/algorithms",
     "apollo": "packages/apollo",
     "computer-cli": "packages/computer-cli",
     "ethang-one": "packages/ethang-one",
