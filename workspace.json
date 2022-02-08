@@ -4,6 +4,7 @@
     "algorithms": "packages/algorithms",
     "apollo": "packages/apollo",
     "computer-cli": "packages/computer-cli",
+    "design-patterns": "packages/design-patterns",
     "ethang-one": "packages/ethang-one",
     "prisma-connection": "packages/prisma-connection",
     "react-components": "packages/react-components",
