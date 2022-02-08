@@ -78,7 +78,7 @@
     "@nrwl/storybook": "13.7.3",
     "@nrwl/tao": "13.7.3",
     "@nrwl/web": "13.7.3",
-    "@nrwl/workspace": "13.7.3",
+    "@nrwl/workspace": "13.8.0",
     "@nxext/stencil": "^13.1.2",
     "@nxrs/cargo": "^0.3.2",
     "@stencil/core": "^2.13.0",
