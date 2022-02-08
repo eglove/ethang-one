@@ -20,6 +20,9 @@ cmake.install
 cypress
 docker-cli
 docker-desktop
+dotnet
+dotnet-6.0-runtime
+dotnet-runtime
 DotNet4.5.2
 dotnetcore-3.1-sdk
 dotnetcore-3.1-sdk-4xx
@@ -94,6 +97,7 @@ vcredist2017
 vim
 virtualbox
 visualstudio-installer
+visualstudio2022community
 vlc
 vortex
 vscode
