@@ -1,0 +1,23 @@
+{
+  "root": "packages/design-patterns",
+  "sourceRoot": "packages/design-patterns/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/design-patterns/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/design-patterns"],
+      "options": {
+        "jestConfig": "packages/design-patterns/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
