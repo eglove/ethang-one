@@ -5,4 +5,5 @@ export * from './lib/use-debounce';
 export * from './lib/use-dimensions';
 export * from './lib/use-fullscreen';
 export * from './lib/use-local-storage';
+export * from './lib/use-mouse-position';
 export * from './lib/use-window-size';
