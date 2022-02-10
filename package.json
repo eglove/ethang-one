@@ -21,6 +21,7 @@
   "dependencies": {
     "@angular/core": "^13.2.2",
     "@apollo/client": "^3.5.8",
+    "@faker-js/faker": "^6.0.0-alpha.5",
     "@nrwl/next": "13.8.0",
     "@prisma/client": "^3.9.1",
     "apollo-server": "^3.6.3",

@@ -5,6 +5,7 @@ specifiers:
   '@apollo/client': ^3.5.8
   '@babel/core': ^7.17.2
   '@babel/preset-env': ^7.16.5
+  '@faker-js/faker': ^6.0.0-alpha.5
   '@graphql-codegen/cli': ^2.6.0
   '@graphql-codegen/typescript': ^2.4.3
   '@next/eslint-plugin-next': ^12.0.10
@@ -124,6 +125,7 @@ specifiers:
 dependencies:
   '@angular/core': 13.2.2_rxjs@7.5.4+zone.js@0.11.4
   '@apollo/client': 3.5.8_graphql@16.3.0+react@17.0.2
+  '@faker-js/faker': 6.0.0-alpha.5
   '@nrwl/next': 13.8.0_6e71c4b299ae680e6ae7c1bf65253769
   '@prisma/client': 3.9.1_prisma@3.9.1
   apollo-server: 3.6.3_graphql@16.3.0
@@ -1668,6 +1670,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@faker-js/faker/6.0.0-alpha.5:
+    resolution: {integrity: sha512-8Is/xFxNgricqmhQR/AJ4Vi0cKzSR7FcpE0ImG9dWciuSxUkyCiK+B5/hTQP8jrVbtgTjpFC1AaTCnALJOBDmw==}
+    engines: {node: '>=12.0.0', npm: '>=7.0.0'}
+    dev: false
 
   /@graphql-codegen/cli/2.6.0_56d675c534478830b2502d22c17a5c36:
     resolution: {integrity: sha512-2Bsf2XzwccVJSam8grrAROn3sk5mris8kx4cYEDvBHekEbn6I4xmBDeVjX6y6ajVfyZniJCAZdc7XxRHje8wYg==}
