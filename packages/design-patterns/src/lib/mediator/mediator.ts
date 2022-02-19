@@ -3,7 +3,7 @@ export class ChatRoom {
     const time = new Date();
     const sender = user.getName();
 
-    console.log(`${time.toISOString()} [${sender}]: ${message}`);
+    console.info(`${time.toISOString()} [${sender}]: ${message}`);
   }
 }
 

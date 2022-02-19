@@ -10,26 +10,26 @@ export class Dog {
 
 const animalFunctionality = {
   sleep(): void {
-    console.log('Sleeping!');
+    console.info('Sleeping!');
   },
   walk(): void {
-    console.log('Walking!');
+    console.info('Walking!');
   },
 };
 
 const dogFunctionality = {
   __proto__: animalFunctionality,
   bark(): void {
-    console.log('Woof');
+    console.info('Woof');
   },
   play(): void {
-    console.log('Playing!');
+    console.info('Playing!');
   },
   sleep(): void {
     super.sleep();
   },
   wagTail(): void {
-    console.log('Wagging my tail!');
+    console.info('Wagging my tail!');
   },
   walk(): void {
     super.walk();
@@ -39,7 +39,7 @@ const dogFunctionality = {
 Object.assign(Dog.prototype, dogFunctionality);
 
 const pet = new Dog('Daisy');
-console.log(pet.name);
+console.info(pet.name);
 // @ts-expect-error Mixin
 pet.bark();
 // @ts-expect-error Mixin

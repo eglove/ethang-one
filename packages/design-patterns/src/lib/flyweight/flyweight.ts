@@ -50,4 +50,4 @@ addBook('JK Rowling', 'AB123', 'Harry Potter', true, 50);
 addBook('Harper Lee', 'CD345', 'To Kill a Mockingbird', true, 10);
 addBook('Harper Lee', 'CD345', 'To Kill a Mockingbird', false, 20);
 addBook('F. Scott Fitzgerald', 'EF567', 'The Great Gatsby', false, 20);
-console.log(bookList);
+console.info(bookList);

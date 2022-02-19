@@ -23,7 +23,7 @@ class Observable {
 }
 
 const logger = (data: string): void => {
-  console.log(`${Date.now()} ${data}`);
+  console.info(`${Date.now()} ${data}`);
 };
 
 const toastify = (data: string): void => {

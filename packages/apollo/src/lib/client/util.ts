@@ -1,5 +1,25 @@
-import { makeVar, ReactiveVar } from '@apollo/client';
+import {
+  ApolloClient,
+  makeVar,
+  NormalizedCacheObject,
+  ReactiveVar,
+} from '@apollo/client';
 import { isClient } from '@ethang-one/util-typescript';
+
+type ApolloStateProperties = {
+  props?: { __APOLLO_STATE__?: Record<string, unknown> };
+};
+
+export const addApolloSate = (
+  client: ApolloClient<NormalizedCacheObject>,
+  pageProperties: ApolloStateProperties
+): ApolloStateProperties => {
+  if (typeof pageProperties.props !== 'undefined') {
+    pageProperties.props.__APOLLO_STATE__ = client.cache.extract();
+  }
+
+  return pageProperties;
+};
 
 const getCleanValueForStorage = (value: unknown): string => {
   return typeof value === 'string' ? value : JSON.stringify(value);
