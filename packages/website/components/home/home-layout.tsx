@@ -1,17 +1,25 @@
-import { Image as Logo } from '@ethang-one/prisma-connection';
-import { shuffleArray } from '@ethang-one/util-typescript';
+import { useQuery } from '@apollo/client';
 import Image from 'next/image';
 
+import {
+  HomePageQuery,
+  homePageQuery,
+  homePageQueryVariables,
+} from '../../graphql-queries';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { LinkComponent } from '../common/link-component/link-component';
 import styles from './home.module.css';
 
-interface HomeLayoutProperties {
-  logos: Logo[];
-}
+export const HomeLayout = (): JSX.Element | undefined => {
+  const { data, loading } = useQuery<HomePageQuery>(homePageQuery, {
+    variables: homePageQueryVariables(),
+  });
 
-export const HomeLayout = ({ logos }: HomeLayoutProperties): JSX.Element => {
+  if (loading) {
+    return null;
+  }
+
   return (
     <Container>
       <HeadTag title="Home" />
@@ -26,12 +34,15 @@ export const HomeLayout = ({ logos }: HomeLayoutProperties): JSX.Element => {
           </LinkComponent>
         </p>
         <div className={styles.Logos as string}>
-          {shuffleArray(logos).map(logo => {
+          {data.TechnologyLogo?.map(logo => {
             return (
-              <div key={logo.id} className={styles.LogoContainer as string}>
+              <div
+                key={logo.id as string}
+                className={styles.LogoContainer as string}
+              >
                 <Image
-                  src={logo.url}
-                  alt={logo.altText}
+                  src={logo.Image.url}
+                  alt={logo.Image.altText}
                   width={100}
                   height={100}
                 />

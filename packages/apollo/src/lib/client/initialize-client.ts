@@ -3,44 +3,62 @@ import {
   ApolloClient,
   ApolloLink,
   from,
+  HttpLink,
   InMemoryCache,
   InMemoryCacheConfig,
   NormalizedCacheObject,
 } from '@apollo/client';
-import { BatchHttpLink } from '@apollo/client/link/batch-http';
 import { onError } from '@apollo/client/link/error';
-import { isBrowser } from '@ethang-one/util-typescript';
+import { isBrowser, JSON_HEADER } from '@ethang-one/util-typescript';
 import { LocalStorageWrapper, persistCache } from 'apollo3-cache-persist';
 
 export class ApolloClientInit {
   public cache?: ApolloCache<NormalizedCacheObject>;
-  public client: ApolloClient<NormalizedCacheObject>;
+  public baseUrl: string;
+  public client?: ApolloClient<NormalizedCacheObject>;
 
   private authLink?: ApolloLink;
   private errorLink?: ApolloLink;
-  private httpLink?: BatchHttpLink;
+  private httpLink?: HttpLink;
   private readonly cacheConfig;
 
-  constructor(cacheConfig: InMemoryCacheConfig) {
+  constructor(baseUrl: string, cacheConfig: InMemoryCacheConfig) {
+    this.baseUrl = baseUrl;
     this.cacheConfig = cacheConfig;
-    this.setCache();
-    this.setAuthLink();
-    this.setErrorLink();
-    this.setHttpLink();
-    this.setPersistCache();
+    this.setup();
 
     if (this.cache && this.authLink && this.errorLink && this.httpLink) {
       this.client = new ApolloClient({
         cache: this.cache,
         link: from([this.authLink, this.errorLink, this.httpLink]),
+        ssrForceFetchDelay: 100,
+        ssrMode: true,
       });
     } else {
       throw new Error('Failed to initialize Apollo Client.');
     }
   }
 
+  private readonly setup = (): void => {
+    this.setCache();
+    this.setAuthLink();
+    this.setErrorLink();
+    this.setHttpLink();
+    this.setPersistCache();
+  };
+
   private readonly setAuthLink = (): void => {
     this.authLink = new ApolloLink((operation, forward) => {
+      operation.setContext(({ headers }: { headers: HeadersInit }) => {
+        return {
+          headers: {
+            ...JSON_HEADER,
+            'x-hasura-admin-secret': process.env.NX_HASURA_SECRET,
+            ...headers,
+          },
+        };
+      });
+
       return forward(operation);
     });
   };
@@ -75,8 +93,8 @@ export class ApolloClientInit {
   };
 
   private readonly setHttpLink = (): void => {
-    this.httpLink = new BatchHttpLink({
-      uri: process.env.NX_WEBSITE_SERVER_URL,
+    this.httpLink = new HttpLink({
+      uri: this.baseUrl,
     });
   };
 

@@ -1,45 +1,29 @@
-import { Image } from '@ethang-one/prisma-connection';
-import { PrismaClient } from '@prisma/client';
+import { addApolloSate } from '@ethang-one/apollo';
 
 import { HomeLayout } from '../components/home/home-layout';
+import {
+  HomePageQuery,
+  homePageQuery,
+  homePageQueryVariables,
+} from '../graphql-queries';
+import { apolloClient } from './_app';
 
-interface IndexProperties {
-  logos: Image[];
-}
-
-const Index = ({ logos }: IndexProperties): JSX.Element => {
-  return <HomeLayout logos={logos} />;
+const Index = (): JSX.Element => {
+  return <HomeLayout />;
 };
 
 export default Index;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<Record<string, unknown>> {
-  const prisma = new PrismaClient();
-
-  const logos = await prisma.technologyLogo.findMany({
-    select: {
-      Image: {
-        select: {
-          altText: true,
-          height: true,
-          id: true,
-          url: true,
-          width: true,
-        },
-      },
-    },
-    where: {
-      isOnHomepage: true,
-    },
+export async function getServerSideProps(): Promise<Record<string, unknown>> {
+  await apolloClient.client.query<{
+    TechnologyLogo: HomePageQuery;
+  }>({
+    query: homePageQuery,
+    variables: homePageQueryVariables(),
   });
 
-  return {
-    props: {
-      logos: logos.map(logo => {
-        return logo.Image;
-      }),
-    },
-    revalidate: 60,
-  };
+  return addApolloSate(apolloClient.client, {
+    props: {},
+  });
 }

@@ -1,7 +1,12 @@
 {
-  "schema": "http://localhost:4000/graphql",
+  "schema": "https://needed-husky-72.hasura.app/v1/graphql",
+  "config": {
+    "headers": {
+      "x-hasura-admin-secret": "okDtCzpuCFc9tb957irQHvJNGJrjqSes7DHkaNrjVOfuLgu9Fe663dKNmd63TMa6"
+    }
+  },
   "generates": {
-    "graphql/types.d.ts": {
+    "packages/websites/graphql-queries/types.d.ts": {
       "plugins": ["typescript"]
     }
   }
