@@ -26,9 +26,11 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   useEffect(() => {
     if (
       typeof window !== 'undefined' &&
+      // @ts-expect-error Added by apollo
       typeof window.__APOLLO_STATE__ !== 'undefined'
     ) {
       apolloClient.cache = apolloClient.cache.restore(
+        // @ts-expect-error Added by apollo
         JSON.parse(window.__APOLLO_STATE__)
       );
     }
