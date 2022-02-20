@@ -10,7 +10,7 @@ type ApolloStateProperties = {
   props?: { __APOLLO_STATE__?: Record<string, unknown> };
 };
 
-export const addApolloSate = (
+export const addApolloState = (
   client: ApolloClient<NormalizedCacheObject>,
   pageProperties: ApolloStateProperties
 ): ApolloStateProperties => {

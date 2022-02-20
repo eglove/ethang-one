@@ -1,13 +1,16 @@
 import { gql } from '@apollo/client';
 
+import { imageFragments } from './fragments/image-fragments';
 import { Image, TechnologyLogo } from './types';
 
 export const homePageQueryVariables = (
   isOnHomePage = true
 ): Record<string, unknown> => {
   return {
-    isOnHomePage: {
-      _eq: isOnHomePage,
+    where: {
+      isOnHomepage: {
+        _eq: isOnHomePage,
+      },
     },
   };
 };
@@ -21,15 +24,12 @@ export type HomePageQuery = {
 };
 
 export const homePageQuery = gql`
+  ${imageFragments}
   query HomePageQuery($where: TechnologyLogo_bool_exp) {
     TechnologyLogo(where: $where) {
       id
       Image {
-        altText
-        height
-        id
-        url
-        width
+        ...ImageData
       }
     }
   }

@@ -6,7 +6,8 @@
       "Default GraphQL Endpoint": {
         "url": "https://needed-husky-72.hasura.app/v1/graphql",
         "headers": {
-          "user-agent": "JS GraphQL"
+          "content-type": "application/json",
+          "x-hasura-admin-secret": "okDtCzpuCFc9tb957irQHvJNGJrjqSes7DHkaNrjVOfuLgu9Fe663dKNmd63TMa6"
         },
         "introspect": true
       }

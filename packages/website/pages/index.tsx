@@ -1,11 +1,11 @@
-import { addApolloSate } from '@ethang-one/apollo';
+import { addApolloState } from '@ethang-one/apollo';
 
 import { HomeLayout } from '../components/home/home-layout';
 import {
   HomePageQuery,
   homePageQuery,
   homePageQueryVariables,
-} from '../graphql-queries';
+} from '../graphql-queries/technology-logos-query';
 import { apolloClient } from './_app';
 
 const Index = (): JSX.Element => {
@@ -14,8 +14,8 @@ const Index = (): JSX.Element => {
 
 export default Index;
 
-// eslint-disable-next-line unicorn/prevent-abbreviations,@typescript-eslint/no-unused-vars
-async function getServerSideProps(): Promise<Record<string, unknown>> {
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getServerSideProps(): Promise<Record<string, unknown>> {
   await apolloClient.client.query<{
     TechnologyLogo: HomePageQuery;
   }>({
@@ -23,7 +23,7 @@ async function getServerSideProps(): Promise<Record<string, unknown>> {
     variables: homePageQueryVariables(),
   });
 
-  return addApolloSate(apolloClient.client, {
+  return addApolloState(apolloClient.client, {
     props: {},
   });
 }

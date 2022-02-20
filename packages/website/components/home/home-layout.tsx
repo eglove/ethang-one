@@ -5,19 +5,21 @@ import {
   HomePageQuery,
   homePageQuery,
   homePageQueryVariables,
-} from '../../graphql-queries';
+} from '../../graphql-queries/technology-logos-query';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { LinkComponent } from '../common/link-component/link-component';
+import { LoadingImage } from '../common/loading-image/loading-image';
 import styles from './home.module.css';
 
 export const HomeLayout = (): JSX.Element | undefined => {
-  const { data, loading } = useQuery<HomePageQuery>(homePageQuery, {
+  const { data } = useQuery<HomePageQuery>(homePageQuery, {
+    fetchPolicy: 'cache-and-network',
     variables: homePageQueryVariables(),
   });
 
-  if (loading) {
-    return null;
+  if (typeof data === 'undefined') {
+    return <LoadingImage />;
   }
 
   return (

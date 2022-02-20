@@ -1,17 +1,18 @@
-import { Blog as BlogItem } from '@ethang-one/prisma-connection';
-import { PrismaClient } from '@prisma/client';
+import { addApolloState } from '@ethang-one/apollo';
 
 import { BlogLayout } from '../../components/blog/blog/blog-layout';
 import { Container } from '../../components/common/container/container';
+import {
+  BlogQuery,
+  blogQuery,
+  blogQueryVariables,
+} from '../../graphql-queries/blog-query';
+import { apolloClient } from '../_app';
 
-interface BlogProperties {
-  blog: BlogItem;
-}
-
-const Blog = ({ blog }: BlogProperties): JSX.Element => {
+const Blog = (): JSX.Element => {
   return (
     <Container>
-      <BlogLayout blog={blog} />
+      <BlogLayout />
     </Container>
   );
 };
@@ -19,72 +20,15 @@ const Blog = ({ blog }: BlogProperties): JSX.Element => {
 export default Blog;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps({
+export async function getServerSideProps({
   params,
-}: {
-  params: { slug: string };
 }): Promise<Record<string, unknown>> {
-  const prisma = new PrismaClient();
-
-  const blog = await prisma.blog.findUnique({
-    select: {
-      BlogAuthor: {
-        select: {
-          Person: {
-            select: {
-              firstName: true,
-              lastName: true,
-            },
-          },
-        },
-      },
-      Image: {
-        select: {
-          altText: true,
-          height: true,
-          url: true,
-          width: true,
-        },
-      },
-      content: true,
-      createdAt: true,
-      imageId: true,
-      title: true,
-      updatedAt: true,
-    },
-    where: {
-      slug: params.slug,
-    },
+  await apolloClient.client.query<BlogQuery>({
+    query: blogQuery,
+    variables: blogQueryVariables(params.slug),
   });
 
-  return {
-    props: {
-      blog: {
-        ...blog,
-        createdAt: blog.createdAt.toISOString(),
-        updatedAt: blog.updatedAt.toISOString(),
-      },
-    },
-    revalidate: 60,
-  };
-}
-
-export async function getStaticPaths(): Promise<Record<string, unknown>> {
-  const prisma = new PrismaClient();
-
-  const blogs = await prisma.blog.findMany({
-    select: {
-      slug: true,
-    },
+  return addApolloState(apolloClient.client, {
+    props: {},
   });
-
-  const paths = blogs.map(blog => {
-    return {
-      params: {
-        slug: blog.slug,
-      },
-    };
-  });
-
-  return { fallback: 'blocking', paths };
 }
