@@ -1,13 +1,26 @@
 import '../../../styles/global.css';
+import '../../../styles/nprogress.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'highlight.js/styles/github.css';
 
 import { ApolloProvider, InMemoryCacheConfig } from '@apollo/client';
 import { ApolloClientInit } from '@ethang-one/apollo';
 import { AppProps } from 'next/app';
+import { Router } from 'next/router';
+import NProgress from 'nprogress';
 import { useEffect } from 'react';
 
 import { Page } from '../components/common/page/page';
+
+Router.events.on('routeChangeStart', () => {
+  return NProgress.start();
+});
+Router.events.on('routeChangeComplete', () => {
+  return NProgress.done();
+});
+Router.events.on('routeChangeError', () => {
+  return NProgress.done();
+});
 
 export const apolloClientConfig: [string, InMemoryCacheConfig] = [
   process.env.NX_HASURA_URL,

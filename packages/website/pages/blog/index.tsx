@@ -1,17 +1,14 @@
-import { Blog as BlogItem } from '@ethang-one/prisma-connection';
-import { PrismaClient } from '@prisma/client';
+import { addApolloState } from '@ethang-one/apollo';
 
 import { BlogsLayout } from '../../components/blog/blogs/blogs-layout';
 import { Container } from '../../components/common/container/container';
+import { BlogsQuery, blogsQuery } from '../../graphql-queries/blogs-query';
+import { apolloClient } from '../_app';
 
-interface BlogProperties {
-  blogs: BlogItem[];
-}
-
-const Blog = ({ blogs }: BlogProperties): JSX.Element => {
+const Blog = (): JSX.Element => {
   return (
     <Container>
-      <BlogsLayout blogs={blogs} />
+      <BlogsLayout />
     </Container>
   );
 };
@@ -19,51 +16,12 @@ const Blog = ({ blogs }: BlogProperties): JSX.Element => {
 export default Blog;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<Record<string, unknown>> {
-  const prisma = new PrismaClient();
-
-  const blogs = await prisma.blog.findMany({
-    orderBy: {
-      createdAt: 'desc',
-    },
-    select: {
-      BlogAuthor: {
-        select: {
-          Person: {
-            select: {
-              firstName: true,
-              lastName: true,
-            },
-          },
-        },
-      },
-      Image: {
-        select: {
-          altText: true,
-          height: true,
-          url: true,
-          width: true,
-        },
-      },
-      createdAt: true,
-      id: true,
-      imageId: true,
-      slug: true,
-      title: true,
-      updatedAt: true,
-    },
+export async function getServerSideProps(): Promise<Record<string, unknown>> {
+  await apolloClient.client.query<BlogsQuery>({
+    query: blogsQuery,
   });
 
-  return {
-    props: {
-      blogs: blogs.map(blog => {
-        return {
-          ...blog,
-          createdAt: blog.createdAt.toISOString(),
-          updatedAt: blog.updatedAt.toString(),
-        };
-      }),
-    },
-    revalidate: 60,
-  };
+  return addApolloState(apolloClient.client, {
+    props: {},
+  });
 }

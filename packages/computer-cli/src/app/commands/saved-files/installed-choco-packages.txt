@@ -63,6 +63,7 @@ minecraft-launcher
 netfx-4.6.2
 notepadplusplus
 notepadplusplus.install
+nuget.commandline
 nvm
 nvm.portable
 obs-studio

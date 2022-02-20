@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import { createContext, useContext } from 'react';
 
-import { HomePageQuery } from '../../graphql-queries';
+import { HomePageQuery } from '../../graphql-queries/technology-logos-query';
 
 export class HomeState {
   private _data?: HomePageQuery;

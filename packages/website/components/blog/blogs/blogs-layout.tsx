@@ -1,22 +1,28 @@
-import { Blog } from '@ethang-one/prisma-connection';
+import { useQuery } from '@apollo/client';
 import { formatList } from '@ethang-one/util-typescript';
 
+import { BlogsQuery, blogsQuery } from '../../../graphql-queries/blogs-query';
 import { CreateUpdateTimes } from '../../common/create-update-times/create-update-times';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { LinkComponent } from '../../common/link-component/link-component';
+import { LoadingImage } from '../../common/loading-image/loading-image';
 import styles from './blogs-layout.module.css';
 
-interface BlogsLayoutProperties {
-  blogs: Blog[];
-}
+export const BlogsLayout = (): JSX.Element => {
+  const { data } = useQuery<BlogsQuery>(blogsQuery, {
+    fetchPolicy: 'cache-and-network',
+  });
 
-export const BlogsLayout = ({ blogs }: BlogsLayoutProperties): JSX.Element => {
+  if (typeof data === 'undefined') {
+    return <LoadingImage />;
+  }
+
   return (
     <>
       <HeadTag title="Blog" />
-      {blogs.map(blog => {
+      {data.Blog.map(blog => {
         return (
-          <div key={blog.id} style={{ height: '300px' }}>
+          <div key={blog.id as string} style={{ height: '300px' }}>
             <LinkComponent
               linkProperties={{
                 className: styles.BlogLink as string,
@@ -35,7 +41,7 @@ export const BlogsLayout = ({ blogs }: BlogsLayoutProperties): JSX.Element => {
                 <h2>{blog.title}</h2>
                 <div>
                   {formatList(
-                    blog.BlogAuthor.map(author => {
+                    blog.BlogAuthors.map(author => {
                       return `${author.Person.firstName} ${author.Person.lastName}`;
                     })
                   )}
