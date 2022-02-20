@@ -15,8 +15,8 @@ const Blog = (): JSX.Element => {
 
 export default Blog;
 
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<Record<string, unknown>> {
+// eslint-disable-next-line unicorn/prevent-abbreviations,@typescript-eslint/no-unused-vars
+async function getServerSideProps(): Promise<Record<string, unknown>> {
   await apolloClient.client.query<BlogsQuery>({
     query: blogsQuery,
   });
