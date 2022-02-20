@@ -10,10 +10,8 @@ const Courses = (): JSX.Element => {
   return <CoursesLayout />;
 };
 
-export default Courses;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations,@typescript-eslint/no-unused-vars
-async function getServerSideProps(): Promise<Record<string, unknown>> {
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getServerSideProps(): Promise<Record<string, unknown>> {
   await apolloClient.client.query<CoursesQuery>({
     query: coursesQuery,
     variables: coursesQueryVariables(),
@@ -23,3 +21,5 @@ async function getServerSideProps(): Promise<Record<string, unknown>> {
     props: {},
   };
 }
+
+export default Courses;
