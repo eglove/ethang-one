@@ -1,11 +1,12 @@
 import Image from 'next/image';
 
 import loadingImage from '../../../public/images/loading.svg';
+import { Container } from '../container/container';
 
 export const LoadingImage = (): JSX.Element => {
   return (
-    <div style={{ display: 'grid', placeItems: 'center', width: '100%' }}>
+    <Container>
       <Image src={loadingImage} alt="Loading..." />
-    </div>
+    </Container>
   );
 };
