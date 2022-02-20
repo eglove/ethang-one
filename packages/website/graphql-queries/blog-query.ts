@@ -9,12 +9,9 @@ export type BlogQuery = {
   Blog: Array<
     BlogDataType & {
       BlogAuthors: Array<
-        Pick<
-          BlogAuthor,
-          'id' & {
-            Person: PersonNameType;
-          }
-        >
+        Pick<BlogAuthor, 'id'> & {
+          Person: PersonNameType;
+        }
       >;
       Image: ImageDataType;
     }

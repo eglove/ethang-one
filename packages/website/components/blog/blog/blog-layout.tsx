@@ -33,9 +33,7 @@ export const BlogLayout = (): JSX.Element | undefined => {
       setAuthors(
         formatList(
           data.Blog[0].BlogAuthors.map(author => {
-            return `${author.Person.firstName as string} ${
-              author.Person.lastName as string
-            }`;
+            return `${author.Person.firstName} ${author.Person.lastName}`;
           })
         )
       );

@@ -23,9 +23,11 @@ export type CoursesQuery = {
         Pick<CourseInstructor, 'id'> & { Person: PersonNameType }
       >;
     } & {
-      CourseUrls: Array<Pick<CourseUrl, 'id' | 'url'>> & {
-        School: Pick<School, 'name'>;
-      };
+      CourseUrls: Array<
+        Pick<CourseUrl, 'id' | 'url'> & {
+          School: Pick<School, 'name'>;
+        }
+      >;
     } & {
       School: Pick<School, 'url'> & { Image: ImageDataType };
     }
