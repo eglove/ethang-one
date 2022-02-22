@@ -8,3 +8,9 @@ export const shuffleArray = <Type>(array: Type[]): Type[] => {
 
   return array;
 };
+
+export const arrayHasDuplicate = (array: unknown[]): boolean => {
+  return array.some((item, index) => {
+    return array.indexOf(item) !== index;
+  });
+};

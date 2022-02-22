@@ -8,6 +8,7 @@ specifiers:
   '@faker-js/faker': ^6.0.0-alpha.6
   '@graphql-codegen/cli': ^2.6.2
   '@graphql-codegen/typescript': ^2.4.5
+  '@graphql-tools/schema': ^8.3.1
   '@next/eslint-plugin-next': ^12.1.0
   '@nrwl/angular': 13.8.3
   '@nrwl/cli': 13.8.3
@@ -27,6 +28,7 @@ specifiers:
   '@nrwl/workspace': 13.8.3
   '@nxext/stencil': ^13.1.2
   '@nxrs/cargo': ^0.3.2
+  '@paljs/plugins': ^4.0.13
   '@prisma/client': ^3.9.2
   '@stencil/core': ^2.14.0
   '@stencil/eslint-plugin': ^0.4.0
@@ -76,7 +78,6 @@ specifiers:
   eslint-plugin-simple-import-sort: ^7.0.0
   eslint-plugin-sonarjs: ^0.12.0
   eslint-plugin-unicorn: ^41.0.0
-  express: ^4.17.3
   fast-xml-parser: ^4.0.3
   get-youtube-id: ^1.0.1
   graphql: ^16.3.0
@@ -131,7 +132,9 @@ dependencies:
   '@angular/core': 13.2.3_rxjs@7.5.4+zone.js@0.11.4
   '@apollo/client': 3.5.9_graphql@16.3.0+react@17.0.2
   '@faker-js/faker': 6.0.0-alpha.6
+  '@graphql-tools/schema': 8.3.1_graphql@16.3.0
   '@nrwl/next': 13.8.3_24bc1ed60e032ae22e9e9d298cb86a57
+  '@paljs/plugins': 4.0.13_graphql@16.3.0
   '@prisma/client': 3.9.2_prisma@3.9.2
   apollo-server: 3.6.3_graphql@16.3.0
   apollo-server-core: 3.6.3_graphql@16.3.0
@@ -140,7 +143,6 @@ dependencies:
   chalk: 4.1.2
   core-js: 3.21.1
   crypto-hash: 2.0.1
-  express: 4.17.3
   fast-xml-parser: 4.0.3
   get-youtube-id: 1.0.1
   graphql: 16.3.0
@@ -3456,6 +3458,20 @@ packages:
       '@nrwl/devkit': 13.8.3
       chalk: 4.1.2
     dev: true
+
+  /@paljs/plugins/4.0.13_graphql@16.3.0:
+    resolution: {integrity: sha512-GqgKUhrHvTH37oll16a2xm2lAHbwl61xngD+LzuRrxfKreasXtxEDMMxIX82248znioNQsrJbkN6genTykJCWg==}
+    dependencies:
+      '@paljs/types': 4.0.13
+      graphql-fields: 2.0.3
+      graphql-tag: 2.12.6_graphql@16.3.0
+    transitivePeerDependencies:
+      - graphql
+    dev: false
+
+  /@paljs/types/4.0.13:
+    resolution: {integrity: sha512-5HQT0r01Jb020QHTdvkiGynzkSezAAY3ecj+33xWnVKezIz9Au4c2pqj6kxGcCAZkQqcyMSBVkiFuq1Msdws1g==}
+    dev: false
 
   /@parcel/watcher/2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}

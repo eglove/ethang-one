@@ -1,3 +1,16 @@
+export enum Rating {
+  ONE = 'ONE',
+  TWO = 'TWO',
+  THREE = 'THREE',
+  FOUR = 'FOUR',
+  FIVE = 'FIVE',
+}
+
+export enum Role {
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+}
+
 export interface Blog {
   id: string;
   createdAt: Date;
@@ -150,15 +163,13 @@ export interface User {
   Person: Person;
 }
 
-export enum Rating {
-  ONE = 'ONE',
-  TWO = 'TWO',
-  THREE = 'THREE',
-  FOUR = 'FOUR',
-  FIVE = 'FIVE',
-}
+export type UserWhereUniqueInput = {
+  id?: string;
+  username?: string;
+  username_password?: UserUsernamePasswordCompoundUniqueInput;
+};
 
-export enum Role {
-  USER = 'USER',
-  ADMIN = 'ADMIN',
-}
+export type UserUsernamePasswordCompoundUniqueInput = {
+  username: string;
+  password: string;
+};
