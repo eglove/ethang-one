@@ -1,6 +1,6 @@
+import { Prisma } from '@ethang-one/prisma-connection';
 import { arrayHasDuplicate } from '@ethang-one/util-typescript';
 import { PrismaSelect } from '@paljs/plugins';
-import { Prisma } from '@prisma/client';
 import { GraphQLResolveInfo } from 'graphql';
 
 import { Context } from '../../main';

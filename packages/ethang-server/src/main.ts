@@ -1,6 +1,6 @@
 /* eslint-disable new-cap */
+import { PrismaClient } from '@ethang-one/prisma-connection';
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import { PrismaClient } from '@prisma/client';
 import { ApolloServer } from 'apollo-server';
 import {
   ApolloServerPluginInlineTrace,

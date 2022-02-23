@@ -1,6 +1,6 @@
+import { Prisma, PrismaClient } from '@ethang-one/prisma-connection';
 import { arrayHasDuplicate } from '@ethang-one/util-typescript';
 import { PrismaSelect } from '@paljs/plugins';
-import { Prisma, PrismaClient } from '@prisma/client';
 import { GraphQLResolveInfo } from 'graphql';
 
 import { Context } from '../../../main';
@@ -139,7 +139,6 @@ export class GraphQlResolver<ArgumentsType, ModelType, ReturnType, SelectType> {
               // Try block will check if findUnique here exists.
               // eslint-disable-next-line @typescript-eslint/no-unsafe-call
               model
-                // @ts-expect-error Allow the try block to catch this.
                 .findUnique({
                   where: {
                     [relation.parentColumnName]: relationValue,
@@ -164,7 +163,6 @@ export class GraphQlResolver<ArgumentsType, ModelType, ReturnType, SelectType> {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-call
             return this.incomingQueryArguments.context.ethangDb[
               this.incomingQueryFieldName
-              // @ts-expect-error We'll assume this is only used on tables with findMany available
             ].findMany({
               ...this.resolvedArguments,
             }) as ModelType[];
@@ -177,7 +175,6 @@ export class GraphQlResolver<ArgumentsType, ModelType, ReturnType, SelectType> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     return this.incomingQueryArguments.context.ethangDb[
       this.incomingQueryFieldName
-      // @ts-expect-error We'll assume this is only used on tables with findMany available
     ].findMany({
       ...this.resolvedArguments,
     }) as ModelType[];
@@ -187,7 +184,6 @@ export class GraphQlResolver<ArgumentsType, ModelType, ReturnType, SelectType> {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-return
     return this.incomingQueryArguments.context.ethangDb[
       this.incomingQueryFieldName
-      // @ts-expect-error We'll assume this is only used on tables with findUnique available
     ].findUnique({
       ...this.resolvedArguments,
     });

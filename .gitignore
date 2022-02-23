@@ -1,3 +1,7 @@
+### DO NOT REPLACE WHEN REGENERATING GITIGNORE ###
+packages/prisma-connection/src/lib/ethang-prisma-data
+### DO NOT REPLACE WHEN REGENERATING GITIGNORE ###
+
 # Created by https://www.toptal.com/developers/gitignore/api/node,react,macos,windows,jetbrains,visualstudiocode,rust
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,react,macos,windows,jetbrains,visualstudiocode,rust
 

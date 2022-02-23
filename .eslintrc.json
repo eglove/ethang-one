@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["*.d.ts", "packages/**/build", "packages/**/.cache", "**/jest.config.js"],
+  "ignorePatterns": ["*.d.ts", "packages/**/build", "packages/**/.cache", "**/jest.config.js", "packages/prisma-connection/src/lib/ethang-prisma-data"],
   "overrides": [
     {
       "files": [
