@@ -4,6 +4,7 @@ import inquirer, { Separator } from 'inquirer';
 import { generateGitHistory } from './app/generate-git-history/generate-git-history';
 import { nodeDependencies } from './app/node-dependencies/node-dependencies';
 import { prismaBuild } from './app/prisma-build/prisma-build';
+import { prismaGenerate } from './app/prisma-generate/prisma-generate';
 import { buildOrRunProjects } from './app/project-management/build-or-run-projects';
 import { projectManagement } from './app/project-management/project-management';
 import { projectsManagement } from './app/projects-management/projects-management';
@@ -20,11 +21,12 @@ enum Option {
   projectManagementCommand = 'Project Generate (New Component, New Page, etc.)',
   nodeDependenciesCommand = 'Manage NPM dependencies.',
   projectsManagementCommand = 'Manage Project List (Create New, Remove)',
+  prismaGenerate = 'Generate TypeScript and GraphQL definitions for prisma',
   prismaBuild = 'Introspect Databases, Generate Prisma Stuff',
 }
 
 async function runEthanGOne(): Promise<void> {
-  const { option } = await inquirer.prompt<{ option: Option }>([
+  const { option } = await inquirer.prompt<{ option: string }>([
     {
       choices: [
         { name: Option.buildOrRunProjectCommand },
@@ -70,6 +72,11 @@ async function runEthanGOne(): Promise<void> {
 
     case Option.generateHistory: {
       generateGitHistory();
+      break;
+    }
+
+    case Option.prismaGenerate: {
+      prismaGenerate();
       break;
     }
 

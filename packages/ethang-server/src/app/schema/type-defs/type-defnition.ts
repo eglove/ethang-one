@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+import { Prisma } from '@ethang-one/prisma-connection';
 
 export class TypeDefinition {
   public pluralFieldNames: Record<string, string>;
