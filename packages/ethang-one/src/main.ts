@@ -35,6 +35,7 @@ async function runEthanGOne(): Promise<void> {
         { name: Option.projectsManagementCommand },
         { name: Option.prismaBuild },
         { name: Option.generateHistory },
+        { name: Option.prismaGenerate },
         new Separator(),
         { name: Option.exit },
       ],
