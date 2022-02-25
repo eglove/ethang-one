@@ -15,26 +15,30 @@ export const prismaGenerate = (): void => {
     const trimmedLine = line.trim();
 
     // export type BlogAuthor = {
-    if (trimmedLine.startsWith('export type') && !trimmedLine.endsWith('}')) {
+    if (trimmedLine.startsWith('* Models')) {
       isInType = true;
     }
 
     // export type Role = (typeof Role)[keyof typeof Role]
     // export type PrismaPromise<A> = Promise<A> & {[prisma]: true}
-    if (
-      (trimmedLine.startsWith('export type') && trimmedLine.endsWith('}')) ||
-      (isInType && !trimmedLine.includes('}'))
-    ) {
+    // export type Role = (typeof Role)[keyof typeof Role]
+    // if (isInType && !trimmedLine.includes('}')) {
+    //   isInType = false;
+    //   types.push(`${trimmedLine}\n`);
+    //   continue;
+    // }
+
+    if (isInType && trimmedLine.startsWith('/**')) {
       isInType = false;
-      types.push(`${trimmedLine}\n`);
-      continue;
+      types.push(currentType);
+      currentType = '';
     }
 
     if (isInType) {
       currentType += `${trimmedLine}\n`;
     }
 
-    if (isInType && trimmedLine.endsWith('}')) {
+    if (isInType && (trimmedLine.endsWith('}') || trimmedLine.endsWith(']'))) {
       isInType = false;
       types.push(currentType);
       currentType = '';
