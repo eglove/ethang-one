@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "ethang-prisma-data"
+  output   = "../../../../node_modules/@ethang-one/prisma-connection"
 }
 
 datasource db {
