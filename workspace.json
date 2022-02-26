@@ -6,7 +6,6 @@
     "computer-cli": "packages/computer-cli",
     "design-patterns": "packages/design-patterns",
     "ethang-one": "packages/ethang-one",
-    "ethang-server": "packages/ethang-server",
     "prisma-connection": "packages/prisma-connection",
     "react-components": "packages/react-components",
     "react-hooks": "packages/react-hooks",
