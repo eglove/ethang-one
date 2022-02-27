@@ -9,16 +9,6 @@ type BlogConstructor = {
   updated: Date;
 };
 
-export enum blogSlug {
-  firstPost = 'a-first-post',
-  pcBackup = 'pc-backup-in-two-lines',
-  portfolioRedesign = 'portfolio-redesign',
-  recommendedCourses = 'the-recommended-courses',
-  rtcReview = 'realtoughcandy-io-review',
-  staticPages = 'on-hosting-static-pages',
-  talkAboutAnki = 'do-you-have-a-moment-to-talk-about-anki',
-}
-
 export class Blog {
   public authors: Person[];
   public created: Date;

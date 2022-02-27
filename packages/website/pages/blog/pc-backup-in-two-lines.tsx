@@ -1,6 +1,6 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../json/models/blog';
+import { blogSlug } from '../../database/data/blogs';
 
 const PcBackupInTwoLines = (): JSX.Element => {
   return (

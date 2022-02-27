@@ -1,7 +1,7 @@
 import { formatList } from '@ethang-one/util-typescript';
 
-import { blogs } from '../../../json/blogs';
-import { Blog, blogSlug } from '../../../json/models/blog';
+import { blogs, blogSlug } from '../../../database/data/blogs';
+import { Blog } from '../../../database/models/blog';
 import { CreateUpdateTimes } from '../../common/create-update-times/create-update-times';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { LinkComponent } from '../../common/link-component/link-component';
@@ -25,7 +25,6 @@ export const BlogsLayout = (): JSX.Element => {
     <>
       <HeadTag title="Blog" />
       {blogList.map(blog => {
-        console.log(blog);
         return (
           <div key={blog.title} style={{ height: '300px' }}>
             <LinkComponent

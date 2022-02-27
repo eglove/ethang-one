@@ -1,5 +1,5 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogSlug } from '../../json/models/blog';
+import { blogSlug } from '../../database/data/blogs';
 
 const RealtoughcandyIoReview = (): JSX.Element => {
   return (

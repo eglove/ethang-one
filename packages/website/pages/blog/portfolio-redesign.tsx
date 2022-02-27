@@ -1,7 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { blogSlug } from '../../json/models/blog';
+import { blogSlug } from '../../database/data/blogs';
 
 const PortfolioRedesign = (): JSX.Element => {
   return (

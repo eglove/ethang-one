@@ -1,8 +1,7 @@
 import { formatList } from '@ethang-one/util-typescript';
 import { useEffect, useState } from 'react';
 
-import { blogs } from '../../../json/blogs';
-import { blogSlug } from '../../../json/models/blog';
+import { blogs, blogSlug } from '../../../database/data/blogs';
 import { Container } from '../../common/container/container';
 import { CreateUpdateTimes } from '../../common/create-update-times/create-update-times';
 import { HeadTag } from '../../common/head-tag/head-tag';
