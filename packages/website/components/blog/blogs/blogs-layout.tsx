@@ -7,20 +7,31 @@ import { HeadTag } from '../../common/head-tag/head-tag';
 import { LinkComponent } from '../../common/link-component/link-component';
 import styles from './blogs-layout.module.css';
 
+type BlogData = {
+  slug: blogSlug;
+} & Blog;
+
 export const BlogsLayout = (): JSX.Element => {
-  const blogSlugs = Object.getOwnPropertyNames(blogSlug);
+  const blogList: BlogData[] = Object.keys(blogs)
+    .sort((a: blogSlug, b: blogSlug) => {
+      return blogs[b].created.getTime() - blogs[a].updated.getTime();
+    })
+    .map(key => {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+      return { slug: key, ...blogs[key] } as BlogData;
+    });
 
   return (
     <>
       <HeadTag title="Blog" />
-      {blogSlugs.map((slug: string) => {
-        const blog = blogs[blogSlug[slug]] as Blog;
+      {blogList.map(blog => {
+        console.log(blog);
         return (
-          <div key={slug} style={{ height: '300px' }}>
+          <div key={blog.title} style={{ height: '300px' }}>
             <LinkComponent
               linkProperties={{
                 className: styles.BlogLink as string,
-                href: `/blog/${blogSlug[slug] as blogSlug}`,
+                href: `/blog/${blog.slug}`,
               }}
             >
               <div

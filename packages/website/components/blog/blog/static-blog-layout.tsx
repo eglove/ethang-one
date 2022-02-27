@@ -10,7 +10,7 @@ import { ImageContainer } from '../../common/image-container/image-container';
 import styles from './blog-layout.module.css';
 
 interface StaticBlogLayoutProperties {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   slug: blogSlug;
 }
 

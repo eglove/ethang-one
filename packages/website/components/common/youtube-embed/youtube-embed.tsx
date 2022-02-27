@@ -8,17 +8,19 @@ interface YouTubeEmbedProperties {
 export const YouTubeEmbed = ({
   id,
   title,
-}: YouTubeEmbedProperties): JSX.Element => (
-  <>
-    <br />
-    <div className={styles.YtContainer}>
-      <iframe
-        src={`https://www.youtube.com/embed/${id}`}
-        title={title}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-    </div>
-  </>
-);
+}: YouTubeEmbedProperties): JSX.Element => {
+  return (
+    <>
+      <br />
+      <div className={styles.YtContainer as string}>
+        <iframe
+          allowFullScreen
+          src={`https://www.youtube.com/embed/${id}`}
+          title={title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        />
+      </div>
+    </>
+  );
+};
