@@ -9,14 +9,11 @@ export const blogImage = (fileName: string): string => {
   return `/images/blog-images/${fileName}`;
 };
 
-export class Image {
-  static EthanAvatar = new Image({
-    altText: 'Ethan Glover Avatar',
-    height: 449,
-    url: 'https://avatars.githubusercontent.com/u/3924176?v=4',
-    width: 449,
-  });
+export const technologyLogoImage = (fileName: string): string => {
+  return `/images/technology-logos/${fileName}`;
+};
 
+export class Image {
   public altText: string;
   public height: number;
   public url: string;

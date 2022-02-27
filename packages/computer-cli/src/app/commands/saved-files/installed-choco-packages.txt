@@ -38,7 +38,9 @@ gh
 git
 git.install
 github-desktop
+go
 goggalaxy
+golang
 google-drive-file-stream
 GoogleChrome
 greenshot

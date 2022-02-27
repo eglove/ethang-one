@@ -1,8 +1,8 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../json/models/blog';
-import { blogImage } from '../../json/models/image';
+import { blogSlug } from '../../database/data/blogs';
+import { blogImage } from '../../database/models/image';
 
 export const OnHostingStaticPages = (): JSX.Element => {
   return (

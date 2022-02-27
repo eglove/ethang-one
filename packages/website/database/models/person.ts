@@ -11,15 +11,6 @@ type PersonConstructor = {
 };
 
 export class Person {
-  static Ethan = new Person({
-    firstName: 'Ethan',
-    githubUrl: new URL('https://github.com/eglove'),
-    image: Image.EthanAvatar,
-    lastName: 'Glover',
-    linkedinUrl: new URL('https://www.linkedin.com/in/ethan-glover/'),
-    websiteUrl: new URL('https://www.ethang.dev/'),
-  });
-
   public firstName: string;
   public githubUrl?: URL;
   public image?: Image;
