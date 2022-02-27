@@ -17,7 +17,9 @@
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
     "*.css": "stylelint --fix"
   },
-  "browserslist": ["extends browserslist-config-google"],
+  "browserslist": [
+    "extends browserslist-config-google"
+  ],
   "dependencies": {
     "@angular/core": "^13.2.4",
     "@apollo/client": "^3.5.9",
