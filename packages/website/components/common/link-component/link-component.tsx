@@ -28,7 +28,7 @@ export const LinkComponent = ({
   }
 
   return (
-    <Link href={linkProperties.href}>
+    <Link prefetch href={linkProperties.href}>
       {/* eslint-disable-next-line react/jsx-no-target-blank */}
       <a {...linkProperties}>{children}</a>
     </Link>
