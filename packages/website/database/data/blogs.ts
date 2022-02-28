@@ -5,11 +5,13 @@ import { persons } from './persons';
 export enum blogSlug {
   bitcoinFailure = 'is-bitcoin-a-failure',
   curingBias = 'curing-bias-with-curiosity',
+  darrylPerry = 'is-darryl-perry-making-ideological-progress',
   defendYourselfAgainstState = 'defend-yourself-against-the-state',
   epidemicPassableArguments = 'the-epidemic-of-passable-arguments',
   firstPost = 'a-first-post',
   imageProblem = 'the-image-problem-and-its-solution',
   laconiaBikeWeek = 'laconia-shuts-down-bike-week-music-festival',
+  lessonsLearnedRebuildingReact = 'lessons-learned-from-rewriting-a-react-app',
   paradoxicalism = 'paradoxicalism-as-a-political-belief',
   pcBackup = 'pc-backup-in-two-lines',
   persuasionMoralArguments = 'persuasion-through-moral-arguments',
@@ -17,6 +19,7 @@ export enum blogSlug {
   recommendedCourses = 'the-recommended-courses',
   rtcReview = 'realtoughcandy-io-review',
   sevenWayToWinAnArgumentOnline = '7-ways-to-win-an-argument-online',
+  speechPersuasive = 'speech-is-more-persuasive-than-text',
   staticPages = 'on-hosting-static-pages',
   typescriptFormEnums = 'typescript-form-enums',
   talkAboutAnki = 'do-you-have-a-moment-to-talk-about-anki',
@@ -38,6 +41,13 @@ export const blogs: BlogsMetaData = {
     image: images.wantToBelieve,
     title: 'Curing Bias with Curiosity',
     updated: new Date('2021-11-14 04:25:17.326'),
+  }),
+  [blogSlug.darrylPerry]: new Blog({
+    authors: [persons.ethanGlover],
+    created: new Date('2021-11-14 04:44:56.361'),
+    image: images.openLetterLibertarians,
+    title: 'Is Darryl Perry Making Ideological Progress?',
+    updated: new Date('2021-11-14 04:44:56.361'),
   }),
   [blogSlug.defendYourselfAgainstState]: new Blog({
     authors: [persons.ethanGlover],
@@ -73,6 +83,13 @@ export const blogs: BlogsMetaData = {
     image: images.laconiaBikeWeek,
     title: 'Laconia Shuts Down Bike Week Music Festival',
     updated: new Date('2021-11-14 03:32:07.238'),
+  }),
+  [blogSlug.lessonsLearnedRebuildingReact]: new Blog({
+    authors: [persons.ethanGlover],
+    created: new Date('2021-11-14 04:59:37.805'),
+    image: images.react,
+    title: 'Lessons Learned From Rewriting A React App',
+    updated: new Date('2021-11-14 04:59:37.806'),
   }),
   [blogSlug.paradoxicalism]: new Blog({
     authors: [persons.ethanGlover],
@@ -122,6 +139,13 @@ export const blogs: BlogsMetaData = {
     image: images.redditChangeMyView,
     title: '7 Ways to Win An Argument Online',
     updated: new Date('2021-11-14 04:10:52.225'),
+  }),
+  [blogSlug.speechPersuasive]: new Blog({
+    authors: [persons.ethanGlover],
+    created: new Date('2021-11-14 04:49:36.314'),
+    image: images.microphone,
+    title: 'Speech Is More Persuasive Than Text',
+    updated: new Date('2021-11-14 04:49:36.314'),
   }),
   [blogSlug.staticPages]: new Blog({
     authors: [persons.ethanGlover],
