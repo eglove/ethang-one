@@ -6,6 +6,9 @@ export enum ImageName {
   ethanAvatar = 'ethanAvatar',
   expectationsVsReality = 'expectationsVsReality',
   laconiaBikeWeek = 'laconiaBikeWeek',
+  moralFoundationsTheory = 'moralFoundationsTheory',
+  paradox = 'paradox',
+  politicsAsAVocation = 'politicsAsAVocation',
   portfolioRedesign = 'portfolioRedesign',
   powershellScript = 'powershellScript',
   reactJsx = 'reactJsx',
@@ -15,6 +18,7 @@ export enum ImageName {
   supremeCourt = 'supremeCourt',
   tinyMce = 'tinyMce',
   typescript = 'typescript',
+  wantToBelieve = 'wantToBelieve',
 }
 
 type ImageMetaData = Record<ImageName, Image>;
@@ -49,6 +53,24 @@ export const images: ImageMetaData = {
     height: 300,
     url: blogImage('laconia-bike-week.jpg'),
     width: 242,
+  }),
+  [ImageName.moralFoundationsTheory]: new Image({
+    altText: '3 Political Camps',
+    height: 226,
+    url: blogImage('moral-foundation-space.png'),
+    width: 300,
+  }),
+  [ImageName.paradox]: new Image({
+    altText: 'Paradox',
+    height: 968,
+    url: blogImage('paradox.png'),
+    width: 1000,
+  }),
+  [ImageName.politicsAsAVocation]: new Image({
+    altText: 'Politics as a Vocation - Max Weber',
+    height: 238,
+    url: blogImage('politics-as-a-vocation.png'),
+    width: 641,
   }),
   [ImageName.portfolioRedesign]: new Image({
     altText:
@@ -104,5 +126,11 @@ export const images: ImageMetaData = {
     height: 2500,
     url: technologyLogoImage('typescript.svg'),
     width: 2500,
+  }),
+  [ImageName.wantToBelieve]: new Image({
+    altText: 'I Want to Believe UFO poster',
+    height: 300,
+    url: blogImage('i-want-to-believe.png'),
+    width: 240,
   }),
 };
