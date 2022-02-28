@@ -205,7 +205,7 @@ const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
         you&apos;re trying to do. Find another way.
       </p>
       <p>
-        A TypeScript class is
+        A TypeScript class is{' '}
         <strong>
           code that can be shared by both the Next API and your client.
         </strong>{' '}
@@ -223,35 +223,35 @@ const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
           }}
         >
           Just because
-        </LinkComponent>
+        </LinkComponent>{' '}
         <LinkComponent
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/q6es9u/should_i_implement_ssr_before_react_native_or/',
           }}
         >
           you&apos;re using
-        </LinkComponent>
+        </LinkComponent>{' '}
         <LinkComponent
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/ph2i4u/ssr_data_fetching_trick/',
           }}
         >
           Next, doesn&apos;t
-        </LinkComponent>
+        </LinkComponent>{' '}
         <LinkComponent
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/ml4i2t/ssr_pages_cold_start_improve_performance/',
           }}
         >
           mean everything
-        </LinkComponent>
+        </LinkComponent>{' '}
         <LinkComponent
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/ncgix2/what_is_the_point_of_nextjs_ssr/',
           }}
         >
           should be
-        </LinkComponent>
+        </LinkComponent>{' '}
         <LinkComponent
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/mhel96/ssr_performance_improvements/',
@@ -276,7 +276,7 @@ const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
         when you need them.
       </p>
       <p>
-        Get familiar with
+        Get familiar with{' '}
         <LinkComponent
           linkProperties={{
             href: 'https://nextjs.org/docs/basic-features/data-fetching',
@@ -293,11 +293,11 @@ const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
       </p>
       <h2>Learn From Smart People, Don&apos;t Stop Learning</h2>
       <p>
-        I initially learned React from
+        I initially learned React from{' '}
         <LinkComponent linkProperties={{ href: 'https://advancedreact.com/' }}>
           Wes Bos
         </LinkComponent>
-        . and did a lot of
+        . and did a lot of{' '}
         <LinkComponent
           linkProperties={{ href: 'https://www.ethang.dev/courses' }}
         >
@@ -359,7 +359,7 @@ const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
           }}
         >
           Einstellung
-        </LinkComponent>
+        </LinkComponent>{' '}
         set in.
       </p>
       <h2>Use The Next API</h2>
@@ -383,7 +383,7 @@ const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
           }}
         >
           environment variables
-        </LinkComponent>
+        </LinkComponent>{' '}
         that are not NEXT_PUBLIC.
       </p>
       <h2>Keep Scaling, Keep Refactoring</h2>
