@@ -112,7 +112,7 @@ export const humanReadableLocalDateTime = (dateTime: Date | string): string => {
     month: 'short',
     timeZone: new Intl.DateTimeFormat().resolvedOptions().timeZone,
     timeZoneName: 'short',
-    weekday: 'short',
+    year: 'numeric',
   };
 
   // @ts-expect-error Option values are correct
