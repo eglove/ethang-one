@@ -11,7 +11,7 @@ jobs:
     name: Browsers Update
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Cache PNPM Modules
         uses: actions/cache@v2
         with:
@@ -38,7 +38,7 @@ jobs:
     name: Qodana Analysis
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v4.2.5
         with:
@@ -57,7 +57,7 @@ jobs:
         language: [ 'typescript' ]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1
         with:
@@ -72,7 +72,7 @@ jobs:
     name: Snyk Node Analysis
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Cache PNPM modules
         uses: actions/cache@v2
         with:
@@ -96,7 +96,7 @@ jobs:
     name: Snyk Sarif
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Cache PNPM modules
         uses: actions/cache@v2
         with:
@@ -125,7 +125,7 @@ jobs:
     name: Sonar Analysis
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: SonarCloud Scan
@@ -139,7 +139,7 @@ jobs:
     needs: [ codeQl, snykNode, sonar ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Merge to Main
         uses: devmasx/merge-branch@1.4.0
         with:
