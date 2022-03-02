@@ -2779,10 +2779,10 @@ packages:
       eslint-config-prettier: 8.4.0_eslint@8.10.0
       tsconfig-paths: 3.12.0
     optionalDependencies:
-      '@swc/core-linux-arm64-gnu': 1.2.146
-      '@swc/core-linux-arm64-musl': 1.2.146
-      '@swc/core-linux-x64-gnu': 1.2.146
-      '@swc/core-linux-x64-musl': 1.2.146
+      '@swc/core-linux-arm64-gnu': 1.2.147
+      '@swc/core-linux-arm64-musl': 1.2.147
+      '@swc/core-linux-x64-gnu': 1.2.147
+      '@swc/core-linux-x64-musl': 1.2.147
     transitivePeerDependencies:
       - bufferutil
       - canvas
@@ -4081,12 +4081,30 @@ packages:
     dev: true
     optional: true
 
+  /@swc/core-linux-arm64-gnu/1.2.147:
+    resolution: {integrity: sha512-rPiDrgbjx7idgQ64aJ6TE58uahvGE2oGTA7il2RmtD5pxFK0E3QN569eJvmzBagrlU848ntB0LjazAGw3rqP9g==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@swc/core-linux-arm64-musl/1.2.146:
     resolution: {integrity: sha512-tOHcanuqgniMwUWMwjA+zr/hZyVn931l8DiIi3Mthyplp/PDY68PVAUJ8miJd4C5XDPcYfPOe5kRyXsFrdZzhw==}
     engines: {node: '>=10'}
     cpu: [arm64]
     os: [linux]
     hasBin: true
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-linux-arm64-musl/1.2.147:
+    resolution: {integrity: sha512-TilrlBVkRyXrHNlTJ2WPTped+eC9R0RGu6sxzkNzcMY1DDXYDUy+Z+clotFU7t286hQy46gEdKTofsNIRzwt0g==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
     requiresBuild: true
     dev: true
     optional: true
@@ -4101,12 +4119,30 @@ packages:
     dev: true
     optional: true
 
+  /@swc/core-linux-x64-gnu/1.2.147:
+    resolution: {integrity: sha512-Trp8xOc1jSlSryEqOqNhzffZxSLIpSgTCKQZTrpyrelP0egA0hvxZun6Nb7sF97G3GI0MKg6SPP0FZo6gvI3kw==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
   /@swc/core-linux-x64-musl/1.2.146:
     resolution: {integrity: sha512-iwKiHvV8p48/82+eJRCy/WcnAZBOFr2ZJ5VLtRuV+sz0mkWjoimnLZ8SEshoru9PVoKF7hfG7AMqKaVOUjSJFg==}
     engines: {node: '>=10'}
     cpu: [x64]
     os: [linux]
     hasBin: true
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-linux-x64-musl/1.2.147:
+    resolution: {integrity: sha512-m1Zz8DIz7somKDoJFjxrCemTlF3OtfNbRH/o9l81CaoRXTT26FmVoIP0k9tVwA6K/qybXey3XH3TX75hjwH+pw==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
     requiresBuild: true
     dev: true
     optional: true
