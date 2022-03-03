@@ -1,28 +1,12 @@
 {
   "migrations": [
     {
-      "version": "13.2.0",
-      "description": "Set --parallel=1 for existing repos to preserve the existing behavior",
       "cli": "nx",
-      "implementation": "./src/migrations/update-13-2-0/set-parallel-default",
-      "package": "@nrwl/workspace",
-      "name": "set-parallel-default"
-    },
-    {
-      "version": "13.3.0-beta.0",
-      "description": "@nrwl/workspace:tsc is now @nrwl/js:tsc",
-      "cli": "nx",
-      "implementation": "./src/migrations/update-13-3-0/update-tsc-executor-location",
-      "package": "@nrwl/workspace",
-      "name": "13-3-0-tsc-location"
-    },
-    {
-      "version": "13.6.0-beta.0",
-      "description": "Remove old options that are no longer used",
-      "cli": "nx",
-      "implementation": "./src/migrations/update-13-6-0/remove-old-task-runner-options",
-      "package": "@nrwl/workspace",
-      "name": "13-6-0-remove-old-task-runner-options"
+      "version": "13.8.4",
+      "description": "Karma coverage is broken since Angular 13 upgarde and the karma config is severely out of date. Bring it up to date fixing the coverage issue.",
+      "factory": "./src/migrations/update-13-8-4/migrate-karma-conf",
+      "package": "@nrwl/angular",
+      "name": "migrate-karma-config"
     }
   ]
 }
