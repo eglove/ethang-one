@@ -9,6 +9,10 @@ export const blogImage = (fileName: string): string => {
   return `/images/blog-images/${fileName}`;
 };
 
+export const schoolLogoImage = (fileName: string): string => {
+  return `/images/school-logos/${fileName}`;
+};
+
 export const technologyLogoImage = (fileName: string): string => {
   return `/images/technology-logos/${fileName}`;
 };

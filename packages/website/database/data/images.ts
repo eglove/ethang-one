@@ -1,4 +1,9 @@
-import { blogImage, Image, technologyLogoImage } from '../models/image';
+import {
+  blogImage,
+  Image,
+  schoolLogoImage,
+  technologyLogoImage,
+} from '../models/image';
 
 export enum ImageName {
   anki = 'anki',
@@ -27,6 +32,7 @@ export enum ImageName {
   supremeCourt = 'supremeCourt',
   tinyMce = 'tinyMce',
   typescript = 'typescript',
+  udemy = 'udemy',
   wantToBelieve = 'wantToBelieve',
   webDeveloperBootcamp = 'webDeveloperBootcamp',
 }
@@ -189,6 +195,12 @@ export const images: ImageMetaData = {
     altText: 'TypeScript',
     height: 2500,
     url: technologyLogoImage('typescript.svg'),
+    width: 2500,
+  }),
+  [ImageName.udemy]: new Image({
+    altText: 'Udemy',
+    height: 2500,
+    url: schoolLogoImage('udemy.svg'),
     width: 2500,
   }),
   [ImageName.wantToBelieve]: new Image({
