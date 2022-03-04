@@ -1,5 +1,8 @@
 ### DO NOT REPLACE WHEN REGENERATING GITIGNORE ###
 packages/prisma-connection/src/lib/ethang-prisma-data
+
+# Sentry
+.sentryclirc
 ### DO NOT REPLACE WHEN REGENERATING GITIGNORE ###
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,react,macos,windows,jetbrains,visualstudiocode,rust
