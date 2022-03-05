@@ -1,5 +1,5 @@
 import { School } from '../models/school';
-import { images } from './images';
+import { images } from './images/images';
 
 export enum SchoolName {
   academind = 'academind',

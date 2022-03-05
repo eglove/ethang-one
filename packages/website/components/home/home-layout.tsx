@@ -1,31 +1,20 @@
-import { useQuery } from '@apollo/client';
+import { shuffleArray } from '@ethang-one/util-typescript';
 import Image from 'next/image';
 
-import {
-  HomePageQuery,
-  homePageQuery,
-  homePageQueryVariables,
-} from '../../graphql-queries/technology-logos-query';
+import { technologyLogos } from '../../database/data/images/technology-logos';
+import { Image as ImageModel } from '../../database/models/image';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { LinkComponent } from '../common/link-component/link-component';
-import { LoadingImage } from '../common/loading-image/loading-image';
 import styles from './home.module.css';
 
 export const HomeLayout = (): JSX.Element | undefined => {
-  const { data } = useQuery<HomePageQuery>(homePageQuery, {
-    fetchPolicy: 'cache-and-network',
-    variables: homePageQueryVariables(),
-  });
-
-  if (typeof data === 'undefined') {
-    return <LoadingImage />;
-  }
+  const logos = shuffleArray(Object.getOwnPropertyNames(technologyLogos));
 
   return (
     <Container>
       <HeadTag title="Home" />
-      <div className={styles.HomeText as string}>
+      <div className={styles.HomeText}>
         <h1>I&apos;m Ethan Glover</h1>
         <h2>I&apos;m a developer.</h2>
         <h3>What kind of developer?</h3>
@@ -35,16 +24,15 @@ export const HomeLayout = (): JSX.Element | undefined => {
             Learn more about me here.
           </LinkComponent>
         </p>
-        <div className={styles.Logos as string}>
-          {data.TechnologyLogo?.map(logo => {
+        <div className={styles.Logos}>
+          {logos.map(logoName => {
+            const logo = technologyLogos[logoName] as ImageModel;
+
             return (
-              <div
-                key={logo.id as string}
-                className={styles.LogoContainer as string}
-              >
+              <div key={logoName} className={styles.LogoContainer}>
                 <Image
-                  src={logo.Image.url}
-                  alt={logo.Image.altText}
+                  src={logo.url}
+                  alt={logo.altText}
                   width={100}
                   height={100}
                 />

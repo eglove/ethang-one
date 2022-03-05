@@ -3,7 +3,8 @@ import {
   Image,
   schoolLogoImage,
   technologyLogoImage,
-} from '../models/image';
+} from '../../models/image';
+import { TechnologyLogoName, technologyLogos } from './technology-logos';
 
 export enum ImageName {
   academind = 'academind',
@@ -20,7 +21,6 @@ export enum ImageName {
   expectationsVsReality = 'expectationsVsReality',
   gitBootcamp = 'gitBootcamp',
   kodyKoala = 'kodyKoala',
-  jetbrains = 'jetbrains',
   laconiaBikeWeek = 'laconiaBikeWeek',
   learningToLearn = 'learningToLearn',
   microphone = 'microphone',
@@ -48,9 +48,10 @@ export enum ImageName {
   ztm = 'ztm',
 }
 
-type ImageMetaData = Record<ImageName, Image>;
+type ImageMetaData = Record<ImageName | TechnologyLogoName, Image>;
 
 export const images: ImageMetaData = {
+  ...technologyLogos,
   [ImageName.academind]: new Image({
     altText: 'Academind',
     height: 120,
@@ -68,12 +69,6 @@ export const images: ImageMetaData = {
     height: 1000,
     url: blogImage('anki.png'),
     width: 1000,
-  }),
-  [ImageName.apollo]: new Image({
-    altText: 'Apollo',
-    height: 256,
-    url: schoolLogoImage('apollo.svg'),
-    width: 256,
   }),
   [ImageName.appBrewery]: new Image({
     altText: 'App Brewery',
@@ -134,12 +129,6 @@ export const images: ImageMetaData = {
     height: 438,
     url: schoolLogoImage('kody-the-koala.webp'),
     width: 563,
-  }),
-  [ImageName.jetbrains]: new Image({
-    altText: 'JetBrains',
-    height: 131,
-    url: schoolLogoImage('jetbrains.svg'),
-    width: 121,
   }),
   [ImageName.laconiaBikeWeek]: new Image({
     altText: 'National Guard responds to Laconia Riots',
@@ -208,12 +197,6 @@ export const images: ImageMetaData = {
     url: blogImage('darryl-perry.png'),
     width: 1000,
   }),
-  [ImageName.react]: new Image({
-    altText: 'React Logo',
-    height: 595,
-    url: technologyLogoImage('react.svg'),
-    width: 841,
-  }),
   [ImageName.reactJsx]: new Image({
     altText: 'React JSX',
     height: 249,
@@ -255,12 +238,6 @@ export const images: ImageMetaData = {
     height: 354,
     url: blogImage('tiny-mce.png'),
     width: 697,
-  }),
-  [ImageName.typescript]: new Image({
-    altText: 'TypeScript',
-    height: 2500,
-    url: technologyLogoImage('typescript.svg'),
-    width: 2500,
   }),
   [ImageName.udemy]: new Image({
     altText: 'Udemy',

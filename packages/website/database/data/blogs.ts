@@ -1,5 +1,5 @@
 import { Blog } from '../models/blog';
-import { images } from './images';
+import { images } from './images/images';
 import { persons } from './persons';
 
 export enum blogSlug {

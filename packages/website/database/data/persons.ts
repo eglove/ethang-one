@@ -1,5 +1,5 @@
 import { Person } from '../models/person';
-import { images } from './images';
+import { images } from './images/images';
 
 export enum PersonName {
   ethanGlover = 'ethanGlover',
