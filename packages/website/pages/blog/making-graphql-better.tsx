@@ -148,7 +148,7 @@ const MakingGraphqlBetter = (): JSX.Element => {
         Select All{' '}
         <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
       </h2>
-      <SyntaxHighlighter>{userQuery}</SyntaxHighlighter>
+      <SyntaxHighlighter language="typescript">{userQuery}</SyntaxHighlighter>
       <p>
         This query will only return the username field from a user resolver.
         (Let&apos;s assume we&apos;tre talking about a user database here.)
@@ -189,7 +189,9 @@ const MakingGraphqlBetter = (): JSX.Element => {
         table is related to the blog table with a relationship of{' '}
         <code>userId =&gt; authorId</code>.
       </p>
-      <SyntaxHighlighter>{userQueryWithRelationship}</SyntaxHighlighter>
+      <SyntaxHighlighter language="typescript">
+        {userQueryWithRelationship}
+      </SyntaxHighlighter>
       <p>There are a couple of things I want Prisma to do here.</p>
       <ol>
         <li>
