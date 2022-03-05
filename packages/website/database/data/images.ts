@@ -6,13 +6,21 @@ import {
 } from '../models/image';
 
 export enum ImageName {
+  academind = 'academind',
+  algoExpert = 'algoExpert',
   anki = 'anki',
+  apollo = 'apollo',
+  appBrewery = 'appBrewery',
   bitcoin = 'bitcoin',
   completeJuniorSenior = 'completeJuniorSenior',
   completeWebDeveloper = 'completeWebDeveloper',
+  dataCumulus = 'dataCumulus',
+  egghead = 'egghead',
   ethanAvatar = 'ethanAvatar',
   expectationsVsReality = 'expectationsVsReality',
   gitBootcamp = 'gitBootcamp',
+  kodyKoala = 'kodyKoala',
+  jetbrains = 'jetbrains',
   laconiaBikeWeek = 'laconiaBikeWeek',
   learningToLearn = 'learningToLearn',
   microphone = 'microphone',
@@ -27,6 +35,7 @@ export enum ImageName {
   react = 'react',
   reactJsx = 'reactJsx',
   realToughCandy = 'realToughCandy',
+  realToughCandyLogo = 'realToughCandyLogo',
   recommendedCourses = 'recommendedCourses',
   redditChangeMyView = 'redditChangeMyView',
   supremeCourt = 'supremeCourt',
@@ -35,16 +44,42 @@ export enum ImageName {
   udemy = 'udemy',
   wantToBelieve = 'wantToBelieve',
   webDeveloperBootcamp = 'webDeveloperBootcamp',
+  wesBos = 'wesBos',
+  ztm = 'ztm',
 }
 
 type ImageMetaData = Record<ImageName, Image>;
 
 export const images: ImageMetaData = {
+  [ImageName.academind]: new Image({
+    altText: 'Academind',
+    height: 120,
+    url: schoolLogoImage('academind.png'),
+    width: 96,
+  }),
+  [ImageName.algoExpert]: new Image({
+    altText: 'AlgoExpert',
+    height: 400,
+    url: schoolLogoImage('algo-expert.svg'),
+    width: 400,
+  }),
   [ImageName.anki]: new Image({
     altText: 'Anki flashcard software.',
     height: 1000,
     url: blogImage('anki.png'),
     width: 1000,
+  }),
+  [ImageName.apollo]: new Image({
+    altText: 'Apollo',
+    height: 256,
+    url: schoolLogoImage('apollo.svg'),
+    width: 256,
+  }),
+  [ImageName.appBrewery]: new Image({
+    altText: 'App Brewery',
+    height: 400,
+    url: schoolLogoImage('app-brewery.svg'),
+    width: 400,
   }),
   [ImageName.bitcoin]: new Image({
     altText: 'Bitcoin logo',
@@ -64,6 +99,18 @@ export const images: ImageMetaData = {
     url: blogImage('complete-web-developer.png'),
     width: 705,
   }),
+  [ImageName.dataCumulus]: new Image({
+    altText: 'DataCumulus',
+    height: 102,
+    url: schoolLogoImage('data-cumulus.svg'),
+    width: 400,
+  }),
+  [ImageName.egghead]: new Image({
+    altText: 'Egghead',
+    height: 263,
+    url: schoolLogoImage('egghead.svg'),
+    width: 263,
+  }),
   [ImageName.ethanAvatar]: new Image({
     altText: 'Ethan Glover Avatar',
     height: 449,
@@ -81,6 +128,18 @@ export const images: ImageMetaData = {
     height: 270,
     url: blogImage('git-github-bootcamp.jpg'),
     width: 480,
+  }),
+  [ImageName.kodyKoala]: new Image({
+    altText: 'Kody the Koala',
+    height: 438,
+    url: schoolLogoImage('kody-the-koala.webp'),
+    width: 563,
+  }),
+  [ImageName.jetbrains]: new Image({
+    altText: 'JetBrains',
+    height: 131,
+    url: schoolLogoImage('jetbrains.svg'),
+    width: 121,
   }),
   [ImageName.laconiaBikeWeek]: new Image({
     altText: 'National Guard responds to Laconia Riots',
@@ -167,6 +226,12 @@ export const images: ImageMetaData = {
     url: blogImage('real-tough-candy.png'),
     width: 946,
   }),
+  [ImageName.realToughCandyLogo]: new Image({
+    altText: 'RealToughCandy',
+    height: 400,
+    url: schoolLogoImage('real-tough-candy.svg'),
+    width: 400,
+  }),
   [ImageName.recommendedCourses]: new Image({
     altText: 'List of recommended courses.',
     height: 324,
@@ -214,5 +279,17 @@ export const images: ImageMetaData = {
     height: 270,
     url: blogImage('web-developer-bootcamp.jpg'),
     width: 480,
+  }),
+  [ImageName.wesBos]: new Image({
+    altText: 'Wes Bos',
+    height: 318,
+    url: schoolLogoImage('wes-bos.svg'),
+    width: 400,
+  }),
+  [ImageName.ztm]: new Image({
+    altText: 'Zero To Mastery',
+    height: 404,
+    url: schoolLogoImage('ztm.svg'),
+    width: 400,
   }),
 };

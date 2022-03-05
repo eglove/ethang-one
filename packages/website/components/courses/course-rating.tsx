@@ -2,13 +2,11 @@ import { LinkComponent } from '../common/link-component/link-component';
 import styles from './courses.module.css';
 
 interface CourseRatingProperties {
-  complete: boolean;
-  rating?: string;
+  rating?: number;
   ratingUrl?: string;
 }
 
 export const CourseRating = ({
-  complete,
   rating,
   ratingUrl,
 }: CourseRatingProperties): JSX.Element | undefined => {
@@ -16,17 +14,17 @@ export const CourseRating = ({
     content_: string,
     ratingStyle_: string
   ): JSX.Element | undefined => {
-    if (typeof rating === 'string' && typeof ratingUrl !== 'string') {
+    if (typeof rating === 'number' && typeof ratingUrl !== 'string') {
       return (
-        <span className={`${styles.Rating as string} ${ratingStyle_}`}>
+        <span className={`${styles.Rating} ${ratingStyle_}`}>
           <div>{content_}</div>
         </span>
       );
     }
 
-    if (typeof rating === 'string' && typeof ratingUrl === 'string') {
+    if (typeof rating === 'number' && typeof ratingUrl === 'string') {
       return (
-        <span className={`${styles.Rating as string} ${ratingStyle_}`}>
+        <span className={`${styles.Rating} ${ratingStyle_}`}>
           <LinkComponent linkProperties={{ href: ratingUrl }}>
             {content_}
           </LinkComponent>
@@ -37,7 +35,7 @@ export const CourseRating = ({
     return null;
   };
 
-  if (typeof rating !== 'string' && complete) {
+  if (typeof rating !== 'number') {
     return (
       <span role="img" aria-label="Complete">
         ✅
@@ -45,36 +43,26 @@ export const CourseRating = ({
     );
   }
 
-  if (typeof rating !== 'string' && !complete) {
-    return (
-      <span role="img" aria-label="InComplete">
-        ⬜
-      </span>
-    );
-  }
+  // eslint-disable-next-line default-case
+  switch (rating) {
+    case 5: {
+      return ratingLink('5', styles.RatingFive);
+    }
 
-  if (typeof rating === 'string') {
-    // eslint-disable-next-line default-case
-    switch (rating) {
-      case 'FIVE': {
-        return ratingLink('5', styles.RatingFive);
-      }
+    case 4: {
+      return ratingLink('4', styles.RatingFour);
+    }
 
-      case 'FOUR': {
-        return ratingLink('4', styles.RatingFour);
-      }
+    case 3: {
+      return ratingLink('3', styles.RatingThree);
+    }
 
-      case 'THREE': {
-        return ratingLink('3', styles.RatingThree);
-      }
+    case 2: {
+      return ratingLink('2', styles.RatingTwo);
+    }
 
-      case 'TWO': {
-        return ratingLink('2', styles.RatingTwo);
-      }
-
-      case 'ONE': {
-        return ratingLink('1', styles.RatingOne);
-      }
+    case 1: {
+      return ratingLink('1', styles.RatingOne);
     }
   }
 
