@@ -1,4 +1,5 @@
 import { formatList } from '@ethang-one/util-typescript';
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
 
 import { blogs, blogSlug } from '../../../database/data/blogs';
@@ -40,9 +41,13 @@ export const StaticBlogLayout = ({
   return (
     <Container>
       <HeadTag title={blog.title} />
-      <div className={styles.BlogInfo as string}>
+      <Script
+        src="https://ethang.disqus.com/embed.js"
+        data-timestamp={new Date()}
+      />
+      <div className={styles.BlogInfo}>
         <div>
-          <h1 className={styles.Title as string}>{blog.title}</h1>
+          <h1 className={styles.Title}>{blog.title}</h1>
           <div>Authors: {authors}</div>
           <CreateUpdateTimes created={blog.created} updated={blog.updated} />
         </div>
@@ -59,6 +64,7 @@ export const StaticBlogLayout = ({
       </div>
       <hr />
       <article>{children}</article>
+      <div id="disqus_thread" />
     </Container>
   );
 };
