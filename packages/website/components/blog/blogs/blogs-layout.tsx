@@ -14,7 +14,7 @@ type BlogData = {
 export const BlogsLayout = (): JSX.Element => {
   const blogList: BlogData[] = Object.keys(blogs)
     .sort((a: blogSlug, b: blogSlug) => {
-      return blogs[b].created.getTime() - blogs[a].updated.getTime();
+      return blogs[b].created.getTime() - blogs[a].created.getTime();
     })
     .map(key => {
       // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -29,12 +29,12 @@ export const BlogsLayout = (): JSX.Element => {
           <div key={blog.title} style={{ height: '300px' }}>
             <LinkComponent
               linkProperties={{
-                className: styles.BlogLink as string,
+                className: styles.BlogLink,
                 href: `/blog/${blog.slug}`,
               }}
             >
               <div
-                className={styles.BlogContent as string}
+                className={styles.BlogContent}
                 style={{
                   background: `url(${blog.image.url}) center no-repeat`,
                   height: `${blog.image.height}px`,
