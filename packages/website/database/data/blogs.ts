@@ -12,6 +12,7 @@ export enum blogSlug {
   imageProblem = 'the-image-problem-and-its-solution',
   laconiaBikeWeek = 'laconia-shuts-down-bike-week-music-festival',
   lessonsLearnedRebuildingReact = 'lessons-learned-from-rewriting-a-react-app',
+  makingGraphqlBetter = 'making-graphql-better',
   paradoxicalism = 'paradoxicalism-as-a-political-belief',
   pcBackup = 'pc-backup-in-two-lines',
   persuasionMoralArguments = 'persuasion-through-moral-arguments',
@@ -97,6 +98,13 @@ export const blogs: BlogsMetaData = {
     image: images.react,
     title: 'Lessons Learned From Rewriting A React App',
     updated: new Date('2021-11-14 04:59:37.806'),
+  }),
+  [blogSlug.makingGraphqlBetter]: new Blog({
+    authors: [persons.ethanGlover],
+    created: new Date('Mar. 5, 2022 10:24'),
+    image: images.graphql,
+    title: 'Making Prisma/GraphQl Better',
+    updated: new Date('Mar. 5, 2022 10:24'),
   }),
   [blogSlug.paradoxicalism]: new Blog({
     authors: [persons.ethanGlover],
