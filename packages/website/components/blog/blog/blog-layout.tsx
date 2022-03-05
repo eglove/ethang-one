@@ -1,7 +1,5 @@
 import { useQuery } from '@apollo/client';
 import { formatList } from '@ethang-one/util-typescript';
-import hljs from 'highlight.js';
-import typescript from 'highlight.js/lib/languages/typescript';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -26,9 +24,6 @@ export const BlogLayout = (): JSX.Element | undefined => {
   const [authors, setAuthors] = useState<string>();
 
   useEffect(() => {
-    hljs.registerLanguage('typescript', typescript);
-    hljs.highlightAll();
-
     if (typeof data !== 'undefined') {
       setAuthors(
         formatList(
@@ -47,7 +42,7 @@ export const BlogLayout = (): JSX.Element | undefined => {
   return (
     <>
       <HeadTag title={data.Blog[0].title} />
-      <div className={styles.BlogInfo as string}>
+      <div className={styles.BlogInfo}>
         <div>
           <h1 style={{ color: 'var(--primary-color)' }}>
             {data.Blog[0].title}
