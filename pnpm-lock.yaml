@@ -93,6 +93,7 @@ specifiers:
   mobx: ^6.4.2
   mobx-react-lite: ^3.3.0
   next: ^12.1.0
+  next-sitemap: ^2.5.4
   nprogress: ^0.2.0
   prettier: 2.5.1
   prisma: ^3.10.0
@@ -248,6 +249,7 @@ devDependencies:
   husky: 7.0.4
   jest: 27.5.1
   lint-staged: 12.3.4
+  next-sitemap: 2.5.4_next@12.1.0
   prettier: 2.5.1
   prisma: 3.10.0
   react-test-renderer: 17.0.2_react@17.0.2
@@ -1638,6 +1640,10 @@ packages:
 
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
+
+  /@corex/deepmerge/2.6.148:
+    resolution: {integrity: sha512-6QMz0/2h5C3ua51iAnXMPWFbb1QOU1UvSM4bKBw5mzdT+WtLgjbETBBIQZ+Sh9WvEcGwlAt/DEdRpIC3XlDBMA==}
+    dev: true
 
   /@cypress/request/2.88.10:
     resolution: {integrity: sha512-Zp7F+R93N0yZyG34GutyTNr+okam7s/Fzc1+i3kcqOP8vk6OuajuE9qZJ6Rs+10/1JFtXFYMdyarnU1rZuJesg==}
@@ -10989,6 +10995,18 @@ packages:
 
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+
+  /next-sitemap/2.5.4_next@12.1.0:
+    resolution: {integrity: sha512-ftFqQQk74V+9+WkyAQLi98vaoLHisarP9VpsFTlAje3HOPzSQ33GrURDY8dRiguhFps4S4lQApXH5AgKByubvg==}
+    engines: {node: '>=14.18.3'}
+    hasBin: true
+    peerDependencies:
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 2.6.148
+      minimist: 1.2.5
+      next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
+    dev: true
 
   /next/12.1.0_33bdac975a6e334c49640fab91e2abb4:
     resolution: {integrity: sha512-s885kWvnIlxsUFHq9UGyIyLiuD0G3BUC/xrH0CEnH5lHEWkwQcHOORgbDF0hbrW9vr/7am4ETfX4A7M6DjrE7Q==}
