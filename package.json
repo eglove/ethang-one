@@ -28,7 +28,6 @@
     "@nrwl/next": "13.8.4",
     "@paljs/plugins": "^4.0.16",
     "@prisma/client": "^3.10.0",
-    "@sentry/nextjs": "^6.18.1",
     "apollo-server": "^3.6.3",
     "apollo-server-core": "^3.6.3",
     "apollo3-cache-persist": "^0.14.0",
