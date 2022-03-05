@@ -9,7 +9,7 @@
     "palGen": "npx @paljs/cli schema typescript --schema packages/prisma-connection/src/lib/ethang.prisma",
     "codegen": "npx @graphql-codegen/cli generate --target typescript --schema packages/prisma-connection/src/lib/ethang.prisma",
     "buildEg": "npx nx build ethang-one",
-    "websiteDeploy": "npm run dbPull && npm run prismaGen && npm run palGen && npx nx build website --prod --verbose",
+    "websiteDeploy": "npx nx build website --prod --verbose",
     "eg": "node dist/packages/ethang-one/main.js",
     "prepare": "husky install"
   },
