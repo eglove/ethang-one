@@ -14,23 +14,24 @@ export const getServerSideProps = ({
   const slugs = Object.keys(blogs).sort((a: blogSlug, b: blogSlug) => {
     return blogs[b].created.getTime() - blogs[a].created.getTime();
   });
+  const rootUrl = 'https://www.ethang.dev';
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-         <loc>https://www.ethang.dev/</loc>
+         <loc>${rootUrl}</loc>
       </url>
        <url>
-         <loc>https://www.ethang.dev/courses</loc>
+         <loc>${rootUrl}/courses</loc>
        </url>
       <url>
-         <loc>https://www.ethang.dev/blog</loc>
+         <loc>${rootUrl}/blog</loc>
       </url>
       ${slugs
         .map(slug => {
           return `
           <url>
-              <loc>${`https://www.ethang.dev/blog/${slug}`}</loc>
+              <loc>${`${rootUrl}/blog/${slug}`}</loc>
           </url>
         `;
         })
