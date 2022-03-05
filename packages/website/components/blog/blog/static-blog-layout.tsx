@@ -1,6 +1,9 @@
 import { formatList } from '@ethang-one/util-typescript';
+import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
+import { jsonLdScriptProps } from 'react-schemaorg';
+import { Blog } from 'schema-dts';
 
 import { blogs, blogSlug } from '../../../database/data/blogs';
 import { Container } from '../../common/container/container';
@@ -41,6 +44,25 @@ export const StaticBlogLayout = ({
   return (
     <Container>
       <HeadTag title={blog.title} />
+      <Head>
+        <script
+          {...jsonLdScriptProps<Blog>({
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            audience: 'Developers',
+            author: {
+              '@type': 'Person',
+              name: 'Ethan Glover',
+              url: 'https://www.ethang.dev/',
+            },
+            dateModified: blog.updated.toISOString(),
+            datePublished: blog.created.toISOString(),
+            headline: blog.title,
+            image: blog.image.url,
+            thumbnailUrl: `${blog.image.url}`,
+          })}
+        />
+      </Head>
       <Script
         src="https://ethang.disqus.com/embed.js"
         data-timestamp={new Date()}

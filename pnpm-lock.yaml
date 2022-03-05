@@ -102,6 +102,7 @@ specifiers:
   react-html-parser: ^2.0.2
   react-player: ^2.9.0
   react-responsive-masonry: ^2.1.4
+  react-schemaorg: ^2.0.0
   react-syntax-highlighter: ^15.4.5
   react-test-renderer: ^17.0.2
   react-toastify: ^8.2.0
@@ -109,6 +110,7 @@ specifiers:
   reflect-metadata: ^0.1.13
   regenerator-runtime: ^0.13.9
   rxjs: ^7.5.4
+  schema-dts: ^1.1.0
   socket.io: ^4.4.1
   socket.io-client: ^4.4.1
   stylelint: ^14.5.3
@@ -164,11 +166,13 @@ dependencies:
   react-html-parser: 2.0.2_react@17.0.2
   react-player: 2.9.0_react@17.0.2
   react-responsive-masonry: 2.1.4_react-dom@17.0.2+react@17.0.2
+  react-schemaorg: 2.0.0_7b0f19ca035425572aa17a7814b2429a
   react-syntax-highlighter: 15.4.5_react@17.0.2
   react-toastify: 8.2.0_react-dom@17.0.2+react@17.0.2
   react-tsparticles: 1.41.6_react@17.0.2
   reflect-metadata: 0.1.13
   regenerator-runtime: 0.13.9
+  schema-dts: 1.1.0_typescript@4.6.2
   socket.io: 4.4.1
   socket.io-client: 4.4.1
   tslib: 2.3.1
@@ -12374,6 +12378,19 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
+  /react-schemaorg/2.0.0_7b0f19ca035425572aa17a7814b2429a:
+    resolution: {integrity: sha512-UqciFKA203ewNjn0zC09uYKuJSvMD8L75L1s/cW4rc7cS64w8l7vaI3SYkuoI/nwCBkJRmOkSJedWDUZBlYZwg==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      react: '>=16.3.0'
+      schema-dts: '>=0.7.4'
+      typescript: '>=3.1.6'
+    dependencies:
+      react: 17.0.2
+      schema-dts: 1.1.0_typescript@4.6.2
+      typescript: 4.6.2
+    dev: false
+
   /react-shallow-renderer/16.14.1_react@17.0.2:
     resolution: {integrity: sha512-rkIMcQi01/+kxiTE9D3fdS959U1g7gs+/rborw++42m1O9FAQiNI/UNRZExVUoAOprn4umcXf+pFRou8i4zuBg==}
     peerDependencies:
@@ -12932,6 +12949,14 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+
+  /schema-dts/1.1.0_typescript@4.6.2:
+    resolution: {integrity: sha512-vdmbs/5ycj4zyKpZIDqTcy+IZi4s7c38RVAYuDmRi7zgxUT8wRWPMLzg0jr7FjdVunYu9yZ00F3+XcZTTFcTOQ==}
+    peerDependencies:
+      typescript: '>=4.1.0'
+    dependencies:
+      typescript: 4.6.2
+    dev: false
 
   /schema-utils/2.7.0:
     resolution: {integrity: sha512-0ilKFI6QQF5nxDZLFn2dMjvc4hjg/Wkg7rHd3jK6/A4a1Hl9VFdQWvgB1UMGoU94pad1P/8N7fMcEnLnSiju8A==}
