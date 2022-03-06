@@ -39,6 +39,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.bitcoinFailure]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 03:50:37.100'),
+    description: 'Why Bitcoin has failed on its original promise.',
     image: images.bitcoin,
     title: 'Is Bitcoin a Failure?',
     updated: new Date('2021-11-14 03:50:37.101'),
@@ -46,6 +47,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.curingBias]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:25:17.325'),
+    description: 'How to cure bias with curiosity.',
     image: images.wantToBelieve,
     title: 'Curing Bias with Curiosity',
     updated: new Date('2021-11-14 04:25:17.326'),
@@ -53,6 +55,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.darrylPerry]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:44:56.361'),
+    description: "Is Darryl Perry's rant progress, or more of the same?",
     image: images.openLetterLibertarians,
     title: 'Is Darryl Perry Making Ideological Progress?',
     updated: new Date('2021-11-14 04:44:56.361'),
@@ -60,6 +63,8 @@ export const blogs: BlogsMetaData = {
   [blogSlug.defendYourselfAgainstState]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 03:43:25.083'),
+    description:
+      'Learning about how the Supreme Court makes decision on constitutional arguments.',
     image: images.supremeCourt,
     title: 'Defend Yourself Against the State',
     updated: new Date('2021-11-14 03:43:25.083'),
@@ -67,6 +72,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.epidemicPassableArguments]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:29:53.742'),
+    description: 'Politics has an epidemic of passable arguments.',
     image: images.politicsAsAVocation,
     title: 'The Epidemic of Passable Arguments',
     updated: new Date('2021-11-14 04:29:53.743'),
@@ -74,6 +80,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.firstPost]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 00:48:54.841'),
+    description: 'First post of this blog.',
     image: images.tinyMce,
     title: 'A First Post',
     updated: new Date('2021-11-14 00:48:54.841'),
@@ -81,6 +88,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.imageProblem]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:02:42.540'),
+    description: "Libertarianism's image problem and it's solution.",
     image: images.expectationsVsReality,
     title: 'The Image Problem and Its Solution',
     updated: new Date('2021-11-14 04:02:42.540'),
@@ -88,6 +96,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.laconiaBikeWeek]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 03:32:07.237'),
+    description: "I went to bike week and Laconia, here's what happened.",
     image: images.laconiaBikeWeek,
     title: 'Laconia Shuts Down Bike Week Music Festival',
     updated: new Date('2021-11-14 03:32:07.238'),
@@ -95,6 +104,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.lessonsLearnedRebuildingReact]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:59:37.805'),
+    description: 'What I learned when rebuilding a React app from scratch.',
     image: images.react,
     title: 'Lessons Learned From Rewriting A React App',
     updated: new Date('2021-11-14 04:59:37.806'),
@@ -102,6 +112,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.makingGraphqlBetter]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('Mar. 5, 2022 10:24'),
+    description: 'How to make Prisma and GraphQL play nicely together.',
     image: images.graphql,
     title: 'Making Prisma/GraphQl Better',
     updated: new Date('Mar. 5, 2022 10:24'),
@@ -109,6 +120,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.paradoxicalism]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:38:20.681'),
+    description: 'My political belief paradoxicalism and how I got here.',
     image: images.paradox,
     title: 'Paradoxicalism as a Political Belief',
     updated: new Date('2021-11-14 04:38:20.681'),
@@ -116,6 +128,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.pcBackup]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 02:56:14.914'),
+    description: 'How I back up my entire PC with two lines of code.',
     image: images.powershellScript,
     title: 'PC Backup In Two Lines',
     updated: new Date('2021-11-14 02:56:14.915'),
@@ -123,6 +136,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.persuasionMoralArguments]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:17:08.801'),
+    description: 'On persuading people with moral arguments.',
     image: images.moralFoundationsTheory,
     title: 'Persuasion Through Moral Arguments',
     updated: new Date('2021-11-14 04:17:08.802'),
@@ -130,6 +144,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.portfolioRedesign]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 03:21:27.377'),
+    description: "I redesigned my portfolio, here's how it's looking now.",
     image: images.portfolioRedesign,
     title: 'Portfolio Redesign',
     updated: new Date('2021-11-14 03:21:27.378'),
@@ -137,6 +152,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.recommendedCourses]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 03:12:02.535'),
+    description: 'About my recommended courses page.',
     image: images.recommendedCourses,
     title: 'The Recommended Courses',
     updated: new Date('2021-11-14 03:12:02.535'),
@@ -144,6 +160,8 @@ export const blogs: BlogsMetaData = {
   [blogSlug.reviewCompleteJuniorSenior]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-12-05 05:19:55.503'),
+    description:
+      "My review of Zero to Mastery's Complete Junior to Senior Web Developer Bootcamp",
     image: images.completeJuniorSenior,
     title: 'Review: Complete Junior to Senior Web Developer Roadmap',
     updated: new Date('2021-12-05 05:19:55.504'),
@@ -151,6 +169,8 @@ export const blogs: BlogsMetaData = {
   [blogSlug.reviewCompleteWebDeveloper]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-22 03:13:58.328'),
+    description:
+      "My review of Zero to Mastery's Complete Web Developer course.",
     image: images.completeWebDeveloper,
     title: 'Review: ZTM Complete Web Developer',
     updated: new Date('2021-11-22 03:13:58.333'),
@@ -158,6 +178,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.reviewGitGithubBootcamp]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-12-01 03:00:42.424'),
+    description: "My review of Colt Steele's Git & GitHub bootcamp.",
     image: images.gitBootcamp,
     title: 'Review: Git & GitHub Bootcamp',
     updated: new Date('2021-12-01 03:00:42.434'),
@@ -165,6 +186,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.reviewLearningToLearn]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-20 21:04:27.830'),
+    description: "My review of Zero to Mastery's Learning to Learn",
     image: images.learningToLearn,
     title: 'Review: Learning to Learn',
     updated: new Date('2021-11-20 21:04:27.832'),
@@ -172,6 +194,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.reviewPostmanCompleteGuide]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-12-05 02:04:34.427'),
+    description: 'My review of Postman the Complete Guide Udemy course.',
     image: images.postmanCompleteGuide,
     title: 'Review: Postman The Complete Guide',
     updated: new Date('2021-12-05 02:04:34.436'),
@@ -179,6 +202,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.rtcReview]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 03:25:00.019'),
+    description: "My review of Real Tough Candy's new course platform.",
     image: images.realToughCandy,
     title: 'RealToughCandy.io Review',
     updated: new Date('2021-11-14 03:25:00.020'),
@@ -186,6 +210,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.sevenWayToWinAnArgumentOnline]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:10:52.224'),
+    description: '7 ways to win an argument on the internet.',
     image: images.redditChangeMyView,
     title: '7 Ways to Win An Argument Online',
     updated: new Date('2021-11-14 04:10:52.225'),
@@ -193,6 +218,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.speechPersuasive]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 04:49:36.314'),
+    description: 'Studies show speech is more persuasive than text.',
     image: images.microphone,
     title: 'Speech Is More Persuasive Than Text',
     updated: new Date('2021-11-14 04:49:36.314'),
@@ -200,6 +226,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.staticPages]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('Feb. 26, 2022 17:19'),
+    description: "How I've decided to host my static blog.",
     image: images.reactJsx,
     title: 'On Hosting Static Pages',
     updated: new Date('Feb. 26, 2022 17:19'),
@@ -207,6 +234,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.typescriptFormEnums]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 03:28:55.390'),
+    description: "Missing types for Form's using TypeScript.",
     image: images.typescript,
     title: 'TypeScript Form Enums',
     updated: new Date('2021-11-14 03:28:55.391'),
@@ -214,6 +242,8 @@ export const blogs: BlogsMetaData = {
   [blogSlug.talkAboutAnki]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-11-14 02:46:21.627'),
+    description:
+      'Anki is a great piece of software, not everyone will pick it up.',
     image: images.anki,
     title: 'Do You Have a Moment to Talk About Anki?',
     updated: new Date('2021-11-14 02:46:21.628'),
@@ -221,6 +251,8 @@ export const blogs: BlogsMetaData = {
   [blogSlug.validEnvironmentVariables]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-12-04 01:16:13.315'),
+    description:
+      'How to programatically validate environment variables in your Node project.',
     image: images.missingKeys,
     title: 'Programmatically Validate Environment Variables',
     updated: new Date('2021-12-04 01:16:13.317'),
@@ -228,6 +260,7 @@ export const blogs: BlogsMetaData = {
   [blogSlug.webDeveloperBootcamp]: new Blog({
     authors: [persons.ethanGlover],
     created: new Date('2021-12-01 01:52:14.571'),
+    description: "My review of Colt Steele's Web Developer Bootcamp.",
     image: images.webDeveloperBootcamp,
     title: 'Review: Web Developer Bootcamp',
     updated: new Date('2021-12-01 01:52:14.572'),
