@@ -21,6 +21,7 @@ export enum blogSlug {
   reviewCompleteJuniorSenior = 'review-complete-junior-senior',
   reviewCompleteWebDeveloper = 'review-ztm-complete-web-developer',
   reviewGitGithubBootcamp = 'review-git-github-bootcamp',
+  reviewGoProgramming = 'review-go-programming-complete-guide',
   reviewLearningToLearn = 'review-learning-to-learn',
   reviewPostmanCompleteGuide = 'review-postman-complete-guide',
   rtcReview = 'realtoughcandy-io-review',
@@ -182,6 +183,15 @@ export const blogs: BlogsMetaData = {
     image: images.gitBootcamp,
     title: 'Review: Git & GitHub Bootcamp',
     updated: new Date('2021-12-01 03:00:42.434'),
+  }),
+  [blogSlug.reviewGoProgramming]: new Blog({
+    authors: [persons.ethanGlover],
+    created: new Date('Mar. 6, 2022 14:39'),
+    description:
+      "Zero To Mastery's GoLang course is unfortunately another miss. Powerpoints, boring delivery, and a lack of ability to bring all the information together.",
+    image: images.goProgrammingComplete,
+    title: "Review: Go Programming: The Complete Developer's Guide",
+    updated: new Date('Mar. 6, 2022 14:39'),
   }),
   [blogSlug.reviewLearningToLearn]: new Blog({
     authors: [persons.ethanGlover],
