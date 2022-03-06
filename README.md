@@ -4,15 +4,11 @@
 
 ## Apps
 
----
-
 * [Computer CLI](./apps/computer-cli)
 * [EthanG CLI](./apps/ethang-cli)
 * [Website](./apps/website)
 
 ## Libraries
-
----
 
 * [Algorithms](./libs/algorithms)
 * [Apollo](./libs/apollo)
@@ -26,8 +22,6 @@
 * [Web Components](./libs/web-components)
 
 ## Website
-
----
 
 * [Home](https://www.ethang.dev/)
 * [Recommended Development Courses](https://www.ethang.dev/courses)
