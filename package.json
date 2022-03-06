@@ -1,13 +1,20 @@
 {
   "name": "ethang",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "buildEg": "npx nx build ethang-cli",
+    "eg": "node dist/apps/ethang-cli/main.js",
+    "websiteDeploy": "npx nx build website --prod --verbose",
+    "prepare": "husky install"
   },
-  "private": true,
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.css": "stylelint --fix"
+  },
+  "browserslist": [
+    "extends browserslist-config-google"
+  ],
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "@faker-js/faker": "^6.0.0-alpha.7",
@@ -76,6 +83,7 @@
     "@typescript-eslint/parser": "~5.13.0",
     "babel-jest": "27.5.1",
     "babel-loader": "^8.2.3",
+    "browserslist-config-google": "^3.0.1",
     "cypress": "^9.1.0",
     "eslint": "~8.10.0",
     "eslint-config-next": "12.1.1-canary.3",
@@ -92,8 +100,10 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-sonarjs": "^0.12.0",
     "eslint-plugin-unicorn": "^41.0.0",
+    "husky": "^7.0.4",
     "jest": "27.5.1",
     "jest-config": "27.5.1",
+    "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
     "puppeteer": "~13.4.1",
     "react-test-renderer": "17.0.2",
