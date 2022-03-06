@@ -75,7 +75,7 @@ const CuringBiasWithCuriosity = (): JSX.Element => {
         Milton Lodge and Charles S. Taber&nbsp;
         <LinkComponent
           linkProperties={{
-            href: 'http://www.uky.edu/AS/PoliSci/Peffley/pdf/Taber&amp;Lodge_The%20Rationalizing%20Voter.pdf',
+            href: 'http://www.uky.edu/AS/PoliSci/Peffley/pdf/Taber%26Lodge_The%20Rationalizing%20Voter.pdf',
           }}
         >
           outline their theory

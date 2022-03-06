@@ -9,7 +9,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         Over a year ago, I laid out{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/https://cognitame.com/blog.php?id=138',
+            href: '/blog/7-ways-to-win-an-argument-online',
           }}
         >
           seven ways to win an argument online
@@ -23,7 +23,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         &ldquo;
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/https://doi.org/10.1177/0956797617713798',
+            href: 'https://doi.org/10.1177/0956797617713798',
           }}
         >
           The Humanizing Voice: Speech Reveals, and Text Conceals, a More
@@ -32,7 +32,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         &rdquo; In it, researchers{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/https://twitter.com/jschroeder0527',
+            href: 'https://julianaschroeder.com/',
           }}
         >
           Juliana Schroeder
@@ -40,7 +40,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         , Michael Kardas, and{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/http://faculty.chicagobooth.edu/nicholas.epley/',
+            href: 'https://www.chicagobooth.edu/faculty/directory/e/nicholas-epley',
           }}
         >
           Nicholas Epley
@@ -64,15 +64,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         have a bigger effect than a blog. But there&apos;s more to this story.
       </p>
       <p>
-        Researchers{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/http://www.roghanizad.com/',
-          }}
-        >
-          M. Mahdi Roghannizad
-        </LinkComponent>{' '}
-        and{' '}
+        Researchers M. Mahdi Roghannizad and{' '}
         <LinkComponent
           linkProperties={{
             href: 'https://web.archive.org/web/20180904131811/https://twitter.com/profbohns',
@@ -83,7 +75,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         published a related paper in March 2017. &ldquo;
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/https://doi.org/10.1016/j.jesp.2016.10.002',
+            href: 'https://doi.org/10.1016/j.jesp.2016.10.002',
           }}
         >
           Ask in person: You&apos;re less persuasive than you think over email.
@@ -107,7 +99,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         hit, but allows you{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/https://cognitame.com/blog.php?id=142',
+            href: '/blog/curing-bias-with-curiosity',
           }}
         >
           learn more, remember more, and be less bias.
@@ -118,7 +110,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         they&apos;re coming from and how they think, you can use{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/https://cognitame.com/blog.php?id=141',
+            href: '/blog/persuasion-through-moral-arguments',
           }}
         >
           moral reframing
@@ -134,7 +126,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         shown that{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904131811/https://cognitame.com/blog.php?id=51',
+            href: 'http://localhost:4200/blog/the-image-problem-and-its-solution',
           }}
         >
           deep canvassing
