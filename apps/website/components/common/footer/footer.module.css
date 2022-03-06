@@ -1,0 +1,18 @@
+.footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.footer div {
+    width: 50px;
+    height: 50px;
+}
+
+.footer a:hover, .footer a:focus {
+    transform: rotate3d(1, 1, 1, 20deg);
+}

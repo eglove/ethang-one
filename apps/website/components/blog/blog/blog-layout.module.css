@@ -1,0 +1,16 @@
+.BlogInfo {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: var(--large-space);
+    place-items: center;
+}
+
+.Title {
+  color: var(--primary-color);
+}
+
+@media (max-width: 425px) {
+    .BlogInfo {
+        grid-template-columns: auto;
+    }
+}

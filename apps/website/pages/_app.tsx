@@ -1,18 +1,30 @@
+import '../../../styles/global.css';
+import '../../../styles/nprogress.css';
+import 'react-toastify/dist/ReactToastify.css';
+import 'highlight.js/styles/github.css';
+
 import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import { Router } from 'next/router';
+import NProgress from 'nprogress';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+import { Page } from '../components/common/page/page';
+
+Router.events.on('routeChangeStart', () => {
+  return NProgress.start();
+});
+Router.events.on('routeChangeComplete', () => {
+  return NProgress.done();
+});
+Router.events.on('routeChangeError', () => {
+  return NProgress.done();
+});
+
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
-    <>
-      <Head>
-        <title>Welcome to website!</title>
-      </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
-    </>
+    <Page>
+      <Component {...pageProps} />
+    </Page>
   );
-}
+};
 
-export default CustomApp;
+export default App;

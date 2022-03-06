@@ -1,0 +1,8 @@
+.StreamLink {
+  padding: 0;
+  margin: 1rem 0;
+  cursor: pointer;
+  background: #FFF;
+  border: none;
+  border-bottom: 1px solid #5c16c5;
+}

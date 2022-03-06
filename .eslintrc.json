@@ -31,7 +31,6 @@
         "plugin:cypress/recommended",
         "plugin:@stencil/recommended",
         "xo-react/space",
-        "next",
         "plugin:sonarjs/recommended",
         "plugin:jsx-a11y/recommended",
         "prettier"
@@ -45,7 +44,7 @@
         "project": "./tsconfig.base.json"
       },
       "rules": {
-        "@next/next/no-html-link-for-pages": ["error", "/packages/website/pages/"],
+//        "@next/next/no-html-link-for-pages": ["error", "/apps/website/pages/"],
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/explicit-function-return-type": [
           "error"

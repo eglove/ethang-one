@@ -1,4 +1,4 @@
 [workspace]
 members = [
-    "packages/util-wasm"
+    "libs/util-wasm"
 ]

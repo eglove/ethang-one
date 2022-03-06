@@ -2,6 +2,17 @@
   "version": 2,
   "projects": {
     "algorithms": "libs/algorithms",
+    "apollo": "libs/apollo",
+    "computer-cli": "apps/computer-cli",
+    "design-patterns": "libs/design-patterns",
+    "ethang-cli": "apps/ethang-cli",
+    "prisma-connection": "libs/prisma-connection",
+    "react-components": "libs/react-components",
+    "react-hooks": "libs/react-hooks",
+    "util-cli": "libs/util-cli",
+    "util-typescript": "libs/util-typescript",
+    "util_wasm": "libs/util-wasm",
+    "web-components": "libs/web-components",
     "website": "apps/website",
     "website-e2e": "apps/website-e2e"
   }

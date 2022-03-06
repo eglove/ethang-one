@@ -1,23 +1,48 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowJs": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "target": "ES6",
+    "types": ["jest"],
     "module": "esnext",
+    "noEmit": true,
     "lib": ["es2017", "es2018", "es2020", "dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "strict": true,
     "baseUrl": ".",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "paths": {
-      "@ethang/algorithms": ["libs/algorithms/src/index.ts"]
-    }
+      "@ethang/algorithms": ["libs/algorithms/src/index.ts"],
+      "@ethang/apollo": ["libs/apollo/src/index.ts"],
+      "@ethang/design-patterns": ["libs/design-patterns/src/index.ts"],
+      "@ethang/prisma-connection": ["libs/prisma-connection/src/index.ts"],
+      "@ethang/react-components": ["libs/react-components/src/index.ts"],
+      "@ethang/react-hooks": ["libs/react-hooks/src/index.ts"],
+      "@ethang/util-cli": ["libs/util-cli/src/index.ts"],
+      "@ethang/util-typescript": ["libs/util-typescript/src/index.ts"],
+      "@ethang/web-components": ["libs/web-components/src/index.ts"]
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ]
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp",
+    "libs/react-components/src/lib/generated/**"
+  ]
 }
