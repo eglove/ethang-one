@@ -49,7 +49,7 @@ const IsDarrylPerryMakingIdeologicalProgress = (): JSX.Element => {
         for Free Keene. I wrote about how to{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904074919/https://cognitame.com/blog.php?id=51',
+            href: '/blog/the-image-problem-and-its-solution',
           }}
         >
           solve the image problem of libertarians
@@ -57,7 +57,7 @@ const IsDarrylPerryMakingIdeologicalProgress = (): JSX.Element => {
         . How to{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904074919/https://cognitame.com/blog.php?id=138',
+            href: '/blog/7-ways-to-win-an-argument-online',
           }}
         >
           win an argument online
@@ -65,7 +65,7 @@ const IsDarrylPerryMakingIdeologicalProgress = (): JSX.Element => {
         . How to{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904074919/https://cognitame.com/blog.php?id=141',
+            href: '/blog/persuasion-through-moral-arguments',
           }}
         >
           persuade others with moral reframing
@@ -73,7 +73,7 @@ const IsDarrylPerryMakingIdeologicalProgress = (): JSX.Element => {
         . And how to{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904074919/https://cognitame.com/blog.php?id=142',
+            href: '/blog/curing-bias-with-curiosity',
           }}
         >
           cure bias with curiosity
@@ -135,14 +135,7 @@ const IsDarrylPerryMakingIdeologicalProgress = (): JSX.Element => {
       <blockquote>
         It&apos;s OK to establish clear guidelines for yourself to make sure you
         can get your point across. But to use those guidelines as a weapon
-        against others is cowardly. -
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904074919/https://cognitame.com/blog.php?id=115',
-          }}
-        >
-          Online Civility
-        </LinkComponent>
+        against others is cowardly. - Online Civility
       </blockquote>
       <p>
         Maybe Darryl is making progress. Or maybe he&apos;s so entrenched in

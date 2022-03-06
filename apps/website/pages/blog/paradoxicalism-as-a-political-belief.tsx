@@ -8,67 +8,22 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
       <p>
         I&apos;ve been taking the time to actually learn about a wide variety of
         beliefs. I&apos;ve been taking on a detached point of view. I&apos;ve
-        stopped allowing myself to respond before I have full{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/search.php?search=empathy',
-          }}
-        >
-          empathy
-        </LinkComponent>{' '}
-        for what I&apos;m hearing. For the most part, this has resulted in me
-        rejecting my established{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/search.php?search=libertarian+anarchist',
-          }}
-        >
-          libertarian anarchist
-        </LinkComponent>{' '}
-        beliefs. But it hasn&apos;t resulted in me taking on a new{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/search.php?search=political+identity',
-          }}
-        >
-          political identity
-        </LinkComponent>
-        . If someone were to ask me what I am in a political context, I
-        wouldn&apos;t have a clue. In fact, on most specific issues, I would
-        admit total ignorance.
+        stopped allowing myself to respond before I have full empathy for what
+        I&apos;m hearing. For the most part, this has resulted in me rejecting
+        my established libertarian anarchist beliefs. But it hasn&apos;t
+        resulted in me taking on a new political identity . If someone were to
+        ask me what I am in a political context, I wouldn&apos;t have a clue. In
+        fact, on most specific issues, I would admit total ignorance.
       </p>
       <p>
         1-2 years ago I would plug whatever the issue is into a For A New
         Liberty style framework. I would &ldquo;solve&rdquo; the issue by
-        framing it in a utopian{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/search.php?search=anarcho-capitalist',
-          }}
-        >
-          anarcho-capitalist
-        </LinkComponent>{' '}
-        world.
+        framing it in a utopian anarcho-capitalist world.
       </p>
       <p>
-        When I wrote{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/blog.php?id=116',
-          }}
-        >
-          Open Source Government
-        </LinkComponent>{' '}
-        in 2014, I was first exploring the idea of anarchy as a system of
-        competing governments. Not tied to any geographical location. When I
-        wrote{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/blog.php?id=55',
-          }}
-        >
-          You&apos;ll Never Have Your Anarchy
-        </LinkComponent>{' '}
+        When I wrote Open Source Government in 2014, I was first exploring the
+        idea of anarchy as a system of competing governments. Not tied to any
+        geographical location. When I wrote You&apos;ll Never Have Your Anarchy
         in 2015, I was first recognizing the fact that human nature doesn&apos;t
         change just because government goes away. People will still call for gun
         control after shootings. They&apos;ll still want to illegalize drugs and
@@ -139,35 +94,13 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
       </p>
       <p>
         And so we get to my current conundrum. In order to understand the
-        beliefs of others, I have to take a look at{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/search.php?search=human+nature',
-          }}
-        >
-          human nature
-        </LinkComponent>
-        . Something anthropologists like{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/search.php?search=Steven+Pinker',
-          }}
-        >
-          Steven Pinker
-        </LinkComponent>{' '}
-        and psychologists like{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://cognitame.com/search.php?search=Jordan+Peterson',
-          }}
-        >
-          Jordan Peterson
-        </LinkComponent>{' '}
-        have helped me do. On one hand, the bigger the government, the more
-        corruption you get. A one-world government isn&apos;t bad in theory. But
-        it offers no way out of corruption. There is no one to stop bad actors
-        in power. Or to stop good actors in power from becoming bad actors.
-        Which is inevitable.
+        beliefs of others, I have to take a look at human nature . Something
+        anthropologists like Steven Pinker and psychologists like Jordan
+        Peterson have helped me do. On one hand, the bigger the government, the
+        more corruption you get. A one-world government isn&apos;t bad in
+        theory. But it offers no way out of corruption. There is no one to stop
+        bad actors in power. Or to stop good actors in power from becoming bad
+        actors. Which is inevitable.
       </p>
       <p>
         On the other hand, that inevitability is what causes multiple
@@ -222,7 +155,7 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
         There are, however, important thinkers like{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://jordanbpeterson.com/',
+            href: 'https://www.jordanbpeterson.com/',
           }}
         >
           Jordan Peterson
@@ -230,7 +163,7 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
         ,{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://stevenpinker.com/',
+            href: 'https://stevenpinker.com/',
           }}
         >
           Steven Pinker
@@ -238,7 +171,7 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
         ,{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://twitter.com/gladwell?lang=en',
+            href: 'https://www.gladwellbooks.com/',
           }}
         >
           Malcolm Gladwell
@@ -246,7 +179,7 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
         ,{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/http://people.stern.nyu.edu/jhaidt/',
+            href: 'https://jonathanhaidt.com/',
           }}
         >
           Jonathan Haidt
@@ -254,7 +187,7 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
         ,{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/http://www.sebastianjunger.com/',
+            href: 'http://www.sebastianjunger.com/',
           }}
         >
           Sebastian Junger
@@ -262,7 +195,7 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
         , and{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://web.archive.org/web/20180904065528/https://www.dancarlin.com/',
+            href: 'https://www.dancarlin.com/',
           }}
         >
           Dan Carlin

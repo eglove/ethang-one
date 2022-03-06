@@ -30,7 +30,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         So what exactly does the{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/master/pcSetup.ps1',
+            href: 'https://github.com/eglove/ethang-one/blob/master/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1',
           }}
         >
           actual script
@@ -39,7 +39,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         made me realize I could write this script, to begin with. It installs{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L46',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L46',
           }}
         >
           Chocolatey Pro
@@ -51,7 +51,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         Second, while I&apos;m there, I may as well{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L55',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L54',
           }}
         >
           set up WSL 2 and Ubuntu
@@ -72,7 +72,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         With that done, it&apos;s just a matter of{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L69',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L69',
           }}
         >
           installing all the software I have listed in an array
@@ -84,7 +84,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         And I couldn&apos;t forget to{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L85',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L85',
           }}
         >
           download, install, and set an environment variable for all my other
@@ -100,7 +100,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         Which can be set via PowerShell. So I{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L98',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L98',
           }}
         >
           applied any Windows settings
@@ -112,7 +112,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         toolbox to handle IDE updates and generate shell scripts. So I{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L109',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L109',
           }}
         >
           updated those settings
@@ -121,7 +121,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         settings for terminus, can&apos;t forget to backup my{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L115',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L115',
           }}
         >
           terminus settings
@@ -132,7 +132,7 @@ const PcBackupInTwoLines = (): JSX.Element => {
         All wrapping up in a{' '}
         <LinkComponent
           linkProperties={{
-            href: 'https://github.com/eglove/PSScripts/blob/83bc2dc9db2ef86f75fb83f84bdf20778e952821/pcSetup.ps1#L120',
+            href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L120',
           }}
         >
           clean up process

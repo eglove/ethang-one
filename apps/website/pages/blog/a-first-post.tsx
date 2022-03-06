@@ -42,15 +42,7 @@ const AFirstPost = (): JSX.Element => {
         just a matter of formatting the data onto the page. After I built a
         &ldquo;backend&rdquo; that consisted of a few forms to create or update
         blogs and pages, all I had to do was use FileZilla to FTP the files over
-        to BlueHost, and presto, I had myself a blog. That code is still{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://github.com/eglove/PHP-Dynamic-Website',
-          }}
-        >
-          available on GitHub to see
-        </LinkComponent>
-        .
+        to BlueHost, and presto, I had myself a blog.
       </p>
       <p>
         That site certainly served its purpose. It wasn&apos;t difficult to keep
