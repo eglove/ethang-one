@@ -1,55 +1,20 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
-    "noEmit": true,
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "ES6",
-    "types": ["jest"],
+    "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "es2018", "es2020", "dom", "dom.iterable", "esnext"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "strict": true,
     "baseUrl": ".",
-    "paths": {
-      "@ethang-one/algorithms": ["packages/algorithms/src/index.ts"],
-      "@ethang-one/apollo": ["packages/apollo/src/index.ts"],
-      "@ethang-one/design-patterns": ["packages/design-patterns/src/index.ts"],
-      "@ethang-one/environment": ["packages/environment/src/index.ts"],
-      "@ethang-one/prisma-connection": [
-        "packages/prisma-connection/src/index.ts"
-      ],
-      "@ethang-one/react-components": [
-        "packages/react-components/src/index.ts"
-      ],
-      "@ethang-one/react-hooks": ["packages/react-hooks/src/index.ts"],
-      "@ethang-one/util-cli": ["packages/util-cli/src/index.ts"],
-      "@ethang-one/util-typescript": ["packages/util-typescript/src/index.ts"],
-      "@ethang-one/web-components": ["packages/web-components/src/index.ts"],
-      "@ethang/web-components": ["dist/packages/web-components"],
-      "@ethang/web-components/loader": ["dist/packages/web-components/loader"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules"
-      }
-    ],
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
+    "paths": {}
   },
-  "exclude": [
-    "node_modules",
-    "tmp",
-    "packages/react-components/src/lib/generated/**"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }

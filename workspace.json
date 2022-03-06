@@ -1,19 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "algorithms": "packages/algorithms",
-    "apollo": "packages/apollo",
-    "computer-cli": "packages/computer-cli",
-    "design-patterns": "packages/design-patterns",
-    "ethang-one": "packages/ethang-one",
-    "prisma-connection": "packages/prisma-connection",
-    "react-components": "packages/react-components",
-    "react-hooks": "packages/react-hooks",
-    "util-cli": "packages/util-cli",
-    "util-typescript": "packages/util-typescript",
-    "util_wasm": "packages/util-wasm",
-    "web-components": "packages/web-components",
-    "website": "packages/website",
-    "website-e2e": "packages/website-e2e"
+    "website": "apps/website",
+    "website-e2e": "apps/website-e2e"
   }
 }

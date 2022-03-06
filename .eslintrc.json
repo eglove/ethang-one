@@ -1,60 +1,35 @@
 {
   "root": true,
-  "ignorePatterns": ["*.d.ts", "packages/**/build", "packages/**/.cache", "**/jest.config.js", "packages/prisma-connection/src/lib/ethang-prisma-data"],
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nrwl/nx"],
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx",
-        "*.js",
-        "*.jsx"
-      ],
-      "extends": [
-        "plugin:unicorn/recommended",
-        "xo-space",
-        "xo-typescript/space",
-        "plugin:cypress/recommended",
-        "plugin:@stencil/recommended",
-        "xo-react/space",
-        "next",
-        "plugin:sonarjs/recommended",
-        "plugin:jsx-a11y/recommended",
-        "prettier"
-      ],
-      "plugins": [
-        "simple-import-sort",
-        "prettier"
-      ],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "./tsconfig.base.json"
-      },
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
-        "@next/next/no-html-link-for-pages": ["error", "/packages/website/pages/"],
-        "@typescript-eslint/naming-convention": "off",
-        "@typescript-eslint/explicit-function-return-type": [
-          "error"
-        ],
-        "arrow-body-style": ["error", "always"],
-        "capitalized-comments": "off",
-        "prettier/prettier": [
+        "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
-            "arrowParens": "avoid",
-            "trailingComma": "es5",
-            "singleQuote": true,
-            "printWidth": 80,
-            "endOfLine": "auto"
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
           }
-        ],
-        "react/react-in-jsx-scope": "off",
-        "react-hooks/exhaustive-deps": "error",
-        "simple-import-sort/exports": "error",
-        "simple-import-sort/imports": "error",
-        "sonarjs/cognitive-complexity": 1,
-        "sort-keys": "error",
-        "@stencil/strict-boolean-conditions": 2
+        ]
       }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
     }
   ]
 }

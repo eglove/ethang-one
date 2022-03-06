@@ -1,36 +1,38 @@
 {
-  "extends": "@nrwl/workspace/presets/core.json",
-  "npmScope": "ethang-one",
+  "npmScope": "ethang",
   "affected": {
     "defaultBase": "master"
   },
   "cli": {
-    "defaultCollection": "@nrwl/node"
+    "defaultCollection": "@nrwl/next"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
+      "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "ODNiNThhMDktZTk3NC00M2MxLWIwMWItYWY4YjY1N2UwZDgzfHJlYWQtd3JpdGU=",
-        "parallel": 1
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
-  "defaultProject": "ethang-one",
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
   "generators": {
     "@nrwl/react": {
       "application": {
-        "style": "css",
-        "linter": "eslint",
         "babel": true
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
       }
     },
     "@nrwl/next": {
@@ -40,19 +42,5 @@
       }
     }
   },
-  "plugins": ["@nxrs/cargo"],
-  "targetDependencies": {
-    "dev": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ],
-    "start": [
-      {
-        "target": "build",
-        "projects": "self"
-      }
-    ]
-  }
+  "defaultProject": "website"
 }
