@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
+    "deps": "npx pnpm i",
     "buildEg": "npx nx build ethang-cli",
     "eg": "node dist/apps/ethang-cli/main.js",
     "websiteDeploy": "npx nx build website --prod --verbose",

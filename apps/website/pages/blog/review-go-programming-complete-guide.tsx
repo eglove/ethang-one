@@ -66,8 +66,8 @@ const ReviewGoProgrammingCompleteGuide = (): JSX.Element => {
         </p>
         <p>
           But even for a beginner, this is the classic example of the sort of
-          course that leaves people bored and unmotivated. Because course itself
-          is boring and unmotivated.
+          course that leaves people bored and unmotivated. Because the course
+          itself is boring and unmotivated.
         </p>
         <p>
           It&apos;s disappointing, but as someone who once dropped $800 on a
@@ -76,7 +76,9 @@ const ReviewGoProgrammingCompleteGuide = (): JSX.Element => {
           Udemy, don&apos;t waste your time on the subscription.
         </p>
         <p>
-          Jayson Lennon&apos;s Go Programming Language (Golang): A Complete
+          There&apos;s not a lot of Go courses our there, and this may be good
+          enough if you HAVE to learn Go right now. Because of that, Jayson
+          Lennon&apos;s Go Programming Language (Golang): A Complete
           Developer&apos;s Guide get&apos;s a 2 out of 5.
         </p>
       </span>
