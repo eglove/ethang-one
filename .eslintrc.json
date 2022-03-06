@@ -31,6 +31,7 @@
         "plugin:cypress/recommended",
         "plugin:@stencil/recommended",
         "xo-react/space",
+        "next",
         "plugin:sonarjs/recommended",
         "plugin:jsx-a11y/recommended",
         "prettier"
