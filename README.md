@@ -1,5 +1,3 @@
-
-
 # EthanG
 
 ## Apps
