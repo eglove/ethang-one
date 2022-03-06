@@ -76,7 +76,7 @@ const ReviewGoProgrammingCompleteGuide = (): JSX.Element => {
           Udemy, don&apos;t waste your time on the subscription.
         </p>
         <p>
-          There&apos;s not a lot of Go courses our there, and this may be good
+          There&apos;s not a lot of Go courses out there, and this may be good
           enough if you HAVE to learn Go right now. Because of that, Jayson
           Lennon&apos;s Go Programming Language (Golang): A Complete
           Developer&apos;s Guide get&apos;s a 2 out of 5.
