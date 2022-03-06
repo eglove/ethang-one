@@ -21,6 +21,7 @@ export enum ImageName {
   ethanAvatar = 'ethanAvatar',
   expectationsVsReality = 'expectationsVsReality',
   gitBootcamp = 'gitBootcamp',
+  goProgrammingComplete = 'goProgrammingComplete',
   kodyKoala = 'kodyKoala',
   laconiaBikeWeek = 'laconiaBikeWeek',
   learningToLearn = 'learningToLearn',
@@ -133,6 +134,12 @@ export const images: ImageMetaData = {
     height: 270,
     url: blogImage('git-github-bootcamp.jpg'),
     width: 480,
+  }),
+  [ImageName.goProgrammingComplete]: new Image({
+    altText: "Jayson Lennon's Go Programming Course",
+    height: 395,
+    url: blogImage('go-programming.png'),
+    width: 705,
   }),
   [ImageName.kodyKoala]: new Image({
     altText: 'Kody the Koala',
