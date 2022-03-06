@@ -2,6 +2,7 @@ import { formatList } from '@ethang/util-typescript';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
+import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
 import { Blog } from 'schema-dts';
 
@@ -57,10 +58,19 @@ export const StaticBlogLayout = ({
             },
             dateModified: blog.updated.toISOString(),
             datePublished: blog.created.toISOString(),
+            description: blog.description,
             headline: blog.title,
             image: blog.image.url,
             thumbnailUrl: `${blog.image.url}`,
           })}
+        />
+        <Ogp
+          description={blog.description}
+          image={blog.image.url}
+          title={blog.title}
+          type="article"
+          siteName="EthanG"
+          url={`https://www.ethang.dev/blog/${slug}`}
         />
       </Head>
       <Script
