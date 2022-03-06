@@ -40,6 +40,7 @@ specifiers:
   apollo3-cache-persist: ^0.14.0
   babel-jest: 27.5.1
   babel-loader: ^8.2.3
+  browserslist: ^4.19.3
   browserslist-config-google: ^3.0.1
   core-js: ^3.6.5
   cypress: ^9.1.0
@@ -169,6 +170,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.13.0_eslint@8.10.0+typescript@4.6.2
   babel-jest: 27.5.1_@babel+core@7.17.5
   babel-loader: 8.2.3_ed870ac3ba52c4ec230ba2bc3dbb311c
+  browserslist: 4.19.3
   browserslist-config-google: 3.0.1
   cypress: 9.5.1
   eslint: 8.10.0
