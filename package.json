@@ -87,7 +87,7 @@
     "browserslist-config-google": "^3.0.1",
     "cypress": "^9.5.1",
     "eslint": "~8.10.0",
-    "eslint-config-next": "12.1.1-canary.3",
+    "eslint-config-next": "^12.1.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-xo-react": "^0.26.0",
     "eslint-config-xo-space": "^0.32.0",

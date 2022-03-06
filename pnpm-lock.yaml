@@ -45,7 +45,7 @@ specifiers:
   core-js: ^3.21.1
   cypress: ^9.5.1
   eslint: ~8.10.0
-  eslint-config-next: 12.1.1-canary.3
+  eslint-config-next: ^12.1.0
   eslint-config-prettier: 8.5.0
   eslint-config-xo-react: ^0.26.0
   eslint-config-xo-space: ^0.32.0
@@ -174,7 +174,7 @@ devDependencies:
   browserslist-config-google: 3.0.1
   cypress: 9.5.1
   eslint: 8.10.0
-  eslint-config-next: 12.1.1-canary.3_91b99ef72d19920d7e6dded71447bf77
+  eslint-config-next: 12.1.0_91b99ef72d19920d7e6dded71447bf77
   eslint-config-prettier: 8.5.0_eslint@8.10.0
   eslint-config-xo-react: 0.26.0_e4a0611724b3ba59fbf3ee8e61d9dcd0
   eslint-config-xo-space: 0.32.0_eslint@8.10.0
@@ -1830,13 +1830,6 @@ packages:
     resolution: {integrity: sha512-WFiyvSM2G5cQmh32t/SiQuJ+I2O+FHVlK/RFw5b1565O2kEM/36EXncjt88Pa+X5oSc+1SS+tWxowWJd1lqI+g==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/eslint-plugin-next/12.1.1-canary.3:
-    resolution: {integrity: sha512-mTzRhFPwmLOf2tHiiB9mO4B3JtjZMph6mDC2msKCfXRWPOjWwV+uLKaQsRrOMh+fOLTRFd+4eLWiWOmj8fzPJA==}
-    dependencies:
-      glob: 7.1.7
-    dev: true
 
   /@next/swc-android-arm64/12.1.0:
     resolution: {integrity: sha512-/280MLdZe0W03stA69iL+v6I+J1ascrQ6FrXBlXGCsGzrfMaGr7fskMa0T5AhQIVQD4nA/46QQWxG//DYuFBcA==}
@@ -5920,33 +5913,6 @@ packages:
       typescript: 4.6.2
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /eslint-config-next/12.1.1-canary.3_91b99ef72d19920d7e6dded71447bf77:
-    resolution: {integrity: sha512-6p967ZghFZhecJOZgQL38sXg9tmdcU6SkWrQ9P+03ZeL0zEZPjhISvo746ayeBdnUskFjAAH939PFpaVYxFTQw==}
-    peerDependencies:
-      eslint: ^7.23.0 || ^8.0.0
-      next: '>=10.2.0'
-      typescript: '>=3.3.1'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@next/eslint-plugin-next': 12.1.1-canary.3
-      '@rushstack/eslint-patch': 1.1.0
-      '@typescript-eslint/parser': 5.13.0_eslint@8.10.0+typescript@4.6.2
-      eslint: 8.10.0
-      eslint-import-resolver-node: 0.3.6
-      eslint-import-resolver-typescript: 2.5.0_8b406960a2a06af75ddac353adbd0cfd
-      eslint-plugin-import: 2.25.4_eslint@8.10.0
-      eslint-plugin-jsx-a11y: 6.5.1_eslint@8.10.0
-      eslint-plugin-react: 7.28.0_eslint@8.10.0
-      eslint-plugin-react-hooks: 4.3.0_eslint@8.10.0
-      next: 12.1.0_33bdac975a6e334c49640fab91e2abb4
-      typescript: 4.6.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
 
   /eslint-config-prettier/8.5.0_eslint@8.10.0:
     resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
