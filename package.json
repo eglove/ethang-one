@@ -63,7 +63,7 @@
     "@nrwl/nx-cloud": "latest",
     "@nrwl/react": "13.8.4",
     "@nrwl/storybook": "^13.8.4",
-    "@nrwl/tao": "13.8.4",
+    "@nrwl/tao": "13.8.5",
     "@nrwl/web": "13.8.4",
     "@nrwl/workspace": "13.8.4",
     "@nxext/stencil": "^13.1.2",
