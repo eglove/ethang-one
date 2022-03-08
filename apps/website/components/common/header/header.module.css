@@ -16,8 +16,13 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
 }
+
+.CseSearch {
+  padding: 0 1rem 1rem;
+}
+
 
 .NavigationLink {
   box-sizing: border-box;
@@ -27,7 +32,6 @@
   text-decoration: none;
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
-  box-shadow: var(--box-shadow);
 }
 
 .NavigationLink:visited {
