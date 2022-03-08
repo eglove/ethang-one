@@ -1,4 +1,4 @@
-import { convertTimeZone, rssDateFormat } from '@ethang/util-typescript';
+import { rssDateFormat } from '@ethang/util-typescript';
 import { NextApiResponse } from 'next';
 
 import { blogs, blogSlug } from '../database/data/blogs';
