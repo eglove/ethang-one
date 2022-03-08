@@ -91,6 +91,7 @@ specifiers:
   schema-dts: ^1.1.0
   stylelint: ^14.5.3
   stylelint-a11y: ^1.2.3
+  stylelint-config-prettier: ^9.0.3
   stylelint-config-recess-order: ^3.0.0
   stylelint-config-standard: ^25.0.0
   stylelint-config-xo-space: ^0.15.1
@@ -199,6 +200,7 @@ devDependencies:
   react-test-renderer: 17.0.2_react@17.0.2
   stylelint: 14.5.3
   stylelint-a11y: 1.2.3_stylelint@14.5.3
+  stylelint-config-prettier: 9.0.3_stylelint@14.5.3
   stylelint-config-recess-order: 3.0.0_stylelint@14.5.3
   stylelint-config-standard: 25.0.0_stylelint@14.5.3
   stylelint-config-xo-space: 0.15.1_stylelint@14.5.3
@@ -11260,6 +11262,16 @@ packages:
     engines: {node: '>=8.7.0'}
     peerDependencies:
       stylelint: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
+    dependencies:
+      stylelint: 14.5.3
+    dev: true
+
+  /stylelint-config-prettier/9.0.3_stylelint@14.5.3:
+    resolution: {integrity: sha512-5n9gUDp/n5tTMCq1GLqSpA30w2sqWITSSEiAWQlpxkKGAUbjcemQ0nbkRvRUa0B1LgD3+hCvdL7B1eTxy1QHJg==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    peerDependencies:
+      stylelint: '>=11.0.0'
     dependencies:
       stylelint: 14.5.3
     dev: true
