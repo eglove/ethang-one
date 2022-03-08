@@ -67,3 +67,11 @@ blockquote {
   padding: 0.5em 10px;
   margin: 1.5em 10px;
 }
+
+/* Override Google search styles */
+.gsc-control-cse {
+  /* stylelint-disable */
+  border: none !important;
+  background-color: var(--background-color) !important;
+  /* stylelint-enable */
+}
