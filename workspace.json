@@ -12,7 +12,6 @@
     "util-cli": "libs/util-cli",
     "util-typescript": "libs/util-typescript",
     "util_wasm": "libs/util-wasm",
-    "web-components": "libs/web-components",
     "website": "apps/website",
     "website-e2e": "apps/website-e2e"
   }

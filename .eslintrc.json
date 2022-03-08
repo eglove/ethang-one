@@ -29,7 +29,6 @@
         "xo-typescript/space",
         "plugin:@nrwl/nx/typescript",
         "plugin:cypress/recommended",
-        "plugin:@stencil/recommended",
         "xo-react/space",
         "next",
         "plugin:sonarjs/recommended",
@@ -67,8 +66,7 @@
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": "error",
         "sonarjs/cognitive-complexity": 1,
-        "sort-keys": "error",
-        "@stencil/strict-boolean-conditions": 2
+        "sort-keys": "error"
       }
     },
     {
