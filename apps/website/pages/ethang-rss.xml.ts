@@ -1,4 +1,4 @@
-import { convertTimeZone } from '@ethang/util-typescript';
+import { convertTimeZone, rssDateFormat } from '@ethang/util-typescript';
 import { NextApiResponse } from 'next';
 
 import { blogs, blogSlug } from '../database/data/blogs';
@@ -19,17 +19,6 @@ export const getServerSideProps = ({
   });
 
   const mostRecentBlog = blogs[slugs[0]] as Blog;
-  const buildDate = convertTimeZone(mostRecentBlog.created, 'GMT')
-    .toString()
-    .split(' ');
-  const parts = [
-    `${buildDate[0]},`,
-    buildDate[2],
-    buildDate[1],
-    buildDate[3],
-    buildDate[4],
-    'GMT',
-  ];
 
   const rss = `<?xml version="1.0" encoding="UTF-8" ?>
     <rss version="2.0">
@@ -38,7 +27,7 @@ export const getServerSideProps = ({
         <link>${rootUrl}/blog</link>
         <description>Ethan Glover's Personal Blog</description>
         <language>en-us</language>
-        <pubDate>${parts.join(' ')}</pubDate>
+        <pubDate>${rssDateFormat(mostRecentBlog.created)}</pubDate>
         ${slugs
           .map(slug => {
             const blog = blogs[slug] as Blog;
@@ -51,6 +40,10 @@ export const getServerSideProps = ({
                 '&',
                 '&#38;'
               )}</description>
+              <author>${blog.authors[0].firstName} ${
+              blog.authors[0].lastName ?? ''
+            }</author>
+              <pubDate>${rssDateFormat(blog.created)}</pubDate>
             </item>
           `;
           })

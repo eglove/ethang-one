@@ -122,6 +122,21 @@ export const humanReadableLocalDateTime = (dateTime: Date | string): string => {
   );
 };
 
+export const rssDateFormat = (date: Date | string | number): string => {
+  const dateToConvert = convertTimeZone(new Date(date), 'GMT')
+    .toString()
+    .split(' ');
+  const dateParts = [
+    `${dateToConvert[0]},`,
+    dateToConvert[2],
+    dateToConvert[1],
+    dateToConvert[3],
+    dateToConvert[4],
+    'GMT',
+  ];
+  return dateParts.join(' ');
+};
+
 export const toDateObject = (date: DateObjectArgumentTypes): Date => {
   if (typeof date === 'string' || typeof date === 'number') {
     return new Date(date);
