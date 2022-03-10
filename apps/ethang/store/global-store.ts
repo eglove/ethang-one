@@ -2,9 +2,11 @@ import { action, makeAutoObservable, observable } from 'mobx';
 import { createContext } from 'react';
 import io, { Socket } from 'socket.io-client';
 
+import { PORT } from '../../../ports';
+
 export const baseUrl =
   process.env.NODE_ENV === 'development'
-    ? 'http://localhost:4200'
+    ? `http://localhost:${PORT.ethang}`
     : 'https://ethang.dev';
 
 export class GlobalStore {
