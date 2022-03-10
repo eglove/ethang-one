@@ -21,7 +21,7 @@ specifiers:
   '@nrwl/web': 13.8.5
   '@nrwl/workspace': 13.8.5
   '@nxrs/cargo': ^0.3.2
-  '@testing-library/react': 12.1.3
+  '@testing-library/react': 12.1.4
   '@testing-library/react-hooks': 7.0.2
   '@types/inquirer': ^8.2.0
   '@types/jest': 27.4.1
@@ -56,14 +56,13 @@ specifiers:
   eslint-plugin-simple-import-sort: ^7.0.0
   eslint-plugin-sonarjs: ^0.12.0
   eslint-plugin-unicorn: ^41.0.0
-  fast-xml-parser: ^4.0.5
+  fast-xml-parser: ^4.0.6
   get-youtube-id: ^1.0.1
   graphql: ^16.3.0
   husky: ^7.0.4
   immer: ^9.0.12
-  import-jsx: ^4.0.1
   ink: ^3.2.0
-  inquirer: ^8.2.0
+  inquirer: ^8.2.1
   jest: 27.5.1
   jest-config: 27.5.1
   jsonwebtoken: ^8.5.1
@@ -73,7 +72,7 @@ specifiers:
   next: 12.1.0
   nprogress: ^0.2.0
   prettier: ^2.5.1
-  puppeteer: ~13.5.0
+  puppeteer: ~13.5.1
   react: 17.0.2
   react-dom: 17.0.2
   react-gist: ^1.2.4
@@ -84,9 +83,9 @@ specifiers:
   react-syntax-highlighter: ^15.4.5
   react-test-renderer: 17.0.2
   react-toastify: ^8.2.0
-  react-tsparticles: ^1.41.6
+  react-tsparticles: ^1.42.0
   regenerator-runtime: 0.13.9
-  rxjs: ^7.5.4
+  rxjs: ^7.5.5
   schema-dts: ^1.1.0
   socket.io: ^4.4.1
   socket.io-client: ^4.4.1
@@ -111,13 +110,12 @@ dependencies:
   '@nrwl/next': 13.8.5_2d57efc7897ce7cbf802c4c9623588c0
   apollo3-cache-persist: 0.14.0_@apollo+client@3.5.10
   core-js: 3.21.1
-  fast-xml-parser: 4.0.5
+  fast-xml-parser: 4.0.6
   get-youtube-id: 1.0.1
   graphql: 16.3.0
   immer: 9.0.12
-  import-jsx: 4.0.1
   ink: 3.2.0_a0c521d4794c7ad97f5f4c1c4a7d5818
-  inquirer: 8.2.0
+  inquirer: 8.2.1
   jsonwebtoken: 8.5.1
   mobx: 6.4.2
   mobx-react-lite: 3.3.0_4e589064ce40a783661f96d46f38f574
@@ -132,9 +130,9 @@ dependencies:
   react-schemaorg: 2.0.0_7b0f19ca035425572aa17a7814b2429a
   react-syntax-highlighter: 15.4.5_react@17.0.2
   react-toastify: 8.2.0_react-dom@17.0.2+react@17.0.2
-  react-tsparticles: 1.41.6_react@17.0.2
+  react-tsparticles: 1.42.1_react@17.0.2
   regenerator-runtime: 0.13.9
-  rxjs: 7.5.4
+  rxjs: 7.5.5
   schema-dts: 1.1.0_typescript@4.6.2
   socket.io: 4.4.1
   socket.io-client: 4.4.1
@@ -145,7 +143,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.17.5
   '@babel/preset-env': 7.16.11_@babel+core@7.17.5
-  '@nrwl/angular': 13.8.5_616120e414fb3f68026b2042c2cb3cbf
+  '@nrwl/angular': 13.8.5_4b8915bd6a29e381d9f05cfaaad5b924
   '@nrwl/cli': 13.8.5
   '@nrwl/cypress': 13.8.5_bd74ab6256d872ef87e81885105bf6c9
   '@nrwl/devkit': 13.8.5
@@ -160,7 +158,7 @@ devDependencies:
   '@nrwl/web': 13.8.5_9218a4b630f27e0c8e9fa2124ed2130a
   '@nrwl/workspace': 13.8.5_3a533fa6cc3da0cf8525ef55d41c4384
   '@nxrs/cargo': 0.3.2_@nrwl+devkit@13.8.5
-  '@testing-library/react': 12.1.3_react-dom@17.0.2+react@17.0.2
+  '@testing-library/react': 12.1.4_react-dom@17.0.2+react@17.0.2
   '@testing-library/react-hooks': 7.0.2_fc2bb8a5b006d3f25c5f84ea777e678d
   '@types/inquirer': 8.2.0
   '@types/jest': 27.4.1
@@ -198,7 +196,7 @@ devDependencies:
   jest-config: 27.5.1
   lint-staged: 12.3.5
   prettier: 2.5.1
-  puppeteer: 13.5.0
+  puppeteer: 13.5.1
   react-test-renderer: 17.0.2_react@17.0.2
   stylelint: 14.5.3
   stylelint-a11y: 1.2.3_stylelint@14.5.3
@@ -1953,7 +1951,7 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
 
-  /@nrwl/angular/13.8.5_616120e414fb3f68026b2042c2cb3cbf:
+  /@nrwl/angular/13.8.5_4b8915bd6a29e381d9f05cfaaad5b924:
     resolution: {integrity: sha512-S+BjdVHW/VuTPVWkWztkefQjMzikF3hF5wiN59s7wPeSkE+FjXj7YEdpUuR58/0W23gR0ao8eVisYriZaPvq8Q==}
     requiresBuild: true
     dependencies:
@@ -1966,8 +1964,8 @@ packages:
       '@phenomnomnominal/tsquery': 4.1.1_typescript@4.6.2
       '@schematics/angular': 13.2.5
       ignore: 5.2.0
-      jasmine-marbles: 0.8.4_rxjs@7.5.4
-      rxjs-for-await: 0.0.2_rxjs@7.5.4
+      jasmine-marbles: 0.8.4_rxjs@7.5.5
+      rxjs-for-await: 0.0.2_rxjs@7.5.5
       semver: 7.3.4
       ts-node: 9.1.1_typescript@4.6.2
       tsconfig-paths: 3.13.0
@@ -3331,8 +3329,8 @@ packages:
       react-test-renderer: 17.0.2_react@17.0.2
     dev: true
 
-  /@testing-library/react/12.1.3_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-oCULRXWRrBtC9m6G/WohPo1GLcLesH7T4fuKzRAKn1CWVu9BzXtqLXDDTA6KhFNNtRwLtfSMr20HFl+Qrdrvmg==}
+  /@testing-library/react/12.1.4_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-jiPKOm7vyUw311Hn/HlNQ9P8/lHNtArAx0PisXyFixDDvfl8DbD6EUdbshK5eqauvBSvzZd19itqQ9j3nferJA==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '*'
@@ -3480,7 +3478,7 @@ packages:
     resolution: {integrity: sha512-BNoMetRf3gmkpAlV5we+kxyZTle7YibdOntIZbU5pyIfMdcwy784KfeZDAcuyMznkh5OLa17RVXZOGA5LTlkgQ==}
     dependencies:
       '@types/through': 0.0.30
-      rxjs: 7.5.4
+      rxjs: 7.5.5
     dev: true
 
   /@types/istanbul-lib-coverage/2.0.4:
@@ -4650,20 +4648,6 @@ packages:
     dependencies:
       function-bind: 1.1.1
       get-intrinsic: 1.1.1
-
-  /caller-callsite/4.1.0:
-    resolution: {integrity: sha512-99nnnGlJexTc41xwQTr+mWl15OI5PPczUJzM4YRE7QjkefMKCXGa5gfQjCOuVrD+1TjI/fevIDHg2nz3iYN5Ig==}
-    engines: {node: '>=8'}
-    dependencies:
-      callsites: 3.1.0
-    dev: false
-
-  /caller-path/3.0.1:
-    resolution: {integrity: sha512-fhmztL4wURO/BzwJUJ4aVRdnKEFskPBbrJ8fNgl7XdUiD1ygzzlt+nhPgUBSRq2ciEVubo6x+W8vJQzm55QLLQ==}
-    engines: {node: '>=8'}
-    dependencies:
-      caller-callsite: 4.1.0
-    dev: false
 
   /callsites/3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
@@ -6477,8 +6461,8 @@ packages:
   /fast-levenshtein/2.0.6:
     resolution: {integrity: sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=}
 
-  /fast-xml-parser/4.0.5:
-    resolution: {integrity: sha512-B3eG9unGn4SqG6Fdwhc4eaIFBSN/0CdqUKG1nzjLuojhMyq4qMxNShzng0QjOW3swE3MhERMf70u7C/XnzmshA==}
+  /fast-xml-parser/4.0.6:
+    resolution: {integrity: sha512-RHz47iX/DKT6BQwYQUmKG/1fuC5g2s/TibpxNvE+0ysnpSJxePFzsJvRDtfGhLRg3zdKMzO6EJn8n7+AJ6pSHg==}
     hasBin: true
     dependencies:
       strnum: 1.0.5
@@ -7259,23 +7243,6 @@ packages:
     dependencies:
       resolve-from: 5.0.0
 
-  /import-jsx/4.0.1:
-    resolution: {integrity: sha512-2Cj4nWRuAmvokFRU6UNo3xgzXKh+4nq/LBtD6mTp3V9c9nYV7O+dRvPChPOM34Qcj1+Ijz3oK6HqkixG0GP9Rg==}
-    engines: {node: '>=10'}
-    dependencies:
-      '@babel/core': 7.17.5
-      '@babel/plugin-proposal-object-rest-spread': 7.17.3_@babel+core@7.17.5
-      '@babel/plugin-transform-destructuring': 7.17.3_@babel+core@7.17.5
-      '@babel/plugin-transform-react-jsx': 7.17.3_@babel+core@7.17.5
-      caller-path: 3.0.1
-      find-cache-dir: 3.3.2
-      make-dir: 3.1.0
-      resolve-from: 3.0.0
-      rimraf: 3.0.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /import-lazy/4.0.0:
     resolution: {integrity: sha512-rKtvo6a868b5Hu3heneU+L4yEQ4jYKLtjpnPeUdK7h0yzXGmyBTypknlkCvHFBqfX9YlorEiMM6Dnq/5atfHkw==}
     engines: {node: '>=8'}
@@ -7359,9 +7326,9 @@ packages:
       - utf-8-validate
     dev: false
 
-  /inquirer/8.2.0:
-    resolution: {integrity: sha512-0crLweprevJ02tTuA6ThpoAERAGyVILC4sS74uib58Xf/zSr1/ZWtmm7D5CI+bSQEaA04f0K7idaHpQbSWgiVQ==}
-    engines: {node: '>=8.0.0'}
+  /inquirer/8.2.1:
+    resolution: {integrity: sha512-pxhBaw9cyTFMjwKtkjePWDhvwzvrNGAw7En4hottzlPvz80GZaMZthdDU35aA6/f5FRZf3uhE057q8w1DE3V2g==}
+    engines: {node: '>=12.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
       chalk: 4.1.2
@@ -7373,7 +7340,7 @@ packages:
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       string-width: 4.2.3
       strip-ansi: 6.0.1
       through: 2.3.8
@@ -7715,13 +7682,13 @@ packages:
       filelist: 1.0.2
       minimatch: 3.1.2
 
-  /jasmine-marbles/0.8.4_rxjs@7.5.4:
+  /jasmine-marbles/0.8.4_rxjs@7.5.5:
     resolution: {integrity: sha512-zbtuXABpSWrSswYPiZ5m6EQhluNmKcRQs+82AqJHSN+PMx3ASpDmTvRfqe9Pk2hPh9Ge5zrzOsorIlw3kdwTXQ==}
     peerDependencies:
       rxjs: ^6.5.3
     dependencies:
       lodash: 4.17.21
-      rxjs: 7.5.4
+      rxjs: 7.5.5
     dev: true
 
   /jest-changed-files/27.5.1:
@@ -8611,7 +8578,7 @@ packages:
       log-update: 4.0.0
       p-map: 4.0.0
       rfdc: 1.3.0
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       through: 2.3.8
       wrap-ansi: 7.0.0
     dev: true
@@ -8630,7 +8597,7 @@ packages:
       log-update: 4.0.0
       p-map: 4.0.0
       rfdc: 1.3.0
-      rxjs: 7.5.4
+      rxjs: 7.5.5
       through: 2.3.8
       wrap-ansi: 7.0.0
     dev: true
@@ -10179,8 +10146,8 @@ packages:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
 
-  /puppeteer/13.5.0:
-    resolution: {integrity: sha512-raPr2YZ3RZLboGwt7jJgusJTBRDaVEUiPOSOWWFLV1oj07xqT5UqqbjmNXFXlMlkhF/NwmcEInW64VhvyllVdw==}
+  /puppeteer/13.5.1:
+    resolution: {integrity: sha512-wWxO//vMiqxlvuzHMAJ0pRJeDHvDtM7DQpW1GKdStz2nZo2G42kOXBDgkmQ+zqjwMCFofKGesBeeKxIkX9BO+w==}
     engines: {node: '>=10.18.1'}
     requiresBuild: true
     dependencies:
@@ -10408,15 +10375,15 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /react-tsparticles/1.41.6_react@17.0.2:
-    resolution: {integrity: sha512-PySf+GhzuwNNgN9DUp0vJ5ohvoVsLBvpItuPteVempW7wZ5OJgPjovrB3/Njr4WXbFpj74rw2+OzyeDPSYhlNw==}
+  /react-tsparticles/1.42.1_react@17.0.2:
+    resolution: {integrity: sha512-wZ+UsXsuqv0YzBTt7ASz8sIgwMBujvAZXb7I7oRO6I1RPHn7Ny7b74FN3BnzLBrb9QkYQnicYDahCE/GQKlVeQ==}
     requiresBuild: true
     peerDependencies:
       react: '>=16'
     dependencies:
       fast-deep-equal: 3.1.3
       react: 17.0.2
-      tsparticles: 1.41.6
+      tsparticles: 1.42.1
     dev: false
 
   /react/17.0.2:
@@ -10595,11 +10562,6 @@ packages:
       resolve-from: 5.0.0
     dev: true
 
-  /resolve-from/3.0.0:
-    resolution: {integrity: sha1-six699nWiBvItuZTM17rywoYh0g=}
-    engines: {node: '>=4'}
-    dev: false
-
   /resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -10742,12 +10704,12 @@ packages:
     dependencies:
       rxjs: 6.6.7
 
-  /rxjs-for-await/0.0.2_rxjs@7.5.4:
+  /rxjs-for-await/0.0.2_rxjs@7.5.5:
     resolution: {integrity: sha512-IJ8R/ZCFMHOcDIqoABs82jal00VrZx8Xkgfe7TOKoaRPAW5nH/VFlG23bXpeGdrmtqI9UobFPgUKgCuFc7Lncw==}
     peerDependencies:
       rxjs: ^6.0.0
     dependencies:
-      rxjs: 7.5.4
+      rxjs: 7.5.5
     dev: true
 
   /rxjs/6.5.5:
@@ -10763,8 +10725,8 @@ packages:
     dependencies:
       tslib: 1.14.1
 
-  /rxjs/7.5.4:
-    resolution: {integrity: sha512-h5M3Hk78r6wAheJF0a5YahB1yRQKCsZ4MsGdZ5O9ETbVtjPcScGfrMmoOq7EBsCRzd4BDkvDJ7ogP8Sz5tTFiQ==}
+  /rxjs/7.5.5:
+    resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
     dependencies:
       tslib: 2.3.1
 
@@ -11970,8 +11932,8 @@ packages:
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
 
-  /tsparticles/1.41.6:
-    resolution: {integrity: sha512-LdU1eWaRdCVAvgF3UA5/qR/otWloGHAOSrzSiXx5nEnyBY6mvpLws3TMX0R5Y3xHE1JoomtxqnIsIJXL/21/pQ==}
+  /tsparticles/1.42.1:
+    resolution: {integrity: sha512-LdFNNyecnbv3wVy+2p93SASsfDDSc3IuMPdHkKKQu0aukeZlL7apJKy53dIAjH8el4MrTYqM2Bg+Tee64MqOXA==}
     requiresBuild: true
     dev: false
 
