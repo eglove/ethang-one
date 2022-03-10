@@ -60,6 +60,12 @@ export const removeNonAplhaNumericChars = (string: string): string => {
   return string.replace(/\W/g, '');
 };
 
+export const sortStringArray = (array: string[]): string[] => {
+  return array.sort((a, b) => {
+    return a < b ? -1 : 1;
+  });
+};
+
 export const toCapitalizedWords = (string: string): string => {
   const words = string.match(/[A-Za-z][a-z]*|\d+/g) ?? [];
 
