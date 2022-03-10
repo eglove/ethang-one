@@ -1,0 +1,18 @@
+.CommandContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem;
+  margin: 1rem;
+  background: #fff;
+}
+
+.CommandContainer div {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.CommandContainer div:hover,
+.CommandContainer div:focus {
+  cursor: pointer;
+}
