@@ -5,6 +5,7 @@ import { Server } from 'socket.io';
 
 import { getNxProjects, getProjectTargets } from '../../node/project-info';
 import { runPowershellCommands } from '../../node/project-runner';
+import { WebsocketKey } from '../../types/websocket';
 
 type SocketResponse = NextApiResponse & {
   socket?: {
@@ -21,19 +22,19 @@ const Socket = (request: NextApiRequest, response: SocketResponse): void => {
     response.socket.server.io = io;
 
     io.on('connection', socket => {
-      socket.on('get-project-targets', (projects: string[]) => {
+      socket.on(WebsocketKey.projectTargets, (projects: string[]) => {
         socket.emit(
-          'get-project-targets',
+          WebsocketKey.projectTargets,
           JSON.stringify(sortStringArray(getProjectTargets(projects)))
         );
       });
 
-      socket.on('nx-projects', () => {
-        socket.emit('nx-projects', JSON.stringify(getNxProjects()));
+      socket.on(WebsocketKey.nxProjects, () => {
+        socket.emit(WebsocketKey.nxProjects, JSON.stringify(getNxProjects()));
       });
 
       socket.on(
-        'run-projects',
+        WebsocketKey.runProjects,
         (arguments_: { target: string; projects: string[] }) => {
           const process = runPowershellCommands([
             `npx nx run-many --target=${
@@ -43,7 +44,7 @@ const Socket = (request: NextApiRequest, response: SocketResponse): void => {
 
           process.stdout.on('data', data => {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-            socket.emit('terminal-message', data.toString());
+            socket.emit(WebsocketKey.terminalMessage, data.toString());
           });
         }
       );
