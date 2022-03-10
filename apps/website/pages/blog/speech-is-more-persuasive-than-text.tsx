@@ -126,7 +126,7 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
         shown that{' '}
         <LinkComponent
           linkProperties={{
-            href: 'http://localhost:4200/blog/the-image-problem-and-its-solution',
+            href: '/blog/the-image-problem-and-its-solution',
           }}
         >
           deep canvassing
