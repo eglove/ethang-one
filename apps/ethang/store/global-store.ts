@@ -3,6 +3,7 @@ import { createContext } from 'react';
 import io, { Socket } from 'socket.io-client';
 
 import { PORT } from '../../../ports';
+import { WebsocketKey } from '../types/websocket';
 
 export const baseUrl =
   process.env.NODE_ENV === 'development'
@@ -25,15 +26,15 @@ export class GlobalStore {
       await fetch(`${baseUrl}/api/socket`);
       this.socket = io();
 
-      this.socket.on('get-project-targets', (message: string) => {
+      this.socket.on(WebsocketKey.projectTargets, (message: string) => {
         this.projectTargets = JSON.parse(message) as string[];
       });
 
-      this.socket.on('nx-projects', message => {
+      this.socket.on(WebsocketKey.nxProjects, message => {
         this.nxProjects = JSON.parse(message) as string[];
       });
 
-      this.socket.on('terminal-message', (message: string) => {
+      this.socket.on(WebsocketKey.terminalMessage, (message: string) => {
         this.terminalMessages = [...(this.terminalMessages ?? []), message];
       });
     }
