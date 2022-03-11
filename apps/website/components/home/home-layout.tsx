@@ -1,15 +1,26 @@
 import { shuffleArray } from '@ethang/util-typescript';
 import Image from 'next/image';
 
-import { technologyLogos } from '../../database/data/images/technology-logos';
-import { Image as ImageModel } from '../../database/models/image';
+import { TechnologyLogo } from '../../../../graphql/types';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { LinkComponent } from '../common/link-component/link-component';
 import styles from './home.module.css';
 
-export const HomeLayout = (): JSX.Element | undefined => {
-  const logos = shuffleArray(Object.getOwnPropertyNames(technologyLogos));
+interface HomeLayoutProperties {
+  technologyLogos: TechnologyLogo[];
+}
+
+export const HomeLayout = ({
+  technologyLogos,
+}: HomeLayoutProperties): JSX.Element | undefined => {
+  const indexArray = shuffleArray(
+    Array.from({ length: technologyLogos.length })
+      .fill(null)
+      .map((_, index) => {
+        return index;
+      })
+  );
 
   return (
     <Container>
@@ -25,14 +36,14 @@ export const HomeLayout = (): JSX.Element | undefined => {
           </LinkComponent>
         </p>
         <div className={styles.Logos}>
-          {logos.map(logoName => {
-            const logo = technologyLogos[logoName] as ImageModel;
+          {indexArray.map((index: number) => {
+            const logo = technologyLogos[index];
 
             return (
-              <div key={logoName} className={styles.LogoContainer}>
+              <div key={logo.id} className={styles.LogoContainer}>
                 <Image
-                  src={logo.url}
-                  alt={logo.altText}
+                  src={logo.image.image.downloadUrl}
+                  alt={logo.image.altText}
                   width={100}
                   height={100}
                 />

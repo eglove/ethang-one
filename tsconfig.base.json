@@ -27,7 +27,6 @@
       "@ethang/algorithms": ["libs/algorithms/src/index.ts"],
       "@ethang/apollo": ["libs/apollo/src/index.ts"],
       "@ethang/design-patterns": ["libs/design-patterns/src/index.ts"],
-      "@ethang/prisma-connection": ["libs/prisma-connection/src/index.ts"],
       "@ethang/react-components": ["libs/react-components/src/index.ts"],
       "@ethang/react-hooks": ["libs/react-hooks/src/index.ts"],
       "@ethang/util-cli": ["libs/util-cli/src/index.ts"],
