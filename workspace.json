@@ -8,7 +8,6 @@
     "ethang": "apps/ethang",
     "ethang-cli": "apps/ethang-cli",
     "ethang-e2e": "apps/ethang-e2e",
-    "prisma-connection": "libs/prisma-connection",
     "react-components": "libs/react-components",
     "react-hooks": "libs/react-hooks",
     "util-cli": "libs/util-cli",

@@ -53,7 +53,7 @@ export class ApolloClientInit {
         return {
           headers: {
             ...JSON_HEADER,
-            'x-hasura-admin-secret': process.env.NX_HASURA_SECRET,
+            Authorization: `Bearer ${process.env.NX_8BASE_API_TOKEN ?? ''}`,
             ...headers,
           },
         };
