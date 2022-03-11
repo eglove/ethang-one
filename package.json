@@ -68,7 +68,7 @@
     "@nrwl/react": "13.8.7",
     "@nrwl/storybook": "13.8.7",
     "@nrwl/tao": "13.8.7",
-    "@nrwl/web": "13.8.7",
+    "@nrwl/web": "13.8.8",
     "@nrwl/workspace": "13.8.7",
     "@nxrs/cargo": "^0.3.2",
     "@testing-library/react": "12.1.4",
