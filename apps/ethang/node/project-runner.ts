@@ -6,6 +6,7 @@ import { Socket } from 'socket.io';
 import {
   commandSplitter,
   ETHANG_CLI_ROOT,
+  SAVED_FILES_ROOT,
   WebsocketKey,
 } from '../lib/commands';
 
@@ -25,7 +26,7 @@ export const onScript = (socket: Socket): void => {
       if (isGitStatusClean) {
         emitTerminal(socket, 'Git status is clean, adding message.');
         execSyncCommand(
-          `Add-Content -Path ${ETHANG_CLI_ROOT}/src/assets/the-graph.txt "The GitHub contribution graph is a lie."`
+          `Add-Content -Path ${SAVED_FILES_ROOT}/the-graph.txt "The GitHub contribution graph is a lie."`
         );
       }
 
