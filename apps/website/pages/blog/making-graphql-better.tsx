@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client';
 import Gist from 'react-gist';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
@@ -5,10 +6,18 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import styles from '../../components/common/styles/common.module.css';
-import { images } from '../../database/data/images/images';
+import { Data, Image } from '../../graphql/types';
 import { BlogProperties, blogQuery } from '../../util/query';
+import { apolloClient } from '../_app';
 
-const MakingGraphqlBetter = ({ blog }: BlogProperties): JSX.Element => {
+export interface MakingGraphqlBetterProperties extends BlogProperties {
+  images: Record<string, Image>;
+}
+
+const MakingGraphqlBetter = ({
+  blog,
+  images,
+}: MakingGraphqlBetterProperties): JSX.Element => {
   const userQuery = `query Query {
     user(id: 123) {
       username
@@ -362,10 +371,10 @@ const MakingGraphqlBetter = ({ blog }: BlogProperties): JSX.Element => {
       </p>
       <ImageContainer
         imageProperties={{
-          alt: images.sitesCaseDataQuery.altText,
-          height: images.sitesCaseDataQuery.height,
-          src: images.sitesCaseDataQuery.url,
-          width: images.sitesCaseDataQuery.width,
+          alt: images.cl0mrx4vt00oc09l22wd93vqo.altText,
+          height: images.cl0mrx4vt00oc09l22wd93vqo.height,
+          src: images.cl0mrx4vt00oc09l22wd93vqo.image.downloadUrl,
+          width: images.cl0mrx4vt00oc09l22wd93vqo.width,
         }}
       />
       <p>
@@ -375,10 +384,10 @@ const MakingGraphqlBetter = ({ blog }: BlogProperties): JSX.Element => {
       </p>
       <ImageContainer
         imageProperties={{
-          alt: images.siteCaseDataUnresolved.altText,
-          height: images.siteCaseDataUnresolved.height,
-          src: images.siteCaseDataUnresolved.url,
-          width: images.siteCaseDataUnresolved.width,
+          alt: images.cl0mrwbmm004d09idfnt26s0v.altText,
+          height: images.cl0mrwbmm004d09idfnt26s0v.height,
+          src: images.cl0mrwbmm004d09idfnt26s0v.image.downloadUrl,
+          width: images.cl0mrwbmm004d09idfnt26s0v.width,
         }}
       />
       <p>
@@ -387,18 +396,18 @@ const MakingGraphqlBetter = ({ blog }: BlogProperties): JSX.Element => {
       </p>
       <ImageContainer
         imageProperties={{
-          alt: images.sitesSqlResolved.altText,
-          height: images.sitesSqlResolved.height,
-          src: images.sitesSqlResolved.url,
-          width: images.sitesSqlResolved.width,
+          alt: images.cl0mrxurx0a7a09mbcy39h2yc.altText,
+          height: images.cl0mrxurx0a7a09mbcy39h2yc.height,
+          src: images.cl0mrxurx0a7a09mbcy39h2yc.image.downloadUrl,
+          width: images.cl0mrxurx0a7a09mbcy39h2yc.width,
         }}
       />
       <ImageContainer
         imageProperties={{
-          alt: images.caseDataSqlResolved.altText,
-          height: images.caseDataSqlResolved.height,
-          src: images.caseDataSqlResolved.url,
-          width: images.caseDataSqlResolved.width,
+          alt: images.cl0mr5pqx00gp09ju58vd6rso.altText,
+          height: images.cl0mr5pqx00gp09ju58vd6rso.height,
+          src: images.cl0mr5pqx00gp09ju58vd6rso.image.downloadUrl,
+          width: images.cl0mr5pqx00gp09ju58vd6rso.width,
         }}
       />
       <p>
@@ -523,13 +532,48 @@ export default MakingGraphqlBetter;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export async function getStaticProps(): Promise<{
-  props: BlogProperties;
+  props: MakingGraphqlBetterProperties;
 }> {
   const blog = await blogQuery('making-graphql-better');
+  const { data: imageData } = await apolloClient.client.query<Data>({
+    query: gql`
+      query ImagesQuery {
+        imagesList(
+          filter: {
+            id: {
+              in: [
+                "cl0mrwbmm004d09idfnt26s0v"
+                "cl0mrx4vt00oc09l22wd93vqo"
+                "cl0mr5pqx00gp09ju58vd6rso"
+                "cl0mrxurx0a7a09mbcy39h2yc"
+              ]
+            }
+          }
+        ) {
+          items {
+            id
+            altText
+            height
+            image {
+              downloadUrl
+            }
+            width
+          }
+        }
+      }
+    `,
+  });
+
+  const images = {};
+
+  for (const image of imageData.imagesList.items) {
+    images[image.id] = image;
+  }
 
   return {
     props: {
       blog,
+      images,
     },
   };
 }

@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
-import { Data, TechnologyLogo } from '../../../graphql/types';
 import { HomeLayout } from '../components/home/home-layout';
+import { Data, TechnologyLogo } from '../graphql/types';
 import { apolloClient } from './_app';
 
 export type TechnologyLogos = { technologyLogos: TechnologyLogo[] };

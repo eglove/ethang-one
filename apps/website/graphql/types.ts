@@ -5,11 +5,12 @@ export interface Query {
 export interface Data {
   blogsList: List<Blog>;
   coursesList: List<Course>;
+  imagesList: List<Image>;
   technologyLogosList: List<TechnologyLogo>;
 }
 
 export interface List<Type> {
-  items?: (Type)[] | null;
+  items?: Type[] | undefined;
 }
 
 export interface Blog {
@@ -26,12 +27,12 @@ export interface Blog {
 export interface Course {
   id: string;
   rating: number;
-  ratingUrl?: string | null;
+  ratingUrl?: string | undefined;
   school: School;
   title: string;
   courseUrls: List<CourseUrl>;
   instructors: List<Person>;
-  duration?: number | null;
+  duration?: number | undefined;
   yearUpdated: number;
 }
 

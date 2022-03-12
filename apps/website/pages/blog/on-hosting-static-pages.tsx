@@ -1,10 +1,20 @@
+import { gql } from '@apollo/client';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogImage } from '../../database/models/image';
+import { Data, Image } from '../../graphql/types';
 import { BlogProperties, blogQuery } from '../../util/query';
+import { apolloClient } from '../_app';
 
-export const OnHostingStaticPages = ({ blog }: BlogProperties): JSX.Element => {
+interface OnHostingStaticPagesProperties extends BlogProperties {
+  images: Record<string, Image>;
+}
+
+export const OnHostingStaticPages = ({
+  blog,
+  images,
+}: OnHostingStaticPagesProperties): JSX.Element => {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -62,10 +72,10 @@ export const OnHostingStaticPages = ({ blog }: BlogProperties): JSX.Element => {
       </p>
       <ImageContainer
         imageProperties={{
-          alt: 'Static Stie Models',
-          height: 869,
-          src: blogImage('static-site-models.png'),
-          width: 1810,
+          alt: images.cl0n8s8sv02e309mkcnpt5bbx.altText,
+          height: images.cl0n8s8sv02e309mkcnpt5bbx.height,
+          src: images.cl0n8s8sv02e309mkcnpt5bbx.image.downloadUrl,
+          width: images.cl0n8s8sv02e309mkcnpt5bbx.width,
         }}
       />
       <p>
@@ -76,10 +86,10 @@ export const OnHostingStaticPages = ({ blog }: BlogProperties): JSX.Element => {
       </p>
       <ImageContainer
         imageProperties={{
-          alt: 'Blog Object',
-          height: 347,
-          src: blogImage('blog-object.png'),
-          width: 1003,
+          alt: images.cl0n8vvrb01uw09jp3p1j1pye.altText,
+          height: images.cl0n8vvrb01uw09jp3p1j1pye.height,
+          src: images.cl0n8vvrb01uw09jp3p1j1pye.image.downloadUrl,
+          width: images.cl0n8vvrb01uw09jp3p1j1pye.width,
         }}
       />
       <p>
@@ -88,18 +98,18 @@ export const OnHostingStaticPages = ({ blog }: BlogProperties): JSX.Element => {
       </p>
       <ImageContainer
         imageProperties={{
-          alt: 'Blog Layout Component',
-          height: 496,
-          src: blogImage('blog-layout.png'),
-          width: 711,
+          alt: images.cl0n8xlen062q09kz0r9o0tc2.altText,
+          height: images.cl0n8xlen062q09kz0r9o0tc2.height,
+          src: images.cl0n8xlen062q09kz0r9o0tc2.image.downloadUrl,
+          width: images.cl0n8xlen062q09kz0r9o0tc2.width,
         }}
       />
       <ImageContainer
         imageProperties={{
-          alt: 'Blog HTML',
-          height: 518,
-          src: blogImage('blog-html.png'),
-          width: 655,
+          alt: images.cl0n8y1w2022y09l3byy7a4hu.altText,
+          height: images.cl0n8y1w2022y09l3byy7a4hu.height,
+          src: images.cl0n8y1w2022y09l3byy7a4hu.image.downloadUrl,
+          width: images.cl0n8y1w2022y09l3byy7a4hu.width,
         }}
       />
       <p>
@@ -109,10 +119,10 @@ export const OnHostingStaticPages = ({ blog }: BlogProperties): JSX.Element => {
       </p>
       <ImageContainer
         imageProperties={{
-          alt: 'Blogs Page Code',
-          height: 594,
-          src: blogImage('blogs-page.png'),
-          width: 685,
+          alt: images.cl0n8yk5t006609kt30coe7ea.altText,
+          height: images.cl0n8yk5t006609kt30coe7ea.height,
+          src: images.cl0n8yk5t006609kt30coe7ea.image.downloadUrl,
+          width: images.cl0n8yk5t006609kt30coe7ea.width,
         }}
       />
       <p>
@@ -153,13 +163,48 @@ export default OnHostingStaticPages;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export async function getStaticProps(): Promise<{
-  props: BlogProperties;
+  props: OnHostingStaticPagesProperties;
 }> {
   const blog = await blogQuery('on-hosting-static-pages');
+  const { data: imageData } = await apolloClient.client.query<Data>({
+    query: gql`
+      query ImagesQuery {
+        imagesList(
+          filter: {
+            id: {
+              in: [
+                "cl0n8s8sv02e309mkcnpt5bbx"
+                "cl0n8vvrb01uw09jp3p1j1pye"
+                "cl0n8xlen062q09kz0r9o0tc2"
+                "cl0n8y1w2022y09l3byy7a4hu"
+                "cl0n8yk5t006609kt30coe7ea"
+              ]
+            }
+          }
+        ) {
+          items {
+            id
+            altText
+            height
+            image {
+              downloadUrl
+            }
+            width
+          }
+        }
+      }
+    `,
+  });
+
+  const images = {};
+  for (const image of imageData.imagesList.items) {
+    images[image.id] = image;
+  }
 
   return {
     props: {
       blog,
+      images,
     },
   };
 }

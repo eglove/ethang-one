@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
-import { Course, Data } from '../../../../graphql/types';
 import { CoursesLayout } from '../../components/courses/courses-layout';
+import { Course, Data } from '../../graphql/types';
 import { apolloClient } from '../_app';
 
 export type CoursesData = { courses: Course[] };

@@ -1,7 +1,7 @@
 import { shuffleArray } from '@ethang/util-typescript';
 import Image from 'next/image';
 
-import { TechnologyLogo } from '../../../../graphql/types';
+import { TechnologyLogo } from '../../graphql/types';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { LinkComponent } from '../common/link-component/link-component';

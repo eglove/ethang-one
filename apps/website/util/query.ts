@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { Blog } from '../../../graphql/types';
+import { Blog } from '../graphql/types';
 import { apolloClient } from '../pages/_app';
 
 export interface BlogProperties {

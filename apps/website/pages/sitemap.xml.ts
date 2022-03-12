@@ -1,18 +1,28 @@
+import { gql } from '@apollo/client';
 import { NextApiResponse } from 'next';
 
-import { blogs, blogSlug } from '../database/data/blogs';
+import { Data } from '../graphql/types';
+import { apolloClient } from './_app';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const SiteMap = (): void => {};
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export const getServerSideProps = ({
+export const getServerSideProps = async ({
   res,
 }: {
   res: NextApiResponse;
-}): { props: Record<string, unknown> } => {
-  const slugs = Object.keys(blogs).sort((a: blogSlug, b: blogSlug) => {
-    return blogs[b].created.getTime() - blogs[a].created.getTime();
+}): Promise<{ props: Record<string, unknown> }> => {
+  const { data } = await apolloClient.client.query<Data>({
+    query: gql`
+      query RssQuery {
+        blogsList(orderBy: orderDate_DESC) {
+          items {
+            slug
+          }
+        }
+      }
+    `,
   });
   const rootUrl = 'https://www.ethang.dev';
 
@@ -27,11 +37,11 @@ export const getServerSideProps = ({
       <url>
          <loc>${rootUrl}/blog</loc>
       </url>
-      ${slugs
-        .map(slug => {
+      ${data.blogsList.items
+        .map(blog => {
           return `
           <url>
-              <loc>${`${rootUrl}/blog/${slug}`}</loc>
+              <loc>${`${rootUrl}/blog/${blog.slug}`}</loc>
           </url>
         `;
         })
