@@ -24,8 +24,10 @@ dotnet
 dotnet-6.0-runtime
 dotnet-runtime
 DotNet4.5.2
+dotnetcore-3.1-desktopruntime
 dotnetcore-3.1-sdk
 dotnetcore-3.1-sdk-4xx
+dotnetcore-desktopruntime
 dotnetfx
 epicgameslauncher
 Everything
@@ -62,6 +64,7 @@ megasync
 microsoft-edge
 microsoft-windows-terminal
 minecraft-launcher
+mingw
 netfx-4.6.2
 notepadplusplus
 notepadplusplus.install
@@ -76,6 +79,7 @@ playnite
 poshgit
 postman
 powershell-core
+powertoys
 putty
 putty.portable
 python3
@@ -88,12 +92,12 @@ snyk
 speccy
 steam
 steam-client
-svg-explorer-extension
 teracopy
 twitch
 ubisoft-connect
 uplay
 vcredist140
+vcredist2008
 vcredist2010
 vcredist2013
 vcredist2015
@@ -101,7 +105,6 @@ vcredist2017
 vim
 virtualbox
 visualstudio-installer
-visualstudio2022community
 vlc
 vortex
 vscode

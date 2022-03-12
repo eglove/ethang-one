@@ -5,7 +5,9 @@ import {
   financeLinks,
   morningLinks,
   powershellModuleUpdate,
+  ubuntuUpdate,
   WebsocketKey,
+  windowsUpdate,
 } from './commands';
 
 export type WebsocketMessage = { id: string; message: string };
@@ -56,8 +58,18 @@ export const gateway = (key: WebsocketKey): void => {
       break;
     }
 
+    case WebsocketKey.ubuntuUpdate: {
+      runTerminal(ubuntuUpdate.join(commandSplitter));
+      break;
+    }
+
     case WebsocketKey.updateSoftware: {
-      runTerminal(chocoUpgrade);
+      runTerminal(chocoUpgrade.join(commandSplitter));
+      break;
+    }
+
+    case WebsocketKey.windowsUpdate: {
+      runTerminal(windowsUpdate.join(commandSplitter));
       break;
     }
 

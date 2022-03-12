@@ -8,10 +8,8 @@ export const runCommand = (
   const commandToRun =
     typeof command === 'string' ? command : command.join(' && ');
 
-  console.log(`Running command: ${commandToRun}`);
   const childProcess = spawn(commandToRun, {
-    shell: shell ?? true,
-    stdio: 'inherit',
+    shell,
   });
 
   process.on('beforeExit', () => {
@@ -20,7 +18,5 @@ export const runCommand = (
 };
 
 export const execSyncCommand = (command: string, shell = 'pwsh'): Buffer => {
-  console.log(`Running command: ${command}`);
-
   return execSync(command, { shell });
 };
