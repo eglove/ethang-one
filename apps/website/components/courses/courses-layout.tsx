@@ -1,8 +1,7 @@
 import { formatList } from '@ethang/util-typescript';
 import Image from 'next/image';
 
-import { courses } from '../../database/data/courses';
-import { Course } from '../../database/models/course';
+import { Course } from '../../../../graphql/types';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { LinkComponent } from '../common/link-component/link-component';
@@ -35,30 +34,30 @@ const getYearClass = (yearUpdated: number): string => {
   }
 };
 
-export const CoursesLayout = (): JSX.Element => {
-  const courseNames = Object.getOwnPropertyNames(courses);
+interface CoursesLayoutProperties {
+  courses: Course[];
+}
 
+export const CoursesLayout = ({
+  courses,
+}: CoursesLayoutProperties): JSX.Element => {
   return (
     <Container>
       <HeadTag title="Courses" />
       <div>
-        {courseNames.map(courseName => {
-          const course = courses[courseName] as Course;
-
+        {courses.map(course => {
           return (
-            <div key={courseName} className={styles.CourseContainer}>
+            <div key={course.id} className={styles.CourseContainer}>
               <div className={styles.CourseItem}>
                 <CourseRating
                   rating={course.rating}
-                  ratingUrl={course.ratingUrl?.toString()}
+                  ratingUrl={course.ratingUrl}
                 />
               </div>
               <div className={styles.CourseItem}>
-                <LinkComponent
-                  linkProperties={{ href: course.school.url.toString() }}
-                >
+                <LinkComponent linkProperties={{ href: course.school.url }}>
                   <Image
-                    src={course.school.image.url}
+                    src={course.school.image.image.downloadUrl}
                     alt={course.school.image.altText}
                     width={25}
                     height={25}
@@ -69,12 +68,10 @@ export const CoursesLayout = (): JSX.Element => {
               <div className={styles.CourseItem}>
                 <div>{course.title}</div>
                 <div className={styles.CourseUrls}>
-                  {course.courseUrls?.map(courseUrl => {
+                  {course.courseUrls?.items.map(courseUrl => {
                     return (
-                      <span key={courseUrl.url.toString()}>
-                        <LinkComponent
-                          linkProperties={{ href: courseUrl.url.toString() }}
-                        >
+                      <span key={courseUrl.url}>
+                        <LinkComponent linkProperties={{ href: courseUrl.url }}>
                           {courseUrl.school.name}
                         </LinkComponent>
                         &ensp;
@@ -84,9 +81,9 @@ export const CoursesLayout = (): JSX.Element => {
                 </div>
               </div>
               <div className={styles.CourseItem}>
-                {Array.isArray(course.instructors) &&
+                {Array.isArray(course.instructors.items) &&
                   formatList(
-                    course.instructors?.map(instructor => {
+                    course.instructors?.items.map(instructor => {
                       return `${instructor.firstName} ${
                         instructor?.lastName ?? ''
                       }`;
