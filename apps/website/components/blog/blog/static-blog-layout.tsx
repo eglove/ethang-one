@@ -9,7 +9,7 @@ import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema } from 'schema-dts';
 
-import { Blog } from '../../../../../graphql/types';
+import { Blog } from '../../../graphql/types';
 import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { ImageContainer } from '../../common/image-container/image-container';

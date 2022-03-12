@@ -3,7 +3,7 @@ import {
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
 
-import { Blog } from '../../../../../graphql/types';
+import { Blog } from '../../../graphql/types';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { LinkComponent } from '../../common/link-component/link-component';
 import styles from './blogs-layout.module.css';

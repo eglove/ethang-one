@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-import { Blog, Data } from '../../../../graphql/types';
 import { BlogsLayout } from '../../components/blog/blogs/blogs-layout';
 import { Container } from '../../components/common/container/container';
+import { Blog, Data } from '../../graphql/types';
 import { apolloClient } from '../_app';
 
 export type BlogsData = { blogs: Blog[] };
