@@ -1,10 +1,10 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const IsBitcoinAFailure = (): JSX.Element => {
+const IsBitcoinAFailure = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.bitcoinFailure}>
+    <StaticBlogLayout blog={blog}>
       <p>
         The following is a summary and analysis of a graduate thesis paper
         written by Michael Russo. It&rsquo;s titled, &ldquo;Satoshi&rsquo;s
@@ -367,3 +367,16 @@ const IsBitcoinAFailure = (): JSX.Element => {
 };
 
 export default IsBitcoinAFailure;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('is-bitcoin-a-failure');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

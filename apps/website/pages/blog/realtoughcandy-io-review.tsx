@@ -1,9 +1,9 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const RealtoughcandyIoReview = (): JSX.Element => {
+const RealtoughcandyIoReview = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.rtcReview}>
+    <StaticBlogLayout blog={blog}>
       <p>RTC courses fill a gap.</p>
       <p>
         There are a few web development courses that go over interviewing. But
@@ -93,3 +93,16 @@ const RealtoughcandyIoReview = (): JSX.Element => {
 };
 
 export default RealtoughcandyIoReview;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('realtoughcandy-io-review');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

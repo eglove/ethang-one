@@ -1,10 +1,10 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const ReviewWebDeveloperBootcamp = (): JSX.Element => {
+const ReviewWebDeveloperBootcamp = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.webDeveloperBootcamp}>
+    <StaticBlogLayout blog={blog}>
       <p>
         Sixty-three and a half hours of web development goodness.{' '}
         <LinkComponent
@@ -78,3 +78,16 @@ const ReviewWebDeveloperBootcamp = (): JSX.Element => {
 };
 
 export default ReviewWebDeveloperBootcamp;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('review-web-developer-bootcamp');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

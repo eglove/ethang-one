@@ -1,10 +1,10 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const ReviewGitGithubBootcamp = (): JSX.Element => {
+const ReviewGitGithubBootcamp = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.reviewGitGithubBootcamp}>
+    <StaticBlogLayout blog={blog}>
       <p>
         There isn&apos;t much to say about Colt Steele&apos;s{' '}
         <LinkComponent
@@ -36,3 +36,16 @@ const ReviewGitGithubBootcamp = (): JSX.Element => {
 };
 
 export default ReviewGitGithubBootcamp;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('review-git-github-bootcamp');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

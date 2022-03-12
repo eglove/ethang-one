@@ -1,11 +1,11 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const CuringBiasWithCuriosity = (): JSX.Element => {
+const CuringBiasWithCuriosity = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.curingBias}>
+    <StaticBlogLayout blog={blog}>
       <blockquote>
         &lsquo;It is so disagreeable to think ill of ourselves, that we often
         purposely turn away our view from those circumstances which might render
@@ -355,3 +355,16 @@ const CuringBiasWithCuriosity = (): JSX.Element => {
 };
 
 export default CuringBiasWithCuriosity;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('curing-bias-with-curiosity');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

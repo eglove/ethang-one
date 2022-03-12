@@ -1,10 +1,12 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const SevenWaysToWinAnArgumentOnline = (): JSX.Element => {
+const SevenWaysToWinAnArgumentOnline = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.sevenWayToWinAnArgumentOnline}>
+    <StaticBlogLayout blog={blog}>
       <p>
         In a previous post, &ldquo;
         <LinkComponent
@@ -231,3 +233,16 @@ const SevenWaysToWinAnArgumentOnline = (): JSX.Element => {
 };
 
 export default SevenWaysToWinAnArgumentOnline;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('7-ways-to-win-an-argument-online');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

@@ -1,11 +1,11 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const PortfolioRedesign = (): JSX.Element => {
+const PortfolioRedesign = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.portfolioRedesign}>
+    <StaticBlogLayout blog={blog}>
       <YouTubeEmbed id="1WGEp3UjnnQ" title="Portfolio Redesign" />
       <p>
         My design sense is simple. Blue and white. Box shadows. That&apos;s it.
@@ -64,3 +64,16 @@ const PortfolioRedesign = (): JSX.Element => {
 };
 
 export default PortfolioRedesign;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('portfolio-redesign');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

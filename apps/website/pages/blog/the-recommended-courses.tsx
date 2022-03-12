@@ -1,10 +1,10 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const TheRecommendedCourses = (): JSX.Element => {
+const TheRecommendedCourses = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.recommendedCourses}>
+    <StaticBlogLayout blog={blog}>
       <p>
         <LinkComponent
           linkProperties={{ href: 'https://www.ethang.dev/courses' }}
@@ -91,3 +91,16 @@ const TheRecommendedCourses = (): JSX.Element => {
 };
 
 export default TheRecommendedCourses;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('the-recommended-courses');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

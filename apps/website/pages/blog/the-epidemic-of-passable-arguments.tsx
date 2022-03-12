@@ -1,11 +1,13 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const TheEpidemicOfPassableArguments = (): JSX.Element => {
+const TheEpidemicOfPassableArguments = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.epidemicPassableArguments}>
+    <StaticBlogLayout blog={blog}>
       <p>
         When an organization claims a monopoly on the legitimate use of physical
         force, it is a &lsquo;state.&rsquo; The state is violence.
@@ -236,3 +238,16 @@ const TheEpidemicOfPassableArguments = (): JSX.Element => {
 };
 
 export default TheEpidemicOfPassableArguments;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('the-epidemic-of-passable-arguments');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

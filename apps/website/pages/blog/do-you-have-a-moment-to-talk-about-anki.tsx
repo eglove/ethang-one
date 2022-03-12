@@ -1,10 +1,12 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const DoYouHaveAMomentToTalkAboutAnki = (): JSX.Element => {
+const DoYouHaveAMomentToTalkAboutAnki = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.talkAboutAnki}>
+    <StaticBlogLayout blog={blog}>
       <p>
         The fellow over at Master How To Learn{' '}
         <LinkComponent
@@ -107,3 +109,16 @@ const DoYouHaveAMomentToTalkAboutAnki = (): JSX.Element => {
 };
 
 export default DoYouHaveAMomentToTalkAboutAnki;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('do-you-have-a-moment-to-talk-about-anki');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

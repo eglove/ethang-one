@@ -1,10 +1,12 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const DefendYourselfAgainstTheState = (): JSX.Element => {
+const DefendYourselfAgainstTheState = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.defendYourselfAgainstState}>
+    <StaticBlogLayout blog={blog}>
       <blockquote>
         &ldquo;If you know the enemy and know yourself, you need not fear the
         result of a hundred battles. If you know yourself but not the enemy, for
@@ -458,3 +460,16 @@ const DefendYourselfAgainstTheState = (): JSX.Element => {
 };
 
 export default DefendYourselfAgainstTheState;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('defend-yourself-against-the-state');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

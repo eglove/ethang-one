@@ -2,11 +2,11 @@ import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const TypescriptFormEnums = (): JSX.Element => {
+const TypescriptFormEnums = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.typescriptFormEnums}>
+    <StaticBlogLayout blog={blog}>
       <p>
         <LinkComponent
           linkProperties={{
@@ -32,3 +32,16 @@ const TypescriptFormEnums = (): JSX.Element => {
 };
 
 export default TypescriptFormEnums;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('typescript-form-enums');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

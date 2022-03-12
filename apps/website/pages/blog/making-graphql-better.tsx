@@ -5,10 +5,10 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import styles from '../../components/common/styles/common.module.css';
-import { blogSlug } from '../../database/data/blogs';
 import { images } from '../../database/data/images/images';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const MakingGraphqlBetter = (): JSX.Element => {
+const MakingGraphqlBetter = ({ blog }: BlogProperties): JSX.Element => {
   const userQuery = `query Query {
     user(id: 123) {
       username
@@ -105,7 +105,7 @@ const MakingGraphqlBetter = (): JSX.Element => {
   }`;
 
   return (
-    <StaticBlogLayout slug={blogSlug.makingGraphqlBetter}>
+    <StaticBlogLayout blog={blog}>
       <ul id="top" className={styles.toc}>
         <li>
           <LinkComponent linkProperties={{ href: '#selectAll' }}>
@@ -520,3 +520,16 @@ const MakingGraphqlBetter = (): JSX.Element => {
 };
 
 export default MakingGraphqlBetter;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('making-graphql-better');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

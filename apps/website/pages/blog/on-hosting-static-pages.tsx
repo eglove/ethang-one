@@ -1,12 +1,12 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
 import { blogImage } from '../../database/models/image';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-export const OnHostingStaticPages = (): JSX.Element => {
+export const OnHostingStaticPages = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.staticPages}>
+    <StaticBlogLayout blog={blog}>
       <p>
         I&apos;ve jumped around between different methods of creating static
         websites. Jekyll, Hugo, Gatsby, Sanity, Keystone, Contentful, Wordpress,
@@ -150,3 +150,16 @@ export const OnHostingStaticPages = (): JSX.Element => {
 };
 
 export default OnHostingStaticPages;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('on-hosting-static-pages');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

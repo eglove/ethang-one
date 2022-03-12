@@ -3,11 +3,28 @@ export interface Query {
 }
 
 export interface Data {
-  technologyLogosList: TechnologyLogosList;
+  blogsList: List<Blog>;
+  technologyLogosList: List<TechnologyLogo>;
 }
 
-export interface TechnologyLogosList {
-  items?: (TechnologyLogo)[] | null;
+export interface List<Type> {
+  items?: (Type)[] | null;
+}
+
+export interface Blog {
+  authors: List<Person>;
+  createdAt: string;
+  description: string;
+  featuredImage: Image;
+  orderDate: string;
+  slug: string;
+  title: string;
+  updatedAt: string;
+}
+
+export interface Person {
+  firstName: string;
+  lastName: string;
 }
 
 export interface TechnologyLogo {

@@ -1,35 +1,35 @@
-import { formatList } from '@ethang/util-typescript';
+import {
+  formatList,
+  humanReadableLocalDateTime,
+} from '@ethang/util-typescript';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
-import { Blog } from 'schema-dts';
+import { Blog as BlogSchema } from 'schema-dts';
 
-import { blogs, blogSlug } from '../../../database/data/blogs';
+import { Blog } from '../../../../../graphql/types';
 import { Container } from '../../common/container/container';
-import { CreateUpdateTimes } from '../../common/create-update-times/create-update-times';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { ImageContainer } from '../../common/image-container/image-container';
 import styles from './blog-layout.module.css';
 
 interface StaticBlogLayoutProperties {
+  blog: Blog;
   children: JSX.Element | JSX.Element[];
-  slug: blogSlug;
 }
 
 export const StaticBlogLayout = ({
+  blog,
   children,
-  slug,
 }: StaticBlogLayoutProperties): JSX.Element => {
-  const blog = blogs[slug];
-
   const [authors, setAuthors] = useState<string>();
 
   useEffect(() => {
     setAuthors(
       formatList(
-        blog.authors.map(author => {
+        blog.authors.items.map(author => {
           let authorName = author.firstName;
 
           if (typeof author.lastName !== 'undefined') {
@@ -47,7 +47,7 @@ export const StaticBlogLayout = ({
       <HeadTag title={blog.title} />
       <Head>
         <script
-          {...jsonLdScriptProps<Blog>({
+          {...jsonLdScriptProps<BlogSchema>({
             '@context': 'https://schema.org',
             '@type': 'Blog',
             audience: 'Developers',
@@ -56,21 +56,21 @@ export const StaticBlogLayout = ({
               name: 'Ethan Glover',
               url: 'https://www.ethang.dev/',
             },
-            dateModified: blog.updated.toISOString(),
-            datePublished: blog.created.toISOString(),
+            dateModified: blog.updatedAt,
+            datePublished: blog.createdAt,
             description: blog.description,
             headline: blog.title,
-            image: blog.image.url,
-            thumbnailUrl: `${blog.image.url}`,
+            image: blog.featuredImage.image.downloadUrl,
+            thumbnailUrl: `${blog.featuredImage.image.downloadUrl}`,
           })}
         />
         <Ogp
           description={blog.description}
-          image={blog.image.url}
+          image={blog.featuredImage.image.downloadUrl}
           title={blog.title}
           type="article"
           siteName="EthanG"
-          url={`https://www.ethang.dev/blog/${slug}`}
+          url={`https://www.ethang.dev/blog/${blog.slug}`}
         />
       </Head>
       <Script
@@ -81,15 +81,17 @@ export const StaticBlogLayout = ({
         <div>
           <h1 className={styles.Title}>{blog.title}</h1>
           <div>Authors: {authors}</div>
-          <CreateUpdateTimes created={blog.created} updated={blog.updated} />
+          <div>{`Last Updated: ${humanReadableLocalDateTime(
+            blog.orderDate
+          )}`}</div>
         </div>
         <div>
           <ImageContainer
             imageProperties={{
-              alt: blog.image.altText,
-              height: blog.image.height,
-              src: blog.image.url,
-              width: blog.image.width,
+              alt: blog.featuredImage.altText,
+              height: blog.featuredImage.height,
+              src: blog.featuredImage.image.downloadUrl,
+              width: blog.featuredImage.width,
             }}
           />
         </div>

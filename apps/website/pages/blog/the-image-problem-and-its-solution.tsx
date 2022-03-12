@@ -1,11 +1,13 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const TheImageProblemAndItsSolution = (): JSX.Element => {
+const TheImageProblemAndItsSolution = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.imageProblem}>
+    <StaticBlogLayout blog={blog}>
       <p>
         They say if you&rsquo;re going to criticize something, unless you intend
         to do so out of cynicism or disrespect, to be prepared to answer those
@@ -688,3 +690,16 @@ const TheImageProblemAndItsSolution = (): JSX.Element => {
 };
 
 export default TheImageProblemAndItsSolution;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('the-image-problem-and-its-solution');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}
