@@ -4,6 +4,7 @@ export interface Query {
 
 export interface Data {
   blogsList: List<Blog>;
+  coursesList: List<Course>;
   technologyLogosList: List<TechnologyLogo>;
 }
 
@@ -22,9 +23,32 @@ export interface Blog {
   updatedAt: string;
 }
 
+export interface Course {
+  id: string;
+  rating: number;
+  ratingUrl?: string | null;
+  school: School;
+  title: string;
+  courseUrls: List<CourseUrl>;
+  instructors: List<Person>;
+  duration?: number | null;
+  yearUpdated: number;
+}
+
+export interface CourseUrl {
+  url: string;
+  school: School;
+}
+
 export interface Person {
   firstName: string;
   lastName: string;
+}
+
+export interface School {
+  name: string;
+  url: string;
+  image: Image;
 }
 
 export interface TechnologyLogo {
