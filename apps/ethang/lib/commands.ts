@@ -6,13 +6,18 @@ export enum WebsocketKey {
   updateSoftware = 'Update Software',
   openLinks = 'Open Links',
   padRepo = 'Pad Repo',
+  windowsUpdate = 'Update Windows',
   powershellModuleUpdate = 'Powershell Module Update',
+  ubuntuUpdate = 'Update Ubuntu',
   clearDocker = 'Clear Docker',
 }
 
 export const commandSplitter = '-----';
 
-export const chocoUpgrade = 'choco upgrade all';
+export const chocoUpgrade = [
+  `choco list -l -r --id-only | Out-File ${SAVED_FILES_ROOT}/installed-choco-packages.txt`,
+  'choco upgrade all',
+];
 
 export const clearDocker = [
   'docker stop $(docker ps -a -q)',
@@ -46,4 +51,17 @@ export const powershellModuleUpdate = [
   'Update-Module -AcceptLicense -Confirm',
   `Get-InstalledModule | Format-Table Name -HideTableHeaders | Out-File ${SAVED_FILES_ROOT}/installed-ps-modules.txt`,
   `(Get-Content ${SAVED_FILES_ROOT}/installed-ps-modules.txt) | Where-Object { $_.trim() -ne "" } | Set-Content ${SAVED_FILES_ROOT}/installed-ps-modules.txt`,
+];
+
+export const ubuntuUpdate = [
+  `ubuntu run 'echo ${process.env.NX_WSL_PASSWORD ?? ''} | sudo -S apt update`,
+  `sudo apt upgrade -y`,
+  `sudo apt autoremove -y'`,
+];
+
+export const windowsUpdate = [
+  'Install-Module PSWindowsUpdate',
+  'Get-WindowsUpdate',
+  'Install-WindowsUpdate -WindowsUpdate -AcceptAll',
+  'Install-WindowsUpdate -MicrosoftUpdate -AcceptAll',
 ];

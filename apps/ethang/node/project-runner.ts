@@ -5,7 +5,6 @@ import { Socket } from 'socket.io';
 
 import {
   commandSplitter,
-  ETHANG_CLI_ROOT,
   SAVED_FILES_ROOT,
   WebsocketKey,
 } from '../lib/commands';
@@ -44,11 +43,13 @@ export const onTerminal = (socket: Socket): void => {
     );
 
     process.stdout.on('data', data => {
-      emitTerminal(socket, data);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      emitTerminal(socket, data.toString());
     });
 
     process.stderr.on('data', data => {
-      emitTerminal(socket, data);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      emitTerminal(socket, data.toString());
     });
 
     process.on('exit', () => {

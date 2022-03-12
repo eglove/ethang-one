@@ -18,7 +18,7 @@ export const TerminalLayout = observer((): JSX.Element => {
     if (socketStore.socket) {
       socketStore.socket.on('terminal', (message: WebsocketMessage) => {
         setTerminalMessages(terminalMessages_ => {
-          return [...terminalMessages_, message];
+          return [...new Set([...terminalMessages_, message])];
         });
       });
 
