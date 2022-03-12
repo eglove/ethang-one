@@ -1,17 +1,26 @@
-import { NextLink } from '@ethang/react-components';
-
+import { WebsocketKey } from '../../lib/commands';
+import { gateway } from '../../lib/gateway';
 import styles from './home.module.css';
 
 export const Home = (): JSX.Element => {
+  const options = Object.keys(WebsocketKey);
+
   return (
     <div className={styles.CommandContainer}>
-      <NextLink linkProperties={{ href: '/build-run-projects' }}>
-        <div>Build or Run Project(s)</div>
-      </NextLink>
-      <div>Generate Git History</div>
-      <div>Project Generate (New Component, New Page, etc.)</div>
-      <div>Manage NPM dependencies.</div>
-      <div>Manage Project List (Create New, Remove, etc.)</div>
+      {options.map((option: WebsocketKey) => {
+        return (
+          <div key={option}>
+            <button
+              type="button"
+              onClick={(): void => {
+                gateway(WebsocketKey[option]);
+              }}
+            >
+              {WebsocketKey[option]}
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 };

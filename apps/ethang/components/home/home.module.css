@@ -1,18 +1,23 @@
 .CommandContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-evenly;
   padding: 1rem;
   margin: 1rem;
-  background: #fff;
+  background: #0D0208;
+  border: 5px solid var(--computer-blue);
 }
 
-.CommandContainer div {
+.CommandContainer div button {
   padding: 1rem;
-  margin: 1rem;
-  border: 1px solid var(--border-color);
-}
-
-.CommandContainer div:hover,
-.CommandContainer div:focus {
+  color: #fff;
   cursor: pointer;
+  background-color: var(--the-red);
+  border: 2px solid var(--the-red);
+}
+
+.CommandContainer div button:focus,
+.CommandContainer div button:hover {
+  filter: brightness(60%);
 }
