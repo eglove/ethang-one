@@ -1,9 +1,11 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const ReviewZtmCompleteWebDeveloper = (): JSX.Element => {
+const ReviewZtmCompleteWebDeveloper = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.reviewCompleteWebDeveloper}>
+    <StaticBlogLayout blog={blog}>
       <p>
         Andrei Neagoi is one of the best instructors out there. But he&apos;s
         not perfect. His Complete Web Developer course is great, and I&apos;d
@@ -81,3 +83,16 @@ const ReviewZtmCompleteWebDeveloper = (): JSX.Element => {
 };
 
 export default ReviewZtmCompleteWebDeveloper;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('review-ztm-complete-web-developer');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

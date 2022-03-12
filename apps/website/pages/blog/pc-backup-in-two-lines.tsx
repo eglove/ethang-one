@@ -1,10 +1,10 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const PcBackupInTwoLines = (): JSX.Element => {
+const PcBackupInTwoLines = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.pcBackup}>
+    <StaticBlogLayout blog={blog}>
       <p>
         I backed up my entire PC setup with two lines of PowerShell code that I
         store on a USB.
@@ -152,3 +152,16 @@ const PcBackupInTwoLines = (): JSX.Element => {
 };
 
 export default PcBackupInTwoLines;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('pc-backup-in-two-lines');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

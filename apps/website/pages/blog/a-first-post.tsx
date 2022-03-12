@@ -1,10 +1,10 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const AFirstPost = (): JSX.Element => {
+const AFirstPost = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.firstPost}>
+    <StaticBlogLayout blog={blog}>
       <p>
         It&apos;s been a while since I&apos;ve had a blog. My first was on
         BlogSpot. It contained a story called, &lsquo;The Incredibly Close to
@@ -78,3 +78,16 @@ const AFirstPost = (): JSX.Element => {
 };
 
 export default AFirstPost;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('a-first-post');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

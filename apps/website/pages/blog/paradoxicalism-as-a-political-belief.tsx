@@ -1,10 +1,12 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
+const ParadoxicalismAsAPoliticalBelief = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.paradoxicalism}>
+    <StaticBlogLayout blog={blog}>
       <p>
         I&apos;ve been taking the time to actually learn about a wide variety of
         beliefs. I&apos;ve been taking on a detached point of view. I&apos;ve
@@ -282,3 +284,16 @@ const ParadoxicalismAsAPoliticalBelief = (): JSX.Element => {
 };
 
 export default ParadoxicalismAsAPoliticalBelief;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('paradoxicalism-as-a-political-belief');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

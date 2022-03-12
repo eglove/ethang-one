@@ -1,0 +1,8 @@
+schema:
+  - https://api.8base.com/cl0jpamca000d09l9hwznap79:
+     headers:
+        Authorization: ${API_TOKEN}
+generates:
+  graphql/graphql-types.ts:
+    plugins:
+      - typescript

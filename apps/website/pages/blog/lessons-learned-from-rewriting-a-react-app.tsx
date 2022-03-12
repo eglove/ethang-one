@@ -2,11 +2,13 @@ import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
+const LessonsLearnedFromRewritingAReactApp = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.lessonsLearnedRebuildingReact}>
+    <StaticBlogLayout blog={blog}>
       <p>
         Video meetings, chat, phone calls, voicemail, calendar, and filesharing.
         This is roughly the app I spent the last couple of months rewriting from
@@ -433,3 +435,16 @@ const LessonsLearnedFromRewritingAReactApp = (): JSX.Element => {
 };
 
 export default LessonsLearnedFromRewritingAReactApp;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('lessons-learned-from-rewriting-a-react-app');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

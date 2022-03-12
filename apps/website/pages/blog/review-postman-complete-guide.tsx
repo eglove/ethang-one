@@ -1,9 +1,9 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const ReviewPostmanCompleteGuide = (): JSX.Element => {
+const ReviewPostmanCompleteGuide = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.reviewPostmanCompleteGuide}>
+    <StaticBlogLayout blog={blog}>
       <p>
         Of every course to have landed on my recommendation list, Valentin Despa
         has the most boring, tired presentation. This course isn&apos;t easy to
@@ -53,3 +53,16 @@ const ReviewPostmanCompleteGuide = (): JSX.Element => {
 };
 
 export default ReviewPostmanCompleteGuide;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('review-postman-complete-guide');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

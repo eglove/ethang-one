@@ -1,9 +1,9 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const ReviewLearningToLearn = (): JSX.Element => {
+const ReviewLearningToLearn = ({ blog }: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.reviewLearningToLearn}>
+    <StaticBlogLayout blog={blog}>
       <p>
         Learning to Learn is the perfect first course. Most people wouldn&apos;t
         give something with that title much attention, but getting started with
@@ -47,3 +47,16 @@ const ReviewLearningToLearn = (): JSX.Element => {
 };
 
 export default ReviewLearningToLearn;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('review-learning-to-learn');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

@@ -1,11 +1,13 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const PersuasionThroughMoralArguments = (): JSX.Element => {
+const PersuasionThroughMoralArguments = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.persuasionMoralArguments}>
+    <StaticBlogLayout blog={blog}>
       <p>
         Choosing the lesser of evils, whether in voting or in philosophical
         decision making, is a point of contention. Do you stick to your
@@ -290,3 +292,16 @@ const PersuasionThroughMoralArguments = (): JSX.Element => {
 };
 
 export default PersuasionThroughMoralArguments;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('persuasion-through-moral-arguments');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

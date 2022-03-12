@@ -1,10 +1,12 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
+const SpeechIsMorePersuasiveThanText = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.speechPersuasive}>
+    <StaticBlogLayout blog={blog}>
       <p>
         Over a year ago, I laid out{' '}
         <LinkComponent
@@ -145,3 +147,16 @@ const SpeechIsMorePersuasiveThanText = (): JSX.Element => {
 };
 
 export default SpeechIsMorePersuasiveThanText;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('speech-is-more-persuasive-than-text');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}

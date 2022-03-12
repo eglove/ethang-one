@@ -3,11 +3,13 @@ import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { blogSlug } from '../../database/data/blogs';
+import { BlogProperties, blogQuery } from '../../util/query';
 
-const ReviewGoProgrammingCompleteGuide = (): JSX.Element => {
+const ReviewGoProgrammingCompleteGuide = ({
+  blog,
+}: BlogProperties): JSX.Element => {
   return (
-    <StaticBlogLayout slug={blogSlug.reviewGoProgramming}>
+    <StaticBlogLayout blog={blog}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -94,3 +96,16 @@ const ReviewGoProgrammingCompleteGuide = (): JSX.Element => {
 };
 
 export default ReviewGoProgrammingCompleteGuide;
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export async function getStaticProps(): Promise<{
+  props: BlogProperties;
+}> {
+  const blog = await blogQuery('review-go-programming-complete-guide');
+
+  return {
+    props: {
+      blog,
+    },
+  };
+}
