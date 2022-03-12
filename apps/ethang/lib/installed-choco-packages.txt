@@ -105,6 +105,7 @@ vcredist2017
 vim
 virtualbox
 visualstudio-installer
+visualstudio2022community
 vlc
 vortex
 vscode
