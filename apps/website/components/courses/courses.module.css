@@ -67,7 +67,6 @@
 
 @media (max-width: 768px) {
     .CourseContainer {
-        display: flex;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(3,auto);
     }
 }

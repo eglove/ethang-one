@@ -14,13 +14,19 @@ const ReviewGoProgrammingCompleteGuide = ({
         item={{
           '@context': 'https://schema.org',
           '@type': 'Review',
-          author: 'Ethan Glover',
+          author: {
+            '@type': 'Person',
+            name: 'Ethan Glover',
+          },
           creator: 'Jayson Lennon',
-          itemReviewed:
-            "Go Programming Language (Golang): A Complete Developer's Guide",
+          itemReviewed: {
+            '@type': 'Course',
+            image: blog.featuredImage.image.downloadUrl,
+            name: "Go Programming Language (Golang): A Complete Developer's Guide",
+          },
+          name: blog.title,
           reviewRating: {
-            '@type': 'AggregateRating',
-            ratingCount: '1',
+            '@type': 'Rating',
             ratingValue: '2',
           },
         }}
