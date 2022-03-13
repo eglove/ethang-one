@@ -1,5 +1,6 @@
 import { formatList } from '@ethang/util-typescript';
 import Image from 'next/image';
+import Script from 'next/script';
 
 import { Course } from '../../graphql/types';
 import { Container } from '../common/container/container';
@@ -44,6 +45,10 @@ export const CoursesLayout = ({
   return (
     <Container>
       <HeadTag title="Courses" />
+      <Script
+        src="https://ethang.disqus.com/embed.js"
+        data-timestamp={new Date()}
+      />
       <div>
         {courses.map(course => {
           return (
@@ -102,6 +107,7 @@ export const CoursesLayout = ({
           );
         })}
       </div>
+      <div id="disqus_thread" />
     </Container>
   );
 };
