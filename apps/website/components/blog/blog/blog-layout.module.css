@@ -14,3 +14,9 @@
         grid-template-columns: auto;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+  .Title {
+    color: var(--font-color);
+  }
+}
