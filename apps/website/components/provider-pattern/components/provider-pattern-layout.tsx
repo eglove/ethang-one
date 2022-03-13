@@ -14,11 +14,13 @@ export const ProviderPatternLayout = (): JSX.Element => {
   const setStuff = (): void => {
     providerDispatch({
       method: 'firstName',
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       payload: faker.name.firstName(),
     });
 
     providerDispatch({
       method: 'lastName',
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       payload: faker.name.lastName(),
     });
 

@@ -2,8 +2,6 @@
 
 ## Apps
 
-* [Computer CLI](./apps/computer-cli)
-* [EthanG CLI](./apps/ethang-cli)
 * [Website](./apps/website)
 
 ## Libraries
