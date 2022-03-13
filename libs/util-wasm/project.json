@@ -3,10 +3,6 @@
   "projectType": "library",
   "sourceRoot": "libs/util-wasm/src",
   "targets": {
-    "test": {
-      "executor": "@nxrs/cargo:test",
-      "options": {}
-    },
     "lint": {
       "executor": "@nxrs/cargo:clippy",
       "options": {

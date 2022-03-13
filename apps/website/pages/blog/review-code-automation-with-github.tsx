@@ -69,6 +69,7 @@ const ReviewCodeAutomationWithGithub = ({
           linkProperties={{
             href: 'https://leveluptutorials.com/tutorials/code-automation-with-github',
           }}
+          testId="course-url"
         >
           Code Automation With GitHub
         </NextLink>{' '}
