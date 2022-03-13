@@ -76,6 +76,7 @@ export const StaticBlogLayout = ({
       <Script
         src="https://ethang.disqus.com/embed.js"
         data-timestamp={new Date()}
+        strategy="lazyOnload"
       />
       <div className={styles.BlogInfo}>
         <div>

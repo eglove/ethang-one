@@ -40,7 +40,7 @@ const ReviewCodeAutomationWithGithub = ({
       <p>
         You might not be using GitHub at work and instead using GitLab or
         BitBucket, but GitHub actions are the best way to handle CI today. Most
-        tasks can be done by grabbing an action of the marketplace and plugging
+        tasks can be done by grabbing an action off the marketplace and plugging
         it in to a YML file.
       </p>
       <p>
@@ -56,7 +56,7 @@ const ReviewCodeAutomationWithGithub = ({
       </p>
       <p>
         Brian&apos;s delivery sometimes comes off as unprepared as he has to
-        double back on his own words a lot and I would have like a summary of
+        double back on his own words a lot and I would have liked a summary of
         what he was going to cover from the start. As I watched through the
         videos I had no idea where things were going or if this whole endeavor
         would even be worth my time.

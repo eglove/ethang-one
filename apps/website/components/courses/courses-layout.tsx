@@ -48,6 +48,7 @@ export const CoursesLayout = ({
       <Script
         src="https://ethang.disqus.com/embed.js"
         data-timestamp={new Date()}
+        strategy="lazyOnload"
       />
       <div>
         {courses.map(course => {
