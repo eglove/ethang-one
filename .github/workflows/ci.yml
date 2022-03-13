@@ -39,16 +39,9 @@ jobs:
     name: NX Tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: mansagroup/nrwl-nx-action@v2
         with:
-          force-depth: 0
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-      - run: npx pnpm i
-      - run: npx nx affected --target=build
-      - run: npx nx affected --target=test
-      - run: npx nx affected --target=e2e
+          targets: lint,build,test,e2e
 
   codeQl:
     needs: [ browsersUpdate ]
