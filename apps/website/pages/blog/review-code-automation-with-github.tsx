@@ -1,3 +1,6 @@
+import { JsonLd } from 'react-schemaorg';
+import { Review } from 'schema-dts';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { BlogProperties, blogQuery } from '../../util/query';
 
@@ -6,6 +9,27 @@ const ReviewCodeAutomationWithGithub = ({
 }: BlogProperties): JSX.Element => {
   return (
     <StaticBlogLayout blog={blog}>
+      <JsonLd<Review>
+        item={{
+          '@context': 'https://schema.org',
+          '@type': 'Review',
+          author: {
+            '@type': 'Person',
+            name: 'Ethan Glover',
+          },
+          creator: 'Brian Douglas',
+          itemReviewed: {
+            '@type': 'Course',
+            image: blog.featuredImage.image.downloadUrl,
+            name: 'Code Automation With GitHub',
+          },
+          name: blog.title,
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: '4',
+          },
+        }}
+      />
       <p>
         Andrei Neagoie&apos;s Complete Junior to Senior course does a great job
         of covering a lot of topics. Including automating tests with CI/CD
