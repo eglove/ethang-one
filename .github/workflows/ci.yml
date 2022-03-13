@@ -34,8 +34,9 @@ jobs:
           git push
 
 
-  LintNTest:
+  test:
     needs: [ browsersUpdate ]
+    name: LintNTest
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'pull_request' }}
     steps:
