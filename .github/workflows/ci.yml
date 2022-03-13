@@ -33,6 +33,25 @@ jobs:
           git commit -am 'Browsers Update'
           git push
 
+
+  test:
+    needs: [ browsersUpdate ]
+    name: NX Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          force-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      - run: pnpm i
+      - run: npx nx affected --target=build
+      - run: npx nx affected --target=test
+      - run: npx nx affected --target=e2e
+
   codeQl:
     needs: [ browsersUpdate ]
     name: CodeQL Analysis

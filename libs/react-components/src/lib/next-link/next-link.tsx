@@ -4,11 +4,13 @@ import Link from 'next/link';
 interface LinkComponentProperties {
   children: JSX.Element | JSX.Element[] | string;
   linkProperties: { href: string } & JSX.IntrinsicElements['a'];
+  testId?: string;
 }
 
 export const NextLink = ({
   children,
   linkProperties,
+  testId,
 }: LinkComponentProperties): JSX.Element => {
   let linkOrigin = null;
   if (isValidUrl(linkProperties.href)) {
@@ -17,7 +19,12 @@ export const NextLink = ({
 
   if (isBrowser && linkOrigin !== locationOrigin() && linkOrigin !== null) {
     return (
-      <a {...linkProperties} target="_blank" rel="noreferrer">
+      <a
+        data-testid={testId}
+        {...linkProperties}
+        target="_blank"
+        rel="noreferrer"
+      >
         {children}
       </a>
     );
@@ -26,7 +33,9 @@ export const NextLink = ({
   return (
     <Link href={linkProperties.href}>
       {/* eslint-disable-next-line react/jsx-no-target-blank */}
-      <a {...linkProperties}>{children}</a>
+      <a data-testid={testId} {...linkProperties}>
+        {children}
+      </a>
     </Link>
   );
 };

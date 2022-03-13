@@ -1,4 +1,3 @@
-import { printText } from '@ethang/react-components';
 import { execSyncCommand } from '@ethang/util-cli';
 import fs from 'node:fs';
 
@@ -26,18 +25,18 @@ export const prismaBuild = (): void => {
 
   fs.rmSync('./src', { recursive: true });
 
-  printText('Removing old @generated.');
+  console.debug('Removing old @generated.');
   const oldGenExists = fs.existsSync(GENERATED_DIRECTORY);
   if (oldGenExists) {
     fs.rmSync(GENERATED_DIRECTORY, { recursive: true });
   }
 
-  printText('Adding new @generated.');
+  console.debug('Adding new @generated.');
   fs.renameSync(
     `./${PRISMA_CONNECTION_DIRECTORY}/node_modules/@generated`,
     GENERATED_DIRECTORY
   );
-  printText('Cleaning up.');
+  console.debug('Cleaning up.');
   fs.rmSync(`./${PRISMA_CONNECTION_DIRECTORY}/node_modules`, {
     recursive: true,
   });
