@@ -36,16 +36,21 @@ jobs:
 
   test:
     needs: [ browsersUpdate ]
-    name: NX Tests
+    name: LintNTest
     runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        name: Checkout [main]
         with:
-          force-depth: 0
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
       - run: npx pnpm i
+      - run: npx nx affected --target=lint
       - run: npx nx affected --target=build
       - run: npx nx affected --target=test
       - run: npx nx affected --target=e2e
@@ -139,7 +144,7 @@ jobs:
 
   mainMerge:
     name: Merge to Main
-    needs: [ codeQl, snykNode, sonar ]
+    needs: [ test, codeQl, snykNode, snykSarif, sonar ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
