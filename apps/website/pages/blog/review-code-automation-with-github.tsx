@@ -1,3 +1,4 @@
+import { NextLink } from '@ethang/react-components';
 import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
@@ -63,7 +64,15 @@ const ReviewCodeAutomationWithGithub = ({
       <p>
         But if you&apos;re not already familiar with GitHub actions I definitely
         recommend this course. That&apos;s why I&apos;m giving Brian
-        Douglas&apos; Code Automation With GitHub a 4 out of 5.
+        Douglas&apos;{' '}
+        <NextLink
+          linkProperties={{
+            href: 'https://leveluptutorials.com/tutorials/code-automation-with-github',
+          }}
+        >
+          Code Automation With GitHub
+        </NextLink>{' '}
+        a 4 out of 5.
       </p>
     </StaticBlogLayout>
   );
