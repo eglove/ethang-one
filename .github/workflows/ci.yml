@@ -39,6 +39,7 @@ jobs:
     name: NX Tests
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: lint,build,test,e2e
