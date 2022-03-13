@@ -16,6 +16,7 @@ export const ImageContainer = ({
 }: ImageContainerProperties): JSX.Element => {
   return (
     <div className={styles.Center}>
+      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image {...imageProperties} />
     </div>
   );
