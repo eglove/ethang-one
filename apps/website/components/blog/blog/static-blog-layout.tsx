@@ -3,7 +3,6 @@ import {
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
 import Head from 'next/head';
-import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
@@ -72,12 +71,11 @@ export const StaticBlogLayout = ({
           siteName="EthanG"
           url={`https://www.ethang.dev/blog/${blog.slug}`}
         />
+        <script
+          src="https://ethang.disqus.com/embed.js"
+          data-timestamp={new Date()}
+        />
       </Head>
-      <Script
-        src="https://ethang.disqus.com/embed.js"
-        data-timestamp={new Date()}
-        strategy="lazyOnload"
-      />
       <div className={styles.BlogInfo}>
         <div>
           <h1 className={styles.Title}>{blog.title}</h1>

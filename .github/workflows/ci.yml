@@ -47,6 +47,8 @@ jobs:
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v2
       - uses: actions/setup-node@v1
+        env:
+          NX_8BASE_API_TOKEN: ${{ secrets.NX_8BASE_API_TOKEN }}
         with:
           node-version: '14'
       - run: npx pnpm i
