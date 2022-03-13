@@ -34,7 +34,7 @@ jobs:
           git push
 
 
-  test:
+  LintNTest:
     needs: [ browsersUpdate ]
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'pull_request' }}
@@ -48,9 +48,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-      - run: npm install
-      - run: npx nx affected --target=build --parallel=3
-      - run: npx nx affected --target=test --parallel=2
+      - run: npx pnpm i
+      - run: npx nx affected --target=lint
+      - run: npx nx affected --target=build
+      - run: npx nx affected --target=test
+      - run: npx nx affected --target=e2e
 
   codeQl:
     needs: [ browsersUpdate ]
