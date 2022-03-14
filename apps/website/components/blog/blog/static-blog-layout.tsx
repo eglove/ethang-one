@@ -72,6 +72,7 @@ export const StaticBlogLayout = ({
           url={`https://www.ethang.dev/blog/${blog.slug}`}
         />
         <script
+          async
           src="https://ethang.disqus.com/embed.js"
           data-timestamp={new Date()}
         />
