@@ -47,6 +47,7 @@ export const CoursesLayout = ({
       <HeadTag title="Courses" />
       <Head>
         <script
+          async
           src="https://ethang.disqus.com/embed.js"
           data-timestamp={new Date()}
         />
