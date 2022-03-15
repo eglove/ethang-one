@@ -1,5 +1,6 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewZtmCompleteWebDeveloper = ({
   blog,
@@ -88,11 +89,5 @@ export default ReviewZtmCompleteWebDeveloper;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-ztm-complete-web-developer');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-ztm-complete-web-developer');
 }

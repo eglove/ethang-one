@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const IsBitcoinAFailure = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -372,11 +373,5 @@ export default IsBitcoinAFailure;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('is-bitcoin-a-failure');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('is-bitcoin-a-failure');
 }

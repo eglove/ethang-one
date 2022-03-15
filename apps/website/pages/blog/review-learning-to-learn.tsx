@@ -1,5 +1,6 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewLearningToLearn = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -52,11 +53,5 @@ export default ReviewLearningToLearn;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-learning-to-learn');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-learning-to-learn');
 }

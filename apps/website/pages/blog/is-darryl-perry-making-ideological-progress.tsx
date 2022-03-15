@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const IsDarrylPerryMakingIdeologicalProgress = ({
   blog,
@@ -162,11 +163,5 @@ export default IsDarrylPerryMakingIdeologicalProgress;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('is-darryl-perry-making-ideological-progress');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('is-darryl-perry-making-ideological-progress');
 }

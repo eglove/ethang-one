@@ -3,7 +3,8 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewAccessibilityForEveryone = ({
   blog,
@@ -85,11 +86,5 @@ export default ReviewAccessibilityForEveryone;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-accessibility-for-everyone');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-accessibility-for-everyone');
 }

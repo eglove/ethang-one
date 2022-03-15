@@ -1,7 +1,8 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const TheImageProblemAndItsSolution = ({
   blog,
@@ -695,11 +696,5 @@ export default TheImageProblemAndItsSolution;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('the-image-problem-and-its-solution');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('the-image-problem-and-its-solution');
 }

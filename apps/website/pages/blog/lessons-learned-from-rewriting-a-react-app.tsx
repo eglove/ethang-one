@@ -2,7 +2,8 @@ import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const LessonsLearnedFromRewritingAReactApp = ({
   blog,
@@ -440,11 +441,5 @@ export default LessonsLearnedFromRewritingAReactApp;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('lessons-learned-from-rewriting-a-react-app');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('lessons-learned-from-rewriting-a-react-app');
 }

@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewGitGithubBootcamp = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -41,11 +42,5 @@ export default ReviewGitGithubBootcamp;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-git-github-bootcamp');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-git-github-bootcamp');
 }

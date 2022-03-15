@@ -1,5 +1,6 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewPostmanCompleteGuide = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -58,11 +59,5 @@ export default ReviewPostmanCompleteGuide;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-postman-complete-guide');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-postman-complete-guide');
 }

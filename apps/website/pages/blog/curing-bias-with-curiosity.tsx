@@ -1,7 +1,8 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const CuringBiasWithCuriosity = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -360,11 +361,5 @@ export default CuringBiasWithCuriosity;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('curing-bias-with-curiosity');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('curing-bias-with-curiosity');
 }

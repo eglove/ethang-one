@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const SpeechIsMorePersuasiveThanText = ({
   blog,
@@ -152,11 +153,5 @@ export default SpeechIsMorePersuasiveThanText;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('speech-is-more-persuasive-than-text');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('speech-is-more-persuasive-than-text');
 }
