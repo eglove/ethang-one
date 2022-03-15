@@ -29,6 +29,7 @@ export const getServerSideProps = async ({
             description
             orderDate
             title
+            slug
           }
         }
       }
