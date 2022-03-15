@@ -287,7 +287,7 @@ const ParadoxicalismAsAPoliticalBelief = ({
 export default ParadoxicalismAsAPoliticalBelief;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('paradoxicalism-as-a-political-belief');

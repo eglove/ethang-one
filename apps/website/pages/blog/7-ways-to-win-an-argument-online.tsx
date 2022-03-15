@@ -236,7 +236,7 @@ const SevenWaysToWinAnArgumentOnline = ({
 export default SevenWaysToWinAnArgumentOnline;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('7-ways-to-win-an-argument-online');

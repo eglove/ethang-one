@@ -150,7 +150,7 @@ const SpeechIsMorePersuasiveThanText = ({
 export default SpeechIsMorePersuasiveThanText;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('speech-is-more-persuasive-than-text');

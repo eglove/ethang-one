@@ -463,7 +463,7 @@ const DefendYourselfAgainstTheState = ({
 export default DefendYourselfAgainstTheState;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('defend-yourself-against-the-state');
