@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "@apollo/client": "^3.5.10",
-    "@faker-js/faker": "^5.5.3",
+    "@faker-js/faker": "^6.0.0",
     "@nrwl/next": "13.8.8",
     "apollo3-cache-persist": "^0.14.0",
     "core-js": "^3.21.1",
