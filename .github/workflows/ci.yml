@@ -24,8 +24,14 @@ jobs:
       - run: npx pnpm i
       - run: npx nx affected --target=lint
       - run: npx nx affected --target=build
+        env:
+          NX_8BASE_API_TOKEN: ${{ secrets.NX_8BASE_API_TOKEN }}
       - run: npx nx affected --target=test
+        env:
+          NX_8BASE_API_TOKEN: ${{ secrets.NX_8BASE_API_TOKEN }}
       - run: npx nx affected --target=e2e
+        env:
+          NX_8BASE_API_TOKEN: ${{ secrets.NX_8BASE_API_TOKEN }}
 
   codeQl:
     name: CodeQL Analysis
