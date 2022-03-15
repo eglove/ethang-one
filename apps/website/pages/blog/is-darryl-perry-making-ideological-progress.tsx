@@ -160,7 +160,7 @@ const IsDarrylPerryMakingIdeologicalProgress = ({
 export default IsDarrylPerryMakingIdeologicalProgress;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('is-darryl-perry-making-ideological-progress');

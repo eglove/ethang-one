@@ -370,7 +370,7 @@ const IsBitcoinAFailure = ({ blog }: BlogProperties): JSX.Element => {
 export default IsBitcoinAFailure;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('is-bitcoin-a-failure');

@@ -438,7 +438,7 @@ const LessonsLearnedFromRewritingAReactApp = ({
 export default LessonsLearnedFromRewritingAReactApp;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('lessons-learned-from-rewriting-a-react-app');

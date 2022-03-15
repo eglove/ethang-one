@@ -241,7 +241,7 @@ const TheEpidemicOfPassableArguments = ({
 export default TheEpidemicOfPassableArguments;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('the-epidemic-of-passable-arguments');

@@ -35,7 +35,7 @@ const TypescriptFormEnums = ({ blog }: BlogProperties): JSX.Element => {
 export default TypescriptFormEnums;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('typescript-form-enums');

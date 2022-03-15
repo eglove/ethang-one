@@ -531,7 +531,7 @@ const MakingGraphqlBetter = ({
 export default MakingGraphqlBetter;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: MakingGraphqlBetterProperties;
 }> {
   const blog = await blogQuery('making-graphql-better');

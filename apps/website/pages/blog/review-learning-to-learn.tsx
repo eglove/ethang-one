@@ -50,7 +50,7 @@ const ReviewLearningToLearn = ({ blog }: BlogProperties): JSX.Element => {
 export default ReviewLearningToLearn;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('review-learning-to-learn');
