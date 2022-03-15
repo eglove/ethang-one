@@ -3,7 +3,8 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewTestingWithCypress = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -76,11 +77,5 @@ export default ReviewTestingWithCypress;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-testing-with-cypress');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-testing-with-cypress');
 }

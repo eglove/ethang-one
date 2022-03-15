@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const PcBackupInTwoLines = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -157,11 +158,5 @@ export default PcBackupInTwoLines;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('pc-backup-in-two-lines');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('pc-backup-in-two-lines');
 }

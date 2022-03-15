@@ -1,7 +1,8 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const PersuasionThroughMoralArguments = ({
   blog,
@@ -297,11 +298,5 @@ export default PersuasionThroughMoralArguments;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('persuasion-through-moral-arguments');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('persuasion-through-moral-arguments');
 }

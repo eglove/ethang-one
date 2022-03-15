@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const AFirstPost = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -83,11 +84,5 @@ export default AFirstPost;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('a-first-post');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('a-first-post');
 }

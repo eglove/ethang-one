@@ -3,7 +3,8 @@ import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewGoProgrammingCompleteGuide = ({
   blog,
@@ -107,11 +108,5 @@ export default ReviewGoProgrammingCompleteGuide;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-go-programming-complete-guide');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-go-programming-complete-guide');
 }

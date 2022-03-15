@@ -2,7 +2,8 @@
 import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ProgrammaticallyValidateEnvironmentVariables = ({
   blog,
@@ -20,11 +21,5 @@ export default ProgrammaticallyValidateEnvironmentVariables;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('programmatically-validate-env-variables');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('programmatically-validate-env-variables');
 }

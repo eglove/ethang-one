@@ -3,7 +3,8 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const ReviewCodeAutomationWithGithub = ({
   blog,
@@ -85,11 +86,5 @@ export default ReviewCodeAutomationWithGithub;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('review-code-automation-with-github');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('review-code-automation-with-github');
 }

@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const TheRecommendedCourses = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -96,11 +97,5 @@ export default TheRecommendedCourses;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('the-recommended-courses');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('the-recommended-courses');
 }

@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const DoYouHaveAMomentToTalkAboutAnki = ({
   blog,
@@ -114,11 +115,5 @@ export default DoYouHaveAMomentToTalkAboutAnki;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('do-you-have-a-moment-to-talk-about-anki');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('do-you-have-a-moment-to-talk-about-anki');
 }

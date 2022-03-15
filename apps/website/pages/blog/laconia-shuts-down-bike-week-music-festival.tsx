@@ -1,7 +1,8 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const LaconiaShutsDownBikeWeekMusicFestival = ({
   blog,
@@ -93,11 +94,5 @@ export default LaconiaShutsDownBikeWeekMusicFestival;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('laconia-shuts-down-bike-week-music-festival');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('laconia-shuts-down-bike-week-music-festival');
 }

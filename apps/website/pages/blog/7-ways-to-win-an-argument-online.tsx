@@ -1,6 +1,7 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const SevenWaysToWinAnArgumentOnline = ({
   blog,
@@ -238,11 +239,5 @@ export default SevenWaysToWinAnArgumentOnline;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('7-ways-to-win-an-argument-online');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('7-ways-to-win-an-argument-online');
 }

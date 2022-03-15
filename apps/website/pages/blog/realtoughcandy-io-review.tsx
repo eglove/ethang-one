@@ -1,5 +1,6 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const RealtoughcandyIoReview = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -98,11 +99,5 @@ export default RealtoughcandyIoReview;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('realtoughcandy-io-review');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('realtoughcandy-io-review');
 }

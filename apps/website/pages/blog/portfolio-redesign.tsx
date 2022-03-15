@@ -1,7 +1,8 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
-import { BlogProperties, blogQuery } from '../../util/query';
+import { getBlog } from '../../util/next-properties';
+import { BlogProperties } from '../../util/query';
 
 const PortfolioRedesign = ({ blog }: BlogProperties): JSX.Element => {
   return (
@@ -69,11 +70,5 @@ export default PortfolioRedesign;
 export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
-  const blog = await blogQuery('portfolio-redesign');
-
-  return {
-    props: {
-      blog,
-    },
-  };
+  return getBlog('portfolio-redesign');
 }
