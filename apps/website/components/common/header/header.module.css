@@ -1,5 +1,7 @@
 .Header {
   margin: 0 1rem;
+  font-size: 2em;
+  font-weight: bold;
   color: var(--header-font-color);
   text-align: center;
   text-shadow: #000 0 0 5px;

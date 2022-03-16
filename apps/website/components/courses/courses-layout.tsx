@@ -78,12 +78,12 @@ export const CoursesLayout = ({
                 <div className={styles.CourseUrls}>
                   {course.courseUrls?.items.map(courseUrl => {
                     return (
-                      <span key={courseUrl.url}>
+                      <div key={courseUrl.url}>
                         <LinkComponent linkProperties={{ href: courseUrl.url }}>
                           {courseUrl.school.name}
                         </LinkComponent>
                         &ensp;
-                      </span>
+                      </div>
                     );
                   })}
                 </div>
