@@ -56,7 +56,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.7",
     "@babel/preset-env": "^7.16.11",
-    "@nrwl/angular": "13.8.8",
+    "@nrwl/angular": "13.9.1",
     "@nrwl/cli": "13.8.8",
     "@nrwl/cypress": "13.8.8",
     "@nrwl/devkit": "13.8.8",
