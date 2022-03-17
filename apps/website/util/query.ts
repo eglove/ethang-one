@@ -30,6 +30,7 @@ export const blogQuery = async (slug: string): Promise<Blog> => {
           description
           orderDate
           title
+          slug
           updatedAt
         }
       }

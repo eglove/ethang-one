@@ -1,9 +1,11 @@
+import { NextLink } from '@ethang/react-components';
 import {
   formatList,
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
 
 import { Blog } from '../../../graphql/types';
+import commonStyles from '../../../styles/common.module.css';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { LinkComponent } from '../../common/link-component/link-component';
 import styles from './blogs-layout.module.css';
@@ -16,6 +18,32 @@ export const BlogsLayout = ({ blogs }: BlogsLayoutProperties): JSX.Element => {
   return (
     <>
       <HeadTag title="Blog" />
+      <ol
+        itemScope
+        className={commonStyles.Breadcrumb}
+        itemType="https://schema.org/BreadcrumbList"
+      >
+        <li
+          itemScope
+          itemProp="itemListElement"
+          itemType="https://schema.org/ListItem"
+        >
+          <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
+            <span itemProp="name">Home</span>
+          </NextLink>
+          <meta itemProp="position" content="1" />
+        </li>
+        <li
+          itemScope
+          itemProp="itemListElement"
+          itemType="https://schema.org/ListItem"
+        >
+          <NextLink linkProperties={{ href: '/blog', itemProp: 'item' }}>
+            <span itemProp="name">Blogs</span>
+          </NextLink>
+          <meta itemProp="position" content="2" />
+        </li>
+      </ol>
       {blogs.map(blog => {
         return (
           <div key={blog.title} style={{ height: '300px' }}>
