@@ -1,3 +1,4 @@
+
 .Header {
   padding: 0.5rem;
   margin: 1rem 0 0;
@@ -40,4 +41,14 @@
   cursor: pointer;
   filter: brightness(95%);
   box-shadow: var(--box-shadow-hover);
+}
+
+@media (max-width: 768px) {
+  .HeaderContainer {
+    margin: 0 1rem;
+  }
+
+  .Navigation {
+    display: flex;
+  }
 }

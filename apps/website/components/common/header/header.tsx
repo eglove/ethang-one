@@ -6,7 +6,7 @@ export const Header = (): JSX.Element => {
   const headerContent = <header className={styles.Header}>EthanG</header>;
 
   return (
-    <div>
+    <div className={styles.HeaderContainer}>
       <LinkComponent
         linkProperties={{ href: '/', style: { textDecoration: 'none' } }}
       >
