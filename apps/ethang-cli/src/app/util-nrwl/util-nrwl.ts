@@ -1,10 +1,10 @@
 import {
+  NxJsonConfiguration,
   ProjectGraph,
   ProjectGraphDependency,
   ProjectGraphNode,
+  WorkspaceJsonConfiguration,
 } from '@nrwl/devkit';
-import { NxJsonConfiguration } from '@nrwl/tao/src/shared/nx';
-import { WorkspaceJsonConfiguration } from '@nrwl/tao/src/shared/workspace';
 import { readNxJson, readWorkspaceJson } from '@nrwl/workspace';
 import { createProjectGraphAsync } from '@nrwl/workspace/src/core/project-graph';
 import * as fs from 'node:fs';
