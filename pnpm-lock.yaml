@@ -70,7 +70,6 @@ specifiers:
   mobx: ^6.4.2
   mobx-react-lite: ^3.3.0
   next: 12.1.0
-  nodemailer: ^6.7.2
   nprogress: ^0.2.0
   nx: 13.9.1
   prettier: ^2.6.0
@@ -122,7 +121,6 @@ dependencies:
   mobx: 6.4.2
   mobx-react-lite: 3.3.0_4e589064ce40a783661f96d46f38f574
   next: 12.1.0_fbf64ceed39fcaf258f74679fe7c79ca
-  nodemailer: 6.7.2
   nprogress: 0.2.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -9161,11 +9159,6 @@ packages:
 
   /node-releases/2.0.2:
     resolution: {integrity: sha512-XxYDdcQ6eKqp/YjI+tb2C5WM2LgjnZrfYg4vgQt49EK268b6gYCHsBLrK2qvJo4FmCtqmKezb0WZFK4fkrZNsg==}
-
-  /nodemailer/6.7.2:
-    resolution: {integrity: sha512-Dz7zVwlef4k5R71fdmxwR8Q39fiboGbu3xgswkzGwczUfjp873rVxt1O46+Fh0j1ORnAC6L9+heI8uUpO6DT7Q==}
-    engines: {node: '>=6.0.0'}
-    dev: false
 
   /normalize-package-data/2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
