@@ -1,3 +1,4 @@
+import { NextLink } from '@ethang/react-components';
 import {
   formatList,
   humanReadableLocalDateTime,
@@ -9,6 +10,7 @@ import { jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema } from 'schema-dts';
 
 import { Blog } from '../../../graphql/types';
+import commonStyles from '../../../styles/common.module.css';
 import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { ImageContainer } from '../../common/image-container/image-container';
@@ -77,6 +79,44 @@ export const StaticBlogLayout = ({
           data-timestamp={new Date()}
         />
       </Head>
+      <ol
+        itemScope
+        className={commonStyles.Breadcrumb}
+        itemType="https://schema.org/BreadcrumbList"
+      >
+        <li
+          itemScope
+          itemProp="itemListElement"
+          itemType="https://schema.org/ListItem"
+        >
+          <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
+            <span itemProp="name">Home</span>
+          </NextLink>
+          <meta itemProp="position" content="1" />
+        </li>
+        <li
+          itemScope
+          itemProp="itemListElement"
+          itemType="https://schema.org/ListItem"
+        >
+          <NextLink linkProperties={{ href: '/blog', itemProp: 'item' }}>
+            <span itemProp="name">Blogs</span>
+          </NextLink>
+          <meta itemProp="position" content="2" />
+        </li>
+        <li
+          itemScope
+          itemProp="itemListElement"
+          itemType="https://schema.org/ListItem"
+        >
+          <NextLink
+            linkProperties={{ href: `/blog/${blog.slug}`, itemProp: 'item' }}
+          >
+            <span itemProp="name">{blog.title}</span>
+          </NextLink>
+          <meta itemProp="position" content="3" />
+        </li>
+      </ol>
       <div className={styles.BlogInfo}>
         <div>
           <h1 className={styles.Title}>{blog.title}</h1>

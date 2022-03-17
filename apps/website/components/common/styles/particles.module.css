@@ -8,6 +8,8 @@
 
 .ContentContainer {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   max-width: 1000px;
   margin: var(--large-space) auto calc(var(--large-space) + 50px) auto;
 }

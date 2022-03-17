@@ -1,5 +1,8 @@
 .Header {
-  margin: 0 1rem;
+  padding: 0.5rem;
+  margin: 1rem 0 0;
+  font-size: 2em;
+  font-weight: bold;
   color: var(--header-font-color);
   text-align: center;
   text-shadow: #000 0 0 5px;
@@ -9,20 +12,15 @@
 }
 
 .Header:hover, .Header:focus {
+  filter: brightness(95%);
   box-shadow: var(--box-shadow-hover);
 }
 
 .Navigation {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   place-items: center;
-  padding: 1rem 1rem 0;
 }
-
-.CseSearch {
-  padding: 0 1rem 1rem;
-}
-
 
 .NavigationLink {
   box-sizing: border-box;
@@ -40,5 +38,6 @@
 
 .NavigationLink:hover, .NavigationLink:focus {
   cursor: pointer;
+  filter: brightness(95%);
   box-shadow: var(--box-shadow-hover);
 }

@@ -1,0 +1,10 @@
+.Breadcrumb {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.Breadcrumb li:not(:last-child)::after {
+  white-space: pre;
+  content: " / ";
+}

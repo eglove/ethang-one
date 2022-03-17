@@ -1,3 +1,4 @@
+import { NextLink } from '@ethang/react-components';
 import getYouTubeID from 'get-youtube-id';
 import Image from 'next/image';
 
@@ -7,6 +8,7 @@ import { LinkComponent } from '../components/common/link-component/link-componen
 import styles from '../components/common/styles/common.module.css';
 import { YouTubeEmbed } from '../components/common/youtube-embed/youtube-embed';
 import changeVsConsequence from '../public/images/changevsconsequence.png';
+import commonStyles from '../styles/common.module.css';
 
 const AboutMe = (): JSX.Element => {
   const cdcSystemsThinking = getYouTubeID(
@@ -16,6 +18,32 @@ const AboutMe = (): JSX.Element => {
   return (
     <Container>
       <HeadTag title="About Me" />
+      <ol
+        itemScope
+        className={commonStyles.Breadcrumb}
+        itemType="https://schema.org/BreadcrumbList"
+      >
+        <li
+          itemScope
+          itemProp="itemListElement"
+          itemType="https://schema.org/ListItem"
+        >
+          <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
+            <span itemProp="name">Home</span>
+          </NextLink>
+          <meta itemProp="position" content="1" />
+        </li>
+        <li
+          itemScope
+          itemProp="itemListElement"
+          itemType="https://schema.org/ListItem"
+        >
+          <NextLink linkProperties={{ href: '/about-me', itemProp: 'item' }}>
+            <span itemProp="name">About Me</span>
+          </NextLink>
+          <meta itemProp="position" content="2" />
+        </li>
+      </ol>
       <h1 id="aboutMe">About Me</h1>
       <ul className={styles.toc}>
         <li>

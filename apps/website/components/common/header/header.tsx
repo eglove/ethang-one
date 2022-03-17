@@ -3,16 +3,16 @@ import styles from './header.module.css';
 import { Navigation } from './navigation';
 
 export const Header = (): JSX.Element => {
-  const headerContent = <h1 className={styles.Header}>EthanG</h1>;
+  const headerContent = <header className={styles.Header}>EthanG</header>;
 
   return (
-    <header>
+    <div>
       <LinkComponent
         linkProperties={{ href: '/', style: { textDecoration: 'none' } }}
       >
         {headerContent}
       </LinkComponent>
       <Navigation />
-    </header>
+    </div>
   );
 };
