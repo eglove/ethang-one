@@ -17,12 +17,6 @@ export const Navigation = (): JSX.Element => {
 
   return (
     <div>
-      <Head>
-        <script
-          async
-          src="https://cse.google.com/cse.js?cx=1040596e09bea9882"
-        />
-      </Head>
       <nav className={styles.Navigation}>
         {navLinks.map(navLink => {
           return (
@@ -39,6 +33,7 @@ export const Navigation = (): JSX.Element => {
           );
         })}
       </nav>
+      <script async src="https://cse.google.com/cse.js?cx=1040596e09bea9882" />
       <div className="gcse-search" />
     </div>
   );
