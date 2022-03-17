@@ -1,5 +1,3 @@
-import Head from 'next/head';
-
 import { LinkComponent } from '../link-component/link-component';
 import styles from './header.module.css';
 
