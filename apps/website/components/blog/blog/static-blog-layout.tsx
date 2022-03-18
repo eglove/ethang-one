@@ -3,7 +3,8 @@ import {
   formatList,
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
-import Head from 'next/head';
+import { DiscussionEmbed } from 'disqus-react';
+import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
@@ -11,6 +12,7 @@ import { Blog as BlogSchema } from 'schema-dts';
 
 import { Blog } from '../../../graphql/types';
 import commonStyles from '../../../styles/common.module.css';
+import { BASE_URL } from '../../../util/constants';
 import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { ImageContainer } from '../../common/image-container/image-container';
@@ -45,26 +47,7 @@ export const StaticBlogLayout = ({
 
   return (
     <Container>
-      <HeadTag title={blog.title} />
-      <Head>
-        <script
-          {...jsonLdScriptProps<BlogSchema>({
-            '@context': 'https://schema.org',
-            '@type': 'Blog',
-            audience: 'Developers',
-            author: {
-              '@type': 'Person',
-              name: 'Ethan Glover',
-              url: 'https://www.ethang.dev/',
-            },
-            dateModified: blog.updatedAt,
-            datePublished: blog.createdAt,
-            description: blog.description,
-            headline: blog.title,
-            image: blog.featuredImage.image.downloadUrl,
-            thumbnailUrl: `${blog.featuredImage.image.downloadUrl}`,
-          })}
-        />
+      <HeadTag title={blog.title}>
         <Ogp
           description={blog.description}
           image={blog.featuredImage.image.downloadUrl}
@@ -73,12 +56,25 @@ export const StaticBlogLayout = ({
           siteName="EthanG"
           url={`https://www.ethang.dev/blog/${blog.slug}`}
         />
-        <script
-          async
-          src="https://ethang.disqus.com/embed.js"
-          data-timestamp={new Date()}
-        />
-      </Head>
+      </HeadTag>
+      <Script
+        {...jsonLdScriptProps<BlogSchema>({
+          '@context': 'https://schema.org',
+          '@type': 'Blog',
+          audience: 'Developers',
+          author: {
+            '@type': 'Person',
+            name: 'Ethan Glover',
+            url: 'https://www.ethang.dev/',
+          },
+          dateModified: blog.updatedAt,
+          datePublished: blog.createdAt,
+          description: blog.description,
+          headline: blog.title,
+          image: blog.featuredImage.image.downloadUrl,
+          thumbnailUrl: `${blog.featuredImage.image.downloadUrl}`,
+        })}
+      />
       <ol
         itemScope
         className={commonStyles.Breadcrumb}
@@ -138,7 +134,14 @@ export const StaticBlogLayout = ({
       </div>
       <hr />
       <article>{children}</article>
-      <div id="disqus_thread" />
+      <DiscussionEmbed
+        shortname="ethang"
+        config={{
+          identifier: blog.slug,
+          language: 'en-US',
+          url: `${BASE_URL}/blog/${blog.slug}`,
+        }}
+      />
     </Container>
   );
 };

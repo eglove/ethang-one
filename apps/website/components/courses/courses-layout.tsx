@@ -1,10 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 import { formatList } from '@ethang/util-typescript';
-import Head from 'next/head';
+import { DiscussionEmbed } from 'disqus-react';
 import Image from 'next/image';
 
 import { Course } from '../../graphql/types';
 import commonStyles from '../../styles/common.module.css';
+import { BASE_URL } from '../../util/constants';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { LinkComponent } from '../common/link-component/link-component';
@@ -47,13 +48,7 @@ export const CoursesLayout = ({
   return (
     <Container>
       <HeadTag title="Courses" />
-      <Head>
-        <script
-          async
-          src="https://ethang.disqus.com/embed.js"
-          data-timestamp={new Date()}
-        />
-      </Head>
+
       <div>
         <ol
           itemScope
@@ -138,7 +133,14 @@ export const CoursesLayout = ({
           );
         })}
       </div>
-      <div id="disqus_thread" />
+      <DiscussionEmbed
+        shortname="ethang"
+        config={{
+          identifier: 'courses',
+          language: 'en-US',
+          url: `${BASE_URL}/courses`,
+        }}
+      />
     </Container>
   );
 };
