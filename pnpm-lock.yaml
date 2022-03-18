@@ -40,6 +40,7 @@ specifiers:
   browserslist-config-google: ^3.0.1
   core-js: ^3.21.1
   cypress: ^9.5.2
+  disqus-react: ^1.1.2
   eslint: ~8.11.0
   eslint-config-next: 12.1.0
   eslint-config-prettier: 8.5.0
@@ -70,6 +71,7 @@ specifiers:
   mobx: ^6.5.0
   mobx-react-lite: ^3.3.0
   next: 12.1.0
+  normalize.css: ^8.0.1
   nprogress: ^0.2.0
   nx: 13.9.3
   prettier: ^2.6.0
@@ -111,6 +113,7 @@ dependencies:
   '@nrwl/next': 13.9.3_e8785dd77320a3d9f1cdcebfe09c91e7
   apollo3-cache-persist: 0.14.0_@apollo+client@3.5.10
   core-js: 3.21.1
+  disqus-react: 1.1.2_react-dom@17.0.2+react@17.0.2
   fast-xml-parser: 4.0.7
   get-youtube-id: 1.0.1
   graphql: 16.3.0
@@ -121,6 +124,7 @@ dependencies:
   mobx: 6.5.0
   mobx-react-lite: 3.3.0_3b110ddd052df537d55bc762cdd4d0b8
   next: 12.1.0_fbf64ceed39fcaf258f74679fe7c79ca
+  normalize.css: 8.0.1
   nprogress: 0.2.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -3317,7 +3321,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       '@babel/code-frame': 7.16.7
-      '@babel/runtime': 7.17.2
+      '@babel/runtime': 7.17.7
       '@types/aria-query': 4.2.2
       aria-query: 5.0.0
       chalk: 4.1.2
@@ -4202,7 +4206,7 @@ packages:
     resolution: {integrity: sha512-o/HelwhuKpTj/frsOsbNLNgnNGVIFsVP/SW2BSF14gVl7kAfMOJ6/8wUAUvG1R1NHKrfG+2sHZTu0yauT1qBrA==}
     engines: {node: '>=6.0'}
     dependencies:
-      '@babel/runtime': 7.17.2
+      '@babel/runtime': 7.17.7
       '@babel/runtime-corejs3': 7.17.2
 
   /aria-query/5.0.0:
@@ -5588,6 +5592,16 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-type: 4.0.0
+
+  /disqus-react/1.1.2_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-CrG7FUxI4MFfAQ5sNTOxpxAHMZmqzQEDgGvc7+DW7v8jfrt/RMLmwuhOSpAMTyVGQowCV6NxUQ5ShALEy2uJMg==}
+    peerDependencies:
+      react: ^15.6.1 || ^16.0.0 || ^17.0.0
+      react-dom: ^15.6.1 || ^16.0.0 || ^17.0.0
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /dns-equal/1.0.0:
     resolution: {integrity: sha1-s55/HabrCnW6nBcySzR1PEfgZU0=}
@@ -9206,6 +9220,10 @@ packages:
     resolution: {integrity: sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==}
     engines: {node: '>=10'}
 
+  /normalize.css/8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==}
+    dev: false
+
   /npm-run-path/4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
@@ -10311,7 +10329,7 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
-      '@babel/runtime': 7.17.2
+      '@babel/runtime': 7.17.7
       react: 17.0.2
     dev: true
 

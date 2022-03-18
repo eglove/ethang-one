@@ -30,7 +30,6 @@
         "plugin:@nrwl/nx/typescript",
         "plugin:cypress/recommended",
         "xo-react/space",
-        "next",
         "plugin:sonarjs/recommended",
         "plugin:jsx-a11y/recommended",
         "prettier"
@@ -46,6 +45,7 @@
       "rules": {
 //        "@next/next/no-html-link-for-pages": ["error", "/apps/website/pages/"],
         "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/explicit-function-return-type": [
           "error"
         ],
