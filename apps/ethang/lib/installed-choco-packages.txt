@@ -1,6 +1,7 @@
 0ad
 7zip
 7zip.install
+anki
 autoclicker
 autohotkey.portable
 awssamcli
@@ -74,6 +75,7 @@ nvm.portable
 obs-studio
 obs-studio.install
 openjdk13
+openjdk17
 origin
 playnite
 poshgit
