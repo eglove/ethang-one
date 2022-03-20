@@ -3,7 +3,7 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const AFirstPost = ({ blog }: BlogProperties): JSX.Element => {
+function AFirstPost({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -76,7 +76,7 @@ const AFirstPost = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default AFirstPost;
 

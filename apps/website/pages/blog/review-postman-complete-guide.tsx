@@ -2,7 +2,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewPostmanCompleteGuide = ({ blog }: BlogProperties): JSX.Element => {
+function ReviewPostmanCompleteGuide({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -51,7 +51,7 @@ const ReviewPostmanCompleteGuide = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewPostmanCompleteGuide;
 

@@ -23,10 +23,10 @@ interface StaticBlogLayoutProperties {
   children: JSX.Element | JSX.Element[];
 }
 
-export const StaticBlogLayout = ({
+export function StaticBlogLayout({
   blog,
   children,
-}: StaticBlogLayoutProperties): JSX.Element => {
+}: StaticBlogLayoutProperties): JSX.Element {
   const [authors, setAuthors] = useState<string>();
 
   useEffect(() => {
@@ -144,4 +144,4 @@ export const StaticBlogLayout = ({
       />
     </Container>
   );
-};
+}

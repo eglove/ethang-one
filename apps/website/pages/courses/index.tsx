@@ -6,9 +6,9 @@ import { apolloClient } from '../_app';
 
 export type CoursesData = { courses: Course[] };
 
-const Courses = ({ courses }: CoursesData): JSX.Element => {
+function Courses({ courses }: CoursesData): JSX.Element {
   return <CoursesLayout courses={courses} />;
-};
+}
 
 export default Courses;
 

@@ -2,7 +2,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const RealtoughcandyIoReview = ({ blog }: BlogProperties): JSX.Element => {
+function RealtoughcandyIoReview({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>RTC courses fill a gap.</p>
@@ -91,7 +91,7 @@ const RealtoughcandyIoReview = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default RealtoughcandyIoReview;
 

@@ -7,13 +7,13 @@ import { apolloClient } from '../_app';
 
 export type BlogsData = { blogs: Blog[] };
 
-const Blogs = ({ blogs }: BlogsData): JSX.Element => {
+function Blogs({ blogs }: BlogsData): JSX.Element {
   return (
     <Container>
       <BlogsLayout blogs={blogs} />
     </Container>
   );
-};
+}
 
 export default Blogs;
 

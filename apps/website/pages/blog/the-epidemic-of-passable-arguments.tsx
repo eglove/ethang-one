@@ -4,9 +4,7 @@ import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embe
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const TheEpidemicOfPassableArguments = ({
-  blog,
-}: BlogProperties): JSX.Element => {
+function TheEpidemicOfPassableArguments({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -236,7 +234,7 @@ const TheEpidemicOfPassableArguments = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default TheEpidemicOfPassableArguments;
 

@@ -1,7 +1,7 @@
 import { LinkComponent } from '../link-component/link-component';
 import styles from './header.module.css';
 
-export const Navigation = (): JSX.Element => {
+export function Navigation(): JSX.Element {
   const navLinks = [
     {
       link: '/blog',
@@ -35,4 +35,4 @@ export const Navigation = (): JSX.Element => {
       <div className="gcse-search" />
     </div>
   );
-};
+}

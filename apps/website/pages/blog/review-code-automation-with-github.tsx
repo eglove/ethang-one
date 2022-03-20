@@ -6,9 +6,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewCodeAutomationWithGithub = ({
-  blog,
-}: BlogProperties): JSX.Element => {
+function ReviewCodeAutomationWithGithub({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <JsonLd<Review>
@@ -78,7 +76,7 @@ const ReviewCodeAutomationWithGithub = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewCodeAutomationWithGithub;
 

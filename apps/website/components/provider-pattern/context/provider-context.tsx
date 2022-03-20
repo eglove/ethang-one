@@ -19,11 +19,11 @@ export const useProviderDispatch = (): Dispatch<ProviderAction> => {
   return useContext(ProviderDispatch);
 };
 
-export const ProviderWrapper = ({
+export function ProviderWrapper({
   children,
 }: {
   children: JSX.Element | JSX.Element[];
-}): JSX.Element => {
+}): JSX.Element {
   // @ts-expect-error Just go with it.
   const [provider, providerDispatch] = useImmerReducer(providerReducer, {});
 
@@ -34,4 +34,4 @@ export const ProviderWrapper = ({
       </ProviderContext.Provider>
     </ProviderDispatch.Provider>
   );
-};
+}

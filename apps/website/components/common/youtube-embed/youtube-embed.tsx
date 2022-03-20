@@ -5,16 +5,20 @@ interface YouTubeEmbedProperties {
   title: string;
 }
 
-export const YouTubeEmbed = ({
+export function YouTubeEmbed({
   id,
   title,
-}: YouTubeEmbedProperties): JSX.Element => {
+}: YouTubeEmbedProperties): JSX.Element {
+  // Sandbox should be boolean, typescript wants it to be string
+  const sandboxValue = true;
+
   return (
     <>
       <br />
       <div className={styles.YtContainer}>
         <iframe
           allowFullScreen
+          sandbox={sandboxValue as unknown as string}
           src={`https://www.youtube.com/embed/${id}`}
           title={title}
           frameBorder="0"
@@ -23,4 +27,4 @@ export const YouTubeEmbed = ({
       </div>
     </>
   );
-};
+}

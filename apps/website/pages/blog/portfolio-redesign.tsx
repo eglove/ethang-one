@@ -4,7 +4,7 @@ import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embe
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const PortfolioRedesign = ({ blog }: BlogProperties): JSX.Element => {
+function PortfolioRedesign({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <YouTubeEmbed id="1WGEp3UjnnQ" title="Portfolio Redesign" />
@@ -62,7 +62,7 @@ const PortfolioRedesign = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default PortfolioRedesign;
 

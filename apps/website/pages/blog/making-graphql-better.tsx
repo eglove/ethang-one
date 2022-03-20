@@ -14,10 +14,10 @@ export interface MakingGraphqlBetterProperties extends BlogProperties {
   images: Record<string, Image>;
 }
 
-const MakingGraphqlBetter = ({
+function MakingGraphqlBetter({
   blog,
   images,
-}: MakingGraphqlBetterProperties): JSX.Element => {
+}: MakingGraphqlBetterProperties): JSX.Element {
   const userQuery = `query Query {
     user(id: 123) {
       username
@@ -526,7 +526,7 @@ const MakingGraphqlBetter = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default MakingGraphqlBetter;
 

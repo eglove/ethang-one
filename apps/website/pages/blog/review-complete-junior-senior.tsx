@@ -2,7 +2,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewCompleteJuniorSenior = ({ blog }: BlogProperties): JSX.Element => {
+function ReviewCompleteJuniorSenior({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -98,7 +98,7 @@ const ReviewCompleteJuniorSenior = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewCompleteJuniorSenior;
 

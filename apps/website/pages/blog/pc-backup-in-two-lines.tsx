@@ -3,7 +3,7 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const PcBackupInTwoLines = ({ blog }: BlogProperties): JSX.Element => {
+function PcBackupInTwoLines({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -150,7 +150,7 @@ const PcBackupInTwoLines = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default PcBackupInTwoLines;
 

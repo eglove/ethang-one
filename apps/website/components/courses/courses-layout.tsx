@@ -42,9 +42,9 @@ interface CoursesLayoutProperties {
   courses: Course[];
 }
 
-export const CoursesLayout = ({
+export function CoursesLayout({
   courses,
-}: CoursesLayoutProperties): JSX.Element => {
+}: CoursesLayoutProperties): JSX.Element {
   return (
     <Container>
       <HeadTag title="Courses" />
@@ -152,4 +152,4 @@ export const CoursesLayout = ({
       />
     </Container>
   );
-};
+}

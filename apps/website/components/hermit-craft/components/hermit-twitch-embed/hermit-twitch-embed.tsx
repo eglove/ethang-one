@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 import { useHermitStateContext } from '../../context/hermit-context';
 import { HermitStreamLink } from '../hermit-stream-link/hermit-stream-link';
 
-export const HermitTwitchEmbed = (): JSX.Element => {
+export function HermitTwitchEmbed(): JSX.Element {
   const hermitState = useHermitStateContext();
   const { availableStreams, currentlyWatching } = hermitState;
 
@@ -36,4 +36,4 @@ export const HermitTwitchEmbed = (): JSX.Element => {
   }
 
   return <p>Stream not available.</p>;
-};
+}

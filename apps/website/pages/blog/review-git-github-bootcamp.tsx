@@ -3,7 +3,7 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewGitGithubBootcamp = ({ blog }: BlogProperties): JSX.Element => {
+function ReviewGitGithubBootcamp({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -34,7 +34,7 @@ const ReviewGitGithubBootcamp = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewGitGithubBootcamp;
 

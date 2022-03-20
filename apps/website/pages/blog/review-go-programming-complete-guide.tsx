@@ -6,9 +6,9 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewGoProgrammingCompleteGuide = ({
+function ReviewGoProgrammingCompleteGuide({
   blog,
-}: BlogProperties): JSX.Element => {
+}: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <JsonLd<Review>
@@ -100,7 +100,7 @@ const ReviewGoProgrammingCompleteGuide = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewGoProgrammingCompleteGuide;
 

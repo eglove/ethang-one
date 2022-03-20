@@ -6,10 +6,10 @@ interface CourseRatingProperties {
   ratingUrl?: string;
 }
 
-export const CourseRating = ({
+export function CourseRating({
   rating,
   ratingUrl,
-}: CourseRatingProperties): JSX.Element | undefined => {
+}: CourseRatingProperties): JSX.Element | undefined {
   const ratingLink = (
     content_: string,
     ratingStyle_: string
@@ -67,4 +67,4 @@ export const CourseRating = ({
   }
 
   return null;
-};
+}

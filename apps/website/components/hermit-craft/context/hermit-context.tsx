@@ -18,9 +18,9 @@ HermitStateContext.displayName = 'HermitState';
 export const HermitDispatchContext = createContext<Dispatch<HermitAction>>();
 HermitDispatchContext.displayName = 'HermitDispatch';
 
-export const HermitContextWrapper = ({
+export function HermitContextWrapper({
   children,
-}: HermitContextWrapperProperties): JSX.Element => {
+}: HermitContextWrapperProperties): JSX.Element {
   const [hermitState, hermitDispatch] = useImmerReducer(hermitReducer, {});
 
   return (
@@ -30,7 +30,7 @@ export const HermitContextWrapper = ({
       </HermitStateContext.Provider>
     </HermitDispatchContext.Provider>
   );
-};
+}
 
 export const useHermitStateContext = (): HermitStateProperties => {
   return useContext(HermitStateContext);

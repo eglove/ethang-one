@@ -3,9 +3,9 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ParadoxicalismAsAPoliticalBelief = ({
+function ParadoxicalismAsAPoliticalBelief({
   blog,
-}: BlogProperties): JSX.Element => {
+}: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -282,7 +282,7 @@ const ParadoxicalismAsAPoliticalBelief = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ParadoxicalismAsAPoliticalBelief;
 

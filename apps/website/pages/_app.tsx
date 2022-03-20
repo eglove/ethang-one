@@ -27,7 +27,7 @@ export const apolloClient = new ApolloClientInit(
   {}
 );
 
-const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ApolloProvider client={apolloClient.client}>
       <Page>
@@ -35,6 +35,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       </Page>
     </ApolloProvider>
   );
-};
+}
 
 export default App;

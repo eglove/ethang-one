@@ -3,7 +3,7 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const TheRecommendedCourses = ({ blog }: BlogProperties): JSX.Element => {
+function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -89,7 +89,7 @@ const TheRecommendedCourses = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default TheRecommendedCourses;
 

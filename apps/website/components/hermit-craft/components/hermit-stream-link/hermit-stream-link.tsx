@@ -7,9 +7,9 @@ interface HermitStreamLinkProperties {
   hermitStream?: DataEntity;
 }
 
-export const HermitStreamLink = ({
+export function HermitStreamLink({
   hermitStream,
-}: HermitStreamLinkProperties): JSX.Element => {
+}: HermitStreamLinkProperties): JSX.Element {
   const hermitDispatch = useHermitDispatchContext();
 
   const handleSetCurrentStream = (): void => {
@@ -32,4 +32,4 @@ export const HermitStreamLink = ({
   }
 
   return null;
-};
+}

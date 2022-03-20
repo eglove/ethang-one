@@ -1,6 +1,6 @@
 import Particles from 'react-tsparticles';
 
-export const ParticlesContainer = (): JSX.Element => {
+export function ParticlesContainer(): JSX.Element {
   const particlesParameters = {
     autoPlay: true,
     background: {
@@ -539,4 +539,4 @@ export const ParticlesContainer = (): JSX.Element => {
 
   // @ts-expect-error Pulled from example
   return <Particles params={particlesParameters} />;
-};
+}
