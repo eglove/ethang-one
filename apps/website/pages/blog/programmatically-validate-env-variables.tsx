@@ -5,15 +5,15 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ProgrammaticallyValidateEnvironmentVariables = ({
+function ProgrammaticallyValidateEnvironmentVariables({
   blog,
-}: BlogProperties): JSX.Element => {
+}: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <Gist id="eabb2fb95916f7a875987207b7ce3398" />
     </StaticBlogLayout>
   );
-};
+}
 
 export default ProgrammaticallyValidateEnvironmentVariables;
 

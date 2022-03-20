@@ -5,7 +5,7 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const TypescriptFormEnums = ({ blog }: BlogProperties): JSX.Element => {
+function TypescriptFormEnums({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -30,7 +30,7 @@ const TypescriptFormEnums = ({ blog }: BlogProperties): JSX.Element => {
       <Gist id="574eea0f800dd6055cb1c0f1d0ac7bd4" />
     </StaticBlogLayout>
   );
-};
+}
 
 export default TypescriptFormEnums;
 

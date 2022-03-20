@@ -2,7 +2,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewLearningToLearn = ({ blog }: BlogProperties): JSX.Element => {
+function ReviewLearningToLearn({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -45,7 +45,7 @@ const ReviewLearningToLearn = ({ blog }: BlogProperties): JSX.Element => {
       <p>5/5</p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewLearningToLearn;
 

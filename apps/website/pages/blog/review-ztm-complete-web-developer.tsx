@@ -2,9 +2,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewZtmCompleteWebDeveloper = ({
-  blog,
-}: BlogProperties): JSX.Element => {
+function ReviewZtmCompleteWebDeveloper({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -81,7 +79,7 @@ const ReviewZtmCompleteWebDeveloper = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewZtmCompleteWebDeveloper;
 

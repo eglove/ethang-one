@@ -11,7 +11,7 @@ import { HermitActionEnum } from '../../context/hermit-reducer';
 import { HermitTwitchEmbed } from '../hermit-twitch-embed/hermit-twitch-embed';
 import { HermitsCurrentlyStreaming } from '../hermits-currently-streaming/hermits-currently-streaming';
 
-export const HermitStreamHome = (): JSX.Element => {
+export function HermitStreamHome(): JSX.Element {
   const { availableStreams } = useHermitStateContext();
   const hermitDispatch = useHermitDispatchContext();
   const hermitStream = useMemo(() => {
@@ -51,4 +51,4 @@ export const HermitStreamHome = (): JSX.Element => {
       <p>No streams available.</p>
     </Container>
   );
-};
+}

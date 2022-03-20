@@ -3,9 +3,7 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const SevenWaysToWinAnArgumentOnline = ({
-  blog,
-}: BlogProperties): JSX.Element => {
+function SevenWaysToWinAnArgumentOnline({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -231,7 +229,7 @@ const SevenWaysToWinAnArgumentOnline = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default SevenWaysToWinAnArgumentOnline;
 

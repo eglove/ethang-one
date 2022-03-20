@@ -4,7 +4,7 @@ import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embe
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const CuringBiasWithCuriosity = ({ blog }: BlogProperties): JSX.Element => {
+function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <blockquote>
@@ -353,7 +353,7 @@ const CuringBiasWithCuriosity = ({ blog }: BlogProperties): JSX.Element => {
       <YouTubeEmbed id="__tPaFaPCHo" title="Building Curiosity" />
     </StaticBlogLayout>
   );
-};
+}
 
 export default CuringBiasWithCuriosity;
 

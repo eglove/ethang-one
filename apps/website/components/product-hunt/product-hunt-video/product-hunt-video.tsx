@@ -5,9 +5,9 @@ interface ProductHuntVideoProperties {
   videoUrl: string;
 }
 
-export const ProductHuntVideo = ({
+export function ProductHuntVideo({
   videoTitle,
   videoUrl,
-}: ProductHuntVideoProperties): JSX.Element => {
+}: ProductHuntVideoProperties): JSX.Element {
   return <YouTubeEmbed id={videoTitle} title={videoUrl} />;
-};
+}

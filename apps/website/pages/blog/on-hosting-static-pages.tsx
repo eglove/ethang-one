@@ -11,10 +11,10 @@ interface OnHostingStaticPagesProperties extends BlogProperties {
   images: Record<string, Image>;
 }
 
-export const OnHostingStaticPages = ({
+export function OnHostingStaticPages({
   blog,
   images,
-}: OnHostingStaticPagesProperties): JSX.Element => {
+}: OnHostingStaticPagesProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -157,7 +157,7 @@ export const OnHostingStaticPages = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default OnHostingStaticPages;
 

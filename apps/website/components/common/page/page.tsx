@@ -5,7 +5,7 @@ import { Header } from '../header/header';
 import { ParticlesContainer } from '../particles/particles';
 import styles from '../styles/particles.module.css';
 
-export const Page = ({ children }: PropertiesChildren): JSX.Element => {
+export function Page({ children }: PropertiesChildren): JSX.Element {
   return (
     <div className={styles.ParticleContainer}>
       <Script
@@ -28,4 +28,4 @@ export const Page = ({ children }: PropertiesChildren): JSX.Element => {
       </div>
     </div>
   );
-};
+}

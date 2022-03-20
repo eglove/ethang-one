@@ -5,9 +5,9 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const LessonsLearnedFromRewritingAReactApp = ({
+function LessonsLearnedFromRewritingAReactApp({
   blog,
-}: BlogProperties): JSX.Element => {
+}: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -433,7 +433,7 @@ const LessonsLearnedFromRewritingAReactApp = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default LessonsLearnedFromRewritingAReactApp;
 

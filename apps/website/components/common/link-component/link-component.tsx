@@ -6,10 +6,10 @@ interface LinkComponentProperties {
   linkProperties?: JSX.IntrinsicElements['a'];
 }
 
-export const LinkComponent = ({
+export function LinkComponent({
   children,
   linkProperties,
-}: LinkComponentProperties): JSX.Element => {
+}: LinkComponentProperties): JSX.Element {
   let linkOrigin = null;
   if (isValidUrl(linkProperties.href)) {
     linkOrigin = new URL(linkProperties.href).origin;
@@ -29,4 +29,4 @@ export const LinkComponent = ({
       <a {...linkProperties}>{children}</a>
     </Link>
   );
-};
+}

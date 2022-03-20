@@ -6,7 +6,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewTestingWithCypress = ({ blog }: BlogProperties): JSX.Element => {
+function ReviewTestingWithCypress({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <JsonLd<Review>
@@ -69,7 +69,7 @@ const ReviewTestingWithCypress = ({ blog }: BlogProperties): JSX.Element => {
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewTestingWithCypress;
 

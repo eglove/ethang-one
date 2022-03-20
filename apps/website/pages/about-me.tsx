@@ -10,7 +10,7 @@ import { YouTubeEmbed } from '../components/common/youtube-embed/youtube-embed';
 import changeVsConsequence from '../public/images/changevsconsequence.png';
 import commonStyles from '../styles/common.module.css';
 
-const AboutMe = (): JSX.Element => {
+function AboutMe(): JSX.Element {
   const cdcSystemsThinking = getYouTubeID(
     'https://www.youtube.com/watch?v=Fo3ndxVOZEo'
   );
@@ -252,6 +252,6 @@ const AboutMe = (): JSX.Element => {
       <p>Please checkout my GitHub and LinkedIn linked below. ↘</p>
     </Container>
   );
-};
+}
 
 export default AboutMe;

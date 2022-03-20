@@ -9,7 +9,7 @@ import { YouTubeEmbed } from '../../common/youtube-embed/youtube-embed';
 import styles from './product-hunt-layout.module.css';
 import { ProductHuntData } from './product-hunt-layout-types';
 
-export const ProductHuntLayout = (): JSX.Element => {
+export function ProductHuntLayout(): JSX.Element {
   const [data, setData] = useState<ProductHuntData>();
 
   useEffect(() => {
@@ -94,4 +94,4 @@ export const ProductHuntLayout = (): JSX.Element => {
   }
 
   return null;
-};
+}

@@ -3,9 +3,7 @@ import { LinkComponent } from '../../components/common/link-component/link-compo
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const DefendYourselfAgainstTheState = ({
-  blog,
-}: BlogProperties): JSX.Element => {
+function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <blockquote>
@@ -458,7 +456,7 @@ const DefendYourselfAgainstTheState = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default DefendYourselfAgainstTheState;
 

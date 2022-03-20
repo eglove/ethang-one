@@ -5,14 +5,11 @@ interface HeadTagProperties {
   title: string;
 }
 
-export const HeadTag = ({
-  children,
-  title,
-}: HeadTagProperties): JSX.Element => {
+export function HeadTag({ children, title }: HeadTagProperties): JSX.Element {
   return (
     <Head>
       <title>{`EthanG | ${title}`}</title>
       {children}
     </Head>
   );
-};
+}

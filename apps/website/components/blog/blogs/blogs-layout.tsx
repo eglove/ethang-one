@@ -14,7 +14,7 @@ interface BlogsLayoutProperties {
   blogs: Blog[];
 }
 
-export const BlogsLayout = ({ blogs }: BlogsLayoutProperties): JSX.Element => {
+export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
   return (
     <>
       <HeadTag title="Blog" />
@@ -86,4 +86,4 @@ export const BlogsLayout = ({ blogs }: BlogsLayoutProperties): JSX.Element => {
       })}
     </>
   );
-};
+}

@@ -11,10 +11,10 @@ interface ContainerProperties {
   >;
 }
 
-export const Container = ({
+export function Container({
   children,
   containerProperties,
-}: ContainerProperties): JSX.Element => {
+}: ContainerProperties): JSX.Element {
   return (
     <div>
       <ToastContainer />
@@ -23,4 +23,4 @@ export const Container = ({
       </div>
     </div>
   );
-};
+}

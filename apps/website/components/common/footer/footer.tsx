@@ -5,7 +5,7 @@ import linkedinImage from '../../../public/images/linkedin.svg';
 import { LinkComponent } from '../link-component/link-component';
 import styles from './footer.module.css';
 
-export const Footer = (): JSX.Element => {
+export function Footer(): JSX.Element {
   return (
     <div className={styles.footer}>
       <div>
@@ -22,4 +22,4 @@ export const Footer = (): JSX.Element => {
       </div>
     </div>
   );
-};
+}

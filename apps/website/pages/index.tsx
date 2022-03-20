@@ -6,9 +6,9 @@ import { apolloClient } from './_app';
 
 export type TechnologyLogos = { technologyLogos: TechnologyLogo[] };
 
-const Index = ({ technologyLogos }: TechnologyLogos): JSX.Element => {
+function Index({ technologyLogos }: TechnologyLogos): JSX.Element {
   return <HomeLayout technologyLogos={technologyLogos} />;
-};
+}
 
 export default Index;
 

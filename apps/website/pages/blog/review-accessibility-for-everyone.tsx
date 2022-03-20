@@ -6,9 +6,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewAccessibilityForEveryone = ({
-  blog,
-}: BlogProperties): JSX.Element => {
+function ReviewAccessibilityForEveryone({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <JsonLd<Review>
@@ -78,7 +76,7 @@ const ReviewAccessibilityForEveryone = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewAccessibilityForEveryone;
 

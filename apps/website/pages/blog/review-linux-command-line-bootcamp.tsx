@@ -6,9 +6,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const ReviewLinuxCommandLineBootcamp = ({
-  blog,
-}: BlogProperties): JSX.Element => {
+function ReviewLinuxCommandLineBootcamp({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <JsonLd<Review>
@@ -71,7 +69,7 @@ const ReviewLinuxCommandLineBootcamp = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default ReviewLinuxCommandLineBootcamp;
 

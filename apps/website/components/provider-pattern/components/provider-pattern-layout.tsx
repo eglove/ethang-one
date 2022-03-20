@@ -7,20 +7,20 @@ import {
   useProviderState,
 } from '../context/provider-context';
 
-export const ProviderPatternLayout = (): JSX.Element => {
+export function ProviderPatternLayout(): JSX.Element {
   const provider = useProviderState();
   const providerDispatch = useProviderDispatch();
 
   const setStuff = (): void => {
     providerDispatch({
       method: 'firstName',
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       payload: faker.name.firstName(),
     });
 
     providerDispatch({
       method: 'lastName',
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+
       payload: faker.name.lastName(),
     });
 
@@ -43,4 +43,4 @@ export const ProviderPatternLayout = (): JSX.Element => {
       </p>
     </Container>
   );
-};
+}

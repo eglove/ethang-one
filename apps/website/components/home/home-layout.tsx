@@ -11,9 +11,9 @@ interface HomeLayoutProperties {
   technologyLogos: TechnologyLogo[];
 }
 
-export const HomeLayout = ({
+export function HomeLayout({
   technologyLogos,
-}: HomeLayoutProperties): JSX.Element | undefined => {
+}: HomeLayoutProperties): JSX.Element | undefined {
   const indexArray = shuffleArray(
     Array.from({ length: technologyLogos.length })
       .fill(null)
@@ -54,4 +54,4 @@ export const HomeLayout = ({
       </div>
     </Container>
   );
-};
+}

@@ -4,9 +4,9 @@ import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embe
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
-const PersuasionThroughMoralArguments = ({
+function PersuasionThroughMoralArguments({
   blog,
-}: BlogProperties): JSX.Element => {
+}: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p>
@@ -290,7 +290,7 @@ const PersuasionThroughMoralArguments = ({
       </p>
     </StaticBlogLayout>
   );
-};
+}
 
 export default PersuasionThroughMoralArguments;
 
