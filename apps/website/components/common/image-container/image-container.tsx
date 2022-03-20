@@ -11,13 +11,12 @@ interface ImageContainerProperties {
   imageProperties: ImagePropertiesRequired;
 }
 
-export const ImageContainer = ({
+export function ImageContainer({
   imageProperties,
-}: ImageContainerProperties): JSX.Element => {
+}: ImageContainerProperties): JSX.Element {
   return (
     <div className={styles.Center}>
-      {/* eslint-disable-next-line jsx-a11y/alt-text */}
       <Image {...imageProperties} />
     </div>
   );
-};
+}
