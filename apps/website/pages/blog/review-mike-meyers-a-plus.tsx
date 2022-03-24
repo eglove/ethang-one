@@ -31,13 +31,13 @@ function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
         }}
       />
       <p>
-        CompTIA exams are get a lot of criticism. And I&apos;m one of the people
-        who will tell you that they&apos;re not worth your time. You can apply
-        to 200 jobs in the time it takes to pass one low level exam. The minor
-        advantage certifications give to getting to the top of a resume stack,
-        are just not worth the investment. That goes doubly so for CompTIA.
-        Mostly because these exams are meant for IT support technicians, not
-        developers.
+        CompTIA exams get a lot of criticism. And I&apos;m one of the people who
+        will tell you that they&apos;re not worth your time. You can apply to
+        200 jobs in the time it takes to pass one low level exam. The minor
+        advantage certifications give you in getting to the top of a resume
+        stack, are just not worth the investment. That goes doubly so for
+        CompTIA. Mostly because these exams are meant for IT support
+        technicians, not developers.
       </p>
       <p>
         So why am I talking about CompTIA A+ courses here? For people first
@@ -57,7 +57,7 @@ function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
         day, gamer by night rig.
       </p>
       <p>
-        Mike Meyer&apos;s is a great presenter. Watching his courses reminds me
+        Mike Meyers&apos; is a great presenter. Watching his courses reminds me
         of watching TechTV when I was a kid. It&apos;s interesting, he&apos;s a
         fun guy to listen to. In terms of the level of detail on each topic, it
         is supposed to be a basic overview for a basic exam. And it&apos;s a
@@ -66,21 +66,23 @@ function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
       <p>
         This review covers two courses, the Core 1 and Core 2 videos cover two
         different exams. In taking both you&apos;ll see some similarities
-        between the two. In fact the intro sections are copies. The courses do
-        cover different topics. I wish these two were combined with the similar
-        sections combined, but I&apos;m not going to knock the courses for that.
-        As they are made for people trying to pass two separate exams.
+        between the two. In fact the intro sections are copies. But the courses
+        do cover different material for the same topics. I wish the similar
+        sections for these two were combined, but I&apos;m not going to knock
+        the courses for that. As they are made for people trying to pass two
+        separate exams.
       </p>
       <p>
-        These courses are the perfect place to getting a familiarity with
-        hardware, software and networking you&apos;ll use as a developer. I
+        These courses are the perfect place to start getting a familiarity with
+        the hardware, software and networking you&apos;ll use as a developer. I
         don&apos;t advise wasting time on exams, but that decision is up to you.
         Because of the quality of presentation and level of knowledge presented,
-        I give Mike Meyer&apos;s TOTAL: CompTIA A+ Certification{' '}
+        I give Mike Meyers&apos; TOTAL: CompTIA A+ Certification{' '}
         <NextLink
           linkProperties={{
             href: 'https://www.udemy.com/course/new-comptia-a-2019-certification-1001-the-total-course/',
           }}
+          testId="course-url"
         >
           Core 1
         </NextLink>{' '}
