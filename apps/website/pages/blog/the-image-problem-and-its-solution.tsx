@@ -129,7 +129,7 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
         In the book &ldquo;
         <LinkComponent
           linkProperties={{
-            href: 'http://trendsaction.com/ebook/how-i-found-freedom-in-an-unfree-world.php',
+            href: 'https://www.goodreads.com/book/show/82104.How_I_Found_Freedom_in_an_Unfree_World',
           }}
         >
           How I Found Freedom in an Unfree World
