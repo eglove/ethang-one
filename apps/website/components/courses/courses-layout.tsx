@@ -76,7 +76,12 @@ export function CoursesLayout({
             <meta itemProp="position" content="2" />
           </li>
         </ol>
-        <div>
+        <p>
+          <NextLink linkProperties={{ href: '/blog/the-recommended-courses' }}>
+            How to use this guide.
+          </NextLink>
+        </p>
+        <p>
           This page changes often, lock in your plan by{' '}
           <NextLink
             linkProperties={{ href: '/documents/Development_Corriculum.pdf' }}
@@ -84,7 +89,7 @@ export function CoursesLayout({
             downloading the March 2022 snapshot
           </NextLink>{' '}
           (PDF).
-        </div>
+        </p>
         {courses.map(course => {
           return (
             <div key={course.id} className={styles.CourseContainer}>
