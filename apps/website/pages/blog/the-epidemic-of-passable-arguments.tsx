@@ -15,7 +15,7 @@ function TheEpidemicOfPassableArguments({ blog }: BlogProperties): JSX.Element {
         That argument, originating from Max Weber in &lsquo;
         <LinkComponent
           linkProperties={{
-            href: 'http://anthropos-lab.net/wp/wp-content/uploads/2011/12/Weber-Politics-as-a-Vocation.pdf',
+            href: 'https://en.wikipedia.org/wiki/Politics_as_a_Vocation',
           }}
         >
           Politics as a Vocation

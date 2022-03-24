@@ -70,19 +70,12 @@ function LessonsLearnedFromRewritingAReactApp({
       </p>
       <h2>Use Eslint</h2>
       <p>
-        I created{' '}
-        <LinkComponent
-          linkProperties={{
-            href: 'https://github.com/eglove/eslint-config-ethang/blob/master/index.js',
-          }}
-        >
-          my own lint config for Next and TypeScript
-        </LinkComponent>
-        . It basically just extends... well... a lot of stuff. Critics may note
-        that there&apos;s a lot of stuff overwriting a lot of stuff. And that is
-        a valid criticism. But to me, the more hardcore the eslint config, the
-        better. And with some tweaking to order and a few custom rules, this is
-        working out for me.
+        I created my own lint config for Next and TypeScript. It basically just
+        extends... well... a lot of stuff. Critics may note that there&apos;s a
+        lot of stuff overwriting a lot of stuff. And that is a valid criticism.
+        But to me, the more hardcore the eslint config, the better. And with
+        some tweaking to order and a few custom rules, this is working out for
+        me.
       </p>
       <p>
         Eslint can catch a lot of issues such as missing useEffect dependencies
