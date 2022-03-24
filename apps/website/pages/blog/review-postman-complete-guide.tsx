@@ -56,7 +56,7 @@ function ReviewPostmanCompleteGuide({ blog }: BlogProperties): JSX.Element {
 export default ReviewPostmanCompleteGuide;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('review-postman-complete-guide');

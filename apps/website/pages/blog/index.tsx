@@ -18,7 +18,7 @@ function Blogs({ blogs }: BlogsData): JSX.Element {
 export default Blogs;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{ props: BlogsData }> {
+export async function getStaticProps(): Promise<{ props: BlogsData }> {
   const { data } = await apolloClient.client.query<Data>({
     query: gql`
       query BlogsQuery {

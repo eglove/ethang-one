@@ -103,7 +103,7 @@ function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
 export default ReviewMikeMeyersAPlus;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('review-mike-meyers-a-plus');

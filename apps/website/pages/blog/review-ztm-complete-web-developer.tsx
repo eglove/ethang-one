@@ -84,7 +84,7 @@ function ReviewZtmCompleteWebDeveloper({ blog }: BlogProperties): JSX.Element {
 export default ReviewZtmCompleteWebDeveloper;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('review-ztm-complete-web-developer');

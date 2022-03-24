@@ -13,7 +13,7 @@ function Courses({ courses }: CoursesData): JSX.Element {
 export default Courses;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{ props: CoursesData }> {
+export async function getStaticProps(): Promise<{ props: CoursesData }> {
   const { data } = await apolloClient.client.query<Data>({
     query: gql`
       query BlogsQuery {

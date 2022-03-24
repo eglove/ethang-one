@@ -74,7 +74,7 @@ function ReviewLinuxCommandLineBootcamp({ blog }: BlogProperties): JSX.Element {
 export default ReviewLinuxCommandLineBootcamp;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('review-linux-command-line-bootcamp');
