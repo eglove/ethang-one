@@ -29,6 +29,7 @@
 .NavigationLink {
   box-sizing: border-box;
   width: 100%;
+  min-width: 248px;
   padding: 1rem;
   text-align: center;
   text-decoration: none;
