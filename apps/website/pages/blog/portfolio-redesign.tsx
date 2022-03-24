@@ -67,7 +67,7 @@ function PortfolioRedesign({ blog }: BlogProperties): JSX.Element {
 export default PortfolioRedesign;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('portfolio-redesign');

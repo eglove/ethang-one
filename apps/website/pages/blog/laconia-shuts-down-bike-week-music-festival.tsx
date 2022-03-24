@@ -91,7 +91,7 @@ function LaconiaShutsDownBikeWeekMusicFestival({
 export default LaconiaShutsDownBikeWeekMusicFestival;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('laconia-shuts-down-bike-week-music-festival');

@@ -13,7 +13,7 @@ function Index({ technologyLogos }: TechnologyLogos): JSX.Element {
 export default Index;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: TechnologyLogos;
 }> {
   const { data } = await apolloClient.client.query<Data>({

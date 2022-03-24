@@ -74,7 +74,7 @@ function ReviewTestingWithCypress({ blog }: BlogProperties): JSX.Element {
 export default ReviewTestingWithCypress;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('review-testing-with-cypress');

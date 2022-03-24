@@ -295,7 +295,7 @@ function PersuasionThroughMoralArguments({
 export default PersuasionThroughMoralArguments;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('persuasion-through-moral-arguments');

@@ -234,7 +234,7 @@ function SevenWaysToWinAnArgumentOnline({ blog }: BlogProperties): JSX.Element {
 export default SevenWaysToWinAnArgumentOnline;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('7-ways-to-win-an-argument-online');

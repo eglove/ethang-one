@@ -112,7 +112,7 @@ function DoYouHaveAMomentToTalkAboutAnki({
 export default DoYouHaveAMomentToTalkAboutAnki;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('do-you-have-a-moment-to-talk-about-anki');

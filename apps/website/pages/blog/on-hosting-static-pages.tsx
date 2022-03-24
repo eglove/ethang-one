@@ -162,7 +162,7 @@ export function OnHostingStaticPages({
 export default OnHostingStaticPages;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: OnHostingStaticPagesProperties;
 }> {
   const blog = await blogQuery('on-hosting-static-pages');

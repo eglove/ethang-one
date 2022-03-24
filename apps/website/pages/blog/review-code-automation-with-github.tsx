@@ -81,7 +81,7 @@ function ReviewCodeAutomationWithGithub({ blog }: BlogProperties): JSX.Element {
 export default ReviewCodeAutomationWithGithub;
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getServerSideProps(): Promise<{
+export async function getStaticProps(): Promise<{
   props: BlogProperties;
 }> {
   return getBlog('review-code-automation-with-github');
