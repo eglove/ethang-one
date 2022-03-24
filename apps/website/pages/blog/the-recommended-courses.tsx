@@ -10,9 +10,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p id="top">
-        <LinkComponent
-          linkProperties={{ href: 'https://www.ethang.dev/courses' }}
-        >
+        <LinkComponent linkProperties={{ href: '/courses' }}>
           Recommended Courses
         </LinkComponent>{' '}
         is my attempt to put the best coding courses out there in one list. They
