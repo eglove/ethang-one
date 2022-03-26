@@ -43,7 +43,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         </li>
         <li>
           <NextLink linkProperties={{ href: '#sFive' }}>
-            JavaScript Web Projects
+            JavaScript Web Projects, SEO
           </NextLink>
         </li>
         <li>
@@ -167,7 +167,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         all web developers.
       </p>
       <h2 id="sFive">
-        JavaScript Web Projects{' '}
+        JavaScript Web Projects, SEO{' '}
         <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
       </h2>
       <p>
@@ -177,11 +177,15 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         </strong>{' '}
         Sure, maybe you got a job thanks to Colt Steele&apos;s course. But your
         career has only just begun. If you haven&apos;t got your first job yet,
-        this course will get you started on building out projects that will help
-        you stand out. I don&apos;t necessarily recommend putting these projects
-        in a portfolio. But this course will give you plenty of inspiration and
-        walk though a lot of things you can do with your already existing
-        skills.
+        these courses will get you started on building out projects that will
+        help you stand out, and get those projects seen by as many people as
+        possible. I don&apos;t necessarily recommend putting projects from a
+        course in a portfolio. But the Web Projects course will give you plenty
+        of inspiration and walk though a lot of things you can do with your
+        already existing skills. The SEO course will introduce you to the world
+        of web marketing and getting your name out there. The SEO course itself
+        wasn&apos;t made for developers, but developers will find a lot of value
+        in going through it.
       </p>
       <h2 id="sSix">
         Code Automation{' '}
