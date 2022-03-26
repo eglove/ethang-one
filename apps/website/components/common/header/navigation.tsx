@@ -1,3 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+import Image from 'next/image';
+
 import { LinkComponent } from '../link-component/link-component';
 import styles from './header.module.css';
 
@@ -15,6 +18,16 @@ export function Navigation(): JSX.Element {
 
   return (
     <div>
+      <div className={`${styles.NavigationLink} ${styles.SocialLinks}`}>
+        <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
+          <Image height="40px" width="48px" src="/images/github.png" />
+        </NextLink>
+        <NextLink
+          linkProperties={{ href: 'https://www.linkedin.com/in/ethan-glover/' }}
+        >
+          <Image height="40px" width="40px" src="/images/linkedin.svg" />
+        </NextLink>
+      </div>
       <nav className={styles.Navigation}>
         {navLinks.map(navLink => {
           return (
