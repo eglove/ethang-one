@@ -1,4 +1,5 @@
 import { NextLink } from '@ethang/react-components';
+import { DiscussionEmbed } from 'disqus-react';
 import getYouTubeID from 'get-youtube-id';
 import Image from 'next/image';
 
@@ -9,6 +10,7 @@ import styles from '../components/common/styles/common.module.css';
 import { YouTubeEmbed } from '../components/common/youtube-embed/youtube-embed';
 import changeVsConsequence from '../public/images/changevsconsequence.png';
 import commonStyles from '../styles/common.module.css';
+import { BASE_URL } from '../util/constants';
 
 function AboutMe(): JSX.Element {
   const cdcSystemsThinking = getYouTubeID(
@@ -248,8 +250,14 @@ function AboutMe(): JSX.Element {
         what I haven&apos;t. Not choosing a favorite to stick to, but
         understanding programming as a whole.
       </p>
-      <hr />
-      <p>Please checkout my GitHub and LinkedIn linked below. ↘</p>
+      <DiscussionEmbed
+        shortname="ethang"
+        config={{
+          identifier: 'aboutMe',
+          language: 'en-US',
+          url: `${BASE_URL}/about-me`,
+        }}
+      />
     </Container>
   );
 }
