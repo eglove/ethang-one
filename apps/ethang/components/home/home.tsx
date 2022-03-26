@@ -2,7 +2,7 @@ import { WebsocketKey } from '../../lib/commands';
 import { gateway } from '../../lib/gateway';
 import styles from './home.module.css';
 
-export const Home = (): JSX.Element => {
+export function Home(): JSX.Element {
   const options = Object.keys(WebsocketKey);
 
   return (
@@ -23,4 +23,4 @@ export const Home = (): JSX.Element => {
       })}
     </div>
   );
-};
+}
