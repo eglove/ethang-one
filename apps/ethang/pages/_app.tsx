@@ -6,7 +6,7 @@ import { useEffect, useMemo } from 'react';
 
 import { SocketContext, SocketStore } from '../store/socket-store';
 
-const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+function App({ Component, pageProps }: AppProps): JSX.Element {
   const socketStore = useMemo(() => {
     return new SocketStore();
   }, []);
@@ -76,6 +76,6 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       </main>
     </SocketContext.Provider>
   );
-};
+}
 
 export default App;
