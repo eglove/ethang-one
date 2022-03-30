@@ -38,7 +38,6 @@ specifiers:
   babel-loader: ^8.2.4
   browserslist: ^4.20.2
   browserslist-config-google: ^3.0.1
-  chalk: ^5.0.1
   core-js: ^3.21.1
   cypress: ^9.5.3
   disqus-react: ^1.1.2
@@ -113,7 +112,6 @@ dependencies:
   '@faker-js/faker': 6.1.1
   '@nrwl/next': 13.9.5_777db65342f6f7986d4a4ed794abdfa5
   apollo3-cache-persist: 0.14.0_@apollo+client@3.5.10
-  chalk: 5.0.1
   core-js: 3.21.1
   disqus-react: 1.1.2_react-dom@17.0.2+react@17.0.2
   fast-xml-parser: 4.0.7
@@ -158,7 +156,7 @@ devDependencies:
   '@nrwl/linter': 13.9.5_eslint@8.12.0+typescript@4.6.3
   '@nrwl/node': 13.9.5_0f2b7f77b715d452bab9e7948faf053b
   '@nrwl/nx': 7.8.7_jasmine-marbles@0.9.2
-  '@nrwl/nx-cloud': 13.2.1_chalk@5.0.1+rxjs@7.5.5
+  '@nrwl/nx-cloud': 13.2.1_rxjs@7.5.5
   '@nrwl/react': 13.9.5_9464436d21474aa73b0962cb200c0217
   '@nrwl/storybook': 13.9.5_ee0aa6935d2d4e463ec99c95f46b97db
   '@nrwl/web': 13.9.5_fbd996efffa8d4ab95fa11052465462f
@@ -2404,7 +2402,7 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nrwl/nx-cloud/13.2.1_chalk@5.0.1+rxjs@7.5.5:
+  /@nrwl/nx-cloud/13.2.1_rxjs@7.5.5:
     resolution: {integrity: sha512-fiZg0Y6U1amfOnv29wp3gBKc6eqNcEFj6iAlTBFF6ZW+JylH1aVzMHGiBdNLGX2y4aMVPILIfz61LY0Hphi0Gg==}
     hasBin: true
     peerDependencies:
@@ -2412,7 +2410,6 @@ packages:
       rxjs: 6.5.5
     dependencies:
       axios: 0.21.4
-      chalk: 5.0.1
       node-machine-id: 1.1.12
       rxjs: 7.5.5
       strip-json-comments: 3.1.1
@@ -4805,11 +4802,6 @@ packages:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
-
-  /chalk/5.0.1:
-    resolution: {integrity: sha512-Fo07WOYGqMfCWHOzSXOt2CxDbC6skS/jO9ynEcmpANMoPrD+W1r1K6Vx7iNm+AQmETU1Xr2t+n8nzkV9t6xh3w==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: false
 
   /char-regex/1.0.2:
     resolution: {integrity: sha512-kWWXztvZ5SBQV+eRgKFeh8q5sLuZY2+8WUIzlxWVTg+oGwY14qylx1KbKzHd8P6ZYkAg0xyIDU9JMHhyJMZ1jw==}
