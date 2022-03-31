@@ -1,3 +1,7 @@
+.Title {
+  color: var(--primary-color);
+}
+
 .CourseContainer {
     display: grid;
     grid-template-columns: repeat(2,auto) 2fr repeat(3,1fr);

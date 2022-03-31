@@ -76,6 +76,7 @@ export function CoursesLayout({
             <meta itemProp="position" content="2" />
           </li>
         </ol>
+        <h1 className={styles.Title}>The Recommended Courses</h1>
         <p>
           <NextLink linkProperties={{ href: '/blog/the-recommended-courses' }}>
             How to use this guide.
@@ -84,9 +85,9 @@ export function CoursesLayout({
         <p>
           This page changes often, lock in your plan by{' '}
           <NextLink
-            linkProperties={{ href: '/documents/Development_Corriculum.pdf' }}
+            linkProperties={{ href: '/documents/Development_Curriculum.pdf' }}
           >
-            downloading the March 2022 snapshot
+            downloading the April 2022 snapshot
           </NextLink>{' '}
           (PDF).
         </p>
