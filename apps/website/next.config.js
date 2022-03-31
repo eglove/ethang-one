@@ -23,6 +23,10 @@ const securityHeaders = async () => {
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
+  experimental: {
+    runtime: 'nodejs',
+    serverComponents: true
+  },
   headers: securityHeaders,
   images: {
     dangerouslyAllowSVG: true,
