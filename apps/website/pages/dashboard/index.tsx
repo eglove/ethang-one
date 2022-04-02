@@ -1,24 +1,21 @@
-import { useLocalStorage } from '@ethang/react-hooks';
-import { useEffect } from 'react';
+import { createContext, useMemo } from 'react';
 
-import { Container } from '../../components/common/container/container';
-import { Login } from '../../components/common/login/login';
+import DashboardHome from '../../components/dashboard/dashboard-home';
+import { Dashboard as DashboardState } from '../../components/dashboard/store/dashboard';
+
+export const DashboardContext = createContext<DashboardState>(
+  new DashboardState()
+);
 
 function Dashboard(): JSX.Element {
-  const [token] = useLocalStorage<string | undefined>('token');
-
-  useEffect(() => {
-    console.log(token);
-  }, [token]);
-
-  if (typeof token === 'undefined') {
-    return <Login />;
-  }
+  const dashboard = useMemo(() => {
+    return new DashboardState();
+  }, []);
 
   return (
-    <Container>
-      <p>hi</p>
-    </Container>
+    <DashboardContext.Provider value={dashboard}>
+      <DashboardHome />
+    </DashboardContext.Provider>
   );
 }
 

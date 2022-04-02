@@ -20,6 +20,7 @@ export const environmentVariablesDevelopment: Record<
   HASURA_SECRET: process.env.NX_HASURA_SECRET,
   HASURA_URL: process.env.NX_HASURA_URL,
   MODE: process.env.MODE,
+  MY_ID: process.env.NX_MY_ID,
   PRODUCT_HUNT_ACCESS_TOKEN: process.env.NX_PRODUCT_HUNT_ACESS_TOKEN,
   PRODUCT_HUNT_DEVELOPER_TOKEN: process.env.NX_PRODUCT_HUNT_DEVELOPER_TOKEN,
   PRODUCT_HUNT_KEY: process.env.NX_PRODUCT_HUNT_KEY,

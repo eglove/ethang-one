@@ -10,6 +10,20 @@ export const addDays = (
   return newDate;
 };
 
+export const ageFromBirthday = (birthDay: Date | string | number): number => {
+  const today = new Date();
+  const birthDate = new Date(birthDay);
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const month = today.getMonth() - birthDate.getMonth();
+
+  if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  return age;
+};
+
 interface IArrayOfDaysBetweenDays {
   endDate: string | number | Date;
   skip?: number;
@@ -176,5 +190,5 @@ export const animationInterval = (
     }
   };
 
-  scheduleFrame(start!);
+  scheduleFrame(start ?? 0);
 };

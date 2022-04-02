@@ -3,6 +3,7 @@ import { environmentVariablesProduction } from './environment-variables-producti
 
 export enum ENV_KEYS {
   MODE = 'MODE',
+  MY_ID = 'MY_ID',
   FRONTEND_URL = 'FRONTEND_URL',
   CRYPTO_TOKEN = 'CRYPTO_TOKEN',
   WEBSITE_SERVER_URL = 'WEBSITE_SERVER_URL',

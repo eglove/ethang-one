@@ -42,8 +42,11 @@ export interface CourseUrl {
 }
 
 export interface Person {
+  birthday: string;
+  heightIn: number;
   firstName: string;
   lastName: string;
+  weightLbs: number;
 }
 
 export interface School {
