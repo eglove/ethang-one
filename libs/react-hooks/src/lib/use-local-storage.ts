@@ -1,33 +1,38 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 export const useLocalStorage = <ValueType>(
-  key: string,
-  defaultValue: ValueType | (() => ValueType),
-  { serialize = JSON.stringify, deserialize = JSON.parse } = {}
-): [ValueType, Dispatch<SetStateAction<ValueType>>] => {
-  const [state, setState] = useState<ValueType>(() => {
-    const valueInLocalStorage = window.localStorage.getItem(key);
+  keyName: string,
+  defaultValue?: ValueType,
+  deserialize = JSON.parse,
+  serialize = JSON.stringify
+): [ValueType | undefined, (newValue: ValueType) => void] => {
+  const [storedValue, setStoredValue] = useState<ValueType | undefined>(() => {
+    const value = globalThis.localStorage?.getItem(keyName);
 
-    if (valueInLocalStorage === null) {
-      return defaultValue instanceof Function ? defaultValue() : defaultValue;
+    if (value !== null) {
+      try {
+        return deserialize(value) as ValueType;
+      } catch {
+        return defaultValue;
+      }
     }
 
-    return deserialize(valueInLocalStorage) as ValueType;
+    if (typeof defaultValue !== 'undefined') {
+      globalThis.localStorage?.setItem(keyName, serialize(defaultValue));
+    }
+
+    return defaultValue;
   });
 
-  const previousKeyReference = useRef(key);
-
-  useEffect(() => {
-    const previousKey = previousKeyReference.current;
-
-    if (previousKey !== key) {
-      window.localStorage.removeItem(key);
+  const setValue = (newValue: ValueType): void => {
+    try {
+      globalThis.localStorage?.setItem(keyName, serialize(newValue));
+    } catch {
+      throw new Error(`Failed to set ${keyName} in local storage.`);
     }
 
-    previousKeyReference.current = key;
+    setStoredValue(newValue);
+  };
 
-    window.localStorage.setItem(key, serialize(key));
-  }, [key, serialize, state]);
-
-  return [state, setState];
+  return [storedValue, setValue];
 };
