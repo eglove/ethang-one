@@ -53,7 +53,9 @@ export class ApolloClientInit {
         return {
           headers: {
             ...JSON_HEADER,
-            Authorization: `Bearer ${process.env.NX_8BASE_API_TOKEN ?? ''}`,
+            Authorization: `Bearer ${
+              process.env.NX_8BASE_API_ADMIN_TOKEN ?? ''
+            }`,
             ...headers,
           },
         };

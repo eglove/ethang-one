@@ -21,9 +21,9 @@ interface FormProperties<StateType> {
   submitButtonText?: string;
 }
 
-export const Form = <StateType extends Record<string, unknown>>(
+export function Form<StateType extends Record<string, unknown>>(
   formProperties: FormProperties<StateType>
-): JSX.Element => {
+): JSX.Element {
   const handleChange = (event: ChangeEvent): void => {
     let { value, name, type, files } = event.target as unknown as {
       files: File[];
@@ -63,6 +63,8 @@ export const Form = <StateType extends Record<string, unknown>>(
       if (formProperties.clearFormAfterSubmit === true) {
         formProperties.setInputState(blankState);
       }
+
+      formProperties.postSubmitFunction();
     }
   };
 
@@ -104,7 +106,7 @@ export const Form = <StateType extends Record<string, unknown>>(
       }
 
       default: {
-        return <input {...defaultProperties} />;
+        return <input type={formInput.type} {...defaultProperties} />;
       }
     }
   };
@@ -132,12 +134,11 @@ export const Form = <StateType extends Record<string, unknown>>(
             </div>
           );
         })}
-        {formProperties.postSubmitFunction &&
-          formProperties.hideSubmitButton !== true && (
-            <button type="submit" {...formProperties.submitButtonProperties}>
-              {formProperties.submitButtonText ?? 'Submit'}
-            </button>
-          )}
+        {formProperties.hideSubmitButton !== true && (
+          <button type="submit" {...formProperties.submitButtonProperties}>
+            {formProperties.submitButtonText ?? 'Submit'}
+          </button>
+        )}
         {formProperties.cancelButtonFunction &&
           formProperties.hideCancelButton !== true && (
             <button type="button" {...formProperties.cancelButtonProperties}>
@@ -147,4 +148,4 @@ export const Form = <StateType extends Record<string, unknown>>(
       </fieldset>
     </form>
   );
-};
+}

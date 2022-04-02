@@ -28,6 +28,19 @@ export const lowercaseFirstLetter = (string: string): string => {
   return string.charAt(0).toLowerCase() + string.slice(1);
 };
 
+export const currencyFormat = (
+  value: number,
+  currency = 'USD',
+  locale = 'en-US'
+): string => {
+  const formatter = new Intl.NumberFormat(locale, {
+    currency,
+    style: 'currency',
+  });
+
+  return formatter.format(value);
+};
+
 export const formatList = (list: string[]): string => {
   // Pop last element if empty in cases where split is used
   // name;hi; = [name, hi, '']
