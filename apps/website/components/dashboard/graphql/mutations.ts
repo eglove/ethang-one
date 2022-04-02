@@ -15,3 +15,11 @@ export const updateWeight = gql`
     }
   }
 `;
+
+export const updateFinanceRecords = gql`
+  mutation UpdateFinanceRecords($data: [FinanceRecordCreateManyInput]!) {
+    financeRecordCreateMany(data: $data) {
+      count
+    }
+  }
+`;

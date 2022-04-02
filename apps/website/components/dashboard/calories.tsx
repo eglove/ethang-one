@@ -47,7 +47,7 @@ export function Calories(): JSX.Element {
   ];
 
   const constants = new Constant();
-  const [handleUpdateWeight] = useMutation(updateWeight);
+  const [handleUpdateWeight, { loading }] = useMutation(updateWeight);
 
   useQuery<MyData>(calorieData, {
     onCompleted(data_) {
@@ -73,7 +73,6 @@ export function Calories(): JSX.Element {
     setTodaysCalories(Number(todaysCalories) + formState.AddCalories);
 
     if (weight !== previousWeight) {
-      console.log('firing');
       handleUpdateWeight({
         variables: { id: constants.get(ENV_KEYS.MY_ID), weight: rounded },
       }).catch((error: Error) => {
@@ -89,21 +88,19 @@ export function Calories(): JSX.Element {
         <CircularProgressbarWithChildren
           maxValue={calories}
           value={todaysCalories}
+          strokeWidth={3}
         >
           <Form
-            hideSubmitButton
             inputObjects={formInputs}
             inputState={formState}
             setInputState={setFormState}
-            submitButtonText="Save"
+            submitButtonText={loading ? 'Saving' : 'Save'}
             postSubmitFunction={onWeightChange}
             formProperties={{
               className: commonStyles.Form,
             }}
           />
-          <div>
-            {todaysCalories} out of {calories.toFixed(0)}
-          </div>
+          <div>{Number(calories.toFixed(0)) - todaysCalories} left</div>
         </CircularProgressbarWithChildren>
       </div>
     </>

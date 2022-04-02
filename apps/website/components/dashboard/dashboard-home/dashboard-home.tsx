@@ -1,3 +1,4 @@
+import { NextLink } from '@ethang/react-components';
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 
@@ -6,6 +7,7 @@ import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { Login } from '../../common/login/login';
 import { Calories } from '../calories';
+import { FinanceGraph } from '../finance-graph/finance-graph';
 import styles from './dashboard-home.module.css';
 
 export const DashboardHome = observer((): JSX.Element => {
@@ -17,7 +19,12 @@ export const DashboardHome = observer((): JSX.Element => {
         <HeadTag title="Dashboard" />
         <div className={styles.DashboardContainer}>
           <Calories />
-          <div>Money Graph</div>
+          <div style={{ display: 'grid', placeItems: 'center' }}>
+            <FinanceGraph />
+            <NextLink linkProperties={{ href: '/dashboard/finance' }}>
+              Update
+            </NextLink>
+          </div>
         </div>
       </Container>
     );

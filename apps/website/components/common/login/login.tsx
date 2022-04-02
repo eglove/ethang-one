@@ -24,10 +24,6 @@ export const Login = observer((): JSX.Element => {
   ];
 
   const handleSubmit = async (): Promise<void> => {
-    console.log({
-      email: formState.Email,
-      password: formState.Password,
-    });
     const response = await fetch('/api/login', {
       body: JSON.stringify({
         email: formState.Email,
