@@ -26,6 +26,7 @@ export const useLocalStorage = <ValueType>(
 
   const setValue = (newValue: ValueType): void => {
     try {
+      console.log(newValue);
       globalThis.localStorage?.setItem(keyName, serialize(newValue));
     } catch {
       throw new Error(`Failed to set ${keyName} in local storage.`);

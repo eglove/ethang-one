@@ -79,6 +79,7 @@ specifiers:
   prettier: ^2.6.1
   puppeteer: ~13.5.2
   react: 18.0.0
+  react-circular-progressbar: ^2.0.4
   react-dom: 18.0.0
   react-gist: ^1.2.4
   react-html-parser: ^2.0.2
@@ -130,6 +131,7 @@ dependencies:
   normalize.css: 8.0.1
   nprogress: 0.2.0
   react: 18.0.0
+  react-circular-progressbar: 2.0.4_react@18.0.0
   react-dom: 18.0.0_react@18.0.0
   react-gist: 1.2.4_react@18.0.0
   react-html-parser: 2.0.2_react@18.0.0
@@ -10527,6 +10529,14 @@ packages:
       loader-utils: 2.0.2
       schema-utils: 3.1.1
       webpack: 5.71.0
+
+  /react-circular-progressbar/2.0.4_react@18.0.0:
+    resolution: {integrity: sha512-OfX0ThSxRYEVGaQSt0DlXfyl5w4DbXHsXetyeivmoQrh9xA9bzVPHNf8aAhOIiwiaxX2WYWpLDB3gcpsDJ9oww==}
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      react: 18.0.0
+    dev: false
 
   /react-devtools-core/4.23.0:
     resolution: {integrity: sha512-KkzneT1LczFtebbTJlvRphIRvzuHLhI9ghfrseVv9ktBs+l2cXy8Svw5U16lzQnwU9okVEcURmGPgH79WWrlaw==}

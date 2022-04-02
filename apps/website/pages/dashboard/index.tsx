@@ -1,6 +1,6 @@
 import { createContext, useMemo } from 'react';
 
-import DashboardHome from '../../components/dashboard/dashboard-home';
+import DashboardHome from '../../components/dashboard/dashboard-home/dashboard-home';
 import { Dashboard as DashboardState } from '../../components/dashboard/store/dashboard';
 
 export const DashboardContext = createContext<DashboardState>(

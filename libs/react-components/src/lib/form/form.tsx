@@ -63,6 +63,8 @@ export function Form<StateType extends Record<string, unknown>>(
       if (formProperties.clearFormAfterSubmit === true) {
         formProperties.setInputState(blankState);
       }
+
+      formProperties.postSubmitFunction();
     }
   };
 
