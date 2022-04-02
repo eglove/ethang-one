@@ -14,6 +14,14 @@ export const createHabit = gql`
   }
 `;
 
+export const updateHabitDueDate = gql`
+  mutation UpdateHabitDueDate($dueDate: Date!, $name: String!) {
+    habitUpdate(data: { dueDate: $dueDate }, filter: { name: $name }) {
+      id
+    }
+  }
+`;
+
 export const updateHeight = gql`
   mutation UpdateHeight($id: ID!, $height: Float) {
     personUpdate(filter: { id: $id }, data: { heightIn: $height }) {

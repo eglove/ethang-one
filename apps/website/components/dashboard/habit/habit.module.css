@@ -1,0 +1,8 @@
+.DueHeader {
+  font-weight: bold;
+}
+
+.HabitsDue {
+  display: grid;
+  gap: 0.3rem;
+}

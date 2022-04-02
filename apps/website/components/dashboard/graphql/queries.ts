@@ -12,6 +12,28 @@ export const calorieData = gql`
   }
 `;
 
+export type DueHabits = {
+  habitsList: {
+    items: Array<{
+      dueDate: string;
+      name: string;
+      recurInterval: string;
+    }>;
+  };
+};
+
+export const dueHabits = gql`
+  query DueHabits($dueDate: Date!) {
+    habitsList(filter: { dueDate: { equals: $dueDate } }) {
+      items {
+        dueDate
+        name
+        recurInterval
+      }
+    }
+  }
+`;
+
 export type FinanceData = {
   financeRecordsList: {
     items: Array<{

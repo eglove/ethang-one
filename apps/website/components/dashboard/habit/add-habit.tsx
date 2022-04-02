@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import commonStyles from '../../../styles/common.module.css';
 import { createHabit } from '../graphql/mutations';
+import { dueHabits } from '../graphql/queries';
 
 export function AddHabit(): JSX.Element {
   const [habitCreate] = useMutation(createHabit);
@@ -26,6 +27,14 @@ export function AddHabit(): JSX.Element {
 
   const handleCreateHabit = (): void => {
     habitCreate({
+      refetchQueries: [
+        {
+          query: dueHabits,
+          variables: {
+            dueDate: new Date().toISOString().split('T')[0],
+          },
+        },
+      ],
       variables: {
         dueDate: formState.StartDate,
         name: formState.Name,
