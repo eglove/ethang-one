@@ -18,7 +18,6 @@ export function FinanceGraph(): JSX.Element {
   >([]);
 
   useQuery<FinanceData>(financeData, {
-    fetchPolicy: 'cache-and-network',
     onCompleted(data) {
       // {date: [{accountName: currentValue}]}
       const restructuredData: Record<string, Record<string, number>> = {};
