@@ -1,10 +1,12 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { Form, FormInput } from '@ethang/react-components';
+import { addDays } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import { Container } from '../../../components/common/container/container';
 import { updateFinanceRecords } from '../../../components/dashboard/graphql/mutations';
 import {
+  financeData,
   FinanceStatuses,
   financeStatuses,
 } from '../../../components/dashboard/graphql/queries';
@@ -89,6 +91,15 @@ function Finance(): JSX.Element {
     ];
 
     updateRecords({
+      refetchQueries: [
+        {
+          query: financeData,
+          variables: {
+            oneMonthAgo: addDays(new Date(), -30).toISOString().split('T')[0],
+            today: new Date().toISOString().split('T')[0],
+          },
+        },
+      ],
       variables: {
         data: dataVariable,
       },
