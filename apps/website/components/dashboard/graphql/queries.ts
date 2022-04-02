@@ -24,7 +24,7 @@ export type DueHabits = {
 
 export const dueHabits = gql`
   query DueHabits($dueDate: Date!) {
-    habitsList(filter: { dueDate: { equals: $dueDate } }) {
+    habitsList(filter: { dueDate: { lte: $dueDate } }) {
       items {
         dueDate
         name

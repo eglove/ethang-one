@@ -26,10 +26,10 @@ jobs:
       - run: npx nx affected --target=build --base=develop --head=HEAD
         env:
           NX_8BASE_API_TOKEN: ${{ secrets.NX_8BASE_API_ADMIN_TOKEN }}
-      - run: npx nx affected --target=test
+      - run: npx nx affected --target=test --base=develop --head=HEAD
         env:
           NX_8BASE_API_TOKEN: ${{ secrets.NX_8BASE_API_ADMIN_TOKEN }}
-      - run: npx nx affected --target=e2e
+      - run: npx nx affected --target=e2e --base=develop --head=HEAD
         env:
           NX_8BASE_API_TOKEN: ${{ secrets.NX_8BASE_API_ADMIN_TOKEN }}
 
