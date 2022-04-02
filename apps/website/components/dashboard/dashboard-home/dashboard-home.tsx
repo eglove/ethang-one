@@ -8,6 +8,7 @@ import { HeadTag } from '../../common/head-tag/head-tag';
 import { Login } from '../../common/login/login';
 import { Calories } from '../calories';
 import { FinanceGraph } from '../finance-graph/finance-graph';
+import { AddHabit } from '../habit/add-habit';
 import styles from './dashboard-home.module.css';
 
 export const DashboardHome = observer((): JSX.Element => {
@@ -25,7 +26,9 @@ export const DashboardHome = observer((): JSX.Element => {
               Update
             </NextLink>
           </div>
+          <div />
         </div>
+        <AddHabit />
       </Container>
     );
   }

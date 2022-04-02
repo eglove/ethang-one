@@ -756,6 +756,7 @@ type GroupByResponse {
     FinanceRecordGroup(after: String, before: String, filter: FinanceRecordFilter, first: Int, groupBy: FinanceRecordGroupBy, last: Int, orderBy: [FinanceRecordOrderBy], skip: Int, sort: [FinanceRecordSort!]): FinanceRecordListResponse!
     Float: Float
     GroupIds: [ID!]
+    HabitGroup(after: String, before: String, filter: HabitFilter, first: Int, groupBy: HabitGroupBy, last: Int, orderBy: [HabitOrderBy], skip: Int, sort: [HabitSort!]): HabitListResponse!
     ID: ID
     ImageGroup(after: String, before: String, filter: ImageFilter, first: Int, groupBy: ImageGroupBy, last: Int, orderBy: [ImageOrderBy], skip: Int, sort: [ImageSort!]): ImageListResponse!
     Int: Int
@@ -766,6 +767,44 @@ type GroupByResponse {
     String: String
     TechnologyLogoGroup(after: String, before: String, filter: TechnologyLogoFilter, first: Int, groupBy: TechnologyLogoGroupBy, last: Int, orderBy: [TechnologyLogoOrderBy], skip: Int, sort: [TechnologyLogoSort!]): TechnologyLogoListResponse!
     UserGroup(after: String, before: String, filter: UserFilter, first: Int, groupBy: UserGroupBy, last: Int, orderBy: [UserOrderBy], skip: Int, sort: [UserSort!]): UserListResponse!
+}
+
+type Habit {
+    _description: String
+    createdAt: DateTime
+    createdBy: User
+    deletedAt: Int
+    dueDate: Date
+    id: ID
+    name: String
+    recurInterval: String
+    updatedAt: DateTime
+}
+
+"HabitListResponse output"
+type HabitListResponse {
+    "List items count"
+    count: Int!
+    "Aggregated items"
+    groups: [GroupByResponse!]!
+    "List items"
+    items: [Habit!]!
+}
+
+"HabitManyResponse output"
+type HabitManyResponse {
+    "List items count"
+    count: Int!
+    "List items"
+    items: [Habit!]!
+}
+
+"Habit subscription payload"
+type HabitPayload {
+    mutation: MutationType!
+    node: Habit
+    previousValues: Habit
+    updatedFields: [String]
 }
 
 type Image {
@@ -934,6 +973,15 @@ type Mutation {
     financeRecordRestore(id: String!): FinanceRecord!
     financeRecordUpdate(data: FinanceRecordUpdateInput!, destroyDetached: Boolean, filter: FinanceRecordKeyFilter, force: Boolean): FinanceRecord!
     financeRecordUpdateByFilter(data: FinanceRecordUpdateByFilterInput!, filter: FinanceRecordFilter): FinanceRecordManyResponse!
+    habitCreate(data: HabitCreateInput!): Habit!
+    habitCreateMany(data: [HabitCreateManyInput]!): HabitManyResponse!
+    habitDelete(data: HabitDeleteInput, filter: HabitKeyFilter, force: Boolean): SuccessResponse
+    habitDeleteByFilter(filter: HabitFilter!, force: Boolean): SuccessResponse
+    habitDestroy(filter: HabitKeyFilter, force: Boolean): SuccessResponse
+    habitDestroyByFilter(filter: HabitFilter!, force: Boolean): SuccessResponse
+    habitRestore(id: String!): Habit!
+    habitUpdate(data: HabitUpdateInput!, destroyDetached: Boolean, filter: HabitKeyFilter, force: Boolean): Habit!
+    habitUpdateByFilter(data: HabitUpdateByFilterInput!, filter: HabitFilter): HabitManyResponse!
     imageCreate(data: ImageCreateInput!): Image!
     imageCreateMany(data: [ImageCreateManyInput]!): ImageManyResponse!
     imageDelete(data: ImageDeleteInput, filter: ImageKeyFilter, force: Boolean): SuccessResponse
@@ -1139,6 +1187,8 @@ type Query {
     financeRecord(id: ID, withDeleted: Boolean): FinanceRecord
     financeRecordsList(after: String, before: String, filter: FinanceRecordFilter, first: Int, groupBy: FinanceRecordGroupBy, last: Int, orderBy: [FinanceRecordOrderBy], skip: Int, sort: [FinanceRecordSort!], withDeleted: Boolean): FinanceRecordListResponse!
     functionsList(applicationId: String, filter: FunctionInfoFilter, orderBy: [FunctionInfoOrderBy]): FunctionListResponse @deprecated(reason: "No longer supported. Use `system.functionsList` instead.")
+    habit(id: ID, withDeleted: Boolean): Habit
+    habitsList(after: String, before: String, filter: HabitFilter, first: Int, groupBy: HabitGroupBy, last: Int, orderBy: [HabitOrderBy], skip: Int, sort: [HabitSort!], withDeleted: Boolean): HabitListResponse!
     image(id: ID, withDeleted: Boolean): Image
     imagesList(after: String, before: String, filter: ImageFilter, first: Int, groupBy: ImageGroupBy, last: Int, orderBy: [ImageOrderBy], skip: Int, sort: [ImageSort!], withDeleted: Boolean): ImageListResponse!
     logs(applicationId: String, endTime: DateTime, functionName: String!, limit: Int, startTime: DateTime): [String] @deprecated(reason: "No longer supported. Use `system.logsList` instead.")
@@ -1325,6 +1375,7 @@ type Subscription {
     EnvironmentVariables(filter: EnvironmentVariableSubscriptionFilter): EnvironmentVariablePayload
     Files(filter: FileSubscriptionFilter): FilePayload
     FinanceRecord(filter: FinanceRecordSubscriptionFilter): FinanceRecordPayload
+    Habit(filter: HabitSubscriptionFilter): HabitPayload
     Image(filter: ImageSubscriptionFilter): ImagePayload
     Permissions(filter: PermissionSubscriptionFilter): PermissionPayload
     Person(filter: PersonSubscriptionFilter): PersonPayload
@@ -2915,6 +2966,24 @@ enum FunctionType {
     task
     trigger
     webhook
+}
+
+"No longer supported. Use `sort` instead."
+enum HabitOrderBy {
+    createdAt_ASC
+    createdAt_DESC
+    deletedAt_ASC
+    deletedAt_DESC
+    dueDate_ASC
+    dueDate_DESC
+    id_ASC
+    id_DESC
+    name_ASC
+    name_DESC
+    recurInterval_ASC
+    recurInterval_DESC
+    updatedAt_ASC
+    updatedAt_DESC
 }
 
 "No longer supported. Use `sort` instead."
@@ -5305,6 +5374,120 @@ input GroupIdentifiersGroupByField {
     as: String!
 }
 
+"Habit create input"
+input HabitCreateInput {
+    dueDate: Date!
+    name: String!
+    recurInterval: String!
+}
+
+"Habit create many input"
+input HabitCreateManyInput {
+    dueDate: Date!
+    name: String!
+    recurInterval: String!
+}
+
+"Habit delete input"
+input HabitDeleteInput {
+    force: Boolean
+    id: ID
+}
+
+"HabitFieldsPermissions create input"
+input HabitFieldsPermissions {
+    createdAt: Boolean
+    dueDate: Boolean
+    name: Boolean
+    recurInterval: Boolean
+    updatedAt: Boolean
+}
+
+input HabitFilter {
+    AND: [HabitFilter!]
+    OR: [HabitFilter!]
+    _fullText: String
+    createdAt: DateTimePredicate
+    createdBy: UserFilter
+    deletedAt: IntPredicate
+    dueDate: DatePredicate
+    id: IDPredicate
+    name: StringPredicate
+    recurInterval: StringPredicate
+    updatedAt: DateTimePredicate
+}
+
+input HabitGroupBy {
+    first: Int
+    having: Having
+    last: Int
+    query: HabitGroupByQuery!
+    skip: Int
+    sort: [GroupBySort!]
+}
+
+input HabitGroupByQuery {
+    _group: [GroupIdentifiersGroupByField!]
+    createdAt: [GroupByField!]
+    createdBy: UserGroupByQuery
+    dueDate: [GroupByField!]
+    id: [GroupByField!]
+    name: [GroupByField!]
+    recurInterval: [GroupByField!]
+    updatedAt: [GroupByField!]
+}
+
+input HabitKeyFilter {
+    id: ID
+}
+
+input HabitSort {
+    createdAt: SortOrder
+    createdBy: UserSort
+    deletedAt: SortOrder
+    dueDate: SortOrder
+    id: SortOrder
+    name: SortOrder
+    recurInterval: SortOrder
+    updatedAt: SortOrder
+}
+
+"Habit subscription filter"
+input HabitSubscriptionFilter {
+    mutation_in: [MutationType]
+    node: HabitFilter
+    updatedFields: UpdatedFieldsFilter
+}
+
+"Habit update input"
+input HabitUpdateByFilterInput {
+    dueDate: [UpdateByFilterDateInput]
+    name: [UpdateByFilterStringInput]
+    recurInterval: [UpdateByFilterStringInput]
+}
+
+"Habit update input"
+input HabitUpdateInput {
+    dueDate: Date
+    id: ID
+    name: String
+    recurInterval: String
+}
+
+input Habit_PermissionFilter {
+    AND: [Habit_PermissionFilter!]
+    OR: [Habit_PermissionFilter!]
+    _fullText: String
+    createdAt: DateTimePredicate
+    createdBy: User_PermissionFilter
+    deletedAt: IntPredicate
+    dueDate: DatePredicate
+    id: IDPredicate
+    name: StringPredicate
+    recurInterval: StringPredicate
+    updatedAt: DateTimePredicate
+}
+
 input Having {
     AND: [Having!]
     OR: [Having!]
@@ -5960,6 +6143,7 @@ input PermissionsData {
     CourseUrl: PermissionsDataCourseUrl
     Files: PermissionsDataFiles
     FinanceRecord: PermissionsDataFinanceRecord
+    Habit: PermissionsDataHabit
     Image: PermissionsDataImage
     Person: PermissionsDataPerson
     Roles: PermissionsDataRoles
@@ -6136,6 +6320,40 @@ input PermissionsDataFinanceRecordUpdate {
     allow: Boolean!
     fields: FinanceRecordFieldsPermissions
     filter: FinanceRecord_PermissionFilter
+}
+
+input PermissionsDataHabit {
+    create: PermissionsDataHabitCreate
+    delete: PermissionsDataHabitDelete
+    destroy: PermissionsDataHabitDestroy
+    read: PermissionsDataHabitRead
+    update: PermissionsDataHabitUpdate
+}
+
+input PermissionsDataHabitCreate {
+    allow: Boolean!
+}
+
+input PermissionsDataHabitDelete {
+    allow: Boolean!
+    restore: Boolean
+    review: Boolean
+}
+
+input PermissionsDataHabitDestroy {
+    allow: Boolean!
+}
+
+input PermissionsDataHabitRead {
+    allow: Boolean!
+    fields: HabitFieldsPermissions
+    filter: Habit_PermissionFilter
+}
+
+input PermissionsDataHabitUpdate {
+    allow: Boolean!
+    fields: HabitFieldsPermissions
+    filter: Habit_PermissionFilter
 }
 
 input PermissionsDataImage {

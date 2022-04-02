@@ -1,5 +1,19 @@
 import { gql } from '@apollo/client';
 
+export const createHabit = gql`
+  mutation CreateHabit(
+    $name: String!
+    $dueDate: Date!
+    $recurInterval: String!
+  ) {
+    habitCreate(
+      data: { name: $name, dueDate: $dueDate, recurInterval: $recurInterval }
+    ) {
+      id
+    }
+  }
+`;
+
 export const updateHeight = gql`
   mutation UpdateHeight($id: ID!, $height: Float) {
     personUpdate(filter: { id: $id }, data: { heightIn: $height }) {
