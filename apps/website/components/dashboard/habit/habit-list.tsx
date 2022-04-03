@@ -25,7 +25,7 @@ export function HabitList(): JSX.Element {
     const nextDueDate = eightBaseFormatTime(
       new Date(
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        new Date(habit.dueDate).getTime() + Number(ms(habit.recurInterval))
+        Date.now() + Number(ms(habit.recurInterval))
       )
     );
 
