@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { Form, FormInput } from '@ethang/react-components';
-import { addDays } from '@ethang/util-typescript';
+import { addDays, eightBaseFormatTime } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import { Container } from '../../../components/common/container/container';
@@ -61,32 +61,32 @@ function Finance(): JSX.Element {
       {
         accountName: Account.USAA_CHECKING,
         currentValue: Number(formState[Account.USAA_CHECKING]),
-        recordedDate: new Date().toISOString().split('T')[0],
+        recordedDate: eightBaseFormatTime(),
       },
       {
         accountName: Account.USAA_SAVINGS,
         currentValue: Number(formState[Account.USAA_SAVINGS]),
-        recordedDate: new Date().toISOString().split('T')[0],
+        recordedDate: eightBaseFormatTime(),
       },
       {
         accountName: Account.CHASE_CC,
         currentValue: Number(formState[Account.CHASE_CC]),
-        recordedDate: new Date().toISOString().split('T')[0],
+        recordedDate: eightBaseFormatTime(),
       },
       {
         accountName: Account.LIGHTSTREAM,
         currentValue: Number(formState[Account.LIGHTSTREAM]),
-        recordedDate: new Date().toISOString().split('T')[0],
+        recordedDate: eightBaseFormatTime(),
       },
       {
         accountName: Account.E_TORO,
         currentValue: Number(formState[Account.E_TORO]),
-        recordedDate: new Date().toISOString().split('T')[0],
+        recordedDate: eightBaseFormatTime(),
       },
       {
         accountName: Account.LENDING_CLUB,
         currentValue: Number(formState[Account.LENDING_CLUB]),
-        recordedDate: new Date().toISOString().split('T')[0],
+        recordedDate: eightBaseFormatTime(),
       },
     ];
 
@@ -95,8 +95,8 @@ function Finance(): JSX.Element {
         {
           query: financeData,
           variables: {
-            oneMonthAgo: addDays(new Date(), -30).toISOString().split('T')[0],
-            today: new Date().toISOString().split('T')[0],
+            oneMonthAgo: eightBaseFormatTime(addDays(new Date(), -30)),
+            today: eightBaseFormatTime(),
           },
         },
       ],

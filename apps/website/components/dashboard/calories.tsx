@@ -1,12 +1,11 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { Constant, ENV_KEYS } from '@ethang/node-environment';
 import { Form, FormInput, InputType } from '@ethang/react-components';
-import { useLocalStorage } from '@ethang/react-hooks';
+import { useLocalStorage, usePrevious } from '@ethang/react-hooks';
 import { ageFromBirthday } from '@ethang/util-typescript';
 import { useEffect, useState } from 'react';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
-import { usePrevious } from '../../../../libs/react-hooks/src/lib/use-previous';
 import { Person } from '../../graphql/types';
 import commonStyles from '../../styles/common.module.css';
 import { HeadTag } from '../common/head-tag/head-tag';

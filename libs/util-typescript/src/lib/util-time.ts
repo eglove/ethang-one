@@ -118,6 +118,22 @@ export const defaultDateTimeInputFormat = (
   return `${newDate.getFullYear()}-${month}-${dateDay}T${hours}:${minutes}`;
 };
 
+export const eightBaseFormatTime = (fromDate?: Date): string => {
+  let date = new Date();
+  if (typeof fromDate !== 'undefined') {
+    date = fromDate;
+  }
+
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  const monthString = String(month).length === 1 ? `0${month}` : month;
+  const dayString = String(day).length === 1 ? `0${day}` : day;
+
+  return `${year}-${monthString}-${dayString}`;
+};
+
 export const humanReadableLocalDateTime = (dateTime: Date | string): string => {
   const options = {
     day: 'numeric',
