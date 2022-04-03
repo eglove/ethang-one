@@ -1,5 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { Form, FormInput, InputType } from '@ethang/react-components';
+import { eightBaseFormatTime } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import commonStyles from '../../../styles/common.module.css';
@@ -31,7 +32,7 @@ export function AddHabit(): JSX.Element {
         {
           query: dueHabits,
           variables: {
-            dueDate: new Date().toISOString().split('T')[0],
+            dueDate: eightBaseFormatTime(),
           },
         },
       ],

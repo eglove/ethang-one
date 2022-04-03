@@ -1,4 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client';
+import { eightBaseFormatTime } from '@ethang/util-typescript';
 import ms from 'ms';
 import { ChangeEvent } from 'react';
 
@@ -11,7 +12,7 @@ export function HabitList(): JSX.Element {
 
   const { data } = useQuery<DueHabits>(dueHabits, {
     variables: {
-      dueDate: new Date().toISOString().split('T')[0],
+      dueDate: eightBaseFormatTime(),
     },
   });
 
@@ -21,19 +22,19 @@ export function HabitList(): JSX.Element {
       name: string;
       recurInterval: string;
     };
-    const nextDueDate = new Date(
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      new Date(habit.dueDate).getTime() + Number(ms(habit.recurInterval))
-    )
-      .toISOString()
-      .split('T')[0];
+    const nextDueDate = eightBaseFormatTime(
+      new Date(
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        new Date(habit.dueDate).getTime() + Number(ms(habit.recurInterval))
+      )
+    );
 
     updateDueDate({
       refetchQueries: [
         {
           query: dueHabits,
           variables: {
-            dueDate: new Date().toISOString().split('T')[0],
+            dueDate: eightBaseFormatTime(),
           },
         },
       ],

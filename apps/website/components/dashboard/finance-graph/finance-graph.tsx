@@ -1,5 +1,9 @@
 import { useQuery } from '@apollo/client';
-import { addDays, currencyFormat } from '@ethang/util-typescript';
+import {
+  addDays,
+  currencyFormat,
+  eightBaseFormatTime,
+} from '@ethang/util-typescript';
 import { useState } from 'react';
 import {
   CartesianGrid,
@@ -53,8 +57,8 @@ export function FinanceGraph(): JSX.Element {
       });
     },
     variables: {
-      oneMonthAgo: addDays(new Date(), -30).toISOString().split('T')[0],
-      today: new Date().toISOString().split('T')[0],
+      oneMonthAgo: eightBaseFormatTime(addDays(new Date(), -30)),
+      today: eightBaseFormatTime(),
     },
   });
 
@@ -71,12 +75,7 @@ export function FinanceGraph(): JSX.Element {
       })}
 
       <CartesianGrid />
-      <XAxis
-        dataKey="date"
-        tickFormatter={(tickItem: string): string => {
-          return new Date(tickItem).toLocaleDateString();
-        }}
-      />
+      <XAxis dataKey="date" />
       <YAxis
         tickFormatter={(tickItem: string): string => {
           return currencyFormat(Number(tickItem));
