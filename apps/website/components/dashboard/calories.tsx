@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { Constant, ENV_KEYS } from '@ethang/node-environment';
 import { Form, FormInput, InputType } from '@ethang/react-components';
-import { useLocalStorage, usePrevious } from '@ethang/react-hooks';
+import { useLocalStorage } from '@ethang/react-hooks';
 import { ageFromBirthday } from '@ethang/util-typescript';
 import { useEffect, useState } from 'react';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
@@ -20,8 +20,6 @@ type MyData = {
 };
 
 export function Calories(): JSX.Element {
-  const [weight, setWeight] = useState(0);
-  const previousWeight = usePrevious(weight);
   const [calories, setCalories] = useState<number>(0);
   const [formState, setFormState] = useState({ AddCalories: 0, Weight: 0 });
   const [todaysCalories, setTodaysCalories] = useLocalStorage<number>(
@@ -37,7 +35,7 @@ export function Calories(): JSX.Element {
 
   const formInputs = [
     new FormInput('Weight', {
-      inputProperties: { required: true },
+      inputProperties: { required: true, step: '0.01' },
       type: InputType.number,
     }),
     new FormInput('AddCalories', {
@@ -49,6 +47,7 @@ export function Calories(): JSX.Element {
   const [handleUpdateWeight, { loading }] = useMutation(updateWeight);
 
   useQuery<MyData>(calorieData, {
+    fetchPolicy: 'cache-and-network',
     onCompleted(data_) {
       setFormState(formState_ => {
         return {
@@ -56,7 +55,7 @@ export function Calories(): JSX.Element {
           Weight: data_.person.weightLbs,
         };
       });
-      setWeight(data_.person.weightLbs);
+
       const weightInKg = data_.person.weightLbs * 0.453_592;
       const heightInCm = data_.person.heightIn * 2.54;
       const age = ageFromBirthday(data_.person.birthday);
@@ -70,14 +69,25 @@ export function Calories(): JSX.Element {
   const onWeightChange = (): void => {
     const rounded = Number(Number(formState.Weight).toFixed(2));
     setTodaysCalories(Number(todaysCalories) + formState.AddCalories);
+    formState.AddCalories = 0;
 
-    if (weight !== previousWeight) {
-      handleUpdateWeight({
-        variables: { id: constants.get(ENV_KEYS.MY_ID), weight: rounded },
-      }).catch((error: Error) => {
-        console.error(error);
-      });
-    }
+    handleUpdateWeight({
+      refetchQueries: [
+        {
+          query: calorieData,
+          variables: {
+            id: constants.get(ENV_KEYS.MY_ID),
+          },
+        },
+      ],
+      variables: { id: constants.get(ENV_KEYS.MY_ID), weight: rounded },
+    }).catch((error: Error) => {
+      console.error(error);
+    });
+  };
+
+  const onReset = (): void => {
+    formState.AddCalories = 0;
   };
 
   return (
@@ -93,7 +103,9 @@ export function Calories(): JSX.Element {
             inputObjects={formInputs}
             inputState={formState}
             setInputState={setFormState}
+            cancelButtonText="Clear"
             submitButtonText={loading ? 'Saving' : 'Save'}
+            cancelButtonFunction={onReset}
             postSubmitFunction={onWeightChange}
             formProperties={{
               className: commonStyles.Form,
