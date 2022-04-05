@@ -33,7 +33,7 @@ export function Form<StateType extends Record<string, unknown>>(
     };
 
     if (type === 'number' && typeof value === 'string') {
-      value = Number.parseInt(value, 10);
+      value = Number.parseFloat(value);
     }
 
     if (type === 'file') {
