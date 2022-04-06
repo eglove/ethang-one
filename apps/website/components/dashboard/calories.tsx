@@ -87,7 +87,6 @@ export function Calories(): JSX.Element {
   };
 
   const onReset = (): void => {
-    console.log('hi');
     setTodaysCalories(0);
   };
 
