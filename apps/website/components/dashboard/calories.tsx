@@ -87,7 +87,8 @@ export function Calories(): JSX.Element {
   };
 
   const onReset = (): void => {
-    formState.AddCalories = 0;
+    console.log('hi');
+    setTodaysCalories(0);
   };
 
   return (
@@ -103,10 +104,11 @@ export function Calories(): JSX.Element {
             inputObjects={formInputs}
             inputState={formState}
             setInputState={setFormState}
-            cancelButtonText="Clear"
+            cancelButtonText="Reset"
             submitButtonText={loading ? 'Saving' : 'Save'}
-            cancelButtonFunction={onReset}
             postSubmitFunction={onWeightChange}
+            cancelButtonProperties={{ onClick: onReset }}
+            submitButtonProperties={{ style: { marginLeft: '0.3rem' } }}
             formProperties={{
               className: commonStyles.Form,
             }}
