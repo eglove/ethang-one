@@ -13,7 +13,6 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 import { Person } from '../../graphql/types';
 import commonStyles from '../../styles/common.module.css';
-import { HeadTag } from '../common/head-tag/head-tag';
 import { updateWeight } from './graphql/mutations';
 import { calorieData } from './graphql/queries';
 
