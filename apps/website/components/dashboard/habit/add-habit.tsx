@@ -1,5 +1,10 @@
 import { useMutation } from '@apollo/client';
-import { Form, FormInput, InputType } from '@ethang/react-components';
+import {
+  InputType,
+  SimpleForm,
+  simpleFormButtons,
+  simpleFormInputs,
+} from '@ethang/react-components';
 import { eightBaseFormatTime } from '@ethang/util-typescript';
 import { useState } from 'react';
 
@@ -15,16 +20,27 @@ export function AddHabit(): JSX.Element {
     StartDate: undefined,
   });
 
-  const formInputs = [
-    new FormInput('Name', { inputProperties: { required: true } }),
-    new FormInput('RecurInterval', {
+  const inputs = simpleFormInputs([
+    {
       inputProperties: { required: true },
-    }),
-    new FormInput('StartDate', {
+      name: 'Name',
+    },
+    {
       inputProperties: { required: true },
-      type: InputType.date,
-    }),
-  ];
+      name: 'RecurInterval',
+    },
+    {
+      inputProperties: { required: true },
+      inputType: InputType.date,
+      name: 'StartDate',
+    },
+  ]);
+
+  const buttons = simpleFormButtons([
+    {
+      name: 'Add Habit',
+    },
+  ]);
 
   const handleCreateHabit = (): void => {
     habitCreate({
@@ -48,8 +64,9 @@ export function AddHabit(): JSX.Element {
 
   return (
     <div>
-      <Form
+      <SimpleForm
         clearFormAfterSubmit
+        buttons={buttons}
         fieldsetProperties={{
           style: {
             alignItems: 'flex-end',
@@ -60,11 +77,10 @@ export function AddHabit(): JSX.Element {
         formProperties={{
           className: commonStyles.Form,
         }}
-        inputObjects={formInputs}
-        inputState={formState}
-        setInputState={setFormState}
-        submitButtonText="Add Habit"
+        formState={formState}
+        inputs={inputs}
         postSubmitFunction={handleCreateHabit}
+        setFormState={setFormState}
       />
     </div>
   );

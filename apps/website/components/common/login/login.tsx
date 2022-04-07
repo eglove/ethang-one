@@ -14,11 +14,11 @@ export const Login = observer((): JSX.Element => {
 
   const formInputs = [
     new FormInput('Email', {
-      inputProperties: { autocomplete: 'email', required: true },
+      inputProperties: { autoComplete: 'email', required: true },
       type: InputType.email,
     }),
     new FormInput('Password', {
-      inputProperties: { autocomplete: 'password', required: true },
+      inputProperties: { autoComplete: 'password', required: true },
       type: InputType.password,
     }),
   ];
