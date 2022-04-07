@@ -64,7 +64,7 @@
     "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@nrwl/angular": "13.9.7",
-    "@nrwl/cypress": "13.9.7",
+    "@nrwl/cypress": "13.10.0",
     "@nrwl/devkit": "13.9.7",
     "@nrwl/eslint-plugin-nx": "13.9.7",
     "@nrwl/jest": "13.9.7",
