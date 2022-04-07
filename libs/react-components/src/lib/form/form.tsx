@@ -1,10 +1,9 @@
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from 'react';
 
+import { InputType } from '../simple-form/types';
 import { FormInput } from './form-input';
-import { InputType } from './types';
 
 interface FormProperties<StateType> {
-  cancelButtonFunction?: () => void;
   cancelButtonText?: string;
   cancelButtonProperties?: JSX.IntrinsicElements['button'];
   clearFormAfterSubmit?: boolean;
@@ -139,12 +138,11 @@ export function Form<StateType extends Record<string, unknown>>(
             {formProperties.submitButtonText ?? 'Submit'}
           </button>
         )}
-        {formProperties.cancelButtonFunction &&
-          formProperties.hideCancelButton !== true && (
-            <button type="button" {...formProperties.cancelButtonProperties}>
-              {formProperties.cancelButtonText}
-            </button>
-          )}
+        {formProperties.hideCancelButton !== true && (
+          <button type="button" {...formProperties.cancelButtonProperties}>
+            {formProperties.cancelButtonText}
+          </button>
+        )}
       </fieldset>
     </form>
   );
