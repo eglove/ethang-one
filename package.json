@@ -61,7 +61,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
     "@nrwl/angular": "13.9.7",
     "@nrwl/cypress": "13.9.7",
@@ -71,7 +71,6 @@
     "@nrwl/linter": "13.9.7",
     "@nrwl/next": "13.9.7",
     "@nrwl/node": "13.9.7",
-    "@nrwl/nx": "^7.8.7",
     "@nrwl/nx-cloud": "13.2.2",
     "@nrwl/react": "13.9.7",
     "@nrwl/storybook": "13.9.7",
