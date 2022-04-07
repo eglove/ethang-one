@@ -1,6 +1,11 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { Constant, ENV_KEYS } from '@ethang/node-environment';
-import { Form, FormInput, InputType } from '@ethang/react-components';
+import {
+  InputType,
+  SimpleForm,
+  simpleFormButtons,
+  simpleFormInputs,
+} from '@ethang/react-components';
 import { useLocalStorage } from '@ethang/react-hooks';
 import { ageFromBirthday } from '@ethang/util-typescript';
 import { useEffect, useState } from 'react';
@@ -27,24 +32,14 @@ export function Calories(): JSX.Element {
     0
   );
 
+  const constants = new Constant();
+  const [handleUpdateWeight, { loading }] = useMutation(updateWeight);
+
   useEffect(() => {
     setFormState(formState_ => {
       return { ...formState_, CaloriesToday: todaysCalories };
     });
   }, [todaysCalories]);
-
-  const formInputs = [
-    new FormInput('Weight', {
-      inputProperties: { required: true, step: '0.01' },
-      type: InputType.number,
-    }),
-    new FormInput('AddCalories', {
-      type: InputType.number,
-    }),
-  ];
-
-  const constants = new Constant();
-  const [handleUpdateWeight, { loading }] = useMutation(updateWeight);
 
   useQuery<MyData>(calorieData, {
     fetchPolicy: 'cache-and-network',
@@ -66,7 +61,7 @@ export function Calories(): JSX.Element {
     },
   });
 
-  const onWeightChange = (): void => {
+  const onUpdate = (): void => {
     const rounded = Number(Number(formState.Weight).toFixed(2));
     setTodaysCalories(Number(todaysCalories) + formState.AddCalories);
     formState.AddCalories = 0;
@@ -90,6 +85,32 @@ export function Calories(): JSX.Element {
     setTodaysCalories(0);
   };
 
+  const formInputs = simpleFormInputs([
+    {
+      inputProperties: { required: true, step: '0.01' },
+      inputType: InputType.number,
+      name: 'Weight',
+    },
+    {
+      inputType: InputType.number,
+      name: 'AddCalories',
+    },
+  ]);
+
+  const buttons = simpleFormButtons([
+    {
+      name: 'Clear',
+      properties: {
+        onClick: onReset,
+      },
+    },
+    {
+      buttonText: loading ? 'Saving' : 'Save',
+      name: 'Save',
+      properties: { style: { marginLeft: '0.3rem' }, type: 'submit' },
+    },
+  ]);
+
   return (
     <>
       <HeadTag title="Profile" />
@@ -99,18 +120,13 @@ export function Calories(): JSX.Element {
           value={todaysCalories}
           strokeWidth={3}
         >
-          <Form
-            inputObjects={formInputs}
-            inputState={formState}
-            setInputState={setFormState}
-            cancelButtonText="Reset"
-            submitButtonText={loading ? 'Saving' : 'Save'}
-            postSubmitFunction={onWeightChange}
-            cancelButtonProperties={{ onClick: onReset }}
-            submitButtonProperties={{ style: { marginLeft: '0.3rem' } }}
-            formProperties={{
-              className: commonStyles.Form,
-            }}
+          <SimpleForm
+            buttons={buttons}
+            formState={formState}
+            formProperties={{ className: commonStyles.Form }}
+            inputs={formInputs}
+            postSubmitFunction={onUpdate}
+            setFormState={setFormState}
           />
           <div>{Number(calories.toFixed(0)) - todaysCalories} left</div>
         </CircularProgressbarWithChildren>

@@ -15,7 +15,11 @@
   border: none;
 }
 
-.Form div label span::after {
+.Form label {
+  display: block;
+}
+
+.Form label span::after {
   white-space: pre;
   content: ": \a";
 }

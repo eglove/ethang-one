@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/dot-notation */
 import { toCapitalizedWords } from '@ethang/util-typescript';
 
-import { InputType } from './types';
+import { InputType } from '../simple-form/types';
 
 type SelectOption = {
   label: string;

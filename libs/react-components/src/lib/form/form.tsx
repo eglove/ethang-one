@@ -1,7 +1,7 @@
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from 'react';
 
+import { InputType } from '../simple-form/types';
 import { FormInput } from './form-input';
-import { InputType } from './types';
 
 interface FormProperties<StateType> {
   cancelButtonText?: string;
