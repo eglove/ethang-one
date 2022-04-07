@@ -47,17 +47,17 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
+    if (formProperties.clearFormAfterSubmit === true) {
+      const blankState = Object.fromEntries(
+        Object.entries(formProperties.formState).map(([key]) => {
+          return [key, ''];
+        })
+      ) as unknown as StateType;
+
+      formProperties.setFormState(blankState);
+    }
+
     if (typeof formProperties.postSubmitFunction !== 'undefined') {
-      if (formProperties.clearFormAfterSubmit === true) {
-        const blankState = Object.fromEntries(
-          Object.entries(formProperties.formState).map(([key]) => {
-            return [key, ''];
-          })
-        ) as unknown as StateType;
-
-        formProperties.setFormState(blankState);
-      }
-
       formProperties.postSubmitFunction();
     }
   };

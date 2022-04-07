@@ -112,25 +112,22 @@ export function Calories(): JSX.Element {
   ]);
 
   return (
-    <>
-      <HeadTag title="Profile" />
-      <div style={{ width: 'max-content' }}>
-        <CircularProgressbarWithChildren
-          maxValue={calories}
-          value={todaysCalories}
-          strokeWidth={3}
-        >
-          <SimpleForm
-            buttons={buttons}
-            formState={formState}
-            formProperties={{ className: commonStyles.Form }}
-            inputs={formInputs}
-            postSubmitFunction={onUpdate}
-            setFormState={setFormState}
-          />
-          <div>{Number(calories.toFixed(0)) - todaysCalories} left</div>
-        </CircularProgressbarWithChildren>
-      </div>
-    </>
+    <div style={{ width: 'max-content' }}>
+      <CircularProgressbarWithChildren
+        maxValue={calories}
+        value={todaysCalories}
+        strokeWidth={3}
+      >
+        <SimpleForm
+          buttons={buttons}
+          formState={formState}
+          formProperties={{ className: commonStyles.Form }}
+          inputs={formInputs}
+          postSubmitFunction={onUpdate}
+          setFormState={setFormState}
+        />
+        <div>{Number(calories.toFixed(0)) - todaysCalories} left</div>
+      </CircularProgressbarWithChildren>
+    </div>
   );
 }
