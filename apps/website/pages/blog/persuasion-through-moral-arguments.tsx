@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
@@ -37,13 +38,13 @@ function PersuasionThroughMoralArguments({
       </p>
       <p>
         In the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://en.wikipedia.org/wiki/Moral_foundations_theory',
           }}
         >
           moral foundations theory
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         Jonathan Haidt and Craig Joseph propose six foundations of moral
         reasoning. Care, fairness, loyalty, authority, and sanctity.
       </p>
@@ -96,13 +97,13 @@ function PersuasionThroughMoralArguments({
         <strong>fighting &lsquo;external threats&rsquo;</strong> to maintain
         dominance, Haidt suggests that humans have evolved what he calls a
         &lsquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.psychologytoday.com/blog/hidden-motives/201210/the-hive-hypothesis',
           }}
         >
           hive switch.
-        </LinkComponent>
+        </NextLink>
         &rsquo;
       </p>
       <p>
@@ -136,11 +137,11 @@ function PersuasionThroughMoralArguments({
       <h2>Creating Understanding</h2>
       <p>
         A normal{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://en.wikipedia.org/wiki/Empathy_gap' }}
         >
           empathy gap
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         in the social sciences &ldquo;is a cognitive bias in which people
         underestimate the influences of visceral drives on their own attitudes,
         preferences, and behaviors.&rdquo;
@@ -169,13 +170,13 @@ function PersuasionThroughMoralArguments({
       <p>
         It is possible to close the moral empathy gap and get better at
         understanding the perspective of others. Doing so requires the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           previously mentioned
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         &lsquo;<strong>theory of mind</strong>.&rsquo;
       </p>
       <p>
@@ -213,13 +214,13 @@ function PersuasionThroughMoralArguments({
         not <strong>yours</strong>.
       </p>
       <p>
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://en.wikipedia.org/wiki/Framing_(social_sciences)',
           }}
         >
           Framing
-        </LinkComponent>
+        </NextLink>
         , in the social sciences, &ldquo;comprises a set of concepts and
         theoretical perspectives on how individuals, groups and societies,
         organize, perceive, and communicate about reality.&rdquo;
@@ -280,11 +281,11 @@ function PersuasionThroughMoralArguments({
       </p>
       <p>
         For some extra fun, take the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'http://www.yourmorals.org/explore.php' }}
         >
           Moral Foundations Questionnaire
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         and share your results. Below are my results; the green bar is me, blue
         is liberals, red is conservatives.
       </p>

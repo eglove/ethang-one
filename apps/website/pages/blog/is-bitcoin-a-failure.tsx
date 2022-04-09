@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -26,13 +27,13 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
       </blockquote>
       <p>
         I once argued that{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://ethanglover.biz/politics/bitcoin-isnt-soapbox.php',
           }}
         >
           bitcoin is not and should not be held to libertarian principles.
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         If we are to accept it as an open technology, as a true alternative to
         the current banking system, we need to accept creative uses of the
         blockchain that are both apolitical, and pro-establishment. Limiting the
@@ -54,13 +55,13 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
       <p>
         While the internet had great potential for unregulated interaction, its
         major flaw is that it&rsquo;s built by people. In his book &lsquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://smile.amazon.com/Code-Other-Laws-Cyberspace-Version/dp/0465039146/',
           }}
         >
           Code
-        </LinkComponent>
+        </NextLink>
         ,&rsquo; Lawrence Lessig argues, &ldquo;Code will be a central tool in
         this analysis.{' '}
         <strong>
@@ -99,22 +100,22 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         According to Coindesk author Joon Jan Wong, the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.coindesk.com/venture-capital-funding-bitcoin-startups-triples-2014',
           }}
         >
           United States accounts for over 50% of all the invested capital in
           bitcoin
-        </LinkComponent>
+        </NextLink>
         . Blockchain.info shows that{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://blockchain.info/nodes-globe?series=onlineNow',
           }}
         >
           more than a third of all bitcoin nodes exist in the United States
-        </LinkComponent>
+        </NextLink>
         . If the United States government made a serious effort to destroy
         bitcoin, they would have a significant impact on the health of bitcoin
         all over the world.
@@ -125,13 +126,13 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
         bitcoin legal, but that could change at any time. As an example of the
         impact governments can have on bitcoin, we can consider Russia. The
         Russian government{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.coindesk.com/russias-media-watchdog-bans-number-bitcoin-sites/',
           }}
         >
           took down multiple bitcoin-related websites
-        </LinkComponent>
+        </NextLink>
         , those takedowns significantly harmed the health of information and
         availability of the technology in Russia.
       </p>
@@ -141,13 +142,13 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
         on a peer-to-peer level and can not be blocked or deleted on a whim. The
         government could make it illegal to download and store the blockchain.
         Maybe on the grounds that{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://twitter.com/travisgoodspeed/status/328906226572345344',
           }}
         >
           people have put links to child pornography on it
-        </LinkComponent>
+        </NextLink>
         . Illegalizing bitcoin in that manner would only help drive the bitcoin
         economy further underground. It would indeed become a tool mostly for
         criminals. Bitcoin itself would most likely never go away, but its
@@ -175,13 +176,13 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
         have the power to find new blocks become smaller. With that, there is a
         greater risk that they can refuse to validate transactions, raise fees,
         and slow the bitcoin economy. Former bitcoin developer{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://medium.com/@octskyward/the-resolution-of-the-bitcoin-experiment-dabb30201f7#.9xexdfy6d',
           }}
         >
           Mike Hearn explains all of this far better than I can.
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         [Must read.] To summarize Hearns points, the network is already
         controlled by a few elites who have out-competed the use bitcoin was
         built for.
@@ -208,13 +209,13 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
       <h2>Majority Control</h2>
       <p>
         When Cornell University released its{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://mashable.com/2013/11/04/bitcoin-cornell-researchers/#wqwwKhp2QSqL',
           }}
         >
           theory of &ldquo;selfish mining&rdquo;
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         as a weakness to bitcoins infrastructure, it was dismissed as a
         practical impossibility. [Must read.] But as casual users keep moving to
         lite software, without downloading the whole blockchain, that theory
@@ -253,13 +254,13 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
       <h2>The Question of Regulation</h2>
       <p>
         In a{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://books.google.com/books?id=aQi7BQAAQBAJ&amp;dq',
           }}
         >
           Financial Cryptography &amp; Data Security study
-        </LinkComponent>
+        </NextLink>
         , it was found that 45% of bitcoin exchanges like Mt. Gox go bankrupt
         and disappear. Of eleven exchanges that researchers looked at, five of
         them did not reimburse customers, six claim to have done so, but provide
@@ -303,14 +304,14 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
         Bitcoin also fails by way of privacy. Not just because the casual user
         who is driven towards Coinbase is required to give up their identity,
         but because{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://link.springer.com/chapter/10.1007%2F978-3-642-39884-1_4#page-1',
           }}
         >
           40% of bitcoin users can be identified with very basic investigative
           techniques
-        </LinkComponent>
+        </NextLink>
         . Even if those users create a new address for every transaction. Yes,
         bitcoin offers encryption, and if people use other privacy methods in
         just the right way, all the time, they can remain anonymous.

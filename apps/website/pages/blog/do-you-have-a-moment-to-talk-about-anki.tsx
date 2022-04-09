@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -10,17 +11,17 @@ function DoYouHaveAMomentToTalkAboutAnki({
     <StaticBlogLayout blog={blog}>
       <p>
         The fellow over at Master How To Learn{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.masterhowtolearn.com/2020-10-31-why-i-no-longer-tell-my-friends-about-anki-supermemo/',
           }}
         >
           doesn&apos;t tell his friends about Anki anymore
-        </LinkComponent>
+        </NextLink>
         . I can&apos;t say how many people I&apos;ve recommended{' '}
-        <LinkComponent linkProperties={{ href: 'https://apps.ankiweb.net/' }}>
+        <NextLink linkProperties={{ href: 'https://apps.ankiweb.net/' }}>
           Anki
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         to with no results. I feel the pain of trying to turn people on to
         something great and getting no response. We&apos;ve all been there.
         I&apos;ve got a shortlist of things I recommend to people every chance I
@@ -28,37 +29,37 @@ function DoYouHaveAMomentToTalkAboutAnki({
       </p>
       <p>
         I&apos;ve been drinking{' '}
-        <LinkComponent linkProperties={{ href: 'https://soylent.com/' }}>
+        <NextLink linkProperties={{ href: 'https://soylent.com/' }}>
           Soylent
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         for 8 years, I recommend it whenever I can. That can either lead to a
         debate on what &ldquo;healthy&rdquo; is or the standard, &ldquo;I just
         like food too much.&rdquo; response.
       </p>
       <p>
         I recommend people use an RSS reader like{' '}
-        <LinkComponent linkProperties={{ href: 'https://feedly.com/' }}>
+        <NextLink linkProperties={{ href: 'https://feedly.com/' }}>
           Feedly
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         instead of browsing news sites, depending on YouTube subscriptions, or
         looking at social media feeds. In fact, I recommend people not use
         social media at all. While I&apos;ve never been able to turn anyone onto
         Feedly, I have noticed people I know lose interest in, and reduce their
         social media usage to basically 0. I&apos;ve let people know about{' '}
-        <LinkComponent linkProperties={{ href: 'https://g.co/fi/r/32P253' }}>
+        <NextLink linkProperties={{ href: 'https://g.co/fi/r/32P253' }}>
           Google Fi
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         as the better phone plan. I&apos;ve gotten a $20 referral out of that.
         People always seem interested in Fi, but it&apos;s rare to randomly come
         across someone looking to change phone plans. And I recommend to anyone
         looking to learn code to check out{' '}
-        <LinkComponent linkProperties={{ href: 'http://zerotomastery.io/' }}>
+        <NextLink linkProperties={{ href: 'http://zerotomastery.io/' }}>
           Zero To Mastery
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         and{' '}
-        <LinkComponent linkProperties={{ href: 'https://wesbos.com/' }}>
+        <NextLink linkProperties={{ href: 'https://wesbos.com/' }}>
           Wes Bos.
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         I&apos;ve absolutely gotten people to check them out and buy courses.
       </p>
       <p>

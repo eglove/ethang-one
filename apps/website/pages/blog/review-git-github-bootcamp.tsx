@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -8,13 +9,13 @@ function ReviewGitGithubBootcamp({ blog }: BlogProperties): JSX.Element {
     <StaticBlogLayout blog={blog}>
       <p>
         There isn&apos;t much to say about Colt Steele&apos;s{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.udemy.com/course/git-and-github-bootcamp/',
           }}
         >
           Git &amp; GitHub Bootcamp
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         other than that it&apos;s necessary. Git is another one of those
         everyday skills every developer needs to know, but sadly, most
         developers never take the time to learn properly. This course will take

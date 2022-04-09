@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -45,13 +46,13 @@ function ParadoxicalismAsAPoliticalBelief({
         be extinct because surveys could not find any in the wild. Poachers were
         killing them in mass for their valuable horns. The solution was to allow
         hunters like{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://web.archive.org/web/20180904065528/https://www.cnn.com/2015/05/19/africa/namibia-rhino-hunt/index.html',
           }}
         >
           Corey Knowlton to kill one
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         for a very large amount of money. Knowlton killed an old rhinoceros that
         was both killing other males, and incapable of reproducing. Africa got
         $350,000 for rhino conservation and enforcing poaching laws. Something
@@ -156,53 +157,53 @@ function ParadoxicalismAsAPoliticalBelief({
       </p>
       <p>
         There are, however, important thinkers like{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.jordanbpeterson.com/',
           }}
         >
           Jordan Peterson
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://stevenpinker.com/',
           }}
         >
           Steven Pinker
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.gladwellbooks.com/',
           }}
         >
           Malcolm Gladwell
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://jonathanhaidt.com/',
           }}
         >
           Jonathan Haidt
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.sebastianjunger.com/',
           }}
         >
           Sebastian Junger
-        </LinkComponent>
+        </NextLink>
         , and{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.dancarlin.com/',
           }}
         >
           Dan Carlin
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         who are all advancing modern thoughts and ideas. They welcome challenge
         and take it head on without allowing ego to get in the way. But they
         don&apos;t hold the answers. Maybe some answers. Or many answers. But

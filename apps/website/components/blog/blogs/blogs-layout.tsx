@@ -7,7 +7,6 @@ import {
 import { Blog } from '../../../graphql/types';
 import commonStyles from '../../../styles/common.module.css';
 import { HeadTag } from '../../common/head-tag/head-tag';
-import { LinkComponent } from '../../common/link-component/link-component';
 import styles from './blogs-layout.module.css';
 
 interface BlogsLayoutProperties {
@@ -47,7 +46,7 @@ export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
       {blogs.map(blog => {
         return (
           <div key={blog.title} style={{ height: '300px' }}>
-            <LinkComponent
+            <NextLink
               linkProperties={{
                 className: styles.BlogLink,
                 href: `/blog/${blog.slug}`,
@@ -80,7 +79,7 @@ export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
                   blog.orderDate
                 )}`}</div>
               </div>
-            </LinkComponent>
+            </NextLink>
           </div>
         );
       })}

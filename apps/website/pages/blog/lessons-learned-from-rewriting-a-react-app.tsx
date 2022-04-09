@@ -1,7 +1,7 @@
+import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -14,13 +14,13 @@ function LessonsLearnedFromRewritingAReactApp({
         Video meetings, chat, phone calls, voicemail, calendar, and filesharing.
         This is roughly the app I spent the last couple of months rewriting from
         the ground up. The original project started before me with Twilio&apos;s{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/twilio/twilio-video-app-react',
           }}
         >
           example React app
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         and it seems every change from there was just a litany of simple logic
         piled on top to force things to work. The architecture didn&apos;t match
         what we were trying to do. The Material UI implementation was putting
@@ -60,11 +60,11 @@ function LessonsLearnedFromRewritingAReactApp({
         conventions, or better yet a GraphQL API and don&apos;t have a lot of
         client-side rendering, you can survive with pure React. But honestly,
         why bother with react-router and the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://css-tricks.com/images-are-hard/' }}
         >
           headache of image tags
-        </LinkComponent>
+        </NextLink>
         ? If you&apos;re starting a new React project I recommend always going
         Next.js.
       </p>
@@ -85,13 +85,13 @@ function LessonsLearnedFromRewritingAReactApp({
       </p>
       <p>
         At a minimum, I would highly recommend the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://nextjs.org/docs/basic-features/eslint',
           }}
         >
           next configs
-        </LinkComponent>
+        </NextLink>
         , prettier, jsx-a11y, react-hooks, and typescript-eslint. But don&apos;t
         be afraid to get deeper and continuously tweak. Even create your own
         config that you can share between projects.
@@ -103,13 +103,13 @@ function LessonsLearnedFromRewritingAReactApp({
         haven&apos;t gotten into TS yet, or you&apos;re still thinking,
         &ldquo;It&apos;s extra typing for no benefit.&rdquo; Go learn TypeScript
         right now. I recommend{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://academy.zerotomastery.io/p/learn-typescript',
           }}
         >
           Stephen Grider&apos;s course
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>
@@ -131,9 +131,9 @@ function LessonsLearnedFromRewritingAReactApp({
       </p>
       <p>
         For get requests I use{' '}
-        <LinkComponent linkProperties={{ href: 'https://swr.vercel.app/' }}>
+        <NextLink linkProperties={{ href: 'https://swr.vercel.app/' }}>
           useSWR
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         and for posts I wrote a custom usePost hook (as useSWR isn&apos;t really
         intended for pushing data).
       </p>
@@ -192,11 +192,11 @@ function LessonsLearnedFromRewritingAReactApp({
         track of any properties. ...It just feels structured. Now I know, hooks
         are brilliant. I love stumbling across new hook repos just to see what
         people have done with them.{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://reactjs.org/docs/hooks-rules.html' }}
         >
           But they have rules.
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         Rules you should follow. And if those rules conflict with what
         you&apos;re trying to do. Find another way.
       </p>
@@ -213,73 +213,73 @@ function LessonsLearnedFromRewritingAReactApp({
       <code>await rocketChat.login();</code>
       <h2>Don&apos;t SSR Everything</h2>
       <p>
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/q6o81b/ssr_very_slow/',
           }}
         >
           Just because
-        </LinkComponent>{' '}
-        <LinkComponent
+        </NextLink>{' '}
+        <NextLink
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/q6es9u/should_i_implement_ssr_before_react_native_or/',
           }}
         >
           you&apos;re using
-        </LinkComponent>{' '}
-        <LinkComponent
+        </NextLink>{' '}
+        <NextLink
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/ph2i4u/ssr_data_fetching_trick/',
           }}
         >
           Next, doesn&apos;t
-        </LinkComponent>{' '}
-        <LinkComponent
+        </NextLink>{' '}
+        <NextLink
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/ml4i2t/ssr_pages_cold_start_improve_performance/',
           }}
         >
           mean everything
-        </LinkComponent>{' '}
-        <LinkComponent
+        </NextLink>{' '}
+        <NextLink
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/ncgix2/what_is_the_point_of_nextjs_ssr/',
           }}
         >
           should be
-        </LinkComponent>{' '}
-        <LinkComponent
+        </NextLink>{' '}
+        <NextLink
           linkProperties={{
             href: 'https://www.reddit.com/r/nextjs/comments/mhel96/ssr_performance_improvements/',
           }}
         >
           SSR
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>
         Next does a lot of cool optimization without any input from you. CSS for
         example is rendered server-side. (I also highly recommend using{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/',
           }}
         >
           CSS modules
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         that React supports out of the box.) SSR isn&apos;t the only reason to
         use Next and it&apos;s not the only tool it has. Use the tools you need,
         when you need them.
       </p>
       <p>
         Get familiar with{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://nextjs.org/docs/basic-features/data-fetching',
           }}
         >
           all of the tools Next provides for data fetching
-        </LinkComponent>
+        </NextLink>
         . Familiarize yourself with useSWR (previously mentioned) and don&apos;t
         be afraid to do a good ol&apos; client-side fetch. Especially when
         dealing with live or dynamic data. You should know these tools and when
@@ -290,15 +290,13 @@ function LessonsLearnedFromRewritingAReactApp({
       <h2>Learn From Smart People, Don&apos;t Stop Learning</h2>
       <p>
         I initially learned React from{' '}
-        <LinkComponent linkProperties={{ href: 'https://advancedreact.com/' }}>
+        <NextLink linkProperties={{ href: 'https://advancedreact.com/' }}>
           Wes Bos
-        </LinkComponent>
+        </NextLink>
         . and did a lot of{' '}
-        <LinkComponent
-          linkProperties={{ href: 'https://www.ethang.dev/courses' }}
-        >
+        <NextLink linkProperties={{ href: 'https://www.ethang.dev/courses' }}>
           Andrei Neagoie and Stephen Grider courses
-        </LinkComponent>
+        </NextLink>
         . Since then I&apos;ve come across guys like Dan Abramov and Harry Wolf.
         I&apos;ve even linked some of their articles in my documentation of this
         project. Specifically:
@@ -306,41 +304,41 @@ function LessonsLearnedFromRewritingAReactApp({
       <p>
         <ul>
           <li>
-            <LinkComponent
+            <NextLink
               linkProperties={{
                 href: 'https://overreacted.io/a-complete-guide-to-useeffect/',
               }}
             >
               A Complete Guide to useEffect
-            </LinkComponent>
+            </NextLink>
             (Please read this!)
           </li>
           <li>
-            <LinkComponent
+            <NextLink
               linkProperties={{
                 href: 'https://hswolff.com/blog/why-i-love-usereducer/',
               }}
             >
               Why I Love useReducer
-            </LinkComponent>
+            </NextLink>
           </li>
           <li>
-            <LinkComponent
+            <NextLink
               linkProperties={{
                 href: 'https://hswolff.com/blog/level-up-usereducer-with-immer/',
               }}
             >
               Level Up useReducer with Immer
-            </LinkComponent>
+            </NextLink>
           </li>
           <li>
-            <LinkComponent
+            <NextLink
               linkProperties={{
                 href: 'https://hswolff.com/blog/how-to-usecontext-with-usereducer/',
               }}
             >
               How To useContext With useReducer
-            </LinkComponent>
+            </NextLink>
           </li>
         </ul>
       </p>
@@ -349,13 +347,13 @@ function LessonsLearnedFromRewritingAReactApp({
         come across know-it-alls, worked with know-it-alls, and seen projects
         decimated by know-it-alls. Stay open, keep finding new perspectives,
         keep getting deeper, and never let{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://en.wikipedia.org/wiki/Einstellung_effect',
           }}
         >
           Einstellung
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         set in.
       </p>
       <h2>Use The Next API</h2>
@@ -373,13 +371,13 @@ function LessonsLearnedFromRewritingAReactApp({
       <p>
         Want to work with environment variables that you don&apos;t want the
         client to have access to? API routes can access{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://nextjs.org/docs/basic-features/environment-variables',
           }}
         >
           environment variables
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         that are not NEXT_PUBLIC.
       </p>
       <h2>Keep Scaling, Keep Refactoring</h2>

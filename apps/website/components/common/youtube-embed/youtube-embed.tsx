@@ -18,7 +18,7 @@ export function YouTubeEmbed({
       <div className={styles.YtContainer}>
         <iframe
           allowFullScreen
-          sandbox={sandboxValue as unknown as string}
+          sandbox={String(sandboxValue)}
           src={`https://www.youtube.com/embed/${id}`}
           title={title}
           frameBorder="0"

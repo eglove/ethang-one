@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -29,34 +30,34 @@ function PcBackupInTwoLines({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         So what exactly does the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/master/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1',
           }}
         >
           actual script
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         do? Well, the first step is the most important step and the one that
         made me realize I could write this script, to begin with. It installs{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L46',
           }}
         >
           Chocolatey Pro
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         including copying over the license file that&apos;s also kept on the
         same USB.
       </p>
       <p>
         Second, while I&apos;m there, I may as well{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L54',
           }}
         >
           set up WSL 2 and Ubuntu
-        </LinkComponent>
+        </NextLink>
         . The tricky part I realized during the process of writing this is that
         even though chocolatey adds its own environment variables, as well as
         the variables of the software it will later install, that&apos;s not
@@ -71,26 +72,26 @@ function PcBackupInTwoLines({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         With that done, it&apos;s just a matter of{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L69',
           }}
         >
           installing all the software I have listed in an array
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         via Chocolatey. As well as any PowerShell modules I use, and yarn global
         installs.
       </p>
       <p>
         And I couldn&apos;t forget to{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L85',
           }}
         >
           download, install, and set an environment variable for all my other
           scripts
-        </LinkComponent>
+        </NextLink>
         . But I couldn&apos;t just download them. I had to git clone them. Via
         the GitHub client. This means I had to install gh cli and authenticate
         it before moving on. This sets me up for GitHub commands in the future.
@@ -99,45 +100,45 @@ function PcBackupInTwoLines({ blog }: BlogProperties): JSX.Element {
         But why stop there? Cortana is still active. My toolbar isn&apos;t set
         up as I like it. That can all be done by changing Registry settings.
         Which can be set via PowerShell. So I{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L98',
           }}
         >
           applied any Windows settings
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         I wanted to save.
       </p>
       <p>
         And while I have a script to update software, I allow the JetBrains
         toolbox to handle IDE updates and generate shell scripts. So I{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L109',
           }}
         >
           updated those settings
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         as well as the theme and any other settings I have set on IntelliJ. And
         settings for terminus, can&apos;t forget to backup my{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L115',
           }}
         >
           terminus settings
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>
         All wrapping up in a{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/eglove/ethang-one/blob/68a44f7ab7e4abd912a50ad56fee3bfd9d604622/apps/computer-cli/src/app/commands/powershell-scripts/pcSetup.ps1#L120',
           }}
         >
           clean up process
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         by doing an initial windows update for the clean install, removing any
         desktop shortcuts generated by the choco installs, running cleanmgr to
         allow a safe delete of Windows.old and deleting the downloads for WSL

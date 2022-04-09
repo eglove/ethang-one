@@ -5,7 +5,6 @@ import Image from 'next/image';
 
 import { Container } from '../components/common/container/container';
 import { HeadTag } from '../components/common/head-tag/head-tag';
-import { LinkComponent } from '../components/common/link-component/link-component';
 import styles from '../components/common/styles/common.module.css';
 import { YouTubeEmbed } from '../components/common/youtube-embed/youtube-embed';
 import changeVsConsequence from '../public/images/changevsconsequence.png';
@@ -49,29 +48,25 @@ function AboutMe(): JSX.Element {
       <h1 id="aboutMe">About Me</h1>
       <ul className={styles.toc}>
         <li>
-          <LinkComponent linkProperties={{ href: '#systemsThinking' }}>
+          <NextLink linkProperties={{ href: '#systemsThinking' }}>
             Systems Thinking
-          </LinkComponent>
+          </NextLink>
         </li>
         <li>
-          <LinkComponent linkProperties={{ href: '#standardization' }}>
+          <NextLink linkProperties={{ href: '#standardization' }}>
             Standardization
-          </LinkComponent>
+          </NextLink>
         </li>
         <li>
-          <LinkComponent linkProperties={{ href: '#stoicism' }}>
-            Stoicism
-          </LinkComponent>
+          <NextLink linkProperties={{ href: '#stoicism' }}>Stoicism</NextLink>
         </li>
         <li>
-          <LinkComponent linkProperties={{ href: '#learning' }}>
-            Learning
-          </LinkComponent>
+          <NextLink linkProperties={{ href: '#learning' }}>Learning</NextLink>
         </li>
       </ul>
       <h2 id="systemsThinking">
         Systems Thinking{' '}
-        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#aboutMe' }}>⤴</NextLink>
       </h2>
       <p>
         First. <b>I tend to be a systems thinker.</b> There is great value in
@@ -122,22 +117,22 @@ function AboutMe(): JSX.Element {
       )}
       <h2 id="standardization">
         Standardization{' '}
-        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#aboutMe' }}>⤴</NextLink>
       </h2>
       <p>
         I love standardization in languages, and I understand the value of them.
         The most clear example is SQL, standardized under{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://www.iso.org/standard/63555.html' }}
         >
           ISO/IEC 9075-1:2016
-        </LinkComponent>
+        </NextLink>
         . Or the JavaScript standards of{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://www.ecma-international.org/' }}
         >
           Ecma International
-        </LinkComponent>
+        </NextLink>
         . These standardizations allow frameworks to build on top of something
         very stable with the best support. They also allow for the scenario of
         knowing SQL and JavaScript and easily being able to jump into MySQL or
@@ -155,13 +150,13 @@ function AboutMe(): JSX.Element {
         Putting focus on standardized languages rather than frameworks ensures
         the long term stability of your own marketability. (Frameworks come and
         go.) It also allows you to employ the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://en.wikipedia.org/wiki/Rule_of_least_power',
           }}
         >
           Rule of least power
-        </LinkComponent>
+        </NextLink>
         . By not overvaluing frameworks it&apos;s hard not to notice their
         sometimes overly complex solutions whose abstractions can be harder to
         use, and slower in performance than what its trying to abstract. This is
@@ -183,8 +178,7 @@ function AboutMe(): JSX.Element {
         often, the tools we take for granted are not doing us any favors.
       </p>
       <h2 id="stoicism">
-        Stoicism{' '}
-        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
+        Stoicism <NextLink linkProperties={{ href: '#aboutMe' }}>⤴</NextLink>
       </h2>
       <p>
         Stoicism can mean different things to different people. What I take from
@@ -206,8 +200,7 @@ function AboutMe(): JSX.Element {
         I&apos;m perfectly consistent with it.
       </p>
       <h2 id="learning">
-        Learning{' '}
-        <LinkComponent linkProperties={{ href: '#aboutMe' }}>⤴</LinkComponent>
+        Learning <NextLink linkProperties={{ href: '#aboutMe' }}>⤴</NextLink>
       </h2>
       <p>
         I learn by association. Just as I mentioned in the systems thinking
@@ -218,10 +211,10 @@ function AboutMe(): JSX.Element {
       <p>
         I try to have a broad range of knowledge across a lot of languages and
         frameworks. As evidenced by my{' '}
-        <LinkComponent linkProperties={{ href: '/' }}>home page</LinkComponent>.
-        If I talk about the disadvantage of your personal favorite, I say that
-        in reference to all of the others I&apos;ve worked with. It&apos;s not
-        an insult. If I talk about the advantage of something, it is most likely
+        <NextLink linkProperties={{ href: '/' }}>home page</NextLink>. If I talk
+        about the disadvantage of your personal favorite, I say that in
+        reference to all of the others I&apos;ve worked with. It&apos;s not an
+        insult. If I talk about the advantage of something, it is most likely
         not an argument, it is a statement.
       </p>
       <p>
@@ -241,9 +234,9 @@ function AboutMe(): JSX.Element {
       </p>
       <p>
         I love learning. I love tracking down the best courses on learning. My{' '}
-        <LinkComponent linkProperties={{ href: '/courses' }}>
+        <NextLink linkProperties={{ href: '/courses' }}>
           recommended courses
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         page is a page, not a blog post. Because it is an important, permanent
         fixture of this site and who I am. Always a plan to learn something new.
         Always looking to create relationships between what I have learned and

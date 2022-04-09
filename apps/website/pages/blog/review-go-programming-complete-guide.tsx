@@ -1,8 +1,8 @@
+import { NextLink } from '@ethang/react-components';
 import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -89,13 +89,13 @@ function ReviewGoProgrammingCompleteGuide({
         There&apos;s not a lot of Go courses out there, and this may be good
         enough if you HAVE to learn Go right now. Because of that, Jayson
         Lennon&apos;s{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://academy.zerotomastery.io/p/learn-golang',
           }}
         >
           Go Programming Language (Golang): A Complete Developer&apos;s Guide
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         get&apos;s a 2 out of 5.
       </p>
     </StaticBlogLayout>

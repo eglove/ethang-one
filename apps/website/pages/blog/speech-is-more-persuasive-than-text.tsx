@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -8,13 +9,13 @@ function SpeechIsMorePersuasiveThanText({ blog }: BlogProperties): JSX.Element {
     <StaticBlogLayout blog={blog}>
       <p>
         Over a year ago, I laid out{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/7-ways-to-win-an-argument-online',
           }}
         >
           seven ways to win an argument online
-        </LinkComponent>
+        </NextLink>
         . Among those ways were using a positive, valent voice in first-person.
         As well as using a lot of detail and formatting the text in a pretty,
         easy to read way.
@@ -22,30 +23,30 @@ function SpeechIsMorePersuasiveThanText({ blog }: BlogProperties): JSX.Element {
       <p>
         One year later, the Association for Psychological Science published,
         &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://doi.org/10.1177/0956797617713798',
           }}
         >
           The Humanizing Voice: Speech Reveals, and Text Conceals, a More
           Thoughtful Mind in the Midst of Disagreement.
-        </LinkComponent>
+        </NextLink>
         &rdquo; In it, researchers{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://julianaschroeder.com/',
           }}
         >
           Juliana Schroeder
-        </LinkComponent>
+        </NextLink>
         , Michael Kardas, and{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.chicagobooth.edu/faculty/directory/e/nicholas-epley',
           }}
         >
           Nicholas Epley
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         found that people are more likely to dismiss an argument if it is in
         text. So while there are strategies to make yourself more persuasive
         online, the science has suggested that it&apos;s best to do it via
@@ -66,21 +67,21 @@ function SpeechIsMorePersuasiveThanText({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         Researchers M. Mahdi Roghannizad and{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://web.archive.org/web/20180904131811/https://twitter.com/profbohns',
           }}
         >
           Vanessa K. Bohns
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         published a related paper in March 2017. &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://doi.org/10.1016/j.jesp.2016.10.002',
           }}
         >
           Ask in person: You&apos;re less persuasive than you think over email.
-        </LinkComponent>
+        </NextLink>
         &rdquo; In this study, they found that people are more likely to honor a
         request in person. Specifically, people are 34 times more likely to fill
         out a survey if the same request is made in person than if the request
@@ -98,24 +99,24 @@ function SpeechIsMorePersuasiveThanText({ blog }: BlogProperties): JSX.Element {
         persuasive, you have to listen. Listen and make an effort to be curious
         about what other people believe. Curiosity not only gives you a dopamine
         hit, but allows you{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/curing-bias-with-curiosity',
           }}
         >
           learn more, remember more, and be less bias.
-        </LinkComponent>
+        </NextLink>
       </p>
       <p>
         Once you understand who you&apos;re talking to, really know where
         they&apos;re coming from and how they think, you can use{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/persuasion-through-moral-arguments',
           }}
         >
           moral reframing
-        </LinkComponent>
+        </NextLink>
         . Moral reframing is when you change the wording of your arguments to
         address the concerns and values of the person you want to convince.
         Framing an argument from another persons point of view allows them to
@@ -125,13 +126,13 @@ function SpeechIsMorePersuasiveThanText({ blog }: BlogProperties): JSX.Element {
         If you combine all of these strategies, talking in person, listening,
         and reframing, you get deep canvassing. Multiple scientific studies have
         shown that{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/the-image-problem-and-its-solution',
           }}
         >
           deep canvassing
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         is the most effective way to get people to change their minds. While we
         can&apos;t always talk to people in person, we can always listen and
         reframe.

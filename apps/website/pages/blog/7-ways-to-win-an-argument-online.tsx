@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -8,13 +9,13 @@ function SevenWaysToWinAnArgumentOnline({ blog }: BlogProperties): JSX.Element {
     <StaticBlogLayout blog={blog}>
       <p>
         In a previous post, &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           The Image Problem and Its Solution
-        </LinkComponent>
+        </NextLink>
         ,&rdquo; I went over some important issues within the libertarian
         community that creates the image problem it has with the general public.
         I went over some important cognitive biases and heuristics that degrade
@@ -29,25 +30,25 @@ function SevenWaysToWinAnArgumentOnline({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         Since then, I&rsquo;ve come across a great study titled, &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://chenhaot.com/pubs/winning-arguments.pdf',
           }}
         >
           Winning Arguments: Interaction Dynamics and Persuasion Strategies in
           Good-faith Online Discussions
-        </LinkComponent>
+        </NextLink>
       </p>
       <p>
         As the title suggests, the study focused on online discussions.
         Specifically, it analyzed the conversations on one of the most popular
         and active destinations for persuasion and arguments on all topics. A
         subreddit called &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://www.reddit.com/r/changemyview/' }}
         >
           ChangeMyView
-        </LinkComponent>
+        </NextLink>
         .&rdquo; The study resulted in seven findings based on looking at what
         factors are most commonly found when someone changes their mind on the
         topic they brought up.

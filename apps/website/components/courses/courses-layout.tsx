@@ -8,7 +8,6 @@ import commonStyles from '../../styles/common.module.css';
 import { BASE_URL } from '../../util/constants';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
-import { LinkComponent } from '../common/link-component/link-component';
 import { CourseRating } from './course-rating';
 import styles from './courses.module.css';
 
@@ -101,14 +100,14 @@ export function CoursesLayout({
                 />
               </div>
               <div className={styles.CourseItem}>
-                <LinkComponent linkProperties={{ href: course.school.url }}>
+                <NextLink linkProperties={{ href: course.school.url }}>
                   <Image
                     src={course.school.image.image.downloadUrl}
                     alt={course.school.image.altText}
                     width={25}
                     height={25}
                   />
-                </LinkComponent>
+                </NextLink>
               </div>
 
               <div className={styles.CourseItem}>
@@ -117,9 +116,9 @@ export function CoursesLayout({
                   {course.courseUrls?.items.map(courseUrl => {
                     return (
                       <div key={courseUrl.url}>
-                        <LinkComponent linkProperties={{ href: courseUrl.url }}>
+                        <NextLink linkProperties={{ href: courseUrl.url }}>
                           {courseUrl.school.name}
-                        </LinkComponent>
+                        </NextLink>
                         &ensp;
                       </div>
                     );

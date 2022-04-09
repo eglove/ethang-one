@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
@@ -15,13 +16,13 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
       </blockquote>
       <p>
         If you haven&rsquo;t read Adam Smith&rsquo;s Theory of Moral Sentiments{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.econlib.org/library/Smith/smMSCover.html',
           }}
         >
           go get it right now
-        </LinkComponent>
+        </NextLink>
         . It&rsquo;s an extraordinary, and widely unknown piece of art chalked
         full of useful wisdom. I&rsquo;d say Adam Smith has Ben Franklin easily
         beat in the realm of advice to help you live life to the fullest.
@@ -39,24 +40,24 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
         &ldquo;&hellip;rather than search for information that either confirms
         or disconfirms a particular belief, people actually seek out information
         that confirms what they already believe.&rdquo; (
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.newsweek.com/why-we-believe-lies-even-when-we-learn-truth-78775',
           }}
         >
           Steven Hoffman
-        </LinkComponent>
+        </NextLink>
         )
       </p>
       <p>
         As{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.mitpressjournals.org/doi/abs/10.1162/jocn.2006.18.11.1947#.WDiyqeYrKHs',
           }}
         >
           MIT researchers explain it
-        </LinkComponent>
+        </NextLink>
         , motivated reasoning is &ldquo;&hellip;a form of implicit regulation in
         which the brain converges on judgments that minimize negative and
         maximize positive affect states associated with threat to or attainment
@@ -74,13 +75,13 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
         happens. There is no known reason. And likely no one reason why we
         unconsciously ignore that which goes against our own beliefs. Professors
         Milton Lodge and Charles S. Taber&nbsp;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.uky.edu/AS/PoliSci/Peffley/pdf/Taber%26Lodge_The%20Rationalizing%20Voter.pdf',
           }}
         >
           outline their theory
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         in what they call <strong>goal-oriented motivational reasoning.</strong>
       </p>
       <p>
@@ -97,21 +98,21 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
         Both your mood and cognitive processes are activated at the same time on
         any given subject. That creates the process that results in emotional
         biases. The logical, emotionless arguer is just as much a myth as{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.npr.org/templates/story/story.php?storyId=95256794',
           }}
         >
           multi-taskers
-        </LinkComponent>
+        </NextLink>
         &nbsp;and{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.scientificamerican.com/article/i-developed-what-appears-to-be-a-ph/',
           }}
         >
           photographic memory
-        </LinkComponent>
+        </NextLink>
         . It&rsquo;s made-up bullshit that people use to brag about themselves.
         Like when people brag about the results they got on a personality test.
       </p>
@@ -185,13 +186,13 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
       <h2>Curiosity and Motivational Reasoning</h2>
       <p>
         A{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2182588',
           }}
         >
           2012 Yale study
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         found that more thoughtful people are most likely to twist empirical
         evidence to match their own beliefs. Meaning, the smarter the person is
         the more likely they are to use motivated reasoning. The only reason I
@@ -211,13 +212,13 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         In 2016,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2816803',
           }}
         >
           a new Yale study
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         found that people who have a higher level of knowledge regarding science
         (basic facts, quantitative reasoning), are more likely to be polarized
         on the political scale. Meaning, more knowledgeable conservatives lean
@@ -242,13 +243,13 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         Somehow, it is easy for us to accept that memory is terrible. That{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.innocenceproject.org/causes/eyewitness-misidentification/',
           }}
         >
           eyewitness testimony is the worst form of evidence
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         in court. But we can not accept the fact that, in the same way,{' '}
         <strong>
           when we make arguments or rationalize our beliefs, our brains
@@ -310,31 +311,31 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         I&rsquo;ve suggested{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           deep canvassing
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         as a way to talk to people about their beliefs in a persuasive way.
         I&rsquo;ve expanded that same topic into{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2016/10/12/7-ways-to-win-an-argument-online/',
           }}
         >
           online conversation
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         by presenting a single study of the subject. I expanded those ideas with
         the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2016/11/06/persuasion-through-moral-arguments/',
           }}
         >
           moral foundations theory
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>

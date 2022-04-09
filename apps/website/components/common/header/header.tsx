@@ -1,4 +1,5 @@
-import { LinkComponent } from '../link-component/link-component';
+import { NextLink } from '@ethang/react-components';
+
 import styles from './header.module.css';
 import { Navigation } from './navigation';
 
@@ -7,11 +8,11 @@ export function Header(): JSX.Element {
 
   return (
     <div className={styles.HeaderContainer}>
-      <LinkComponent
+      <NextLink
         linkProperties={{ href: '/', style: { textDecoration: 'none' } }}
       >
         {headerContent}
-      </LinkComponent>
+      </NextLink>
       <Navigation />
     </div>
   );
