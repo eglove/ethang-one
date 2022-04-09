@@ -39,6 +39,7 @@ export function AddHabit(): JSX.Element {
   const buttons = simpleFormButtons([
     {
       name: 'Add Habit',
+      properties: { type: 'submit' },
     },
   ]);
 
