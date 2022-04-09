@@ -10,7 +10,6 @@ import { Calories } from '../calories';
 import { FinanceGraph } from '../finance-graph/finance-graph';
 import { AddHabit } from '../habit/add-habit';
 import { HabitList } from '../habit/habit-list';
-import styles from './dashboard-home.module.css';
 
 export const DashboardHome = observer((): JSX.Element => {
   const dashboardState = useContext(DashboardContext);
@@ -19,17 +18,24 @@ export const DashboardHome = observer((): JSX.Element => {
     return (
       <Container>
         <HeadTag title="Dashboard" />
-        <div className={styles.DashboardContainer}>
+        <div
+          style={{
+            display: 'grid',
+            placeItems: 'center',
+          }}
+        >
           <Calories />
-          <div style={{ display: 'grid', placeItems: 'center' }}>
-            <FinanceGraph />
-            <NextLink linkProperties={{ href: '/dashboard/finance' }}>
-              Update
-            </NextLink>
-          </div>
         </div>
+        <br />
         <HabitList />
         <AddHabit />
+        <br />
+        <div style={{ display: 'grid', placeItems: 'center' }}>
+          <FinanceGraph />
+          <NextLink linkProperties={{ href: '/dashboard/finance' }}>
+            Update
+          </NextLink>
+        </div>
       </Container>
     );
   }
