@@ -6,8 +6,12 @@
     "deps": "npx pnpm i",
     "buildEg": "npx nx build ethang-cli",
     "eg": "node dist/apps/ethang-cli/main.js",
-    "lintStaged": "npx cross-env npx pnpm lint-staged && npx pnpm browserslist --update-db",
+    "lintStaged": "npx cross-env npx pnpm lint-staged && npx pnpm browserslist --update-db && npm run lintAffected && npm run buildAffected && npm run testAffected && npm run e2eAffected",
     "websiteDeploy": "npx nx build website --prod --verbose",
+    "lintAffected": "npx nx affected --target=lint --fix",
+    "buildAffected": "npx nx affected --target=build",
+    "testAffected": "npx nx affected --target=test",
+    "e2eAffected": "npx nx affected --target=e2e",
     "prepare": "husky install"
   },
   "lint-staged": {
