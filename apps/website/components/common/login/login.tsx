@@ -1,5 +1,10 @@
 import { Constant, ENV_KEYS } from '@ethang/node-environment';
-import { Form, FormInput, InputType } from '@ethang/react-components';
+import {
+  InputType,
+  SimpleForm,
+  SimpleFormButton,
+  SimpleFormInput,
+} from '@ethang/react-components';
 import jwt from 'jsonwebtoken';
 import { observer } from 'mobx-react-lite';
 import { useContext, useState } from 'react';
@@ -11,17 +16,6 @@ import { Container } from '../container/container';
 export const Login = observer((): JSX.Element => {
   const dashboardState = useContext(DashboardContext);
   const [formState, setFormState] = useState({ Email: '', Password: '' });
-
-  const formInputs = [
-    new FormInput('Email', {
-      inputProperties: { autoComplete: 'email', required: true },
-      type: InputType.email,
-    }),
-    new FormInput('Password', {
-      inputProperties: { autoComplete: 'password', required: true },
-      type: InputType.password,
-    }),
-  ];
 
   const handleSubmit = async (): Promise<void> => {
     const response = await fetch('/api/login', {
@@ -51,15 +45,35 @@ export const Login = observer((): JSX.Element => {
     }
   };
 
+  const buttons = [
+    new SimpleFormButton({
+      buttonText: 'Login',
+      name: 'Submit',
+      properties: { onClick: handleSubmit },
+    }),
+  ];
+
+  const inputs = [
+    new SimpleFormInput({
+      inputProperties: { autoComplete: 'email', required: true },
+      inputType: InputType.email,
+      name: 'Email',
+    }),
+    new SimpleFormInput({
+      inputProperties: { autoComplete: 'password', required: true },
+      inputType: InputType.password,
+      name: 'Password',
+    }),
+  ];
+
   return (
     <Container>
-      <Form
+      <SimpleForm
+        buttons={buttons}
         formProperties={{ className: commonStyles.Form }}
-        inputObjects={formInputs}
-        inputState={formState}
-        setInputState={setFormState}
-        submitButtonText="Login"
-        submitButtonProperties={{ onClick: handleSubmit }}
+        inputs={inputs}
+        formState={formState}
+        setFormState={setFormState}
       />
     </Container>
   );
