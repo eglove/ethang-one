@@ -67,7 +67,7 @@ export function FinanceGraph(): JSX.Element {
       });
     },
     variables: {
-      oneMonthAgo: eightBaseFormatTime(addDays(new Date(), -30)),
+      dateStart: eightBaseFormatTime(addDays(new Date(), -365)),
       today: eightBaseFormatTime(),
     },
   });

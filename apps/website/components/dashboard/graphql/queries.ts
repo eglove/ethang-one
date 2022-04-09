@@ -45,9 +45,9 @@ export type FinanceData = {
 };
 
 export const financeData = gql`
-  query FinanceData($today: Date!, $oneMonthAgo: Date!) {
+  query FinanceData($today: Date!, $dateStart: Date!) {
     financeRecordsList(
-      filter: { recordedDate: { gte: $oneMonthAgo, lte: $today } }
+      filter: { recordedDate: { gte: $dateStart, lte: $today } }
     ) {
       items {
         accountName
