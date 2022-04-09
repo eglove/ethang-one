@@ -7,11 +7,11 @@ interface LinkComponentProperties {
   testId?: string;
 }
 
-export const NextLink = ({
+export function NextLink({
   children,
   linkProperties,
   testId,
-}: LinkComponentProperties): JSX.Element => {
+}: LinkComponentProperties): JSX.Element {
   let linkOrigin = null;
   if (isValidUrl(linkProperties.href)) {
     linkOrigin = new URL(linkProperties.href).origin;
@@ -38,4 +38,4 @@ export const NextLink = ({
       </a>
     </Link>
   );
-};
+}

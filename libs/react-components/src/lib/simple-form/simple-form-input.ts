@@ -1,5 +1,6 @@
-import {InputType} from '@ethang/react-components';
-import {toCapitalizedWords} from '@ethang/util-typescript';
+import { toCapitalizedWords } from '@ethang/util-typescript';
+
+import { InputType } from './types';
 
 type SelectOption = {
   label: string;
@@ -18,11 +19,13 @@ type FormInputConfig = {
   selectOptions?: SelectOption[];
 };
 
-export const simpleFormInputs = (configs: FormInputConfig[]): SimpleFormInput[] => {
+export const simpleFormInputs = (
+  configs: FormInputConfig[]
+): SimpleFormInput[] => {
   return configs.map(config => {
     return new SimpleFormInput(config);
-  })
-}
+  });
+};
 
 export class SimpleFormInput {
   public hideLabel: boolean;

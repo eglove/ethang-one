@@ -29,7 +29,7 @@ export class UtilNrwl {
     this.workspaceJson = readWorkspaceJson();
     this.projectGraph = await createProjectGraphAsync();
     if (
-      typeof this.projectGraph !== 'undefined' ||
+      typeof this.projectGraph !== 'undefined' &&
       this.projectGraph !== null
     ) {
       this.projectNodes = Object.values(this.projectGraph.nodes);

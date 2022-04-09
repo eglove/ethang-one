@@ -67,7 +67,7 @@ export function FinanceGraph(): JSX.Element {
       {graphData?.map(item => {
         return Object.keys(item).map(itemKey => {
           if (itemKey !== 'date') {
-            return <Line dataKey={itemKey} />;
+            return <Line key={itemKey} dataKey={itemKey} />;
           }
 
           return null;
