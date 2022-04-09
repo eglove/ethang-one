@@ -1,4 +1,5 @@
-import { LinkComponent } from '../common/link-component/link-component';
+import { NextLink } from '@ethang/react-components';
+
 import styles from './courses.module.css';
 
 interface CourseRatingProperties {
@@ -25,9 +26,7 @@ export function CourseRating({
     if (typeof rating === 'number' && typeof ratingUrl === 'string') {
       return (
         <span className={`${styles.Rating} ${ratingStyle_}`}>
-          <LinkComponent linkProperties={{ href: ratingUrl }}>
-            {content_}
-          </LinkComponent>
+          <NextLink linkProperties={{ href: ratingUrl }}>{content_}</NextLink>
         </span>
       );
     }

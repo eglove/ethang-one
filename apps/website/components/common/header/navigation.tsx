@@ -1,7 +1,6 @@
 import { NextLink } from '@ethang/react-components';
 import Image from 'next/image';
 
-import { LinkComponent } from '../link-component/link-component';
 import styles from './header.module.css';
 
 export function Navigation(): JSX.Element {
@@ -31,7 +30,7 @@ export function Navigation(): JSX.Element {
       <nav className={styles.Navigation}>
         {navLinks.map(navLink => {
           return (
-            <LinkComponent
+            <NextLink
               key={navLink.title}
               linkProperties={{
                 className: styles.NavigationLink,
@@ -40,7 +39,7 @@ export function Navigation(): JSX.Element {
               }}
             >
               {navLink.title}
-            </LinkComponent>
+            </NextLink>
           );
         })}
       </nav>

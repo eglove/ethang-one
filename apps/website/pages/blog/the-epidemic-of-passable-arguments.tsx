@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
@@ -13,13 +14,13 @@ function TheEpidemicOfPassableArguments({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         That argument, originating from Max Weber in &lsquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://en.wikipedia.org/wiki/Politics_as_a_Vocation',
           }}
         >
           Politics as a Vocation
-        </LinkComponent>
+        </NextLink>
         &lsquo; [PDF] isn&rsquo;t wrong. The argument itself, and the lecture it
         originates from is a well-formulated description of and perspective on
         politics. If you argue on the premise that the state is a monopoly on
@@ -45,13 +46,13 @@ function TheEpidemicOfPassableArguments({ blog }: BlogProperties): JSX.Element {
         Nerdwriter once attributed the epidemic of passable movies to a
         &ldquo;lack of tonal control.&rdquo; I&rsquo;ve attributed the epidemic
         of passable arguments to a{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           lack of connection
-        </LinkComponent>
+        </NextLink>
         . That is, the inability or refusal to take note of who you&rsquo;re
         talking to, listen to them, remain curious about their beliefs, and
         explain your own in a way that they as an individual can connect with.
@@ -155,11 +156,11 @@ function TheEpidemicOfPassableArguments({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         So{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://ethanglover.biz/blog.php?id=9' }}
         >
           I stopped writing on a regular basis
-        </LinkComponent>
+        </NextLink>
         . If I come across something unique that intrigues me enough to share
         with everyone, I do so. When something like Nerdriter&rsquo;s passable
         movies video helps me find a new perspective, I try to translate what I
@@ -179,11 +180,11 @@ function TheEpidemicOfPassableArguments({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         This isn&rsquo;t much different than Kevin Kelly&rsquo;s{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'http://kk.org/thetechnium/1000-true-fans/' }}
         >
           1,000 true fans
-        </LinkComponent>
+        </NextLink>
         . Find the people you can effect, figure out how to effect them, and
         don&rsquo;t worry about large numbers. Allow that to happen on its own,
         if at all. We don&rsquo;t need celebritarians reaching large amounts of

@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -29,13 +30,13 @@ function AFirstPost({ blog }: BlogProperties): JSX.Element {
         plugins on a shared server, I got frustrated without how slow its
         performance was getting. Lighthouse scores were not satisfactory. So I
         thought I&apos;d build my own CMS. I bought &lsquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://smile.amazon.com/PHP-MySQL-Dynamic-Web-Sites/dp/0134301846',
           }}
         >
           PHP and MySQL for Dynamic Web Sites
-        </LinkComponent>
+        </NextLink>
         &rsquo; by Larry Ullman and got to work. The book went over a very
         simple stack. Setting up a SQL database and using PHP to query its data
         directly into HTML with PHP. Then using a series of includes functions
@@ -69,9 +70,9 @@ function AFirstPost({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         And so this is the stack{' '}
-        <LinkComponent linkProperties={{ href: '/' }}>ethang.dev</LinkComponent>{' '}
-        will live on for the foreseeable future. And where I&apos;ll be writing
-        my thoughts on code and fleshing out my portfolio. Expect to see more to
+        <NextLink linkProperties={{ href: '/' }}>ethang.dev</NextLink> will live
+        on for the foreseeable future. And where I&apos;ll be writing my
+        thoughts on code and fleshing out my portfolio. Expect to see more to
         come. I can&apos;t wait to get to work on refining what&apos;s here.
       </p>
     </StaticBlogLayout>

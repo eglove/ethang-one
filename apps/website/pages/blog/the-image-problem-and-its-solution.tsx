@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
@@ -81,29 +82,29 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
         example of central banking. Bob watches a few Ron Paul speeches about
         the Federal Reserve. Inspired to know more, he watches the documentary
         &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.youtube.com/watch?v=tGk5ioEXlIM',
           }}
         >
           The American Dream
-        </LinkComponent>
+        </NextLink>
         &rdquo; on YouTube and then moves on to read, &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://mises.org/library/what-has-government-done-our-money',
           }}
         >
           What Has Government Done To Our Money
-        </LinkComponent>
+        </NextLink>
         &rdquo; by Murray Rothbard and &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://store.mises.org/End-the-Fed-P619.aspx',
           }}
         >
           End The Fed
-        </LinkComponent>
+        </NextLink>
         &rdquo; by Ron Paul. He then comes to the conclusion that centralized
         banking is bad, and fractional banking is bad. Because Bob got all of
         his information from libertarians, he then assumes that all libertarians
@@ -127,13 +128,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         In the book &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.goodreads.com/book/show/82104.How_I_Found_Freedom_in_an_Unfree_World',
           }}
         >
           How I Found Freedom in an Unfree World
-        </LinkComponent>
+        </NextLink>
         ,&rdquo; Harry Browne, a former libertarian scholar, and Libertarian
         Party presidential candidate, goes over fourteen &lsquo;traps&rsquo; in
         ways of thinking that prevent a person from becoming free. One of those
@@ -203,13 +204,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         According to Wikipedia,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://en.wikipedia.org/wiki/Theory_of_mind',
           }}
         >
           theory of mind
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         is, &ldquo;The ability to attribute mental states &ndash; beliefs,
         intents, desires, pretending, knowledge, etc. &ndash; to oneself and
         others to understand that others have beliefs, desires, and intentions
@@ -233,13 +234,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         Research shows that{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://science.sciencemag.org/content/342/6156/377',
           }}
         >
           theory of mind can be improved by reading fiction
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         because it portrays the inner feelings and thoughts of multiple
         characters on single subjects. However, you can&rsquo;t deeply develop
         theory of mind without self-analysis. If you don&rsquo;t understand
@@ -261,13 +262,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         In &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.artofmanliness.com/2009/05/31/30-days-to-a-better-man-day-1-define-your-core-values/',
           }}
         >
           Defining Your Core Values
-        </LinkComponent>
+        </NextLink>
         &rdquo; Brett and Kate McKay explain why it is important to develop your
         own values through your own internal compass.
       </p>
@@ -308,13 +309,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       <p>
         Think about it from the other side. A newly born anarcho-communist just
         finished reading &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.marxists.org/reference/archive/kropotkin-peter/1902/mutual-aid/',
           }}
         >
           Mutual Aid: A Factor of Evolution
-        </LinkComponent>
+        </NextLink>
         &rdquo; by Peter Kropotkin. They&rsquo;re excited to espouse the ideas
         of cooperation and mutual aid as a superior form of society. They tell
         you about Kropotkin&rsquo;s scientific expedition and pre-feudal
@@ -373,14 +374,14 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       <p>
         To think about this more in-depth, we can look at holocaust deniers. In
         &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.holocaust-trc.org/denying-history/',
           }}
         >
           Denying History: Who Says the Holocaust Never Happened and Why do They
           Say It?
-        </LinkComponent>
+        </NextLink>
         &rdquo; authors Michael Shermer and Alex Grobman note:
       </p>
       <blockquote>
@@ -447,9 +448,9 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         Jonathan Mead, writer at{' '}
-        <LinkComponent linkProperties={{ href: 'http://paidtoexist.com/' }}>
+        <NextLink linkProperties={{ href: 'http://paidtoexist.com/' }}>
           Paid to Exist
-        </LinkComponent>
+        </NextLink>
         , asked his male friends what the one thing they felt was missing in
         their lives that held them back from becoming a man. With an
         overwhelming majority, the responses had to do with a painful absence of
@@ -474,13 +475,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
         talking about its failures and downsides. Every time I do, I&rsquo;m
         answered with typical answers from a 3&times;5 notecard, as Tom Woods
         likes to say. Cody Wilson tried to have the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://ethanglover.biz/politics/need-bitcoin-foundation.php',
           }}
         >
           Bitcoin Foundation shut down
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         (his site has since been taken down) because they had a conversation
         with the New York Legislature that eventually led to the dismissal of
         the &ldquo;BitLicense.&rdquo; Their communicating with a government
@@ -490,13 +491,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
         is not a political tool and that there is no reason that it should
         remain politically pure, he responded with a small fit of rage. When I
         suggested that{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2016/07/21/is-bitcoin-a-failure/',
           }}
         >
           bitcoin has not lived up to its own standards
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         from the beginning, I was given links to joke websites about how bitcoin
         has died a hundred times. An irrelevant response straight off the
         3&times;5 libertarian response card.
@@ -519,11 +520,11 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         I once showed Bryan Sovryn why every single point on his &ldquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://zomiaofflinegames.com/antigoogle/' }}
         >
           Anti-Google
-        </LinkComponent>
+        </NextLink>
         &rdquo; page is totally wrong. He agreed it was all wrong once we had
         gone over the reasons why, but has refused to do so to anyone else. He
         talks a big game about how he&rsquo;s willing to take back incorrect
@@ -621,13 +622,13 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
         To make that simple answer more practical, I want to go over{' '}
         <strong>deep canvassing</strong>. A method of activist outreach that has
         multiple scientific studies showing it&rsquo;s{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.npr.org/sections/health-shots/2016/04/07/473383882/study-finds-deep-conversations-can-reduce-transgender-prejudice',
           }}
         >
           the most effective way to get people to change their minds
-        </LinkComponent>
+        </NextLink>
         . It relates to the above points because it not only reinforces the
         ideas that libertarian recruitment has been all wrong, and that its
         culture can be very off-putting, but it also provides an avenue to

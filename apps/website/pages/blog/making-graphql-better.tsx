@@ -1,10 +1,10 @@
 import { gql } from '@apollo/client';
+import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import styles from '../../components/common/styles/common.module.css';
 import { Data, Image } from '../../graphql/types';
 import { BlogProperties, blogQuery } from '../../util/query';
@@ -117,24 +117,24 @@ function MakingGraphqlBetter({
     <StaticBlogLayout blog={blog}>
       <ul id="top" className={styles.toc}>
         <li>
-          <LinkComponent linkProperties={{ href: '#selectAll' }}>
+          <NextLink linkProperties={{ href: '#selectAll' }}>
             Select All
-          </LinkComponent>{' '}
+          </NextLink>{' '}
         </li>
         <li>
-          <LinkComponent linkProperties={{ href: '#relationships' }}>
+          <NextLink linkProperties={{ href: '#relationships' }}>
             Relationships
-          </LinkComponent>{' '}
+          </NextLink>{' '}
         </li>
         <li>
-          <LinkComponent linkProperties={{ href: '#manyToMany' }}>
+          <NextLink linkProperties={{ href: '#manyToMany' }}>
             Solving The Many-To-Many N+1 Problem
-          </LinkComponent>{' '}
+          </NextLink>{' '}
         </li>
         <li>
-          <LinkComponent linkProperties={{ href: '#conclusion' }}>
+          <NextLink linkProperties={{ href: '#conclusion' }}>
             Last Words
-          </LinkComponent>{' '}
+          </NextLink>{' '}
         </li>
       </ul>
       <p>
@@ -154,8 +154,7 @@ function MakingGraphqlBetter({
         from the database server side.
       </p>
       <h2 id="selectAll">
-        Select All{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        Select All <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <SyntaxHighlighter language="typescript">{userQuery}</SyntaxHighlighter>
       <p>
@@ -169,15 +168,13 @@ function MakingGraphqlBetter({
       </strong>
       <p>
         Luckily,{' '}
-        <LinkComponent linkProperties={{ href: 'https://paljs.com/' }}>
+        <NextLink linkProperties={{ href: 'https://paljs.com/' }}>
           PalJs
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         provides an easy{' '}
-        <LinkComponent
-          linkProperties={{ href: 'https://paljs.com/plugins/select' }}
-        >
+        <NextLink linkProperties={{ href: 'https://paljs.com/plugins/select' }}>
           PrismaSelect
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         function that looks at the info object from the GraphQL query and makes
         sure to only select the fields requested. You can abstract this into a
         very small and simple function to make it easy to use for all resolvers
@@ -189,8 +186,7 @@ function MakingGraphqlBetter({
         <code>select username from user where id = 123</code>
       </strong>
       <h2 id="relationships">
-        Relationships{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        Relationships <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         One of the challenges of writing resolvers can be creating relationships
@@ -319,7 +315,7 @@ function MakingGraphqlBetter({
       </p>
       <h2 id="manyToMany">
         Solving The Many-To-Many N+1 Problem{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         ORM&apos;s get criticized for the N+1 problem. As Prisma&apos;s
@@ -340,13 +336,13 @@ function MakingGraphqlBetter({
           -Prisma,{' '}
           <cite>
             {' '}
-            <LinkComponent
+            <NextLink
               linkProperties={{
                 href: 'https://www.prisma.io/docs/guides/performance-and-optimization/query-optimization-performance',
               }}
             >
               Query Optimization
-            </LinkComponent>
+            </NextLink>
           </cite>
         </figcaption>
       </figure>
@@ -359,11 +355,9 @@ function MakingGraphqlBetter({
       </p>
       <p>
         Because this site doesn&apos;t use a database. (
-        <LinkComponent
-          linkProperties={{ href: '/blog/on-hosting-static-pages' }}
-        >
+        <NextLink linkProperties={{ href: '/blog/on-hosting-static-pages' }}>
           On Hosting Static Pages
-        </LinkComponent>
+        </NextLink>
         ) I&apos;m going to pull an example from a real-world production app
         where I implemented this solution. I&apos;m running this query where
         sites refers to a location and caseData refers to a support ticket. I
@@ -421,13 +415,13 @@ function MakingGraphqlBetter({
         You could bring up a lot of arguments about this implementation.
         Complain about the first two queries being essentially the same. Argue
         that Join would be faster. (
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://github.com/prisma/prisma/issues/4997#issuecomment-612429050',
           }}
         >
           It is not.
-        </LinkComponent>
+        </NextLink>
         ) At the end of the day, this implementation is based on Prisma&apos;s
         research and use of relationships to create efficient queries.
       </p>
@@ -491,8 +485,7 @@ function MakingGraphqlBetter({
       </p>
       <Gist id="cbbccae0bb0d2bfb3c1a729e7ab7b8ff" />
       <h2 id="conclusion">
-        Last Words{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        Last Words <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         GraphQL is a huge booster to any API. It makes for a good Gateway when

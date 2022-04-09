@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -8,13 +9,13 @@ function ReviewWebDeveloperBootcamp({ blog }: BlogProperties): JSX.Element {
     <StaticBlogLayout blog={blog}>
       <p>
         Sixty-three and a half hours of web development goodness.{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.udemy.com/course/the-web-developer-bootcamp/',
           }}
         >
           Colt Steele&apos;s Web Developer Bootcamp
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         is the essential course to get started with all the foundation skills
         needed to be a web developer. Starting with a quick explanation of how
         the web works, this course will get into HTML, CSS, JavaScript, MongoDB,

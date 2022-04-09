@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -17,13 +18,13 @@ function IsDarrylPerryMakingIdeologicalProgress({
       <p>
         I was both pleasantly surprised and confused when I saw Perry&apos;s
         latest post to Free Keene. &lsquo;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://web.archive.org/web/20180904074919/https://freekeene.com/2018/02/04/an-open-letter-to-libertarians/',
           }}
         >
           An Open Letter to Libertarians.
-        </LinkComponent>
+        </NextLink>
         &rsquo; It&apos;s a short, disjointed four paragraphs. The text is
         contradictory and meaningless. But it might be a good sign for the
         mindset of Darryl.
@@ -50,37 +51,37 @@ function IsDarrylPerryMakingIdeologicalProgress({
       <p>
         Darryl is on, or near, the same track I was when I wrote a few pieces
         for Free Keene. I wrote about how to{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/the-image-problem-and-its-solution',
           }}
         >
           solve the image problem of libertarians
-        </LinkComponent>
+        </NextLink>
         . How to{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/7-ways-to-win-an-argument-online',
           }}
         >
           win an argument online
-        </LinkComponent>
+        </NextLink>
         . How to{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/persuasion-through-moral-arguments',
           }}
         >
           persuade others with moral reframing
-        </LinkComponent>
+        </NextLink>
         . And how to{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: '/blog/curing-bias-with-curiosity',
           }}
         >
           cure bias with curiosity
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>

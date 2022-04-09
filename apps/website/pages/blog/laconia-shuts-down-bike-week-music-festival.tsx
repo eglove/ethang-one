@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
@@ -15,13 +16,13 @@ function LaconiaShutsDownBikeWeekMusicFestival({
         from 188,000 to 375,000 people. Despite the track record of fatal
         motorcycle accidents in the area during the event, it has always
         been&nbsp;relatively peaceful.&nbsp;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.weirsbeach.com/Largejpgs/weirsriot.html',
           }}
         >
           Until the summer of &rsquo;65
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>
@@ -61,13 +62,13 @@ function LaconiaShutsDownBikeWeekMusicFestival({
       </p>
       <p>
         LaconiaFest, the music festival headlining Ted Nugent,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.wmur.com/news/laconiafest-ends-early-amidst-conflicts-with-city/40118000',
           }}
         >
           shut down on Saturday early after Nugent&rsquo;s performance
-        </LinkComponent>
+        </NextLink>
         . The festival manager said the city overestimated how many people would
         show and charged more than expected for first responders.
       </p>

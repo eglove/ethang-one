@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -18,11 +19,11 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
         common battles, we&nbsp;must, unfortunately, play by their rules. They
         hold a monopoly on justice and claim that anyone who does not take part
         in or accept the system, is still accountable to it. In{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://www.oyez.org/cases/2015/14-940' }}
         >
           Evenwel v. Abbott
-        </LinkComponent>
+        </NextLink>
         , U.S. Supreme Court Justice Breyer said (in reference to district
         apportionment),
       </p>
@@ -39,14 +40,14 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
       </blockquote>
       <p>
         If we can not win the daily battles against tyranny, the war is lost.{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.nytimes.com/2012/03/23/us/stronger-hand-for-judges-after-rulings-on-plea-deals.html',
           }}
         >
           97% of the legal cases the state brings against people are never
           fought or argued.
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         <strong>
           Police officers write small meaningless tickets with the confidence
           that they won&rsquo;t have to answer to any potential misconduct or
@@ -57,67 +58,67 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
         collection. Turn that revenue collection into resources spent in court
         and you will show them a reason for discretion. Reason to back away from
         the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'http://freekeene.com/robin-hood/"' }}
         >
           parking tickets on empty streets
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.huffingtonpost.com/2012/08/16/gary-harrington-oregon-water-rainwater_n_1784378.html',
           }}
         >
           jail time for rainwater collection
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.washingtontimes.com/news/2011/apr/28/feds-sting-amish-farmer-selling-raw-milk-locally/',
           }}
         >
           selling raw milk
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://dailycaller.com/2011/08/20/capitol-police-arrest-lemonade-freedom-day-protesters/',
           }}
         >
           selling lemonade
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.unionleader.com/Free-the-Nipple-movement-gets-day-in-court',
           }}
         >
           taking your shirt off
-        </LinkComponent>
+        </NextLink>
         ,&nbsp;
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.nydailynews.com/news/national/man-90-arrested-week-feeding-homeless-article-1.2002790',
           }}
         >
           giving food to the homeless
-        </LinkComponent>
+        </NextLink>
         ,{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://freekeene.com/2011/11/07/shire-choir-launches-state-liquor-store-tour-at-store-1-in-concord/',
           }}
         >
           singing
-        </LinkComponent>
+        </NextLink>
         , or{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.washingtonpost.com/local/dancers-shimmy-at-the-jefferson-memorial/2011/06/04/AGb284IH_story.html',
           }}
         >
           dancing
-        </LinkComponent>
+        </NextLink>
         . You&rsquo;ll show them a reason to encourage the officers who proclaim
         to protect people to protect them from actual danger.
       </p>
@@ -216,13 +217,13 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
         </strong>{' '}
         In the case of blood alcohol tests, evidence dissipates over time. A
         refusal could mean time for a suspect to sober up.{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://web.archive.org/web/20080102041151/http://faculty.ncwc.edu/toconnor/405/405lect04.htm',
           }}
         >
           The Chimel Rule
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         allows for warrantless searches of an arrested person for safety, escape
         prevention, and destruction of evidence. While this may only apply to
         arrested persons, an officer may conduct a field sobriety test based on
@@ -293,13 +294,13 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
       </p>
       <p>
         Thanks to the liberal interpretations of the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.law.cornell.edu/wex/commerce_clause',
           }}
         >
           interstate commerce clause
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         and the lack of a right to free travel,{' '}
         <strong>
           the government holds an uneven amount of power over the people on the
@@ -324,13 +325,13 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
         the evidence recovered during the search is not admissible because the
         officer obtained it under illegal means. If he found evidence by illegal
         means, it falls under the{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.law.cornell.edu/wex/exclusionary_rule',
           }}
         >
           exclusionary rule
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         and it is not admissible&nbsp;in court. The issue is,{' '}
         <strong>
           if an illegal detainment, by pure chance, turns up a warrant, does
@@ -353,13 +354,13 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
         to stop people,&nbsp;solely to check for warrants when they have no
         suspicion, <strong>would destroy the fourth amendment.</strong> Both
         sides agree on the legality of a{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.law.cornell.edu/wex/stop_and_frisk',
           }}
         >
           Terry Stop
-        </LinkComponent>
+        </NextLink>
         , which says police may stop people&nbsp;and frisk them&nbsp;based on
         reasonable and articulable suspicion. What&rsquo;s at issue is if they
         can stop people without that suspicion, just so they can check for a
@@ -388,24 +389,24 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
         Even if the officer has reason to believe Strieff was just exiting a
         drug house, proximity to a suspicious place does not justify a lawful
         Terry Stop according to{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://www.oyez.org/cases/1979/78-5937' }}
         >
           Ybarra v. Illinois
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>
         A 5-3 decision ruled that if an unlawful detainment results in a lawful
         arrest based on a warrant unrelated to the situation, any evidence found
         is admissible in court.{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'http://www.supremecourt.gov/opinions/15pdf/14-1373_83i7.pdf',
           }}
         >
           Justice Sotomayor dissented
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         by writing that this case allows police officers to take advantage of
         their own unconstitutional conduct. In areas that have high rates of
         outstanding warrants (such as 80%), this ruling incentivizes officers to

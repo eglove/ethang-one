@@ -1,5 +1,6 @@
+import { NextLink } from '@ethang/react-components';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
@@ -16,11 +17,11 @@ function PortfolioRedesign({ blog }: BlogProperties): JSX.Element {
       <p>
         My design choices tend to be a more &ldquo;modern&rdquo; version of
         something like{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'http://www.paulgraham.com/articles.html' }}
         >
           Paul Graham&apos;s essays
-        </LinkComponent>
+        </NextLink>
         . I think that page looks far better and is more practical than anything
         I&apos;ve seen on sites like Dribbble.
       </p>

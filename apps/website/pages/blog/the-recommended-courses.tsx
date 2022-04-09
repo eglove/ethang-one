@@ -1,7 +1,6 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import styles from '../../components/common/styles/common.module.css';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
@@ -10,9 +9,9 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
       <p id="top">
-        <LinkComponent linkProperties={{ href: '/courses' }}>
+        <NextLink linkProperties={{ href: '/courses' }}>
           Recommended Courses
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         is my attempt to put the best coding courses out there in one list. They
         are put in an order so that someone new to coding can start at the top
         and learn from scratch and end up knowing more than a college degree
@@ -99,7 +98,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </ul>
       <h2 id="sOne">
         Learning To Learn{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         I can&apos;t stress enough how important this short course is. Learning
@@ -115,8 +114,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         it will teach you strategies for managing your time and mental state.
       </p>
       <h2 id="sTwo">
-        CompTIA A+{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        CompTIA A+ <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         This course is meant to help you pass the CompTIA A+ exams.{' '}
@@ -132,7 +130,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sThree">
         Web Developer Bootcamp{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         This course is huge. It covers a lot.{' '}
@@ -154,7 +152,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sFour">
         Accessibility, Git, and Postman{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         Three courses in a row to cover important subjects and tools not covered
@@ -168,7 +166,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sFive">
         JavaScript Web Projects, SEO{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         <strong>
@@ -188,8 +186,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         in going through it.
       </p>
       <h2 id="sSix">
-        Code Automation{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        Code Automation <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         As you start putting more projects on GitHub, you&apos;re going to want
@@ -201,7 +198,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sSeven">
         JavaScript Advanced, AlgoExpert{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         Welcome to algorithms. Get your whiteboard ready, and prepare for
@@ -225,8 +222,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         (Facebook, Amazon, Apple, Netflix, Google).
       </p>
       <h2 id="sEight">
-        Complete Node{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        Complete Node <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         I apologize for the instructor of this course. It&apos;s nails on a
@@ -243,7 +239,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sNine">
         Epic React, Fullstack React{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         React, the most dominant JavaScript framework. Don&apos;t underestimate
@@ -273,7 +269,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sTen">
         Apollo Odyssey, Testing with Cypress{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         As with the Postman and Git courses, these two will help fill a gap.
@@ -282,8 +278,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         E2E testing with the best testing framework out there.
       </p>
       <h2 id="sEleven">
-        Complete SQL{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        Complete SQL <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         After you&apos;ve learned everything you can about React, Node, GraphQL
@@ -300,7 +295,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sTwelve">
         TypeScript, NX, Stencil{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         Take your projects to the next level. TypeScript is so commonplace
@@ -319,7 +314,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sThirteen">
         Docker and Kubernetes{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         Welcome to containerization. You&apos;ll find that getting used to and
@@ -330,7 +325,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
       </p>
       <h2 id="sFourteen">
         Ethical Hacking, Web Security, Linux Sysadmin{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         These three courses start to branch into different subjects. As a web
@@ -349,8 +344,7 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
         Linux to perform these duties.
       </p>
       <h2 id="sFifteen">
-        Scrum and Agile{' '}
-        <LinkComponent linkProperties={{ href: '#top' }}>⤴</LinkComponent>
+        Scrum and Agile <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
         As you move into management roles you need to get to know SCRUM and

@@ -1,9 +1,9 @@
+import { NextLink } from '@ethang/react-components';
 import getYouTubeID from 'get-youtube-id';
 import { useEffect, useState } from 'react';
 
 import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
-import { LinkComponent } from '../../common/link-component/link-component';
 import { LoadingImage } from '../../common/loading-image/loading-image';
 import { YouTubeEmbed } from '../../common/youtube-embed/youtube-embed';
 import styles from './product-hunt-layout.module.css';
@@ -61,11 +61,9 @@ export function ProductHuntLayout(): JSX.Element {
                   {post.node.productLinks.map(productLink => {
                     return (
                       <div key={productLink.url}>
-                        <LinkComponent
-                          linkProperties={{ href: productLink.url }}
-                        >
+                        <NextLink linkProperties={{ href: productLink.url }}>
                           {productLink.type}
-                        </LinkComponent>
+                        </NextLink>
                         &emsp;
                       </div>
                     );

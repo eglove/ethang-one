@@ -1,10 +1,11 @@
+import { NextLink } from '@ethang/react-components';
 import { shuffleArray } from '@ethang/util-typescript';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 import { TechnologyLogo } from '../../graphql/types';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
-import { LinkComponent } from '../common/link-component/link-component';
 import styles from './home.module.css';
 
 interface HomeLayoutProperties {
@@ -14,13 +15,23 @@ interface HomeLayoutProperties {
 export function HomeLayout({
   technologyLogos,
 }: HomeLayoutProperties): JSX.Element | undefined {
-  const indexArray = shuffleArray(
-    Array.from({ length: technologyLogos.length })
-      .fill(null)
-      .map((_, index) => {
-        return index;
+  const [logos, setLogos] = useState(technologyLogos);
+
+  useEffect(() => {
+    const indexArray = shuffleArray(
+      Array.from({ length: technologyLogos.length })
+        .fill(null)
+        .map((_, index) => {
+          return index;
+        })
+    );
+
+    setLogos(
+      indexArray.map((index: number) => {
+        return technologyLogos[index];
       })
-  );
+    );
+  }, [technologyLogos]);
 
   return (
     <Container>
@@ -31,14 +42,12 @@ export function HomeLayout({
         <h3>What kind of developer?</h3>
         <p>I&apos;ve worked with these technologies.</p>
         <p>
-          <LinkComponent linkProperties={{ href: '/about-me' }}>
+          <NextLink linkProperties={{ href: '/about-me' }}>
             Learn more about me here.
-          </LinkComponent>
+          </NextLink>
         </p>
         <div className={styles.Logos}>
-          {indexArray.map((index: number) => {
-            const logo = technologyLogos[index];
-
+          {logos.map(logo => {
             return (
               <div key={logo.id} className={styles.LogoContainer}>
                 <Image

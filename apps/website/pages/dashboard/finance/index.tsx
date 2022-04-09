@@ -8,6 +8,7 @@ import { addDays, eightBaseFormatTime } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import { Container } from '../../../components/common/container/container';
+import { HeadTag } from '../../../components/common/head-tag/head-tag';
 import { updateFinanceRecords } from '../../../components/dashboard/graphql/mutations';
 import {
   financeData,
@@ -28,11 +29,11 @@ export const Account = {
 
 function Finance(): JSX.Element {
   const [formState, setFormState] = useState({});
-  const [updateRecords] = useMutation(updateFinanceRecords);
+  const [updateRecords, { loading }] = useMutation(updateFinanceRecords);
 
   const buttons = [
     new SimpleFormButton({
-      buttonText: 'Save',
+      buttonText: loading ? 'Saving' : 'Save',
       name: 'Submit',
       properties: { type: 'submit' },
     }),
@@ -139,6 +140,7 @@ function Finance(): JSX.Element {
 
   return (
     <Container>
+      <HeadTag title="Finance Update" />
       <div>Update Accounts</div>
       <SimpleForm
         buttons={buttons}

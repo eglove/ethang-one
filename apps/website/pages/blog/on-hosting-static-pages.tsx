@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
+import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
-import { LinkComponent } from '../../components/common/link-component/link-component';
 import { Data, Image } from '../../graphql/types';
 import { BlogProperties, blogQuery } from '../../util/query';
 import { apolloClient } from '../_app';
@@ -36,13 +36,13 @@ export function OnHostingStaticPages({
       <p>
         So in the past I&apos;ve always stored HTML as text on a database and
         used something like{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{
             href: 'https://www.npmjs.com/package/react-html-parser',
           }}
         >
           react-html-parser
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         to parse it on the page. Then it&apos;s just a matter of using server
         side rendering to make things SEO friendly.
       </p>
