@@ -26,7 +26,7 @@
     "@apollo/client": "^3.5.10",
     "@faker-js/faker": "^6.1.2",
     "@nrwl/next": "13.10.1",
-    "@storybook/core-server": "~6.4.20",
+    "@storybook/core-server": "~6.4.21",
     "apollo3-cache-persist": "^0.14.0",
     "bcrypt": "^5.0.1",
     "core-js": "^3.21.1",
