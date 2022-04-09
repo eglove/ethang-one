@@ -49,7 +49,6 @@ Cypress.Commands.add(
   'testReview',
   (arguments_: TestReviewArguments): void => {
     const reviewUrl = `${ROOT_URL}/blog/${arguments_.reviewSlug}`;
-    const dataTestId = '[data-testid=course-url]';
 
     cy.visit(reviewUrl);
 
@@ -59,17 +58,5 @@ Cypress.Commands.add(
     cy.contains(arguments_.courseAuthor);
     // Name of course is mentioned
     cy.contains(arguments_.courseName);
-
-    // Has valid link to course
-    cy.get(dataTestId)
-      .first()
-      .then($courseUrl => {
-        expect($courseUrl.attr('href')).to.equal(arguments_.courseUrl);
-
-        cy.get(dataTestId).click();
-        cy.url().should('include', arguments_.courseUrl);
-        cy.contains(arguments_.courseName);
-        cy.go('back');
-      });
   }
 );

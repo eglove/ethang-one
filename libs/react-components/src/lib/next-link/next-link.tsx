@@ -1,5 +1,6 @@
 import { isBrowser, isValidUrl, locationOrigin } from '@ethang/util-typescript';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface LinkComponentProperties {
   children: JSX.Element | JSX.Element[] | string;
@@ -12,28 +13,29 @@ export function NextLink({
   linkProperties,
   testId,
 }: LinkComponentProperties): JSX.Element {
-  let linkOrigin = null;
-  if (isValidUrl(linkProperties.href)) {
-    linkOrigin = new URL(linkProperties.href).origin;
-  }
+  const [linkState, setLinkState] = useState(linkProperties);
 
-  if (isBrowser && linkOrigin !== locationOrigin() && linkOrigin !== null) {
-    return (
-      <a
-        data-testid={testId}
-        {...linkProperties}
-        target="_blank"
-        rel="noreferrer"
-      >
-        {children}
-      </a>
-    );
-  }
+  useEffect(() => {
+    let linkOrigin = null;
+    if (isValidUrl(linkProperties.href)) {
+      linkOrigin = new URL(linkProperties.href).origin;
+    }
+
+    if (isBrowser && linkOrigin !== locationOrigin() && linkOrigin !== null) {
+      setLinkState(linkState_ => {
+        return {
+          ...linkState_,
+          rel: 'noreferrer',
+          target: '_blank',
+        };
+      });
+    }
+  }, [linkProperties.href]);
 
   return (
     <Link href={linkProperties.href}>
       {/* eslint-disable-next-line react/jsx-no-target-blank */}
-      <a data-testid={testId} {...linkProperties}>
+      <a data-testid={testId} {...linkProperties} {...linkState}>
         {children}
       </a>
     </Link>
