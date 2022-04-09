@@ -6,9 +6,6 @@ on:
   schedule:
     - cron: '43 21 * * 3'
 
-permissions:
-  contents: read
-
 jobs:
   test:
     name: LintNTest
@@ -55,15 +52,6 @@ jobs:
         uses: github/codeql-action/autobuild@v1
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
-
-  depedency-review:
-    name: Dependency Review
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v1
 
   snykNode:
     name: Snyk Node Analysis
@@ -131,7 +119,7 @@ jobs:
 
   mainMerge:
     name: Merge to Main
-    needs: [ test, codeQl, depedency-review, snykNode, snykSarif, sonar ]
+    needs: [ test, codeQl, snykNode, snykSarif, sonar ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
