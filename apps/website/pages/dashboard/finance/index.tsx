@@ -1,5 +1,9 @@
 import { useMutation, useQuery } from '@apollo/client';
-import { Form, FormInput } from '@ethang/react-components';
+import {
+  SimpleForm,
+  SimpleFormButton,
+  SimpleFormInput,
+} from '@ethang/react-components';
 import { addDays, eightBaseFormatTime } from '@ethang/util-typescript';
 import { useState } from 'react';
 
@@ -17,6 +21,7 @@ export const Account = {
   E_TORO: 'eToro',
   LENDING_CLUB: 'LendingClub',
   LIGHTSTREAM: 'LightStream',
+  MY_MERCY: 'MyMercy',
   USAA_CHECKING: 'UsaaChecking',
   USAA_SAVINGS: 'UsaaSavings',
 };
@@ -25,13 +30,31 @@ function Finance(): JSX.Element {
   const [formState, setFormState] = useState({});
   const [updateRecords] = useMutation(updateFinanceRecords);
 
+  const buttons = [
+    new SimpleFormButton({
+      buttonText: 'Save',
+      name: 'Submit',
+      properties: { type: 'submit' },
+    }),
+  ];
+
   const formInputs = [
-    new FormInput(Account.USAA_CHECKING, { label: 'USAA Checking' }),
-    new FormInput(Account.USAA_SAVINGS, { label: 'USAA Savings' }),
-    new FormInput(Account.CHASE_CC, {}),
-    new FormInput(Account.LIGHTSTREAM, { label: Account.LIGHTSTREAM }),
-    new FormInput(Account.E_TORO, { label: Account.E_TORO }),
-    new FormInput(Account.LENDING_CLUB, { label: Account.LENDING_CLUB }),
+    new SimpleFormInput({
+      label: 'USAA Checking',
+      name: Account.USAA_CHECKING,
+    }),
+    new SimpleFormInput({ label: 'USAA Savings', name: Account.USAA_SAVINGS }),
+    new SimpleFormInput({ name: Account.CHASE_CC }),
+    new SimpleFormInput({ name: Account.MY_MERCY }),
+    new SimpleFormInput({
+      label: Account.LIGHTSTREAM,
+      name: Account.LIGHTSTREAM,
+    }),
+    new SimpleFormInput({ label: Account.E_TORO, name: Account.E_TORO }),
+    new SimpleFormInput({
+      label: Account.LENDING_CLUB,
+      name: Account.LENDING_CLUB,
+    }),
   ];
 
   useQuery<FinanceStatuses>(financeStatuses, {
@@ -43,6 +66,7 @@ function Finance(): JSX.Element {
           [Account.USAA_CHECKING]:
             data.UsaaChecking.items[0]?.currentValue ?? 0,
           [Account.USAA_SAVINGS]: data.UsaaSavings.items[0]?.currentValue ?? 0,
+          [Account.MY_MERCY]: data.MyMercy.items[0]?.currentValue ?? 0,
           [Account.CHASE_CC]: data.ChaseCreditCard.items[0]?.currentValue ?? 0,
           [Account.LIGHTSTREAM]: data.LightStream.items[0]?.currentValue ?? 0,
           [Account.E_TORO]: data.eToro.items[0]?.currentValue ?? 0,
@@ -71,6 +95,11 @@ function Finance(): JSX.Element {
       {
         accountName: Account.CHASE_CC,
         currentValue: Number(formState[Account.CHASE_CC]),
+        recordedDate: eightBaseFormatTime(),
+      },
+      {
+        accountName: Account.MY_MERCY,
+        currentValue: Number(formState[Account.MY_MERCY]),
         recordedDate: eightBaseFormatTime(),
       },
       {
@@ -111,12 +140,12 @@ function Finance(): JSX.Element {
   return (
     <Container>
       <div>Update Accounts</div>
-      <Form
+      <SimpleForm
+        buttons={buttons}
         formProperties={{ className: commonStyles.Form }}
-        inputObjects={formInputs}
-        inputState={formState}
-        setInputState={setFormState}
-        submitButtonText="Save"
+        inputs={formInputs}
+        formState={formState}
+        setFormState={setFormState}
         postSubmitFunction={handleSubmit}
       />
     </Container>

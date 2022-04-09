@@ -68,6 +68,9 @@ export type FinanceStatuses = {
   ChaseCreditCard: {
     items: [{ currentValue?: number }];
   };
+  MyMercy: {
+    items: [{ currentValue?: number }];
+  };
   LightStream: {
     items: [{ currentValue?: number }];
   };
@@ -103,6 +106,15 @@ export const financeStatuses = gql`
       first: 1
       sort: { recordedDate: DESC }
       filter: { accountName: { equals: "ChaseCreditCard" } }
+    ) {
+      items {
+        currentValue
+      }
+    }
+    MyMercy: financeRecordsList(
+      first: 1
+      sort: { recordedDate: DESC }
+      filter: { accountName: { equals: "MyMercy" } }
     ) {
       items {
         currentValue
