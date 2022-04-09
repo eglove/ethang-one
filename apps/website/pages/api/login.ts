@@ -38,7 +38,7 @@ export default function (
       {
         email,
       },
-      process.env.NX_CRYPTO_TOKEN,
+      constants.get(ENV_KEYS.CRYPTO_TOKEN),
       {
         expiresIn: '365d',
       }

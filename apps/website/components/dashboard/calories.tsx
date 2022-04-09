@@ -111,7 +111,7 @@ export function Calories(): JSX.Element {
   ]);
 
   return (
-    <div style={{ width: 'max-content' }}>
+    <div style={{ width: '330px' }}>
       <CircularProgressbarWithChildren
         maxValue={calories}
         value={todaysCalories}
