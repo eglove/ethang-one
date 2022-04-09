@@ -131,7 +131,7 @@ jobs:
 
   mainMerge:
     name: Merge to Main
-    needs: [ test, codeQl, snykNode, snykSarif, sonar ]
+    needs: [ test, codeQl, depedency-review, snykNode, snykSarif, sonar ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
