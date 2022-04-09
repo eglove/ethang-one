@@ -69,6 +69,10 @@ export const formatPhoneNumber = (string: string): string | undefined => {
   return undefined;
 };
 
+export const randomColor = (): string => {
+  return `#${Math.floor(Math.random() * 16_777_215).toString(16)}`;
+};
+
 export const removeNonAplhaNumericChars = (string: string): string => {
   return string.replace(/\W/g, '');
 };

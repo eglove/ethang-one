@@ -3,10 +3,12 @@ import {
   addDays,
   currencyFormat,
   eightBaseFormatTime,
+  randomColor,
 } from '@ethang/util-typescript';
 import { useState } from 'react';
 import {
   CartesianGrid,
+  Legend,
   Line,
   LineChart,
   Tooltip,
@@ -20,11 +22,14 @@ export function FinanceGraph(): JSX.Element {
   const [graphData, setGraphData] = useState<
     Array<Record<string, string | number>>
   >([]);
+  const [accountNames, setAccountNames] = useState<string[]>([]);
 
   useQuery<FinanceData>(financeData, {
+    nextFetchPolicy: 'cache-and-network',
     onCompleted(data) {
-      // {date: [{accountName: currentValue}]}
       const restructuredData: Record<string, Record<string, number>> = {};
+      let uniqueAccountNames: string[] = [];
+
       for (const item of data.financeRecordsList.items) {
         if (restructuredData[item.recordedDate]) {
           restructuredData[item.recordedDate][item.accountName] =
@@ -39,6 +44,10 @@ export function FinanceGraph(): JSX.Element {
       for (const key of Object.keys(restructuredData)) {
         let total = 0;
         for (const accountName of Object.keys(restructuredData[key])) {
+          if (!uniqueAccountNames.includes(accountName)) {
+            uniqueAccountNames = [...uniqueAccountNames, accountName];
+          }
+
           if (typeof restructuredData[key][accountName] === 'number') {
             total += restructuredData[key][accountName];
           }
@@ -47,6 +56,7 @@ export function FinanceGraph(): JSX.Element {
         restructuredData[key].NetWorth = total;
       }
 
+      setAccountNames([...uniqueAccountNames, 'NetWorth']);
       setGraphData(() => {
         return Object.keys(restructuredData).map(itemKey => {
           return {
@@ -62,27 +72,38 @@ export function FinanceGraph(): JSX.Element {
     },
   });
 
+  const getStrokeColor = (itemKey: string): string => {
+    if (itemKey === 'NetWorth') {
+      return '#f00';
+    }
+
+    const color = randomColor();
+    if (color === '#f00') {
+      return getStrokeColor(itemKey);
+    }
+
+    return color;
+  };
+
   return (
-    <LineChart width={750} height={350} data={graphData}>
-      {graphData?.map(item => {
-        return Object.keys(item).map(itemKey => {
-          if (itemKey !== 'date') {
-            return <Line key={itemKey} dataKey={itemKey} />;
-          }
-
-          return null;
-        });
+    <LineChart width={950} height={350} data={graphData}>
+      {accountNames.map(name => {
+        return <Line key={name} stroke={getStrokeColor(name)} dataKey={name} />;
       })}
-
-      <CartesianGrid />
+      <Legend />
+      <Tooltip
+        formatter={(item: number): string => {
+          return currencyFormat(item);
+        }}
+      />
+      <CartesianGrid strokeDasharray="5.5" />
       <XAxis dataKey="date" />
       <YAxis
         tickFormatter={(tickItem: string): string => {
           return currencyFormat(Number(tickItem));
         }}
-        width={95}
+        width={120}
       />
-      <Tooltip />
     </LineChart>
   );
 }
