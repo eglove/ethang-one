@@ -1,5 +1,8 @@
-import { InputType, SimpleFormButton, SimpleFormInput } from '@ethang/react-components';
 import { ChangeEvent, Dispatch, FormEvent, SetStateAction } from 'react';
+
+import { SimpleFormButton } from './simple-form-button';
+import { SimpleFormInput } from './simple-form-input';
+import { InputType } from './types';
 
 interface FormProperties<StateType> {
   buttons?: SimpleFormButton[];
@@ -117,7 +120,11 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
   };
 
   return (
-    <form method="POST" onSubmit={handleSubmit} {...formProperties.formProperties}>
+    <form
+      method="POST"
+      onSubmit={handleSubmit}
+      {...formProperties.formProperties}
+    >
       <fieldset {...formProperties.fieldsetProperties}>
         {formProperties.inputs?.map((formInput: SimpleFormInput) => {
           return formInput.hideLabel ? (
@@ -135,7 +142,9 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
         })}
         {formProperties.buttons?.reverse().map(button => {
           return (
-            <button key={button.name} type="button" {...button.properties} >{button.buttonText}</button>
+            <button key={button.name} type="button" {...button.properties}>
+              {button.buttonText}
+            </button>
           );
         })}
       </fieldset>
