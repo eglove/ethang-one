@@ -11,6 +11,7 @@ export function HabitList(): JSX.Element {
   const [updateDueDate] = useMutation(updateHabitDueDate);
 
   const { data } = useQuery<DueHabits>(dueHabits, {
+    fetchPolicy: 'cache-and-network',
     variables: {
       dueDate: eightBaseFormatTime(),
     },
