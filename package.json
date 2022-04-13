@@ -86,7 +86,7 @@
     "@nrwl/node": "13.10.1",
     "@nrwl/nx-cloud": "13.2.2",
     "@nrwl/react": "13.10.1",
-    "@nrwl/storybook": "13.10.1",
+    "@nrwl/storybook": "13.10.2",
     "@nrwl/web": "13.10.1",
     "@nrwl/workspace": "13.10.1",
     "@nxrs/cargo": "^0.3.2",
