@@ -90,7 +90,7 @@
     "@nrwl/web": "13.10.2",
     "@nrwl/workspace": "13.10.2",
     "@nxrs/cargo": "^0.3.2",
-    "@testing-library/react": "13.0.1",
+    "@testing-library/react": "13.1.0",
     "@testing-library/react-hooks": "8.0.0",
     "@types/bcrypt": "^5.0.0",
     "@types/inquirer": "^8.2.1",
