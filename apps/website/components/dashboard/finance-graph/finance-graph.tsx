@@ -30,6 +30,7 @@ export function FinanceGraph(): JSX.Element {
       const restructuredData: Record<string, Record<string, number>> = {};
       let uniqueAccountNames: string[] = [];
 
+      // { recordedDate1: { account1: value1, account2, value2 }, recordedDate2: { ... } }
       for (const item of data.financeRecordsList.items) {
         if (restructuredData[item.recordedDate]) {
           restructuredData[item.recordedDate][item.accountName] =
@@ -41,6 +42,7 @@ export function FinanceGraph(): JSX.Element {
         }
       }
 
+      // Get list of unique account Names, and total for NetWorth
       for (const key of Object.keys(restructuredData)) {
         let total = 0;
         for (const accountName of Object.keys(restructuredData[key])) {
@@ -57,6 +59,7 @@ export function FinanceGraph(): JSX.Element {
       }
 
       setAccountNames([...uniqueAccountNames, 'NetWorth']);
+      // [ { date: recordedDate, { account1: value1, account2: value2 } }, { date2: recordedDate2, { ... } ]
       setGraphData(() => {
         return Object.keys(restructuredData).map(itemKey => {
           return {

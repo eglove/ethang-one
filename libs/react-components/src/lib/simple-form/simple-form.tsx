@@ -28,7 +28,7 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
     };
 
     if (type === 'number' && typeof value === 'string') {
-      value = Number.parseFloat(value);
+      value = Number.parseFloat(value.replaceAll(',', ''));
     }
 
     if (type === 'file') {
