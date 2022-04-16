@@ -25,7 +25,7 @@ export function FinanceGraph(): JSX.Element {
   const [accountNames, setAccountNames] = useState<string[]>([]);
 
   useQuery<FinanceData>(financeData, {
-    nextFetchPolicy: 'cache-and-network',
+    fetchPolicy: 'cache-and-network',
     onCompleted(data) {
       const restructuredData: Record<string, Record<string, number>> = {};
       let uniqueAccountNames: string[] = [];
