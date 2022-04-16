@@ -23,7 +23,7 @@ jobs:
           node-version: '14'
       - run: npx pnpm i
       - run: npx nx affected --target=lint --fix
-      - run: npx nx affected --target=build  --base=develop
+      - run: npx nx affected --target=build
         env:
           NX_8BASE_API_ADMIN_TOKEN: ${{ secrets.NX_8BASE_API_ADMIN_TOKEN }}
       - run: npx nx affected --target=test
