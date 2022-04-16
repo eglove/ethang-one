@@ -22,14 +22,14 @@ jobs:
         with:
           node-version: '14'
       - run: npx pnpm i
-      - run: npx nx affected --target=lint --fix
-      - run: npx nx affected --target=build
+      - run: npm run lintAffected
+      - run: npm run buildAffected
         env:
           NX_8BASE_API_ADMIN_TOKEN: ${{ secrets.NX_8BASE_API_ADMIN_TOKEN }}
-      - run: npx nx affected --target=test
+      - run: npm run testAffected
         env:
           NX_8BASE_API_ADMIN_TOKEN: ${{ secrets.NX_8BASE_API_ADMIN_TOKEN }}
-      - run: npx nx affected --target=e2e
+      - run: npm run e2eAffected
         continue-on-error: true
         env:
           NX_8BASE_API_ADMIN_TOKEN: ${{ secrets.NX_8BASE_API_ADMIN_TOKEN }}
