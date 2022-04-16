@@ -94,7 +94,7 @@ function ReviewCompleteReactDeveloper({ blog }: BlogProperties): JSX.Element {
         as if it were my first time seeing it. Yihua is great presenter, the
         course covers an incredible amount of topics pouring it into one small
         project and another large one without breaking up the context of what
-        its teaching. a
+        its teaching.
       </p>
       <p>
         I won&apos;t complain too much about the usage of SASS and Styled
