@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { CardList } from './card-list';
+import Card from './card';
 
-describe('CardList', () => {
+describe('Card', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<CardList filteredMonsters={[]} />);
+    const { baseElement } = render(<Card />);
     expect(baseElement).toBeTruthy();
   });
 });
