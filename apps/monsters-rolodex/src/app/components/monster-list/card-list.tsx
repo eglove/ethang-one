@@ -1,26 +1,18 @@
-import { Component } from 'react';
-
-export type Monster = {
-  id: string;
-  name: string;
-};
+import Card, { Monster } from '../card/card';
+import styles from './card-list.module.css';
 
 interface CardListProperties {
   filteredMonsters: Monster[];
 }
 
-export class CardList extends Component<CardListProperties, unknown> {
-  override render(): JSX.Element {
-    return (
-      <>
-        {this.props.filteredMonsters.map(monster => {
-          return (
-            <div key={monster.id}>
-              <h1>{monster.name}</h1>
-            </div>
-          );
-        })}
-      </>
-    );
-  }
+export function CardList({
+  filteredMonsters,
+}: CardListProperties): JSX.Element {
+  return (
+    <div className={styles['CardList']}>
+      {filteredMonsters.map(monster => {
+        return <Card key={monster.id} monster={monster} />;
+      })}
+    </div>
+  );
 }

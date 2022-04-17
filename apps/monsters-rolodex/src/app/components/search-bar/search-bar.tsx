@@ -1,18 +1,20 @@
-import { ChangeEvent, Component } from 'react';
+import { ChangeEvent } from 'react';
+
+import styles from './search-bar.module.css';
 
 interface SearchBarProperties {
   onChangeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export class SearchBar extends Component<SearchBarProperties, unknown> {
-  override render(): JSX.Element {
-    return (
-      <input
-        className="SearchBox"
-        placeholder="Search monsters."
-        type="search"
-        onChange={this.props.onChangeHandler}
-      />
-    );
-  }
+export function SearchBar({
+  onChangeHandler,
+}: SearchBarProperties): JSX.Element {
+  return (
+    <input
+      className={styles['SearchBarContainer']}
+      placeholder="Search monsters."
+      type="search"
+      onChange={onChangeHandler}
+    />
+  );
 }

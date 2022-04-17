@@ -1,0 +1,9 @@
+.SearchBarContainer {
+  width: 150px;
+  padding: 10px;
+  margin-bottom: 30px;
+  line-height: 30px;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+}
