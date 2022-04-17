@@ -10,7 +10,11 @@ export interface CardProperties {
   monster: Monster;
 }
 
-export function Card({ monster }: CardProperties): JSX.Element {
+export function Card({ monster }: CardProperties): JSX.Element | null {
+  if (typeof monster === 'undefined' || monster === null) {
+    return null;
+  }
+
   return (
     <div key={monster.id} className={styles['CardContainer']}>
       <img

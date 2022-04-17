@@ -1,3 +1,4 @@
+import fetch from 'cross-fetch';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 import { Monster } from './components/card/card';

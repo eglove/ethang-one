@@ -43,6 +43,7 @@ specifiers:
   browserslist: ^4.20.2
   browserslist-config-google: ^3.0.1
   core-js: ^3.22.0
+  cross-fetch: ^3.1.5
   cypress: ^9.5.4
   disqus-react: ^1.1.2
   eslint: 8.13.0
@@ -127,6 +128,7 @@ dependencies:
   apollo3-cache-persist: 0.14.0_@apollo+client@3.5.10
   bcrypt: 5.0.1
   core-js: 3.22.0
+  cross-fetch: 3.1.5
   disqus-react: 1.1.2_react-dom@18.0.0+react@18.0.0
   fast-xml-parser: 4.0.7
   get-youtube-id: 1.0.1
@@ -7183,7 +7185,6 @@ packages:
       node-fetch: 2.6.7
     transitivePeerDependencies:
       - encoding
-    dev: true
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
