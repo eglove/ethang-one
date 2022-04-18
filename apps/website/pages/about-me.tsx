@@ -7,7 +7,6 @@ import { Container } from '../components/common/container/container';
 import { HeadTag } from '../components/common/head-tag/head-tag';
 import styles from '../components/common/styles/common.module.css';
 import { YouTubeEmbed } from '../components/common/youtube-embed/youtube-embed';
-import changeVsConsequence from '../public/images/changevsconsequence.png';
 import commonStyles from '../styles/common.module.css';
 import { BASE_URL } from '../util/constants';
 
@@ -96,8 +95,9 @@ function AboutMe(): JSX.Element {
       </p>
       <div style={{ display: 'grid', placeItems: 'center' }}>
         <Image
-          placeholder="blur"
-          src={changeVsConsequence}
+          width={458}
+          height={439}
+          src="/images/changevsconsequence.png"
           alt="Change Vs. Consequence"
         />
       </div>
