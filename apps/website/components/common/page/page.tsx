@@ -24,7 +24,7 @@ export function Page({ children }: PropertiesChildren): JSX.Element {
       <ParticlesContainer />
       <div className={styles.ContentContainer}>
         <Header />
-        {children}
+        <div>{children}</div>
       </div>
     </div>
   );
