@@ -16,7 +16,7 @@ export function Navigation(): JSX.Element {
   ];
 
   return (
-    <div>
+    <>
       <div className={`${styles.NavigationLink} ${styles.SocialLinks}`}>
         <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
           <Image height="40px" width="48px" src="/images/github.png" />
@@ -45,6 +45,6 @@ export function Navigation(): JSX.Element {
       </nav>
       <script async src="https://cse.google.com/cse.js?cx=1040596e09bea9882" />
       <div className="gcse-search" />
-    </div>
+    </>
   );
 }
