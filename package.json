@@ -91,7 +91,7 @@
     "@nrwl/nx-cloud": "13.3.1",
     "@nrwl/react": "13.10.2",
     "@nrwl/storybook": "13.10.2",
-    "@nrwl/web": "13.10.2",
+    "@nrwl/web": "13.10.3",
     "@nrwl/workspace": "13.10.2",
     "@nxrs/cargo": "^0.3.2",
     "@testing-library/react": "13.1.1",
