@@ -1,14 +1,14 @@
 import { NextLink } from '@ethang/react-components';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
 function PortfolioRedesign({ blog }: BlogProperties): JSX.Element {
   return (
     <StaticBlogLayout blog={blog}>
-      <YouTubeEmbed id="1WGEp3UjnnQ" title="Portfolio Redesign" />
+      <LiteYouTubeEmbed id="1WGEp3UjnnQ" title="Portfolio Redesign" />
       <p>
         My design sense is simple. Blue and white. Box shadows. That&apos;s it.
         I find a lot of popular designs today to be ugly, difficult to read,

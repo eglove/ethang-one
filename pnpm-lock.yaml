@@ -89,6 +89,7 @@ specifiers:
   react-gist: ^1.2.4
   react-html-parser: ^2.0.2
   react-is: 18.0.0
+  react-lite-youtube-embed: ^2.2.1-a
   react-ogp: ^0.0.3
   react-player: ^2.10.0
   react-router-dom: 6.3.0
@@ -150,6 +151,7 @@ dependencies:
   react-gist: 1.2.4_react@18.0.0
   react-html-parser: 2.0.2_react@18.0.0
   react-is: 18.0.0
+  react-lite-youtube-embed: 2.2.1-a_react-dom@18.0.0+react@18.0.0
   react-ogp: 0.0.3_react@18.0.0
   react-player: 2.10.0_react@18.0.0
   react-router-dom: 6.3.0_react-dom@18.0.0+react@18.0.0
@@ -14314,6 +14316,16 @@ packages:
 
   /react-lifecycles-compat/3.0.4:
     resolution: {integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==}
+    dev: false
+
+  /react-lite-youtube-embed/2.2.1-a_react-dom@18.0.0+react@18.0.0:
+    resolution: {integrity: sha512-Gi/MKquU8e6J1oMnF1/RzrNEymjdgZLfcCGq4OM3cNKAB3G4YmAvc0moFMc0yhKU6hn43aRowAyn4K2wgjrbIg==}
+    peerDependencies:
+      react: '>=16.0.8'
+      react-dom: '>=16.0.8'
+    dependencies:
+      react: 18.0.0
+      react-dom: 18.0.0_react@18.0.0
     dev: false
 
   /react-ogp/0.0.3_react@18.0.0:

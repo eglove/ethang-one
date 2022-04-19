@@ -1,7 +1,7 @@
 import { NextLink } from '@ethang/react-components';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -284,7 +284,7 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
         this curiosity into other subjects by relating them to what you&rsquo;re
         interested in, and through practice and discipline.
       </p>
-      <YouTubeEmbed id="YFVS1kE8gFQ" title="The Science of Wonder" />
+      <LiteYouTubeEmbed id="YFVS1kE8gFQ" title="The Science of Wonder" />
       <p>
         Having a political belief based on unbridled freedom for all isn&rsquo;t
         about proving the viewpoints of someone else wrong.{' '}
@@ -351,7 +351,7 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
         allow you to obtain more information, learn, and take your own beliefs
         to a whole new level.
       </p>
-      <YouTubeEmbed id="__tPaFaPCHo" title="Building Curiosity" />
+      <LiteYouTubeEmbed id="__tPaFaPCHo" title="Building Curiosity" />
     </StaticBlogLayout>
   );
 }

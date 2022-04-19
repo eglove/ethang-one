@@ -1,7 +1,7 @@
 import { NextLink } from '@ethang/react-components';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -53,7 +53,7 @@ function LaconiaShutsDownBikeWeekMusicFestival({
         soldiers&nbsp;in a &ldquo;non-law enforcement capacity.&rdquo; According
         to the UNH officer in the video below.
       </p>
-      <YouTubeEmbed id="L7RSEV7E2qI" title="UNH Cop at Bike Week 2016" />
+      <LiteYouTubeEmbed id="L7RSEV7E2qI" title="UNH Cop at Bike Week 2016" />
       <p>
         Aside from a few crashes on the highways (one fatal), the event was
         peaceful.&nbsp;Happy, even. Everyone was in a good, talkative mood. Even

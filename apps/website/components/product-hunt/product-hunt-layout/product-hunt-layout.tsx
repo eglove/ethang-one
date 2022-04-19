@@ -1,11 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 import getYouTubeID from 'get-youtube-id';
 import { useEffect, useState } from 'react';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { LoadingImage } from '../../common/loading-image/loading-image';
-import { YouTubeEmbed } from '../../common/youtube-embed/youtube-embed';
 import styles from './product-hunt-layout.module.css';
 import { ProductHuntData } from './product-hunt-layout-types';
 
@@ -71,7 +71,7 @@ export function ProductHuntLayout(): JSX.Element {
                 </div>
                 <div>
                   {typeof post.node.media[0].videoUrl === 'string' ? (
-                    <YouTubeEmbed
+                    <LiteYouTubeEmbed
                       id={getYouTubeID(post.node.media[0].videoUrl)}
                       title={post.node.name}
                     />
