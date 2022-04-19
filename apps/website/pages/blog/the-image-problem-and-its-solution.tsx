@@ -1,7 +1,7 @@
 import { NextLink } from '@ethang/react-components';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -648,7 +648,7 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
         attacking them. You can if you&rsquo;re listening and having a decent
         conversation. Without judging their beliefs or use of words.
       </p>
-      <YouTubeEmbed
+      <LiteYouTubeEmbed
         id="_tdjtFRdbAo"
         title="Watch A Voter Change Their Mind About Transgender Discrimination | LA LGBT Center"
       />

@@ -1,7 +1,7 @@
 import { NextLink } from '@ethang/react-components';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -33,7 +33,10 @@ function TheEpidemicOfPassableArguments({ blog }: BlogProperties): JSX.Element {
         don&rsquo;t connect. What Nerdwriter sees in movies, is also in
         arguments for libertarianism.
       </p>
-      <YouTubeEmbed id="Ukk5TJL27pE" title="The Epidemic of Passable Movies" />
+      <LiteYouTubeEmbed
+        id="Ukk5TJL27pE"
+        title="The Epidemic of Passable Movies"
+      />
       <p>
         A &lsquo;passable&rsquo; libertarian argument, or &lsquo;passable&rsquo;
         activism does just enough to get attention, and just enough for others

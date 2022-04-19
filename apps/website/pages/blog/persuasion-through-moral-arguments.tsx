@@ -1,7 +1,7 @@
 import { NextLink } from '@ethang/react-components';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { YouTubeEmbed } from '../../components/common/youtube-embed/youtube-embed';
 import { getBlog } from '../../util/next-properties';
 import { BlogProperties } from '../../util/query';
 
@@ -57,7 +57,7 @@ function PersuasionThroughMoralArguments({
         The details of the moral roots of conservatives and liberals are
         explained in further detail in Jonathan Haidt&rsquo;s TED talk.
       </p>
-      <YouTubeEmbed
+      <LiteYouTubeEmbed
         id="8SOQduoLgRw"
         title="The moral roots of liberals and conservatives - Jonathan Haidt"
       />
