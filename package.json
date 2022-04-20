@@ -136,7 +136,7 @@
     "lint-staged": "^12.3.8",
     "nx": "13.10.3",
     "prettier": "^2.6.2",
-    "puppeteer": "~13.5.2",
+    "puppeteer": "~13.6.0",
     "react-test-renderer": "18.0.0",
     "stylelint": "^14.7.1",
     "stylelint-a11y": "^1.2.3",
