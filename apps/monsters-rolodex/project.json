@@ -65,7 +65,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/monsters-rolodex"],
       "options": {
-        "jestConfig": "apps/monsters-rolodex/jest.config.js",
+        "jestConfig": "apps/monsters-rolodex/jest.config.ts",
         "passWithNoTests": true
       }
     }

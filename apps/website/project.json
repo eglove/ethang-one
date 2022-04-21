@@ -38,7 +38,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/website"],
       "options": {
-        "jestConfig": "apps/website/jest.config.js",
+        "jestConfig": "apps/website/jest.config.ts",
         "passWithNoTests": true
       }
     },
