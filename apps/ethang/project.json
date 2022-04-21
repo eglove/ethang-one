@@ -39,7 +39,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/ethang"],
       "options": {
-        "jestConfig": "apps/ethang/jest.config.js",
+        "jestConfig": "apps/ethang/jest.config.ts",
         "passWithNoTests": true
       }
     },

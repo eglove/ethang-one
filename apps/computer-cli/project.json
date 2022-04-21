@@ -43,7 +43,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/computer-cli"],
       "options": {
-        "jestConfig": "apps/computer-cli/jest.config.js",
+        "jestConfig": "apps/computer-cli/jest.config.ts",
         "passWithNoTests": true
       }
     }

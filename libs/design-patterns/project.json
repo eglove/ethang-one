@@ -14,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/design-patterns"],
       "options": {
-        "jestConfig": "libs/design-patterns/jest.config.js",
+        "jestConfig": "libs/design-patterns/jest.config.ts",
         "passWithNoTests": true
       }
     }
