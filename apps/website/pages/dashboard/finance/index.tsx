@@ -145,10 +145,10 @@ function Finance(): JSX.Element {
       <SimpleForm
         buttons={buttons}
         formProperties={{ className: commonStyles.Form }}
-        inputs={formInputs}
         formState={formState}
-        setFormState={setFormState}
+        inputs={formInputs}
         postSubmitFunction={handleSubmit}
+        setFormState={setFormState}
       />
     </Container>
   );

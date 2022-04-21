@@ -61,6 +61,11 @@
             "endOfLine": "auto"
           }
         ],
+        "react/jsx-sort-props": [2, {
+          "callbacksLast": true,
+          "shorthandFirst": true,
+          "multiline": "last"
+        }],
         "react/react-in-jsx-scope": "off",
         "react-hooks/exhaustive-deps": "error",
         "simple-import-sort/exports": "error",

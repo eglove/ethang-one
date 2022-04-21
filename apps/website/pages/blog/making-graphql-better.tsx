@@ -115,7 +115,7 @@ function MakingGraphqlBetter({
 
   return (
     <StaticBlogLayout blog={blog}>
-      <ul id="top" className={styles.toc}>
+      <ul className={styles.toc} id="top">
         <li>
           <NextLink linkProperties={{ href: '#selectAll' }}>
             Select All

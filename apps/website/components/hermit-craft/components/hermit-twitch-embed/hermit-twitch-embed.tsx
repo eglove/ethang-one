@@ -27,8 +27,8 @@ export function HermitTwitchEmbed(): JSX.Element {
           )}
           <ReactPlayer
             playing
-            width="100%"
             url={`https://twitch.tv/${username}`}
+            width="100%"
           />
         </>
       );

@@ -29,7 +29,7 @@ export function HomeLayout(): JSX.Element | undefined {
             const logo = technologyImages[imageKey] as ImageModel;
 
             return (
-              <div key={logo.url} className={styles.LogoContainer}>
+              <div className={styles.LogoContainer} key={logo.url}>
                 <ImageComponent
                   image={logo}
                   imageProperties={{ height: 100, width: 100 }}

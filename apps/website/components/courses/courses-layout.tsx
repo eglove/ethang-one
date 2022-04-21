@@ -62,7 +62,7 @@ export function CoursesLayout({
             <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
               <span itemProp="name">Home</span>
             </NextLink>
-            <meta itemProp="position" content="1" />
+            <meta content="1" itemProp="position" />
           </li>
           <li
             itemScope
@@ -72,7 +72,7 @@ export function CoursesLayout({
             <NextLink linkProperties={{ href: '/courses', itemProp: 'item' }}>
               <span itemProp="name">Courses</span>
             </NextLink>
-            <meta itemProp="position" content="2" />
+            <meta content="2" itemProp="position" />
           </li>
         </ol>
         <h1 className={styles.Title}>The Recommended Courses</h1>
@@ -92,7 +92,7 @@ export function CoursesLayout({
         </p>
         {courses.map(course => {
           return (
-            <div key={course.id} className={styles.CourseContainer}>
+            <div className={styles.CourseContainer} key={course.id}>
               <div className={styles.CourseItem}>
                 <CourseRating
                   rating={course.rating}
@@ -102,10 +102,10 @@ export function CoursesLayout({
               <div className={styles.CourseItem}>
                 <NextLink linkProperties={{ href: course.school.url }}>
                   <Image
-                    src={course.school.image.image.downloadUrl}
                     alt={course.school.image.altText}
-                    width={25}
                     height={25}
+                    src={course.school.image.image.downloadUrl}
+                    width={25}
                   />
                 </NextLink>
               </div>

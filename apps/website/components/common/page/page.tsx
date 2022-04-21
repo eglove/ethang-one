@@ -12,7 +12,7 @@ export function Page({ children }: PropertiesChildren): JSX.Element {
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-ZM8N2J2F2Q"
       />
-      <Script strategy="afterInteractive" id="google-analytics">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}

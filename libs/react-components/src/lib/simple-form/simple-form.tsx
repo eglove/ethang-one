@@ -131,8 +131,8 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
             getInputElement(formInput)
           ) : (
             <label
-              key={formInput.name}
               htmlFor={formInput.name}
+              key={formInput.name}
               {...formInput.labelProperties}
             >
               <span {...formInput.labelTextProperties}>{formInput.label}</span>

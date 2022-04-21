@@ -89,9 +89,9 @@ export function FinanceGraph(): JSX.Element {
   };
 
   return (
-    <LineChart width={950} height={350} data={graphData}>
+    <LineChart data={graphData} height={350} width={950}>
       {accountNames.map(name => {
-        return <Line key={name} stroke={getStrokeColor(name)} dataKey={name} />;
+        return <Line dataKey={name} key={name} stroke={getStrokeColor(name)} />;
       })}
       <Legend />
       <Tooltip
@@ -102,10 +102,10 @@ export function FinanceGraph(): JSX.Element {
       <CartesianGrid strokeDasharray="5.5" />
       <XAxis dataKey="date" />
       <YAxis
+        width={120}
         tickFormatter={(tickItem: string): string => {
           return currencyFormat(Number(tickItem));
         }}
-        width={120}
       />
     </LineChart>
   );

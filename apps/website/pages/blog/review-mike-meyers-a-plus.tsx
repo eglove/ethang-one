@@ -79,10 +79,10 @@ function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
         Because of the quality of presentation and level of knowledge presented,
         I give Mike Meyers&apos; TOTAL: CompTIA A+ Certification{' '}
         <NextLink
+          testId="course-url"
           linkProperties={{
             href: 'https://www.udemy.com/course/new-comptia-a-2019-certification-1001-the-total-course/',
           }}
-          testId="course-url"
         >
           Core 1
         </NextLink>{' '}

@@ -30,7 +30,7 @@ export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
           <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
             <span itemProp="name">Home</span>
           </NextLink>
-          <meta itemProp="position" content="1" />
+          <meta content="1" itemProp="position" />
         </li>
         <li
           itemScope
@@ -40,7 +40,7 @@ export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
           <NextLink linkProperties={{ href: '/blog', itemProp: 'item' }}>
             <span itemProp="name">Blogs</span>
           </NextLink>
-          <meta itemProp="position" content="2" />
+          <meta content="2" itemProp="position" />
         </li>
       </ol>
       {blogs.map(blog => {
