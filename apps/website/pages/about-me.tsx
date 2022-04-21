@@ -1,12 +1,13 @@
 import { NextLink } from '@ethang/react-components';
 import { DiscussionEmbed } from 'disqus-react';
 import getYouTubeID from 'get-youtube-id';
-import Image from 'next/image';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { Container } from '../components/common/container/container';
 import { HeadTag } from '../components/common/head-tag/head-tag';
+import { ImageComponent } from '../components/common/image-component/image-component';
 import styles from '../components/common/styles/common.module.css';
+import { allImages } from '../db/data/images/all-images';
 import commonStyles from '../styles/common.module.css';
 import { BASE_URL } from '../util/constants';
 
@@ -94,12 +95,7 @@ function AboutMe(): JSX.Element {
         </b>
       </p>
       <div style={{ display: 'grid', placeItems: 'center' }}>
-        <Image
-          width={458}
-          height={439}
-          src="/images/changevsconsequence.png"
-          alt="Change Vs. Consequence"
-        />
+        <ImageComponent image={allImages.blogImages.changeVsConsequence} />
       </div>
       <p>
         This is done by thinking about potential for code reuse (design and

@@ -1,37 +1,15 @@
 import { NextLink } from '@ethang/react-components';
 import { shuffleArray } from '@ethang/util-typescript';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
-import { TechnologyLogo } from '../../graphql/types';
+import { technologyImages } from '../../db/data/images/technology-images';
+import { Image as ImageModel } from '../../db/models/image';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
+import { ImageComponent } from '../common/image-component/image-component';
 import styles from './home.module.css';
 
-interface HomeLayoutProperties {
-  technologyLogos: TechnologyLogo[];
-}
-
-export function HomeLayout({
-  technologyLogos,
-}: HomeLayoutProperties): JSX.Element | undefined {
-  const [logos, setLogos] = useState(technologyLogos);
-
-  useEffect(() => {
-    const indexArray = shuffleArray(
-      Array.from({ length: technologyLogos.length })
-        .fill(null)
-        .map((_, index) => {
-          return index;
-        })
-    );
-
-    setLogos(
-      indexArray.map((index: number) => {
-        return technologyLogos[index];
-      })
-    );
-  }, [technologyLogos]);
+export function HomeLayout(): JSX.Element | undefined {
+  const techImages = shuffleArray(Object.keys(technologyImages));
 
   return (
     <Container>
@@ -47,14 +25,14 @@ export function HomeLayout({
           </NextLink>
         </p>
         <div className={styles.Logos}>
-          {logos.map(logo => {
+          {techImages.map(imageKey => {
+            const logo = technologyImages[imageKey] as ImageModel;
+
             return (
-              <div key={logo.id} className={styles.LogoContainer}>
-                <Image
-                  src={logo.image.image.downloadUrl}
-                  alt={logo.image.altText}
-                  width={100}
-                  height={100}
+              <div key={logo.url} className={styles.LogoContainer}>
+                <ImageComponent
+                  image={logo}
+                  imageProperties={{ height: 100, width: 100 }}
                 />
               </div>
             );
