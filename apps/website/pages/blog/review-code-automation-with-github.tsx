@@ -65,10 +65,10 @@ function ReviewCodeAutomationWithGithub({ blog }: BlogProperties): JSX.Element {
         recommend this course. That&apos;s why I&apos;m giving Brian
         Douglas&apos;{' '}
         <NextLink
+          testId="course-url"
           linkProperties={{
             href: 'https://leveluptutorials.com/tutorials/code-automation-with-github',
           }}
-          testId="course-url"
         >
           Code Automation With GitHub
         </NextLink>{' '}

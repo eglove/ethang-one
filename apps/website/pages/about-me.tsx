@@ -32,7 +32,7 @@ function AboutMe(): JSX.Element {
           <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
             <span itemProp="name">Home</span>
           </NextLink>
-          <meta itemProp="position" content="1" />
+          <meta content="1" itemProp="position" />
         </li>
         <li
           itemScope
@@ -42,7 +42,7 @@ function AboutMe(): JSX.Element {
           <NextLink linkProperties={{ href: '/about-me', itemProp: 'item' }}>
             <span itemProp="name">About Me</span>
           </NextLink>
-          <meta itemProp="position" content="2" />
+          <meta content="2" itemProp="position" />
         </li>
       </ol>
       <h1 id="aboutMe">About Me</h1>

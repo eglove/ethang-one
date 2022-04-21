@@ -68,6 +68,10 @@ export function AddHabit(): JSX.Element {
       <SimpleForm
         clearFormAfterSubmit
         buttons={buttons}
+        formState={formState}
+        inputs={inputs}
+        postSubmitFunction={handleCreateHabit}
+        setFormState={setFormState}
         fieldsetProperties={{
           style: {
             alignItems: 'flex-end',
@@ -78,10 +82,6 @@ export function AddHabit(): JSX.Element {
         formProperties={{
           className: commonStyles.Form,
         }}
-        formState={formState}
-        inputs={inputs}
-        postSubmitFunction={handleCreateHabit}
-        setFormState={setFormState}
       />
     </div>
   );

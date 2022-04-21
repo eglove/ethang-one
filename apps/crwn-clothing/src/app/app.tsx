@@ -5,7 +5,7 @@ import { Home } from '../routes/home/home';
 export function App(): JSX.Element {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route element={<Home />} path="/" />
     </Routes>
   );
 }

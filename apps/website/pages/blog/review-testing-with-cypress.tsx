@@ -58,10 +58,10 @@ function ReviewTestingWithCypress({ blog }: BlogProperties): JSX.Element {
         my opinion. But Scott is a great presenter and he&apos;s obviously
         knowledgeable on Cypress. Which is why I give Scott Tolinski&apos;s{' '}
         <NextLink
+          testId="course-url"
           linkProperties={{
             href: 'https://leveluptutorials.com/tutorials/testing-with-cypress',
           }}
-          testId="course-url"
         >
           Testing With Cypress
         </NextLink>{' '}

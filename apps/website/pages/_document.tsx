@@ -4,7 +4,7 @@ function Document(): JSX.Element {
   return (
     <Html lang="en-US">
       <Head>
-        <meta name="monetization" content="$ilp.uphold.com/XqPZ8mnNyprk" />
+        <meta content="$ilp.uphold.com/XqPZ8mnNyprk" name="monetization" />
       </Head>
       <body>
         <Main />

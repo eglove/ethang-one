@@ -51,9 +51,9 @@ export function StaticBlogLayout({
         <Ogp
           description={blog.description}
           image={blog.featuredImage.image.downloadUrl}
+          siteName="EthanG"
           title={blog.title}
           type="article"
-          siteName="EthanG"
           url={`https://www.ethang.dev/blog/${blog.slug}`}
         />
       </HeadTag>
@@ -88,7 +88,7 @@ export function StaticBlogLayout({
           <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
             <span itemProp="name">Home</span>
           </NextLink>
-          <meta itemProp="position" content="1" />
+          <meta content="1" itemProp="position" />
         </li>
         <li
           itemScope
@@ -98,7 +98,7 @@ export function StaticBlogLayout({
           <NextLink linkProperties={{ href: '/blog', itemProp: 'item' }}>
             <span itemProp="name">Blogs</span>
           </NextLink>
-          <meta itemProp="position" content="2" />
+          <meta content="2" itemProp="position" />
         </li>
         <li
           itemScope
@@ -110,7 +110,7 @@ export function StaticBlogLayout({
           >
             <span itemProp="name">{blog.title}</span>
           </NextLink>
-          <meta itemProp="position" content="3" />
+          <meta content="3" itemProp="position" />
         </li>
       </ol>
       <div className={styles.BlogInfo}>

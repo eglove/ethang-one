@@ -71,8 +71,8 @@ export const Login = observer((): JSX.Element => {
       <SimpleForm
         buttons={buttons}
         formProperties={{ className: commonStyles.Form }}
-        inputs={inputs}
         formState={formState}
+        inputs={inputs}
         setFormState={setFormState}
       />
     </Container>

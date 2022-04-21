@@ -77,9 +77,9 @@ export function ProductHuntLayout(): JSX.Element {
                     />
                   ) : (
                     <img
-                      style={{ paddingTop: '1rem' }}
-                      src={post.node.media[0].url}
                       alt={post.node.name}
+                      src={post.node.media[0].url}
+                      style={{ paddingTop: '1rem' }}
                     />
                   )}
                 </div>

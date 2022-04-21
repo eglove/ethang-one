@@ -9,7 +9,7 @@ export function Directory({ categories }: DirectoryProperties): JSX.Element {
   return (
     <div className={styles['directory-container']}>
       {categories.map(category => {
-        return <CategoryItem key={category.id} category={category} />;
+        return <CategoryItem category={category} key={category.id} />;
       })}
     </div>
   );

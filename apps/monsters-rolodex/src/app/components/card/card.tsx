@@ -16,10 +16,10 @@ export function Card({ monster }: CardProperties): JSX.Element | null {
   }
 
   return (
-    <div key={monster.id} className={styles['CardContainer']}>
+    <div className={styles['CardContainer']} key={monster.id}>
       <img
-        src={`https://robohash.org/${monster.id}?set=set2&size=180x180`}
         alt={`${monster.name}`}
+        src={`https://robohash.org/${monster.id}?set=set2&size=180x180`}
       />
       <h2>{monster.name}</h2>
       <p>{monster.email}</p>

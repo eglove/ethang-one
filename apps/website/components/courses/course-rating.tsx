@@ -36,7 +36,7 @@ export function CourseRating({
 
   if (typeof rating !== 'number') {
     return (
-      <span role="img" aria-label="Complete">
+      <span aria-label="Complete" role="img">
         ✅
       </span>
     );

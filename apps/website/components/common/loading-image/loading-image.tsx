@@ -6,7 +6,7 @@ import { Container } from '../container/container';
 export function LoadingImage(): JSX.Element {
   return (
     <Container>
-      <Image src={loadingImage as string} alt="Loading..." />
+      <Image alt="Loading..." src={loadingImage as string} />
     </Container>
   );
 }

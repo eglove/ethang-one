@@ -114,13 +114,13 @@ export function Calories(): JSX.Element {
     <div style={{ width: '330px' }}>
       <CircularProgressbarWithChildren
         maxValue={calories}
-        value={todaysCalories}
         strokeWidth={3}
+        value={todaysCalories}
       >
         <SimpleForm
           buttons={buttons}
-          formState={formState}
           formProperties={{ className: commonStyles.Form }}
+          formState={formState}
           inputs={formInputs}
           postSubmitFunction={onUpdate}
           setFormState={setFormState}
