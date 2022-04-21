@@ -26,7 +26,7 @@ const nextConfig = {
   headers: securityHeaders,
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['cdn.filestackcontent.com']
+    domains: ['cdn.filestackcontent.com', 'disquscdn.com', 'rlcdn.com']
   },
   nx: {
     // Set this to true if you would like to to use SVGR
