@@ -3,7 +3,7 @@ import { formatList } from '@ethang/util-typescript';
 import { DiscussionEmbed } from 'disqus-react';
 import Image from 'next/image';
 
-import { Course } from '../../graphql/types';
+import { sortedCourses } from '../../db/data/courses/sourted-courses';
 import commonStyles from '../../styles/common.module.css';
 import { BASE_URL } from '../../util/constants';
 import { Container } from '../common/container/container';
@@ -37,13 +37,7 @@ const getYearClass = (yearUpdated: number): string => {
   }
 };
 
-interface CoursesLayoutProperties {
-  courses: Course[];
-}
-
-export function CoursesLayout({
-  courses,
-}: CoursesLayoutProperties): JSX.Element {
+export function CoursesLayout(): JSX.Element {
   return (
     <Container>
       <HeadTag title="Courses" />
@@ -90,21 +84,23 @@ export function CoursesLayout({
           </NextLink>{' '}
           (PDF).
         </p>
-        {courses.map(course => {
+        {sortedCourses.map(course => {
           return (
-            <div className={styles.CourseContainer} key={course.id}>
+            <div className={styles.CourseContainer} key={course.title}>
               <div className={styles.CourseItem}>
                 <CourseRating
                   rating={course.rating}
-                  ratingUrl={course.ratingUrl}
+                  ratingUrl={course.ratingUrl?.toString()}
                 />
               </div>
               <div className={styles.CourseItem}>
-                <NextLink linkProperties={{ href: course.school.url }}>
+                <NextLink
+                  linkProperties={{ href: course.school.url.toString() }}
+                >
                   <Image
                     alt={course.school.image.altText}
                     height={25}
-                    src={course.school.image.image.downloadUrl}
+                    src={course.school.image.url}
                     width={25}
                   />
                 </NextLink>
@@ -113,10 +109,12 @@ export function CoursesLayout({
               <div className={styles.CourseItem}>
                 <div>{course.title}</div>
                 <div className={styles.CourseUrls}>
-                  {course.courseUrls?.items.map(courseUrl => {
+                  {course.courseUrls?.map(courseUrl => {
                     return (
-                      <div key={courseUrl.url}>
-                        <NextLink linkProperties={{ href: courseUrl.url }}>
+                      <div key={courseUrl.url.toString()}>
+                        <NextLink
+                          linkProperties={{ href: courseUrl.url.toString() }}
+                        >
                           {courseUrl.school.name}
                         </NextLink>
                         &ensp;
@@ -126,12 +124,10 @@ export function CoursesLayout({
                 </div>
               </div>
               <div className={styles.CourseItem}>
-                {Array.isArray(course.instructors.items) &&
+                {Array.isArray(course.instructors) &&
                   formatList(
-                    course.instructors?.items.map(instructor => {
-                      return `${instructor.firstName} ${
-                        instructor?.lastName ?? ''
-                      }`;
+                    course.instructors?.map(instructor => {
+                      return instructor.fullName;
                     })
                   )}
               </div>

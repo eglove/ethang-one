@@ -2720,6 +2720,7 @@ packages:
       - webpack-dev-server
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
 
   /@nrwl/node/14.0.1_f11458f3b5a9aac7eb7b6e83671a32b3:
     resolution: {integrity: sha512-pzBFoBIlpEIIDbVwxSMx195dmpbIPZ4GznRPNuWFazI20bJpC2cWurzRGzn5GRfH1/2UeO2Kgx8ySIvJadtfHQ==}

@@ -2,25 +2,30 @@ import { Person } from './person';
 import { School } from './school';
 
 interface ICourse {
-  courseUrls: [{ school: School; url: URL }];
-  duration: number;
-  instructors: Person[];
+  courseUrls: CourseUrl[];
+  duration?: number;
+  instructors?: Person[];
   rating: 1 | 2 | 3 | 4 | 5;
   ratingUrl?: URL;
-  recommendationOrder: number;
+  school: School;
   title: string;
   yearUpdated?: number;
 }
 
+interface ICourseUrl {
+  school: School;
+  url: URL;
+}
+
 export class Course implements ICourse {
-  courseUrls: [{ school: School; url: URL }];
-  duration: number;
-  instructors: Person[];
+  courseUrls: CourseUrl[];
+  duration?: number;
+  instructors?: Person[];
   rating: 1 | 2 | 3 | 4 | 5;
-  ratingUrl: URL;
-  recommendationOrder: number;
+  ratingUrl?: URL;
+  school: School;
   title: string;
-  yearUpdated: number;
+  yearUpdated?: number;
 
   constructor(parameters: ICourse) {
     this.courseUrls = parameters.courseUrls;
@@ -28,8 +33,18 @@ export class Course implements ICourse {
     this.instructors = parameters.instructors;
     this.rating = parameters.rating;
     this.ratingUrl = parameters.ratingUrl;
-    this.recommendationOrder = parameters.recommendationOrder;
+    this.school = parameters.school;
     this.title = parameters.title;
     this.yearUpdated = parameters.yearUpdated;
+  }
+}
+
+export class CourseUrl implements ICourseUrl {
+  school: School;
+  url: URL;
+
+  constructor(parameters: ICourseUrl) {
+    this.school = parameters.school;
+    this.url = parameters.url;
   }
 }
