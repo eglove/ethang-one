@@ -3,7 +3,6 @@ import {
   formatList,
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
-import { useEffect } from 'react';
 
 import { blogs as staticBlogs } from '../../../db/data/blogs/blogs';
 import { Blog } from '../../../db/models/blog';
@@ -28,10 +27,6 @@ export function BlogsLayout(): JSX.Element {
       return 0;
     }
   );
-
-  useEffect(() => {
-    console.log(sortedBlogKeys);
-  }, [sortedBlogKeys]);
 
   return (
     <>
