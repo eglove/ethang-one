@@ -2,12 +2,11 @@ import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import styles from '../../components/common/styles/common.module.css';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
+function TheRecommendedCourses(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.theRecommendedCourses}>
       <p id="top">
         <NextLink linkProperties={{ href: '/courses' }}>
           Recommended Courses
@@ -364,10 +363,3 @@ function TheRecommendedCourses({ blog }: BlogProperties): JSX.Element {
 }
 
 export default TheRecommendedCourses;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('the-recommended-courses');
-}

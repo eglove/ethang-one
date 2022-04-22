@@ -3,12 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewCodeAutomationWithGithub({ blog }: BlogProperties): JSX.Element {
+function ReviewCodeAutomationWithGithub(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewCodeAutomationWithGithub}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -20,10 +19,10 @@ function ReviewCodeAutomationWithGithub({ blog }: BlogProperties): JSX.Element {
           creator: 'Brian Douglas',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewCodeAutomationWithGithub.featuredImage.url,
             name: 'Code Automation With GitHub',
           },
-          name: blog.title,
+          name: blogs.reviewCodeAutomationWithGithub.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '4',
@@ -79,10 +78,3 @@ function ReviewCodeAutomationWithGithub({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewCodeAutomationWithGithub;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-code-automation-with-github');
-}

@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewWebDeveloperBootcamp({ blog }: BlogProperties): JSX.Element {
+function ReviewWebDeveloperBootcamp(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewWebDeveloperBootcamp}>
       <p>
         Sixty-three and a half hours of web development goodness.{' '}
         <NextLink
@@ -80,10 +79,3 @@ function ReviewWebDeveloperBootcamp({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewWebDeveloperBootcamp;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-web-developer-bootcamp');
-}

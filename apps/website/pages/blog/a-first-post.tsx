@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function AFirstPost({ blog }: BlogProperties): JSX.Element {
+function AFirstPost(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.aFirstPost}>
       <p>
         It&apos;s been a while since I&apos;ve had a blog. My first was on
         BlogSpot. It contained a story called, &lsquo;The Incredibly Close to
@@ -80,10 +79,3 @@ function AFirstPost({ blog }: BlogProperties): JSX.Element {
 }
 
 export default AFirstPost;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('a-first-post');
-}

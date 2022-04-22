@@ -1,10 +1,9 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function RealtoughcandyIoReview({ blog }: BlogProperties): JSX.Element {
+function RealtoughcandyIoReview(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.realToughCandyIoReview}>
       <p>RTC courses fill a gap.</p>
       <p>
         There are a few web development courses that go over interviewing. But
@@ -94,10 +93,3 @@ function RealtoughcandyIoReview({ blog }: BlogProperties): JSX.Element {
 }
 
 export default RealtoughcandyIoReview;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('realtoughcandy-io-review');
-}

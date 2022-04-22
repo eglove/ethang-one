@@ -2,12 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function PortfolioRedesign({ blog }: BlogProperties): JSX.Element {
+function PortfolioRedesign(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.portfolioRedesign}>
       <LiteYouTubeEmbed id="1WGEp3UjnnQ" title="Portfolio Redesign" />
       <p>
         My design sense is simple. Blue and white. Box shadows. That&apos;s it.
@@ -66,10 +65,3 @@ function PortfolioRedesign({ blog }: BlogProperties): JSX.Element {
 }
 
 export default PortfolioRedesign;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('portfolio-redesign');
-}

@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
+function DefendYourselfAgainstTheState(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.defendYourselfAgainstTheState}>
       <blockquote>
         &ldquo;If you know the enemy and know yourself, you need not fear the
         result of a hundred battles. If you know yourself but not the enemy, for
@@ -460,10 +459,3 @@ function DefendYourselfAgainstTheState({ blog }: BlogProperties): JSX.Element {
 }
 
 export default DefendYourselfAgainstTheState;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('defend-yourself-against-the-state');
-}

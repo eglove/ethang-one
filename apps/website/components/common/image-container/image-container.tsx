@@ -1,5 +1,7 @@
-import Image, { ImageProps } from 'next/image';
+import { ImageProps } from 'next/image';
 
+import { Image as ImageModel } from '../../../db/models/image';
+import { ImageComponent } from '../image-component/image-component';
 import styles from './image-container.module.css';
 
 // Require alt
@@ -8,15 +10,17 @@ interface ImagePropertiesRequired extends ImageProps {
 }
 
 interface ImageContainerProperties {
-  imageProperties: ImagePropertiesRequired;
+  image: ImageModel;
+  imageProperties?: ImagePropertiesRequired;
 }
 
 export function ImageContainer({
+  image,
   imageProperties,
 }: ImageContainerProperties): JSX.Element {
   return (
     <div className={styles.Center}>
-      <Image {...imageProperties} />
+      <ImageComponent image={image} imageProperties={imageProperties} />
     </div>
   );
 }

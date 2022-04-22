@@ -3,12 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewLinuxCommandLineBootcamp({ blog }: BlogProperties): JSX.Element {
+function ReviewLinuxCommandLineBootcamp(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewLinuxCommandLineBootcamp}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -20,10 +19,10 @@ function ReviewLinuxCommandLineBootcamp({ blog }: BlogProperties): JSX.Element {
           creator: 'Colt Steele',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewLinuxCommandLineBootcamp.featuredImage.url,
             name: 'The Linux Command Line Bootcamp: Beginner To Power User',
           },
-          name: blog.title,
+          name: blogs.reviewLinuxCommandLineBootcamp.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '5',
@@ -72,10 +71,3 @@ function ReviewLinuxCommandLineBootcamp({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewLinuxCommandLineBootcamp;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-linux-command-line-bootcamp');
-}

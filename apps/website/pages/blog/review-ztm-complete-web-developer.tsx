@@ -1,10 +1,9 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewZtmCompleteWebDeveloper({ blog }: BlogProperties): JSX.Element {
+function ReviewZtmCompleteWebDeveloper(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewZtmCompleteWebDeveloper}>
       <p>
         Andrei Neagoi is one of the best instructors out there. But he&apos;s
         not perfect. His Complete Web Developer course is great, and I&apos;d
@@ -82,10 +81,3 @@ function ReviewZtmCompleteWebDeveloper({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewZtmCompleteWebDeveloper;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-ztm-complete-web-developer');
-}

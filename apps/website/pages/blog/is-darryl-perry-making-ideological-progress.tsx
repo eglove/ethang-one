@@ -1,14 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function IsDarrylPerryMakingIdeologicalProgress({
-  blog,
-}: BlogProperties): JSX.Element {
+function IsDarrylPerryMakingIdeologicalProgress(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.isDarrylPerryMakingIdeologicalProgress}>
       <p>
         Darryl Perry has been one of those few libertarian activists who stick
         around Keene, NH. While others leave after recognizing the
@@ -159,10 +156,3 @@ function IsDarrylPerryMakingIdeologicalProgress({
 }
 
 export default IsDarrylPerryMakingIdeologicalProgress;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('is-darryl-perry-making-ideological-progress');
-}

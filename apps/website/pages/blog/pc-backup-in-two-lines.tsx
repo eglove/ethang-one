@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function PcBackupInTwoLines({ blog }: BlogProperties): JSX.Element {
+function PcBackupInTwoLines(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.pcBackupInTwoLines}>
       <p>
         I backed up my entire PC setup with two lines of PowerShell code that I
         store on a USB.
@@ -154,10 +153,3 @@ function PcBackupInTwoLines({ blog }: BlogProperties): JSX.Element {
 }
 
 export default PcBackupInTwoLines;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('pc-backup-in-two-lines');
-}

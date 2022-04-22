@@ -1,10 +1,9 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewCompleteJuniorSenior({ blog }: BlogProperties): JSX.Element {
+function ReviewCompleteJuniorSenior(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewCompleteJuniorSenior}>
       <p>
         Andrei Neagoi&apos;s courses around React are starting to age, and
         they&apos;re not getting the updates they need. I removed his Complete
@@ -101,10 +100,3 @@ function ReviewCompleteJuniorSenior({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewCompleteJuniorSenior;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-complete-junior-senior');
-}

@@ -2,12 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
+function TheImageProblemAndItsSolution(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.theImageProblemAndItsSolution}>
       <p>
         They say if you&rsquo;re going to criticize something, unless you intend
         to do so out of cynicism or disrespect, to be prepared to answer those
@@ -690,10 +689,3 @@ function TheImageProblemAndItsSolution({ blog }: BlogProperties): JSX.Element {
 }
 
 export default TheImageProblemAndItsSolution;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('the-image-problem-and-its-solution');
-}

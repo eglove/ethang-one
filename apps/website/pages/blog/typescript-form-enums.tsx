@@ -2,12 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function TypescriptFormEnums({ blog }: BlogProperties): JSX.Element {
+function TypescriptFormEnums(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.typescriptFormEnums}>
       <p>
         <NextLink
           linkProperties={{
@@ -33,10 +32,3 @@ function TypescriptFormEnums({ blog }: BlogProperties): JSX.Element {
 }
 
 export default TypescriptFormEnums;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('typescript-form-enums');
-}

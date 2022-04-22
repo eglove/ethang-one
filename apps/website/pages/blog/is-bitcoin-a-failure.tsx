@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
+function IsBitcoinAFailure(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.isBitcoinAFailure}>
       <p>
         The following is a summary and analysis of a graduate thesis paper
         written by Michael Russo. It&rsquo;s titled, &ldquo;Satoshi&rsquo;s
@@ -369,10 +368,3 @@ function IsBitcoinAFailure({ blog }: BlogProperties): JSX.Element {
 }
 
 export default IsBitcoinAFailure;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('is-bitcoin-a-failure');
-}

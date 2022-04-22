@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function SevenWaysToWinAnArgumentOnline({ blog }: BlogProperties): JSX.Element {
+function SevenWaysToWinAnArgumentOnline(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.sevenWayToWinAnArgumentOnline}>
       <p>
         In a previous post, &ldquo;
         <NextLink
@@ -233,10 +232,3 @@ function SevenWaysToWinAnArgumentOnline({ blog }: BlogProperties): JSX.Element {
 }
 
 export default SevenWaysToWinAnArgumentOnline;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('7-ways-to-win-an-argument-online');
-}
