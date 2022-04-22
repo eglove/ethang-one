@@ -1,4 +1,4 @@
-import { ImageProps } from 'next/image';
+import Image, { ImageProps } from 'next/image';
 
 import { Image as ImageModel } from '../../../db/models/image';
 
@@ -12,10 +12,9 @@ export function ImageComponent({
   imageProperties,
 }: ImageComponentProperties): JSX.Element {
   return (
-    <img
+    <Image
       alt={image.altText}
       height={image.height}
-      // @ts-expect-error This should accept string
       src={image.url}
       width={image.width}
       {...imageProperties}
