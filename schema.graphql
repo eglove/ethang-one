@@ -3933,7 +3933,7 @@ input AuthenticationSettingUpdateInput {
     connections: AuthenticationProfileConnectionsOptionsInput
 }
 
-"Blog create input from authors"
+"Blog create input from persons"
 input Authors_BlogCreateInput {
     authors: BlogAuthorsRelationInput
     description: String!
@@ -3944,7 +3944,7 @@ input Authors_BlogCreateInput {
     title: String!
 }
 
-"Blog update input from authors"
+"Blog update input from persons"
 input Authors_BlogUpdateInput {
     data: BlogUpdateInput!
     filter: BlogKeyFilter

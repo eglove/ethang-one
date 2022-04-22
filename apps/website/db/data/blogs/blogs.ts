@@ -1,10 +1,10 @@
 import { Blog } from '../../models/blog';
-import { authors } from '../authors/authors';
 import { allImages } from '../images/all-images';
+import { persons } from '../persons/persons';
 
 export const blogs = {
   aFirstPost: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:44 PM'),
     description: 'First post of this blog.',
     featuredImage: allImages.blogImages.tinyMce,
@@ -13,7 +13,7 @@ export const blogs = {
     updatedAt: new Date('11/14/2021, 12:48 AM'),
   }),
   curingBiasWithCuriosity: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:38 PM'),
     description: 'How to cure bias with curiosity.',
     featuredImage: allImages.blogImages.iWantToBelieve,
@@ -22,7 +22,7 @@ export const blogs = {
     updatedAt: new Date('11/26/2016, 04:25 AM'),
   }),
   defendYourselfAgainstTheState: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:42 PM'),
     description:
       'Learning about how the Supreme Court makes decisions on constitutional arguments.',
@@ -32,7 +32,7 @@ export const blogs = {
     updatedAt: new Date('06/26/2016, 03:43 AM'),
   }),
   doYouHaveAMomentToTalkAboutAnki: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:06 PM'),
     description:
       'Anki is a great piece of software, not everyone will pick it up.',
@@ -42,7 +42,7 @@ export const blogs = {
     updatedAt: new Date('11/14/2021, 02:46 AM'),
   }),
   isBitcoinAFailure: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:35 PM'),
     description: 'Why Bitcoin has failed on its original promise.',
     featuredImage: allImages.blogImages.bitcoin,
@@ -51,7 +51,7 @@ export const blogs = {
     updatedAt: new Date('07/21/2016, 03:30 PM'),
   }),
   isDarrylPerryMakingIdeologicalProgress: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:41 PM'),
     description: "Is Darryl Perry's rant progress, or more of the same?",
     featuredImage: allImages.blogImages.darrylPerry,
@@ -60,7 +60,7 @@ export const blogs = {
     updatedAt: new Date('11/27/2016, 04:44 AM'),
   }),
   laconiaShutsDownBikeWeekMusicFestival: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:48 PM'),
     description: "I went to bike week and Laconia, here's what happened.",
     featuredImage: allImages.blogImages.laconiaBikeWeek,
@@ -69,7 +69,7 @@ export const blogs = {
     updatedAt: new Date('06/19/2016, 03:32 AM'),
   }),
   lessonsLearnedFromRewritingAReactApp: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:49 PM'),
     description: 'What I learned when rebuilding a React app from scratch.',
     featuredImage: allImages.technologyImages.react,
@@ -78,7 +78,7 @@ export const blogs = {
     updatedAt: new Date('11/14/2021, 04:59 AM'),
   }),
   makingGraphqlBetter: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:50 PM'),
     description: 'How to make Prisma and GraphQL play nicely together.',
     featuredImage: allImages.technologyImages.graphql,
@@ -87,7 +87,7 @@ export const blogs = {
     updatedAt: new Date('03/05/2022, 10:24 AM'),
   }),
   onHostingStaticPages: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:05 PM'),
     description: "How I've decided to host my static blog.",
     featuredImage: allImages.blogImages.onHostingStaticPages,
@@ -96,7 +96,7 @@ export const blogs = {
     updatedAt: new Date('02/26/2022, 05:19 PM'),
   }),
   paradoxacalismAsAPoliticalBelief: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:51 PM'),
     description: 'My political belief paradoxicalism and how I got here.',
     featuredImage: allImages.blogImages.paradox,
@@ -105,7 +105,7 @@ export const blogs = {
     updatedAt: new Date('11/29/2016, 04:38 AM'),
   }),
   pcBackupInTwoLines: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:52 PM'),
     description: 'How I back up my entire PC with two lines of code.',
     featuredImage: allImages.blogImages.powershellScript,
@@ -114,7 +114,7 @@ export const blogs = {
     updatedAt: new Date('11/14/2021, 02:56 AM'),
   }),
   persuasionThroughMoralArguments: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:53 PM'),
     description: 'On persuading people with moral arguments.',
     featuredImage: allImages.blogImages.moralFoundationSpace,
@@ -123,7 +123,7 @@ export const blogs = {
     updatedAt: new Date('11/06/2016, 04:17 AM'),
   }),
   portfolioRedesign: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:54 PM'),
     description: "I redesigned my portfolio, here's how it's looking now.",
     featuredImage: allImages.blogImages.portfolioRedesign,
@@ -132,7 +132,7 @@ export const blogs = {
     updatedAt: new Date('11/14/2021, 03:21 AM'),
   }),
   programaticallyValidateEnvVariables: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:07 PM'),
     description:
       'How to programmatically validate environment variables in your Node project.',
@@ -142,7 +142,7 @@ export const blogs = {
     updatedAt: new Date('12/04/2021, 01:16 AM'),
   }),
   realToughCandyIoReview: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:02 PM'),
     description: "My review of Real Tough Candy's new course platform.",
     featuredImage: allImages.blogImages.realToughCandy,
@@ -151,7 +151,7 @@ export const blogs = {
     updatedAt: new Date('11/14/2021, 03:25 AM'),
   }),
   recentCourseUpdates: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/31/2022, 4:47 PM'),
     description:
       'A shortlist of recent changes to the recommended development courses list. What was added, what was removed, and what has changed positions.',
@@ -161,7 +161,7 @@ export const blogs = {
     updatedAt: new Date('03/31/2022, 04:47 PM'),
   }),
   reviewAccessibilityForEveryone: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/12/2022, 8:12 PM'),
     description:
       "Amy Kapernick's Accessibility For Everyone is a much-needed overview and accessibility basics that many courses forget to cover.",
@@ -171,7 +171,7 @@ export const blogs = {
     updatedAt: new Date('03/12/2022, 08:11 PM'),
   }),
   reviewCodeAutomationWithGithub: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/13/2022, 10:44 AM'),
     description:
       "Review of Brian Douglas' course on automating code with GitHub apps and actions.",
@@ -181,7 +181,7 @@ export const blogs = {
     updatedAt: new Date('03/13/2022, 10:44 AM'),
   }),
   reviewCompleteJuniorSenior: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:55 PM'),
     description:
       "My review of Zero to Mastery's Complete Junior to Senior Web Developer Bootcamp",
@@ -191,7 +191,7 @@ export const blogs = {
     updatedAt: new Date('12/05/2021, 05:19 AM'),
   }),
   reviewCompleteReactDeveloper: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('4/16/2022, 11:32 AM'),
     description:
       "Yihua Zhang's Complete React Developer is back from the dead in the 2022 update with proper coverage of Hooks, Context, Redux, GraphQL, Jest, and more.",
@@ -201,7 +201,7 @@ export const blogs = {
     updatedAt: new Date('04/16/2022, 12:00 AM'),
   }),
   reviewGitGithubBootcamp: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:57 PM'),
     description: "My review of Colt Steele's Git & GitHub bootcamp.",
     featuredImage: allImages.blogImages.gitGithubBootcamp,
@@ -210,7 +210,7 @@ export const blogs = {
     updatedAt: new Date('12/01/2021, 03:00 AM'),
   }),
   reviewGoProgrammingCompleteGuide: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:57 PM'),
     description:
       "Zero To Mastery's GoLang course is unfortunately another miss. Powerpoints, boring delivery, and a lack of ability to bring all the information together.",
@@ -220,7 +220,7 @@ export const blogs = {
     updatedAt: new Date('03/06/2022, 02:39 PM'),
   }),
   reviewLearningToLearn: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:00 PM'),
     description: "My review of Zero to Mastery's Learning to Learn",
     featuredImage: allImages.blogImages.learningToLearn,
@@ -229,7 +229,7 @@ export const blogs = {
     updatedAt: new Date('11/20/2021, 09:04 PM'),
   }),
   reviewLinuxCommandLineBootcamp: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/12/2022, 5:25 PM'),
     description:
       "Colt Steele's Linux Command Line Bootcamp is the best choice for learning the Linux command line. But the skill may not be as important as you think.",
@@ -239,7 +239,7 @@ export const blogs = {
     updatedAt: new Date('03/12/2022, 05:22 PM'),
   }),
   reviewMikeMeyersAPlus: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/24/2022, 11:06 AM'),
     description:
       'A review for developers of the CompTIA A+ Certification Udemy course by Total Seminars and Miker Meyers.',
@@ -249,7 +249,7 @@ export const blogs = {
     updatedAt: new Date('03/24/2022, 11:05 AM'),
   }),
   reviewPostmanCompleteGuide: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:01 PM'),
     description: 'My review of Postman the Complete Guide Udemy course.',
     featuredImage: allImages.blogImages.postmanCompleteGuide,
@@ -258,7 +258,7 @@ export const blogs = {
     updatedAt: new Date('12/05/2021, 02:04 AM'),
   }),
   reviewSeoTrainingMasterclass: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/25/2022, 9:01 PM'),
     description:
       "A review of Alex Genadinik's SEO Masterclass. Should web developers take this course or focus solely on server-side rendering as their SEO strategy?",
@@ -268,7 +268,7 @@ export const blogs = {
     updatedAt: new Date('03/25/2022, 09:00 PM'),
   }),
   reviewTestingWithCypress: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/13/2022, 2:34 PM'),
     description:
       "Scott Tolinski's course on Cypress is a great overview of the features Cypress provides.",
@@ -278,7 +278,7 @@ export const blogs = {
     updatedAt: new Date('03/13/2022, 01:34 PM'),
   }),
   reviewWebDeveloperBootcamp: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:08 PM'),
     description: "My review of Colt Steele's Web Developer Bootcamp.",
     featuredImage: allImages.blogImages.webDeveloperBootcamp,
@@ -287,7 +287,7 @@ export const blogs = {
     updatedAt: new Date('12/01/2021, 01:52 AM'),
   }),
   reviewZtmCompleteWebDeveloper: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:56 PM'),
     description:
       "My review of Zero to Mastery's Complete Web Developer course.",
@@ -297,7 +297,7 @@ export const blogs = {
     updatedAt: new Date('11/22/2021, 03:13 AM'),
   }),
   sevenWayToWinAnArgumentOnline: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:03 PM'),
     description: '7 ways to win an argument on the internet.',
     featuredImage: allImages.blogImages.redditCmv,
@@ -306,7 +306,7 @@ export const blogs = {
     updatedAt: new Date('10/12/2016, 04:10 AM'),
   }),
   speechIsMorePersuasiveThanText: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:04 PM'),
     description: 'Studies show speech is more persuasive than text.',
     featuredImage: allImages.blogImages.microphone,
@@ -315,7 +315,7 @@ export const blogs = {
     updatedAt: new Date('11/28/2016, 04:49 AM'),
   }),
   theEpidemicOfPassableArguments: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:43 PM'),
     description: 'Politics has an epidemic of passable arguments.',
     featuredImage: allImages.blogImages.politicsAsAVocation,
@@ -324,7 +324,7 @@ export const blogs = {
     updatedAt: new Date('01/15/2017, 04:29 AM'),
   }),
   theImageProblemAndItsSolution: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:47 PM'),
     description: "Libertarianism's image problem and it's solution.",
     featuredImage: allImages.blogImages.expectationsReality,
@@ -333,7 +333,7 @@ export const blogs = {
     updatedAt: new Date('08/04/2016, 04:02 AM'),
   }),
   theRecommendedCourses: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:54 PM'),
     description:
       'How to use my course curriculum to learn everything you need to know for a career in web development. From the basics to building apps, to project management.',
@@ -343,7 +343,7 @@ export const blogs = {
     updatedAt: new Date('03/26/2022, 01:02 PM'),
   }),
   typescriptFormEnums: new Blog({
-    authors: [authors.ethanGlover],
+    authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:06 PM'),
     description: 'Missing types for Forms using TypeScript.',
     featuredImage: allImages.technologyImages.typescript,
