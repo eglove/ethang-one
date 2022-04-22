@@ -5,13 +5,13 @@ export const blogImages = {
   accessibilityForEveryone: new Image({
     altText: 'Course card for Accessibility for Everyone by Amy Kapernick.',
     height: 327,
-    url: getBlogImage('accessibility-for-everyone.png'),
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1650668103/blog/accessibility-for-everyone.png',
     width: 495,
   }),
   agileAndScrum: new Image({
     altText: 'Introduction to Agile and Scrum course page.',
     height: 598,
-    url: getBlogImage('agile-and-scrum.png'),
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1650668103/blog/agile-and-scrum.png',
     width: 1123,
   }),
   anki: new Image({
