@@ -8,7 +8,7 @@ const withNx = require('@nrwl/next/plugins/with-nx');
 const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['cdn.filestackcontent.com', 'disquscdn.com', 'rlcdn.com'],
+    domains: ['cdn.filestackcontent.com', 'disquscdn.com', 'rlcdn.com', 'res.cloudinary.com'],
     formats: ['image/avif', 'image/webp'],
   },
   nx: {
