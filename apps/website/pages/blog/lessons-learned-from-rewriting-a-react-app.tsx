@@ -2,14 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function LessonsLearnedFromRewritingAReactApp({
-  blog,
-}: BlogProperties): JSX.Element {
+function LessonsLearnedFromRewritingAReactApp(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.lessonsLearnedFromRewritingAReactApp}>
       <p>
         Video meetings, chat, phone calls, voicemail, calendar, and filesharing.
         This is roughly the app I spent the last couple of months rewriting from
@@ -427,10 +424,3 @@ function LessonsLearnedFromRewritingAReactApp({
 }
 
 export default LessonsLearnedFromRewritingAReactApp;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('lessons-learned-from-rewriting-a-react-app');
-}

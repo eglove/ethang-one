@@ -3,12 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewAccessibilityForEveryone({ blog }: BlogProperties): JSX.Element {
+function ReviewAccessibilityForEveryone(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewAccessibilityForEveryone}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -20,10 +19,10 @@ function ReviewAccessibilityForEveryone({ blog }: BlogProperties): JSX.Element {
           creator: 'Amy Kapernick',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewAccessibilityForEveryone.featuredImage.url,
             name: 'Accessibility For Everyone',
           },
-          name: blog.title,
+          name: blogs.reviewAccessibilityForEveryone.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '4',
@@ -79,10 +78,3 @@ function ReviewAccessibilityForEveryone({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewAccessibilityForEveryone;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-accessibility-for-everyone');
-}

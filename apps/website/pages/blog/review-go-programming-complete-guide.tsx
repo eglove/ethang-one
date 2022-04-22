@@ -3,14 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewGoProgrammingCompleteGuide({
-  blog,
-}: BlogProperties): JSX.Element {
+function ReviewGoProgrammingCompleteGuide(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewGoProgrammingCompleteGuide}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -22,10 +19,10 @@ function ReviewGoProgrammingCompleteGuide({
           creator: 'Jayson Lennon',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewGoProgrammingCompleteGuide.featuredImage.url,
             name: "Go Programming Language (Golang): A Complete Developer's Guide",
           },
-          name: blog.title,
+          name: blogs.reviewGoProgrammingCompleteGuide.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '2',
@@ -103,10 +100,3 @@ function ReviewGoProgrammingCompleteGuide({
 }
 
 export default ReviewGoProgrammingCompleteGuide;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-go-programming-complete-guide');
-}

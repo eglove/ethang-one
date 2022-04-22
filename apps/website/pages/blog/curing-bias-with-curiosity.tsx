@@ -2,12 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
+function CuringBiasWithCuriosity(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.curingBiasWithCuriosity}>
       <blockquote>
         &lsquo;It is so disagreeable to think ill of ourselves, that we often
         purposely turn away our view from those circumstances which might render
@@ -357,10 +356,3 @@ function CuringBiasWithCuriosity({ blog }: BlogProperties): JSX.Element {
 }
 
 export default CuringBiasWithCuriosity;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('curing-bias-with-curiosity');
-}

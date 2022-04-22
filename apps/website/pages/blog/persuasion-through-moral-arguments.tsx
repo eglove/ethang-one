@@ -2,14 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function PersuasionThroughMoralArguments({
-  blog,
-}: BlogProperties): JSX.Element {
+function PersuasionThroughMoralArguments(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.persuasionThroughMoralArguments}>
       <p>
         Choosing the lesser of evils, whether in voting or in philosophical
         decision making, is a point of contention. Do you stick to your
@@ -294,10 +291,3 @@ function PersuasionThroughMoralArguments({
 }
 
 export default PersuasionThroughMoralArguments;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('persuasion-through-moral-arguments');
-}

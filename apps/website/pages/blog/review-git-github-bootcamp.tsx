@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewGitGithubBootcamp({ blog }: BlogProperties): JSX.Element {
+function ReviewGitGithubBootcamp(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewGitGithubBootcamp}>
       <p>
         There isn&apos;t much to say about Colt Steele&apos;s{' '}
         <NextLink
@@ -38,10 +37,3 @@ function ReviewGitGithubBootcamp({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewGitGithubBootcamp;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-git-github-bootcamp');
-}

@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function RecentCourseUpdates({ blog }: BlogProperties): JSX.Element {
+function RecentCourseUpdates(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.recentCourseUpdates}>
       <h2>April 2022</h2>
       <p>
         Every month changes to the{' '}
@@ -82,10 +81,3 @@ function RecentCourseUpdates({ blog }: BlogProperties): JSX.Element {
 }
 
 export default RecentCourseUpdates;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('recent-course-updates');
-}

@@ -1,22 +1,13 @@
-import { gql } from '@apollo/client';
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
-import { Data, Image } from '../../graphql/types';
-import { BlogProperties, blogQuery } from '../../util/query';
-import { apolloClient } from '../_app';
+import { blogs } from '../../db/data/blogs/blogs';
+import { allImages } from '../../db/data/images/all-images';
 
-interface OnHostingStaticPagesProperties extends BlogProperties {
-  images: Record<string, Image>;
-}
-
-export function OnHostingStaticPages({
-  blog,
-  images,
-}: OnHostingStaticPagesProperties): JSX.Element {
+export function OnHostingStaticPages(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.onHostingStaticPages}>
       <p>
         I&apos;ve jumped around between different methods of creating static
         websites. Jekyll, Hugo, Gatsby, Sanity, Keystone, Contentful, Wordpress,
@@ -70,61 +61,26 @@ export function OnHostingStaticPages({
         First I set up TypeScript classes as &ldquo;Models&rdquo; to represent
         my data, I even created a singleton to represent me as an author:
       </p>
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0n8s8sv02e309mkcnpt5bbx.altText,
-          height: images.cl0n8s8sv02e309mkcnpt5bbx.height,
-          src: images.cl0n8s8sv02e309mkcnpt5bbx.image.downloadUrl,
-          width: images.cl0n8s8sv02e309mkcnpt5bbx.width,
-        }}
-      />
+      <ImageContainer image={allImages.blogImages.staticSiteModels} />
       <p>
         With the models set up I can create an object dictionary with a slug as
         a key and metadata as the value. For reference I created an enum to
         represent the slug. This helps me keep slugs unique and gives me a short
         reference to each one.
       </p>
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0n8vvrb01uw09jp3p1j1pye.altText,
-          height: images.cl0n8vvrb01uw09jp3p1j1pye.height,
-          src: images.cl0n8vvrb01uw09jp3p1j1pye.image.downloadUrl,
-          width: images.cl0n8vvrb01uw09jp3p1j1pye.width,
-        }}
-      />
+      <ImageContainer image={allImages.blogImages.blogObject} />
       <p>
         From there, all I had to do was recreate a layout that accepts the slug
         as a prop and start writing the content as a child component.
       </p>
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0n8xlen062q09kz0r9o0tc2.altText,
-          height: images.cl0n8xlen062q09kz0r9o0tc2.height,
-          src: images.cl0n8xlen062q09kz0r9o0tc2.image.downloadUrl,
-          width: images.cl0n8xlen062q09kz0r9o0tc2.width,
-        }}
-      />
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0n8y1w2022y09l3byy7a4hu.altText,
-          height: images.cl0n8y1w2022y09l3byy7a4hu.height,
-          src: images.cl0n8y1w2022y09l3byy7a4hu.image.downloadUrl,
-          width: images.cl0n8y1w2022y09l3byy7a4hu.width,
-        }}
-      />
+      <ImageContainer image={allImages.blogImages.blogLayout} />
+      <ImageContainer image={allImages.blogImages.blogHtml} />
       <p>
         As to the question of how to get all blogs for the home page, it&apos;s
         as simple as using Object.getOwnPropertyNames on that enum I created
         before:
       </p>
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0n8yk5t006609kt30coe7ea.altText,
-          height: images.cl0n8yk5t006609kt30coe7ea.height,
-          src: images.cl0n8yk5t006609kt30coe7ea.image.downloadUrl,
-          width: images.cl0n8yk5t006609kt30coe7ea.width,
-        }}
-      />
+      <ImageContainer image={allImages.blogImages.blogPage} />
       <p>
         That&apos;s it, Emmet means I don&apos;t really have to write much HTML
         and ESLint/Prettier keeps me from having to deal with long lines.
@@ -160,51 +116,3 @@ export function OnHostingStaticPages({
 }
 
 export default OnHostingStaticPages;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: OnHostingStaticPagesProperties;
-}> {
-  const blog = await blogQuery('on-hosting-static-pages');
-  const { data: imageData } = await apolloClient.client.query<Data>({
-    query: gql`
-      query ImagesQuery {
-        imagesList(
-          filter: {
-            id: {
-              in: [
-                "cl0n8s8sv02e309mkcnpt5bbx"
-                "cl0n8vvrb01uw09jp3p1j1pye"
-                "cl0n8xlen062q09kz0r9o0tc2"
-                "cl0n8y1w2022y09l3byy7a4hu"
-                "cl0n8yk5t006609kt30coe7ea"
-              ]
-            }
-          }
-        ) {
-          items {
-            id
-            altText
-            height
-            image {
-              downloadUrl
-            }
-            width
-          }
-        }
-      }
-    `,
-  });
-
-  const images = {};
-  for (const image of imageData.imagesList.items) {
-    images[image.id] = image;
-  }
-
-  return {
-    props: {
-      blog,
-      images,
-    },
-  };
-}

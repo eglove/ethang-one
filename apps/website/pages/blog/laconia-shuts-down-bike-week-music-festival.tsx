@@ -2,14 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function LaconiaShutsDownBikeWeekMusicFestival({
-  blog,
-}: BlogProperties): JSX.Element {
+function LaconiaShutsDownBikeWeekMusicFestival(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.laconiaShutsDownBikeWeekMusicFestival}>
       <p>
         Laconia, New Hampshire&rsquo;s Bike Week is a motorcycle rally that has
         successfully pulled in large crowds since 1923. Attendance has ranged
@@ -90,10 +87,3 @@ function LaconiaShutsDownBikeWeekMusicFestival({
 }
 
 export default LaconiaShutsDownBikeWeekMusicFestival;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('laconia-shuts-down-bike-week-music-festival');
-}

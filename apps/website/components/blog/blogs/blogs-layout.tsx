@@ -3,17 +3,36 @@ import {
   formatList,
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
+import { useEffect } from 'react';
 
-import { Blog } from '../../../graphql/types';
+import { blogs as staticBlogs } from '../../../db/data/blogs/blogs';
+import { Blog } from '../../../db/models/blog';
 import commonStyles from '../../../styles/common.module.css';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import styles from './blogs-layout.module.css';
 
-interface BlogsLayoutProperties {
-  blogs: Blog[];
-}
+export function BlogsLayout(): JSX.Element {
+  const sortedBlogKeys = Object.keys(staticBlogs).sort(
+    (firstElement, secondElement) => {
+      const firstDate = new Date(staticBlogs[firstElement].updatedAt);
+      const secondDate = new Date(staticBlogs[secondElement].updatedAt);
 
-export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
+      if (firstDate > secondDate) {
+        return -1;
+      }
+
+      if (firstDate < secondDate) {
+        return 1;
+      }
+
+      return 0;
+    }
+  );
+
+  useEffect(() => {
+    console.log(sortedBlogKeys);
+  }, [sortedBlogKeys]);
+
   return (
     <>
       <HeadTag title="Blog" />
@@ -43,7 +62,8 @@ export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
           <meta content="2" itemProp="position" />
         </li>
       </ol>
-      {blogs.map(blog => {
+      {sortedBlogKeys.map(key => {
+        const blog = staticBlogs[key] as Blog;
         return (
           <div key={blog.title} style={{ height: '300px' }}>
             <NextLink
@@ -55,7 +75,7 @@ export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
               <div
                 className={styles.BlogContent}
                 style={{
-                  background: `url(${blog.featuredImage.image.downloadUrl}) center no-repeat`,
+                  background: `url(${blog.featuredImage.url}) center no-repeat`,
                   height: `${blog.featuredImage.height}px`,
                   maxHeight: '300px',
                   width: '100%',
@@ -64,19 +84,13 @@ export function BlogsLayout({ blogs }: BlogsLayoutProperties): JSX.Element {
                 <h2>{blog.title}</h2>
                 <div>
                   {formatList(
-                    blog.authors.items.map(author => {
-                      let authorName = author.firstName;
-
-                      if (typeof author.lastName !== 'undefined') {
-                        authorName += ` ${author.lastName}`;
-                      }
-
-                      return authorName;
+                    blog.authors.map(author => {
+                      return author.fullName;
                     })
                   )}
                 </div>
                 <div>{`Last Updated: ${humanReadableLocalDateTime(
-                  blog.orderDate
+                  blog.updatedAt
                 )}`}</div>
               </div>
             </NextLink>

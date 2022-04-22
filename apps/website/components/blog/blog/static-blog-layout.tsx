@@ -10,7 +10,7 @@ import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema } from 'schema-dts';
 
-import { Blog } from '../../../graphql/types';
+import { Blog } from '../../../db/models/blog';
 import commonStyles from '../../../styles/common.module.css';
 import { BASE_URL } from '../../../util/constants';
 import { Container } from '../../common/container/container';
@@ -32,14 +32,8 @@ export function StaticBlogLayout({
   useEffect(() => {
     setAuthors(
       formatList(
-        blog.authors.items.map(author => {
-          let authorName = author.firstName;
-
-          if (typeof author.lastName !== 'undefined') {
-            authorName += ` ${author.lastName}`;
-          }
-
-          return authorName;
+        blog.authors.map(author => {
+          return author.fullName;
         })
       )
     );
@@ -50,7 +44,7 @@ export function StaticBlogLayout({
       <HeadTag title={blog.title}>
         <Ogp
           description={blog.description}
-          image={blog.featuredImage.image.downloadUrl}
+          image={blog.featuredImage.url}
           siteName="EthanG"
           title={blog.title}
           type="article"
@@ -67,12 +61,12 @@ export function StaticBlogLayout({
             name: 'Ethan Glover',
             url: 'https://www.ethang.dev/',
           },
-          dateModified: blog.updatedAt,
-          datePublished: blog.createdAt,
+          dateModified: blog.updatedAt.toUTCString(),
+          datePublished: blog.createdAt.toUTCString(),
           description: blog.description,
           headline: blog.title,
-          image: blog.featuredImage.image.downloadUrl,
-          thumbnailUrl: `${blog.featuredImage.image.downloadUrl}`,
+          image: blog.featuredImage.url,
+          thumbnailUrl: `${blog.featuredImage.url}`,
         })}
       />
       <ol
@@ -118,18 +112,11 @@ export function StaticBlogLayout({
           <h1 className={styles.Title}>{blog.title}</h1>
           <div>Authors: {authors}</div>
           <div>{`Last Updated: ${humanReadableLocalDateTime(
-            blog.orderDate
+            blog.updatedAt
           )}`}</div>
         </div>
         <div>
-          <ImageContainer
-            imageProperties={{
-              alt: blog.featuredImage.altText,
-              height: blog.featuredImage.height,
-              src: blog.featuredImage.image.downloadUrl,
-              width: blog.featuredImage.width,
-            }}
-          />
+          <ImageContainer image={blog.featuredImage} />
         </div>
       </div>
       <hr />

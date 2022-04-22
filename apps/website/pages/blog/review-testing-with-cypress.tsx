@@ -3,12 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewTestingWithCypress({ blog }: BlogProperties): JSX.Element {
+function ReviewTestingWithCypress(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewTestingWithCypress}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -20,10 +19,10 @@ function ReviewTestingWithCypress({ blog }: BlogProperties): JSX.Element {
           creator: 'Scott Tolinski',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewTestingWithCypress.featuredImage.url,
             name: 'Testing With Cypress',
           },
-          name: blog.title,
+          name: blogs.reviewTestingWithCypress.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '4',
@@ -72,10 +71,3 @@ function ReviewTestingWithCypress({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewTestingWithCypress;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-testing-with-cypress');
-}

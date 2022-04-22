@@ -1,14 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function DoYouHaveAMomentToTalkAboutAnki({
-  blog,
-}: BlogProperties): JSX.Element {
+function DoYouHaveAMomentToTalkAboutAnki(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.doYouHaveAMomentToTalkAboutAnki}>
       <p>
         The fellow over at Master How To Learn{' '}
         <NextLink
@@ -111,10 +108,3 @@ function DoYouHaveAMomentToTalkAboutAnki({
 }
 
 export default DoYouHaveAMomentToTalkAboutAnki;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('do-you-have-a-moment-to-talk-about-anki');
-}

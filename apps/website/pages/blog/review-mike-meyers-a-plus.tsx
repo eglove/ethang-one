@@ -3,12 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
+function ReviewMikeMeyersAPlus(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewMikeMeyersAPlus}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -20,10 +19,10 @@ function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
           creator: 'Mike Meyers',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewMikeMeyersAPlus.featuredImage.url,
             name: 'TOTAL: CompTIA A+ Certification',
           },
-          name: blog.title,
+          name: blogs.reviewMikeMeyersAPlus.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '5',
@@ -101,10 +100,3 @@ function ReviewMikeMeyersAPlus({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewMikeMeyersAPlus;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-mike-meyers-a-plus');
-}

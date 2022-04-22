@@ -1,14 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ParadoxicalismAsAPoliticalBelief({
-  blog,
-}: BlogProperties): JSX.Element {
+function ParadoxicalismAsAPoliticalBelief(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.paradoxacalismAsAPoliticalBelief}>
       <p>
         I&apos;ve been taking the time to actually learn about a wide variety of
         beliefs. I&apos;ve been taking on a detached point of view. I&apos;ve
@@ -286,10 +283,3 @@ function ParadoxicalismAsAPoliticalBelief({
 }
 
 export default ParadoxicalismAsAPoliticalBelief;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('paradoxicalism-as-a-political-belief');
-}

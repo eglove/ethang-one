@@ -1,4 +1,3 @@
-import { gql } from '@apollo/client';
 import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -6,18 +5,10 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import styles from '../../components/common/styles/common.module.css';
-import { Data, Image } from '../../graphql/types';
-import { BlogProperties, blogQuery } from '../../util/query';
-import { apolloClient } from '../_app';
+import { blogs } from '../../db/data/blogs/blogs';
+import { allImages } from '../../db/data/images/all-images';
 
-export interface MakingGraphqlBetterProperties extends BlogProperties {
-  images: Record<string, Image>;
-}
-
-function MakingGraphqlBetter({
-  blog,
-  images,
-}: MakingGraphqlBetterProperties): JSX.Element {
+function MakingGraphqlBetter(): JSX.Element {
   const userQuery = `query Query {
     user(id: 123) {
       username
@@ -114,7 +105,7 @@ function MakingGraphqlBetter({
   }`;
 
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.makingGraphqlBetter}>
       <ul className={styles.toc} id="top">
         <li>
           <NextLink linkProperties={{ href: '#selectAll' }}>
@@ -363,47 +354,19 @@ function MakingGraphqlBetter({
         sites refers to a location and caseData refers to a support ticket. I
         used the following query:
       </p>
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0mrx4vt00oc09l22wd93vqo.altText,
-          height: images.cl0mrx4vt00oc09l22wd93vqo.height,
-          src: images.cl0mrx4vt00oc09l22wd93vqo.image.downloadUrl,
-          width: images.cl0mrx4vt00oc09l22wd93vqo.width,
-        }}
-      />
+      <ImageContainer image={allImages.blogImages.sitesCasedataQuery} />
       <p>
         Without optimizing for N+1 you get one query selecting all sites and a
         new query for each of those sites selecting all caseDatas. The generated
         SQL from prisma looks like this:
       </p>
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0mrwbmm004d09idfnt26s0v.altText,
-          height: images.cl0mrwbmm004d09idfnt26s0v.height,
-          src: images.cl0mrwbmm004d09idfnt26s0v.image.downloadUrl,
-          width: images.cl0mrwbmm004d09idfnt26s0v.width,
-        }}
-      />
+      <ImageContainer image={allImages.blogImages.siteCasedataUnresolved} />
       <p>
         This query took about 6 seconds to complete. Here&apos;s what it looks
         like after using my <code>resolveFindMany()</code> function.
       </p>
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0mrxurx0a7a09mbcy39h2yc.altText,
-          height: images.cl0mrxurx0a7a09mbcy39h2yc.height,
-          src: images.cl0mrxurx0a7a09mbcy39h2yc.image.downloadUrl,
-          width: images.cl0mrxurx0a7a09mbcy39h2yc.width,
-        }}
-      />
-      <ImageContainer
-        imageProperties={{
-          alt: images.cl0mr5pqx00gp09ju58vd6rso.altText,
-          height: images.cl0mr5pqx00gp09ju58vd6rso.height,
-          src: images.cl0mr5pqx00gp09ju58vd6rso.image.downloadUrl,
-          width: images.cl0mr5pqx00gp09ju58vd6rso.width,
-        }}
-      />
+      <ImageContainer image={allImages.blogImages.sitesSqlResolved} />
+      <ImageContainer image={allImages.blogImages.caseDataResolved} />
       <p>
         Now, instead of hundreds of individual select statements we get three
         queries. The first is the same, we&apos;re basically just grabbing all
@@ -522,51 +485,3 @@ function MakingGraphqlBetter({
 }
 
 export default MakingGraphqlBetter;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: MakingGraphqlBetterProperties;
-}> {
-  const blog = await blogQuery('making-graphql-better');
-  const { data: imageData } = await apolloClient.client.query<Data>({
-    query: gql`
-      query ImagesQuery {
-        imagesList(
-          filter: {
-            id: {
-              in: [
-                "cl0mrwbmm004d09idfnt26s0v"
-                "cl0mrx4vt00oc09l22wd93vqo"
-                "cl0mr5pqx00gp09ju58vd6rso"
-                "cl0mrxurx0a7a09mbcy39h2yc"
-              ]
-            }
-          }
-        ) {
-          items {
-            id
-            altText
-            height
-            image {
-              downloadUrl
-            }
-            width
-          }
-        }
-      }
-    `,
-  });
-
-  const images = {};
-
-  for (const image of imageData.imagesList.items) {
-    images[image.id] = image;
-  }
-
-  return {
-    props: {
-      blog,
-      images,
-    },
-  };
-}

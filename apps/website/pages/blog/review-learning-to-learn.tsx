@@ -1,10 +1,9 @@
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewLearningToLearn({ blog }: BlogProperties): JSX.Element {
+function ReviewLearningToLearn(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewLearningToLearn}>
       <p>
         Learning to Learn is the perfect first course. Most people wouldn&apos;t
         give something with that title much attention, but getting started with
@@ -48,10 +47,3 @@ function ReviewLearningToLearn({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewLearningToLearn;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-learning-to-learn');
-}

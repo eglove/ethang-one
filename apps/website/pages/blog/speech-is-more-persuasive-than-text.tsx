@@ -1,12 +1,11 @@
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function SpeechIsMorePersuasiveThanText({ blog }: BlogProperties): JSX.Element {
+function SpeechIsMorePersuasiveThanText(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.speechIsMorePersuasiveThanText}>
       <p>
         Over a year ago, I laid out{' '}
         <NextLink
@@ -147,10 +146,3 @@ function SpeechIsMorePersuasiveThanText({ blog }: BlogProperties): JSX.Element {
 }
 
 export default SpeechIsMorePersuasiveThanText;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('speech-is-more-persuasive-than-text');
-}

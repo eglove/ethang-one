@@ -3,12 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function ReviewCompleteReactDeveloper({ blog }: BlogProperties): JSX.Element {
+function ReviewCompleteReactDeveloper(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewCompleteReactDeveloper}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -20,10 +19,10 @@ function ReviewCompleteReactDeveloper({ blog }: BlogProperties): JSX.Element {
           creator: 'Yihua Zhang',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewCompleteReactDeveloper.featuredImage.url,
             name: 'Complete React Developer',
           },
-          name: blog.title,
+          name: blogs.reviewCompleteReactDeveloper.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '5',
@@ -153,10 +152,3 @@ function ReviewCompleteReactDeveloper({ blog }: BlogProperties): JSX.Element {
 }
 
 export default ReviewCompleteReactDeveloper;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-complete-react-developer');
-}

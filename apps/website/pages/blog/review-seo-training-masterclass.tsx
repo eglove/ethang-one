@@ -3,12 +3,11 @@ import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { getBlog } from '../../util/next-properties';
-import { BlogProperties } from '../../util/query';
+import { blogs } from '../../db/data/blogs/blogs';
 
-function reviewSeoTrainingMasterclass({ blog }: BlogProperties): JSX.Element {
+function reviewSeoTrainingMasterclass(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blog}>
+    <StaticBlogLayout blog={blogs.reviewSeoTrainingMasterclass}>
       <JsonLd<Review>
         item={{
           '@context': 'https://schema.org',
@@ -20,10 +19,10 @@ function reviewSeoTrainingMasterclass({ blog }: BlogProperties): JSX.Element {
           creator: 'Alex Genadinik',
           itemReviewed: {
             '@type': 'Course',
-            image: blog.featuredImage.image.downloadUrl,
+            image: blogs.reviewSeoTrainingMasterclass.featuredImage.url,
             name: 'SEO Training Masterclass',
           },
-          name: blog.title,
+          name: blogs.reviewSeoTrainingMasterclass.title,
           reviewRating: {
             '@type': 'Rating',
             ratingValue: '4',
@@ -129,10 +128,3 @@ function reviewSeoTrainingMasterclass({ blog }: BlogProperties): JSX.Element {
 }
 
 export default reviewSeoTrainingMasterclass;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{
-  props: BlogProperties;
-}> {
-  return getBlog('review-seo-training-masterclass');
-}

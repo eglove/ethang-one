@@ -1,54 +1,12 @@
-import { gql } from '@apollo/client';
-
 import { BlogsLayout } from '../../components/blog/blogs/blogs-layout';
 import { Container } from '../../components/common/container/container';
-import { Blog, Data } from '../../graphql/types';
-import { apolloClient } from '../_app';
 
-export type BlogsData = { blogs: Blog[] };
-
-function Blogs({ blogs }: BlogsData): JSX.Element {
+function Blogs(): JSX.Element {
   return (
     <Container>
-      <BlogsLayout blogs={blogs} />
+      <BlogsLayout />
     </Container>
   );
 }
 
 export default Blogs;
-
-// eslint-disable-next-line unicorn/prevent-abbreviations
-export async function getStaticProps(): Promise<{ props: BlogsData }> {
-  const { data } = await apolloClient.client.query<Data>({
-    query: gql`
-      query BlogsQuery {
-        blogsList(orderBy: orderDate_DESC) {
-          items {
-            authors {
-              items {
-                firstName
-                lastName
-              }
-            }
-            featuredImage {
-              height
-              image {
-                downloadUrl
-              }
-            }
-            orderDate
-            slug
-            title
-            orderDate
-          }
-        }
-      }
-    `,
-  });
-
-  return {
-    props: {
-      blogs: data.blogsList.items,
-    },
-  };
-}
