@@ -118,7 +118,7 @@ export const defaultDateTimeInputFormat = (
   return `${newDate.getFullYear()}-${month}-${dateDay}T${hours}:${minutes}`;
 };
 
-export const habitFormatTime = (fromDate?: Date | string): string => {
+export const simpleDateFormat = (fromDate?: Date | string): string => {
   let date = new Date();
   if (typeof fromDate !== 'undefined') {
     date = typeof fromDate === 'string' ? new Date(fromDate) : fromDate;

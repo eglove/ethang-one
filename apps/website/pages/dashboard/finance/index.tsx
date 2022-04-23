@@ -1,20 +1,13 @@
-import { useMutation, useQuery } from '@apollo/client';
 import {
   SimpleForm,
   SimpleFormButton,
   SimpleFormInput,
 } from '@ethang/react-components';
-import { addDays, habitFormatTime } from '@ethang/util-typescript';
+import { JSON_HEADER, simpleDateFormat } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import { Container } from '../../../components/common/container/container';
 import { HeadTag } from '../../../components/common/head-tag/head-tag';
-import { updateFinanceRecords } from '../../../components/dashboard/graphql/mutations';
-import {
-  financeData,
-  FinanceStatuses,
-  financeStatuses,
-} from '../../../components/dashboard/graphql/queries';
 import commonStyles from '../../../styles/common.module.css';
 
 export const Account = {
@@ -28,8 +21,16 @@ export const Account = {
 };
 
 function Finance(): JSX.Element {
-  const [formState, setFormState] = useState({});
-  const [updateRecords, { loading }] = useMutation(updateFinanceRecords);
+  const [formState, setFormState] = useState({
+    [Account.USAA_CHECKING]: 0,
+    [Account.USAA_SAVINGS]: 0,
+    [Account.MY_MERCY]: 0,
+    [Account.CHASE_CC]: 0,
+    [Account.LIGHTSTREAM]: 0,
+    [Account.E_TORO]: 0,
+    [Account.LENDING_CLUB]: 0,
+  });
+  const [loading, setLoading] = useState(false);
 
   const buttons = [
     new SimpleFormButton({
@@ -58,84 +59,29 @@ function Finance(): JSX.Element {
     }),
   ];
 
-  useQuery<FinanceStatuses>(financeStatuses, {
-    fetchPolicy: 'cache-and-network',
-    onCompleted(data) {
-      setFormState(formState_ => {
-        return {
-          ...formState_,
-          [Account.USAA_CHECKING]:
-            data.UsaaChecking.items[0]?.currentValue ?? 0,
-          [Account.USAA_SAVINGS]: data.UsaaSavings.items[0]?.currentValue ?? 0,
-          [Account.MY_MERCY]: data.MyMercy.items[0]?.currentValue ?? 0,
-          [Account.CHASE_CC]: data.ChaseCreditCard.items[0]?.currentValue ?? 0,
-          [Account.LIGHTSTREAM]: data.LightStream.items[0]?.currentValue ?? 0,
-          [Account.E_TORO]: data.eToro.items[0]?.currentValue ?? 0,
-          [Account.LENDING_CLUB]: data.LendingClub.items[0]?.currentValue ?? 0,
-        };
+  const handleSubmit = async (): Promise<void> => {
+    setLoading(true);
+    const formStateKeys = Object.keys(formState);
+
+    const postArray = [];
+    for (const key of formStateKeys) {
+      if (Number.isNaN(Number(formState[key]))) {
+        throw new TypeError(`Invalid number for ${key}.`);
+      }
+
+      postArray.push({
+        accountName: key,
+        currentValue: Number(formState[key]),
+        recordedDate: simpleDateFormat(),
       });
-    },
-  });
+    }
 
-  const handleSubmit = (): void => {
-    const dataVariable: Array<{
-      accountName: string;
-      currentValue: number;
-      recordedDate: string;
-    }> = [
-      {
-        accountName: Account.USAA_CHECKING,
-        currentValue: Number(formState[Account.USAA_CHECKING]),
-        recordedDate: habitFormatTime(),
-      },
-      {
-        accountName: Account.USAA_SAVINGS,
-        currentValue: Number(formState[Account.USAA_SAVINGS]),
-        recordedDate: habitFormatTime(),
-      },
-      {
-        accountName: Account.CHASE_CC,
-        currentValue: Number(formState[Account.CHASE_CC]),
-        recordedDate: habitFormatTime(),
-      },
-      {
-        accountName: Account.MY_MERCY,
-        currentValue: Number(formState[Account.MY_MERCY]),
-        recordedDate: habitFormatTime(),
-      },
-      {
-        accountName: Account.LIGHTSTREAM,
-        currentValue: Number(formState[Account.LIGHTSTREAM]),
-        recordedDate: habitFormatTime(),
-      },
-      {
-        accountName: Account.E_TORO,
-        currentValue: Number(formState[Account.E_TORO]),
-        recordedDate: habitFormatTime(),
-      },
-      {
-        accountName: Account.LENDING_CLUB,
-        currentValue: Number(formState[Account.LENDING_CLUB]),
-        recordedDate: habitFormatTime(),
-      },
-    ];
-
-    updateRecords({
-      refetchQueries: [
-        {
-          query: financeData,
-          variables: {
-            oneMonthAgo: habitFormatTime(addDays(new Date(), -30)),
-            today: habitFormatTime(),
-          },
-        },
-      ],
-      variables: {
-        data: dataVariable,
-      },
-    }).catch((error: Error) => {
-      console.error(error);
+    await fetch('/api/finance-records', {
+      body: JSON.stringify(postArray),
+      headers: JSON_HEADER,
+      method: 'POST',
     });
+    setLoading(false);
   };
 
   return (

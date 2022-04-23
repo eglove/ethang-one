@@ -1,10 +1,11 @@
+import { addDays, simpleDateFormat } from '@ethang/util-typescript';
 import {
   FinanceRecord as FinanceRecordObject,
   Prisma,
   PrismaClient,
 } from '@prisma/client';
 
-import { PrismaModel } from '../types/types';
+import { FinanceGraphData, PrismaModel } from '../types/types';
 
 export class FinanceRecord implements PrismaModel {
   prisma: PrismaClient;
@@ -21,5 +22,75 @@ export class FinanceRecord implements PrismaModel {
     return this.prisma.financeRecord.create({
       data: parameters,
     });
+  }
+
+  async createMany(
+    parameters: Prisma.FinanceRecordCreateManyInput[]
+  ): Promise<FinanceRecordObject[]> {
+    await this.prisma.$connect();
+
+    const promises = [];
+    for (const input of parameters) {
+      promises.push(this.create(input));
+    }
+
+    return Promise.all(promises);
+  }
+
+  async getFinanceRecordsInLastYear(): Promise<FinanceGraphData> {
+    await this.prisma.$connect();
+
+    const data = await this.prisma.financeRecord.findMany({
+      where: {
+        recordedDate: {
+          gte: simpleDateFormat(addDays(new Date(), -365)),
+          lte: simpleDateFormat(),
+        },
+      },
+    });
+
+    const restructuredData: Record<string, Record<string, number>> = {};
+    let uniqueAccountNames: string[] = [];
+
+    // { recordedDate1: { account1: value1, account2, value2 }, recordedDate2: { ... } }
+    for (const item of data) {
+      if (restructuredData[item.recordedDate]) {
+        restructuredData[item.recordedDate][item.accountName] =
+          item.currentValue;
+      } else {
+        restructuredData[item.recordedDate] = {
+          [item.accountName]: item.currentValue,
+        };
+      }
+    }
+
+    // Get list of unique account Names, and total for NetWorth
+    for (const key of Object.keys(restructuredData)) {
+      let total = 0;
+      for (const accountName of Object.keys(restructuredData[key])) {
+        if (!uniqueAccountNames.includes(accountName)) {
+          uniqueAccountNames = [...uniqueAccountNames, accountName];
+        }
+
+        if (typeof restructuredData[key][accountName] === 'number') {
+          total += restructuredData[key][accountName];
+        }
+      }
+
+      restructuredData[key].NetWorth = total;
+    }
+
+    uniqueAccountNames = [...uniqueAccountNames, 'NetWorth'];
+
+    // [ { date: recordedDate, { account1: value1, account2: value2 } }, { date2: recordedDate2, { ... } ]
+    return {
+      financeData: Object.keys(restructuredData).map(itemKey => {
+        return {
+          date: itemKey,
+          ...restructuredData[itemKey],
+        };
+      }),
+      uniqueAccountNames,
+    };
   }
 }
