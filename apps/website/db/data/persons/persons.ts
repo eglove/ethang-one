@@ -46,11 +46,8 @@ export const persons = {
     lastName: 'Schifano',
   }),
   ethanGlover: new Person({
-    birthday: new Date('April 28, 1990'),
     firstName: 'Ethan',
-    heightIn: 70,
     lastName: 'Glover',
-    weightLbs: 187.6,
   }),
   jacintoWong: new Person({
     firstName: 'Jacinto',
