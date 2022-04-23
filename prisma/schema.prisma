@@ -23,3 +23,11 @@ model FinanceRecord {
   currentValue Float
   recordedDate String
 }
+
+model TodaysCalories {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  birthday        String
+  currentCalories Int
+  height          Int
+  weight          Float
+}

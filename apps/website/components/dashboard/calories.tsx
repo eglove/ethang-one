@@ -1,87 +1,74 @@
-import { useMutation, useQuery } from '@apollo/client';
-import { Constant, ENV_KEYS } from '@ethang/node-environment';
 import {
   InputType,
   SimpleForm,
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
-import { useLocalStorage } from '@ethang/react-hooks';
-import { ageFromBirthday } from '@ethang/util-typescript';
+import { ageFromBirthday, fetcher, JSON_HEADER } from '@ethang/util-typescript';
+import { TodaysCalories as TodaysCaloriesObject } from '@prisma/client';
 import { useEffect, useState } from 'react';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import useSWR from 'swr';
 
-import { Person } from '../../graphql/types';
 import commonStyles from '../../styles/common.module.css';
-import { updateWeight } from './graphql/mutations';
-import { calorieData } from './graphql/queries';
-
-type MyData = {
-  person: Pick<
-    Person,
-    'birthday' | 'heightIn' | 'firstName' | 'lastName' | 'weightLbs'
-  >;
-};
+import { API_TODAYS_CALORIES } from '../../util/constants';
 
 export function Calories(): JSX.Element {
+  const { data, mutate } = useSWR<TodaysCaloriesObject>(
+    API_TODAYS_CALORIES,
+    fetcher
+  );
+  const [isLoading, setIsLoading] = useState(false);
   const [calories, setCalories] = useState<number>(0);
   const [formState, setFormState] = useState({ AddCalories: 0, Weight: 0 });
-  const [todaysCalories, setTodaysCalories] = useLocalStorage<number>(
-    'todaysCalories',
-    0
-  );
-
-  const constants = new Constant();
-  const [handleUpdateWeight, { loading }] = useMutation(updateWeight);
 
   useEffect(() => {
+    if (typeof data === 'undefined') {
+      return;
+    }
+
     setFormState(formState_ => {
-      return { ...formState_, CaloriesToday: todaysCalories };
+      return {
+        ...formState_,
+        Weight: data.weight,
+      };
     });
-  }, [todaysCalories]);
 
-  useQuery<MyData>(calorieData, {
-    fetchPolicy: 'cache-and-network',
-    onCompleted(data_) {
-      setFormState(formState_ => {
-        return {
-          ...formState_,
-          Weight: data_.person.weightLbs,
-        };
-      });
+    const weightInKg = data.weight * 0.453_592;
+    const heightInCm = data.height * 2.54;
+    const age = ageFromBirthday(data.birthday);
+    setCalories(10 * weightInKg + 6.25 * heightInCm - 5 * age + 5);
+  }, [data]);
 
-      const weightInKg = data_.person.weightLbs * 0.453_592;
-      const heightInCm = data_.person.heightIn * 2.54;
-      const age = ageFromBirthday(data_.person.birthday);
-      setCalories(10 * weightInKg + 6.25 * heightInCm - 5 * age + 5);
-    },
-    variables: {
-      id: constants.get(ENV_KEYS.MY_ID),
-    },
-  });
-
-  const onUpdate = (): void => {
-    const rounded = Number(Number(formState.Weight).toFixed(2));
-    setTodaysCalories(Number(todaysCalories) + formState.AddCalories);
+  const onUpdate = async (): Promise<void> => {
+    setIsLoading(true);
+    const roundedWeight = Number(Number(formState.Weight).toFixed(2));
+    const addedCalories = data.currentCalories + formState.AddCalories;
     formState.AddCalories = 0;
 
-    handleUpdateWeight({
-      refetchQueries: [
-        {
-          query: calorieData,
-          variables: {
-            id: constants.get(ENV_KEYS.MY_ID),
-          },
-        },
-      ],
-      variables: { id: constants.get(ENV_KEYS.MY_ID), weight: rounded },
-    }).catch((error: Error) => {
-      console.error(error);
+    await fetch(API_TODAYS_CALORIES, {
+      body: JSON.stringify({
+        currentCalories: addedCalories,
+        weight: roundedWeight,
+      }),
+      headers: JSON_HEADER,
+      method: 'POST',
     });
+    await mutate();
+    setIsLoading(false);
   };
 
-  const onReset = (): void => {
-    setTodaysCalories(0);
+  const onReset = async (): Promise<void> => {
+    setIsLoading(true);
+    await fetch(API_TODAYS_CALORIES, {
+      body: JSON.stringify({
+        currentCalories: 0,
+      }),
+      headers: JSON_HEADER,
+      method: 'POST',
+    });
+    await mutate();
+    setIsLoading(false);
   };
 
   const formInputs = simpleFormInputs([
@@ -104,28 +91,33 @@ export function Calories(): JSX.Element {
       },
     },
     {
-      buttonText: loading ? 'Saving' : 'Save',
+      buttonText: isLoading ? 'Saving' : 'Save',
       name: 'Save',
       properties: { style: { marginLeft: '0.3rem' }, type: 'submit' },
     },
   ]);
+
+  if (typeof data === 'undefined') {
+    return null;
+  }
 
   return (
     <div style={{ width: '330px' }}>
       <CircularProgressbarWithChildren
         maxValue={calories}
         strokeWidth={3}
-        value={todaysCalories}
+        value={data.currentCalories}
       >
         <SimpleForm
           buttons={buttons}
+          fieldsetProperties={{ disabled: isLoading }}
           formProperties={{ className: commonStyles.Form }}
           formState={formState}
           inputs={formInputs}
           postSubmitFunction={onUpdate}
           setFormState={setFormState}
         />
-        <div>{Number(calories.toFixed(0)) - todaysCalories} left</div>
+        <div>{Number(calories.toFixed(0)) - data.currentCalories} left</div>
       </CircularProgressbarWithChildren>
     </div>
   );
