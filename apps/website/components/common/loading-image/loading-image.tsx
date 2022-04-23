@@ -1,12 +1,11 @@
-import Image from 'next/image';
-
-import loadingImage from '../../../public/images/loading.svg';
+import { allImages } from '../../../db/data/images/all-images';
 import { Container } from '../container/container';
+import { ImageComponent } from '../image-component/image-component';
 
 export function LoadingImage(): JSX.Element {
   return (
     <Container>
-      <Image alt="Loading..." src={loadingImage as string} />
+      <ImageComponent image={allImages.rootImages.loading} />
     </Container>
   );
 }
