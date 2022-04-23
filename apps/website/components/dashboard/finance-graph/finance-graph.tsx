@@ -1,11 +1,5 @@
-import { useQuery } from '@apollo/client';
-import {
-  addDays,
-  currencyFormat,
-  habitFormatTime,
-  randomColor,
-} from '@ethang/util-typescript';
-import { useState } from 'react';
+import { FinanceGraphData } from '@ethang/ethang-db';
+import { currencyFormat, fetcher, randomColor } from '@ethang/util-typescript';
 import {
   CartesianGrid,
   Legend,
@@ -15,65 +9,10 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-
-import { FinanceData, financeData } from '../graphql/queries';
+import useSWR from 'swr';
 
 export function FinanceGraph(): JSX.Element {
-  const [graphData, setGraphData] = useState<
-    Array<Record<string, string | number>>
-  >([]);
-  const [accountNames, setAccountNames] = useState<string[]>([]);
-
-  useQuery<FinanceData>(financeData, {
-    fetchPolicy: 'cache-and-network',
-    onCompleted(data) {
-      const restructuredData: Record<string, Record<string, number>> = {};
-      let uniqueAccountNames: string[] = [];
-
-      // { recordedDate1: { account1: value1, account2, value2 }, recordedDate2: { ... } }
-      for (const item of data.financeRecordsList.items) {
-        if (restructuredData[item.recordedDate]) {
-          restructuredData[item.recordedDate][item.accountName] =
-            item.currentValue;
-        } else {
-          restructuredData[item.recordedDate] = {
-            [item.accountName]: item.currentValue,
-          };
-        }
-      }
-
-      // Get list of unique account Names, and total for NetWorth
-      for (const key of Object.keys(restructuredData)) {
-        let total = 0;
-        for (const accountName of Object.keys(restructuredData[key])) {
-          if (!uniqueAccountNames.includes(accountName)) {
-            uniqueAccountNames = [...uniqueAccountNames, accountName];
-          }
-
-          if (typeof restructuredData[key][accountName] === 'number') {
-            total += restructuredData[key][accountName];
-          }
-        }
-
-        restructuredData[key].NetWorth = total;
-      }
-
-      setAccountNames([...uniqueAccountNames, 'NetWorth']);
-      // [ { date: recordedDate, { account1: value1, account2: value2 } }, { date2: recordedDate2, { ... } ]
-      setGraphData(() => {
-        return Object.keys(restructuredData).map(itemKey => {
-          return {
-            date: itemKey,
-            ...restructuredData[itemKey],
-          };
-        });
-      });
-    },
-    variables: {
-      dateStart: habitFormatTime(addDays(new Date(), -365)),
-      today: habitFormatTime(),
-    },
-  });
+  const { data } = useSWR<FinanceGraphData>('/api/finance-records', fetcher);
 
   const getStrokeColor = (itemKey: string): string => {
     if (itemKey === 'NetWorth') {
@@ -88,9 +27,13 @@ export function FinanceGraph(): JSX.Element {
     return color;
   };
 
+  if (typeof data === 'undefined') {
+    return null;
+  }
+
   return (
-    <LineChart data={graphData} height={350} width={950}>
-      {accountNames.map(name => {
+    <LineChart data={data.financeData} height={350} width={950}>
+      {data.uniqueAccountNames.map(name => {
         return <Line dataKey={name} key={name} stroke={getStrokeColor(name)} />;
       })}
       <Legend />

@@ -4,7 +4,7 @@ import {
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
-import { habitFormatTime, JSON_HEADER } from '@ethang/util-typescript';
+import { JSON_HEADER, simpleDateFormat } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import commonStyles from '../../../styles/common.module.css';
@@ -13,7 +13,7 @@ export function AddHabit(): JSX.Element {
   const [formState, setFormState] = useState({
     Name: '',
     RecurInterval: '',
-    StartDate: habitFormatTime(),
+    StartDate: simpleDateFormat(),
   });
 
   const inputs = simpleFormInputs([
@@ -41,7 +41,7 @@ export function AddHabit(): JSX.Element {
 
   const handleCreateHabit = async (): Promise<void> => {
     const newHabit = {
-      dueDate: habitFormatTime(formState.StartDate),
+      dueDate: simpleDateFormat(formState.StartDate),
       name: formState.Name,
       recurInterval: formState.RecurInterval,
     };
