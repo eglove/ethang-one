@@ -11,15 +11,15 @@ generator client {
 }
 
 model Habit {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  name          String   @unique
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  name          String @unique
   recurInterval String
-  dueDate       DateTime
+  dueDate       String
 }
 
 model FinanceRecord {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
   accountName  String
   currentValue Float
-  recordedDate DateTime
+  recordedDate String
 }

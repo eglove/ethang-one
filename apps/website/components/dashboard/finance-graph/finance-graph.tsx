@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import {
   addDays,
   currencyFormat,
-  eightBaseFormatTime,
+  habitFormatTime,
   randomColor,
 } from '@ethang/util-typescript';
 import { useState } from 'react';
@@ -70,8 +70,8 @@ export function FinanceGraph(): JSX.Element {
       });
     },
     variables: {
-      dateStart: eightBaseFormatTime(addDays(new Date(), -365)),
-      today: eightBaseFormatTime(),
+      dateStart: habitFormatTime(addDays(new Date(), -365)),
+      today: habitFormatTime(),
     },
   });
 

@@ -4,7 +4,7 @@ import {
   SimpleFormButton,
   SimpleFormInput,
 } from '@ethang/react-components';
-import { addDays, eightBaseFormatTime } from '@ethang/util-typescript';
+import { addDays, habitFormatTime } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import { Container } from '../../../components/common/container/container';
@@ -86,37 +86,37 @@ function Finance(): JSX.Element {
       {
         accountName: Account.USAA_CHECKING,
         currentValue: Number(formState[Account.USAA_CHECKING]),
-        recordedDate: eightBaseFormatTime(),
+        recordedDate: habitFormatTime(),
       },
       {
         accountName: Account.USAA_SAVINGS,
         currentValue: Number(formState[Account.USAA_SAVINGS]),
-        recordedDate: eightBaseFormatTime(),
+        recordedDate: habitFormatTime(),
       },
       {
         accountName: Account.CHASE_CC,
         currentValue: Number(formState[Account.CHASE_CC]),
-        recordedDate: eightBaseFormatTime(),
+        recordedDate: habitFormatTime(),
       },
       {
         accountName: Account.MY_MERCY,
         currentValue: Number(formState[Account.MY_MERCY]),
-        recordedDate: eightBaseFormatTime(),
+        recordedDate: habitFormatTime(),
       },
       {
         accountName: Account.LIGHTSTREAM,
         currentValue: Number(formState[Account.LIGHTSTREAM]),
-        recordedDate: eightBaseFormatTime(),
+        recordedDate: habitFormatTime(),
       },
       {
         accountName: Account.E_TORO,
         currentValue: Number(formState[Account.E_TORO]),
-        recordedDate: eightBaseFormatTime(),
+        recordedDate: habitFormatTime(),
       },
       {
         accountName: Account.LENDING_CLUB,
         currentValue: Number(formState[Account.LENDING_CLUB]),
-        recordedDate: eightBaseFormatTime(),
+        recordedDate: habitFormatTime(),
       },
     ];
 
@@ -125,8 +125,8 @@ function Finance(): JSX.Element {
         {
           query: financeData,
           variables: {
-            oneMonthAgo: eightBaseFormatTime(addDays(new Date(), -30)),
-            today: eightBaseFormatTime(),
+            oneMonthAgo: habitFormatTime(addDays(new Date(), -30)),
+            today: habitFormatTime(),
           },
         },
       ],
