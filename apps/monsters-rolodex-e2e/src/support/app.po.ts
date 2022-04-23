@@ -1,3 +1,3 @@
 export const getGreeting = (): void => {
-  console.log('hi');
+  console.info('hi');
 };

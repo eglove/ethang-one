@@ -1,6 +1,9 @@
 import { NextLink } from '@ethang/react-components';
+import { fetcher } from '@ethang/util-typescript';
+import { Habit } from '@prisma/client';
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
+import useSWR from 'swr';
 
 import { DashboardContext } from '../../../pages/dashboard';
 import { Container } from '../../common/container/container';
@@ -13,6 +16,7 @@ import { HabitList } from '../habit/habit-list';
 
 export const DashboardHome = observer((): JSX.Element => {
   const dashboardState = useContext(DashboardContext);
+  const { data } = useSWR<Habit[]>('/api/habit', fetcher);
 
   if (dashboardState.isLoggedIn) {
     return (
@@ -27,7 +31,7 @@ export const DashboardHome = observer((): JSX.Element => {
           <Calories />
         </div>
         <br />
-        <HabitList />
+        <HabitList data={data} />
         <AddHabit />
         <br />
         <div style={{ display: 'grid', placeItems: 'center' }}>

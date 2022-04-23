@@ -8,6 +8,14 @@ export enum HTTP_METHOD {
 
 export const JSON_HEADER = { 'Content-Type': 'application/json' };
 
+export const fetcher = async <ResponseType>(
+  ...arguments_: [input: RequestInfo, init?: RequestInit]
+): Promise<ResponseType> => {
+  return fetch(...arguments_).then(async response => {
+    return (await response.json()) as ResponseType;
+  });
+};
+
 export const isBrowser = typeof window !== 'undefined';
 
 export const isClient = Boolean(

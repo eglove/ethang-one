@@ -1,59 +1,39 @@
-import { useMutation, useQuery } from '@apollo/client';
-import { eightBaseFormatTime } from '@ethang/util-typescript';
-import ms from 'ms';
+import { JSON_HEADER } from '@ethang/util-typescript';
+import { Habit } from '@prisma/client';
 import { ChangeEvent } from 'react';
 
-import { updateHabitDueDate } from '../graphql/mutations';
-import { DueHabits, dueHabits } from '../graphql/queries';
 import styles from './habit.module.css';
 
-export function HabitList(): JSX.Element {
-  const [updateDueDate] = useMutation(updateHabitDueDate);
-
-  const { data } = useQuery<DueHabits>(dueHabits, {
-    fetchPolicy: 'cache-and-network',
-    variables: {
-      dueDate: eightBaseFormatTime(),
-    },
-  });
-
-  const handleEventComplete = (event: ChangeEvent<HTMLInputElement>): void => {
-    const habit = JSON.parse(event.target.value) as {
-      dueDate: string;
-      name: string;
-      recurInterval: string;
-    };
-    const nextDueDate = eightBaseFormatTime(
-      new Date(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        Date.now() + Number(ms(habit.recurInterval))
-      )
-    );
-
-    updateDueDate({
-      refetchQueries: [
-        {
-          query: dueHabits,
-          variables: {
-            dueDate: eightBaseFormatTime(),
-          },
-        },
-      ],
-      variables: {
-        dueDate: nextDueDate,
-        name: habit.name,
-      },
-    }).catch((error: Error) => {
-      console.error(error);
-    });
+const handleEventComplete = async (
+  event: ChangeEvent<HTMLInputElement>
+): Promise<void> => {
+  const habit = JSON.parse(event.target.value) as {
+    dueDate: string;
+    name: string;
+    recurInterval: string;
   };
 
+  await fetch('/api/habit/complete', {
+    body: JSON.stringify({
+      name: habit.name,
+      recurInterval: habit.recurInterval,
+    }),
+    headers: JSON_HEADER,
+    method: 'POST',
+  });
+};
+
+interface HabitListProperties {
+  data: Habit[];
+}
+
+export function HabitList({ data }: HabitListProperties): JSX.Element {
   return (
     <div>
       <div className={styles.DueHeader}>Due Today:</div>
-      {data?.habitsList?.items?.length <= 0 && <p>All tasks complete!</p>}
-      {data?.habitsList?.items?.length > 0 &&
-        data.habitsList.items.map(habit => {
+      {data?.length <= 0 && <p>All tasks complete!</p>}
+      {data?.length > 0 &&
+        data.map(habit => {
           return (
             <div key={habit.name}>
               <input

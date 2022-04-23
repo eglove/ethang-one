@@ -9,6 +9,7 @@
     "design-patterns": "libs/design-patterns",
     "ethang": "apps/ethang",
     "ethang-cli": "apps/ethang-cli",
+    "ethang-db": "libs/ethang-db",
     "ethang-e2e": "apps/ethang-e2e",
     "monsters-rolodex": "apps/monsters-rolodex",
     "monsters-rolodex-e2e": "apps/monsters-rolodex-e2e",

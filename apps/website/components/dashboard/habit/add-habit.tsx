@@ -1,23 +1,19 @@
-import { useMutation } from '@apollo/client';
 import {
   InputType,
   SimpleForm,
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
-import { eightBaseFormatTime } from '@ethang/util-typescript';
+import { habitFormatTime, JSON_HEADER } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import commonStyles from '../../../styles/common.module.css';
-import { createHabit } from '../graphql/mutations';
-import { dueHabits } from '../graphql/queries';
 
 export function AddHabit(): JSX.Element {
-  const [habitCreate] = useMutation(createHabit);
   const [formState, setFormState] = useState({
     Name: '',
     RecurInterval: '',
-    StartDate: undefined,
+    StartDate: habitFormatTime(),
   });
 
   const inputs = simpleFormInputs([
@@ -43,23 +39,17 @@ export function AddHabit(): JSX.Element {
     },
   ]);
 
-  const handleCreateHabit = (): void => {
-    habitCreate({
-      refetchQueries: [
-        {
-          query: dueHabits,
-          variables: {
-            dueDate: eightBaseFormatTime(),
-          },
-        },
-      ],
-      variables: {
-        dueDate: formState.StartDate,
-        name: formState.Name,
-        recurInterval: formState.RecurInterval,
-      },
-    }).catch((error: Error) => {
-      console.error(error);
+  const handleCreateHabit = async (): Promise<void> => {
+    const newHabit = {
+      dueDate: habitFormatTime(formState.StartDate),
+      name: formState.Name,
+      recurInterval: formState.RecurInterval,
+    };
+
+    await fetch('/api/habit', {
+      body: JSON.stringify(newHabit),
+      headers: JSON_HEADER,
+      method: 'POST',
     });
   };
 
