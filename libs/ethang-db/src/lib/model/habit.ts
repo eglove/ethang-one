@@ -32,7 +32,7 @@ export class Habit implements PrismaModel {
     return this.prisma.habit.findMany({
       where: {
         dueDate: {
-          lt: simpleDateFormat(),
+          lte: simpleDateFormat(),
         },
       },
     });
