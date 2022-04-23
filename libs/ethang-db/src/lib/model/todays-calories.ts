@@ -16,7 +16,9 @@ export class TodaysCalories implements PrismaModel {
   async getFirst(): Promise<TodaysCaloriesObject | undefined> {
     await this.prisma.$connect();
 
-    return this.prisma.todaysCalories.findFirst();
+    const firstRecord = await this.prisma.todaysCalories.findFirst();
+
+    return firstRecord ?? undefined;
   }
 
   async update(
