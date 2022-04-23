@@ -52,7 +52,7 @@
         "arrow-body-style": ["error", "always"],
         "capitalized-comments": "off",
         "no-console": ["error", {
-          "allow": ["info", "warn", "error"]
+          "allow": ["debug", "info", "warn", "error"]
         }],
         "prettier/prettier": [
           "error",

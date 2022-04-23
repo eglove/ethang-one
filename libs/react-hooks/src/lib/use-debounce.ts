@@ -1,7 +1,10 @@
 import { animationInterval } from '@ethang/util-typescript';
 import { useEffect, useState } from 'react';
 
-export const useDebounce = <ValueType>(value: any, delay = 300): any => {
+export const useDebounce = <ValueType>(
+  value: ValueType,
+  delay = 300
+): ValueType => {
   const [debouncedValue, setDebouncedValue] = useState<ValueType>(value);
 
   useEffect(() => {
