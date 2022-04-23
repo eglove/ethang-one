@@ -5,11 +5,21 @@ import {
   simpleFormInputs,
 } from '@ethang/react-components';
 import { JSON_HEADER, simpleDateFormat } from '@ethang/util-typescript';
+import { Habit } from '@prisma/client';
 import { useState } from 'react';
+import { KeyedMutator } from 'swr';
 
 import commonStyles from '../../../styles/common.module.css';
 
-export function AddHabit(): JSX.Element {
+interface AddHabitProperties {
+  isValidating: boolean;
+  mutate: KeyedMutator<Habit[]>;
+}
+
+export function AddHabit({
+  isValidating,
+  mutate,
+}: AddHabitProperties): JSX.Element {
   const [formState, setFormState] = useState({
     Name: '',
     RecurInterval: '',
@@ -51,6 +61,7 @@ export function AddHabit(): JSX.Element {
       headers: JSON_HEADER,
       method: 'POST',
     });
+    await mutate();
   };
 
   return (
@@ -63,6 +74,7 @@ export function AddHabit(): JSX.Element {
         postSubmitFunction={handleCreateHabit}
         setFormState={setFormState}
         fieldsetProperties={{
+          disabled: isValidating,
           style: {
             alignItems: 'flex-end',
             display: 'flex',

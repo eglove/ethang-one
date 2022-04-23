@@ -16,7 +16,7 @@ import { HabitList } from '../habit/habit-list';
 
 export const DashboardHome = observer((): JSX.Element => {
   const dashboardState = useContext(DashboardContext);
-  const { data } = useSWR<Habit[]>('/api/habit', fetcher);
+  const { data, mutate, isValidating } = useSWR<Habit[]>('/api/habit', fetcher);
 
   if (dashboardState.isLoggedIn) {
     return (
@@ -31,8 +31,8 @@ export const DashboardHome = observer((): JSX.Element => {
           <Calories />
         </div>
         <br />
-        <HabitList data={data} />
-        <AddHabit />
+        <HabitList data={data} isValidating={isValidating} mutate={mutate} />
+        <AddHabit isValidating={isValidating} mutate={mutate} />
         <br />
         <div style={{ display: 'grid', placeItems: 'center' }}>
           <FinanceGraph />
