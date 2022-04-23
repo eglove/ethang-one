@@ -1,5 +1,4 @@
 import { Image } from '../../models/image';
-import { getBlogImage } from './util';
 
 export const blogImages = {
   accessibilityForEveryone: new Image({
@@ -53,9 +52,7 @@ export const blogImages = {
   caseDataResolved: new Image({
     altText: 'Case Data Resolved SQL Queries',
     height: 362,
-    url: getBlogImage(
-      'https://res.cloudinary.com/eglove/image/upload/v1650668103/blog/casedata-sql-resolved.png'
-    ),
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1650668103/blog/casedata-sql-resolved.png',
     width: 1147,
   }),
   changeVsConsequence: new Image({
