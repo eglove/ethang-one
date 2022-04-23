@@ -14,11 +14,11 @@ export default async function (
   }
 
   const habit = new Habit();
-  const { id, recurInterval } = request.body as {
-    id: string;
+  const { name, recurInterval } = request.body as {
+    name: string;
     recurInterval: string;
   };
-  await habit.completeHabit(id, recurInterval);
+  await habit.completeHabit(name, recurInterval);
   response.status(200);
   response.end();
 }
