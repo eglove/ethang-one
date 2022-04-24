@@ -51,7 +51,7 @@ export function AddHabit({
 
   const handleCreateHabit = async (): Promise<void> => {
     const newHabit = {
-      dueDate: simpleDateFormat(formState.StartDate),
+      dueDate: Date.now(),
       name: formState.Name,
       recurInterval: formState.RecurInterval,
     };

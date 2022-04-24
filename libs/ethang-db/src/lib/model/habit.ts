@@ -1,4 +1,3 @@
-import { simpleDateFormat } from '@ethang/util-typescript';
 import { Habit as HabitObject, Prisma, PrismaClient } from '@prisma/client';
 import ms from 'ms';
 
@@ -16,9 +15,7 @@ export class Habit implements PrismaModel {
 
     await this.prisma.habit.update({
       data: {
-        dueDate: simpleDateFormat(
-          new Date(Date.now() + Number(ms(recurInterval)))
-        ),
+        dueDate: Date.now() + Number(ms(recurInterval)),
       },
       where: {
         name,
@@ -32,7 +29,7 @@ export class Habit implements PrismaModel {
     return this.prisma.habit.findMany({
       where: {
         dueDate: {
-          lte: simpleDateFormat(),
+          lte: Date.now(),
         },
       },
     });
@@ -42,10 +39,7 @@ export class Habit implements PrismaModel {
     await this.prisma.$connect();
 
     return this.prisma.habit.create({
-      data: {
-        ...parameters,
-        dueDate: simpleDateFormat(new Date(parameters.dueDate)),
-      },
+      data: parameters,
     });
   }
 }

@@ -14,7 +14,7 @@ model Habit {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   name          String @unique
   recurInterval String
-  dueDate       String
+  dueDate       Int
 }
 
 model FinanceRecord {

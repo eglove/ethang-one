@@ -13,7 +13,7 @@ export default async function (
     const { name, recurInterval, dueDate } = request.body as {
       name: string;
       recurInterval: string;
-      dueDate: string;
+      dueDate: number;
     };
 
     if (
