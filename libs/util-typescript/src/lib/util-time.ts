@@ -98,7 +98,7 @@ export const dayStartEnd = (
 
 // Default format needed for HTML input forms
 export const defaultDateTimeInputFormat = (
-  date: Date | number | string
+  date: Date | number | string = new Date()
 ): string => {
   const newDate = new Date(date);
 
@@ -116,22 +116,6 @@ export const defaultDateTimeInputFormat = (
       : newDate.getMinutes();
 
   return `${newDate.getFullYear()}-${month}-${dateDay}T${hours}:${minutes}`;
-};
-
-export const simpleDateFormat = (fromDate?: Date | string): string => {
-  let date = new Date();
-  if (typeof fromDate !== 'undefined') {
-    date = typeof fromDate === 'string' ? new Date(fromDate) : fromDate;
-  }
-
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-
-  const monthString = String(month).length === 1 ? `0${month}` : month;
-  const dayString = String(day).length === 1 ? `0${day}` : day;
-
-  return `${year}-${monthString}-${dayString}`;
 };
 
 export const humanReadableLocalDateTime = (dateTime: Date | string): string => {

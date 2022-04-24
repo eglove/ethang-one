@@ -21,12 +21,12 @@ model FinanceRecord {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   accountName  String
   currentValue Float
-  recordedDate String
+  recordedDate Int
 }
 
 model TodaysCalories {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
-  birthday        String
+  birthday        Int
   currentCalories Int
   height          Int
   weight          Float

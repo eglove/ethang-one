@@ -1,9 +1,9 @@
-import { addDays, simpleDateFormat } from '@ethang/util-typescript';
 import {
   FinanceRecord as FinanceRecordObject,
   Prisma,
   PrismaClient,
 } from '@prisma/client';
+import ms from 'ms';
 
 import { FinanceGraphData, PrismaModel } from '../types/types';
 
@@ -43,8 +43,8 @@ export class FinanceRecord implements PrismaModel {
     const data = await this.prisma.financeRecord.findMany({
       where: {
         recordedDate: {
-          gte: simpleDateFormat(addDays(new Date(), -365)),
-          lte: simpleDateFormat(),
+          gte: Date.now() - ms('1y'),
+          lte: Date.now(),
         },
       },
     });
@@ -54,11 +54,11 @@ export class FinanceRecord implements PrismaModel {
 
     // { recordedDate1: { account1: value1, account2, value2 }, recordedDate2: { ... } }
     for (const item of data) {
-      if (restructuredData[item.recordedDate]) {
-        restructuredData[item.recordedDate][item.accountName] =
-          item.currentValue;
+      const stringDate = new Date(item.recordedDate).toLocaleDateString();
+      if (restructuredData[stringDate]) {
+        restructuredData[stringDate][item.accountName] = item.currentValue;
       } else {
-        restructuredData[item.recordedDate] = {
+        restructuredData[stringDate] = {
           [item.accountName]: item.currentValue,
         };
       }
