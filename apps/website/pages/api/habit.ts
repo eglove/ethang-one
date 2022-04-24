@@ -37,7 +37,8 @@ export default async function (
   }
 
   if (request.method === 'GET') {
-    response.status(200).json(await habit.getDueHabits());
+    const { fromTime } = request.query as { fromTime: string };
+    response.status(200).json(await habit.getDueHabits(Number(fromTime)));
     response.end();
   }
 }

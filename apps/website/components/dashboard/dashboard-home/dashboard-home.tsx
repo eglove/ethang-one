@@ -14,9 +14,18 @@ import { FinanceGraph } from '../finance-graph/finance-graph';
 import { AddHabit } from '../habit/add-habit';
 import { HabitList } from '../habit/habit-list';
 
+const beforeMidnight = (): number => {
+  const date = new Date();
+  date.setHours(24, 0, 0, 0);
+  return date.getTime() - 1;
+};
+
 export const DashboardHome = observer((): JSX.Element => {
   const dashboardState = useContext(DashboardContext);
-  const { data, mutate, isValidating } = useSWR<Habit[]>('/api/habit', fetcher);
+  const { data, mutate, isValidating } = useSWR<Habit[]>(
+    `/api/habit?fromTime=${beforeMidnight()}`,
+    fetcher
+  );
 
   if (dashboardState.isLoggedIn) {
     return (
