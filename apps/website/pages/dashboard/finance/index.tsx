@@ -3,7 +3,7 @@ import {
   SimpleFormButton,
   SimpleFormInput,
 } from '@ethang/react-components';
-import { JSON_HEADER, simpleDateFormat } from '@ethang/util-typescript';
+import { JSON_HEADER } from '@ethang/util-typescript';
 import { useState } from 'react';
 
 import { Container } from '../../../components/common/container/container';
@@ -72,7 +72,7 @@ function Finance(): JSX.Element {
       postArray.push({
         accountName: key,
         currentValue: Number(formState[key]),
-        recordedDate: simpleDateFormat(),
+        recordedDate: Date.now(),
       });
     }
 
