@@ -2,6 +2,17 @@ import { Blog } from '../../models/blog';
 import { allImages } from '../images/all-images';
 import { persons } from '../persons/persons';
 
+export const blogsSortedByUpdate = (): Blog[] => {
+  const blogKeys = Object.keys(blogs);
+  const blogArray = blogKeys.map(key => {
+    return blogs[key] as Blog;
+  });
+  blogArray.sort((a, b) => {
+    return b.updatedAt.getTime() - a.updatedAt.getTime();
+  });
+  return blogArray;
+};
+
 export const blogs = {
   aFirstPost: new Blog({
     authors: [persons.ethanGlover],
