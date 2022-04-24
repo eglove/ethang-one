@@ -84,7 +84,7 @@ function ReviewCompleteReactDeveloper(): JSX.Element {
         C. Dodds&apos; very expensive course on the recommended list. Because it
         has a far better understanding of how React works than other courses. To
         make this correction in the shortest manner possible, the useEffect
-        dependency array tells react what is affected by the function. You
+        dependency array tells React what is affected by the function. You
         should never &ldquo;choose&rdquo; what goes in that array, only place
         the correct dependencies. The Kent C. Dodds course covers this in
         greater detail.
@@ -114,21 +114,21 @@ function ReviewCompleteReactDeveloper(): JSX.Element {
         This 2022 update is impressive enough to me that I want to take the
         course again in full, rebuilding the app as they did and following along
         as if it were my first time seeing it. Yihua is great presenter, the
-        course covers an incredible amount of topics pouring it into one small
+        course covers an incredible amount of topics. Pouring it into one small
         project and another large one without breaking up the context of what
         its teaching.
       </p>
       <p>
         I won&apos;t complain too much about the usage of SASS and Styled
         Components. While they may be useless, I wouldn&apos;t recommend this
-        courses to people totally new to development. Meaning, if you&apos;re
+        course to people totally new to development. Meaning, if you&apos;re
         taking this course, you should have the knowledge to form your own
         educated opinion about these things.
       </p>
       <p>
         The coverage of useEffect is very unfortunate. But, while I
         wouldn&apos;t consider this course for beginner developers, I would
-        consider it for beginner React developers. This large project built in
+        consider it for beginner React developers. The large project built in
         this course is a great first project. But this course is by no means
         everything you need to know. The basic (and incorrect) explanation of
         useEffect is dangerous, but it won&apos;t cause issues in this app, and

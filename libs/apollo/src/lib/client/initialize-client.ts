@@ -9,7 +9,6 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
-import { Constant, ENV_KEYS } from '@ethang/node-environment';
 import { isBrowser, JSON_HEADER } from '@ethang/util-typescript';
 import { LocalStorageWrapper, persistCache } from 'apollo3-cache-persist';
 
@@ -49,16 +48,11 @@ export class ApolloClientInit {
   };
 
   private readonly setAuthLink = (): void => {
-    const constants = new Constant();
-
     this.authLink = new ApolloLink((operation, forward) => {
       operation.setContext(({ headers }: { headers: HeadersInit }) => {
         return {
           headers: {
             ...JSON_HEADER,
-            Authorization: `Bearer ${constants.get(
-              ENV_KEYS.EIGHT_BASE_API_ADMIN_TOKEN
-            )}`,
             ...headers,
           },
         };
