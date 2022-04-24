@@ -26,10 +26,13 @@ export class Habit implements PrismaModel {
   async getDueHabits(): Promise<HabitObject[]> {
     await this.prisma.$connect();
 
+    const tonightMidnight = new Date();
+    tonightMidnight.setHours(24, 0, 0, 0);
+
     return this.prisma.habit.findMany({
       where: {
         dueDate: {
-          lte: Date.now(),
+          lte: tonightMidnight.getTime(),
         },
       },
     });
