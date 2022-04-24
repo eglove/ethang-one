@@ -1,6 +1,0 @@
-schema:
-  - https://api.8base.com/cl0jpamca000d09l9hwznap79
-generates:
-  graphql/graphql-types.ts:
-    plugins:
-      - typescript
