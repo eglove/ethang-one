@@ -4,10 +4,7 @@ import {
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
-import {
-  defaultDateTimeInputFormat,
-  JSON_HEADER,
-} from '@ethang/util-typescript';
+import { JSON_HEADER } from '@ethang/util-typescript';
 import { Habit } from '@prisma/client';
 import { useState } from 'react';
 import { KeyedMutator } from 'swr';
@@ -26,7 +23,7 @@ export function AddHabit({
   const [formState, setFormState] = useState({
     Name: '',
     RecurInterval: '',
-    StartDate: defaultDateTimeInputFormat(),
+    StartDate: '',
   });
 
   const inputs = simpleFormInputs([

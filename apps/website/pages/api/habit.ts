@@ -19,7 +19,7 @@ export default async function (
     if (
       typeof name === 'string' &&
       typeof recurInterval === 'string' &&
-      typeof dueDate === 'string'
+      typeof dueDate === 'number'
     ) {
       response.send(
         JSON.stringify(
