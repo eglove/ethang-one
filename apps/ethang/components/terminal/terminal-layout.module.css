@@ -1,9 +1,0 @@
-.TerminalContainer {
-  padding: 1rem;
-  color: var(--matrix-green);
-  background-color: var(--vampire-black);
-}
-
-.TerminalContainer div {
-  margin: 0.5rem;
-}
