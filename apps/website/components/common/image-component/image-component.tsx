@@ -1,6 +1,5 @@
+import { Image as ImageModel } from '@ethang/local-database';
 import Image, { ImageProps } from 'next/image';
-
-import { Image as ImageModel } from '../../../db/models/image';
 
 interface ImageComponentProperties {
   image: ImageModel;

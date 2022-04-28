@@ -1,5 +1,6 @@
+import { blogs } from '@ethang/local-database';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function RealtoughcandyIoReview(): JSX.Element {
   return (

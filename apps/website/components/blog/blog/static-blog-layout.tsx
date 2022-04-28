@@ -1,3 +1,4 @@
+import { Blog } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 import {
   formatList,
@@ -10,7 +11,6 @@ import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema } from 'schema-dts';
 
-import { Blog } from '../../../db/models/blog';
 import commonStyles from '../../../styles/common.module.css';
 import { BASE_URL } from '../../../util/constants';
 import { Container } from '../../common/container/container';

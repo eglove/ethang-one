@@ -1,9 +1,8 @@
+import { allImages, blogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
-import { blogs } from '../../db/data/blogs/blogs';
-import { allImages } from '../../db/data/images/all-images';
 
 export function OnHostingStaticPages(): JSX.Element {
   return (

@@ -7,6 +7,7 @@
     "crwn-clothing-e2e": "apps/crwn-clothing-e2e",
     "design-patterns": "libs/design-patterns",
     "ethang-db": "libs/ethang-db",
+    "local-database": "libs/local-database",
     "monsters-rolodex": "apps/monsters-rolodex",
     "monsters-rolodex-e2e": "apps/monsters-rolodex-e2e",
     "node-environment": "libs/node-environment",

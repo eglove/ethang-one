@@ -1,11 +1,10 @@
+import { Blog, blogs as staticBlogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 import {
   formatList,
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
 
-import { blogs as staticBlogs } from '../../../db/data/blogs/blogs';
-import { Blog } from '../../../db/models/blog';
 import commonStyles from '../../../styles/common.module.css';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import styles from './blogs-layout.module.css';

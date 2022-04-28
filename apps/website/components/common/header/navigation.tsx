@@ -1,6 +1,6 @@
+import { allImages } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
-import { allImages } from '../../../db/data/images/all-images';
 import { ImageComponent } from '../image-component/image-component';
 import styles from './header.module.css';
 

@@ -1,3 +1,4 @@
+import { allImages, blogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 import SyntaxHighlighter from 'react-syntax-highlighter';
@@ -5,8 +6,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import styles from '../../components/common/styles/common.module.css';
-import { blogs } from '../../db/data/blogs/blogs';
-import { allImages } from '../../db/data/images/all-images';
 
 function MakingGraphqlBetter(): JSX.Element {
   const userQuery = `query Query {

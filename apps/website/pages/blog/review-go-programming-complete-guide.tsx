@@ -1,9 +1,9 @@
+import { blogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function ReviewGoProgrammingCompleteGuide(): JSX.Element {
   return (

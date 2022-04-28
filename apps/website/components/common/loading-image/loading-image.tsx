@@ -1,4 +1,5 @@
-import { allImages } from '../../../db/data/images/all-images';
+import { allImages } from '@ethang/local-database';
+
 import { Container } from '../container/container';
 import { ImageComponent } from '../image-component/image-component';
 

@@ -1,8 +1,8 @@
+import { blogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function PersuasionThroughMoralArguments(): JSX.Element {
   return (

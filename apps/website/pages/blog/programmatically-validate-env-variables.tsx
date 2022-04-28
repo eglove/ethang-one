@@ -1,8 +1,8 @@
 // eslint-disable-next-line unicorn/prevent-abbreviations
+import { blogs } from '@ethang/local-database';
 import Gist from 'react-gist';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function ProgrammaticallyValidateEnvironmentVariables(): JSX.Element {
   return (
