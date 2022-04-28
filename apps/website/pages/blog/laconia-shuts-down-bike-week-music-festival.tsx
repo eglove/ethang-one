@@ -1,7 +1,7 @@
+import { blogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
-import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function LaconiaShutsDownBikeWeekMusicFestival(): JSX.Element {

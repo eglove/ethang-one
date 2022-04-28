@@ -1,4 +1,5 @@
-import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
+import { blogs } from '@ethang/local-database';
+
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewCompleteJuniorSenior(): JSX.Element {

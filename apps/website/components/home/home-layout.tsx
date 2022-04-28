@@ -1,8 +1,7 @@
+import { Image as ImageModel, technologyImages } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 import { shuffleArray } from '@ethang/util-typescript';
 
-import { technologyImages } from '../../../../libs/local-database/src/lib/data/images/technology-images';
-import { Image as ImageModel } from '../../../../libs/local-database/src/lib/models/image';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { ImageComponent } from '../common/image-component/image-component';
