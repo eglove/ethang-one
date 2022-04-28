@@ -1,8 +1,8 @@
 import { NextLink } from '@ethang/react-components';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
+import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function TheEpidemicOfPassableArguments(): JSX.Element {
   return (

@@ -1,6 +1,6 @@
 import Image, { ImageProps } from 'next/image';
 
-import { Image as ImageModel } from '../../../db/models/image';
+import { Image as ImageModel } from '../../../../../libs/local-database/src/lib/models/image';
 
 interface ImageComponentProperties {
   image: ImageModel;

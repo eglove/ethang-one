@@ -3,7 +3,7 @@ import { formatList } from '@ethang/util-typescript';
 import { DiscussionEmbed } from 'disqus-react';
 import Image from 'next/image';
 
-import { sortedCourses } from '../../db/data/courses/sorted-courses';
+import { sortedCourses } from '../../../../libs/local-database/src/lib/data/courses/sorted-courses';
 import commonStyles from '../../styles/common.module.css';
 import { BASE_URL } from '../../util/constants';
 import { Container } from '../common/container/container';

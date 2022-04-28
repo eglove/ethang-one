@@ -2,8 +2,8 @@ import { NextLink } from '@ethang/react-components';
 import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
+import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function ReviewLinuxCommandLineBootcamp(): JSX.Element {
   return (

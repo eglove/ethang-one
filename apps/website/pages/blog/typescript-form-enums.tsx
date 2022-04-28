@@ -1,8 +1,8 @@
 import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 
+import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function TypescriptFormEnums(): JSX.Element {
   return (

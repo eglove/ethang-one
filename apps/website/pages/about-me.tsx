@@ -3,11 +3,11 @@ import { DiscussionEmbed } from 'disqus-react';
 import getYouTubeID from 'get-youtube-id';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
+import { allImages } from '../../../libs/local-database/src/lib/data/images/all-images';
 import { Container } from '../components/common/container/container';
 import { HeadTag } from '../components/common/head-tag/head-tag';
 import { ImageComponent } from '../components/common/image-component/image-component';
 import styles from '../components/common/styles/common.module.css';
-import { allImages } from '../db/data/images/all-images';
 import commonStyles from '../styles/common.module.css';
 import { BASE_URL } from '../util/constants';
 

@@ -1,8 +1,8 @@
 import { NextLink } from '@ethang/react-components';
 
+import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import styles from '../../components/common/styles/common.module.css';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function TheRecommendedCourses(): JSX.Element {
   return (

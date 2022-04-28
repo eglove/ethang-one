@@ -1,6 +1,6 @@
 import { ImageProps } from 'next/image';
 
-import { Image as ImageModel } from '../../../db/models/image';
+import { Image as ImageModel } from '../../../../../libs/local-database/src/lib/models/image';
 import { ImageComponent } from '../image-component/image-component';
 import styles from './image-container.module.css';
 

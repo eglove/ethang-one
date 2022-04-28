@@ -10,7 +10,7 @@ import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema } from 'schema-dts';
 
-import { Blog } from '../../../db/models/blog';
+import { Blog } from '../../../../../libs/local-database/src/lib/models/blog';
 import commonStyles from '../../../styles/common.module.css';
 import { BASE_URL } from '../../../util/constants';
 import { Container } from '../../common/container/container';

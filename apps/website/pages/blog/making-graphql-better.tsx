@@ -2,11 +2,11 @@ import { NextLink } from '@ethang/react-components';
 import Gist from 'react-gist';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
+import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
+import { allImages } from '../../../../libs/local-database/src/lib/data/images/all-images';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 import styles from '../../components/common/styles/common.module.css';
-import { blogs } from '../../db/data/blogs/blogs';
-import { allImages } from '../../db/data/images/all-images';
 
 function MakingGraphqlBetter(): JSX.Element {
   const userQuery = `query Query {

@@ -1,5 +1,5 @@
+import { blogs } from '../../../../libs/local-database/src/lib/data/blogs/blogs';
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { blogs } from '../../db/data/blogs/blogs';
 
 function ReviewLearningToLearn(): JSX.Element {
   return (

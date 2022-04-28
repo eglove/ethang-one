@@ -1,7 +1,7 @@
 import { rssDateFormat } from '@ethang/util-typescript';
 import { NextApiResponse } from 'next';
 
-import { blogsSortedByUpdate } from '../db/data/blogs/blogs';
+import { blogsSortedByUpdate } from '../../../libs/local-database/src/lib/data/blogs/blogs';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const EthangRss = (): void => {};
