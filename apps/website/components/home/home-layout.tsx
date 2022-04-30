@@ -24,7 +24,7 @@ export function HomeLayout(): JSX.Element | undefined {
           </NextLink>
         </p>
         <div className={styles.Logos}>
-          {techImages.map(imageKey => {
+          {techImages?.map(imageKey => {
             const logo = technologyImages[imageKey] as ImageModel;
 
             return (
