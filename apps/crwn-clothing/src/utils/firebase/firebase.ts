@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signInWithRedirect,
   UserCredential,
@@ -76,4 +77,11 @@ export const createAuthUserWithEmailAndPassword = async (
   password: string
 ): Promise<UserCredential> => {
   return createUserWithEmailAndPassword(auth, email, password);
+};
+
+export const signInAuthUserWithEmailAndPassword = async (
+  email: string,
+  password: string
+): Promise<UserCredential> => {
+  return signInWithEmailAndPassword(auth, email, password);
 };
