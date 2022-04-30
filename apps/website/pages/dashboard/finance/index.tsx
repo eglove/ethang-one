@@ -15,7 +15,6 @@ export const Account = {
   E_TORO: 'eToro',
   LENDING_CLUB: 'LendingClub',
   LIGHTSTREAM: 'LightStream',
-  MY_MERCY: 'MyMercy',
   USAA_CHECKING: 'UsaaChecking',
   USAA_SAVINGS: 'UsaaSavings',
 };
@@ -24,7 +23,6 @@ function Finance(): JSX.Element {
   const [formState, setFormState] = useState({
     [Account.USAA_CHECKING]: 0,
     [Account.USAA_SAVINGS]: 0,
-    [Account.MY_MERCY]: 0,
     [Account.CHASE_CC]: 0,
     [Account.LIGHTSTREAM]: 0,
     [Account.E_TORO]: 0,
@@ -47,7 +45,6 @@ function Finance(): JSX.Element {
     }),
     new SimpleFormInput({ label: 'USAA Savings', name: Account.USAA_SAVINGS }),
     new SimpleFormInput({ name: Account.CHASE_CC }),
-    new SimpleFormInput({ name: Account.MY_MERCY }),
     new SimpleFormInput({
       label: Account.LIGHTSTREAM,
       name: Account.LIGHTSTREAM,
