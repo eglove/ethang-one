@@ -3,7 +3,7 @@ export interface ProductHuntData {
 }
 
 export interface Posts {
-  edges?: EdgesEntity[] | undefined;
+  edges?: EdgesEntity[];
 }
 
 export interface EdgesEntity {
@@ -14,7 +14,7 @@ export interface Node {
   id: string;
   name: string;
   media: ProductMediaEntity[];
-  productLinks?: ProductLinksEntity[] | undefined;
+  productLinks?: ProductLinksEntity[];
   description: string;
 }
 

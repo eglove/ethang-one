@@ -19,6 +19,8 @@ interface FormProperties<StateType> {
 export function SimpleForm<StateType extends Record<string, unknown>>(
   formProperties: FormProperties<StateType>
 ): JSX.Element {
+  const reversedButtons = formProperties.buttons?.reverse();
+
   const handleChange = (event: ChangeEvent): void => {
     let { value, name, type, files } = event.target as unknown as {
       files: File[];
@@ -140,7 +142,7 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
             </label>
           );
         })}
-        {formProperties.buttons?.reverse().map(button => {
+        {reversedButtons?.map(button => {
           return (
             <button key={button.name} type="button" {...button.properties}>
               {button.buttonText}

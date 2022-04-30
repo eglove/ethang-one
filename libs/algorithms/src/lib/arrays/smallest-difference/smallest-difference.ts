@@ -9,16 +9,16 @@ export const smallestDifference = (
     return a - b;
   });
 
-  let smallestDifference = Number.POSITIVE_INFINITY;
+  let smallestDifference_ = Number.POSITIVE_INFINITY;
   let smallestPair = [Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY];
   let indexOne = 0;
   let indexTwo = 0;
 
   while (indexOne < arrayOne.length && indexTwo < arrayTwo.length) {
     if (
-      Math.abs(arrayOne[indexOne] - arrayTwo[indexTwo]) < smallestDifference
+      Math.abs(arrayOne[indexOne] - arrayTwo[indexTwo]) < smallestDifference_
     ) {
-      smallestDifference = Math.abs(arrayOne[indexOne] - arrayTwo[indexTwo]);
+      smallestDifference_ = Math.abs(arrayOne[indexOne] - arrayTwo[indexTwo]);
       smallestPair = [arrayOne[indexOne], arrayTwo[indexTwo]];
     }
 

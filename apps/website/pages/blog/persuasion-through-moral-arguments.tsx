@@ -169,7 +169,7 @@ function PersuasionThroughMoralArguments(): JSX.Element {
         understanding the perspective of others. Doing so requires the{' '}
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
+            href: 'https://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           previously mentioned
@@ -279,7 +279,7 @@ function PersuasionThroughMoralArguments(): JSX.Element {
       <p>
         For some extra fun, take the{' '}
         <NextLink
-          linkProperties={{ href: 'http://www.yourmorals.org/explore.php' }}
+          linkProperties={{ href: 'https://www.yourmorals.org/explore.php' }}
         >
           Moral Foundations Questionnaire
         </NextLink>{' '}

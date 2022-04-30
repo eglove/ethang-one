@@ -15,7 +15,7 @@ function LaconiaShutsDownBikeWeekMusicFestival(): JSX.Element {
         been&nbsp;relatively peaceful.&nbsp;
         <NextLink
           linkProperties={{
-            href: 'http://www.weirsbeach.com/Largejpgs/weirsriot.html',
+            href: 'https://www.weirsbeach.com/Largejpgs/weirsriot.html',
           }}
         >
           Until the summer of &rsquo;65
@@ -61,7 +61,7 @@ function LaconiaShutsDownBikeWeekMusicFestival(): JSX.Element {
         LaconiaFest, the music festival headlining Ted Nugent,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.wmur.com/news/laconiafest-ends-early-amidst-conflicts-with-city/40118000',
+            href: 'https://www.wmur.com/news/laconiafest-ends-early-amidst-conflicts-with-city/40118000',
           }}
         >
           shut down on Saturday early after Nugent&rsquo;s performance

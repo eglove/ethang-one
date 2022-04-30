@@ -99,7 +99,7 @@ function TheImageProblemAndItsSolution(): JSX.Element {
         &rdquo; by Murray Rothbard and &ldquo;
         <NextLink
           linkProperties={{
-            href: 'http://store.mises.org/End-the-Fed-P619.aspx',
+            href: 'https://store.mises.org/End-the-Fed-P619.aspx',
           }}
         >
           End The Fed
@@ -235,7 +235,7 @@ function TheImageProblemAndItsSolution(): JSX.Element {
         Research shows that{' '}
         <NextLink
           linkProperties={{
-            href: 'http://science.sciencemag.org/content/342/6156/377',
+            href: 'https://science.sciencemag.org/content/342/6156/377',
           }}
         >
           theory of mind can be improved by reading fiction
@@ -263,7 +263,7 @@ function TheImageProblemAndItsSolution(): JSX.Element {
         In &ldquo;
         <NextLink
           linkProperties={{
-            href: 'http://www.artofmanliness.com/2009/05/31/30-days-to-a-better-man-day-1-define-your-core-values/',
+            href: 'https://www.artofmanliness.com/2009/05/31/30-days-to-a-better-man-day-1-define-your-core-values/',
           }}
         >
           Defining Your Core Values
@@ -375,7 +375,7 @@ function TheImageProblemAndItsSolution(): JSX.Element {
         &ldquo;
         <NextLink
           linkProperties={{
-            href: 'http://www.holocaust-trc.org/denying-history/',
+            href: 'https://www.holocaust-trc.org/denying-history/',
           }}
         >
           Denying History: Who Says the Holocaust Never Happened and Why do They
@@ -447,7 +447,7 @@ function TheImageProblemAndItsSolution(): JSX.Element {
       </p>
       <p>
         Jonathan Mead, writer at{' '}
-        <NextLink linkProperties={{ href: 'http://paidtoexist.com/' }}>
+        <NextLink linkProperties={{ href: 'https://paidtoexist.com/' }}>
           Paid to Exist
         </NextLink>
         , asked his male friends what the one thing they felt was missing in
@@ -492,7 +492,7 @@ function TheImageProblemAndItsSolution(): JSX.Element {
         suggested that{' '}
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2016/07/21/is-bitcoin-a-failure/',
+            href: 'https://freekeene.com/2016/07/21/is-bitcoin-a-failure/',
           }}
         >
           bitcoin has not lived up to its own standards
@@ -623,7 +623,7 @@ function TheImageProblemAndItsSolution(): JSX.Element {
         multiple scientific studies showing it&rsquo;s{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.npr.org/sections/health-shots/2016/04/07/473383882/study-finds-deep-conversations-can-reduce-transgender-prejudice',
+            href: 'https://www.npr.org/sections/health-shots/2016/04/07/473383882/study-finds-deep-conversations-can-reduce-transgender-prejudice',
           }}
         >
           the most effective way to get people to change their minds

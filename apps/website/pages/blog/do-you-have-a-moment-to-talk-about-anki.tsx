@@ -50,7 +50,7 @@ function DoYouHaveAMomentToTalkAboutAnki(): JSX.Element {
         People always seem interested in Fi, but it&apos;s rare to randomly come
         across someone looking to change phone plans. And I recommend to anyone
         looking to learn code to check out{' '}
-        <NextLink linkProperties={{ href: 'http://zerotomastery.io/' }}>
+        <NextLink linkProperties={{ href: 'https://zerotomastery.io/' }}>
           Zero To Mastery
         </NextLink>{' '}
         and{' '}

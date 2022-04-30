@@ -10,7 +10,7 @@ export const addDays = (
   return newDate;
 };
 
-export const ageFromBirthday = (birthDay: Date | string | number): number => {
+export const ageFromBirthday = (birthDay: DateObjectArgumentTypes): number => {
   const today = new Date();
   const birthDate = new Date(birthDay);
 
@@ -25,9 +25,9 @@ export const ageFromBirthday = (birthDay: Date | string | number): number => {
 };
 
 interface IArrayOfDaysBetweenDays {
-  endDate: string | number | Date;
+  endDate: DateObjectArgumentTypes;
   skip?: number;
-  startDate: string | number | Date;
+  startDate: DateObjectArgumentTypes;
 }
 export const arrayOfDaysBetweenDays = ({
   endDate,
@@ -80,7 +80,7 @@ export const getNearestDate = (dateArray: Date[] | string[]): Date => {
 };
 
 export const dayStartEnd = (
-  date: Date | string | number,
+  date: DateObjectArgumentTypes,
   startOrEnd: 'start' | 'end'
 ): Date => {
   if (startOrEnd === 'start') {

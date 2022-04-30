@@ -2,7 +2,7 @@ export const arrayOfProducts = (array: number[]): number[] => {
   const result = [];
 
   for (const [index] of array.entries()) {
-    const filteredArray = array.filter((value, index_) => {
+    const filteredArray = array.filter((_, index_) => {
       return index_ !== index;
     });
 

@@ -10,7 +10,7 @@ export interface Data {
 }
 
 export interface List<Type> {
-  items?: Type[] | undefined;
+  items?: Type[];
 }
 
 export interface Blog {
@@ -27,12 +27,12 @@ export interface Blog {
 export interface Course {
   id: string;
   rating: number;
-  ratingUrl?: string | undefined;
+  ratingUrl?: string;
   school: School;
   title: string;
   courseUrls: List<CourseUrl>;
   instructors: List<Person>;
-  duration?: number | undefined;
+  duration?: number;
   yearUpdated: number;
 }
 

@@ -17,7 +17,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         If you haven&rsquo;t read Adam Smith&rsquo;s Theory of Moral Sentiments{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.econlib.org/library/Smith/smMSCover.html',
+            href: 'https://www.econlib.org/library/Smith/smMSCover.html',
           }}
         >
           go get it right now
@@ -41,7 +41,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         that confirms what they already believe.&rdquo; (
         <NextLink
           linkProperties={{
-            href: 'http://www.newsweek.com/why-we-believe-lies-even-when-we-learn-truth-78775',
+            href: 'https://www.newsweek.com/why-we-believe-lies-even-when-we-learn-truth-78775',
           }}
         >
           Steven Hoffman
@@ -52,7 +52,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         As{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.mitpressjournals.org/doi/abs/10.1162/jocn.2006.18.11.1947#.WDiyqeYrKHs',
+            href: 'https://www.mitpressjournals.org/doi/abs/10.1162/jocn.2006.18.11.1947#.WDiyqeYrKHs',
           }}
         >
           MIT researchers explain it
@@ -76,7 +76,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         Milton Lodge and Charles S. Taber&nbsp;
         <NextLink
           linkProperties={{
-            href: 'http://www.uky.edu/AS/PoliSci/Peffley/pdf/Taber%26Lodge_The%20Rationalizing%20Voter.pdf',
+            href: 'https://www.uky.edu/AS/PoliSci/Peffley/pdf/Taber%26Lodge_The%20Rationalizing%20Voter.pdf',
           }}
         >
           outline their theory
@@ -99,7 +99,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         biases. The logical, emotionless arguer is just as much a myth as{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.npr.org/templates/story/story.php?storyId=95256794',
+            href: 'https://www.npr.org/templates/story/story.php?storyId=95256794',
           }}
         >
           multi-taskers
@@ -213,7 +213,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         In 2016,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2816803',
+            href: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2816803',
           }}
         >
           a new Yale study
@@ -244,7 +244,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         Somehow, it is easy for us to accept that memory is terrible. That{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.innocenceproject.org/causes/eyewitness-misidentification/',
+            href: 'https://www.innocenceproject.org/causes/eyewitness-misidentification/',
           }}
         >
           eyewitness testimony is the worst form of evidence
@@ -312,7 +312,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         I&rsquo;ve suggested{' '}
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
+            href: 'https://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           deep canvassing
@@ -321,7 +321,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         I&rsquo;ve expanded that same topic into{' '}
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2016/10/12/7-ways-to-win-an-argument-online/',
+            href: 'https://freekeene.com/2016/10/12/7-ways-to-win-an-argument-online/',
           }}
         >
           online conversation
@@ -330,7 +330,7 @@ function CuringBiasWithCuriosity(): JSX.Element {
         the{' '}
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2016/11/06/persuasion-through-moral-arguments/',
+            href: 'https://freekeene.com/2016/11/06/persuasion-through-moral-arguments/',
           }}
         >
           moral foundations theory

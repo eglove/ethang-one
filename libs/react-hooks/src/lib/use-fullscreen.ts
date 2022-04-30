@@ -15,11 +15,17 @@ export const useFullscreen = (
   const [fullScreen, setFullScreen] = useState(initialState);
 
   const openFullScreen = (): void => {
-    void reference.current.requestFullscreen();
+    reference.current
+      .requestFullscreen()
+      .catch((requestFullscreenError: Error) => {
+        console.error(requestFullscreenError);
+      });
   };
 
   const closeFullScreen = (): void => {
-    void document.exitFullscreen();
+    document.exitFullscreen().catch((exitFullscreenError: Error) => {
+      console.error(exitFullscreenError);
+    });
   };
 
   useEffect(() => {

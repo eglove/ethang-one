@@ -41,7 +41,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         If we can not win the daily battles against tyranny, the war is lost.{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.nytimes.com/2012/03/23/us/stronger-hand-for-judges-after-rulings-on-plea-deals.html',
+            href: 'https://www.nytimes.com/2012/03/23/us/stronger-hand-for-judges-after-rulings-on-plea-deals.html',
           }}
         >
           97% of the legal cases the state brings against people are never
@@ -58,14 +58,14 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         and you will show them a reason for discretion. Reason to back away from
         the{' '}
         <NextLink
-          linkProperties={{ href: 'http://freekeene.com/robin-hood/"' }}
+          linkProperties={{ href: 'https://freekeene.com/robin-hood/"' }}
         >
           parking tickets on empty streets
         </NextLink>
         ,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.huffingtonpost.com/2012/08/16/gary-harrington-oregon-water-rainwater_n_1784378.html',
+            href: 'https://www.huffingtonpost.com/2012/08/16/gary-harrington-oregon-water-rainwater_n_1784378.html',
           }}
         >
           jail time for rainwater collection
@@ -73,7 +73,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         ,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.washingtontimes.com/news/2011/apr/28/feds-sting-amish-farmer-selling-raw-milk-locally/',
+            href: 'https://www.washingtontimes.com/news/2011/apr/28/feds-sting-amish-farmer-selling-raw-milk-locally/',
           }}
         >
           selling raw milk
@@ -81,7 +81,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         ,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://dailycaller.com/2011/08/20/capitol-police-arrest-lemonade-freedom-day-protesters/',
+            href: 'https://dailycaller.com/2011/08/20/capitol-police-arrest-lemonade-freedom-day-protesters/',
           }}
         >
           selling lemonade
@@ -89,7 +89,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         ,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.unionleader.com/Free-the-Nipple-movement-gets-day-in-court',
+            href: 'https://www.unionleader.com/Free-the-Nipple-movement-gets-day-in-court',
           }}
         >
           taking your shirt off
@@ -97,7 +97,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         ,&nbsp;
         <NextLink
           linkProperties={{
-            href: 'http://www.nydailynews.com/news/national/man-90-arrested-week-feeding-homeless-article-1.2002790',
+            href: 'https://www.nydailynews.com/news/national/man-90-arrested-week-feeding-homeless-article-1.2002790',
           }}
         >
           giving food to the homeless
@@ -105,7 +105,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         ,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2011/11/07/shire-choir-launches-state-liquor-store-tour-at-store-1-in-concord/',
+            href: 'https://freekeene.com/2011/11/07/shire-choir-launches-state-liquor-store-tour-at-store-1-in-concord/',
           }}
         >
           singing
@@ -218,7 +218,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         refusal could mean time for a suspect to sober up.{' '}
         <NextLink
           linkProperties={{
-            href: 'http://web.archive.org/web/20080102041151/http://faculty.ncwc.edu/toconnor/405/405lect04.htm',
+            href: 'https://web.archive.org/web/20080102041151/https://faculty.ncwc.edu/toconnor/405/405lect04.htm',
           }}
         >
           The Chimel Rule
@@ -401,7 +401,7 @@ function DefendYourselfAgainstTheState(): JSX.Element {
         is admissible in court.{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.supremecourt.gov/opinions/15pdf/14-1373_83i7.pdf',
+            href: 'https://www.supremecourt.gov/opinions/15pdf/14-1373_83i7.pdf',
           }}
         >
           Justice Sotomayor dissented

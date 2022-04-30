@@ -85,7 +85,7 @@ const isValidEmailDomainPart = (domainPart: string): boolean => {
   let cleanedDomainPart = domainPart;
   if (domainPartComment.pass) {
     cleanedDomainPart = domainPart.replace('(', '');
-    cleanedDomainPart = domainPart.replace(')', '');
+    cleanedDomainPart = cleanedDomainPart.replace(')', '');
   }
 
   if (!domainPartIsBracketed && !isValidHostname(cleanedDomainPart)) {

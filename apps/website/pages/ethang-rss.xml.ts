@@ -2,8 +2,9 @@ import { blogsSortedByUpdate } from '@ethang/local-database';
 import { rssDateFormat } from '@ethang/util-typescript';
 import { NextApiResponse } from 'next';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const EthangRss = (): void => {};
+const EthangRss = (): void => {
+  // Will be created on server side render
+};
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export const getServerSideProps = async ({

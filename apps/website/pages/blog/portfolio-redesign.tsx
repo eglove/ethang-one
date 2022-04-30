@@ -17,7 +17,7 @@ function PortfolioRedesign(): JSX.Element {
         My design choices tend to be a more &ldquo;modern&rdquo; version of
         something like{' '}
         <NextLink
-          linkProperties={{ href: 'http://www.paulgraham.com/articles.html' }}
+          linkProperties={{ href: 'https://www.paulgraham.com/articles.html' }}
         >
           Paul Graham&apos;s essays
         </NextLink>

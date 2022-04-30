@@ -1,22 +1,51 @@
 type Pairs = Record<number, Array<[number, number]>>;
 
+interface PushDifferenceToQuadrupletsProperties {
+  difference: number;
+  allPairSums: Pairs;
+  quadruplets: number[][];
+  array: number[];
+  index: number;
+  index2: number;
+}
+
+const pushDifferenceToQuadruplets = ({
+  difference,
+  allPairSums,
+  quadruplets,
+  array,
+  index,
+  index2,
+}: PushDifferenceToQuadrupletsProperties): number[][] => {
+  if (difference in allPairSums) {
+    for (const pair of allPairSums[difference]) {
+      quadruplets.push([...pair, array[index], array[index2]]);
+    }
+  }
+
+  return quadruplets;
+};
+
 export const fourNumberSum = (
   array: number[],
   targetSum: number
 ): number[][] => {
   const allPairSums: Pairs = {};
-  const quadruplets: number[][] = [];
+  let quadruplets: number[][] = [];
 
   for (let index = 0; index < array.length - 1; index++) {
     for (let index2 = index + 1; index2 < array.length; index2++) {
       const currentSum = array[index] + array[index2];
       const difference = targetSum - currentSum;
 
-      if (difference in allPairSums) {
-        for (const pair of allPairSums[difference]) {
-          quadruplets.push([...pair, array[index], array[index2]]);
-        }
-      }
+      quadruplets = pushDifferenceToQuadruplets({
+        allPairSums,
+        array,
+        difference,
+        index,
+        index2,
+        quadruplets,
+      });
     }
 
     for (let index3 = 0; index3 < index; index3++) {

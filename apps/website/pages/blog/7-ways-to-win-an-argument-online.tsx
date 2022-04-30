@@ -10,7 +10,7 @@ function SevenWaysToWinAnArgumentOnline(): JSX.Element {
         In a previous post, &ldquo;
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
+            href: 'https://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           The Image Problem and Its Solution

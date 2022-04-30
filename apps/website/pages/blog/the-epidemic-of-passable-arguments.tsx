@@ -50,7 +50,7 @@ function TheEpidemicOfPassableArguments(): JSX.Element {
         of passable arguments to a{' '}
         <NextLink
           linkProperties={{
-            href: 'http://freekeene.com/2016/08/04/image-problem-solution/',
+            href: 'https://freekeene.com/2016/08/04/image-problem-solution/',
           }}
         >
           lack of connection
@@ -183,7 +183,9 @@ function TheEpidemicOfPassableArguments(): JSX.Element {
       <p>
         This isn&rsquo;t much different than Kevin Kelly&rsquo;s{' '}
         <NextLink
-          linkProperties={{ href: 'http://kk.org/thetechnium/1000-true-fans/' }}
+          linkProperties={{
+            href: 'https://kk.org/thetechnium/1000-true-fans/',
+          }}
         >
           1,000 true fans
         </NextLink>

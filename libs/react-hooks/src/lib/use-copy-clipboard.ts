@@ -21,14 +21,14 @@ export const useCopyClipboard = (
           setIsCopied(true);
           return null;
         })
-        .catch((error: Error) => {
-          setError(error);
+        .catch((writeTextError: Error) => {
+          setError(writeTextError);
           setIsCopied(false);
         });
     };
 
-    asyncCopy().catch((error: Error) => {
-      setError(error);
+    asyncCopy().catch((asyncError: Error) => {
+      setError(asyncError);
       setIsCopied(false);
     });
   };

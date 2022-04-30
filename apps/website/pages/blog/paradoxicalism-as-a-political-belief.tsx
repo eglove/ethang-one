@@ -188,7 +188,7 @@ function ParadoxicalismAsAPoliticalBelief(): JSX.Element {
         ,{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.sebastianjunger.com/',
+            href: 'https://www.sebastianjunger.com/',
           }}
         >
           Sebastian Junger

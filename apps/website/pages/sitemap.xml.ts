@@ -1,8 +1,9 @@
 import { blogsSortedByUpdate } from '@ethang/local-database';
 import { NextApiResponse } from 'next';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const SiteMap = (): void => {};
+const SiteMap = (): void => {
+  // Will be created on server side render
+};
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export const getServerSideProps = async ({

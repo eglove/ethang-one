@@ -1,13 +1,13 @@
 export const mergeOverlappingIntervals = (array: number[][]): number[][] => {
-  const sortedIntervals = array.sort((a, b) => {
+  array.sort((a, b) => {
     return a[0] - b[0];
   });
 
   const mergedIntervals: number[][] = [];
-  let currentInterval = sortedIntervals[0];
+  let currentInterval = array[0];
   mergedIntervals.push(currentInterval);
 
-  for (const nextInterval of sortedIntervals) {
+  for (const nextInterval of array) {
     const [, currentIntervalEnd] = currentInterval;
     const [nextIntervalStart, nextIntervalEnd] = nextInterval;
 

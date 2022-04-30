@@ -8,8 +8,6 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 
-import { ROOT_URL } from './app.po';
-
 export {};
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -48,7 +46,7 @@ Cypress.Commands.add(
   // @ts-expect-error Custom command
   'testReview',
   (arguments_: TestReviewArguments): void => {
-    const reviewUrl = `${ROOT_URL}/blog/${arguments_.reviewSlug}`;
+    const reviewUrl = `${location.origin}/blog/${arguments_.reviewSlug}`;
 
     cy.visit(reviewUrl);
 

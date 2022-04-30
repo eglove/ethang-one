@@ -74,16 +74,17 @@ describe('two number sum', () => {
     const timesSort = [];
 
     for (const sample of samples) {
+      const sortedOutput = sample.output.sort(numberSorter);
       const startTime = Date.now();
       expect(
         twoNumberSum(sample.array, sample.targetSum)?.sort(numberSorter)
-      ).toEqual(sample.output.sort(numberSorter));
+      ).toEqual(sortedOutput);
       times.push(Date.now() - startTime);
 
       const startTime2 = Date.now();
       expect(
         twoNumberSumSortFirst(sample.array, sample.targetSum).sort(numberSorter)
-      ).toEqual(sample.output.sort(numberSorter));
+      ).toEqual(sortedOutput);
       timesSort.push(Date.now() - startTime2);
     }
 

@@ -101,7 +101,7 @@ function IsBitcoinAFailure(): JSX.Element {
         According to Coindesk author Joon Jan Wong, the{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.coindesk.com/venture-capital-funding-bitcoin-startups-triples-2014',
+            href: 'https://www.coindesk.com/venture-capital-funding-bitcoin-startups-triples-2014',
           }}
         >
           United States accounts for over 50% of all the invested capital in
@@ -127,7 +127,7 @@ function IsBitcoinAFailure(): JSX.Element {
         Russian government{' '}
         <NextLink
           linkProperties={{
-            href: 'http://www.coindesk.com/russias-media-watchdog-bans-number-bitcoin-sites/',
+            href: 'https://www.coindesk.com/russias-media-watchdog-bans-number-bitcoin-sites/',
           }}
         >
           took down multiple bitcoin-related websites
@@ -210,7 +210,7 @@ function IsBitcoinAFailure(): JSX.Element {
         When Cornell University released its{' '}
         <NextLink
           linkProperties={{
-            href: 'http://mashable.com/2013/11/04/bitcoin-cornell-researchers/#wqwwKhp2QSqL',
+            href: 'https://mashable.com/2013/11/04/bitcoin-cornell-researchers/#wqwwKhp2QSqL',
           }}
         >
           theory of &ldquo;selfish mining&rdquo;
@@ -305,7 +305,7 @@ function IsBitcoinAFailure(): JSX.Element {
         but because{' '}
         <NextLink
           linkProperties={{
-            href: 'http://link.springer.com/chapter/10.1007%2F978-3-642-39884-1_4#page-1',
+            href: 'https://link.springer.com/chapter/10.1007%2F978-3-642-39884-1_4#page-1',
           }}
         >
           40% of bitcoin users can be identified with very basic investigative

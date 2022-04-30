@@ -1,5 +1,5 @@
 export interface TwitchStreamDataByUserLogin {
-  data?: DataEntity[] | undefined;
+  data?: DataEntity[];
 }
 
 export interface DataEntity {
@@ -15,6 +15,6 @@ export interface DataEntity {
   started_at: string;
   language: string;
   thumbnail_url: string;
-  tag_ids?: string[] | undefined;
+  tag_ids?: string[];
   is_mature: boolean;
 }
