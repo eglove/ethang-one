@@ -5,7 +5,6 @@ import { persons } from '../persons/persons';
 export const blogsSortedByUpdate = (): Blog[] => {
   const blogKeys = Object.keys(blogs);
   const blogArray = blogKeys.map(key => {
-    // @ts-expect-error Keys taken directly from Object.keys
     return blogs[key] as Blog;
   });
   blogArray.sort((a, b) => {
