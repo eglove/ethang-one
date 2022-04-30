@@ -4,6 +4,7 @@ import {
   FormEvent,
   SetStateAction,
   useEffect,
+  useState,
 } from 'react';
 
 import { SimpleFormButton } from './simple-form-button';
@@ -25,8 +26,12 @@ interface FormProperties<StateType> {
 export function SimpleForm<StateType extends Record<string, unknown>>(
   formProperties: FormProperties<StateType>
 ): JSX.Element {
+  const [reversedButtons, setReversedButtons] = useState<SimpleFormButton[]>();
+
   useEffect(() => {
-    formProperties.buttons?.reverse();
+    if (Array.isArray(formProperties?.buttons)) {
+      setReversedButtons([...formProperties.buttons].reverse());
+    }
   }, [formProperties.buttons]);
 
   const handleChange = (event: ChangeEvent): void => {
@@ -150,7 +155,7 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
             </label>
           );
         })}
-        {formProperties.buttons?.map(button => {
+        {reversedButtons?.map(button => {
           return (
             <button key={button.name} type="button" {...button.properties}>
               {button.buttonText}
