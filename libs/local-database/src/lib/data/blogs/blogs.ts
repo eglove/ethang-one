@@ -5,6 +5,7 @@ import { persons } from '../persons/persons';
 export const blogsSortedByUpdate = (): Blog[] => {
   const blogKeys = Object.keys(blogs);
   const blogArray = blogKeys.map(key => {
+    // @ts-expect-error Keys taken directly from Object.keys
     return blogs[key] as Blog;
   });
   blogArray.sort((a, b) => {
@@ -351,7 +352,7 @@ export const blogs = {
     featuredImage: allImages.blogImages.recommendedCourses,
     slug: 'the-recommended-courses',
     title: 'The Recommended Courses',
-    updatedAt: new Date('03/26/2022, 01:02 PM'),
+    updatedAt: new Date('04/30/2022, 09:58 AM'),
   }),
   typescriptFormEnums: new Blog({
     authors: [persons.ethanGlover],
