@@ -61,7 +61,7 @@ function TheRecommendedCourses(): JSX.Element {
         </li>
         <li>
           <NextLink linkProperties={{ href: '#sNine' }}>
-            Epic React, Fullstack React
+            Complete React, Epic React, Fullstack React
           </NextLink>
         </li>
         <li>
@@ -237,7 +237,7 @@ function TheRecommendedCourses(): JSX.Element {
         important but often uncovered technologies.
       </p>
       <h2 id="sNine">
-        Epic React, Fullstack React{' '}
+        Complete React, Epic React, Fullstack React{' '}
         <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>
       <p>
@@ -245,17 +245,17 @@ function TheRecommendedCourses(): JSX.Element {
         frontend frameworks. You&apos;ve gone through AlgoExpert, and learned
         Node. Even spent more than 63 hours on Web Development already. But
         React is a brand new beast. Current trends suggest people are looking
-        for alternatives like Svelte or Remix. But to be honest, those only make
-        some minor things a little easier. React is still the more robust system
-        and ecosystem to better handle the complexity of large enterprise scale
+        for alternatives like Svelte. But to be honest, those only make some
+        minor things a little easier. React is still the more robust system and
+        ecosystem to better handle the complexity of large enterprise scale
         apps.
       </p>
       <p>
-        People say Kent C. Dodds&apos; Epic React course is too much for
-        beginners. But they say that from the perspective of people learning
-        programming for the first time. You should not learn React as the first
-        thing you do with programming. At this point in the list, you&apos;re
-        more than ready.
+        Complete React will get you going with the very basics of using React
+        and it&apos;s ecosystem. While Epic React will take a deeper dive into
+        how React actually works as a framework and how you can avoid common
+        pitfalls. The two of these together will give you a great understanding
+        of the framework and how to properly use it.
       </p>
       <p>
         After it you&apos;ll find Wes Bos&apos; Advanced React course a lot of

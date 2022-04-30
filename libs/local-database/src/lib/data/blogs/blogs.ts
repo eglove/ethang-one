@@ -351,7 +351,7 @@ export const blogs = {
     featuredImage: allImages.blogImages.recommendedCourses,
     slug: 'the-recommended-courses',
     title: 'The Recommended Courses',
-    updatedAt: new Date('03/26/2022, 01:02 PM'),
+    updatedAt: new Date('04/30/2022, 09:58 AM'),
   }),
   typescriptFormEnums: new Blog({
     authors: [persons.ethanGlover],

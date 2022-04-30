@@ -82,7 +82,7 @@ export function CoursesLayout(): JSX.Element {
               href: 'https://raw.githubusercontent.com/eglove/ethang-one/master/apps/website/public/documents/Development_Curriculum.pdf',
             }}
           >
-            downloading the April 2022 snapshot
+            downloading the May 2022 snapshot
           </NextLink>{' '}
           (PDF).
         </p>
