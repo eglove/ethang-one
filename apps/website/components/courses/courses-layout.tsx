@@ -79,7 +79,7 @@ export function CoursesLayout(): JSX.Element {
           This page changes often, lock in your plan by{' '}
           <NextLink
             linkProperties={{
-              href: 'https://raw.githubusercontent.com/eglove/ethang-one/master/apps/website/public/documents/Development_Curriculum.pdf',
+              href: 'https://drive.google.com/file/d/1EZMNkMMsBJLpPsYuCU1XCmsJhcpH8Hkf/view',
             }}
           >
             downloading the May 2022 snapshot
