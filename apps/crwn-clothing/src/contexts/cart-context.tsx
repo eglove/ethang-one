@@ -27,7 +27,9 @@ type CartContextType = {
 };
 
 // @ts-expect-error Initialized in provider
-export const CartContext = createContext<CartContextType>();
+export const CartContext = createContext<CartContextType>({
+  cartState: { cartCount: 0, cartItems: [], isCartOpen: false },
+});
 
 interface CartProviderProperties {
   children: JSX.Element | JSX.Element[];
