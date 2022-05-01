@@ -139,6 +139,15 @@ export const courses = {
     title: 'DevOps Bootcamp: Learn Linux & Become a Linux Sysadmin',
     yearUpdated: 2022,
   }),
+  devOpsBootcampTerraform: new Course({
+    courseUrls: [courseUrls.zeroToMasteryDevOpsBootcampTerraform],
+    duration: 7,
+    instructors: [persons.andreiDumitrescu],
+    rating: 4,
+    school: schools.zeroToMastery,
+    title: 'DevOps Bootcamp: Terraform',
+    yearUpdated: 2022,
+  }),
   dockerAndKubernetes: new Course({
     courseUrls: [courseUrls.udemyDockerAndKubernetes],
     duration: 22.23,

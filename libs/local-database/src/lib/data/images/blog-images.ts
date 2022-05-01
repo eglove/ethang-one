@@ -260,6 +260,12 @@ export const blogImages = {
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668107/blog/supreme-court.jpg',
     width: 1000,
   }),
+  terraformCoursePage: new Image({
+    altText: 'Landing page for DevOps Bootcamp: Terraform',
+    height: 530,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1651441330/blog/terraform-course-page.png',
+    width: 1408,
+  }),
   testingWithCypress: new Image({
     altText: 'Testing with Cypress by Scott Tolinski',
     height: 374,

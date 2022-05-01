@@ -170,6 +170,12 @@ export const courseUrls = {
     school: schools.zeroToMastery,
     url: new URL('https://zerotomastery.io/courses/devops-bootcamp/'),
   }),
+  zeroToMasteryDevOpsBootcampTerraform: new CourseUrl({
+    school: schools.zeroToMastery,
+    url: new URL(
+      'https://zerotomastery.io/courses/learn-terraform-certification/'
+    ),
+  }),
   zeroToMasteryJavascriptAdvancedConcepts: new CourseUrl({
     school: schools.zeroToMastery,
     url: new URL(

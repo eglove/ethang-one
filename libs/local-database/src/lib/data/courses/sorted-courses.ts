@@ -24,6 +24,7 @@ export const sortedCourses = [
   courses.scaleReactDevelopmentWithNx,
   courses.webComponentsAndStencil,
   courses.dockerAndKubernetes,
+  courses.devOpsBootcampTerraform,
   courses.completeEthicalHacking,
   courses.webSecurityBugBounty,
   courses.devOpsBootcamp,
