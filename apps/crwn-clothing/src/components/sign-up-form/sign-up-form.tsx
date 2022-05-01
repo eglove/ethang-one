@@ -1,5 +1,6 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 
+import { UserContext } from '../../contexts/user-context';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -18,6 +19,8 @@ const defaultFormFields = {
 export function SignUpForm(): JSX.Element {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, passwordConfirm } = formFields;
+
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setFormFields(formFields_ => {
@@ -44,6 +47,10 @@ export function SignUpForm(): JSX.Element {
         email,
         password
       );
+
+      if (typeof setCurrentUser !== 'undefined') {
+        setCurrentUser(user);
+      }
 
       await createUserDocumentFromAuth(user, { displayName });
     } catch (error: unknown) {
