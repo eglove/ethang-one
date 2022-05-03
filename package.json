@@ -92,7 +92,7 @@
     "@nrwl/storybook": "14.0.5",
     "@nrwl/web": "14.0.5",
     "@nrwl/workspace": "14.0.5",
-    "@testing-library/react": "13.1.1",
+    "@testing-library/react": "13.2.0",
     "@testing-library/react-hooks": "8.0.0",
     "@types/jest": "27.5.0",
     "@types/jsonwebtoken": "^8.5.8",
