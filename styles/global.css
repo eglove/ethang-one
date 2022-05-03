@@ -25,7 +25,6 @@
   --large-space: 1rem;
   --medium-space: 0.5rem;
   --small-space: 0.3rem;
-  font-size: calc(14px + 0.2vw);
 }
 
 @media (prefers-color-scheme: dark) {

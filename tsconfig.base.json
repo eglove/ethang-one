@@ -34,6 +34,7 @@
       "@ethang/react-components": ["libs/react-components/src/index.ts"],
       "@ethang/react-hooks": ["libs/react-hooks/src/index.ts"],
       "@ethang/util-cli": ["libs/util-cli/src/index.ts"],
+      "@ethang/util-styles": ["libs/util-styles/src/index.ts"],
       "@ethang/util-typescript": ["libs/util-typescript/src/index.ts"]
     },
     "plugins": [
