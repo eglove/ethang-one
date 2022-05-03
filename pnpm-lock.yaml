@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@angular/core': ~13.3.5
-  '@apollo/client': ^3.6.1
+  '@apollo/client': ^3.6.2
   '@babel/core': ^7.17.10
   '@babel/preset-env': ^7.17.10
   '@faker-js/faker': ^6.3.1
@@ -23,7 +23,7 @@ specifiers:
   '@storybook/core-server': ~6.4.22
   '@testing-library/react': 13.1.1
   '@testing-library/react-hooks': 8.0.0
-  '@types/jest': 27.4.1
+  '@types/jest': 27.5.0
   '@types/jsonwebtoken': ^8.5.8
   '@types/ms': ^0.7.31
   '@types/node': 17.0.31
@@ -122,12 +122,12 @@ specifiers:
 
 dependencies:
   '@angular/core': 13.3.5_rxjs@7.5.5+zone.js@0.11.5
-  '@apollo/client': 3.6.1_graphql@16.4.0+react@18.1.0
+  '@apollo/client': 3.6.2_graphql@16.4.0+react@18.1.0
   '@faker-js/faker': 6.3.1
   '@nrwl/next': 14.0.5_8664451df0a524b14ed30a1101931c55
   '@prisma/client': 3.13.0_prisma@3.13.0
   '@storybook/core-server': 6.4.22_d3b509e6c5f8f3416868dc2a78c43e66
-  apollo3-cache-persist: 0.14.0_@apollo+client@3.6.1
+  apollo3-cache-persist: 0.14.0_@apollo+client@3.6.2
   core-js: 3.22.4
   cross-fetch: 3.1.5
   disqus-react: 1.1.3_react-dom@18.1.0+react@18.1.0
@@ -187,7 +187,7 @@ devDependencies:
   '@nrwl/workspace': 14.0.5_5b9e6c9690b9308cd1a99c418fba0a14
   '@testing-library/react': 13.1.1_react-dom@18.1.0+react@18.1.0
   '@testing-library/react-hooks': 8.0.0_3da8f6ddbc2bc749a7502df273005b4e
-  '@types/jest': 27.4.1
+  '@types/jest': 27.5.0
   '@types/jsonwebtoken': 8.5.8
   '@types/ms': 0.7.31
   '@types/node': 17.0.31
@@ -236,7 +236,7 @@ devDependencies:
   stylelint-config-standard: 25.0.0_stylelint@14.8.1
   stylelint-config-xo-space: 0.16.0_stylelint@14.8.1
   stylelint-no-unsupported-browser-features: 5.0.3_stylelint@14.8.1
-  ts-jest: 27.1.4_7503fa8864d75d4fbb4902618f127ac9
+  ts-jest: 27.1.4_18bf3198290054fef968c963570913c9
   ts-node: 10.7.0_5f3e12794cebfbf3197131903b74d233
   typescript: 4.6.4
   typescript-plugin-css-modules: 3.4.0_ts-node@10.7.0+typescript@4.6.4
@@ -294,8 +294,8 @@ packages:
       zone.js: 0.11.5
     dev: false
 
-  /@apollo/client/3.6.1_graphql@16.4.0+react@18.1.0:
-    resolution: {integrity: sha512-WGC7n2IS7GIbCCfVvu58Qncmj6qUBYbI/DxPVHGffDuY5y5l+OI2YIr5UXyR8+G9Ly1d6iYbX6l6l+Rw6F6gHA==}
+  /@apollo/client/3.6.2_graphql@16.4.0+react@18.1.0:
+    resolution: {integrity: sha512-DNWyl+NNU2VsfHtXwOr4rV9hnQFPkl2/dNXeouhk9q7bXCWdEh3K8YTt/frULGVKbQjtnlPmz8C+LFI/JZ2N3w==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
       graphql-ws: ^5.5.5
@@ -2539,7 +2539,7 @@ packages:
       '@jest/transform': 27.5.1
       '@jest/types': 27.5.1
       '@types/node': 17.0.31
-      chalk: 4.1.2
+      chalk: 4.1.0
       collect-v8-coverage: 1.0.1
       exit: 0.1.2
       glob: 7.2.0
@@ -4850,7 +4850,7 @@ packages:
     dependencies:
       '@swc-node/core': 1.8.2
       '@swc-node/sourcemap-support': 0.1.11
-      chalk: 4.1.2
+      chalk: 4.1.0
       debug: 4.3.4
       pirates: 4.0.5
       tslib: 2.4.0
@@ -5238,8 +5238,8 @@ packages:
     dependencies:
       '@types/istanbul-lib-report': 3.0.0
 
-  /@types/jest/27.4.1:
-    resolution: {integrity: sha512-23iPJADSmicDVrWk+HT58LMJtzLAnB2AgIzplQuq/bSrGaxCrlvRFjGbXmamnnk/mAmCdLStiGqggu28ocUyiw==}
+  /@types/jest/27.5.0:
+    resolution: {integrity: sha512-9RBFx7r4k+msyj/arpfaa0WOOEcaAZNmN+j80KFbFCoSqCJGHTz7YMAMGQW9Xmqm5w6l5c25vbSjMwlikJi5+g==}
     dependencies:
       jest-matcher-utils: 27.5.1
       pretty-format: 27.5.1
@@ -6182,12 +6182,12 @@ packages:
       normalize-path: 3.0.0
       picomatch: 2.3.1
 
-  /apollo3-cache-persist/0.14.0_@apollo+client@3.6.1:
+  /apollo3-cache-persist/0.14.0_@apollo+client@3.6.2:
     resolution: {integrity: sha512-jT3wkB3IJGNyK1XTtS2WbaAyD/Z9Z4HuFEsU0kIpYceqdtT8gV1kNSX+4YMBt0XgS954zMKY6cs8Q4zt7NNPeQ==}
     peerDependencies:
       '@apollo/client': ^3.2.5
     dependencies:
-      '@apollo/client': 3.6.1_graphql@16.4.0+react@18.1.0
+      '@apollo/client': 3.6.2_graphql@16.4.0+react@18.1.0
     dev: false
 
   /app-root-dir/1.0.2:
@@ -6491,7 +6491,7 @@ packages:
       '@types/babel__core': 7.1.19
       babel-plugin-istanbul: 6.1.1
       babel-preset-jest: 27.5.1_@babel+core@7.17.10
-      chalk: 4.1.2
+      chalk: 4.1.0
       graceful-fs: 4.2.10
       slash: 3.0.0
     transitivePeerDependencies:
@@ -9710,7 +9710,7 @@ packages:
     dependencies:
       '@babel/code-frame': 7.16.7
       '@types/json-schema': 7.0.11
-      chalk: 4.1.2
+      chalk: 4.1.0
       chokidar: 3.5.3
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
@@ -11326,7 +11326,7 @@ packages:
       '@jest/test-result': 27.5.1
       '@jest/types': 27.5.1
       '@types/node': 17.0.31
-      chalk: 4.1.2
+      chalk: 4.1.0
       co: 4.6.0
       dedent: 0.7.0
       expect: 27.5.1
@@ -11414,7 +11414,7 @@ packages:
       '@jest/test-sequencer': 27.5.1
       '@jest/types': 27.5.1
       babel-jest: 27.5.1_@babel+core@7.17.10
-      chalk: 4.1.2
+      chalk: 4.1.0
       ci-info: 3.3.0
       deepmerge: 4.2.2
       glob: 7.2.0
@@ -11455,7 +11455,7 @@ packages:
       '@jest/test-sequencer': 27.5.1
       '@jest/types': 27.5.1
       babel-jest: 27.5.1_@babel+core@7.17.10
-      chalk: 4.1.2
+      chalk: 4.1.0
       ci-info: 3.3.0
       deepmerge: 4.2.2
       glob: 7.2.0
@@ -11559,7 +11559,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.5.1
-      chalk: 4.1.2
+      chalk: 4.1.0
       jest-get-type: 27.5.1
       jest-util: 27.5.1
       pretty-format: 27.5.1
@@ -11671,7 +11671,7 @@ packages:
       '@jest/test-result': 27.5.1
       '@jest/types': 27.5.1
       '@types/node': 17.0.31
-      chalk: 4.1.2
+      chalk: 4.1.0
       co: 4.6.0
       expect: 27.5.1
       is-generator-fn: 2.1.0
@@ -11812,7 +11812,7 @@ packages:
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
       '@jest/types': 27.5.1
-      chalk: 4.1.2
+      chalk: 4.1.0
       graceful-fs: 4.2.10
       jest-haste-map: 27.5.1
       jest-pnp-resolver: 1.2.2_jest-resolve@27.5.1
@@ -12029,7 +12029,7 @@ packages:
     dependencies:
       '@jest/types': 27.5.1
       '@types/node': 17.0.31
-      chalk: 4.1.2
+      chalk: 4.1.0
       ci-info: 3.3.0
       graceful-fs: 4.2.10
       picomatch: 2.3.1
@@ -13668,7 +13668,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       bl: 4.1.0
-      chalk: 4.1.2
+      chalk: 4.1.0
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       is-interactive: 1.0.0
@@ -15685,7 +15685,7 @@ packages:
     peerDependencies:
       postcss: 8.x
     dependencies:
-      chalk: 4.1.2
+      chalk: 4.1.0
       concat-with-sourcemaps: 1.1.0
       cssnano: 5.1.0_postcss@8.4.12
       import-cwd: 3.0.0
@@ -17220,7 +17220,7 @@ packages:
       tslib: 2.4.0
     dev: false
 
-  /ts-jest/27.1.4_7503fa8864d75d4fbb4902618f127ac9:
+  /ts-jest/27.1.4_18bf3198290054fef968c963570913c9:
     resolution: {integrity: sha512-qjkZlVPWVctAezwsOD1OPzbZ+k7zA5z3oxII4dGdZo5ggX/PL7kvwTM0pXTr10fAtbiVpJaL3bWd502zAhpgSQ==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
@@ -17242,7 +17242,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.17.10
-      '@types/jest': 27.4.1
+      '@types/jest': 27.5.0
       babel-jest: 28.0.3_@babel+core@7.17.10
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
@@ -17263,7 +17263,7 @@ packages:
       typescript: '*'
       webpack: ^5.0.0
     dependencies:
-      chalk: 4.1.2
+      chalk: 4.1.0
       enhanced-resolve: 5.9.2
       micromatch: 4.0.5
       semver: 7.3.7
@@ -17335,7 +17335,7 @@ packages:
   /tsconfig-paths-webpack-plugin/3.5.2:
     resolution: {integrity: sha512-EhnfjHbzm5IYI9YPNVIxx1moxMI4bpHD2e0zTXeDNQcwjjRaGepP7IhTHJkyDBG0CAOoxRfe7jCG630Ou+C6Pw==}
     dependencies:
-      chalk: 4.1.2
+      chalk: 4.1.0
       enhanced-resolve: 5.9.2
       tsconfig-paths: 3.14.1
 
