@@ -2,7 +2,6 @@ import 'normalize.css/normalize.css';
 import '../../../styles/global.css';
 import '../../../styles/nprogress.css';
 import 'react-circular-progressbar/dist/styles.css';
-import 'react-toastify/dist/ReactToastify.css';
 import 'highlight.js/styles/github.css';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 

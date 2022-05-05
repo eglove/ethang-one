@@ -1,5 +1,4 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { ToastContainer } from 'react-toastify';
 
 import styles from '../styles/common.module.css';
 
@@ -17,7 +16,6 @@ export function Container({
 }: ContainerProperties): JSX.Element {
   return (
     <div>
-      <ToastContainer />
       <div {...containerProperties} className={styles.container}>
         {children}
       </div>
