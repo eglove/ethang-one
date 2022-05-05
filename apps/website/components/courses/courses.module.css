@@ -12,8 +12,6 @@
 
 .CourseItem {
     padding: 1rem 0;
-    contain-intrinsic-size: 50px;
-    content-visibility: auto;
 }
 
 .CourseUrls {
@@ -22,27 +20,27 @@
 }
 
 .ThisYear {
-    color: #fff;
+    color: hsl(0deg 0% 100%);
     text-align: center;
-    background-color: #008000;
+    background-color: hsl(120deg 100% 25%);
 }
 
 .LastYear {
-    color: #fff;
+    color: hsl(0deg 0% 100%);
     text-align: center;
-    background-color: #ff8c00;
+    background-color: hsl(33deg 100% 50%);
 }
 
 .TwoYears {
-    color: #fff;
+    color: hsl(0deg 0% 100%);
     text-align: center;
-    background-color: #f00;
+    background-color: hsl(0deg 100% 50%);
 }
 
 .Outdated {
-    color: #fff;
+    color: hsl(0deg 0% 100%);
     text-align: center;
-    background-color: #000;
+    background-color: hsl(0deg 0% 0%);
 }
 
 .Rating a, .Rating div {
@@ -51,23 +49,23 @@
 }
 
 .RatingFive a, .RatingFive div {
-    background-color: #008000;
+    background-color: hsl(120deg 100% 25%);
 }
 
 .RatingFour a, .RatingFour div {
-    background-color: #5b7d00;
+    background-color: hsl(76deg 100% 25%);
 }
 
 .RatingThree a, .RatingThree div {
-    background-color: #957200;
+    background-color: hsl(46deg 100% 29%);
 }
 
 .RatingTwo a, .RatingTwo div {
-    background-color: #cd5800;
+    background-color: hsl(26deg 100% 40%);
 }
 
 .RatingOne a, .RatingOne div {
-    background-color: #f00;
+    background-color: hsl(0deg 100% 50%);
 }
 
 @media (max-width: 768px) {
