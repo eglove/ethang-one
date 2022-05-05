@@ -1,5 +1,4 @@
 {
-  "root": "libs/util-wasm",
   "projectType": "library",
   "sourceRoot": "libs/util-wasm/src",
   "tags": []

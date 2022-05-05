@@ -1,5 +1,4 @@
 {
-  "root": "libs/node-environment",
   "sourceRoot": "libs/node-environment/src",
   "projectType": "library",
   "targets": {

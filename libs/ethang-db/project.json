@@ -1,5 +1,4 @@
 {
-  "root": "libs/ethang-db",
   "sourceRoot": "libs/ethang-db/src",
   "projectType": "library",
   "targets": {

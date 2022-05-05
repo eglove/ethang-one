@@ -1,5 +1,4 @@
 {
-  "root": "libs/util-cli",
   "sourceRoot": "libs/util-cli/src",
   "projectType": "library",
   "targets": {

@@ -1,5 +1,4 @@
 {
-  "root": "libs/algorithms",
   "sourceRoot": "libs/algorithms/src",
   "projectType": "library",
   "targets": {

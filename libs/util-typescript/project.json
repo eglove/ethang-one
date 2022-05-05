@@ -1,5 +1,4 @@
 {
-  "root": "libs/util-typescript",
   "sourceRoot": "libs/util-typescript/src",
   "projectType": "library",
   "targets": {

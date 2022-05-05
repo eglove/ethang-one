@@ -1,5 +1,4 @@
 {
-  "root": "libs/react-hooks",
   "sourceRoot": "libs/react-hooks/src",
   "projectType": "library",
   "tags": [],

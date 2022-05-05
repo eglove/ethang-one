@@ -1,5 +1,4 @@
 {
-  "root": "libs/local-database",
   "sourceRoot": "libs/local-database/src",
   "projectType": "library",
   "targets": {

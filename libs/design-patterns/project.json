@@ -1,5 +1,4 @@
 {
-  "root": "libs/design-patterns",
   "sourceRoot": "libs/design-patterns/src",
   "projectType": "library",
   "targets": {
