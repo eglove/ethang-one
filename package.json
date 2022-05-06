@@ -8,7 +8,7 @@
     "eg": "node dist/apps/ethang-cli/main.js",
     "preCommit": "npx cross-env npm run lintStaged && npm run browsersList && npm run snykDependencies",
     "postCommit": "npx cross-env npm run lintAffected && npm run buildAffected && npm run testAffected && npm run e2eAffected",
-    "websiteDeploy": "npx prisma generate && npx nx build website --prod --verbose",
+    "websiteDeploy": "npx nx build website --prod --verbose",
     "lintStaged": "npx pnpm lint-staged",
     "browsersList": "npx pnpm browserslist --update-db",
     "lintAffected": "npx nx affected --target=lint --fix --base=origin/master --head=HEAD",
