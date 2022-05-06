@@ -1,4 +1,7 @@
 .HeaderContainer {
+  position: sticky;
+  top: 0;
+  height: min-content;
   margin-left: 1rem;
 }
 
@@ -9,7 +12,7 @@
   font-weight: bold;
   color: var(--header-font-color);
   text-align: center;
-  text-shadow: #000 0 0 5px;
+  text-shadow: hsl(0deg 0% 0%) 0 0 5px;
   cursor: pointer;
   background: var(--header-color);
   box-shadow: var(--box-shadow);
