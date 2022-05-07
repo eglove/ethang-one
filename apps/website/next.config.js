@@ -7,10 +7,6 @@ const path = require('path');
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
-  experimental: {
-    outputStandalone: true,
-    outputFileTracingRoot: path.join(__dirname, '../../')
-  },
   images: {
     dangerouslyAllowSVG: true,
     domains: ['cdn.filestackcontent.com', 'disquscdn.com', 'rlcdn.com', 'res.cloudinary.com'],
