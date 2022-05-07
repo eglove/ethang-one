@@ -27,5 +27,3 @@ export function Breadcrumbs({ links }: BreadcrumbsProperties): JSX.Element {
     </nav>
   );
 }
-
-export default Breadcrumbs;
