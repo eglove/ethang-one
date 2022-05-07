@@ -1,5 +1,5 @@
 import { allImages } from '@ethang/local-database';
-import { NextLink } from '@ethang/react-components';
+import { Breadcrumbs, NextLink } from '@ethang/react-components';
 import { DiscussionEmbed } from 'disqus-react';
 import getYouTubeID from 'get-youtube-id';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
@@ -8,7 +8,6 @@ import { Container } from '../components/common/container/container';
 import { HeadTag } from '../components/common/head-tag/head-tag';
 import { ImageComponent } from '../components/common/image-component/image-component';
 import styles from '../components/common/styles/common.module.css';
-import commonStyles from '../styles/common.module.css';
 import { BASE_URL } from '../util/constants';
 
 function AboutMe(): JSX.Element {
@@ -19,32 +18,12 @@ function AboutMe(): JSX.Element {
   return (
     <Container>
       <HeadTag title="About Me" />
-      <ol
-        itemScope
-        className={commonStyles.Breadcrumb}
-        itemType="https://schema.org/BreadcrumbList"
-      >
-        <li
-          itemScope
-          itemProp="itemListElement"
-          itemType="https://schema.org/ListItem"
-        >
-          <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
-            <span itemProp="name">Home</span>
-          </NextLink>
-          <meta content="1" itemProp="position" />
-        </li>
-        <li
-          itemScope
-          itemProp="itemListElement"
-          itemType="https://schema.org/ListItem"
-        >
-          <NextLink linkProperties={{ href: '/about-me', itemProp: 'item' }}>
-            <span itemProp="name">About Me</span>
-          </NextLink>
-          <meta content="2" itemProp="position" />
-        </li>
-      </ol>
+      <Breadcrumbs
+        links={[
+          { href: '/', label: 'Home' },
+          { href: '/about-me', label: 'About Me' },
+        ]}
+      />
       <h1 id="aboutMe">About Me</h1>
       <ul className={styles.toc}>
         <li>

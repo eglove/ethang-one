@@ -1,10 +1,9 @@
 import { sortedCourses } from '@ethang/local-database';
-import { NextLink } from '@ethang/react-components';
+import { Breadcrumbs, NextLink } from '@ethang/react-components';
 import { formatList } from '@ethang/util-typescript';
 import { DiscussionEmbed } from 'disqus-react';
 import Image from 'next/image';
 
-import commonStyles from '../../styles/common.module.css';
 import { BASE_URL } from '../../util/constants';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
@@ -43,32 +42,12 @@ export function CoursesLayout(): JSX.Element {
       <HeadTag title="Courses" />
 
       <div>
-        <ol
-          itemScope
-          className={commonStyles.Breadcrumb}
-          itemType="https://schema.org/BreadcrumbList"
-        >
-          <li
-            itemScope
-            itemProp="itemListElement"
-            itemType="https://schema.org/ListItem"
-          >
-            <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
-              <span itemProp="name">Home</span>
-            </NextLink>
-            <meta content="1" itemProp="position" />
-          </li>
-          <li
-            itemScope
-            itemProp="itemListElement"
-            itemType="https://schema.org/ListItem"
-          >
-            <NextLink linkProperties={{ href: '/courses', itemProp: 'item' }}>
-              <span itemProp="name">Courses</span>
-            </NextLink>
-            <meta content="2" itemProp="position" />
-          </li>
-        </ol>
+        <Breadcrumbs
+          links={[
+            { href: '/', label: 'Home' },
+            { href: '/courses', label: 'Courses' },
+          ]}
+        />
         <h1 className={styles.Title}>The Recommended Courses</h1>
         <p>
           <NextLink linkProperties={{ href: '/blog/the-recommended-courses' }}>

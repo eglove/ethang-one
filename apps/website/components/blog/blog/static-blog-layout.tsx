@@ -1,5 +1,5 @@
 import { Blog } from '@ethang/local-database';
-import { NextLink } from '@ethang/react-components';
+import { Breadcrumbs } from '@ethang/react-components';
 import {
   formatList,
   humanReadableLocalDateTime,
@@ -11,7 +11,6 @@ import { OGP as Ogp } from 'react-ogp';
 import { jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema } from 'schema-dts';
 
-import commonStyles from '../../../styles/common.module.css';
 import { BASE_URL } from '../../../util/constants';
 import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
@@ -69,44 +68,13 @@ export function StaticBlogLayout({
           thumbnailUrl: `${blog.featuredImage.url}`,
         })}
       />
-      <ol
-        itemScope
-        className={commonStyles.Breadcrumb}
-        itemType="https://schema.org/BreadcrumbList"
-      >
-        <li
-          itemScope
-          itemProp="itemListElement"
-          itemType="https://schema.org/ListItem"
-        >
-          <NextLink linkProperties={{ href: '/', itemProp: 'item' }}>
-            <span itemProp="name">Home</span>
-          </NextLink>
-          <meta content="1" itemProp="position" />
-        </li>
-        <li
-          itemScope
-          itemProp="itemListElement"
-          itemType="https://schema.org/ListItem"
-        >
-          <NextLink linkProperties={{ href: '/blog', itemProp: 'item' }}>
-            <span itemProp="name">Blogs</span>
-          </NextLink>
-          <meta content="2" itemProp="position" />
-        </li>
-        <li
-          itemScope
-          itemProp="itemListElement"
-          itemType="https://schema.org/ListItem"
-        >
-          <NextLink
-            linkProperties={{ href: `/blog/${blog.slug}`, itemProp: 'item' }}
-          >
-            <span itemProp="name">{blog.title}</span>
-          </NextLink>
-          <meta content="3" itemProp="position" />
-        </li>
-      </ol>
+      <Breadcrumbs
+        links={[
+          { href: '/', label: 'Home' },
+          { href: '/blog', label: 'Blogs' },
+          { href: `/blog/${blog.slug}`, label: blog.title },
+        ]}
+      />
       <div className={styles.BlogInfo}>
         <div>
           <h1 className={styles.Title}>{blog.title}</h1>

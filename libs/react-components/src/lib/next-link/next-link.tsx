@@ -2,7 +2,7 @@ import { isBrowser, isValidUrl, locationOrigin } from '@ethang/util-typescript';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-interface LinkComponentProperties {
+export interface NextLinkProperties {
   children: JSX.Element | JSX.Element[] | string;
   linkProperties: { href: string } & JSX.IntrinsicElements['a'];
   testId?: string;
@@ -12,7 +12,7 @@ export function NextLink({
   children,
   linkProperties,
   testId,
-}: LinkComponentProperties): JSX.Element {
+}: NextLinkProperties): JSX.Element {
   const [linkState, setLinkState] = useState(linkProperties);
 
   useEffect(() => {
