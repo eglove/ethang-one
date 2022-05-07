@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import CharacterEditorLayout from './character-editor-layout';
+import { CharacterEditorLayout } from './character-editor-layout';
 
 describe('CharacterEditorLayout', () => {
   it('should render successfully', () => {
