@@ -1,0 +1,41 @@
+.CharacterEditor {
+  padding-top: 128px;
+  padding-bottom: 64px;
+}
+
+.MaxWidthWrapper {
+  position: relative;
+}
+
+
+.Header {
+  padding-bottom: 64px;
+}
+
+.Title {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.Description {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.CharacterWrapper {
+  position: fixed;
+  top: 30%;
+  bottom: 30%;
+  left: 70%;
+}
+
+.PerspectiveEffect {
+  position: fixed;
+  bottom: 40%;
+  left: 0;
+  width: 100%;
+  background-color: hsl(195deg 20% 86%);
+}

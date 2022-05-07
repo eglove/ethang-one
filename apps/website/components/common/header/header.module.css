@@ -1,6 +1,4 @@
 .HeaderContainer {
-  position: sticky;
-  top: 0;
   height: min-content;
   margin-left: 1rem;
 }
