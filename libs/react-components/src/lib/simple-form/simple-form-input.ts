@@ -41,10 +41,8 @@ export class SimpleFormInput {
   constructor(config: FormInputConfig) {
     this.hideLabel = config.hideLabel ?? false;
     this.id =
-      // eslint-disable-next-line @typescript-eslint/dot-notation
       typeof config.inputProperties?.['id'] === 'string'
-        ? // eslint-disable-next-line @typescript-eslint/dot-notation
-          config.inputProperties['id']
+        ? config.inputProperties['id']
         : config.name;
     this.label = config.label ?? toCapitalizedWords(config.name);
     this.labelProperties = config.labelProperties;
