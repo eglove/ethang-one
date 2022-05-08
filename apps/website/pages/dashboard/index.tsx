@@ -1,5 +1,6 @@
 import { createContext, useMemo } from 'react';
 
+import DashboardHome from '../../components/dashboard/dashboard-home/dashboard-home';
 import { Dashboard as DashboardState } from '../../components/dashboard/store/dashboard';
 
 export const DashboardContext = createContext<DashboardState>(
@@ -13,7 +14,7 @@ function Dashboard(): JSX.Element {
 
   return (
     <DashboardContext.Provider value={dashboard}>
-      Temp Remove
+      <DashboardHome />
     </DashboardContext.Provider>
   );
 }
