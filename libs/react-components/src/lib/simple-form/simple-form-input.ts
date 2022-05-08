@@ -2,9 +2,9 @@ import { toCapitalizedWords } from '@ethang/util-typescript';
 
 import { InputType } from './types';
 
-type SelectOption = {
+export type SelectOption = {
   label: string;
-  optionProperties: JSX.IntrinsicElements['option'];
+  optionProperties?: JSX.IntrinsicElements['option'];
 };
 
 type FormInputConfig = {

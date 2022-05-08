@@ -7,6 +7,7 @@ import {
   useState,
 } from 'react';
 
+import { Select } from '../select/select';
 import { SimpleFormButton } from './simple-form-button';
 import { SimpleFormInput } from './simple-form-input';
 import { InputType } from './types';
@@ -106,20 +107,10 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
 
       case InputType.select: {
         return (
-          <select
-            {...(defaultProperties as unknown as JSX.IntrinsicElements['select'])}
-          >
-            {formInput.selectOptions?.map(selectOption => {
-              return (
-                <option
-                  key={selectOption.label}
-                  {...selectOption.optionProperties}
-                >
-                  {selectOption.label}
-                </option>
-              );
-            })}
-          </select>
+          <Select
+            selectOptions={formInput.selectOptions}
+            selectProperties={defaultProperties}
+          />
         );
       }
 

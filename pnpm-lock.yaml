@@ -85,11 +85,12 @@ specifiers:
   react: 18.1.0
   react-circular-progressbar: ^2.0.4
   react-dom: 18.1.0
+  react-feather: ^2.0.9
   react-gist: ^1.2.4
   react-is: 18.1.0
   react-lite-youtube-embed: ^2.2.2
   react-ogp: ^0.0.3
-  react-player: ^2.10.0
+  react-player: ^2.10.1
   react-router-dom: 6.3.0
   react-schemaorg: ^2.0.0
   react-syntax-highlighter: ^15.5.0
@@ -144,11 +145,12 @@ dependencies:
   react: 18.1.0
   react-circular-progressbar: 2.0.4_react@18.1.0
   react-dom: 18.1.0_react@18.1.0
+  react-feather: 2.0.9_react@18.1.0
   react-gist: 1.2.4_react@18.1.0
   react-is: 18.1.0
   react-lite-youtube-embed: 2.2.2_react-dom@18.1.0+react@18.1.0
   react-ogp: 0.0.3_react@18.1.0
-  react-player: 2.10.0_react@18.1.0
+  react-player: 2.10.1_react@18.1.0
   react-router-dom: 6.3.0_react-dom@18.1.0+react@18.1.0
   react-schemaorg: 2.0.0_0796f18e0962bdc1073ccc37d89ce86b
   react-syntax-highlighter: 15.5.0_react@18.1.0
@@ -15123,6 +15125,15 @@ packages:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
     dev: false
 
+  /react-feather/2.0.9_react@18.1.0:
+    resolution: {integrity: sha512-yMfCGRkZdXwIs23Zw/zIWCJO3m3tlaUvtHiXlW+3FH7cIT6fiK1iJ7RJWugXq7Fso8ZaQyUm92/GOOHXvkiVUw==}
+    peerDependencies:
+      react: ^16.8.6 || ^17
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.1.0
+    dev: false
+
   /react-gist/1.2.4_react@18.1.0:
     resolution: {integrity: sha512-uDgPJ08IJsl/7auK3CS53JKGC1P/X7tNCzo9k0r6D/5l+ilsxE1+SAaylJCh0aeyZoJOoxQikKU+MHsAvA9iFw==}
     peerDependencies:
@@ -15177,8 +15188,8 @@ packages:
       react: 18.1.0
     dev: false
 
-  /react-player/2.10.0_react@18.1.0:
-    resolution: {integrity: sha512-PccIqea9nxSHAdai6R+Yj9lp6tb2lyXWbaF6YVHi5uO4FiXYMKKr9rMXJrivwV5vXwQa65rYKBmwebsBmRTT3w==}
+  /react-player/2.10.1_react@18.1.0:
+    resolution: {integrity: sha512-ova0jY1Y1lqLYxOehkzbNEju4rFXYVkr5rdGD71nsiG4UKPzRXQPTd3xjoDssheoMNjZ51mjT5ysTrdQ2tEvsg==}
     peerDependencies:
       react: '>=16.6.0'
     dependencies:
