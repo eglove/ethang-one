@@ -6,18 +6,18 @@ import styles from './select.module.css';
 
 interface SelectProperties {
   selectOptions?: SelectOption[];
-  selectProperties: JSX.IntrinsicElements['select'];
+  selectProperties?: JSX.IntrinsicElements['select'];
 }
 
 export function Select({
   selectOptions,
   selectProperties,
 }: SelectProperties): JSX.Element {
-  const [displayValue, setDisplayValue] = useState(selectProperties.value);
+  const [displayValue, setDisplayValue] = useState(selectProperties?.value);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
-    if (typeof selectProperties.onChange !== 'undefined') {
-      selectProperties.onChange(event);
+    if (typeof selectProperties?.onChange !== 'undefined') {
+      selectProperties?.onChange(event);
     }
 
     setDisplayValue(event.target.value);
@@ -27,7 +27,7 @@ export function Select({
     <div className={styles.SelectContainer}>
       <select
         className={styles.Select}
-        title={selectProperties.title ?? 'Select'}
+        title={selectProperties?.title ?? 'Select'}
         {...selectProperties}
         onChange={handleChange}
       >
