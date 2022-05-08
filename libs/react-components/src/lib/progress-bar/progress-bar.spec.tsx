@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import ProgressBar from './progress-bar';
+import { ProgressBar } from './progress-bar';
 
 describe('ProgressBar', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<ProgressBar />);
+    const { baseElement } = render(<ProgressBar size="small" value={75} />);
     expect(baseElement).toBeTruthy();
   });
 });
