@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 
-import Icon from '../icon-component/icon';
+import { Icon } from '../icon-component/icon';
 import { SelectOption } from '../simple-form/simple-form-input';
 import styles from './select.module.css';
 
