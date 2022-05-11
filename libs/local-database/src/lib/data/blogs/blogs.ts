@@ -3,9 +3,9 @@ import { allImages } from '../images/all-images';
 import { persons } from '../persons/persons';
 
 export const blogsSortedByUpdate = (): Blog[] => {
-  const blogKeys = Object.keys(blogs);
+  const blogKeys = Object.keys(blogs) as Array<keyof typeof blogs>;
   const blogArray = blogKeys.map(key => {
-    return blogs[key] as Blog;
+    return blogs[key];
   });
   blogArray.sort((a, b) => {
     return b.updatedAt.getTime() - a.updatedAt.getTime();
