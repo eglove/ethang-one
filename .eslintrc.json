@@ -36,6 +36,7 @@
       ],
       "plugins": [
         "simple-import-sort",
+        "sort-keys-fix",
         "prettier"
       ],
       "parser": "@typescript-eslint/parser",
@@ -73,7 +74,7 @@
         "react-hooks/exhaustive-deps": "error",
         "simple-import-sort/exports": "error",
         "simple-import-sort/imports": "error",
-        "sort-keys": "error"
+        "sort-keys-fix/sort-keys-fix": "error"
       }
     },
     {
