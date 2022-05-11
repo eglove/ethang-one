@@ -42,7 +42,6 @@ export function Navigation(): JSX.Element {
               linkProperties={{
                 className: styles.NavigationLink,
                 href: navLink.link,
-                key: navLink.title,
               }}
             >
               {navLink.title}
