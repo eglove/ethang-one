@@ -1,4 +1,5 @@
 import { uuid } from '@ethang/util-typescript';
+import { AnchorHTMLAttributes } from 'react';
 
 import styles from './breadcrumbs.module.css';
 import { Crumb } from './crumb';
@@ -6,7 +7,7 @@ import { Crumb } from './crumb';
 export type LinkProperties = {
   href: string;
   label: string;
-} & JSX.IntrinsicElements['a'];
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 interface BreadcrumbsProperties {
   links: LinkProperties[];

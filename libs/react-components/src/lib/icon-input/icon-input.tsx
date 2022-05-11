@@ -1,3 +1,5 @@
+import { InputHTMLAttributes } from 'react';
+
 import { Icon } from '../icon-component/icon';
 import { VisuallyHidden } from '../visually-hidden/visually-hidden';
 import styles from './icon-input.module.css';
@@ -19,17 +21,18 @@ const SIZES = {
 
 interface IconInputProperties {
   label: string;
-  inputProperties: JSX.IntrinsicElements['input'];
+  inputProperties: InputHTMLAttributes<HTMLInputElement>;
+  width?: number;
   size?: keyof typeof SIZES;
 }
 
 export function IconInput({
   label,
   inputProperties,
+  width,
   size = 'small',
 }: IconInputProperties): JSX.Element {
   const derivedStyles = SIZES[size];
-  const width = inputProperties.width ?? 250;
 
   return (
     <label className={styles.IconInputContainer} style={{}}>
@@ -47,7 +50,7 @@ export function IconInput({
           fontSize: `${derivedStyles.fontSize}px`,
           height: `${derivedStyles.height}px`,
           paddingLeft: `${derivedStyles.height}px`,
-          width: `${width}px`,
+          width: `${width ?? 250}px`,
         }}
         {...inputProperties}
       />

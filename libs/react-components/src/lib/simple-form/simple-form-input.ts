@@ -1,21 +1,27 @@
 import { toCapitalizedWords } from '@ethang/util-typescript';
+import {
+  HTMLAttributes,
+  InputHTMLAttributes,
+  LabelHTMLAttributes,
+  OptionHTMLAttributes,
+} from 'react';
 
 import { InputType } from './types';
 
 export type SelectOption = {
   label: string;
-  optionProperties?: JSX.IntrinsicElements['option'];
+  optionProperties?: OptionHTMLAttributes<HTMLOptionElement>;
 };
 
 type FormInputConfig = {
   hideLabel?: boolean;
   id?: string;
-  inputProperties?: Record<string, unknown>;
+  inputProperties?: InputHTMLAttributes<HTMLInputElement>;
   inputType?: InputType;
   name: string;
   label?: string;
-  labelProperties?: JSX.IntrinsicElements['label'];
-  labelTextProperties?: JSX.IntrinsicElements['span'];
+  labelProperties?: LabelHTMLAttributes<HTMLLabelElement>;
+  labelTextProperties?: HTMLAttributes<HTMLSpanElement>;
   selectOptions?: SelectOption[];
 };
 
@@ -31,9 +37,9 @@ export class SimpleFormInput {
   public hideLabel: boolean;
   public id?: string;
   public label: string;
-  public labelProperties?: JSX.IntrinsicElements['label'];
-  public labelTextProperties?: JSX.IntrinsicElements['span'];
-  public inputProperties?: Record<string, unknown>;
+  public labelProperties?: LabelHTMLAttributes<HTMLLabelElement>;
+  public labelTextProperties?: HTMLAttributes<HTMLSpanElement>;
+  public inputProperties?: InputHTMLAttributes<HTMLInputElement>;
   public inputType?: InputType;
   public name: string;
   public selectOptions?: SelectOption[];

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, SelectHTMLAttributes, useState } from 'react';
 
 import { Icon } from '../icon-component/icon';
 import { SelectOption } from '../simple-form/simple-form-input';
@@ -6,7 +6,7 @@ import styles from './select.module.css';
 
 interface SelectProperties {
   selectOptions?: SelectOption[];
-  selectProperties?: JSX.IntrinsicElements['select'];
+  selectProperties?: SelectHTMLAttributes<HTMLSelectElement>;
 }
 
 export function Select({

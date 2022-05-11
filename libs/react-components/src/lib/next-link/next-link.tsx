@@ -1,10 +1,10 @@
 import { isBrowser, isValidUrl, locationOrigin } from '@ethang/util-typescript';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { AnchorHTMLAttributes, useEffect, useState } from 'react';
 
 export interface NextLinkProperties {
   children: JSX.Element | JSX.Element[] | string;
-  linkProperties: { href: string } & JSX.IntrinsicElements['a'];
+  linkProperties: { href: string } & AnchorHTMLAttributes<HTMLAnchorElement>;
   testId?: string;
 }
 

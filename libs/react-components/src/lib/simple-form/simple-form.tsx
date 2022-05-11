@@ -1,8 +1,13 @@
 import {
   ChangeEvent,
   Dispatch,
+  FieldsetHTMLAttributes,
   FormEvent,
+  FormHTMLAttributes,
+  InputHTMLAttributes,
+  SelectHTMLAttributes,
   SetStateAction,
+  TextareaHTMLAttributes,
   useEffect,
   useState,
 } from 'react';
@@ -15,8 +20,8 @@ import { InputType } from './types';
 interface FormProperties<StateType> {
   buttons?: SimpleFormButton[];
   clearFormAfterSubmit?: boolean;
-  fieldsetProperties?: JSX.IntrinsicElements['fieldset'];
-  formProperties?: JSX.IntrinsicElements['form'];
+  fieldsetProperties?: FieldsetHTMLAttributes<HTMLFieldSetElement>;
+  formProperties?: FormHTMLAttributes<HTMLFormElement>;
   formState: StateType;
   inputs?: SimpleFormInput[];
   onChangeFunction?: (event: ChangeEvent) => unknown;
@@ -100,7 +105,7 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
       case InputType.textarea: {
         return (
           <textarea
-            {...(defaultProperties as unknown as JSX.IntrinsicElements['textarea'])}
+            {...(defaultProperties as unknown as TextareaHTMLAttributes<HTMLTextAreaElement>)}
           />
         );
       }
@@ -109,7 +114,9 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
         return (
           <Select
             selectOptions={formInput.selectOptions}
-            selectProperties={defaultProperties}
+            selectProperties={
+              defaultProperties as unknown as SelectHTMLAttributes<HTMLSelectElement>
+            }
           />
         );
       }
@@ -118,7 +125,7 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
         return (
           <input
             type={formInput.inputType}
-            {...(defaultProperties as unknown as JSX.IntrinsicElements['input'])}
+            {...(defaultProperties as unknown as InputHTMLAttributes<HTMLInputElement>)}
           />
         );
       }

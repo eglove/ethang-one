@@ -1,8 +1,9 @@
 import { isBrowser, isValidUrl, locationOrigin } from '@ethang/util-typescript';
+import { AnchorHTMLAttributes } from 'react';
 
 interface LinkComponentProperties {
   children: JSX.Element | JSX.Element[] | string;
-  linkProperties: { href: string } & JSX.IntrinsicElements['a'];
+  linkProperties: { href: string } & AnchorHTMLAttributes<HTMLAnchorElement>;
   testId?: string;
 }
 
@@ -11,7 +12,7 @@ export function LinkComponent({
   linkProperties,
   testId,
 }: LinkComponentProperties): JSX.Element {
-  const getDefaultProperties = (): JSX.IntrinsicElements['a'] => {
+  const getDefaultProperties = (): AnchorHTMLAttributes<HTMLAnchorElement> => {
     let linkOrigin = null;
     if (isValidUrl(linkProperties.href)) {
       linkOrigin = new URL(linkProperties.href).origin;

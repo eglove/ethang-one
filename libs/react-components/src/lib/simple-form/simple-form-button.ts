@@ -1,9 +1,10 @@
 import { toCapitalizedWords } from '@ethang/util-typescript';
+import { ButtonHTMLAttributes } from 'react';
 
 type ButtonConfig = {
   buttonText?: string;
   name: string;
-  properties?: JSX.IntrinsicElements['button'];
+  properties?: ButtonHTMLAttributes<HTMLButtonElement>;
 };
 
 export const simpleFormButtons = (
@@ -17,7 +18,7 @@ export const simpleFormButtons = (
 export class SimpleFormButton {
   public buttonText: string;
   public name: string;
-  public properties?: JSX.IntrinsicElements['button'];
+  public properties?: ButtonHTMLAttributes<HTMLButtonElement>;
 
   constructor(config: ButtonConfig) {
     this.buttonText = config.buttonText ?? toCapitalizedWords(config.name);
