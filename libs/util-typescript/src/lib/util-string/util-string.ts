@@ -1,3 +1,7 @@
+// @ts-expect-error No types available
+import enUsPatterns from 'hyphenation.en-us';
+// @ts-expect-error No types available
+import { createHyphenator, justifyContent } from 'tex-linebreak';
 import { v4 as uuidv4 } from 'uuid';
 
 export const capitalizeFirstLetter = (
@@ -67,6 +71,26 @@ export const formatPhoneNumber = (string: string): string | undefined => {
   }
 
   return undefined;
+};
+
+export const knuthPlassLineBreaks = (
+  querySelectors: keyof HTMLElementTagNameMap
+): void => {
+  const paragraphs = [...document.querySelectorAll(querySelectors)];
+  if (paragraphs?.length > 0) {
+    for (const paragraph of paragraphs) {
+      paragraph.style.whiteSpace = 'revert';
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment
+    const hyphenate = createHyphenator(enUsPatterns);
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+      justifyContent(paragraphs, hyphenate);
+    } catch {
+      //
+    }
+  }
 };
 
 export const randomColor = (): string => {

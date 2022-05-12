@@ -1,5 +1,6 @@
 import { Blog } from '@ethang/local-database';
 import { Breadcrumbs } from '@ethang/react-components';
+import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import {
   formatList,
   humanReadableLocalDateTime,
@@ -26,6 +27,7 @@ export function StaticBlogLayout({
   blog,
   children,
 }: StaticBlogLayoutProperties): JSX.Element {
+  useKnuthPlassLineBreaks('p');
   const [authors, setAuthors] = useState<string>();
 
   useEffect(() => {

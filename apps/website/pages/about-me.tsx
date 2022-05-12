@@ -1,5 +1,6 @@
 import { allImages } from '@ethang/local-database';
 import { Breadcrumbs, NextLink } from '@ethang/react-components';
+import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import { DiscussionEmbed } from 'disqus-react';
 import getYouTubeID from 'get-youtube-id';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
@@ -11,6 +12,7 @@ import styles from '../components/common/styles/common.module.css';
 import { BASE_URL } from '../util/constants';
 
 function AboutMe(): JSX.Element {
+  useKnuthPlassLineBreaks('p');
   const cdcSystemsThinking = getYouTubeID(
     'https://www.youtube.com/watch?v=Fo3ndxVOZEo'
   );
@@ -84,12 +86,10 @@ function AboutMe(): JSX.Element {
         wireframes are very helpful to describe to everyone involved what can
         and should be done.
       </p>
-      {cdcSystemsThinking && (
-        <LiteYouTubeEmbed
-          id={cdcSystemsThinking}
-          title="The Value of Systems Thinking"
-        />
-      )}
+      <LiteYouTubeEmbed
+        id={cdcSystemsThinking}
+        title="The Value of Systems Thinking"
+      />
       <h2 id="standardization">
         Standardization{' '}
         <NextLink linkProperties={{ href: '#aboutMe' }}>⤴</NextLink>

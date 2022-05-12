@@ -47,16 +47,15 @@
       "rules": {
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/naming-convention": "off",
-        "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/explicit-function-return-type": [
           "error"
         ],
+        "@typescript-eslint/strict-boolean-expressions": "error",
         "arrow-body-style": ["error", "always"],
         "capitalized-comments": "off",
         "no-console": ["error", {
           "allow": ["debug", "info", "warn", "error"]
         }],
-        "no-unused-vars": "off",
         "prettier/prettier": [
           "error",
           {
@@ -79,7 +78,7 @@
         "sort-keys-fix/sort-keys-fix": "error",
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
-          "warn",
+          "error",
           { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
         ]
       }
