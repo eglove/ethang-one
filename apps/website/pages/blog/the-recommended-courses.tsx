@@ -75,7 +75,7 @@ function TheRecommendedCourses(): JSX.Element {
           </NextLink>
         </li>
         <li>
-          <NextLink linkProperties={{ href: '#sTweleve' }}>
+          <NextLink linkProperties={{ href: '#sTwelve' }}>
             TypeScript, NX, Stencil
           </NextLink>
         </li>

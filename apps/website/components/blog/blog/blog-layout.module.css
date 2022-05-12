@@ -9,6 +9,10 @@
   color: var(--primary-color);
 }
 
+.Article {
+  column-width: 50ch;
+}
+
 @media (max-width: 425px) {
     .BlogInfo {
         grid-template-columns: auto;
