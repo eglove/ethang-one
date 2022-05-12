@@ -55,12 +55,12 @@ export class FinanceRecord implements PrismaModel {
     // { recordedDate1: { account1: value1, account2, value2 }, recordedDate2: { ... } }
     for (const item of data) {
       const stringDate = new Date(item.recordedDate).toLocaleDateString();
-      if (restructuredData[stringDate]) {
-        restructuredData[stringDate][item.accountName] = item.currentValue;
-      } else {
+      if (typeof restructuredData[stringDate] === 'undefined') {
         restructuredData[stringDate] = {
           [item.accountName]: item.currentValue,
         };
+      } else {
+        restructuredData[stringDate][item.accountName] = item.currentValue;
       }
     }
 
