@@ -7,7 +7,7 @@ export default {
     },
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  preset: '..\\..\\jest.preset.ts',
+  preset: '..\\..\\jest.preset.js',
   testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]sx?$': 'ts-jest',
