@@ -1,11 +1,34 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, persons } from '@ethang/local-database';
 import { LinkComponent } from '@ethang/react-components';
+import { JsonLd } from 'react-schemaorg';
+import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewCssJavascriptDevelopers(): JSX.Element {
   return (
     <StaticBlogLayout blog={blogs.reviewCssForJavascriptDevelopers}>
+      <JsonLd<Review>
+        item={{
+          '@context': 'https://schema.org',
+          '@type': 'Review',
+          author: {
+            '@type': 'Person',
+            name: 'Ethan Glover',
+          },
+          creator: persons.joshComeau.fullName,
+          itemReviewed: {
+            '@type': 'Course',
+            image: blogs.reviewCssForJavascriptDevelopers.featuredImage.url,
+            name: 'CSS For JavaScript Developers',
+          },
+          name: blogs.reviewCssForJavascriptDevelopers.title,
+          reviewRating: {
+            '@type': 'Rating',
+            ratingValue: '5',
+          },
+        }}
+      />
       <p>
         This CSS course introduced me to concepts that I never learned from
         other courses. Most courses will give you a cursory introduction to
