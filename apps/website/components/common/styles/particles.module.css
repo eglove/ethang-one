@@ -1,13 +1,6 @@
 .ContentContainer {
-  position: relative;
   display: grid;
-  grid-template-columns: max-content auto;
-  max-width: 1300px;
-  margin: var(--large-space) auto calc(var(--large-space) + 50px) auto;
-}
-
-@media (max-width: 768px) {
-  .ContentContainer {
-    grid-template-columns: auto;
-  }
+  grid-template-columns: auto;
+  max-width: 1000px;
+  margin: 0 auto;
 }

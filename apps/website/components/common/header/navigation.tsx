@@ -1,7 +1,5 @@
-import { allImages } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
-import { ImageComponent } from '../image-component/image-component';
 import styles from './header.module.css';
 
 export function Navigation(): JSX.Element {
@@ -18,22 +16,6 @@ export function Navigation(): JSX.Element {
 
   return (
     <>
-      <div className={`${styles.NavigationLink} ${styles.SocialLinks}`}>
-        <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
-          <ImageComponent
-            image={allImages.technologyImages.github}
-            imageProperties={{ height: '40px', width: '40px' }}
-          />
-        </NextLink>
-        <NextLink
-          linkProperties={{ href: 'https://www.linkedin.com/in/ethan-glover/' }}
-        >
-          <ImageComponent
-            image={allImages.rootImages.linkedIn}
-            imageProperties={{ height: '40px', width: '40px' }}
-          />
-        </NextLink>
-      </div>
       <nav className={styles.Navigation}>
         {navLinks.map(navLink => {
           return (

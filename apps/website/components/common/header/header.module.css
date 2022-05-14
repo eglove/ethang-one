@@ -1,6 +1,7 @@
 .HeaderContainer {
-  height: min-content;
-  margin-left: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(40px, auto);
+  margin: 0 1rem;
 }
 
 .Header {
@@ -22,8 +23,7 @@
 }
 
 .Navigation {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
   place-items: center;
 }
 
@@ -49,17 +49,17 @@
 }
 
 .SocialLinks {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.3rem;
+  margin-top: 1rem;
+  background-color: var(--background-color);
 }
 
-@media (max-width: 768px) {
-  .HeaderContainer {
-    margin: 0 1rem;
-  }
-
+@media (max-width: 530px) {
   .Navigation {
-    display: flex;
+    display: grid;
   }
 }
+
