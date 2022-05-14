@@ -217,7 +217,7 @@ export const blogs = {
     description:
       'Josh Comeau has created the best course on digging deep into the weird parts of CSS. Perfect for really learning the language.',
     featuredImage: allImages.blogImages.cssForJavascriptDevelopers,
-    slug: 'review-css-javascript-developers.spec.ts',
+    slug: 'review-css-javascript-developers',
     title: 'Review: CSS For JavaScript Developers',
     updatedAt: new Date('05/14/2022, 09:55 AM'),
   }),
