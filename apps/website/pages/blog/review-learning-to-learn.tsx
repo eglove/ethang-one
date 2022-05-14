@@ -1,10 +1,13 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewLearningToLearn(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewLearningToLearn}>
+    <StaticBlogLayout
+      blog={blogs.reviewLearningToLearn}
+      courseReviewed={courses.learningToLearn}
+    >
       <p>
         Learning to Learn is the perfect first course. Most people wouldn&apos;t
         give something with that title much attention, but getting started with

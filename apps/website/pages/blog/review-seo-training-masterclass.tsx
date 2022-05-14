@@ -1,34 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
-import { JsonLd } from 'react-schemaorg';
-import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function reviewSeoTrainingMasterclass(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewSeoTrainingMasterclass}>
-      <JsonLd<Review>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'Review',
-          author: {
-            '@type': 'Person',
-            name: 'Ethan Glover',
-          },
-          creator: 'Alex Genadinik',
-          itemReviewed: {
-            '@type': 'Course',
-            image: blogs.reviewSeoTrainingMasterclass.featuredImage.url,
-            name: 'SEO Training Masterclass',
-          },
-          name: blogs.reviewSeoTrainingMasterclass.title,
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '4',
-          },
-        }}
-      />
+    <StaticBlogLayout
+      blog={blogs.reviewSeoTrainingMasterclass}
+      courseReviewed={courses.seoTrainingMasterclass}
+    >
       <p>
         Getting into the world of SEO is not a comfortable subject for most
         developers. Marketing in general feels slimy to people who don&apos;t

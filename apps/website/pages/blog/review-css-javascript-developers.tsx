@@ -1,4 +1,4 @@
-import { blogs, persons } from '@ethang/local-database';
+import { blogs, courses, persons } from '@ethang/local-database';
 import { LinkComponent } from '@ethang/react-components';
 import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
@@ -14,18 +14,18 @@ function ReviewCssJavascriptDevelopers(): JSX.Element {
           '@type': 'Review',
           author: {
             '@type': 'Person',
-            name: 'Ethan Glover',
+            name: blogs.reviewCssForJavascriptDevelopers.authors[0].fullName,
           },
           creator: persons.joshComeau.fullName,
           itemReviewed: {
             '@type': 'Course',
             image: blogs.reviewCssForJavascriptDevelopers.featuredImage.url,
-            name: 'CSS For JavaScript Developers',
+            name: courses.cssForJavascriptDevelopers.title,
           },
           name: blogs.reviewCssForJavascriptDevelopers.title,
           reviewRating: {
             '@type': 'Rating',
-            ratingValue: '5',
+            ratingValue: courses.cssForJavascriptDevelopers.rating,
           },
         }}
       />

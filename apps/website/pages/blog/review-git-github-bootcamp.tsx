@@ -1,11 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewGitGithubBootcamp(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewGitGithubBootcamp}>
+    <StaticBlogLayout
+      blog={blogs.reviewGitGithubBootcamp}
+      courseReviewed={courses.gitAndGithubBootcamp}
+    >
       <p>
         There isn&apos;t much to say about Colt Steele&apos;s{' '}
         <NextLink

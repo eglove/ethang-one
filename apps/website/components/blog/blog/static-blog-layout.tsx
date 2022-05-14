@@ -1,4 +1,4 @@
-import { Blog } from '@ethang/local-database';
+import { Blog, Course } from '@ethang/local-database';
 import { Breadcrumbs } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import {
@@ -9,8 +9,8 @@ import { DiscussionEmbed } from 'disqus-react';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { OGP as Ogp } from 'react-ogp';
-import { jsonLdScriptProps } from 'react-schemaorg';
-import { Blog as BlogSchema } from 'schema-dts';
+import { JsonLd, jsonLdScriptProps } from 'react-schemaorg';
+import { Blog as BlogSchema, Review } from 'schema-dts';
 
 import { BASE_URL } from '../../../util/constants';
 import { Container } from '../../common/container/container';
@@ -21,11 +21,13 @@ import styles from './blog-layout.module.css';
 interface StaticBlogLayoutProperties {
   blog: Blog;
   children: JSX.Element | JSX.Element[];
+  courseReviewed?: Course;
 }
 
 export function StaticBlogLayout({
   blog,
   children,
+  courseReviewed,
 }: StaticBlogLayoutProperties): JSX.Element {
   useKnuthPlassLineBreaks('p');
   const [authors, setAuthors] = useState<string>();
@@ -70,6 +72,28 @@ export function StaticBlogLayout({
           thumbnailUrl: `${blog.featuredImage.url}`,
         })}
       />
+      {typeof courseReviewed !== 'undefined' && (
+        <JsonLd<Review>
+          item={{
+            '@context': 'https://schema.org',
+            '@type': 'Review',
+            author: {
+              '@type': 'Person',
+              name: blog.authors[0].fullName,
+            },
+            creator: courseReviewed.instructors[0].fullName,
+            itemReviewed: {
+              '@type': 'Course',
+              image: blog.featuredImage.url,
+            },
+            name: courseReviewed.title,
+            reviewRating: {
+              '@type': 'Rating',
+              ratingValue: courseReviewed.rating,
+            },
+          }}
+        />
+      )}
       <Breadcrumbs
         links={[
           { href: '/', label: 'Home' },

@@ -1,34 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
-import { JsonLd } from 'react-schemaorg';
-import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewTestingWithCypress(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewTestingWithCypress}>
-      <JsonLd<Review>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'Review',
-          author: {
-            '@type': 'Person',
-            name: 'Ethan Glover',
-          },
-          creator: 'Scott Tolinski',
-          itemReviewed: {
-            '@type': 'Course',
-            image: blogs.reviewTestingWithCypress.featuredImage.url,
-            name: 'Testing With Cypress',
-          },
-          name: blogs.reviewTestingWithCypress.title,
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '4',
-          },
-        }}
-      />
+    <StaticBlogLayout
+      blog={blogs.reviewTestingWithCypress}
+      courseReviewed={courses.testingWithCypress}
+    >
       <p>
         When courses cover testing it&apos;s typically one or two videos
         covering setup and a sample test, then it&apos;s completely ignored for

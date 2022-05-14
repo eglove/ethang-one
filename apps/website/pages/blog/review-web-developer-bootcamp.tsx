@@ -1,11 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewWebDeveloperBootcamp(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewWebDeveloperBootcamp}>
+    <StaticBlogLayout
+      blog={blogs.reviewWebDeveloperBootcamp}
+      courseReviewed={courses.webDeveloperBootcamp}
+    >
       <p>
         Sixty-three and a half hours of web development goodness.{' '}
         <NextLink

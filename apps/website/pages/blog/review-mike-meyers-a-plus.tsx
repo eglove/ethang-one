@@ -1,34 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
-import { JsonLd } from 'react-schemaorg';
-import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewMikeMeyersAPlus(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewMikeMeyersAPlus}>
-      <JsonLd<Review>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'Review',
-          author: {
-            '@type': 'Person',
-            name: 'Ethan Glover',
-          },
-          creator: 'Mike Meyers',
-          itemReviewed: {
-            '@type': 'Course',
-            image: blogs.reviewMikeMeyersAPlus.featuredImage.url,
-            name: 'TOTAL: CompTIA A+ Certification',
-          },
-          name: blogs.reviewMikeMeyersAPlus.title,
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '5',
-          },
-        }}
-      />
+    <StaticBlogLayout
+      blog={blogs.reviewMikeMeyersAPlus}
+      courseReviewed={courses.comptiaAPlusCore1}
+    >
       <p>
         CompTIA exams get a lot of criticism. And I&apos;m one of the people who
         will tell you that they&apos;re not worth your time. You can apply to

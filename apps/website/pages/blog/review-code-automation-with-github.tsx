@@ -1,34 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
-import { JsonLd } from 'react-schemaorg';
-import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewCodeAutomationWithGithub(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewCodeAutomationWithGithub}>
-      <JsonLd<Review>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'Review',
-          author: {
-            '@type': 'Person',
-            name: 'Ethan Glover',
-          },
-          creator: 'Brian Douglas',
-          itemReviewed: {
-            '@type': 'Course',
-            image: blogs.reviewCodeAutomationWithGithub.featuredImage.url,
-            name: 'Code Automation With GitHub',
-          },
-          name: blogs.reviewCodeAutomationWithGithub.title,
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '4',
-          },
-        }}
-      />
+    <StaticBlogLayout
+      blog={blogs.reviewCodeAutomationWithGithub}
+      courseReviewed={courses.codeAutomationWithGithub}
+    >
       <p>
         Andrei Neagoie&apos;s Complete Junior to Senior course does a great job
         of covering a lot of topics. Including automating tests with CI/CD

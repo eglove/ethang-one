@@ -1,34 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
-import { JsonLd } from 'react-schemaorg';
-import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewAccessibilityForEveryone(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewAccessibilityForEveryone}>
-      <JsonLd<Review>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'Review',
-          author: {
-            '@type': 'Person',
-            name: 'Ethan Glover',
-          },
-          creator: 'Amy Kapernick',
-          itemReviewed: {
-            '@type': 'Course',
-            image: blogs.reviewAccessibilityForEveryone.featuredImage.url,
-            name: 'Accessibility For Everyone',
-          },
-          name: blogs.reviewAccessibilityForEveryone.title,
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '4',
-          },
-        }}
-      />
+    <StaticBlogLayout
+      blog={blogs.reviewAccessibilityForEveryone}
+      courseReviewed={courses.accessibilityForEveryone}
+    >
       <p>
         Accessibility should not be a separate course. It doesn&apos;t need to
         be a separate course. At the end of the day it is no different and no

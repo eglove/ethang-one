@@ -1,34 +1,14 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
-import { JsonLd } from 'react-schemaorg';
-import { Review } from 'schema-dts';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewCompleteReactDeveloper(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewCompleteReactDeveloper}>
-      <JsonLd<Review>
-        item={{
-          '@context': 'https://schema.org',
-          '@type': 'Review',
-          author: {
-            '@type': 'Person',
-            name: 'Ethan Glover',
-          },
-          creator: 'Yihua Zhang',
-          itemReviewed: {
-            '@type': 'Course',
-            image: blogs.reviewCompleteReactDeveloper.featuredImage.url,
-            name: 'Complete React Developer',
-          },
-          name: blogs.reviewCompleteReactDeveloper.title,
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: '5',
-          },
-        }}
-      />
+    <StaticBlogLayout
+      blog={blogs.reviewCompleteReactDeveloper}
+      courseReviewed={courses.completeReactDeveloper}
+    >
       <h2>The Update</h2>
       <p>
         In the 2021 update, Zero To Mastery seemingly took a stance against

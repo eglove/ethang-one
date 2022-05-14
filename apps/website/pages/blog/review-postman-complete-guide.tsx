@@ -1,10 +1,13 @@
-import { blogs } from '@ethang/local-database';
+import { blogs, courses } from '@ethang/local-database';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function ReviewPostmanCompleteGuide(): JSX.Element {
   return (
-    <StaticBlogLayout blog={blogs.reviewPostmanCompleteGuide}>
+    <StaticBlogLayout
+      blog={blogs.reviewPostmanCompleteGuide}
+      courseReviewed={courses.postmanCompleteGuide}
+    >
       <p>
         Of every course to have landed on my recommendation list, Valentin Despa
         has the most boring, tired presentation. This course isn&apos;t easy to
