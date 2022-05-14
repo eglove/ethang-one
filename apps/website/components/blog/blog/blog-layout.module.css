@@ -13,6 +13,10 @@
   column-width: 50ch;
 }
 
+.Article p:first-of-type {
+  margin-top: 0;
+}
+
 @media (max-width: 425px) {
     .BlogInfo {
         grid-template-columns: auto;

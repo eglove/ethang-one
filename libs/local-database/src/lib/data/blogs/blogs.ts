@@ -211,6 +211,16 @@ export const blogs = {
     title: 'Review: Complete React Developer',
     updatedAt: new Date('04/16/2022, 12:00 AM'),
   }),
+  reviewCssForJavascriptDevelopers: new Blog({
+    authors: [persons.ethanGlover],
+    createdAt: new Date('05/14/2022, 09:55 AM'),
+    description:
+      'Josh Comeau has created the best course on digging deep into the weird parts of CSS. Perfect for really learning the language.',
+    featuredImage: allImages.blogImages.cssForJavascriptDevelopers,
+    slug: 'review-css-javascript-developers',
+    title: 'Review: CSS For JavaScript Developers',
+    updatedAt: new Date('05/14/2022, 09:55 AM'),
+  }),
   reviewGitGithubBootcamp: new Blog({
     authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 2:57 PM'),

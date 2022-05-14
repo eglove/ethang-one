@@ -31,6 +31,12 @@ export const schoolImages = {
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668156/school/egghead.svg',
     width: 263,
   }),
+  joshComeau: new Image({
+    altText: 'Josh Comeau',
+    height: 63,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1652539734/school/josh-comeau.png',
+    width: 159,
+  }),
   kodyTheKoala: new Image({
     altText: 'Kody the Koala',
     height: 438,

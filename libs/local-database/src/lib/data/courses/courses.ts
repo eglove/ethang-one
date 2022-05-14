@@ -130,6 +130,17 @@ export const courses = {
     title: 'CompTIA A+ Core 2',
     yearUpdated: 2021,
   }),
+  cssForJavascriptDevelopers: new Course({
+    courseUrls: [courseUrls.joshComeauCssForJavascriptDevelopers],
+    instructors: [persons.joshComeau],
+    rating: 5,
+    ratingUrl: new URL(
+      'https://www.ethang.dev/blog/review-css-javascript-developers'
+    ),
+    school: schools.joshComeau,
+    title: 'CSS for JavaScript Developers',
+    yearUpdated: 2022,
+  }),
   devOpsBootcamp: new Course({
     courseUrls: [courseUrls.zeroToMasteryDevOpsBootcamp],
     duration: 24,

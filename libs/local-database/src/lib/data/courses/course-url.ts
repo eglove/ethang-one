@@ -16,6 +16,10 @@ export const courseUrls = {
       'https://egghead.io/courses/scale-react-development-with-nx-4038'
     ),
   }),
+  joshComeauCssForJavascriptDevelopers: new CourseUrl({
+    school: schools.joshComeau,
+    url: new URL('https://css-for-js.dev/'),
+  }),
   kentCDoddsEpicReact: new CourseUrl({
     school: schools.kentCDodds,
     url: new URL('https://epicreact.dev'),

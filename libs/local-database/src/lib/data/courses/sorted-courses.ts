@@ -15,6 +15,7 @@ export const sortedCourses = [
   courses.algoExpert,
   courses.completeNodeDeveloper,
   courses.completeReactDeveloper,
+  courses.cssForJavascriptDevelopers,
   courses.epicReact,
   courses.advancedReact,
   courses.apolloOdyssey,

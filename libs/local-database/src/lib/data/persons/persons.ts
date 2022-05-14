@@ -53,6 +53,10 @@ export const persons = {
     firstName: 'Jacinto',
     lastName: 'Wong',
   }),
+  joshComeau: new Person({
+    firstName: 'Josh',
+    lastName: 'Comeau',
+  }),
   juriStrumpflohner: new Person({
     firstName: 'Juri',
     lastName: 'Strumpflohner',

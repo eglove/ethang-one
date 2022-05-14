@@ -44,6 +44,12 @@ export const schools = {
     name: 'JetBrains Academy',
     url: new URL('https://www.jetbrains.com/academy/'),
   }),
+  joshComeau: new School({
+    description: 'Josh Comeau',
+    image: allImages.schoolImages.joshComeau,
+    name: 'Josh Comeau',
+    url: new URL('https://courses.joshwcomeau.com/'),
+  }),
   kentCDodds: new School({
     description: 'Kent C. Dodds',
     image: allImages.schoolImages.kodyTheKoala,

@@ -91,6 +91,12 @@ export const blogImages = {
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668104/blog/comptia-a-plus.png',
     width: 1147,
   }),
+  cssForJavascriptDevelopers: new Image({
+    altText: 'Home page for the CSS for JavaScript Developers course.',
+    height: 730,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1652540292/blog/csss-for-javascript-developers-home.png',
+    width: 1046,
+  }),
   darrylPerry: new Image({
     altText: 'Open Letter to Libertarians',
     height: 917,
