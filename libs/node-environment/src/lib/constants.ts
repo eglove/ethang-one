@@ -38,3 +38,7 @@ export class Constant {
     return value;
   };
 }
+
+export const getConst = (key: ENV_KEYS): string => {
+  return new Constant().get(key);
+};
