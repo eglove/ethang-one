@@ -6,7 +6,6 @@ import { BASE_URL } from '../../util/constants';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { SortedCourses } from './course/sorted-courses';
-import styles from './courses.module.css';
 
 export function CoursesLayout(): JSX.Element {
   useKnuthPlassLineBreaks('p');
@@ -21,7 +20,7 @@ export function CoursesLayout(): JSX.Element {
             { href: '/courses', label: 'Courses' },
           ]}
         />
-        <h1 className={styles.Title}>The Recommended Courses</h1>
+        <h1>The Recommended Courses</h1>
         <p>
           This page changes often, lock in your plan by{' '}
           <NextLink
