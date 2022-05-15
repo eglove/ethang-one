@@ -1,46 +1,19 @@
-import { sortedCourses } from '@ethang/local-database';
 import { Breadcrumbs, NextLink } from '@ethang/react-components';
-import { formatList } from '@ethang/util-typescript';
+import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import { DiscussionEmbed } from 'disqus-react';
-import Image from 'next/image';
 
 import { BASE_URL } from '../../util/constants';
 import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
-import { CourseRating } from './course-rating';
+import { SortedCourses } from './course/sorted-courses';
 import styles from './courses.module.css';
 
-const getYearClass = (yearUpdated: number): string => {
-  const thisYear = new Date().getFullYear();
-
-  switch (yearUpdated) {
-    case thisYear: {
-      return `${styles.ThisYear}`;
-    }
-
-    case thisYear - 1: {
-      return `${styles.LastYear}`;
-    }
-
-    case thisYear - 2: {
-      return `${styles.TwoYears}`;
-    }
-
-    case 0: {
-      return `${styles.CourseItem}`;
-    }
-
-    default: {
-      return `${styles.Outdated}`;
-    }
-  }
-};
-
 export function CoursesLayout(): JSX.Element {
+  useKnuthPlassLineBreaks('p');
+
   return (
     <Container>
       <HeadTag title="Courses" />
-
       <div>
         <Breadcrumbs
           links={[
@@ -49,11 +22,6 @@ export function CoursesLayout(): JSX.Element {
           ]}
         />
         <h1 className={styles.Title}>The Recommended Courses</h1>
-        <p>
-          <NextLink linkProperties={{ href: '/blog/the-recommended-courses' }}>
-            How to use this guide.
-          </NextLink>
-        </p>
         <p>
           This page changes often, lock in your plan by{' '}
           <NextLink
@@ -65,64 +33,15 @@ export function CoursesLayout(): JSX.Element {
           </NextLink>{' '}
           (PDF).
         </p>
-        {sortedCourses.map(course => {
-          return (
-            <div className={styles.CourseContainer} key={course.title}>
-              <div className={styles.CourseItem}>
-                <CourseRating
-                  rating={course.rating}
-                  ratingUrl={course.ratingUrl?.toString()}
-                />
-              </div>
-              <div className={styles.CourseItem}>
-                <NextLink
-                  linkProperties={{ href: course.school.url.toString() }}
-                >
-                  <Image
-                    alt={course.school.image.altText}
-                    height={25}
-                    src={course.school.image.url}
-                    width={25}
-                  />
-                </NextLink>
-              </div>
-
-              <div className={styles.CourseItem}>
-                <div>{course.title}</div>
-                <div className={styles.CourseUrls}>
-                  {course.courseUrls?.map(courseUrl => {
-                    return (
-                      <div key={courseUrl.url.toString()}>
-                        <NextLink
-                          linkProperties={{ href: courseUrl.url.toString() }}
-                        >
-                          {courseUrl.school.name}
-                        </NextLink>
-                        &ensp;
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              <div className={styles.CourseItem}>
-                {Array.isArray(course.instructors) &&
-                  formatList(
-                    course.instructors?.map(instructor => {
-                      return instructor.fullName;
-                    })
-                  )}
-              </div>
-              <div className={styles.CourseItem}>
-                {typeof course.duration !== 'number' || course.duration === 0
-                  ? ''
-                  : `${course.duration.toFixed(2)} hrs`}
-              </div>
-              <div className={getYearClass(course.yearUpdated)}>
-                {course.yearUpdated === 0 ? '' : course.yearUpdated}
-              </div>
-            </div>
-          );
-        })}
+        <p>
+          This page is my attempt to put the best coding courses out there in
+          one list. They are put in an order so that someone new to coding can
+          start at the top, learn from scratch and end up knowing more than a
+          college degree could ever provide. This list can take 2-3 years to
+          complete and will cost money, but I believe there is nothing that
+          brings so much quality together in one place.
+        </p>
+        <SortedCourses />
       </div>
       <DiscussionEmbed
         shortname="ethang"

@@ -15,24 +15,20 @@ export function Navigation(): JSX.Element {
   ];
 
   return (
-    <>
-      <nav className={styles.Navigation}>
-        {navLinks.map(navLink => {
-          return (
-            <NextLink
-              key={navLink.title}
-              linkProperties={{
-                className: styles.NavigationLink,
-                href: navLink.link,
-              }}
-            >
-              {navLink.title}
-            </NextLink>
-          );
-        })}
-      </nav>
-      <script async src="https://cse.google.com/cse.js?cx=1040596e09bea9882" />
-      <div className="gcse-search" />
-    </>
+    <nav className={styles.Navigation}>
+      {navLinks.map(navLink => {
+        return (
+          <NextLink
+            key={navLink.title}
+            linkProperties={{
+              className: styles.NavigationLink,
+              href: navLink.link,
+            }}
+          >
+            {navLink.title}
+          </NextLink>
+        );
+      })}
+    </nav>
   );
 }

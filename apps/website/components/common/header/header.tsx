@@ -9,33 +9,37 @@ export function Header(): JSX.Element {
   const headerContent = <header className={styles.Header}>EthanG</header>;
 
   return (
-    <div className={styles.HeaderContainer}>
-      <div>
-        <NextLink
-          linkProperties={{ href: '/', style: { textDecoration: 'none' } }}
-        >
-          {headerContent}
-        </NextLink>
-        <Navigation />
+    <>
+      <div className={styles.HeaderContainer}>
+        <div>
+          <NextLink
+            linkProperties={{ href: '/', style: { textDecoration: 'none' } }}
+          >
+            {headerContent}
+          </NextLink>
+          <Navigation />
+        </div>
+        <div className={styles.SocialLinks}>
+          <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
+            <ImageComponent
+              image={allImages.technologyImages.github}
+              imageProperties={{ height: '40px', width: '40px' }}
+            />
+          </NextLink>
+          <NextLink
+            linkProperties={{
+              href: 'https://www.linkedin.com/in/ethan-glover/',
+            }}
+          >
+            <ImageComponent
+              image={allImages.rootImages.linkedIn}
+              imageProperties={{ height: '40px', width: '40px' }}
+            />
+          </NextLink>
+        </div>
       </div>
-      <div className={styles.SocialLinks}>
-        <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
-          <ImageComponent
-            image={allImages.technologyImages.github}
-            imageProperties={{ height: '40px', width: '40px' }}
-          />
-        </NextLink>
-        <NextLink
-          linkProperties={{
-            href: 'https://www.linkedin.com/in/ethan-glover/',
-          }}
-        >
-          <ImageComponent
-            image={allImages.rootImages.linkedIn}
-            imageProperties={{ height: '40px', width: '40px' }}
-          />
-        </NextLink>
-      </div>
-    </div>
+      <script async src="https://cse.google.com/cse.js?cx=1040596e09bea9882" />
+      <div className="gcse-search" style={{ margin: '0 1rem' }} />
+    </>
   );
 }

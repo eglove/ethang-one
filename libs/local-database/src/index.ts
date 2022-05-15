@@ -1,7 +1,6 @@
 export * from './lib/data/blogs/blogs';
 export * from './lib/data/courses/course-url';
 export * from './lib/data/courses/courses';
-export * from './lib/data/courses/sorted-courses';
 export * from './lib/data/images/all-images';
 export * from './lib/data/images/blog-images';
 export * from './lib/data/images/person-images';

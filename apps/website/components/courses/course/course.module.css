@@ -1,0 +1,61 @@
+.CourseContainer {
+  display: grid;
+  grid-template-areas:
+    "CourseTitle YearUpdated"
+    "Rating ReviewUrl"
+    "Summary Summary"
+    "CourseLinks CourseLinks";
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 2px solid hsl(206deg 86% 46%);
+}
+
+.CourseContainer:last-child {
+  border-bottom: none;
+}
+
+.CourseContainer:hover,
+.CourseContainer:focus {
+  box-shadow: var(--box-shadow-hover);
+}
+
+.CourseContainerActive {
+  background-color: hsl(217deg 83% 73% / 20%);
+}
+
+.CourseTitle {
+  grid-area: CourseTitle;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.YearUpdated {
+  grid-area: YearUpdated;
+  font-weight: bold;
+  text-align: right;
+}
+
+.Rating {
+  grid-area: Rating;
+}
+
+.ReviewUrl {
+  grid-area: ReviewUrl;
+  text-align: right;
+}
+
+.ReviewUrl a {
+  font-size: 1.1rem;
+  color: hsl(220deg 100% 50%);
+}
+
+.Summary {
+  grid-area: Summary;
+}
+
+.CourseLinks {
+  display: flex;
+  grid-area: CourseLinks;
+  font-weight: bold;
+}
