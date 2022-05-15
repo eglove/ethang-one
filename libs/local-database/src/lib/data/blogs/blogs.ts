@@ -353,16 +353,6 @@ export const blogs = {
     title: 'The Image Problem and Its Solution',
     updatedAt: new Date('08/04/2016, 04:02 AM'),
   }),
-  theRecommendedCourses: new Blog({
-    authors: [persons.ethanGlover],
-    createdAt: new Date('3/11/2022, 2:54 PM'),
-    description:
-      'How to use my course curriculum to learn everything you need to know for a career in web development. From the basics to building apps, to project management.',
-    featuredImage: allImages.blogImages.recommendedCourses,
-    slug: 'the-recommended-courses',
-    title: 'The Recommended Courses',
-    updatedAt: new Date('04/30/2022, 09:58 AM'),
-  }),
   typescriptFormEnums: new Blog({
     authors: [persons.ethanGlover],
     createdAt: new Date('3/11/2022, 3:06 PM'),
