@@ -91,7 +91,7 @@
     "@nrwl/react": "14.1.5",
     "@nrwl/storybook": "14.1.5",
     "@nrwl/web": "14.1.5",
-    "@nrwl/workspace": "14.1.5",
+    "@nrwl/workspace": "14.1.7",
     "@testing-library/react": "13.2.0",
     "@testing-library/react-hooks": "8.0.0",
     "@types/jest": "27.5.1",
