@@ -39,6 +39,10 @@
   background-color: hsl(0deg 0% 95%);
 }
 
+.Sidebar a {
+  text-decoration: none;
+}
+
 .Main {
   padding: 0 16px;
   font-size: 14px;

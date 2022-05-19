@@ -13,15 +13,15 @@ export function ResumeLayout(): JSX.Element {
   useKnuthPlassLineBreaks('p');
 
   const getPdf = async (): Promise<void> => {
+    const today = new Date().toLocaleDateString().replaceAll('/', '-');
+
     // eslint-disable-next-line new-cap
     const pdf = new jsPDF('portrait', 'pt', 'a4');
     await pdf.html(resumeElement.current, {
       callback(document) {
-        document.save();
+        document.save(`Ethan_Glover_Resume_${today}`);
       },
       html2canvas: {
-        backgroundColor: 'hsl(0deg 0% 95%)',
-        imageTimeout: 10_000,
         scale: 0.7496,
       },
     });
@@ -37,7 +37,7 @@ export function ResumeLayout(): JSX.Element {
         />
       </div>
       <div className={styles.BorderContainer}>
-        <div className={styles.ResumeContainer} id="resume" ref={resumeElement}>
+        <div className={styles.ResumeContainer} ref={resumeElement}>
           <HeadTag title="Resume" />
           <ResumeSidebar />
           <ResumeMain />
