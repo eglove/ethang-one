@@ -12,7 +12,7 @@ export function ResumeLayout(): JSX.Element {
   const resumeElement = useRef<HTMLDivElement>();
   const today = useMemo(() => {
     const date = new Date();
-    return date.toLocaleDateString().replaceAll('/', '-');
+    return date?.toLocaleDateString()?.replaceAll('/', '-') ?? '';
   }, []);
 
   useKnuthPlassLineBreaks('p');
