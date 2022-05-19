@@ -11,7 +11,8 @@ import { ResumeSidebar } from './resume-sidebar';
 export function ResumeLayout(): JSX.Element {
   const resumeElement = useRef<HTMLDivElement>();
   const today = useMemo(() => {
-    return new Date().toLocaleDateString().replaceAll('/', '-');
+    const date = new Date();
+    return date.toLocaleDateString().replaceAll('/', '-');
   }, []);
 
   useKnuthPlassLineBreaks('p');
