@@ -1,6 +1,6 @@
 import { Button } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
-import { useMemo, useRef } from 'react';
+import { useRef } from 'react';
 import ReactToPdf from 'react-to-pdf';
 
 import { HeadTag } from '../common/head-tag/head-tag';
@@ -10,10 +10,7 @@ import { ResumeSidebar } from './resume-sidebar';
 
 export function ResumeLayout(): JSX.Element {
   const resumeElement = useRef<HTMLDivElement>();
-  const today = useMemo(() => {
-    const date = new Date();
-    return date?.toLocaleDateString()?.replaceAll('/', '-') ?? '';
-  }, []);
+  const today = new Date().toLocaleDateString().replace(/\//g, '-');
 
   useKnuthPlassLineBreaks('p');
 
