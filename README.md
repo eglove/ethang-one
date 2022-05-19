@@ -7,3 +7,4 @@
 
 * [Home](https://www.ethang.dev/)
 * [Recommended Development Courses](https://www.ethang.dev/courses)
+* [Resume](https://www.ethang.dev/resume)
