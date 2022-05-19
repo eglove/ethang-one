@@ -1,0 +1,66 @@
+.DownloadButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.BorderContainer {
+  width: 210mm;
+  margin: auto;
+  border: 1px solid hsl(0deg 0% 0%);
+}
+
+.ResumeContainer {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  width: 210mm;
+  height: 297mm;
+  margin: auto;
+  overflow: hidden;
+  background: hsl(0deg 0% 100%);
+}
+
+.Name {
+  color: hsl(240deg 63% 36%);
+  text-align: center;
+}
+
+.JobHeading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.JobDetails {
+  margin: 8px 0;
+}
+
+.Sidebar {
+  padding: 80px 16px 16px;
+  background-color: hsl(0deg 0% 95%);
+}
+
+.Main {
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.Header {
+  width: 100%;
+  line-height: 0.1em;
+  border-bottom: 1px solid hsl(0deg 0% 0%);
+}
+
+.HeaderLine {
+  padding: 0 8px 0 0;
+  background: hsl(0deg 0% 95%);
+}
+
+.ItemWithIcon {
+  display: flex;
+  gap: 8px;
+}
+
+.SkillList {
+  columns: 2;
+  column-gap: 24px;
+}

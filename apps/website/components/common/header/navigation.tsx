@@ -12,6 +12,10 @@ export function Navigation(): JSX.Element {
       link: '/courses',
       title: 'Courses',
     },
+    {
+      link: '/resume',
+      title: 'Resume',
+    },
   ];
 
   return (
