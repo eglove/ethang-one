@@ -42,7 +42,7 @@ export function ResumeMain(): JSX.Element {
         ]}
       />
       <ResumeJob
-        company="Prologue Technology"
+        company="Century Link"
         dateRange="05/20 - 12/20"
         jobTitle="Full Stack Developer"
         location="St. Louis, MO"

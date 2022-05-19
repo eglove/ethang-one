@@ -1,7 +1,7 @@
 import { Button } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
-import { jsPDF } from 'jspdf';
 import { useRef } from 'react';
+import ReactToPdf from 'react-to-pdf';
 
 import { HeadTag } from '../common/head-tag/head-tag';
 import styles from './resume-layout.module.css';
@@ -12,30 +12,32 @@ export function ResumeLayout(): JSX.Element {
   const resumeElement = useRef<HTMLDivElement>();
   useKnuthPlassLineBreaks('p');
 
-  const getPdf = async (): Promise<void> => {
-    const today = new Date().toLocaleDateString().replaceAll('/', '-');
+  const today = new Date().toLocaleDateString().replaceAll('/', '-');
 
-    // eslint-disable-next-line new-cap
-    const pdf = new jsPDF('portrait', 'pt', 'a4');
-    await pdf.html(resumeElement.current, {
-      callback(document) {
-        document.save(`Ethan_Glover_Resume_${today}`);
-      },
-      html2canvas: {
-        scale: 0.7496,
-      },
-    });
-  };
-
-  return (
-    <>
+  const downloadPdf = ({
+    toPdf,
+  }: {
+    toPdf: () => void;
+  }): JSX.IntrinsicElements['div'] => {
+    return (
       <div className={styles.DownloadButtonContainer}>
         <Button
-          buttonProperties={{ onClick: getPdf }}
+          buttonProperties={{ onClick: toPdf }}
           size="small"
           text="Download"
         />
       </div>
+    );
+  };
+
+  return (
+    <>
+      <ReactToPdf
+        filename={`Ethan_Glover_Resume_${today}`}
+        targetRef={resumeElement}
+      >
+        {downloadPdf}
+      </ReactToPdf>
       <div className={styles.BorderContainer}>
         <div className={styles.ResumeContainer} ref={resumeElement}>
           <HeadTag title="Resume" />
