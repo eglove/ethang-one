@@ -53,6 +53,7 @@
         "@typescript-eslint/strict-boolean-expressions": "error",
         "arrow-body-style": ["error", "always"],
         "capitalized-comments": "off",
+        "new-cap": "off",
         "no-console": ["error", {
           "allow": ["debug", "info", "warn", "error"]
         }],

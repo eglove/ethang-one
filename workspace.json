@@ -6,6 +6,7 @@
     "design-patterns": "libs/design-patterns",
     "ethang-db": "libs/ethang-db",
     "local-database": "libs/local-database",
+    "messages": "apps/messages",
     "node-environment": "libs/node-environment",
     "react-components": "libs/react-components",
     "react-hooks": "libs/react-hooks",
