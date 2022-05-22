@@ -27,7 +27,7 @@ export const zigzagTraverse = (array: number[][]): number[] => {
     zigZagState.result.push(array[zigZagState.row][zigZagState.column]);
     if (zigZagState.goingDown) {
       if (zigZagState.column === 0 || zigZagState.row === zigZagState.height) {
-        bottomLeft(zigZagState);
+        atLeftOrBottom(zigZagState);
       } else {
         movePointer({
           horizontalDirection: 'left',
@@ -39,7 +39,7 @@ export const zigzagTraverse = (array: number[][]): number[] => {
       zigZagState.row === 0 ||
       zigZagState.column === zigZagState.width
     ) {
-      topRight(zigZagState);
+      atTopOrRight(zigZagState);
     } else {
       movePointer({
         horizontalDirection: 'right',
@@ -70,7 +70,7 @@ const movePointer = ({
   }
 };
 
-const bottomLeft = (zigZagState: ZigZagState): void => {
+const atLeftOrBottom = (zigZagState: ZigZagState): void => {
   zigZagState.goingDown = false;
   if (zigZagState.row === zigZagState.height) {
     movePointer({ horizontalDirection: 'right', zigZagState });
@@ -79,7 +79,7 @@ const bottomLeft = (zigZagState: ZigZagState): void => {
   }
 };
 
-const topRight = (zigZagState: ZigZagState): void => {
+const atTopOrRight = (zigZagState: ZigZagState): void => {
   zigZagState.goingDown = true;
   if (zigZagState.column === zigZagState.width) {
     movePointer({ verticalDirection: 'down', zigZagState });
