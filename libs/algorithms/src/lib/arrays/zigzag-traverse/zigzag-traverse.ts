@@ -1,47 +1,98 @@
-// eslint-disable-next-line sonarjs/cognitive-complexity
-export const zigzagTraverse = (array: number[][]): number[] => {
-  const height = array.length - 1;
-  const width = array[0].length - 1;
-  const result = [];
-  let row = 0;
-  let column = 0;
-  let goingDown = true;
+interface IMovement {
+  horizontalDirection?: 'left' | 'right';
+  verticalDirection?: 'up' | 'down';
+  zigZagState: ZigZagState;
+}
 
-  while (!isOutOfBounds(row, column, height, width)) {
-    result.push(array[row][column]);
-    if (goingDown) {
-      if (column === 0 || row === height) {
-        goingDown = false;
-        if (row === height) {
-          column++;
-        } else {
-          row++;
-        }
+interface ZigZagState {
+  column: number;
+  goingDown: boolean;
+  height: number;
+  result: number[];
+  row: number;
+  width: number;
+}
+
+export const zigzagTraverse = (array: number[][]): number[] => {
+  const zigZagState: ZigZagState = {
+    column: 0,
+    goingDown: true,
+    height: array.length - 1,
+    result: [],
+    row: 0,
+    width: array[0].length - 1,
+  };
+
+  while (!isOutOfBounds(zigZagState)) {
+    zigZagState.result.push(array[zigZagState.row][zigZagState.column]);
+    if (zigZagState.goingDown) {
+      if (zigZagState.column === 0 || zigZagState.row === zigZagState.height) {
+        bottomLeft(zigZagState);
       } else {
-        row++;
-        column--;
+        movePointer({
+          horizontalDirection: 'left',
+          verticalDirection: 'down',
+          zigZagState,
+        });
       }
-    } else if (row === 0 || column === width) {
-      goingDown = true;
-      if (column === width) {
-        row++;
-      } else {
-        column++;
-      }
+    } else if (
+      zigZagState.row === 0 ||
+      zigZagState.column === zigZagState.width
+    ) {
+      topRight(zigZagState);
     } else {
-      row--;
-      column++;
+      movePointer({
+        horizontalDirection: 'right',
+        verticalDirection: 'up',
+        zigZagState,
+      });
     }
   }
 
-  return result;
+  return zigZagState.result;
 };
 
-const isOutOfBounds = (
-  row: number,
-  column: number,
-  height: number,
-  width: number
-): boolean => {
-  return row < 0 || row > height || column < 0 || column > width;
+const movePointer = ({
+  horizontalDirection,
+  verticalDirection,
+  zigZagState,
+}: IMovement): void => {
+  if (horizontalDirection === 'left') {
+    zigZagState.column--;
+  } else if (horizontalDirection === 'right') {
+    zigZagState.column++;
+  }
+
+  if (verticalDirection === 'up') {
+    zigZagState.row--;
+  } else if (verticalDirection === 'down') {
+    zigZagState.row++;
+  }
+};
+
+const bottomLeft = (zigZagState: ZigZagState): void => {
+  zigZagState.goingDown = false;
+  if (zigZagState.row === zigZagState.height) {
+    movePointer({ horizontalDirection: 'right', zigZagState });
+  } else {
+    movePointer({ verticalDirection: 'down', zigZagState });
+  }
+};
+
+const topRight = (zigZagState: ZigZagState): void => {
+  zigZagState.goingDown = true;
+  if (zigZagState.column === zigZagState.width) {
+    movePointer({ verticalDirection: 'down', zigZagState });
+  } else {
+    movePointer({ horizontalDirection: 'right', zigZagState });
+  }
+};
+
+const isOutOfBounds = (zigZagState: ZigZagState): boolean => {
+  return (
+    zigZagState.row < 0 ||
+    zigZagState.row > zigZagState.height ||
+    zigZagState.column < 0 ||
+    zigZagState.column > zigZagState.width
+  );
 };
