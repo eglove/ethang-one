@@ -1,0 +1,21 @@
+@startuml
+Paste |o--o{ User
+class Paste {
+  id: string
+  createdDate: Date
+  expirationDate: Date
+  contentKey: string
+  userId?: User
+
+  addPaste()
+  getPaste()
+  deletePaste()
+}
+
+class User {
+  id: string
+  username: string
+  email: string
+}
+
+@enduml

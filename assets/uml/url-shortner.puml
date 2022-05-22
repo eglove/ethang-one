@@ -1,0 +1,22 @@
+@startuml
+ShortenedUrl |o--o{ User
+class ShortenedUrl {
+  id: string
+  createdDate: Date
+  expirationDate: Date
+  originalUrl: URL
+  customAlias?: string
+  userId?: User
+
+  createUrl()
+  getUrl()
+  deleteUrl()
+}
+
+class User {
+  id: string
+  username: string
+  email: string
+}
+
+@enduml
