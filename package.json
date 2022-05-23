@@ -29,7 +29,7 @@
   "dependencies": {
     "@angular/core": "~13.3.9",
     "@apollo/client": "^3.6.4",
-    "@faker-js/faker": "^6.3.1",
+    "@faker-js/faker": "^7.0.1",
     "@nrwl/next": "14.1.7",
     "@prisma/client": "^3.14.0",
     "@react-pdf/renderer": "^2.1.1",
