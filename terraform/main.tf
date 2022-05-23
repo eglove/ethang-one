@@ -13,56 +13,103 @@ provider "aws" {
   secret_key = var.aws_secret_key
 }
 
-module "vpc" {
-  source         = "terraform-aws-modules/vpc/aws"
-  name           = "vpc"
-  cidr           = var.vpc_cider_block
-  azs            = [var.aws_region_sub]
-  public_subnets = [var.web_subnet_cidr_block]
+resource "aws_vpc" "vpc" {
+  cidr_block = var.vpc_cider_block
   tags = {
-    Terraform = "true"
-    Name      = "VPC"
+    "Terraform" = true
   }
 }
 
-module "web_server_sg" {
-  source              = "terraform-aws-modules/security-group/aws//modules/http-80"
-  name                = "web-server"
-  description         = "Security group for web-server with HTTP ports open within VPC"
-  vpc_id              = module.vpc.vpc_id
-  ingress_cidr_blocks = [var.public_cidr_block]
+resource "aws_subnet" "web_subnet"{
+  vpc_id = aws_vpc.vpc.id
+  cidr_block = var.web_subnet_cidr_block
+  availability_zone = var.aws_region_sub
+  tags = {
+    "Terraform" = true
+  }
 }
 
-data "aws_ami" "latest_amazon_linux2" {
-  owners      = ["amazon"]
+resource "aws_internet_gateway" "internet_gateway" {
+  vpc_id = aws_vpc.vpc.id
+  tags = {
+    "Terraform" = true
+  }
+}
+
+resource "aws_default_route_table" "route_table" {
+  default_route_table_id = aws_vpc.vpc.default_route_table_id
+
+  route {
+    cidr_block = var.public_cidr_block
+    gateway_id = aws_internet_gateway.internet_gateway.id
+  }
+  tags = {
+    "Terraform" = true
+  }
+}
+
+resource "aws_default_security_group" "security_group" {
+  vpc_id = aws_vpc.vpc.id
+  ingress {
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+    cidr_blocks = [var.public_cidr_block]
+  }
+  ingress {
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = [var.public_cidr_block]
+  }
+  ingress {
+    from_port = 8080
+    to_port = 8080
+    protocol = "tcp"
+    cidr_blocks = [var.public_cidr_block]
+  }
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "-1"
+    cidr_blocks = [var.public_cidr_block]
+  }
+  tags = {
+    "Terraform" = true
+  }
+}
+
+resource "aws_key_pair" "terraform_ssh_key"{
+  key_name = "terraform_ssh_key"
+  public_key = file(var.ssh_public_key_path)
+}
+
+data "aws_ami" "latest_amazon_linux2"{
+  owners = ["amazon"]
   most_recent = true
-  filter {
-    name   = "name"
+  filter{
+    name = "name"
     values = ["amzn2-ami-kernel-*-x86_64-gp2"]
   }
+
   filter {
-    name   = "architecture"
+    name = "architecture"
     values = ["x86_64"]
   }
 }
 
-resource "aws_key_pair" "ssh_keypair" {
-  public_key = file(var.ssh_public_key_path)
-  key_name   = "ssh_key"
-}
+resource "aws_instance" "ec2" {
+  ami = data.aws_ami.latest_amazon_linux2.id
+  instance_type = "t2.micro"
 
-module "ec2_instance" {
-  source                 = "terraform-aws-modules/ec2-instance/aws"
-  version                = "~> 3.0"
-  name                   = "Terraform"
-  ami                    = data.aws_ami.latest_amazon_linux2.id
-  instance_type          = "t2.micro"
-  key_name               = aws_key_pair.ssh_keypair.key_name
-  vpc_security_group_ids = [module.web_server_sg.security_group_id]
-  subnet_id              = module.vpc.public_subnets[0]
-  user_data              = file("entry-script.sh")
+  subnet_id = aws_subnet.web_subnet.id
+  vpc_security_group_ids = [aws_default_security_group.security_group.id]
+  associate_public_ip_address = true
+  key_name = aws_key_pair.terraform_ssh_key.key_name
+
   tags = {
-    Terraform = "true"
-    name      = "EC2"
+    "Terraform" = true
   }
 }
+
