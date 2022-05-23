@@ -57,7 +57,7 @@ async function startApolloServer(): Promise<void> {
   await server.start();
   server.applyMiddleware({ app, cors: { credentials: true, origin: true } });
 
-  httpServer.listen(isProduction ? 80 : PORT.graphql, () => {
+  httpServer.listen(process.env.PORT ?? PORT.graphql, () => {
     console.info(
       `🚀 Server is now running in ${process.env.NODE_ENV} mode on http://localhost:${PORT.graphql}/graphql`
     );
