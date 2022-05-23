@@ -54,7 +54,7 @@ resource "aws_key_pair" "ssh_keypair" {
 module "ec2_instance" {
   source                 = "terraform-aws-modules/ec2-instance/aws"
   version                = "~> 3.0"
-  name                   = "single-instance"
+  name                   = "Terraform"
   ami                    = data.aws_ami.latest_amazon_linux2.id
   instance_type          = "t2.micro"
   key_name               = aws_key_pair.ssh_keypair.key_name
