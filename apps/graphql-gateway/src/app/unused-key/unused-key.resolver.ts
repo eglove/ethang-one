@@ -11,9 +11,12 @@ export class UnusedKeyResolver {
     private readonly unusedKeyService: UnusedKeyService
   ) {}
 
-  @Query(() => {
-    return UnusedKey;
-  })
+  @Query(
+    () => {
+      return UnusedKey;
+    },
+    { nullable: true }
+  )
   async getUnusedKey(): Promise<UnusedKey | undefined> {
     const key = await this.unusedKeyService.getUniqueKey();
 
@@ -38,11 +41,11 @@ export class UnusedKeyResolver {
             error
           );
         });
-
-      this.unusedKeyService.fillMinimumUnusedKeys().catch((error: Error) => {
-        console.error('Failed to fill keys.', error);
-      });
     }
+
+    this.unusedKeyService.fillMinimumUnusedKeys().catch((error: Error) => {
+      console.error('Failed to fill keys.', error);
+    });
 
     return this.unusedKeyService.getUniqueKey();
   }

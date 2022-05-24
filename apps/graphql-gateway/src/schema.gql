@@ -17,7 +17,7 @@ type UnusedKey {
 type Query {
   habit(where: HabitWhereUniqueInput!): Habit
   habits(where: HabitWhereInput, orderBy: [HabitOrderByWithRelationInput!], cursor: HabitWhereUniqueInput, take: Int, skip: Int, distinct: [HabitScalarFieldEnum!]): [Habit]!
-  getUnusedKey: UnusedKey!
+  getUnusedKey: UnusedKey
 }
 
 input HabitWhereUniqueInput {
