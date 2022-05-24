@@ -21,7 +21,7 @@ export function ResumeSidebar(): JSX.Element {
       </div>
       <div>
         <LinkComponent
-          linkProperties={{ href: 'http://linkedin.com/in/ethan-glover' }}
+          linkProperties={{ href: 'https://linkedin.com/in/ethan-glover' }}
         >
           linkedin.com/in/ethan-glover
         </LinkComponent>

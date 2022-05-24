@@ -105,7 +105,7 @@ resource "aws_instance" "ec2" {
 
   subnet_id = aws_subnet.web_subnet.id
   vpc_security_group_ids = [aws_default_security_group.security_group.id]
-  associate_public_ip_address = true
+  associate_public_ip_address = true # Sensitive
   key_name = aws_key_pair.terraform_ssh_key.key_name
 
   tags = {
