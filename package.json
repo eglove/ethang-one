@@ -108,7 +108,7 @@
     "@nrwl/node": "14.1.7",
     "@nrwl/nx-cloud": "14.0.5",
     "@nrwl/react": "14.1.7",
-    "@nrwl/storybook": "14.1.7",
+    "@nrwl/storybook": "14.1.8",
     "@nrwl/web": "14.1.7",
     "@nrwl/workspace": "14.1.7",
     "@testing-library/react": "13.2.0",
