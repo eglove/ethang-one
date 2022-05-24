@@ -9,9 +9,15 @@ type Habit {
   dueDate: Int!
 }
 
+type UnusedKey {
+  id: ID!
+  key: String!
+}
+
 type Query {
   habit(where: HabitWhereUniqueInput!): Habit
   habits(where: HabitWhereInput, orderBy: [HabitOrderByWithRelationInput!], cursor: HabitWhereUniqueInput, take: Int, skip: Int, distinct: [HabitScalarFieldEnum!]): [Habit]!
+  getUnusedKey: UnusedKey!
 }
 
 input HabitWhereUniqueInput {
@@ -106,6 +112,7 @@ enum HabitScalarFieldEnum {
 
 type Mutation {
   createHabit(data: HabitCreateInput!): Habit!
+  deleteUsedKey(where: UsedKeyWhereUniqueInput!): UnusedKey!
 }
 
 input HabitCreateInput {
@@ -113,4 +120,9 @@ input HabitCreateInput {
   name: String!
   recurInterval: String!
   dueDate: Int!
+}
+
+input UsedKeyWhereUniqueInput {
+  id: String
+  key: String
 }

@@ -1,4 +1,6 @@
+// @ts-expect-error types not available
 import enUsPatterns from 'hyphenation.en-us';
+// @ts-expect-error types not available
 import { createHyphenator, justifyContent } from 'tex-linebreak';
 import { v4 as uuidv4 } from 'uuid';
 

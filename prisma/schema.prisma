@@ -11,15 +11,8 @@ generator client {
 }
 
 generator nestgraphql {
-    provider = "node node_modules/prisma-nestjs-graphql"
-    output = "../apps/graphql-gateway/src/@generated/prisma-nestjs-graphql"
-}
-
-model Habit {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
-  name          String @unique
-  recurInterval String
-  dueDate       Int
+  provider = "node node_modules/prisma-nestjs-graphql"
+  output   = "../apps/graphql-gateway/src/@generated/prisma-nestjs-graphql"
 }
 
 model FinanceRecord {
@@ -29,12 +22,29 @@ model FinanceRecord {
   recordedDate Int
 }
 
+model Habit {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  name          String @unique
+  recurInterval String
+  dueDate       Int
+}
+
 model TodaysCalories {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
   birthday        Int
   currentCalories Int
   height          Int
   weight          Float
+}
+
+model UnusedKey {
+  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  key String @unique
+}
+
+model UsedKey {
+  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  key String @unique
 }
 
 model User {
