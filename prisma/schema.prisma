@@ -10,6 +10,11 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator nestgraphql {
+    provider = "node node_modules/prisma-nestjs-graphql"
+    output = "../apps/graphql-gateway/src/@generated/prisma-nestjs-graphql"
+}
+
 model Habit {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   name          String @unique
