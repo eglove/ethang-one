@@ -1,14 +1,14 @@
-import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
-import { Module } from "@nestjs/common";
-import { GraphQLModule } from "@nestjs/graphql";
-import { join } from "node:path";
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'node:path';
 
-import { AppController } from "./app.controller";
-import { AppService } from "./app.service";
-import { HabitModule } from "./habit/habit.module";
-import { PrismaService } from "./prisma/prisma.service";
-import { UsedKeyModule } from "./used-key/used-key.module";
-import { UnusedKeyModule } from "./unused-key/unused-key.module";
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { HabitModule } from './habit/habit.module';
+import { PrismaService } from './prisma/prisma.service';
+import { UnusedKeyModule } from './unused-key/unused-key.module';
+import { UsedKeyModule } from './used-key/used-key.module';
 
 @Module({
   controllers: [AppController],
@@ -16,7 +16,7 @@ import { UnusedKeyModule } from "./unused-key/unused-key.module";
     GraphQLModule.forRoot<ApolloDriverConfig>({
       autoSchemaFile: join(
         process.cwd(),
-        "apps/graphql-gateway/src/schema.gql"
+        'apps/graphql-gateway/src/schema.gql'
       ),
       driver: ApolloDriver,
     }),

@@ -1,8 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { UsedKeyResolver } from "./used-key.resolver";
-import { UsedKeyService } from "./used-key.service";
+import { Test, TestingModule } from '@nestjs/testing';
 
-describe("UsedKeyResolver", () => {
+import { UsedKeyResolver } from './used-key.resolver';
+import { UsedKeyService } from './used-key.service';
+
+describe('UsedKeyResolver', () => {
   let resolver: UsedKeyResolver;
 
   beforeEach(async () => {
@@ -13,7 +14,7 @@ describe("UsedKeyResolver", () => {
     resolver = module.get<UsedKeyResolver>(UsedKeyResolver);
   });
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(resolver).toBeDefined();
   });
 });

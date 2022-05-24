@@ -1,7 +1,8 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { HabitResolver } from "./habit.resolver";
+import { Test, TestingModule } from '@nestjs/testing';
 
-describe("HabitResolver", () => {
+import { HabitResolver } from './habit.resolver';
+
+describe('HabitResolver', () => {
   let resolver: HabitResolver;
 
   beforeEach(async () => {
@@ -12,7 +13,7 @@ describe("HabitResolver", () => {
     resolver = module.get<HabitResolver>(HabitResolver);
   });
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(resolver).toBeDefined();
   });
 });
