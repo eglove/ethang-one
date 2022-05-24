@@ -7,12 +7,12 @@ specifiers:
   '@babel/preset-env': ^7.18.0
   '@faker-js/faker': ^7.0.1
   '@nestjs/apollo': ^10.0.12
-  '@nestjs/common': ^8.0.0
-  '@nestjs/core': ^8.0.0
+  '@nestjs/common': ^8.4.5
+  '@nestjs/core': ^8.4.5
   '@nestjs/graphql': ^10.0.12
-  '@nestjs/platform-express': ^8.0.0
-  '@nestjs/schematics': ^8.0.0
-  '@nestjs/testing': ^8.0.0
+  '@nestjs/platform-express': ^8.4.5
+  '@nestjs/schematics': ^8.0.11
+  '@nestjs/testing': ^8.4.5
   '@nrwl/angular': 14.1.7
   '@nrwl/cypress': 14.1.7
   '@nrwl/devkit': 14.1.7
@@ -1000,7 +1000,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.17.12
+      '@babel/helper-plugin-utils': 7.10.4
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.17.12_@babel+core@7.12.9
     dev: false
@@ -3039,6 +3039,14 @@ packages:
       - supports-color
     dev: false
 
+  /@mdx-js/react/1.6.22_react@18.1.0:
+    resolution: {integrity: sha512-TDoPum4SHdfPiGSAaRBw7ECyI8VaHpK8GJugbJIJuqyh6kzw9ZLJZW3HGL3NNrJGxcAixUvqROm+YuQOo5eXtg==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.0
+    dependencies:
+      react: 18.1.0
+    dev: false
+
   /@mdx-js/util/1.6.22:
     resolution: {integrity: sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==}
     dev: false
@@ -5074,7 +5082,7 @@ packages:
       '@storybook/core-common': 6.5.4_6d18611d0f6e6196292d0482f1e20406
       '@storybook/core-events': 6.5.4
       '@storybook/csf': 0.0.2--canary.4566f4d.1
-      '@storybook/csf-tools': 6.5.4
+      '@storybook/csf-tools': 6.5.4_react@18.1.0
       '@storybook/manager-webpack4': 6.5.4_6d18611d0f6e6196292d0482f1e20406
       '@storybook/node-logger': 6.5.4
       '@storybook/semver': 7.3.2
@@ -5129,7 +5137,7 @@ packages:
       - webpack-command
     dev: false
 
-  /@storybook/csf-tools/6.5.4:
+  /@storybook/csf-tools/6.5.4_react@18.1.0:
     resolution: {integrity: sha512-mCAO8Ddig5PzXiI4HxiWhdLmPPpaovzVxqdh7g31k3fhpnRkQrKwftNGTW/ArFDdisMjB1+gm+ZOVACZg0pO4w==}
     peerDependencies:
       '@storybook/mdx2-csf': '*'
@@ -5145,13 +5153,14 @@ packages:
       '@babel/traverse': 7.18.0
       '@babel/types': 7.18.0
       '@storybook/csf': 0.0.2--canary.4566f4d.1
-      '@storybook/mdx1-csf': 0.0.1-canary.1.eed86d7.0_@babel+core@7.18.0
+      '@storybook/mdx1-csf': 0.0.2-canary.5.f835337.0_@babel+core@7.18.0+react@18.1.0
       core-js: 3.22.6
       fs-extra: 9.1.0
       global: 4.4.0
       regenerator-runtime: 0.13.9
       ts-dedent: 2.2.0
     transitivePeerDependencies:
+      - react
       - supports-color
     dev: false
 
@@ -5219,14 +5228,15 @@ packages:
       - webpack-command
     dev: false
 
-  /@storybook/mdx1-csf/0.0.1-canary.1.eed86d7.0_@babel+core@7.18.0:
-    resolution: {integrity: sha512-KOoTWeseRyJYU5qzEWahgNRhRLgHzPrWx4jIiK4oI9MmNx81cD0B0o24Gq04Iyt89X4jTk+VPHc5REJO1Gs99Q==}
+  /@storybook/mdx1-csf/0.0.2-canary.5.f835337.0_@babel+core@7.18.0+react@18.1.0:
+    resolution: {integrity: sha512-nEClIjnxJCKV467P1TEQeBlBRzmYuNFjr3EJMkVVeWh8q4VgLD+6Of33IYSyKgUgi3nFsF9w0IFG8JKR37+fKA==}
     dependencies:
       '@babel/generator': 7.18.0
       '@babel/parser': 7.18.0
       '@babel/preset-env': 7.18.0_@babel+core@7.18.0
       '@babel/types': 7.18.0
       '@mdx-js/mdx': 1.6.22
+      '@mdx-js/react': 1.6.22_react@18.1.0
       '@types/lodash': 4.14.182
       js-string-escape: 1.0.1
       loader-utils: 2.0.2
@@ -5235,6 +5245,7 @@ packages:
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@babel/core'
+      - react
       - supports-color
     dev: false
 
@@ -8147,7 +8158,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.9
       '@types/raf': 3.4.0
-      core-js: 3.22.6
+      core-js: 3.22.7
       raf: 3.4.1
       regenerator-runtime: 0.13.9
       rgbcolor: 1.0.1
@@ -8641,6 +8652,12 @@ packages:
   /core-js/3.22.6:
     resolution: {integrity: sha512-2IGcGH00z9I4twgNWU4uGCNEsBFG1s2JudVQrgSCoVhOfwoTwQjxC8aMo9exrpTMOxvobggEpaHnGMmQY4cfBQ==}
     requiresBuild: true
+
+  /core-js/3.22.7:
+    resolution: {integrity: sha512-Jt8SReuDKVNZnZEzyEQT5eK6T2RRCXkfTq7Lo09kpm+fHjgGewSbNjV+Wt4yZMhPDdzz2x1ulI5z/w4nxpBseg==}
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /core-js/3.6.5:
     resolution: {integrity: sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==}
@@ -13689,7 +13706,7 @@ packages:
       fflate: 0.4.8
     optionalDependencies:
       canvg: 3.0.10
-      core-js: 3.22.6
+      core-js: 3.22.7
       dompurify: 2.3.8
       html2canvas: 1.4.1
     dev: false
