@@ -6,7 +6,7 @@
     "deps": "npx pnpm i",
     "buildEg": "npx nx build ethang-cli",
     "eg": "node dist/apps/ethang-cli/main.js",
-    "preCommit": "npx prisma generate && npx cross-env npm run browsersList && npm run lintAffected && npm run snykDependencies && npm run snykAnalysis",
+    "preCommit": "npx prisma generate && npx cross-env npm run lintStaged && npm run browsersList && npm run lintAffected && npm run snykDependencies && npm run snykAnalysis",
     "postCommit": "npx cross-env npm run buildAffected && npm run testAffected && npm run e2eAffected",
     "websiteDeploy": "npx nx build website --prod --verbose",
     "lintStaged": "npx pnpm lint-staged",
