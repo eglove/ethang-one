@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { UsedKeyWhereInput } from './used-key-where.input';
+import { Type } from 'class-transformer';
 import { UsedKeyOrderByWithAggregationInput } from './used-key-order-by-with-aggregation.input';
 import { UsedKeyScalarFieldEnum } from './used-key-scalar-field.enum';
 import { UsedKeyScalarWhereWithAggregatesInput } from './used-key-scalar-where-with-aggregates.input';
@@ -13,6 +14,7 @@ import { UsedKeyMaxAggregateInput } from './used-key-max-aggregate.input';
 export class UsedKeyGroupByArgs {
 
     @Field(() => UsedKeyWhereInput, {nullable:true})
+    @Type(() => UsedKeyWhereInput)
     where?: UsedKeyWhereInput;
 
     @Field(() => [UsedKeyOrderByWithAggregationInput], {nullable:true})

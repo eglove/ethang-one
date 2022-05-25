@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ShortUrlWhereInput } from './short-url-where.input';
+import { Type } from 'class-transformer';
 import { ShortUrlOrderByWithRelationInput } from './short-url-order-by-with-relation.input';
 import { ShortUrlWhereUniqueInput } from './short-url-where-unique.input';
 import { Int } from '@nestjs/graphql';
@@ -10,6 +11,7 @@ import { ShortUrlScalarFieldEnum } from './short-url-scalar-field.enum';
 export class FindManyShortUrlArgs {
 
     @Field(() => ShortUrlWhereInput, {nullable:true})
+    @Type(() => ShortUrlWhereInput)
     where?: ShortUrlWhereInput;
 
     @Field(() => [ShortUrlOrderByWithRelationInput], {nullable:true})

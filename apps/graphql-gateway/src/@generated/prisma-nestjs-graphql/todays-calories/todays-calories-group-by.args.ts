@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { TodaysCaloriesWhereInput } from './todays-calories-where.input';
+import { Type } from 'class-transformer';
 import { TodaysCaloriesOrderByWithAggregationInput } from './todays-calories-order-by-with-aggregation.input';
 import { TodaysCaloriesScalarFieldEnum } from './todays-calories-scalar-field.enum';
 import { TodaysCaloriesScalarWhereWithAggregatesInput } from './todays-calories-scalar-where-with-aggregates.input';
@@ -15,6 +16,7 @@ import { TodaysCaloriesMaxAggregateInput } from './todays-calories-max-aggregate
 export class TodaysCaloriesGroupByArgs {
 
     @Field(() => TodaysCaloriesWhereInput, {nullable:true})
+    @Type(() => TodaysCaloriesWhereInput)
     where?: TodaysCaloriesWhereInput;
 
     @Field(() => [TodaysCaloriesOrderByWithAggregationInput], {nullable:true})

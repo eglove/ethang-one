@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { FinanceRecordWhereInput } from './finance-record-where.input';
+import { Type } from 'class-transformer';
 import { FinanceRecordOrderByWithAggregationInput } from './finance-record-order-by-with-aggregation.input';
 import { FinanceRecordScalarFieldEnum } from './finance-record-scalar-field.enum';
 import { FinanceRecordScalarWhereWithAggregatesInput } from './finance-record-scalar-where-with-aggregates.input';
@@ -15,6 +16,7 @@ import { FinanceRecordMaxAggregateInput } from './finance-record-max-aggregate.i
 export class FinanceRecordGroupByArgs {
 
     @Field(() => FinanceRecordWhereInput, {nullable:true})
+    @Type(() => FinanceRecordWhereInput)
     where?: FinanceRecordWhereInput;
 
     @Field(() => [FinanceRecordOrderByWithAggregationInput], {nullable:true})

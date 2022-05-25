@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { HabitWhereInput } from './habit-where.input';
+import { Type } from 'class-transformer';
 import { HabitOrderByWithAggregationInput } from './habit-order-by-with-aggregation.input';
 import { HabitScalarFieldEnum } from './habit-scalar-field.enum';
 import { HabitScalarWhereWithAggregatesInput } from './habit-scalar-where-with-aggregates.input';
@@ -15,6 +16,7 @@ import { HabitMaxAggregateInput } from './habit-max-aggregate.input';
 export class HabitGroupByArgs {
 
     @Field(() => HabitWhereInput, {nullable:true})
+    @Type(() => HabitWhereInput)
     where?: HabitWhereInput;
 
     @Field(() => [HabitOrderByWithAggregationInput], {nullable:true})

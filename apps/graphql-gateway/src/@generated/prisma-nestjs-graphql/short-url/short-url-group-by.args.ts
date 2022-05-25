@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { ShortUrlWhereInput } from './short-url-where.input';
+import { Type } from 'class-transformer';
 import { ShortUrlOrderByWithAggregationInput } from './short-url-order-by-with-aggregation.input';
 import { ShortUrlScalarFieldEnum } from './short-url-scalar-field.enum';
 import { ShortUrlScalarWhereWithAggregatesInput } from './short-url-scalar-where-with-aggregates.input';
@@ -13,6 +14,7 @@ import { ShortUrlMaxAggregateInput } from './short-url-max-aggregate.input';
 export class ShortUrlGroupByArgs {
 
     @Field(() => ShortUrlWhereInput, {nullable:true})
+    @Type(() => ShortUrlWhereInput)
     where?: ShortUrlWhereInput;
 
     @Field(() => [ShortUrlOrderByWithAggregationInput], {nullable:true})

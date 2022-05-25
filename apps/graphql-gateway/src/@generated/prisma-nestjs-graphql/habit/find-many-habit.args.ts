@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
 import { HabitWhereInput } from './habit-where.input';
+import { Type } from 'class-transformer';
 import { HabitOrderByWithRelationInput } from './habit-order-by-with-relation.input';
 import { HabitWhereUniqueInput } from './habit-where-unique.input';
 import { Int } from '@nestjs/graphql';
@@ -10,6 +11,7 @@ import { HabitScalarFieldEnum } from './habit-scalar-field.enum';
 export class FindManyHabitArgs {
 
     @Field(() => HabitWhereInput, {nullable:true})
+    @Type(() => HabitWhereInput)
     where?: HabitWhereInput;
 
     @Field(() => [HabitOrderByWithRelationInput], {nullable:true})
