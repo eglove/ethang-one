@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
+import { ShortUrlRelationFilter } from '../short-url/short-url-relation-filter.input';
 
 @InputType()
 export class UsedKeyWhereInput {
@@ -19,4 +20,7 @@ export class UsedKeyWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     key?: StringFilter;
+
+    @Field(() => ShortUrlRelationFilter, {nullable:true})
+    ShortUrl?: ShortUrlRelationFilter;
 }

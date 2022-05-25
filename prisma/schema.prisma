@@ -29,6 +29,14 @@ model Habit {
   dueDate       Int
 }
 
+model ShortUrl {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  originalUrl    String   @unique
+  usedKeyId      String   @unique @db.ObjectId
+  expirationDate DateTime
+  shortUrlKey    UsedKey  @relation(fields: [usedKeyId], references: [id])
+}
+
 model TodaysCalories {
   id              String @id @default(auto()) @map("_id") @db.ObjectId
   birthday        Int
@@ -43,8 +51,9 @@ model UnusedKey {
 }
 
 model UsedKey {
-  id  String @id @default(auto()) @map("_id") @db.ObjectId
-  key String @unique
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  key      String    @unique
+  ShortUrl ShortUrl?
 }
 
 model User {
