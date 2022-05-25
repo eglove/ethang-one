@@ -193,6 +193,12 @@ export const technologyImages = {
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668180/technology/my-sql.svg',
     width: 256,
   }),
+  nestJs: new Image({
+    altText: 'NestJS',
+    height: 64,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1653438721/technology/nest-js.svg',
+    width: 64,
+  }),
   nextJs: new Image({
     altText: 'NextJS',
     height: 124,
