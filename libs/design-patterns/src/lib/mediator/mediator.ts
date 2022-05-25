@@ -8,13 +8,7 @@ export class ChatRoom {
 }
 
 export class User {
-  public chatroom: ChatRoom;
-  public name: string;
-
-  constructor(name: string, chatroom: ChatRoom) {
-    this.name = name;
-    this.chatroom = chatroom;
-  }
+  constructor(public name: string, public chatroom: ChatRoom) {}
 
   getName(): string {
     return this.name;

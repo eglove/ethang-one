@@ -14,7 +14,6 @@ import { LocalStorageWrapper, persistCache } from 'apollo3-cache-persist';
 
 export class ApolloClientInit {
   public cache?: ApolloCache<NormalizedCacheObject>;
-  public baseUrl: string;
   public client?: ApolloClient<NormalizedCacheObject>;
 
   private authLink?: ApolloLink;
@@ -22,8 +21,7 @@ export class ApolloClientInit {
   private httpLink?: HttpLink;
   private readonly cacheConfig;
 
-  constructor(baseUrl: string, cacheConfig: InMemoryCacheConfig) {
-    this.baseUrl = baseUrl;
+  constructor(public baseUrl: string, cacheConfig: InMemoryCacheConfig) {
     this.cacheConfig = cacheConfig;
     this.setup();
 

@@ -1,13 +1,9 @@
 export class Book {
-  public author: string;
-  public isbn: string;
-  public title: string;
-
-  constructor(author: string, isbn: string, title: string) {
-    this.author = author;
-    this.isbn = isbn;
-    this.title = title;
-  }
+  constructor(
+    public author: string,
+    public isbn: string,
+    public title: string
+  ) {}
 }
 
 const books: Map<string, Book> = new Map();

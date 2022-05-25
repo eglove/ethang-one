@@ -1,4 +1,4 @@
-export type IntervalCallback = (time: number | never) => void;
+export type IntervalCallback = (time: number | undefined) => void;
 export type DateObjectArgumentTypes = Date | string | number;
 
 export const addDays = (
@@ -130,7 +130,7 @@ export const humanReadableLocalDateTime = (dateTime: Date | string): string => {
   };
 
   // @ts-expect-error Option values are correct
-  // eslint-disable-next-line new-cap
+
   return Intl.DateTimeFormat('en-US', options).format(
     convertTimeZone(dateTime)
   );
