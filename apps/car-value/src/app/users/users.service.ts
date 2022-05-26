@@ -1,8 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 
 import { User } from './user.entity';
+
+const USER_NOT_FOND = 'User not found.';
 
 @Injectable()
 export class UsersService {
@@ -16,11 +18,11 @@ export class UsersService {
     return this.repository.save(user);
   }
 
-  async findOne(id: number): Promise<User | undefined> {
+  async findOne(id: number): Promise<User> {
     const user = await this.repository.findOne({ where: { id } });
 
     if (user === null) {
-      return;
+      throw new NotFoundException(USER_NOT_FOND);
     }
 
     return user;
@@ -30,7 +32,25 @@ export class UsersService {
     return this.repository.find({ where: { email } });
   }
 
-  async update(id: number, attributes: Partial<User>): Promise<UpdateResult> {
-    return this.repository.update(id, attributes);
+  async update(id: number, attributes: Partial<User>): Promise<User> {
+    const user = await this.findOne(id);
+
+    if (typeof user === 'undefined') {
+      throw new NotFoundException(USER_NOT_FOND);
+    }
+
+    Object.assign(user, attributes);
+
+    return this.repository.save(user);
+  }
+
+  async remove(id: number): Promise<User> {
+    const user = await this.findOne(id);
+
+    if (typeof user === 'undefined') {
+      throw new NotFoundException(USER_NOT_FOND);
+    }
+
+    return this.repository.remove(user);
   }
 }

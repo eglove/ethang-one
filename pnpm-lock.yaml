@@ -1,11 +1,11 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@angular/core': ~13.3.9
+  '@angular/core': ~13.3.10
   '@apollo/client': ^3.6.5
   '@babel/core': ^7.18.2
   '@babel/preset-env': ^7.18.2
-  '@faker-js/faker': ^7.0.1
+  '@faker-js/faker': ^7.1.0
   '@nestjs/apollo': ^10.0.12
   '@nestjs/common': ^8.4.5
   '@nestjs/core': ^8.4.5
@@ -147,9 +147,9 @@ specifiers:
   zone.js: ^0.11.5
 
 dependencies:
-  '@angular/core': 13.3.9_rxjs@7.5.5+zone.js@0.11.5
+  '@angular/core': 13.3.10_rxjs@7.5.5+zone.js@0.11.5
   '@apollo/client': 3.6.5_graphql@16.5.0+react@18.1.0
-  '@faker-js/faker': 7.0.1
+  '@faker-js/faker': 7.1.0
   '@nestjs/apollo': 10.0.12_34016305da08f0e240883cff814fa05c
   '@nestjs/common': 8.4.5_5199533202e21c7185c9d97f881e2827
   '@nestjs/core': 8.4.5_9530c9e4e8c33b27551732908d05d2fb
@@ -395,8 +395,8 @@ packages:
       - chokidar
     dev: true
 
-  /@angular/core/13.3.9_rxjs@7.5.5+zone.js@0.11.5:
-    resolution: {integrity: sha512-LaY3yBDgN/efG11x/cwVeuC4gUG3YUMmk/sgAP3L1VGawYOiKoJ76decFpy6y4UgYPShQQRzpZQEVXF405jrLg==}
+  /@angular/core/13.3.10_rxjs@7.5.5+zone.js@0.11.5:
+    resolution: {integrity: sha512-7jH1a5wZdE6Ki2Dow7s6v1/5SfUcXsjAu3n523QSDlM078QG0p95npcqPseO9mNftG9MfRqBE7sl1Nb+ZK7eBg==}
     engines: {node: ^12.20.0 || ^14.15.0 || >=16.10.0}
     peerDependencies:
       rxjs: ^6.5.3 || ^7.4.0
@@ -2030,8 +2030,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@faker-js/faker/7.0.1:
-    resolution: {integrity: sha512-d7liuZh+aSPJ7JsWQ/Mu59HQDhYjWk7EPiVGMTL7KUEyrzYdKuMVfD3R0eCW8MezS20n4LoX/9zBfIV9zWdTrA==}
+  /@faker-js/faker/7.1.0:
+    resolution: {integrity: sha512-G+EvE29QUd9/6GTrwA/TK2AiN79W4ZG6kyJqj2RAqUqEd8A8ICnjA3Rj3F2IaaA+sq6WJzs4lh8GJJRDG1UH7A==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     dev: false
 
@@ -4105,7 +4105,7 @@ packages:
       babel-plugin-transform-typescript-metadata: 0.3.2
       browserslist: 4.20.3
       bytes: 3.1.2
-      caniuse-lite: 1.0.30001342
+      caniuse-lite: 1.0.30001343
       chalk: 4.1.0
       chokidar: 3.5.3
       copy-webpack-plugin: 9.1.0_webpack@5.72.1
@@ -7323,7 +7323,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.20.3
-      caniuse-lite: 1.0.30001342
+      caniuse-lite: 1.0.30001343
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -7335,7 +7335,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.3
-      caniuse-lite: 1.0.30001342
+      caniuse-lite: 1.0.30001343
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       picocolors: 0.2.1
@@ -7925,7 +7925,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001342
+      caniuse-lite: 1.0.30001343
       electron-to-chromium: 1.4.119
       escalade: 3.1.1
       node-releases: 2.0.3
@@ -8137,12 +8137,12 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.20.3
-      caniuse-lite: 1.0.30001342
+      caniuse-lite: 1.0.30001343
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  /caniuse-lite/1.0.30001342:
-    resolution: {integrity: sha512-bn6sOCu7L7jcbBbyNhLg0qzXdJ/PMbybZTH/BA6Roet9wxYRm6Tr9D0s0uhLkOZ6MSG+QU6txUgdpr3MXIVqjA==}
+  /caniuse-lite/1.0.30001343:
+    resolution: {integrity: sha512-8KeCrAtPMabo/XW14B+R9sZYoClx1n0b+WYgwDKZPtWR3TcdvWzdSy7mPyFEmR5WU1St9v1PW6sdO5dkFOEzfA==}
 
   /canvg/3.0.10:
     resolution: {integrity: sha512-qwR2FRNO9NlzTeKIPIKpnTY6fqwuYSequ8Ru8c0YkYU7U0oW+hLUvWadLvAu1Rl72OMNiFhoLu4f8eUjQ7l/+Q==}
@@ -9512,7 +9512,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.3
-      caniuse-lite: 1.0.30001342
+      caniuse-lite: 1.0.30001343
       css-rule-stream: 1.1.0
       duplexer2: 0.0.2
       ldjson-stream: 1.2.1
@@ -14800,7 +14800,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 12.1.6
-      caniuse-lite: 1.0.30001342
+      caniuse-lite: 1.0.30001343
       postcss: 8.4.5
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0

@@ -1,0 +1,25 @@
+### Create a new user
+POST {{NX_CAR_VALUE_HOST_URL}}/auth/signup
+Content-Type: application/json
+
+{
+  "email": "example@example.com",
+  "password": "password"
+}
+
+### Find a user given an id
+GET {{NX_CAR_VALUE_HOST_URL}}/auth/5
+
+### Find all users with a given email
+GET {{NX_CAR_VALUE_HOST_URL}}/auth?email=example@example.com
+
+### Delete a user give an id
+DELETE {{NX_CAR_VALUE_HOST_URL}}/auth/3
+
+### Update a user
+PATCH {{NX_CAR_VALUE_HOST_URL}}/auth/4
+Content-Type: application/json
+
+{
+  "email": "example3@example.com"
+}
