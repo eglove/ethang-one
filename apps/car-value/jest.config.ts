@@ -8,7 +8,6 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   preset: '../../jest.preset.js',
-  testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': 'ts-jest',
   },
