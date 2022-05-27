@@ -1,6 +1,3 @@
-/* eslint-disable unicorn/no-abusive-eslint-disable */
-/* eslint-disable */
-// @ts-nocheck
 /// <reference types="next" />
 /// <reference types="next/image-types/global" />
 
