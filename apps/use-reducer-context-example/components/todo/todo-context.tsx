@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { createContext, Dispatch, useContext } from 'react';
 import { useImmerReducer } from 'use-immer';
 
@@ -8,7 +9,9 @@ interface TodoContextWrapperProperties {
 }
 
 export const INITIAL_TODO_STATE: TodoStateType = {
-  todoList: ['get milk', 'delete redux', 'be merry', 'reddit is dumb'],
+  todoList: Array.from({ length: 50 }, () => {
+    return faker.random.alpha(10);
+  }),
 };
 
 export const TodoStateContext =
