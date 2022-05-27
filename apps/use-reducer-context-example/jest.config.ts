@@ -1,6 +1,6 @@
 export default {
   coverageDirectory: '../../coverage/apps/use-reducer-context-example',
-  displayName: 'harry-wolff-reducer',
+  displayName: 'use-reducer-context-example',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   preset: '../../jest.preset.js',
   transform: {

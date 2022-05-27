@@ -12,7 +12,7 @@
       "rules": {
         "@next/next/no-html-link-for-pages": [
           "error",
-          "apps/harry-wolff-reducer/pages"
+          "apps/use-reducer-context-example/pages"
         ]
       }
     },
