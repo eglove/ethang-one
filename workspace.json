@@ -11,7 +11,6 @@
     "node-environment": "libs/node-environment",
     "react-components": "libs/react-components",
     "react-hooks": "libs/react-hooks",
-    "use-reducer-context-example": "apps/use-reducer-context-example",
     "util-cli": "libs/util-cli",
     "util-typescript": "libs/util-typescript",
     "util_wasm": "libs/util-wasm",
