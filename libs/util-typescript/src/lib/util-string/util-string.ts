@@ -84,6 +84,14 @@ export const sortStringArray = (array: string[]): string[] => {
   });
 };
 
+export const isStringNot = (string: unknown, not?: string): boolean => {
+  if (typeof not === 'undefined') {
+    return typeof string === string;
+  }
+
+  return typeof string === 'string' && string !== not;
+};
+
 export const toCapitalizedWords = (string: string): string => {
   const words = string.match(/[A-Za-z][a-z]*|\d+/g) ?? [];
 
