@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="UnattendedHostPersistenceState">
+    <option name="openedFilesInfos">
+      <list>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="84" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/apps/ruby_test/config/routes.rb" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="76" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/apps/ruby_test/app/controllers/pages_controller.rb" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/apps/ruby_test/app/views/pages/about.html.erb" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/apps/ruby_test/app/views/pages/home.html.erb" />
+        </OpenedFileInfo>
+      </list>
+    </option>
+  </component>
+</project>
