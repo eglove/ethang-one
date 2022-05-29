@@ -259,6 +259,12 @@ export const technologyImages = {
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668184/technology/python.svg',
     width: 110,
   }),
+  rails: new Image({
+    altText: 'Rails',
+    height: 32,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1653774869/technology/rails.svg',
+    width: 32,
+  }),
   react: new Image({
     altText: 'React',
     height: 595,
@@ -276,6 +282,12 @@ export const technologyImages = {
     height: 187,
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668185/technology/remix.svg',
     width: 187,
+  }),
+  ruby: new Image({
+    altText: 'Ruby',
+    height: 198,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1653774869/technology/ruby.svg',
+    width: 198,
   }),
   sanity: new Image({
     altText: 'Sanity',
