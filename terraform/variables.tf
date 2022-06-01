@@ -2,6 +2,7 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 variable "aws_region" {}
 variable "aws_region_sub" {}
+variable "digital_ocean" {}
 variable "ssh_public_key_path" {}
 
 variable "public_cidr_block" {
