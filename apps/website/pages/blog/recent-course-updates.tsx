@@ -1,12 +1,12 @@
 import { blogs } from '@ethang/local-database';
-import { NextLink } from '@ethang/react-components';
+import { LinkComponent, NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
 function RecentCourseUpdates(): JSX.Element {
   return (
     <StaticBlogLayout blog={blogs.recentCourseUpdates}>
-      <h2>April 2022</h2>
+      <h2>June 2022</h2>
       <p>
         Every month changes to the{' '}
         <NextLink linkProperties={{ href: '/courses' }}>
@@ -16,7 +16,9 @@ function RecentCourseUpdates(): JSX.Element {
         through this course list, if you want to commit to the current version,
         you can{' '}
         <NextLink
-          linkProperties={{ href: '/documents/Development_Curriculum.pdf' }}
+          linkProperties={{
+            href: 'https://drive.google.com/file/d/1EZMNkMMsBJLpPsYuCU1XCmsJhcpH8Hkf/view?usp=sharing',
+          }}
         >
           download this months list here
         </NextLink>
@@ -27,54 +29,37 @@ function RecentCourseUpdates(): JSX.Element {
       </p>
       <h2>Courses Added</h2>
       <p>
-        <strong>CompTIA A+ Core 1 & 2</strong>: These two courses are built for
-        people wanting to get into IT technical support, it&apos;s not meant for
-        developers. But I also believe the content covered is very important.
-        You should be familiar with various operating systems, virtual machines,
-        basic networking and a lot of the subjects covered here. Personally I
-        think the CompTIA certifications themselves are a waste of time but of
-        course the pursuit of certifications are always your decision to make.
+        <strong>CSS for JavaScript Developers</strong>: I was very impressed by
+        this course and the level of detail it goes into CSS. I consider myself
+        able to get the job done with CSS. I know to keep it simple and scoped
+        and there&apos;s not much I can&apos;t do with it. But that doesn&apos;t
+        mean I had ever heard of margin collapse before. I definitely
+        didn&apos;t know layout algorithms were a thing. That explained so much
+        for me. I was a little disappointed by how each module followed the
+        same, uninteresting formula. You can{' '}
+        <LinkComponent
+          linkProperties={{ href: '/blog/review-css-javascript-developers' }}
+        >
+          read my full review here
+        </LinkComponent>
+        , but this is still the best course for CSS out there.
       </p>
       <p>
-        <strong>SEO Training Masterclass</strong>: SEO isn&apos;t covered very
-        often, and when it is, it&apos;s not very well covered. When you get
-        into Next.js you will find very lackluster explanations of
-        &ldquo;SEO&rdquo; that center around static generation and title tags.
-        SEO is more than that. And every web dev should have an understanding of
-        schema markup, link building and site structure. This course will cover
-        all of those and more in a great detail.
-      </p>
-      <p>
-        <strong>SCRUM for Beginners / Agile & SCRUM for Product Owners</strong>:
-        As you get into your first development positions you&apos;ll pick up the
-        general idea of what Agile and SCRUM are. Every company has a different
-        interpretation of what it is. But learning these things officially from
-        the Agile Manifesto can really help you make better decisions if you
-        find yourself in a SCRUM master or product owner role.
+        <strong>DevOps Bootcamp: Terraform</strong>: Terraform has to be one of
+        the cooler ways of managing cloud resources. Declarative markup to
+        deploy, destroy and manage resources on all the major cloud platforms,
+        and many others. The course is well presented, it will definitely get
+        you started and thinking about infrastructure as code.
       </p>
       <h2>Courses Removed</h2>
       <p>
-        <strong>Complete Junior To Senior Web Developer</strong>: This is a
-        great course. But it doesn&apos;t cover any one topic to any decent
-        depth. You&apos;ll learn very basic performance analysis in the new SEO
-        course and get into better performance analysis in Epic React. With
-        CI/CD you&apos;ll pick up how to get started with GitHub automation and
-        I&apos;m currently looking at a new Terraform course. As this list
-        grows, this course has simply been replaced. For each particular topic
-        that&apos;s covered in Junior to Senior, you will either find entire
-        courses, or more in depth explorations of that topic in other courses
-        here.
-      </p>
-      <p>
-        <strong>Complete Web & Mobile Designer</strong>: Similar to Complete
-        Junior to Senior, this course just isn&apos;t detailed enough to remain
-        on this list. This list is also for development, not design. I would
-        love to find a good UX course that more developers could learn from. But
-        Complete Web & Mobile Designer is more about using tools like Figma and
-        really doesn&apos;t provide a lot of overlap with what&apos;s here.
-        It&apos;s just out of place here. If I can find something on advanced
-        CSS, maybe on building HTML5 games I think that would be a more
-        appropriate subject for this list.
+        <strong>Agile & Scrum for Product Owners</strong>: This course was only
+        removed because it&apos;s a near word for word copy of Scrum for
+        Beginners. When I initially looked at these two I thought they would be
+        very different, and continued to tell myself that when I originally
+        recommended both. But if I&apos;m being honest, you only need one. And
+        considering this list is for developers, you may as well go with the one
+        that seems to be titled more for developers.
       </p>
     </StaticBlogLayout>
   );

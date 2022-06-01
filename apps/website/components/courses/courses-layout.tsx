@@ -25,10 +25,10 @@ export function CoursesLayout(): JSX.Element {
           This page changes often, lock in your plan by{' '}
           <NextLink
             linkProperties={{
-              href: 'https://drive.google.com/file/d/1EZMNkMMsBJLpPsYuCU1XCmsJhcpH8Hkf/view',
+              href: 'https://drive.google.com/file/d/1EZMNkMMsBJLpPsYuCU1XCmsJhcpH8Hkf/view?usp=sharing',
             }}
           >
-            downloading the May 2022 snapshot
+            downloading the June 2022 snapshot
           </NextLink>{' '}
           (PDF).
         </p>
