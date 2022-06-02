@@ -28,7 +28,7 @@
     "extends browserslist-config-google"
   ],
   "dependencies": {
-    "@angular/core": "~13.3.11",
+    "@angular/core": "~14.0.0",
     "@apollo/client": "^3.6.6",
     "@faker-js/faker": "^7.1.0",
     "@nestjs/apollo": "^10.0.14",
