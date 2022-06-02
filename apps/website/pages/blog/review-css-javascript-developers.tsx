@@ -1,5 +1,5 @@
 import { blogs, courses, persons } from '@ethang/local-database';
-import { LinkComponent } from '@ethang/react-components';
+import { NextLink } from '@ethang/react-components';
 import { JsonLd } from 'react-schemaorg';
 import { Review } from 'schema-dts';
 
@@ -84,9 +84,9 @@ function ReviewCssJavascriptDevelopers(): JSX.Element {
         information taught in this course is paramount, and missing among a lot
         of professional developers. With great presentation, competent detail,
         and its ability to rise to the top of the category, I give{' '}
-        <LinkComponent linkProperties={{ href: 'https://css-for-js.com/' }}>
+        <NextLink linkProperties={{ href: 'https://css-for-js.com/' }}>
           Josh Comeau&apos;s CSS for JavaScript Developers
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         a 5 out of 5.
       </p>
     </StaticBlogLayout>

@@ -1,4 +1,5 @@
-import { Container } from '../components/common/container/container';
+import { Container } from '@ethang/react-components';
+
 import { ResumeLayout } from '../components/resume/resume-layout';
 
 export function Resume(): JSX.Element {

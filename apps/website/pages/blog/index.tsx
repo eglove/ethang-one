@@ -1,5 +1,6 @@
+import { Container } from '@ethang/react-components';
+
 import { BlogsLayout } from '../../components/blog/blogs/blogs-layout';
-import { Container } from '../../components/common/container/container';
 
 function Blogs(): JSX.Element {
   return (

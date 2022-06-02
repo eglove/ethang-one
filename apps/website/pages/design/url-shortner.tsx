@@ -1,7 +1,7 @@
 import { allImages } from '@ethang/local-database';
+import { Container } from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import { Container } from '../../components/common/container/container';
 import { HeadTag } from '../../components/common/head-tag/head-tag';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 

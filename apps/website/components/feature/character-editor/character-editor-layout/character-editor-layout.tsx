@@ -1,6 +1,6 @@
+import { Container } from '@ethang/react-components';
 import { useState } from 'react';
 
-import { Container } from '../../../common/container/container';
 import { Character } from '../character/character';
 import { defaultClothesColor, defaultSkinColor } from '../constants';
 import { ControlPane } from '../control-pane/control-pane';
@@ -27,7 +27,7 @@ export function CharacterEditorLayout(): JSX.Element {
     <Container>
       <main className={styles.CharacterEditor}>
         <div className={styles.PerspectiveEffect} />
-        <MaxWidthWrapper className={styles.ControlColumn}>
+        <MaxWidthWrapper className="">
           <header className={styles.Header}>
             <h1 className={styles.Title}>Create Your Character</h1>
             <p className={styles.Description}>

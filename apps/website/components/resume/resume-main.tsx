@@ -22,7 +22,7 @@ export function ResumeMain(): JSX.Element {
         location="St. Louis, MO"
         jobDetails={[
           'Worked with technologies such as WebRTC, websockets, GraphQL, NextJS, React, Apollo, NX, Node and more.',
-          'Reworked team collaboration app from scratch. Took it from a Twilio example app and introduced state management, caching, and smart network policies with Apollo Client. As well as Next.js for easier routing, organization, and to introduce an app level API when needed.',
+          'Reworked team collaboration app from scratch. Took it from a Twilio example app and introduced context management, caching, and smart network policies with Apollo Client. As well as Next.js for easier routing, organization, and to introduce an app level API when needed.',
           'Created GraphQL server using Apollo Server and Prisma and wrote performance abstractions that would be easy to use for developers unfamiliar with JavaScript.',
           'Developed monorepo architecture using NX by splitting projects into reusable components across a single, manageable repository.',
           'Created Node CLI around NX monorepo to use Git Sparse Checkout to keep git pull size small for local development. As well as a way to easily run build and creation scripts without the need to learn NX.',

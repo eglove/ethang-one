@@ -1,5 +1,5 @@
 import { Blog, Course } from '@ethang/local-database';
-import { Breadcrumbs } from '@ethang/react-components';
+import { Breadcrumbs, Container } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import {
   formatList,
@@ -13,7 +13,6 @@ import { JsonLd, jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema, Review } from 'schema-dts';
 
 import { BASE_URL } from '../../../util/constants';
-import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { ImageContainer } from '../../common/image-container/image-container';
 import styles from './blog-layout.module.css';

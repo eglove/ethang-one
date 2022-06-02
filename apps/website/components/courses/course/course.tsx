@@ -1,5 +1,5 @@
 import { Course as CourseModel } from '@ethang/local-database';
-import { LinkComponent } from '@ethang/react-components';
+import { NextLink } from '@ethang/react-components';
 import { Dispatch, SetStateAction } from 'react';
 
 import styles from './course.module.css';
@@ -61,9 +61,9 @@ export function Course({
           </div>
           <div className={styles.ReviewUrl}>
             {course.ratingUrl && (
-              <LinkComponent linkProperties={{ href: course.ratingUrl.href }}>
+              <NextLink linkProperties={{ href: course.ratingUrl.href }}>
                 Full Review
-              </LinkComponent>
+              </NextLink>
             )}
           </div>
           <div className={styles.Summary}>{children}</div>

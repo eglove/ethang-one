@@ -1,9 +1,8 @@
-import { Breadcrumbs, NextLink } from '@ethang/react-components';
+import { Breadcrumbs, Container, NextLink } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import { DiscussionEmbed } from 'disqus-react';
 
 import { BASE_URL } from '../../util/constants';
-import { Container } from '../common/container/container';
 import { HeadTag } from '../common/head-tag/head-tag';
 import { SortedCourses } from './course/sorted-courses';
 

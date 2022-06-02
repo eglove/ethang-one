@@ -1,6 +1,6 @@
+import { Container } from '@ethang/react-components';
 import { useEffect, useMemo } from 'react';
 
-import { Container } from '../../../common/container/container';
 import { HermitStream } from '../../api/hermit-stream';
 import { useGetHermitStreams } from '../../api/use-get-hermit-streams';
 import {

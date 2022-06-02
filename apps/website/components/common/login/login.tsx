@@ -1,5 +1,6 @@
 import { Constant, ENV_KEYS } from '@ethang/node-environment';
 import {
+  Container,
   InputType,
   SimpleForm,
   SimpleFormButton,
@@ -11,7 +12,6 @@ import { useContext, useState } from 'react';
 
 import { DashboardContext } from '../../../pages/dashboard';
 import commonStyles from '../../../styles/common.module.css';
-import { Container } from '../container/container';
 
 export const Login = observer((): JSX.Element => {
   const dashboardState = useContext(DashboardContext);

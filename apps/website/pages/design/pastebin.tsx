@@ -1,8 +1,7 @@
 import { allImages } from '@ethang/local-database';
-import { LinkComponent } from '@ethang/react-components';
+import { Container, NextLink } from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import { Container } from '../../components/common/container/container';
 import { HeadTag } from '../../components/common/head-tag/head-tag';
 import { ImageContainer } from '../../components/common/image-container/image-container';
 
@@ -81,9 +80,9 @@ function Pastebin(): JSX.Element {
       <h2>Design Considerations</h2>
       <p>
         Pastebin shares a lot of requirements with{' '}
-        <LinkComponent linkProperties={{ href: '/design/url-shortner' }}>
+        <NextLink linkProperties={{ href: '/design/url-shortner' }}>
           URL Shortening Service
-        </LinkComponent>
+        </NextLink>
         .
       </p>
       <p>
@@ -120,9 +119,9 @@ function Pastebin(): JSX.Element {
       <p>
         <strong>Application Layer:</strong> We can use the same Key Generation
         Service mentioned in{' '}
-        <LinkComponent linkProperties={{ href: '/design/url-shortner' }}>
+        <NextLink linkProperties={{ href: '/design/url-shortner' }}>
           URL Shortner
-        </LinkComponent>{' '}
+        </NextLink>{' '}
         to generate unique keys for the Pastebin URLs ahead of time in an
         efficient manner.
       </p>

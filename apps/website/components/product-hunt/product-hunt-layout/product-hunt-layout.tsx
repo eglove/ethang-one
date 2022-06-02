@@ -1,9 +1,8 @@
-import { NextLink } from '@ethang/react-components';
+import { Container, NextLink } from '@ethang/react-components';
 import getYouTubeID from 'get-youtube-id';
 import { useEffect, useState } from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
-import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { LoadingImage } from '../../common/loading-image/loading-image';
 import styles from './product-hunt-layout.module.css';

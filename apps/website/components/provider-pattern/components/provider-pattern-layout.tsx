@@ -1,7 +1,7 @@
+import { Container } from '@ethang/react-components';
 import { useAnimationInterval } from '@ethang/react-hooks';
 import { faker } from '@faker-js/faker';
 
-import { Container } from '../../common/container/container';
 import {
   useProviderDispatch,
   useProviderState,

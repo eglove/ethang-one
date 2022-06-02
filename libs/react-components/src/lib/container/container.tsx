@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import styles from '../styles/common.module.css';
+import styles from './container.module.css';
 
 interface ContainerProperties {
   children: JSX.Element[] | JSX.Element;
@@ -16,7 +16,12 @@ export function Container({
 }: ContainerProperties): JSX.Element {
   return (
     <div>
-      <div {...containerProperties} className={styles.container}>
+      <div
+        {...containerProperties}
+        className={`${containerProperties?.className ?? ''} ${
+          styles.Container
+        }`}
+      >
         {children}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { allImages } from '@ethang/local-database';
+import { Container } from '@ethang/react-components';
 
-import { Container } from '../container/container';
 import { ImageComponent } from '../image-component/image-component';
 
 export function LoadingImage(): JSX.Element {

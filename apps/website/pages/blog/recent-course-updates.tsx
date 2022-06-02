@@ -1,5 +1,5 @@
 import { blogs } from '@ethang/local-database';
-import { LinkComponent, NextLink } from '@ethang/react-components';
+import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
@@ -37,11 +37,11 @@ function RecentCourseUpdates(): JSX.Element {
         didn&apos;t know layout algorithms were a thing. That explained so much
         for me. I was a little disappointed by how each module followed the
         same, uninteresting formula. You can{' '}
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: '/blog/review-css-javascript-developers' }}
         >
           read my full review here
-        </LinkComponent>
+        </NextLink>
         , but this is still the best course for CSS out there.
       </p>
       <p>

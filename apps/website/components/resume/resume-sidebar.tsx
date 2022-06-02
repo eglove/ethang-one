@@ -1,4 +1,4 @@
-import { LinkComponent } from '@ethang/react-components';
+import { NextLink } from '@ethang/react-components';
 
 import styles from './resume-layout.module.css';
 import { ResumeSidebarHeader } from './resume-sidebar-header';
@@ -10,26 +10,26 @@ export function ResumeSidebar(): JSX.Element {
       <div>St. Louis, MO</div>
       <div>(816) 542-0568</div>
       <div>
-        <LinkComponent linkProperties={{ href: 'https://ethang.dev' }}>
+        <NextLink linkProperties={{ href: 'https://ethang.dev' }}>
           EthanG.dev
-        </LinkComponent>
+        </NextLink>
       </div>
       <div>
-        <LinkComponent linkProperties={{ href: 'https://github.com/eglove' }}>
+        <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
           github.com/eglove
-        </LinkComponent>
+        </NextLink>
       </div>
       <div>
-        <LinkComponent
+        <NextLink
           linkProperties={{ href: 'https://linkedin.com/in/ethan-glover' }}
         >
           linkedin.com/in/ethan-glover
-        </LinkComponent>
+        </NextLink>
       </div>
       <div>
-        <LinkComponent linkProperties={{ href: 'mailto:hello@ethang.email' }}>
+        <NextLink linkProperties={{ href: 'mailto:hello@ethang.email' }}>
           hello@ethang.email
-        </LinkComponent>
+        </NextLink>
       </div>
       <ResumeSidebarHeader text="About Me" />
       <p>

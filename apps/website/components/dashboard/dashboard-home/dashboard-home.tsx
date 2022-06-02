@@ -1,4 +1,4 @@
-import { NextLink } from '@ethang/react-components';
+import { Container, NextLink } from '@ethang/react-components';
 import { fetcher } from '@ethang/util-typescript';
 import { Habit } from '@prisma/client';
 import { observer } from 'mobx-react-lite';
@@ -6,7 +6,6 @@ import { useContext } from 'react';
 import useSWR from 'swr';
 
 import { DashboardContext } from '../../../pages/dashboard';
-import { Container } from '../../common/container/container';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { Login } from '../../common/login/login';
 import { Calories } from '../calories';

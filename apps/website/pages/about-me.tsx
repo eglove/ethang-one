@@ -1,11 +1,10 @@
 import { allImages } from '@ethang/local-database';
-import { Breadcrumbs, NextLink } from '@ethang/react-components';
+import { Breadcrumbs, Container, NextLink } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import { DiscussionEmbed } from 'disqus-react';
 import getYouTubeID from 'get-youtube-id';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
-import { Container } from '../components/common/container/container';
 import { HeadTag } from '../components/common/head-tag/head-tag';
 import { ImageComponent } from '../components/common/image-component/image-component';
 import styles from '../components/common/styles/common.module.css';

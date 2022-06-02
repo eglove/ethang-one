@@ -1,6 +1,7 @@
 export * from './lib/breadcrumbs/breadcrumbs';
 export * from './lib/breadcrumbs/crumb';
 export * from './lib/button/button';
+export * from './lib/container/container';
 export * from './lib/icon-component/icon';
 export * from './lib/icon-input/icon-input';
 export * from './lib/link-component/link-component';

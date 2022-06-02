@@ -1,4 +1,5 @@
 import {
+  Container,
   SimpleForm,
   SimpleFormButton,
   SimpleFormInput,
@@ -6,7 +7,6 @@ import {
 import { JSON_HEADER } from '@ethang/util-typescript';
 import { useState } from 'react';
 
-import { Container } from '../../../components/common/container/container';
 import { HeadTag } from '../../../components/common/head-tag/head-tag';
 import commonStyles from '../../../styles/common.module.css';
 

@@ -38,7 +38,7 @@ export const blogs = {
     description:
       'Learning about how the Supreme Court makes decisions on constitutional arguments.',
     featuredImage: allImages.blogImages.supremeCourt,
-    slug: 'defend-yourself-against-the-state',
+    slug: 'defend-yourself-against-the-context',
     title: 'Defend Yourself Against the State',
     updatedAt: new Date('06/26/2016, 03:43 AM'),
   }),
