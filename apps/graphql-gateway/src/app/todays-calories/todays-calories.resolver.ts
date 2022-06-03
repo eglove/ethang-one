@@ -1,4 +1,8 @@
-import { TodaysCalories } from '@ethang/types';
+import {
+  FindFirstTodaysCaloriesArgs as FindFirstTodaysCaloriesArguments,
+  TodaysCalories,
+  UpdateOneHabitArgs as UpdateOneTodaysCaloriesArguments,
+} from '@ethang/types';
 import { Args, Query, Resolver } from '@nestjs/graphql';
 
 import { TodaysCaloriesService } from './todays-calories.service';
