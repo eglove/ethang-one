@@ -7,7 +7,7 @@
     "update": "npx --yes pnpm up -i --latest",
     "buildEg": "npx nx build ethang-cli",
     "eg": "node dist/apps/ethang-cli/main.js",
-    "preCommit": "npx prisma generate && npx cross-env npm run browsersList && npm run lintAffected",
+    "preCommit": "npx cross-env npm run browsersList && npm run lintAffected",
     "postCommit": "npx cross-env npm run buildAffected && npm run testAffected && npm run e2eAffected",
     "websiteDeploy": "npx nx build website --prod --verbose",
     "lintStaged": "npx pnpm lint-staged",
