@@ -2,10 +2,10 @@ import {
   CreateOneHabitArgs as CreateOneHabitArguments,
   FindManyHabitArgs as FindManyHabitArguments,
   FindUniqueHabitArgs as FindUniqueHabitArguments,
+  Habit,
   UpdateOneHabitArgs as UpdateOneHabitArguments,
 } from '@ethang/types';
 import { Injectable } from '@nestjs/common';
-import { Habit } from '@prisma/client';
 
 import { PrismaService } from '../prisma/prisma.service';
 

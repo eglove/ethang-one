@@ -1,19 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
-import { Type } from 'class-transformer';
-
 import { UnusedKeyCreateInput } from './unused-key-create.input';
+import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneUnusedKeyArgs {
-  @Field(
-    () => {
-      return UnusedKeyCreateInput;
-    },
-    { nullable: false }
-  )
-  @Type(() => {
-    return UnusedKeyCreateInput;
-  })
-  data!: UnusedKeyCreateInput;
+
+    @Field(() => UnusedKeyCreateInput, {nullable:false})
+    @Type(() => UnusedKeyCreateInput)
+    data!: UnusedKeyCreateInput;
 }

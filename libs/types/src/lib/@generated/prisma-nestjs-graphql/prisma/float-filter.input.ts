@@ -1,72 +1,32 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
-
 import { NestedFloatFilter } from './nested-float-filter.input';
 
 @InputType()
 export class FloatFilter {
-  @Field(
-    () => {
-      return Float;
-    },
-    { nullable: true }
-  )
-  equals?: number;
 
-  @Field(
-    () => {
-      return [Float];
-    },
-    { nullable: true }
-  )
-  in?: number[];
+    @Field(() => Float, {nullable:true})
+    equals?: number;
 
-  @Field(
-    () => {
-      return [Float];
-    },
-    { nullable: true }
-  )
-  notIn?: number[];
+    @Field(() => [Float], {nullable:true})
+    in?: Array<number>;
 
-  @Field(
-    () => {
-      return Float;
-    },
-    { nullable: true }
-  )
-  lt?: number;
+    @Field(() => [Float], {nullable:true})
+    notIn?: Array<number>;
 
-  @Field(
-    () => {
-      return Float;
-    },
-    { nullable: true }
-  )
-  lte?: number;
+    @Field(() => Float, {nullable:true})
+    lt?: number;
 
-  @Field(
-    () => {
-      return Float;
-    },
-    { nullable: true }
-  )
-  gt?: number;
+    @Field(() => Float, {nullable:true})
+    lte?: number;
 
-  @Field(
-    () => {
-      return Float;
-    },
-    { nullable: true }
-  )
-  gte?: number;
+    @Field(() => Float, {nullable:true})
+    gt?: number;
 
-  @Field(
-    () => {
-      return NestedFloatFilter;
-    },
-    { nullable: true }
-  )
-  not?: NestedFloatFilter;
+    @Field(() => Float, {nullable:true})
+    gte?: number;
+
+    @Field(() => NestedFloatFilter, {nullable:true})
+    not?: NestedFloatFilter;
 }

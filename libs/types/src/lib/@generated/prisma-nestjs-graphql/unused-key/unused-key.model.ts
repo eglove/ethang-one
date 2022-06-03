@@ -4,19 +4,10 @@ import { ID } from '@nestjs/graphql';
 
 @ObjectType()
 export class UnusedKey {
-  @Field(
-    () => {
-      return ID;
-    },
-    { nullable: false }
-  )
-  id!: string;
 
-  @Field(
-    () => {
-      return String;
-    },
-    { nullable: false }
-  )
-  key!: string;
+    @Field(() => ID, {nullable:false})
+    id!: string;
+
+    @Field(() => String, {nullable:false})
+    key!: string;
 }

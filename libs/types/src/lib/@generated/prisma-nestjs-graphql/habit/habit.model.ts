@@ -4,35 +4,16 @@ import { ID } from '@nestjs/graphql';
 
 @ObjectType()
 export class Habit {
-  @Field(
-    () => {
-      return ID;
-    },
-    { nullable: false }
-  )
-  id!: string;
 
-  @Field(
-    () => {
-      return String;
-    },
-    { nullable: false }
-  )
-  name!: string;
+    @Field(() => ID, {nullable:false})
+    id!: string;
 
-  @Field(
-    () => {
-      return String;
-    },
-    { nullable: false }
-  )
-  recurInterval!: string;
+    @Field(() => String, {nullable:false})
+    name!: string;
 
-  @Field(
-    () => {
-      return Date;
-    },
-    { nullable: false }
-  )
-  dueDate!: Date;
+    @Field(() => String, {nullable:false})
+    recurInterval!: string;
+
+    @Field(() => Date, {nullable:false})
+    dueDate!: Date;
 }

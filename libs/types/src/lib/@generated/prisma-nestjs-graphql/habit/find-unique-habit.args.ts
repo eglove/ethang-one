@@ -1,19 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
-import { Type } from 'class-transformer';
-
 import { HabitWhereUniqueInput } from './habit-where-unique.input';
+import { Type } from 'class-transformer';
 
 @ArgsType()
 export class FindUniqueHabitArgs {
-  @Field(
-    () => {
-      return HabitWhereUniqueInput;
-    },
-    { nullable: false }
-  )
-  @Type(() => {
-    return HabitWhereUniqueInput;
-  })
-  where!: HabitWhereUniqueInput;
+
+    @Field(() => HabitWhereUniqueInput, {nullable:false})
+    @Type(() => HabitWhereUniqueInput)
+    where!: HabitWhereUniqueInput;
 }

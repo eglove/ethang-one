@@ -1,65 +1,30 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-
-import { DateTimeFilter } from '../prisma/date-time-filter.input';
-import { FloatFilter } from '../prisma/float-filter.input';
 import { StringFilter } from '../prisma/string-filter.input';
+import { FloatFilter } from '../prisma/float-filter.input';
+import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
 export class FinanceRecordWhereInput {
-  @Field(
-    () => {
-      return [FinanceRecordWhereInput];
-    },
-    { nullable: true }
-  )
-  AND?: FinanceRecordWhereInput[];
 
-  @Field(
-    () => {
-      return [FinanceRecordWhereInput];
-    },
-    { nullable: true }
-  )
-  OR?: FinanceRecordWhereInput[];
+    @Field(() => [FinanceRecordWhereInput], {nullable:true})
+    AND?: Array<FinanceRecordWhereInput>;
 
-  @Field(
-    () => {
-      return [FinanceRecordWhereInput];
-    },
-    { nullable: true }
-  )
-  NOT?: FinanceRecordWhereInput[];
+    @Field(() => [FinanceRecordWhereInput], {nullable:true})
+    OR?: Array<FinanceRecordWhereInput>;
 
-  @Field(
-    () => {
-      return StringFilter;
-    },
-    { nullable: true }
-  )
-  id?: StringFilter;
+    @Field(() => [FinanceRecordWhereInput], {nullable:true})
+    NOT?: Array<FinanceRecordWhereInput>;
 
-  @Field(
-    () => {
-      return StringFilter;
-    },
-    { nullable: true }
-  )
-  accountName?: StringFilter;
+    @Field(() => StringFilter, {nullable:true})
+    id?: StringFilter;
 
-  @Field(
-    () => {
-      return FloatFilter;
-    },
-    { nullable: true }
-  )
-  currentValue?: FloatFilter;
+    @Field(() => StringFilter, {nullable:true})
+    accountName?: StringFilter;
 
-  @Field(
-    () => {
-      return DateTimeFilter;
-    },
-    { nullable: true }
-  )
-  recordedDate?: DateTimeFilter;
+    @Field(() => FloatFilter, {nullable:true})
+    currentValue?: FloatFilter;
+
+    @Field(() => DateTimeFilter, {nullable:true})
+    recordedDate?: DateTimeFilter;
 }

@@ -3,11 +3,7 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class StringFieldUpdateOperationsInput {
-  @Field(
-    () => {
-      return String;
-    },
-    { nullable: true }
-  )
-  set?: string;
+
+    @Field(() => String, {nullable:true})
+    set?: string;
 }

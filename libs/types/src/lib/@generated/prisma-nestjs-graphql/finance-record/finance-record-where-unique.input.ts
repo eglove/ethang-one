@@ -3,11 +3,7 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class FinanceRecordWhereUniqueInput {
-  @Field(
-    () => {
-      return String;
-    },
-    { nullable: true }
-  )
-  id?: string;
+
+    @Field(() => String, {nullable:true})
+    id?: string;
 }

@@ -1,19 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
-import { Type } from 'class-transformer';
-
 import { FinanceRecordCreateInput } from './finance-record-create.input';
+import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneFinanceRecordArgs {
-  @Field(
-    () => {
-      return FinanceRecordCreateInput;
-    },
-    { nullable: false }
-  )
-  @Type(() => {
-    return FinanceRecordCreateInput;
-  })
-  data!: FinanceRecordCreateInput;
+
+    @Field(() => FinanceRecordCreateInput, {nullable:false})
+    @Type(() => FinanceRecordCreateInput)
+    data!: FinanceRecordCreateInput;
 }

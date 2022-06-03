@@ -14,15 +14,23 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
-type AffectedRows {
-  count: Int!
-}
-
 type Habit {
   id: ID!
   name: String!
   recurInterval: String!
   dueDate: DateTime!
+}
+
+type AffectedRows {
+  count: Int!
+}
+
+type TodaysCalories {
+  id: ID!
+  birthday: DateTime!
+  currentCalories: Int!
+  height: Int!
+  weight: Float!
 }
 
 type UnusedKey {
@@ -50,6 +58,7 @@ type Query {
   getUnusedKey: UnusedKey
   financeRecord(where: FinanceRecordWhereUniqueInput!): FinanceRecord
   financeRecords(where: FinanceRecordWhereInput, orderBy: [FinanceRecordOrderByWithRelationInput!], cursor: FinanceRecordWhereUniqueInput, take: Int, skip: Int, distinct: [FinanceRecordScalarFieldEnum!]): [FinanceRecord]!
+  firstTodaysCalories(where: TodaysCaloriesWhereInput, orderBy: [TodaysCaloriesOrderByWithRelationInput!], cursor: TodaysCaloriesWhereUniqueInput, take: Int, skip: Int, distinct: [TodaysCaloriesScalarFieldEnum!]): TodaysCalories
 }
 
 input HabitWhereUniqueInput {
@@ -190,6 +199,59 @@ enum FinanceRecordScalarFieldEnum {
   accountName
   currentValue
   recordedDate
+}
+
+input TodaysCaloriesWhereInput {
+  AND: [TodaysCaloriesWhereInput!]
+  OR: [TodaysCaloriesWhereInput!]
+  NOT: [TodaysCaloriesWhereInput!]
+  id: StringFilter
+  birthday: DateTimeFilter
+  currentCalories: IntFilter
+  height: IntFilter
+  weight: FloatFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input TodaysCaloriesOrderByWithRelationInput {
+  id: SortOrder
+  birthday: SortOrder
+  currentCalories: SortOrder
+  height: SortOrder
+  weight: SortOrder
+}
+
+input TodaysCaloriesWhereUniqueInput {
+  id: String
+}
+
+enum TodaysCaloriesScalarFieldEnum {
+  id
+  birthday
+  currentCalories
+  height
+  weight
 }
 
 type Mutation {

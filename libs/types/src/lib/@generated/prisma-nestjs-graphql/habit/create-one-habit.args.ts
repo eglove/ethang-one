@@ -1,19 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
-import { Type } from 'class-transformer';
-
 import { HabitCreateInput } from './habit-create.input';
+import { Type } from 'class-transformer';
 
 @ArgsType()
 export class CreateOneHabitArgs {
-  @Field(
-    () => {
-      return HabitCreateInput;
-    },
-    { nullable: false }
-  )
-  @Type(() => {
-    return HabitCreateInput;
-  })
-  data!: HabitCreateInput;
+
+    @Field(() => HabitCreateInput, {nullable:false})
+    @Type(() => HabitCreateInput)
+    data!: HabitCreateInput;
 }

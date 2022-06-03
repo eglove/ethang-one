@@ -1,19 +1,12 @@
 import { Field } from '@nestjs/graphql';
 import { ArgsType } from '@nestjs/graphql';
-import { Type } from 'class-transformer';
-
 import { UsedKeyWhereUniqueInput } from './used-key-where-unique.input';
+import { Type } from 'class-transformer';
 
 @ArgsType()
 export class DeleteOneUsedKeyArgs {
-  @Field(
-    () => {
-      return UsedKeyWhereUniqueInput;
-    },
-    { nullable: false }
-  )
-  @Type(() => {
-    return UsedKeyWhereUniqueInput;
-  })
-  where!: UsedKeyWhereUniqueInput;
+
+    @Field(() => UsedKeyWhereUniqueInput, {nullable:false})
+    @Type(() => UsedKeyWhereUniqueInput)
+    where!: UsedKeyWhereUniqueInput;
 }

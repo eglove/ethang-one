@@ -5,35 +5,16 @@ import { Float } from '@nestjs/graphql';
 
 @ObjectType()
 export class FinanceRecord {
-  @Field(
-    () => {
-      return ID;
-    },
-    { nullable: false }
-  )
-  id!: string;
 
-  @Field(
-    () => {
-      return String;
-    },
-    { nullable: false }
-  )
-  accountName!: string;
+    @Field(() => ID, {nullable:false})
+    id!: string;
 
-  @Field(
-    () => {
-      return Float;
-    },
-    { nullable: false }
-  )
-  currentValue!: number;
+    @Field(() => String, {nullable:false})
+    accountName!: string;
 
-  @Field(
-    () => {
-      return Date;
-    },
-    { nullable: false }
-  )
-  recordedDate!: Date;
+    @Field(() => Float, {nullable:false})
+    currentValue!: number;
+
+    @Field(() => Date, {nullable:false})
+    recordedDate!: Date;
 }

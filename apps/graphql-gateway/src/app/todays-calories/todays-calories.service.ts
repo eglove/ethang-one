@@ -1,9 +1,9 @@
 import {
   FindFirstTodaysCaloriesArgs as FindFirstTodaysCaloriesArguments,
+  TodaysCalories,
   UpdateOneTodaysCaloriesArgs as UpdateOneTodaysCaloriesArguments,
 } from '@ethang/types';
 import { Injectable } from '@nestjs/common';
-import { TodaysCalories } from '@prisma/client';
 
 import { PrismaService } from '../prisma/prisma.service';
 
