@@ -1,7 +1,7 @@
 import {
   FindFirstTodaysCaloriesArgs as FindFirstTodaysCaloriesArguments,
   TodaysCalories,
-  UpdateOneHabitArgs as UpdateOneTodaysCaloriesArguments,
+  UpdateOneTodaysCaloriesArgs as UpdateOneTodaysCaloriesArguments,
 } from '@ethang/types';
 import { Args, Query, Resolver } from '@nestjs/graphql';
 
