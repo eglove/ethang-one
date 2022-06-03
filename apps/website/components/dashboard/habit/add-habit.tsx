@@ -1,19 +1,23 @@
+import { useMutation } from '@apollo/client';
 import {
   InputType,
   SimpleForm,
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
-import { JSON_HEADER } from '@ethang/util-typescript';
 import { useState } from 'react';
 
+import { HabitCreateInput } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/habit-create.input';
 import commonStyles from '../../../styles/common.module.css';
+import { CREATE_HABIT } from '../graphql/queries/dashboard-mutations';
 
 interface AddHabitProperties {
   isValidating: boolean;
 }
 
 export function AddHabit({ isValidating }: AddHabitProperties): JSX.Element {
+  const [createHabit] = useMutation(CREATE_HABIT);
+
   const [formState, setFormState] = useState({
     Name: '',
     RecurInterval: '',
@@ -44,16 +48,16 @@ export function AddHabit({ isValidating }: AddHabitProperties): JSX.Element {
   ]);
 
   const handleCreateHabit = async (): Promise<void> => {
-    const newHabit = {
-      dueDate: new Date(formState.StartDate).getTime(),
+    const newHabit: HabitCreateInput = {
+      dueDate: new Date(formState.StartDate),
       name: formState.Name,
       recurInterval: formState.RecurInterval,
     };
 
-    await fetch('/api/habit', {
-      body: JSON.stringify(newHabit),
-      headers: JSON_HEADER,
-      method: 'POST',
+    await createHabit({
+      variables: {
+        data: newHabit,
+      },
     });
   };
 

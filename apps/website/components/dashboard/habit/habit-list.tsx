@@ -1,7 +1,10 @@
-import { JSON_HEADER } from '@ethang/util-typescript';
+import { useMutation } from '@apollo/client';
 import { Habit } from '@prisma/client';
 import { ChangeEvent } from 'react';
 
+import { HabitUpdateInput } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/habit-update.input';
+import { HabitWhereInput } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/habit-where.input';
+import { UPDATE_HABIT } from '../graphql/queries/dashboard-mutations';
 import styles from './habit.module.css';
 
 interface HabitListProperties {
@@ -9,29 +12,47 @@ interface HabitListProperties {
   isValidating: boolean;
 }
 
-const handleEventComplete = async (
-  event: ChangeEvent<HTMLInputElement>
-): Promise<void> => {
-  const habit = JSON.parse(event.target.value) as {
-    dueDate: string;
-    name: string;
-    recurInterval: string;
-  };
-
-  await fetch('/api/habit/complete', {
-    body: JSON.stringify({
-      name: habit.name,
-      recurInterval: habit.recurInterval,
-    }),
-    headers: JSON_HEADER,
-    method: 'POST',
-  });
-};
-
 export function HabitList({
   data,
   isValidating,
 }: HabitListProperties): JSX.Element {
+  const [updateHabit] = useMutation(UPDATE_HABIT);
+
+  const handleEventComplete = async (
+    event: ChangeEvent<HTMLInputElement>
+  ): Promise<void> => {
+    const habit = JSON.parse(event.target.value) as {
+      dueDate: string;
+      name: string;
+      recurInterval: string;
+    };
+
+    const data: HabitUpdateInput = {
+      dueDate: {
+        set: habit.dueDate,
+      },
+      name: {
+        set: habit.name,
+      },
+      recurInterval: {
+        set: habit.recurInterval,
+      },
+    };
+
+    const where: HabitWhereInput = {
+      name: {
+        equals: habit.name,
+      },
+    };
+
+    await updateHabit({
+      variables: {
+        data,
+        where,
+      },
+    });
+  };
+
   return (
     <div>
       <div className={styles.DueHeader}>Due Today:</div>

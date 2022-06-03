@@ -194,6 +194,7 @@ enum FinanceRecordScalarFieldEnum {
 
 type Mutation {
   createHabit(data: HabitCreateInput!): Habit!
+  updateHabit(data: HabitUpdateInput!, where: HabitWhereUniqueInput!): Habit!
   deleteUsedKey(where: UsedKeyWhereUniqueInput!): UnusedKey!
   createFinanceRecords(data: [FinanceRecordCreateManyInput!]!): AffectedRows!
 }
@@ -203,6 +204,20 @@ input HabitCreateInput {
   name: String!
   recurInterval: String!
   dueDate: DateTime!
+}
+
+input HabitUpdateInput {
+  name: StringFieldUpdateOperationsInput
+  recurInterval: StringFieldUpdateOperationsInput
+  dueDate: DateTimeFieldUpdateOperationsInput
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
 }
 
 input UsedKeyWhereUniqueInput {
