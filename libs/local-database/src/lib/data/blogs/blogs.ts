@@ -38,7 +38,7 @@ export const blogs = {
     description:
       'Learning about how the Supreme Court makes decisions on constitutional arguments.',
     featuredImage: allImages.blogImages.supremeCourt,
-    slug: 'defend-yourself-against-the-context',
+    slug: 'defend-yourself-against-the-state',
     title: 'Defend Yourself Against the State',
     updatedAt: new Date('06/26/2016, 03:43 AM'),
   }),
@@ -51,6 +51,15 @@ export const blogs = {
     slug: 'do-you-have-a-moment-to-talk-about-anki',
     title: 'Do You Have a Moment to Talk About Anki?',
     updatedAt: new Date('11/14/2021, 02:46 AM'),
+  }),
+  iLoveNestJs: new Blog({
+    authors: [persons.ethanGlover],
+    createdAt: new Date('6/3/2022 1:16 PM'),
+    description: 'I never thought I would like NestJS as much as I do.',
+    featuredImage: allImages.technologyImages.nestJs,
+    slug: 'i-love-nest-js',
+    title: 'I Love NestJs',
+    updatedAt: new Date('6/3/2022 1:16 PM'),
   }),
   isBitcoinAFailure: new Blog({
     authors: [persons.ethanGlover],

@@ -113,7 +113,7 @@ export function StaticBlogLayout({
         </div>
       </div>
       <hr />
-      <article className={styles.Article}>{children}</article>
+      <article>{children}</article>
       <DiscussionEmbed
         shortname="ethang"
         config={{

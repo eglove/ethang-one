@@ -2,16 +2,13 @@
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: var(--large-space);
-    place-items: center;
+    align-items: center;
 }
 
 .Title {
   color: var(--primary-color);
 }
 
-.Article {
-  column-width: 50ch;
-}
 
 .Article p:first-of-type {
   margin-top: 0;

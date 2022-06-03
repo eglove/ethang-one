@@ -169,6 +169,18 @@ export const blogImages = {
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668105/blog/moral-foundation-space.png',
     width: 300,
   }),
+  nestjsGraphql: new Image({
+    altText: 'Example of NestJS GraphQL syntax.',
+    height: 743,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1654281604/blog/nestjs-graphql.png',
+    width: 843,
+  }),
+  nexusExample: new Image({
+    altText: 'Example of NexusJS syntax.',
+    height: 549,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1654281208/blog/nexus-example.png',
+    width: 484,
+  }),
   onHostingStaticPages: new Image({
     altText: 'Static Site Models',
     height: 869,
