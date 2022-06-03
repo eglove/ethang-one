@@ -15,7 +15,7 @@ export class Habit implements PrismaModel {
 
     await this.prisma.habit.update({
       data: {
-        dueDate: Date.now() + Number(ms(recurInterval)),
+        dueDate: new Date(Date.now() + Number(ms(recurInterval))),
       },
       where: {
         name,
@@ -29,7 +29,7 @@ export class Habit implements PrismaModel {
     return this.prisma.habit.findMany({
       where: {
         dueDate: {
-          lte: fromTime,
+          lte: new Date(fromTime),
         },
       },
     });
