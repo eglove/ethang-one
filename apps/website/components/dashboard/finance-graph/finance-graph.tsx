@@ -1,5 +1,5 @@
-import { FinanceGraphData } from '@ethang/ethang-db';
 import { URL_CONSTANTS } from '@ethang/node-environment';
+import { FinanceGraphData } from '@ethang/types';
 import { currencyFormat, fetcher, randomColor } from '@ethang/util-typescript';
 import {
   CartesianGrid,

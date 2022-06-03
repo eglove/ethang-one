@@ -1,8 +1,8 @@
-import { FinanceGraphData } from '@ethang/ethang-db';
 import {
   AffectedRows,
   CreateManyFinanceRecordArgs as CreateManyFinanceRecordArguments,
   CreateOneFinanceRecordArgs as CreateOneFinanceRecordArguments,
+  FinanceGraphData,
   FinanceRecord,
   FindManyFinanceRecordArgs as FindManyFinanceRecordArguments,
   FindUniqueFinanceRecordArgs as FindUniqueFinanceRecordArguments,

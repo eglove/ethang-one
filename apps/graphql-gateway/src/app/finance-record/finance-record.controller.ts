@@ -1,4 +1,4 @@
-import { FinanceGraphData } from '@ethang/ethang-db';
+import { FinanceGraphData } from '@ethang/types';
 import { Controller, Get } from '@nestjs/common';
 
 import { FinanceRecordService } from './finance-record.service';

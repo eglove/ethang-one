@@ -22,4 +22,5 @@ export * from './lib/@generated/prisma-nestjs-graphql/unused-key/unused-key.mode
 export * from './lib/@generated/prisma-nestjs-graphql/used-key/create-one-used-key.args';
 export * from './lib/@generated/prisma-nestjs-graphql/used-key/delete-one-used-key.args';
 export * from './lib/@generated/prisma-nestjs-graphql/used-key/used-key.model';
+export * from './lib/common-types';
 export * from './lib/websocket/websocket-command';
