@@ -104,9 +104,9 @@ function ILoveNestJs(): JSX.Element {
       <p>
         So there&apos;s a last question remaining, do I now prefer NestJS for
         everything? Not exactly. The opinionated way of doing things is often
-        way to strong. My thought is that if you spend more time Googling how to
-        do X in Y framework, than you do how to do X in Y language, you&apos;ve
-        got a bad framework.
+        way too strong. My thought is that if you spend more time Googling how
+        to do X in Y framework, than you do how to do X in Y language,
+        you&apos;ve got a bad framework.
       </p>
       <p>
         Frameworks limit flexibility. They inevitably cause blockers and
