@@ -7,11 +7,11 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 import { ApolloProvider } from '@apollo/client';
 import { ApolloClientInit } from '@ethang/apollo';
+import { PORT } from '@ethang/node-environment';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 
-import { PORT } from '../../../libs/node-environment/src/lib/ports';
 import { Page } from '../components/common/page/page';
 
 Router.events.on('routeChangeStart', () => {

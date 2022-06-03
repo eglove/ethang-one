@@ -7,7 +7,7 @@ import {
 } from '@ethang/react-components';
 import { useState } from 'react';
 
-import { FinanceRecordCreateManyInput } from '../../../../graphql-gateway/src/@generated/prisma-nestjs-graphql/finance-record/finance-record-create-many.input';
+import { FinanceRecordCreateManyInput } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/finance-record-create-many.input';
 import { HeadTag } from '../../../components/common/head-tag/head-tag';
 import { CREATE_FINANCE_RECORDS } from '../../../components/dashboard/graphql/queries/dashboard-mutations';
 import commonStyles from '../../../styles/common.module.css';

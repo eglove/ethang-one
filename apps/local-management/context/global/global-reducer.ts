@@ -1,7 +1,6 @@
+import { PORT } from '@ethang/node-environment';
 import { websocketEvent } from '@ethang/types';
 import { io, Socket } from 'socket.io-client';
-
-import { PORT } from '../../../../libs/node-environment/src/lib/ports';
 
 export type GlobalStateType = {
   currentShellMessages: string[];

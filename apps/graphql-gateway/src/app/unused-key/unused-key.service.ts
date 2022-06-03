@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker';
 import { Injectable } from '@nestjs/common';
 
-import { CreateOneUnusedKeyArgs as CreateOneUnusedKeyArguments } from '../../@generated/prisma-nestjs-graphql/unused-key/create-one-unused-key.args';
-import { DeleteOneUnusedKeyArgs as DeleteOneUnusedKeyArguments } from '../../@generated/prisma-nestjs-graphql/unused-key/delete-one-unused-key.args';
-import { UnusedKey } from '../../@generated/prisma-nestjs-graphql/unused-key/unused-key.model';
+import { CreateOneUnusedKeyArgs as CreateOneUnusedKeyArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/unused-key/create-one-unused-key.args';
+import { DeleteOneUnusedKeyArgs as DeleteOneUnusedKeyArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/unused-key/delete-one-unused-key.args';
+import { UnusedKey } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/unused-key/unused-key.model';
 import { PrismaService } from '../prisma/prisma.service';
 
 const MINIMUM_UNUSED_KEYS = 100;

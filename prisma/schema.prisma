@@ -12,7 +12,7 @@ generator client {
 
 generator nestgraphql {
   provider = "node node_modules/prisma-nestjs-graphql"
-  output   = "../apps/graphql-gateway/src/@generated/prisma-nestjs-graphql"
+  output   = "../libs/types/src/lib/@generated/prisma-nestjs-graphql"
 }
 
 model FinanceRecord {

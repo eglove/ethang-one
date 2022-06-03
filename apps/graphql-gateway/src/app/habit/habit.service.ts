@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Habit } from '@prisma/client';
 
-import { CreateOneHabitArgs as CreateOneHabitArguments } from '../../@generated/prisma-nestjs-graphql/habit/create-one-habit.args';
-import { FindManyHabitArgs as FindManyHabitArguments } from '../../@generated/prisma-nestjs-graphql/habit/find-many-habit.args';
-import { FindUniqueHabitArgs as FindUniqueHabitArguments } from '../../@generated/prisma-nestjs-graphql/habit/find-unique-habit.args';
+import { CreateOneHabitArgs as CreateOneHabitArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/create-one-habit.args';
+import { FindManyHabitArgs as FindManyHabitArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/find-many-habit.args';
+import { FindUniqueHabitArgs as FindUniqueHabitArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/find-unique-habit.args';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()

@@ -1,10 +1,9 @@
+import { PORT } from '@ethang/node-environment';
 import { websocketEvent } from '@ethang/types';
 import { runShellAsync } from '@ethang/util-cli';
 import express from 'express';
 import * as http from 'node:http';
 import { Server, Socket } from 'socket.io';
-
-import { PORT } from '../../../libs/node-environment/src/lib/ports';
 
 const app = express();
 const server = http.createServer(app);

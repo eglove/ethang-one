@@ -1,7 +1,7 @@
+import { PORT } from '@ethang/node-environment';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
-import { PORT } from '../../../libs/node-environment/src/lib/ports';
 import { AppModule } from './app/app.module';
 
 async function bootstrap(): Promise<void> {
