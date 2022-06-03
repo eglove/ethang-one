@@ -1,10 +1,12 @@
+import {
+  AffectedRows,
+  CreateManyFinanceRecordArgs as CreateManyFinanceRecordArguments,
+  FinanceRecord,
+  FindManyFinanceRecordArgs as FindManyFinanceRecordArguments,
+  FindUniqueFinanceRecordArgs as FindUniqueFinanceRecordArguments,
+} from '@ethang/types';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { CreateManyFinanceRecordArgs as CreateManyFinanceRecordArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/create-many-finance-record.args';
-import { FinanceRecord } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/finance-record.model';
-import { FindManyFinanceRecordArgs as FindManyFinanceRecordArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/find-many-finance-record.args';
-import { FindUniqueFinanceRecordArgs as FindUniqueFinanceRecordArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/find-unique-finance-record.args';
-import { AffectedRows } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/prisma/affected-rows.output';
 import { FinanceRecordService } from './finance-record.service';
 
 const returnFinanceRecord = (): typeof FinanceRecord => {

@@ -3,10 +3,19 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class HabitWhereUniqueInput {
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
-
-    @Field(() => String, {nullable:true})
-    name?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  name?: string;
 }

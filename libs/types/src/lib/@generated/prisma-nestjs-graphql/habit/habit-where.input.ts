@@ -1,29 +1,64 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { StringFilter } from '../prisma/string-filter.input';
+
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
+import { StringFilter } from '../prisma/string-filter.input';
 
 @InputType()
 export class HabitWhereInput {
+  @Field(
+    () => {
+      return [HabitWhereInput];
+    },
+    { nullable: true }
+  )
+  AND?: HabitWhereInput[];
 
-    @Field(() => [HabitWhereInput], {nullable:true})
-    AND?: Array<HabitWhereInput>;
+  @Field(
+    () => {
+      return [HabitWhereInput];
+    },
+    { nullable: true }
+  )
+  OR?: HabitWhereInput[];
 
-    @Field(() => [HabitWhereInput], {nullable:true})
-    OR?: Array<HabitWhereInput>;
+  @Field(
+    () => {
+      return [HabitWhereInput];
+    },
+    { nullable: true }
+  )
+  NOT?: HabitWhereInput[];
 
-    @Field(() => [HabitWhereInput], {nullable:true})
-    NOT?: Array<HabitWhereInput>;
+  @Field(
+    () => {
+      return StringFilter;
+    },
+    { nullable: true }
+  )
+  id?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    id?: StringFilter;
+  @Field(
+    () => {
+      return StringFilter;
+    },
+    { nullable: true }
+  )
+  name?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    name?: StringFilter;
+  @Field(
+    () => {
+      return StringFilter;
+    },
+    { nullable: true }
+  )
+  recurInterval?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    recurInterval?: StringFilter;
-
-    @Field(() => DateTimeFilter, {nullable:true})
-    dueDate?: DateTimeFilter;
+  @Field(
+    () => {
+      return DateTimeFilter;
+    },
+    { nullable: true }
+  )
+  dueDate?: DateTimeFilter;
 }

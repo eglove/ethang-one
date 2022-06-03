@@ -1,13 +1,15 @@
 import { FinanceGraphData } from '@ethang/ethang-db';
+import {
+  AffectedRows,
+  CreateManyFinanceRecordArgs as CreateManyFinanceRecordArguments,
+  CreateOneFinanceRecordArgs as CreateOneFinanceRecordArguments,
+  FinanceRecord,
+  FindManyFinanceRecordArgs as FindManyFinanceRecordArguments,
+  FindUniqueFinanceRecordArgs as FindUniqueFinanceRecordArguments,
+} from '@ethang/types';
 import { Injectable } from '@nestjs/common';
 import ms from 'ms';
 
-import { CreateManyFinanceRecordArgs as CreateManyFinanceRecordArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/create-many-finance-record.args';
-import { CreateOneFinanceRecordArgs as CreateOneFinanceRecordArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/create-one-finance-record.args';
-import { FinanceRecord } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/finance-record.model';
-import { FindManyFinanceRecordArgs as FindManyFinanceRecordArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/find-many-finance-record.args';
-import { FindUniqueFinanceRecordArgs as FindUniqueFinanceRecordArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/finance-record/find-unique-finance-record.args';
-import { AffectedRows } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/prisma/affected-rows.output';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()

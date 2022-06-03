@@ -1,9 +1,8 @@
 import { useMutation } from '@apollo/client';
+import { HabitUpdateInput, HabitWhereInput } from '@ethang/types';
 import { Habit } from '@prisma/client';
 import { ChangeEvent } from 'react';
 
-import { HabitUpdateInput } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/habit-update.input';
-import { HabitWhereInput } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/habit-where.input';
 import { UPDATE_HABIT } from '../graphql/queries/dashboard-mutations';
 import styles from './habit.module.css';
 

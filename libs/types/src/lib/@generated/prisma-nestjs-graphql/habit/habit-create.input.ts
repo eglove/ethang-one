@@ -3,16 +3,35 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class HabitCreateInput {
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: false }
+  )
+  name!: string;
 
-    @Field(() => String, {nullable:false})
-    name!: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: false }
+  )
+  recurInterval!: string;
 
-    @Field(() => String, {nullable:false})
-    recurInterval!: string;
-
-    @Field(() => Date, {nullable:false})
-    dueDate!: Date | string;
+  @Field(
+    () => {
+      return Date;
+    },
+    { nullable: false }
+  )
+  dueDate!: Date | string;
 }

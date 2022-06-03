@@ -4,7 +4,11 @@ import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class AffectedRows {
-
-    @Field(() => Int, {nullable:false})
-    count!: number;
+  @Field(
+    () => {
+      return Int;
+    },
+    { nullable: false }
+  )
+  count!: number;
 }

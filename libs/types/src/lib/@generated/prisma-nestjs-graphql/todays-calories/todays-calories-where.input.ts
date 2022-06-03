@@ -1,34 +1,74 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { StringFilter } from '../prisma/string-filter.input';
+
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
-import { IntFilter } from '../prisma/int-filter.input';
 import { FloatFilter } from '../prisma/float-filter.input';
+import { IntFilter } from '../prisma/int-filter.input';
+import { StringFilter } from '../prisma/string-filter.input';
 
 @InputType()
 export class TodaysCaloriesWhereInput {
+  @Field(
+    () => {
+      return [TodaysCaloriesWhereInput];
+    },
+    { nullable: true }
+  )
+  AND?: TodaysCaloriesWhereInput[];
 
-    @Field(() => [TodaysCaloriesWhereInput], {nullable:true})
-    AND?: Array<TodaysCaloriesWhereInput>;
+  @Field(
+    () => {
+      return [TodaysCaloriesWhereInput];
+    },
+    { nullable: true }
+  )
+  OR?: TodaysCaloriesWhereInput[];
 
-    @Field(() => [TodaysCaloriesWhereInput], {nullable:true})
-    OR?: Array<TodaysCaloriesWhereInput>;
+  @Field(
+    () => {
+      return [TodaysCaloriesWhereInput];
+    },
+    { nullable: true }
+  )
+  NOT?: TodaysCaloriesWhereInput[];
 
-    @Field(() => [TodaysCaloriesWhereInput], {nullable:true})
-    NOT?: Array<TodaysCaloriesWhereInput>;
+  @Field(
+    () => {
+      return StringFilter;
+    },
+    { nullable: true }
+  )
+  id?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    id?: StringFilter;
+  @Field(
+    () => {
+      return DateTimeFilter;
+    },
+    { nullable: true }
+  )
+  birthday?: DateTimeFilter;
 
-    @Field(() => DateTimeFilter, {nullable:true})
-    birthday?: DateTimeFilter;
+  @Field(
+    () => {
+      return IntFilter;
+    },
+    { nullable: true }
+  )
+  currentCalories?: IntFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    currentCalories?: IntFilter;
+  @Field(
+    () => {
+      return IntFilter;
+    },
+    { nullable: true }
+  )
+  height?: IntFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    height?: IntFilter;
-
-    @Field(() => FloatFilter, {nullable:true})
-    weight?: FloatFilter;
+  @Field(
+    () => {
+      return FloatFilter;
+    },
+    { nullable: true }
+  )
+  weight?: FloatFilter;
 }

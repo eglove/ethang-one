@@ -3,7 +3,11 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class TodaysCaloriesWhereUniqueInput {
-
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  id?: string;
 }

@@ -4,28 +4,67 @@ import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class NestedIntFilter {
+  @Field(
+    () => {
+      return Int;
+    },
+    { nullable: true }
+  )
+  equals?: number;
 
-    @Field(() => Int, {nullable:true})
-    equals?: number;
+  @Field(
+    () => {
+      return [Int];
+    },
+    { nullable: true }
+  )
+  in?: number[];
 
-    @Field(() => [Int], {nullable:true})
-    in?: Array<number>;
+  @Field(
+    () => {
+      return [Int];
+    },
+    { nullable: true }
+  )
+  notIn?: number[];
 
-    @Field(() => [Int], {nullable:true})
-    notIn?: Array<number>;
+  @Field(
+    () => {
+      return Int;
+    },
+    { nullable: true }
+  )
+  lt?: number;
 
-    @Field(() => Int, {nullable:true})
-    lt?: number;
+  @Field(
+    () => {
+      return Int;
+    },
+    { nullable: true }
+  )
+  lte?: number;
 
-    @Field(() => Int, {nullable:true})
-    lte?: number;
+  @Field(
+    () => {
+      return Int;
+    },
+    { nullable: true }
+  )
+  gt?: number;
 
-    @Field(() => Int, {nullable:true})
-    gt?: number;
+  @Field(
+    () => {
+      return Int;
+    },
+    { nullable: true }
+  )
+  gte?: number;
 
-    @Field(() => Int, {nullable:true})
-    gte?: number;
-
-    @Field(() => NestedIntFilter, {nullable:true})
-    not?: NestedIntFilter;
+  @Field(
+    () => {
+      return NestedIntFilter;
+    },
+    { nullable: true }
+  )
+  not?: NestedIntFilter;
 }

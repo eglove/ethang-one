@@ -3,37 +3,91 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class NestedStringFilter {
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  equals?: string;
 
-    @Field(() => String, {nullable:true})
-    equals?: string;
+  @Field(
+    () => {
+      return [String];
+    },
+    { nullable: true }
+  )
+  in?: string[];
 
-    @Field(() => [String], {nullable:true})
-    in?: Array<string>;
+  @Field(
+    () => {
+      return [String];
+    },
+    { nullable: true }
+  )
+  notIn?: string[];
 
-    @Field(() => [String], {nullable:true})
-    notIn?: Array<string>;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  lt?: string;
 
-    @Field(() => String, {nullable:true})
-    lt?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  lte?: string;
 
-    @Field(() => String, {nullable:true})
-    lte?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  gt?: string;
 
-    @Field(() => String, {nullable:true})
-    gt?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  gte?: string;
 
-    @Field(() => String, {nullable:true})
-    gte?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  contains?: string;
 
-    @Field(() => String, {nullable:true})
-    contains?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  startsWith?: string;
 
-    @Field(() => String, {nullable:true})
-    startsWith?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  endsWith?: string;
 
-    @Field(() => String, {nullable:true})
-    endsWith?: string;
-
-    @Field(() => NestedStringFilter, {nullable:true})
-    not?: NestedStringFilter;
+  @Field(
+    () => {
+      return NestedStringFilter;
+    },
+    { nullable: true }
+  )
+  not?: NestedStringFilter;
 }

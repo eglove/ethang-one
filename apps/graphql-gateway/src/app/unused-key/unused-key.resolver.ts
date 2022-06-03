@@ -1,6 +1,6 @@
+import { UnusedKey } from '@ethang/types';
 import { Query, Resolver } from '@nestjs/graphql';
 
-import { UnusedKey } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/unused-key/unused-key.model';
 import { UsedKeyService } from '../used-key/used-key.service';
 import { UnusedKeyService } from './unused-key.service';
 

@@ -3,13 +3,27 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class ShortUrlCreateWithoutShortUrlKeyInput {
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: false }
+  )
+  originalUrl!: string;
 
-    @Field(() => String, {nullable:false})
-    originalUrl!: string;
-
-    @Field(() => Date, {nullable:false})
-    expirationDate!: Date | string;
+  @Field(
+    () => {
+      return Date;
+    },
+    { nullable: false }
+  )
+  expirationDate!: Date | string;
 }

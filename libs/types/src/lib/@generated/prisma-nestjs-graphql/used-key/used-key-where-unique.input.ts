@@ -3,10 +3,19 @@ import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class UsedKeyWhereUniqueInput {
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  id?: string;
 
-    @Field(() => String, {nullable:true})
-    id?: string;
-
-    @Field(() => String, {nullable:true})
-    key?: string;
+  @Field(
+    () => {
+      return String;
+    },
+    { nullable: true }
+  )
+  key?: string;
 }

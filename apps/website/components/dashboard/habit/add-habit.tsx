@@ -5,9 +5,9 @@ import {
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
+import { HabitCreateInput } from '@ethang/types';
 import { useState } from 'react';
 
-import { HabitCreateInput } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/habit-create.input';
 import commonStyles from '../../../styles/common.module.css';
 import { CREATE_HABIT } from '../graphql/queries/dashboard-mutations';
 
