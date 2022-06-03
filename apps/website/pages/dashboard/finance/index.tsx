@@ -1,13 +1,15 @@
+import { useMutation } from '@apollo/client';
 import {
   Container,
   SimpleForm,
   SimpleFormButton,
   SimpleFormInput,
 } from '@ethang/react-components';
-import { JSON_HEADER } from '@ethang/util-typescript';
 import { useState } from 'react';
 
+import { FinanceRecordCreateManyInput } from '../../../../graphql-gateway/src/@generated/prisma-nestjs-graphql/finance-record/finance-record-create-many.input';
 import { HeadTag } from '../../../components/common/head-tag/head-tag';
+import { CREATE_FINANCE_RECORDS } from '../../../components/dashboard/graphql/queries/dashboard-mutations';
 import commonStyles from '../../../styles/common.module.css';
 
 export const Account = {
@@ -20,6 +22,10 @@ export const Account = {
 };
 
 function Finance(): JSX.Element {
+  const [createFinanceRecords, { loading }] = useMutation(
+    CREATE_FINANCE_RECORDS
+  );
+
   const [formState, setFormState] = useState({
     [Account.USAA_CHECKING]: 0,
     [Account.USAA_SAVINGS]: 0,
@@ -28,7 +34,6 @@ function Finance(): JSX.Element {
     [Account.E_TORO]: 0,
     [Account.LENDING_CLUB]: 0,
   });
-  const [loading, setLoading] = useState(false);
 
   const buttons = [
     new SimpleFormButton({
@@ -57,10 +62,9 @@ function Finance(): JSX.Element {
   ];
 
   const handleSubmit = async (): Promise<void> => {
-    setLoading(true);
     const formStateKeys = Object.keys(formState);
 
-    const postArray = [];
+    const postArray: FinanceRecordCreateManyInput[] = [];
     for (const key of formStateKeys) {
       if (Number.isNaN(Number(formState[key]))) {
         throw new TypeError(`Invalid number for ${key}.`);
@@ -69,16 +73,15 @@ function Finance(): JSX.Element {
       postArray.push({
         accountName: key,
         currentValue: Number(formState[key]),
-        recordedDate: Date.now(),
+        recordedDate: new Date(),
       });
     }
 
-    await fetch('/api/finance-records', {
-      body: JSON.stringify(postArray),
-      headers: JSON_HEADER,
-      method: 'POST',
+    await createFinanceRecords({
+      variables: {
+        data: postArray,
+      },
     });
-    setLoading(false);
   };
 
   return (

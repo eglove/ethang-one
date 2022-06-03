@@ -11,7 +11,7 @@ import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 
-import { PORT } from '../../../ports';
+import { PORT } from '../../../libs/node-environment/src/lib/ports';
 import { Page } from '../components/common/page/page';
 
 Router.events.on('routeChangeStart', () => {

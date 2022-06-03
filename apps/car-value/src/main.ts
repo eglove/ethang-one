@@ -1,7 +1,7 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
-import { PORT } from '../../../ports';
+import { PORT } from '../../../libs/node-environment/src/lib/ports';
 import { AppModule } from './app/app.module';
 
 async function bootstrap(): Promise<void> {
