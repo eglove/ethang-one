@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
-import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class Habit {
@@ -15,6 +14,6 @@ export class Habit {
     @Field(() => String, {nullable:false})
     recurInterval!: string;
 
-    @Field(() => Int, {nullable:false})
-    dueDate!: number;
+    @Field(() => Date, {nullable:false})
+    dueDate!: Date;
 }

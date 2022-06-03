@@ -6,9 +6,6 @@ import { SortOrder } from '../prisma/sort-order.enum';
 export class TodaysCaloriesAvgOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
-    birthday?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
     currentCalories?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

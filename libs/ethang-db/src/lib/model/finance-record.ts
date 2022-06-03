@@ -43,8 +43,8 @@ export class FinanceRecord implements PrismaModel {
     const data = await this.prisma.financeRecord.findMany({
       where: {
         recordedDate: {
-          gte: Date.now() - ms('1y'),
-          lte: Date.now(),
+          gte: new Date(Date.now() - ms('1y')),
+          lte: new Date(Date.now()),
         },
       },
     });

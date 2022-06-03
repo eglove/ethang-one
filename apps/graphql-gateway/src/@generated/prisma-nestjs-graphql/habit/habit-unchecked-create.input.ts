@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class HabitUncheckedCreateInput {
@@ -14,6 +13,6 @@ export class HabitUncheckedCreateInput {
     @Field(() => String, {nullable:false})
     recurInterval!: string;
 
-    @Field(() => Int, {nullable:false})
-    dueDate!: number;
+    @Field(() => Date, {nullable:false})
+    dueDate!: Date | string;
 }

@@ -9,8 +9,8 @@ export class TodaysCaloriesCreateInput {
     @Field(() => String, {nullable:true})
     id?: string;
 
-    @Field(() => Int, {nullable:false})
-    birthday!: number;
+    @Field(() => Date, {nullable:false})
+    birthday!: Date | string;
 
     @Field(() => Int, {nullable:false})
     currentCalories!: number;

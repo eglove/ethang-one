@@ -1,6 +1,5 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class HabitMaxAggregate {
@@ -14,6 +13,6 @@ export class HabitMaxAggregate {
     @Field(() => String, {nullable:true})
     recurInterval?: string;
 
-    @Field(() => Int, {nullable:true})
-    dueDate?: number;
+    @Field(() => Date, {nullable:true})
+    dueDate?: Date | string;
 }

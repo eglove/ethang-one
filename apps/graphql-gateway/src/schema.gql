@@ -6,18 +6,46 @@ type Habit {
   id: ID!
   name: String!
   recurInterval: String!
-  dueDate: Int!
+  dueDate: DateTime!
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type UnusedKey {
   id: ID!
   key: String!
 }
 
+type ShortUrl {
+  id: ID!
+  originalUrl: String!
+  usedKeyId: String!
+  expirationDate: DateTime!
+  shortUrlKey: UsedKey!
+}
+
+type UsedKey {
+  id: ID!
+  key: String!
+  ShortUrl: ShortUrl
+}
+
+type FinanceRecord {
+  id: ID!
+  accountName: String!
+  currentValue: Float!
+  recordedDate: DateTime!
+}
+
 type Query {
   habit(where: HabitWhereUniqueInput!): Habit
   habits(where: HabitWhereInput, orderBy: [HabitOrderByWithRelationInput!], cursor: HabitWhereUniqueInput, take: Int, skip: Int, distinct: [HabitScalarFieldEnum!]): [Habit]!
   getUnusedKey: UnusedKey
+  financeRecord(where: FinanceRecordWhereUniqueInput!): FinanceRecord
+  financeRecords(where: FinanceRecordWhereInput, orderBy: [FinanceRecordOrderByWithRelationInput!], cursor: FinanceRecordWhereUniqueInput, take: Int, skip: Int, distinct: [FinanceRecordScalarFieldEnum!]): [FinanceRecord]!
 }
 
 input HabitWhereUniqueInput {
@@ -32,7 +60,7 @@ input HabitWhereInput {
   id: StringFilter
   name: StringFilter
   recurInterval: StringFilter
-  dueDate: IntFilter
+  dueDate: DateTimeFilter
 }
 
 input StringFilter {
@@ -69,26 +97,26 @@ input NestedStringFilter {
   not: NestedStringFilter
 }
 
-input IntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
+input DateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
 }
 
-input NestedIntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
+input NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
 }
 
 input HabitOrderByWithRelationInput {
@@ -110,6 +138,56 @@ enum HabitScalarFieldEnum {
   dueDate
 }
 
+input FinanceRecordWhereUniqueInput {
+  id: String
+}
+
+input FinanceRecordWhereInput {
+  AND: [FinanceRecordWhereInput!]
+  OR: [FinanceRecordWhereInput!]
+  NOT: [FinanceRecordWhereInput!]
+  id: StringFilter
+  accountName: StringFilter
+  currentValue: FloatFilter
+  recordedDate: DateTimeFilter
+}
+
+input FloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
+}
+
+input NestedFloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
+}
+
+input FinanceRecordOrderByWithRelationInput {
+  id: SortOrder
+  accountName: SortOrder
+  currentValue: SortOrder
+  recordedDate: SortOrder
+}
+
+enum FinanceRecordScalarFieldEnum {
+  id
+  accountName
+  currentValue
+  recordedDate
+}
+
 type Mutation {
   createHabit(data: HabitCreateInput!): Habit!
   deleteUsedKey(where: UsedKeyWhereUniqueInput!): UnusedKey!
@@ -119,7 +197,7 @@ input HabitCreateInput {
   id: String
   name: String!
   recurInterval: String!
-  dueDate: Int!
+  dueDate: DateTime!
 }
 
 input UsedKeyWhereUniqueInput {

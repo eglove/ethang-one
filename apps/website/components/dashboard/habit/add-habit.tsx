@@ -5,21 +5,15 @@ import {
   simpleFormInputs,
 } from '@ethang/react-components';
 import { JSON_HEADER } from '@ethang/util-typescript';
-import { Habit } from '@prisma/client';
 import { useState } from 'react';
-import { KeyedMutator } from 'swr';
 
 import commonStyles from '../../../styles/common.module.css';
 
 interface AddHabitProperties {
   isValidating: boolean;
-  mutate: KeyedMutator<Habit[]>;
 }
 
-export function AddHabit({
-  isValidating,
-  mutate,
-}: AddHabitProperties): JSX.Element {
+export function AddHabit({ isValidating }: AddHabitProperties): JSX.Element {
   const [formState, setFormState] = useState({
     Name: '',
     RecurInterval: '',
@@ -61,7 +55,6 @@ export function AddHabit({
       headers: JSON_HEADER,
       method: 'POST',
     });
-    await mutate();
   };
 
   return (

@@ -21,7 +21,7 @@ export const runShellAsync = (
 
   process.stderr.on('data', (data: Buffer) => {
     if (typeof callbacks?.onError !== 'undefined') {
-      callbacks.onError(data.toString());
+      callbacks.onError(data.toString('utf8'));
     }
   });
 

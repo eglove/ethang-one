@@ -7,7 +7,4 @@ export class FinanceRecordAvgAggregate {
 
     @Field(() => Float, {nullable:true})
     currentValue?: number;
-
-    @Field(() => Float, {nullable:true})
-    recordedDate?: number;
 }

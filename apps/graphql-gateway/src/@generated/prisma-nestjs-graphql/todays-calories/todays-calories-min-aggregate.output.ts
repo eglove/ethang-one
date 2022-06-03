@@ -9,8 +9,8 @@ export class TodaysCaloriesMinAggregate {
     @Field(() => String, {nullable:true})
     id?: string;
 
-    @Field(() => Int, {nullable:true})
-    birthday?: number;
+    @Field(() => Date, {nullable:true})
+    birthday?: Date | string;
 
     @Field(() => Int, {nullable:true})
     currentCalories?: number;

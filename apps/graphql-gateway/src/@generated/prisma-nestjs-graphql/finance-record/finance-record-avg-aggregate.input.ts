@@ -6,7 +6,4 @@ export class FinanceRecordAvgAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
     currentValue?: true;
-
-    @Field(() => Boolean, {nullable:true})
-    recordedDate?: true;
 }

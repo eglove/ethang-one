@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
-import { IntFilter } from '../prisma/int-filter.input';
+import { DateTimeFilter } from '../prisma/date-time-filter.input';
 
 @InputType()
 export class HabitWhereInput {
@@ -24,6 +24,6 @@ export class HabitWhereInput {
     @Field(() => StringFilter, {nullable:true})
     recurInterval?: StringFilter;
 
-    @Field(() => IntFilter, {nullable:true})
-    dueDate?: IntFilter;
+    @Field(() => DateTimeFilter, {nullable:true})
+    dueDate?: DateTimeFilter;
 }

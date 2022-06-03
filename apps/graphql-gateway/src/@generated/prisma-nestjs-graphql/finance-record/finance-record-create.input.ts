@@ -1,7 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
-import { Int } from '@nestjs/graphql';
 
 @InputType()
 export class FinanceRecordCreateInput {
@@ -15,6 +14,6 @@ export class FinanceRecordCreateInput {
     @Field(() => Float, {nullable:false})
     currentValue!: number;
 
-    @Field(() => Int, {nullable:false})
-    recordedDate!: number;
+    @Field(() => Date, {nullable:false})
+    recordedDate!: Date | string;
 }

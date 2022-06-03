@@ -6,9 +6,6 @@ import { Float } from '@nestjs/graphql';
 export class TodaysCaloriesAvgAggregate {
 
     @Field(() => Float, {nullable:true})
-    birthday?: number;
-
-    @Field(() => Float, {nullable:true})
     currentCalories?: number;
 
     @Field(() => Float, {nullable:true})

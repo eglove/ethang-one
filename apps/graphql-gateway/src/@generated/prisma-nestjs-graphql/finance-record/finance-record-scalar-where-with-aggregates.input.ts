@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input';
 import { FloatWithAggregatesFilter } from '../prisma/float-with-aggregates-filter.input';
-import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input';
+import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input';
 
 @InputType()
 export class FinanceRecordScalarWhereWithAggregatesInput {
@@ -25,6 +25,6 @@ export class FinanceRecordScalarWhereWithAggregatesInput {
     @Field(() => FloatWithAggregatesFilter, {nullable:true})
     currentValue?: FloatWithAggregatesFilter;
 
-    @Field(() => IntWithAggregatesFilter, {nullable:true})
-    recordedDate?: IntWithAggregatesFilter;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    recordedDate?: DateTimeWithAggregatesFilter;
 }

@@ -16,17 +16,17 @@ generator nestgraphql {
 }
 
 model FinanceRecord {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   accountName  String
   currentValue Float
-  recordedDate Int
+  recordedDate DateTime
 }
 
 model Habit {
-  id            String @id @default(auto()) @map("_id") @db.ObjectId
-  name          String @unique
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  name          String   @unique
   recurInterval String
-  dueDate       Int
+  dueDate       DateTime
 }
 
 model ShortUrl {
@@ -38,8 +38,8 @@ model ShortUrl {
 }
 
 model TodaysCalories {
-  id              String @id @default(auto()) @map("_id") @db.ObjectId
-  birthday        Int
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  birthday        DateTime
   currentCalories Int
   height          Int
   weight          Float

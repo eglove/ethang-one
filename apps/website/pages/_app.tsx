@@ -5,10 +5,13 @@ import 'react-circular-progressbar/dist/styles.css';
 import 'highlight.js/styles/github.css';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
+import { ApolloProvider } from '@apollo/client';
+import { ApolloClientInit } from '@ethang/apollo';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 
+import { PORT } from '../../../ports';
 import { Page } from '../components/common/page/page';
 
 Router.events.on('routeChangeStart', () => {
@@ -22,10 +25,18 @@ Router.events.on('routeChangeError', () => {
 });
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
+  // Local only
+  const apollo = new ApolloClientInit(
+    `http://localhost:${PORT.graphql}/graphql`,
+    {}
+  );
+
   return (
-    <Page>
-      <Component {...pageProps} />
-    </Page>
+    <ApolloProvider client={apollo.client}>
+      <Page>
+        <Component {...pageProps} />
+      </Page>
+    </ApolloProvider>
   );
 }
 

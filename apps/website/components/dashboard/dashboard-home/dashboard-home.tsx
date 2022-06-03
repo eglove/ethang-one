@@ -1,15 +1,15 @@
+import { useQuery } from '@apollo/client';
 import { Container, NextLink } from '@ethang/react-components';
-import { fetcher } from '@ethang/util-typescript';
 import { Habit } from '@prisma/client';
 import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
-import useSWR from 'swr';
 
 import { DashboardContext } from '../../../pages/dashboard';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import { Login } from '../../common/login/login';
 import { Calories } from '../calories';
 import { FinanceGraph } from '../finance-graph/finance-graph';
+import { DUE_HABITS } from '../graphql/queries/dashboard-queries';
 import { AddHabit } from '../habit/add-habit';
 import { HabitList } from '../habit/habit-list';
 
@@ -21,10 +21,11 @@ const beforeMidnight = (): number => {
 
 export const DashboardHome = observer((): JSX.Element => {
   const dashboardState = useContext(DashboardContext);
-  const { data, mutate, isValidating } = useSWR<Habit[]>(
-    `/api/habit?fromTime=${beforeMidnight()}`,
-    fetcher
-  );
+  const { data, loading } = useQuery<Habit[]>(DUE_HABITS, {
+    variables: {
+      dueDate: beforeMidnight(),
+    },
+  });
 
   if (dashboardState.isLoggedIn) {
     return (
@@ -39,8 +40,8 @@ export const DashboardHome = observer((): JSX.Element => {
           <Calories />
         </div>
         <br />
-        <HabitList data={data} isValidating={isValidating} mutate={mutate} />
-        <AddHabit isValidating={isValidating} mutate={mutate} />
+        <HabitList data={data} isValidating={loading} />
+        <AddHabit isValidating={loading} />
         <br />
         <div style={{ display: 'grid', placeItems: 'center' }}>
           <FinanceGraph />

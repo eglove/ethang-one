@@ -7,7 +7,4 @@ export class FinanceRecordSumOrderByAggregateInput {
 
     @Field(() => SortOrder, {nullable:true})
     currentValue?: keyof typeof SortOrder;
-
-    @Field(() => SortOrder, {nullable:true})
-    recordedDate?: keyof typeof SortOrder;
 }

@@ -5,9 +5,6 @@ import { InputType } from '@nestjs/graphql';
 export class TodaysCaloriesSumAggregateInput {
 
     @Field(() => Boolean, {nullable:true})
-    birthday?: true;
-
-    @Field(() => Boolean, {nullable:true})
     currentCalories?: true;
 
     @Field(() => Boolean, {nullable:true})
