@@ -1,10 +1,12 @@
+import {
+  CreateOneHabitArgs as CreateOneHabitArguments,
+  FindManyHabitArgs as FindManyHabitArguments,
+  FindUniqueHabitArgs as FindUniqueHabitArguments,
+  Habit,
+  UpdateOneHabitArgs as UpdateOneHabitArguments,
+} from '@ethang/types';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { CreateOneHabitArgs as CreateOneHabitArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/create-one-habit.args';
-import { FindManyHabitArgs as FindManyHabitArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/find-many-habit.args';
-import { FindUniqueHabitArgs as FindUniqueHabitArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/find-unique-habit.args';
-import { Habit } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/habit.model';
-import { UpdateOneHabitArgs as UpdateOneHabitArguments } from '../../../../../libs/types/src/lib/@generated/prisma-nestjs-graphql/habit/update-one-habit.args';
 import { HabitService } from './habit.service';
 
 const returnHabit = (): typeof Habit => {

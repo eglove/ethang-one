@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { FinanceRecordModule } from './finance-record/finance-record.module';
 import { HabitModule } from './habit/habit.module';
 import { PrismaService } from './prisma/prisma.service';
+import { TodaysCaloriesModule } from './todays-calories/todays-calories.module';
 import { UnusedKeyModule } from './unused-key/unused-key.module';
 import { UsedKeyModule } from './used-key/used-key.module';
 
@@ -28,6 +29,7 @@ import { UsedKeyModule } from './used-key/used-key.module';
     UsedKeyModule,
     UnusedKeyModule,
     FinanceRecordModule,
+    TodaysCaloriesModule,
   ],
   providers: [AppService, PrismaService],
 })
