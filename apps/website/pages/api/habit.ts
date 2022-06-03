@@ -24,7 +24,7 @@ export default async function (
       response.send(
         JSON.stringify(
           await habit.create({
-            dueDate,
+            dueDate: new Date(dueDate),
             name,
             recurInterval,
           })
