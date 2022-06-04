@@ -18,7 +18,7 @@ export class AuthService {
   async signup(email: string, password: string): Promise<User> {
     const users = await this.usersService.find(email);
 
-    if (users.length > 0) {
+    if (users?.length > 0) {
       throw new BadRequestException('Email already in use.');
     }
 

@@ -18,7 +18,7 @@ export class UsersService {
     return this.repository.save(user);
   }
 
-  async findOne(id: number): Promise<User> {
+  async findOne(id: number): Promise<User | undefined> {
     const user = await this.repository.findOne({ where: { id } });
 
     if (user === null) {
@@ -32,7 +32,10 @@ export class UsersService {
     return this.repository.find({ where: { email } });
   }
 
-  async update(id: number, attributes: Partial<User>): Promise<User> {
+  async update(
+    id: number,
+    attributes: Partial<User>
+  ): Promise<User | undefined> {
     const user = await this.findOne(id);
 
     if (typeof user === 'undefined') {
@@ -44,7 +47,7 @@ export class UsersService {
     return this.repository.save(user);
   }
 
-  async remove(id: number): Promise<User> {
+  async remove(id: number): Promise<User | undefined> {
     const user = await this.findOne(id);
 
     if (typeof user === 'undefined') {

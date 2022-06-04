@@ -21,7 +21,7 @@ import { UserDto } from './dto/user.dto';
 import { User } from './user.entity';
 import { UsersService } from './users.service';
 
-type AuthSession = {
+export type AuthSession = {
   userId?: number;
 };
 
@@ -69,7 +69,7 @@ export class UsersController {
   }
 
   @Get('/:id')
-  async findUser(@Param('id') id: string): Promise<User> {
+  async findUser(@Param('id') id: string): Promise<User | undefined> {
     return this.usersService.findOne(Number(id));
   }
 
@@ -79,7 +79,7 @@ export class UsersController {
   }
 
   @Delete('/:id')
-  async removeUser(@Param('id') id: string): Promise<User> {
+  async removeUser(@Param('id') id: string): Promise<User | undefined> {
     return this.usersService.remove(Number(id));
   }
 
@@ -87,7 +87,7 @@ export class UsersController {
   async updateUser(
     @Param('id') id: string,
     @Body() body: UpdateUserDto
-  ): Promise<User> {
+  ): Promise<User | undefined> {
     return this.usersService.update(Number(id), body);
   }
 }
