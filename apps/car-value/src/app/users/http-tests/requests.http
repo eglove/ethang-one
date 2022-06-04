@@ -7,6 +7,21 @@ Content-Type: application/json
   "password": "password"
 }
 
+### Sign in user
+POST {{NX_CAR_VALUE_HOST_URL}}/auth/signin
+Content-Type: application/json
+
+{
+  "email": "example@example.com",
+  "password": "password"
+}
+
+### Get the currently signed in user
+GET {{NX_CAR_VALUE_HOST_URL}}/auth/whoami
+
+### Sign out user
+POST {{NX_CAR_VALUE_HOST_URL}}/auth/signout
+
 ### Find a user given an id
 GET {{NX_CAR_VALUE_HOST_URL}}/auth/5
 

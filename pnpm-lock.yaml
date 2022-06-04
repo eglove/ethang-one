@@ -34,6 +34,7 @@ specifiers:
   '@storybook/core-server': ~6.5.6
   '@testing-library/react': 13.3.0
   '@testing-library/react-hooks': 8.0.0
+  '@types/cookie-session': ^2.0.44
   '@types/express': ^4.17.13
   '@types/graphql-depth-limit': ^1.1.3
   '@types/jest': 27.5.1
@@ -57,6 +58,7 @@ specifiers:
   browserslist-config-google: ^3.0.1
   class-transformer: ^0.5.1
   class-validator: ^0.13.2
+  cookie-session: ^2.0.0
   core-js: ^3.22.8
   cross-fetch: ^3.1.5
   cypress: ^9.7.0
@@ -167,6 +169,7 @@ dependencies:
   apollo3-cache-persist: 0.14.0_@apollo+client@3.6.6
   class-transformer: 0.5.1
   class-validator: 0.13.2
+  cookie-session: 2.0.0
   core-js: 3.22.8
   cross-fetch: 3.1.5
   disqus-react: 1.1.3_react-dom@18.1.0+react@18.1.0
@@ -239,6 +242,7 @@ devDependencies:
   '@nrwl/workspace': 14.1.9_d20b4d4bce27c56f14af300b8ae6c6dc
   '@testing-library/react': 13.3.0_react-dom@18.1.0+react@18.1.0
   '@testing-library/react-hooks': 8.0.0_88e0e75befba2bb84e9468d81157705a
+  '@types/cookie-session': 2.0.44
   '@types/express': 4.17.13
   '@types/graphql-depth-limit': 1.1.3
   '@types/jest': 27.5.1
@@ -5842,6 +5846,13 @@ packages:
     dependencies:
       '@types/node': 17.0.39
 
+  /@types/cookie-session/2.0.44:
+    resolution: {integrity: sha512-3DheOZ41pql6raSIkqEPphJdhA2dX2bkS+s2Qacv8YMKkoCbAIEXbsDil7351ARzMqvfyDUGNeHGiRZveIzhqQ==}
+    dependencies:
+      '@types/express': 4.17.13
+      '@types/keygrip': 1.0.2
+    dev: true
+
   /@types/cookie/0.4.1:
     resolution: {integrity: sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==}
     dev: false
@@ -5970,6 +5981,10 @@ packages:
     resolution: {integrity: sha512-zm6xBQpFDIDM6o9r6HSgDeIcLy82TKWctCXEPbJJcXb5AKmi5BNNdLXneixK4lplX3PqIVcwLBCGE/kAGnlD4A==}
     dependencies:
       '@types/node': 17.0.39
+    dev: true
+
+  /@types/keygrip/1.0.2:
+    resolution: {integrity: sha512-GJhpTepz2udxGexqos8wgaBx4I/zWIDPh/KOGEwAqtuGDkOUJu5eFvwmdBX4AmB8Odsr+9pHCQqiAqDL/yKMKw==}
     dev: true
 
   /@types/lodash/4.14.182:
@@ -8623,6 +8638,18 @@ packages:
     dependencies:
       safe-buffer: 5.1.2
 
+  /cookie-session/2.0.0:
+    resolution: {integrity: sha512-hKvgoThbw00zQOleSlUr2qpvuNweoqBtxrmx0UFosx6AGi9lYtLoA+RbsvknrEX8Pr6MDbdWAb2j6SnMn+lPsg==}
+    engines: {node: '>= 0.10'}
+    dependencies:
+      cookies: 0.8.0
+      debug: 3.2.7
+      on-headers: 1.0.2
+      safe-buffer: 5.2.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /cookie-signature/1.0.6:
     resolution: {integrity: sha1-4wOogrNCzD7oylE6eZmXNNqzriw=}
 
@@ -8634,6 +8661,14 @@ packages:
   /cookie/0.5.0:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
+
+  /cookies/0.8.0:
+    resolution: {integrity: sha512-8aPsApQfebXnuI+537McwYsDtjVxGm8gTIzQI3FDW6t5t/DAhERxtnbEPN/8RX+uZthoz4eCOgloXaE5cYyNow==}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      depd: 2.0.0
+      keygrip: 1.1.0
+    dev: false
 
   /copy-anything/2.0.6:
     resolution: {integrity: sha512-1j20GZTsvKNkc4BY3NpMOM8tt///wY3FpIzozTOFO2ffuZcV61nojHXVKIy3WM+7ADCy5FVhdZYHYDdgTU0yJw==}
@@ -13852,6 +13887,13 @@ packages:
     dependencies:
       jwa: 1.4.1
       safe-buffer: 5.2.1
+    dev: false
+
+  /keygrip/1.1.0:
+    resolution: {integrity: sha512-iYSchDJ+liQ8iwbSI2QqsQOvqv58eJCEanyJPJi+Khyu8smkcKSFUCbPwzFcL7YVtZ6eONjqRX/38caJ7QjRAQ==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      tsscmp: 1.0.6
     dev: false
 
   /kind-of/3.2.2:
@@ -19303,6 +19345,11 @@ packages:
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+
+  /tsscmp/1.0.6:
+    resolution: {integrity: sha512-LxhtAkPDTkVCMQjt2h6eBVY28KCjikZqZfMcC15YBeNjkgUpdCfBu5HoiOTDu86v6smE8yOjyEktJ8hlbANHQA==}
+    engines: {node: '>=0.6.x'}
+    dev: false
 
   /tsutils/3.21.0_typescript@4.7.2:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}

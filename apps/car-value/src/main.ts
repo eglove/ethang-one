@@ -4,8 +4,18 @@ import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires,unicorn/prefer-module,@typescript-eslint/no-unsafe-assignment
+const cookieSession = require('cookie-session');
+
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+
+  app.use(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    cookieSession({
+      keys: ['EthanG-Cookie'],
+    })
+  );
 
   app.useGlobalPipes(
     new ValidationPipe({

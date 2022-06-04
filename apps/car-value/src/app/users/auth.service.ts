@@ -1,5 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BadRequestException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { randomBytes, scrypt as scrypt_ } from 'node:crypto';
 import { promisify } from 'node:util';
 
@@ -27,5 +30,21 @@ export class AuthService {
     return this.usersService.create(email, result);
   }
 
-  signin() {}
+  async signin(email: string, password: string): Promise<User> {
+    const [user] = await this.usersService.find(email);
+
+    if (typeof user === 'undefined') {
+      throw new NotFoundException('User not found.');
+    }
+
+    const [salt, storedHash] = user.password.split('.');
+
+    const hash = (await scrypt(password, salt, 32)) as Buffer;
+
+    if (storedHash !== hash.toString('hex')) {
+      throw new BadRequestException('Incorrect login details.');
+    }
+
+    return user;
+  }
 }
