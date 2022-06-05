@@ -9,3 +9,4 @@ export * from './lib/util-string/util-string';
 export * from './lib/util-string/validate-email';
 export * from './lib/util-string/validate-ip';
 export * from './lib/util-time';
+export * from './lib/util-type';

@@ -1,7 +1,0 @@
-.HomeContainer {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-  max-height: 80vh;
-  overflow: auto;
-}

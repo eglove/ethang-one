@@ -102,6 +102,16 @@ export const toCapitalizedWords = (string: string): string => {
     .join(' ');
 };
 
+export const kebabCaseToWords = (string: string): string => {
+  const words = string.split('-');
+
+  return words
+    .map(word => {
+      return capitalizeFirstLetter(word, true);
+    })
+    .join(' ');
+};
+
 export const wordStringToCamelCase = (string: string, split = ' '): string => {
   const words = string.split(split);
   const firstWord = words[0].toLowerCase();

@@ -1,25 +1,36 @@
-import { exec, spawn } from 'node:child_process';
+import { exec, spawn, SpawnOptions } from 'node:child_process';
 
-interface ShellCallbacks {
+export interface ShellCallbacks {
   onStdout?: (stdout: string) => void;
   onError?: (stderr: string) => void;
   onCode?: (code: number) => void;
 }
 
-export const runShellAsync = (
-  command: string,
-  callbacks?: ShellCallbacks
-): void => {
-  const commandArray = command.split(' ');
-  const process = spawn(commandArray[0], commandArray.splice(1));
+interface ShellParameters {
+  command: string;
+  callbacks?: ShellCallbacks;
+  spawnOptions?: SpawnOptions;
+}
 
-  process.stdout.on('data', (data: Buffer) => {
+const defaultSpawnOptions: SpawnOptions = {
+  shell: true,
+  stdio: 'inherit',
+};
+
+export const runShellAsync = ({
+  command,
+  callbacks,
+  spawnOptions = defaultSpawnOptions,
+}: ShellParameters): void => {
+  const process = spawn(command, spawnOptions);
+
+  process.stdout?.on('data', (data: Buffer) => {
     if (typeof callbacks?.onStdout !== 'undefined') {
       callbacks.onStdout(data.toString('utf8'));
     }
   });
 
-  process.stderr.on('data', (data: Buffer) => {
+  process.stderr?.on('data', (data: Buffer) => {
     if (typeof callbacks?.onError !== 'undefined') {
       callbacks.onError(data.toString('utf8'));
     }
@@ -36,10 +47,7 @@ export const runShellAsync = (
   }
 };
 
-export const runShellSync = (
-  command: string,
-  callbacks?: ShellCallbacks
-): void => {
+export const runShellSync = ({ command, callbacks }: ShellParameters): void => {
   exec(command, (error, stdout, stderr) => {
     if (typeof callbacks?.onStdout !== 'undefined') {
       callbacks?.onStdout(stdout);
