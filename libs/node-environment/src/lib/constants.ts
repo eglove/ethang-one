@@ -11,29 +11,20 @@ export enum ENV_KEYS {
   ADMIN_PASSWORD = 'ADMIN_PASSWORD',
 }
 
-export class Constant {
-  public constantKeys: typeof ENV_KEYS;
-  private readonly constants;
+export const getConst = (
+  key: ENV_KEYS,
+  environment = process.env['NODE_ENV']
+): string => {
+  const constants =
+    environment === 'development'
+      ? environmentVariablesDevelopment
+      : environmentVariablesProduction;
 
-  constructor(environment = process.env['NODE_ENV']) {
-    this.constants =
-      environment === 'development'
-        ? environmentVariablesDevelopment
-        : environmentVariablesProduction;
-    this.constantKeys = ENV_KEYS;
+  const value = constants[key];
+
+  if (value === undefined) {
+    throw new Error(`Constant ${key} not found.`);
   }
 
-  get = (constantKey: ENV_KEYS): string => {
-    const value = this.constants[constantKey];
-
-    if (value === undefined) {
-      throw new Error(`Constant ${constantKey} not found.`);
-    }
-
-    return value;
-  };
-}
-
-export const getConst = (key: ENV_KEYS): string => {
-  return new Constant().get(key);
+  return value;
 };
