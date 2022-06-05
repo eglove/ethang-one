@@ -47,12 +47,15 @@
       "rules": {
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-non-null-assertion": "error",
         "@typescript-eslint/explicit-function-return-type": [
           "error"
         ],
         "@typescript-eslint/strict-boolean-expressions": "error",
         "arrow-body-style": ["error", "always"],
         "capitalized-comments": "off",
+        "max-params": "error",
         "new-cap": "off",
         "no-console": ["error", {
           "allow": ["debug", "info", "warn", "error"]

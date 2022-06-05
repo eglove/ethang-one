@@ -13,7 +13,8 @@ const createBook = (author: string, isbn: string, title: string): Book => {
   const existingBook = books.has(isbn);
 
   if (existingBook) {
-    return books.get(isbn)!;
+    // @ts-expect-error Using js methods
+    return books.get(isbn);
   }
 
   // Reuse constructor to avoid creating new object all the time
@@ -23,27 +24,59 @@ const createBook = (author: string, isbn: string, title: string): Book => {
   return book;
 };
 
-const addBook = (
-  author: string,
-  isbn: string,
-  title: string,
-  availability: boolean,
-  sales: number
-): Book => {
+interface AddBookProperties {
+  author: string;
+  isbn: string;
+  title: string;
+  availability: boolean;
+  sales: number;
+}
+
+const addBook = (properties: AddBookProperties): Book => {
   const book = {
-    ...createBook(author, isbn, title),
-    availability,
-    isbn,
-    sales,
+    ...createBook(properties.author, properties.isbn, properties.title),
+    availability: properties.availability,
+    isbn: properties.isbn,
+    sales: properties.sales,
   };
 
   bookList.push(book);
   return book;
 };
 
-addBook('JK Rowling', 'AB123', 'Harry Potter', false, 100);
-addBook('JK Rowling', 'AB123', 'Harry Potter', true, 50);
-addBook('Harper Lee', 'CD345', 'To Kill a Mockingbird', true, 10);
-addBook('Harper Lee', 'CD345', 'To Kill a Mockingbird', false, 20);
-addBook('F. Scott Fitzgerald', 'EF567', 'The Great Gatsby', false, 20);
+addBook({
+  author: 'JK Rowling',
+  availability: false,
+  isbn: 'AB123',
+  sales: 100,
+  title: 'Harry Potter',
+});
+addBook({
+  author: 'JK Rowling',
+  availability: true,
+  isbn: 'AB123',
+  sales: 50,
+  title: 'Harry Potter',
+});
+addBook({
+  author: 'Harper Lee',
+  availability: true,
+  isbn: 'CD345',
+  sales: 10,
+  title: 'To Kill a Mockingbird',
+});
+addBook({
+  author: 'Harper Lee',
+  availability: false,
+  isbn: 'CD345',
+  sales: 20,
+  title: 'To Kill a Mockingbird',
+});
+addBook({
+  author: 'F. Scott Fitzgerald',
+  availability: false,
+  isbn: 'EF567',
+  sales: 20,
+  title: 'The Great Gatsby',
+});
 console.info(bookList);

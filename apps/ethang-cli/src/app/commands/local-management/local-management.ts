@@ -6,6 +6,7 @@ import { getChoice } from '../../util/commands';
 export const localManagement = async (): Promise<void> => {
   const choices = {
     chocoUpdate: 'Choco Update All',
+    openWebstorm: 'Open EthanG-One In Webstorm',
   };
 
   const choice = await getChoice({
@@ -19,6 +20,13 @@ export const localManagement = async (): Promise<void> => {
         onCode: startCli,
       },
       command: 'choco upgrade all',
+    });
+  } else if (choice === choices.openWebstorm) {
+    runShellAsync({
+      callbacks: {
+        onCode: startCli,
+      },
+      command: 'webstorm . ',
     });
   }
 };

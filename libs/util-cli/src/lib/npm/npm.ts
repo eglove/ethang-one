@@ -1,5 +1,5 @@
 export const browsersListUpdate = (): string => {
-  return 'npx pnpm browserslist --update-db';
+  return 'npx --yes pnpm browserslist --update-db';
 };
 
 export const buildCrossEnvironmentCommand = (commands: string[]): string => {

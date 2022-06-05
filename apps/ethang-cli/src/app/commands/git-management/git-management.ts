@@ -7,7 +7,7 @@ import {
 } from '@ethang/util-cli';
 
 import { startCli } from '../../start-cli';
-import { getChoice } from '../../util/commands';
+import { getChoice, getInput } from '../../util/commands';
 
 export const gitManagement = async (): Promise<void> => {
   const choices = {
@@ -22,21 +22,26 @@ export const gitManagement = async (): Promise<void> => {
 
   let command = '';
   if (choice === choices.addAllCommit) {
+    const commitMessage = await getInput('Enter a commit message:');
+
     command = buildCrossEnvironmentCommand([
       gitCommand.add(),
       browsersListUpdate(),
       NxCommand.LINT_AFFECTED,
-      gitCommand.commit(),
+      gitCommand.commit(`"${commitMessage}"`),
     ]);
   } else if (choice === choices.addAllCommitPush) {
+    const commitMessage = await getInput('Enter a commit message:');
+
     command = buildCrossEnvironmentCommand([
       gitCommand.add(),
       browsersListUpdate(),
       NxCommand.LINT_AFFECTED,
-      gitCommand.commit(),
+      gitCommand.commit(`"${commitMessage}"`),
       NxCommand.BUILD_AFFECTED,
       NxCommand.TEST_AFFECTED,
       NxCommand.E2E_AFFECTED,
+      gitCommand.push(),
     ]);
   }
 
