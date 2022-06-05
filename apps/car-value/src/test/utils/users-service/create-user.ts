@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import { User } from '../../../users/user.entity';
+import { User } from '../../../app/users/user.entity';
 
 export const createUser = (data?: Partial<User>): User => {
   const user = new User();

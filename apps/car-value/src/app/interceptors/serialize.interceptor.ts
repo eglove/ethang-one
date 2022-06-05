@@ -17,7 +17,7 @@ export class SerializeInterceptor<DtoType> implements NestInterceptor {
   constructor(private readonly dto: ClassConstructor<DtoType>) {}
 
   intercept(
-    context: ExecutionContext,
+    _: ExecutionContext,
     next: CallHandler
   ): Observable<DtoType> | Promise<Observable<DtoType>> {
     return next.handle().pipe(

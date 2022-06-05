@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
-import { usersServiceMock } from '../test/utils/users-service/users-service.mock';
+import { usersServiceMock } from '../../test/utils/users-service/users-service.mock';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
 

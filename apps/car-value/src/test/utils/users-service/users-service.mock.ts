@@ -1,6 +1,6 @@
 import { NotFoundException } from '@nestjs/common';
 
-import { User } from '../../../users/user.entity';
+import { User } from '../../../app/users/user.entity';
 import { createUser } from './create-user';
 
 export const usersServiceMock = (users: User[] = []): unknown => {

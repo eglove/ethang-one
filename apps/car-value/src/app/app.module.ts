@@ -1,3 +1,4 @@
+import { ENV_KEYS, getConst } from '@ethang/node-environment';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -14,7 +15,7 @@ import { UsersModule } from './users/users.module';
     UsersModule,
     ReportsModule,
     TypeOrmModule.forRoot({
-      database: 'apps/car-value/db.sqlite',
+      database: getConst(ENV_KEYS.CAR_VALUE_DATABASE),
       entities: [Report, User],
       synchronize: true,
       type: 'sqlite',

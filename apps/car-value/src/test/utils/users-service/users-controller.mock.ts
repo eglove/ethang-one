@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker';
 
-import { CreateUserDto } from '../../../users/dto/create-user.dto';
-import { User } from '../../../users/user.entity';
-import { AuthSession } from '../../../users/users.controller';
+import { CreateUserDto } from '../../../app/users/dto/create-user.dto';
+import { User } from '../../../app/users/user.entity';
+import { AuthSession } from '../../../app/users/users.controller';
 
 export const usersControllerMock = (): unknown => {
   return {
