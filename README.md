@@ -1,4 +1,5 @@
 # EthanG
+`npm run cli`
 
 * [Apps](./apps/)
 * [Libraries](./libs/)
