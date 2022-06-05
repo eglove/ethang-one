@@ -4,7 +4,7 @@ import {
   FindUniqueHabitArgs as FindUniqueHabitArguments,
   Habit,
   UpdateOneHabitArgs as UpdateOneHabitArguments,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from '../prisma/prisma.service';

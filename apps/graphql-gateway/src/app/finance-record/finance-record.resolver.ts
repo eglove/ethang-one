@@ -4,7 +4,7 @@ import {
   FinanceRecord,
   FindManyFinanceRecordArgs as FindManyFinanceRecordArguments,
   FindUniqueFinanceRecordArgs as FindUniqueFinanceRecordArguments,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { FinanceRecordService } from './finance-record.service';

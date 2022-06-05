@@ -1,11 +1,11 @@
 import { useMutation } from '@apollo/client';
+import { HabitCreateInput } from '@ethang/prisma-nestjs-graphql';
 import {
   InputType,
   SimpleForm,
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
-import { HabitCreateInput } from '@ethang/types';
 import { useState } from 'react';
 
 import commonStyles from '../../../styles/common.module.css';

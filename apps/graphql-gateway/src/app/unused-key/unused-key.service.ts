@@ -2,7 +2,7 @@ import {
   CreateOneUnusedKeyArgs as CreateOneUnusedKeyArguments,
   DeleteOneUnusedKeyArgs as DeleteOneUnusedKeyArguments,
   UnusedKey,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
 import { faker } from '@faker-js/faker';
 import { Injectable } from '@nestjs/common';
 

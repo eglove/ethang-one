@@ -3,7 +3,7 @@ import {
   DeleteOneUsedKeyArgs as DeleteOneUsedKeyArguments,
   UnusedKey,
   UsedKey,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
 import { Injectable } from '@nestjs/common';
 
 import { PrismaService } from '../prisma/prisma.service';

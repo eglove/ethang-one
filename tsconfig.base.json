@@ -30,6 +30,9 @@
       "@ethang/local-database": ["libs/local-database/src/index.ts"],
       "@ethang/node-environment": ["libs/node-environment/src/index.ts"],
       "@ethang/prisma": ["libs/prisma/src/index.ts"],
+      "@ethang/prisma-nestjs-graphql": [
+        "libs/prisma-nestjs-graphql/src/index.ts"
+      ],
       "@ethang/react-components": ["libs/react-components/src/index.ts"],
       "@ethang/react-hooks": ["libs/react-hooks/src/index.ts"],
       "@ethang/types": ["libs/types/src/index.ts"],

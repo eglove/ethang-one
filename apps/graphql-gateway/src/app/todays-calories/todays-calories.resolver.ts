@@ -2,7 +2,7 @@ import {
   FindFirstTodaysCaloriesArgs as FindFirstTodaysCaloriesArguments,
   TodaysCalories,
   UpdateOneTodaysCaloriesArgs as UpdateOneTodaysCaloriesArguments,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
 import { Args, Query, Resolver } from '@nestjs/graphql';
 
 import { TodaysCaloriesService } from './todays-calories.service';

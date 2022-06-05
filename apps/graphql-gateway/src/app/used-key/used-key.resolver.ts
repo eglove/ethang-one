@@ -2,7 +2,7 @@ import {
   DeleteOneUsedKeyArgs as DeleteOneUsedKeyArguments,
   UnusedKey,
   UsedKey,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 
 import { UnusedKeyService } from '../unused-key/unused-key.service';

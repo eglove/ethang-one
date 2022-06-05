@@ -4,7 +4,7 @@ import {
   FindUniqueHabitArgs as FindUniqueHabitArguments,
   Habit,
   UpdateOneHabitArgs as UpdateOneHabitArguments,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { HabitService } from './habit.service';

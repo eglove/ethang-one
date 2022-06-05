@@ -2,11 +2,11 @@ import {
   AffectedRows,
   CreateManyFinanceRecordArgs as CreateManyFinanceRecordArguments,
   CreateOneFinanceRecordArgs as CreateOneFinanceRecordArguments,
-  FinanceGraphData,
   FinanceRecord,
   FindManyFinanceRecordArgs as FindManyFinanceRecordArguments,
   FindUniqueFinanceRecordArgs as FindUniqueFinanceRecordArguments,
-} from '@ethang/types';
+} from '@ethang/prisma-nestjs-graphql';
+import { FinanceGraphData } from '@ethang/types';
 import { Injectable } from '@nestjs/common';
 import ms from 'ms';
 

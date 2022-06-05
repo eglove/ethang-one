@@ -1,11 +1,11 @@
 import { useMutation } from '@apollo/client';
+import { FinanceRecordCreateManyInput } from '@ethang/prisma-nestjs-graphql';
 import {
   Container,
   SimpleForm,
   SimpleFormButton,
   SimpleFormInput,
 } from '@ethang/react-components';
-import { FinanceRecordCreateManyInput } from '@ethang/types';
 import { useState } from 'react';
 
 import { HeadTag } from '../../../components/common/head-tag/head-tag';
