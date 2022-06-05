@@ -1,16 +1,15 @@
-/* eslint-disable */
 export default {
-  displayName: "prisma-nestjs-graphql",
-  preset: "../../jest.preset.js",
+  coverageDirectory: '../../coverage/libs/prisma-nestjs-graphql',
+  displayName: 'prisma-nestjs-graphql',
   globals: {
-    "ts-jest": {
-      tsconfig: "<rootDir>/tsconfig.spec.json",
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
-  testEnvironment: "node",
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  preset: '../../jest.preset.js',
+  testEnvironment: 'node',
   transform: {
-    "^.+\\.[tj]sx?$": "ts-jest",
+    '^.+\\.[tj]sx?$': 'ts-jest',
   },
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
-  coverageDirectory: "../../coverage/libs/prisma-nestjs-graphql",
 };

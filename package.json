@@ -3,26 +3,10 @@
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
-    "deps": "npx --yes pnpm i",
-    "update": "npx --yes pnpm up -i --latest",
-    "buildEg": "npx nx build ethang-cli",
-    "eg": "node dist/apps/ethang-cli/main.js",
-    "preCommit": "npx cross-env npm run browsersList && npm run lintAffected",
-    "postCommit": "npx cross-env npm run buildAffected && npm run testAffected && npm run e2eAffected",
+    "cli": "npx nx serve ethang-cli",
     "websiteDeploy": "npx nx build website --prod --verbose",
-    "lintStaged": "npx pnpm lint-staged",
-    "browsersList": "npx pnpm browserslist --update-db",
-    "lintAffected": "npx nx affected --target=lint --fix --base=origin/master --head=HEAD",
-    "buildAffected": "npx nx affected --target=build --base=origin/master --head=HEAD",
-    "testAffected": "npx nx affected --target=test --base=origin/master --head=HEAD",
-    "e2eAffected": "npx nx affected --target=e2e --base=origin/master --head=HEAD",
     "snykDependencies": "npx snyk test --severity-threshold=low",
-    "snykAnalysis": "npx snyk code test --severity-threshold=low",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix",
-    "*.css": "stylelint --fix"
+    "snykAnalysis": "npx snyk code test --severity-threshold=low"
   },
   "browserslist": [
     "extends browserslist-config-google"
@@ -160,12 +144,10 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^42.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "husky": "^8.0.1",
     "jasmine-marbles": "^0.9.2",
     "jest": "27.5.1",
     "jest-config": "28.1.0",
     "jest-mock-extended": "^2.0.6",
-    "lint-staged": "^13.0.0",
     "nx": "14.1.9",
     "prettier": "^2.6.2",
     "prisma": "^3.14.0",

@@ -1,5 +1,7 @@
 import { exec, spawn, SpawnOptions } from 'node:child_process';
 
+import { ShellColor } from './colors';
+
 export interface ShellCallbacks {
   onStdout?: (stdout: string) => void;
   onError?: (stderr: string) => void;
@@ -9,6 +11,7 @@ export interface ShellCallbacks {
 interface ShellParameters {
   command: string;
   callbacks?: ShellCallbacks;
+  hideCommandPrintout?: boolean;
   spawnOptions?: SpawnOptions;
 }
 
@@ -20,8 +23,13 @@ const defaultSpawnOptions: SpawnOptions = {
 export const runShellAsync = ({
   command,
   callbacks,
+  hideCommandPrintout = false,
   spawnOptions = defaultSpawnOptions,
 }: ShellParameters): void => {
+  if (!hideCommandPrintout) {
+    console.info(`${ShellColor.BgBlue}${ShellColor.FgWhite}`, command);
+  }
+
   const process = spawn(command, spawnOptions);
 
   process.stdout?.on('data', (data: Buffer) => {

@@ -9,6 +9,18 @@ interface NxCommandProperties {
 }
 
 export class NxCommand implements NxCommandProperties {
+  static BUILD_AFFECTED =
+    'npx nx affected --target=build --base=origin/master --head=HEAD';
+
+  static E2E_AFFECTED =
+    'npx nx affected --target=e2e --base=origin/master --head=HEAD';
+
+  static LINT_AFFECTED =
+    'npx nx affected --target=lint --fix --base=origin/master --head=HEAD';
+
+  static TEST_AFFECTED =
+    'npx nx affected --target=test --base=origin/master --head=HEAD';
+
   isDryRun?: boolean;
   projectName?: string;
   projectNames?: string[];
@@ -21,6 +33,22 @@ export class NxCommand implements NxCommandProperties {
     this.projectNames = properties?.projectNames;
     this.target = properties?.target;
     this.onClose = properties?.onClose;
+  }
+
+  async buildAffected(): Promise<void> {
+    await this.runCommand(NxCommand.BUILD_AFFECTED);
+  }
+
+  async e2eAffected(): Promise<void> {
+    await this.runCommand(NxCommand.E2E_AFFECTED);
+  }
+
+  async lintAffected(): Promise<void> {
+    await this.runCommand(NxCommand.LINT_AFFECTED);
+  }
+
+  async testAffected(): Promise<void> {
+    await this.runCommand(NxCommand.TEST_AFFECTED);
   }
 
   async remove(): Promise<void> {
