@@ -95,7 +95,7 @@ export class NxCommand implements NxCommandProperties {
     await this.runCommand(
       `npx nx run-many --target=${
         this.target
-      } --projects=${this.projectNames.join(',')}}`
+      } --projects=${this.projectNames.join(',')}`
     );
   }
 

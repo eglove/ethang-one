@@ -1,5 +1,5 @@
 ### Create a new user
-POST {{NX_CAR_VALUE_HOST_URL}}/auth/signup
+POST {{CAR_VALUE_HOST_URL}}/auth/signup
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### Sign in user
-POST {{NX_CAR_VALUE_HOST_URL}}/auth/signin
+POST {{CAR_VALUE_HOST_URL}}/auth/signin
 Content-Type: application/json
 
 {
@@ -17,22 +17,22 @@ Content-Type: application/json
 }
 
 ### Get the currently signed in user
-GET {{NX_CAR_VALUE_HOST_URL}}/auth/whoami
+GET {{CAR_VALUE_HOST_URL}}/auth/whoami
 
 ### Sign out user
-POST {{NX_CAR_VALUE_HOST_URL}}/auth/signout
+POST {{CAR_VALUE_HOST_URL}}/auth/signout
 
 ### Find a user given an id
-GET {{NX_CAR_VALUE_HOST_URL}}/auth/5
+GET {{CAR_VALUE_HOST_URL}}/auth/5
 
 ### Find all users with a given email
-GET {{NX_CAR_VALUE_HOST_URL}}/auth?email=example@example.com
+GET {{CAR_VALUE_HOST_URL}}/auth?email=example@example.com
 
 ### Delete a user give an id
-DELETE {{NX_CAR_VALUE_HOST_URL}}/auth/3
+DELETE {{CAR_VALUE_HOST_URL}}/auth/3
 
 ### Update a user
-PATCH {{NX_CAR_VALUE_HOST_URL}}/auth/4
+PATCH {{CAR_VALUE_HOST_URL}}/auth/4
 Content-Type: application/json
 
 {

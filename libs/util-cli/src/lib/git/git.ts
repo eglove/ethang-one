@@ -31,4 +31,7 @@ export const gitCommand = {
   push(): string {
     return 'git push';
   },
+  status(): string {
+    return 'git status';
+  },
 };
