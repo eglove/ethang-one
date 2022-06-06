@@ -3,7 +3,6 @@ import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 
 import { usersServiceMock } from '../../test/utils/users-service/users-service.mock';
-import { ReportsService } from '../reports/reports.service';
 import { AuthService } from './auth.service';
 import { UsersService } from './users.service';
 
@@ -25,7 +24,6 @@ describe('AuthService', () => {
     const module = await Test.createTestingModule({
       providers: [
         AuthService,
-        { provide: ReportsService, useValue: {} },
         { provide: UsersService, useValue: usersServiceMock() },
       ],
     }).compile();
