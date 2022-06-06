@@ -35,7 +35,7 @@ export function ResumeMain(): JSX.Element {
         jobTitle="Full Stack Developer"
         location="St. Louis, MO"
         jobDetails={[
-          'Worked on Laravel and Yii applications for delivering quotes and booking shipments for clients through multiple carriers such as FedEx, UPS, and other trucking companies.',
+          'Worked on Laravel and Yii applications for delivering quotes and booking shipments for clients through multiple carriers such as FedEx, UPS, and hidden trucking companies.',
           'Supported and created REST API’s for third party consumption to rate, quote, and ship deliveries for small packages, LTL, and truckloads.',
           'Extended public shipment tracking built on Vue and Laravel.',
           'Grew use of Postman for building REST API testing and using collections to better aid the QA process.',

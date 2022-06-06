@@ -103,7 +103,9 @@ export function StaticBlogLayout({
       <div className={styles.BlogInfo}>
         <div>
           <h1 className={styles.Title}>{blog.title}</h1>
-          <div>Authors: {authors}</div>
+          <div>
+            Author{blog.authors.length > 1 ? 's' : ''}: {authors}
+          </div>
           <div>{`Last Updated: ${humanReadableLocalDateTime(
             blog.updatedAt
           )}`}</div>
