@@ -240,7 +240,7 @@ export const courses = {
     instructors: [persons.mariusEspejo],
     rating: 3,
     school: schools.youtube,
-    title: 'NestJs GraphQL Tutorial',
+    title: 'NestJS GraphQL Tutorial',
     yearUpdated: 2021,
   }),
   postmanCompleteGuide: new Course({

@@ -279,9 +279,9 @@ export function SortedCourses(): JSX.Element {
           Nevertheless it&apos;s worth learning the decorator pattern and
           dependency injection system of Nest. (Which is heavily inspired by
           Angular.) I found NestJS to be comfortable and easy to use after
-          taking this course. Stephen Grider is a great teach (although I REALLY
-          wish he would stop manually importing everything and learn how to use
-          EsLint.)
+          taking this course. Stephen Grider is a great teacher. Although I
+          REALLY wish he would stop manually importing everything and learn how
+          to use ESLint.
         </p>
         <p>
           I&apos;m sure you&apos;ll find that NestJS has it&apos;s place in the
@@ -292,13 +292,13 @@ export function SortedCourses(): JSX.Element {
       <GetCourseComponent course={courses.nestJsGraphqlTutorial}>
         <p>
           The first YouTube tutorial to make it on the list. The whole reason I
-          started learning NestJS to begin with was in a search for good GraphQL
-          solutions. Turns out, Nest is perfect for it.
+          started learning NestJS to begin with was in a search of a good
+          GraphQL solution. Turns out, Nest is perfect for it.
         </p>
         <p>
           This course is short and lacking in detail, but after you go through
           Stephen Grider&apos;s more complete course you&apos;ll have no issue
-          following along with this short 1 hours course to get you started with
+          following along with this 1 hour tutorial to get you started with
           using GraphQL with Nest.
         </p>
       </GetCourseComponent>
