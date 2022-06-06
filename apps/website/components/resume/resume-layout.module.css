@@ -17,6 +17,7 @@
   height: 297mm;
   margin: auto;
   overflow: hidden;
+  color: hsl(0deg 0% 0%);
   background: hsl(0deg 0% 100%);
 }
 
@@ -40,6 +41,7 @@
 }
 
 .Sidebar a {
+  color: hsl(0deg 0% 0%);
   text-decoration: none;
 }
 
