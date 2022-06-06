@@ -108,6 +108,12 @@ export const courseUrls = {
       'https://www.udemy.com/course/learning-to-learn-efficient-learning-zero-to-mastery'
     ),
   }),
+  udemyNestJsCompleteDevelopersGuide: new CourseUrl({
+    school: schools.udemy,
+    url: new URL(
+      'https://www.udemy.com/course/nestjs-the-complete-developers-guide/'
+    ),
+  }),
   udemyPostmanCompleteGuide: new CourseUrl({
     school: schools.udemy,
     url: new URL(
@@ -151,6 +157,10 @@ export const courseUrls = {
   wesBosAdvancedReact: new CourseUrl({
     school: schools.wesBos,
     url: new URL('https://advancedreact.com/'),
+  }),
+  youtubeNestjsGraphqlTutorial: new CourseUrl({
+    school: schools.youtube,
+    url: new URL('https://www.youtube.com/watch?v=geYvdbpo3cA'),
   }),
   zeroToMasteryCompleteEthicalHacking: new CourseUrl({
     school: schools.zeroToMastery,

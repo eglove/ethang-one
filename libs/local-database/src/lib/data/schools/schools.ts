@@ -86,6 +86,12 @@ export const schools = {
     name: 'Wes Bos',
     url: new URL('https://wesbos.com/courses'),
   }),
+  youtube: new School({
+    description: 'YouTube',
+    image: allImages.schoolImages.youtube,
+    name: 'YouTube',
+    url: new URL('https://www.youtube.com/'),
+  }),
   zeroToMastery: new School({
     description: 'Zero To Mastery',
     image: allImages.schoolImages.ztm,

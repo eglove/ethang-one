@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { User } from '../users/user.entity';
 
-export type UserSession = {
+export type UserSession = Request & {
   currentUser?: User;
   session?: {
     userId?: number;

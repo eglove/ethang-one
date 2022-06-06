@@ -267,6 +267,41 @@ export function SortedCourses(): JSX.Element {
           more well designed code.
         </p>
       </GetCourseComponent>
+      <GetCourseComponent course={courses.nestJsCompleteDevelopersGuide}>
+        <p>
+          Full stack frameworks get a lot of flak in the JavaScript community.
+          JavaScript is a flexible language that makes it very easy to create
+          custom solutions. The language itself is not opinionated, so using an
+          opinionated framework can make it feel like you&apos;re trapped in a
+          very small box.
+        </p>
+        <p>
+          Nevertheless it&apos;s worth learning the decorator pattern and
+          dependency injection system of Nest. (Which is heavily inspired by
+          Angular.) I found NestJS to be comfortable and easy to use after
+          taking this course. Stephen Grider is a great teach (although I REALLY
+          wish he would stop manually importing everything and learn how to use
+          EsLint.)
+        </p>
+        <p>
+          I&apos;m sure you&apos;ll find that NestJS has it&apos;s place in the
+          JS world by the time you&apos;re done with this course. You may even
+          learn to prefer as a backend framework.
+        </p>
+      </GetCourseComponent>
+      <GetCourseComponent course={courses.nestJsGraphqlTutorial}>
+        <p>
+          The first YouTube tutorial to make it on the list. The whole reason I
+          started learning NestJS to begin with was in a search for good GraphQL
+          solutions. Turns out, Nest is perfect for it.
+        </p>
+        <p>
+          This course is short and lacking in detail, but after you go through
+          Stephen Grider&apos;s more complete course you&apos;ll have no issue
+          following along with this short 1 hours course to get you started with
+          using GraphQL with Nest.
+        </p>
+      </GetCourseComponent>
       <GetCourseComponent course={courses.scaleReactDevelopmentWithNx}>
         <p>
           Monorepos are an extraordinary way to make code reusable across
@@ -282,6 +317,21 @@ export function SortedCourses(): JSX.Element {
           are usable across any JavaScript framework and even the native web. As
           you start building out your monorepo and experimenting with multiple
           frameworks, you&apos;ll definitely want to start using this.
+        </p>
+      </GetCourseComponent>
+      <GetCourseComponent course={courses.scrumForBeginners}>
+        <p>
+          As you move into management roles you need to get to know SCRUM and
+          AGILE better. Working in development, you&apos;ll pick up the basics.
+          But it&apos;s good to learn the details and Valentin Despa&apos;s
+          courses are great.
+        </p>
+        <p>
+          I&apos;ll leave it up to your discretion whether you want to get
+          certified or not. I do not like memorizing flash cards for exams. I
+          don&apos;t think that&apos;s a good way to learn, study, or prove your
+          knowledge. But you&apos;ll still want to learn it whether you get
+          certified or not.
         </p>
       </GetCourseComponent>
       <GetCourseComponent course={courses.dockerAndKubernetes}>
@@ -328,21 +378,6 @@ export function SortedCourses(): JSX.Element {
           with Linux a lot more. Especially in managing applications and their
           deployments. You will want to get conformable with the admin side of
           Linux to perform these duties.
-        </p>
-      </GetCourseComponent>
-      <GetCourseComponent course={courses.scrumForBeginners}>
-        <p>
-          As you move into management roles you need to get to know SCRUM and
-          AGILE better. Working in development, you&apos;ll pick up the basics.
-          But it&apos;s good to learn the details and Valentin Despa&apos;s
-          courses are great.
-        </p>
-        <p>
-          I&apos;ll leave it up to your discretion whether you want to get
-          certified or not. I do not like memorizing flash cards for exams. I
-          don&apos;t think that&apos;s a good way to learn, study, or prove your
-          knowledge. But you&apos;ll still want to learn it whether you get
-          certified or not.
         </p>
       </GetCourseComponent>
     </>

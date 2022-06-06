@@ -17,7 +17,6 @@ import { UsersModule } from './users/users.module';
     TypeOrmModule.forRoot({
       database: getConst(ENV_KEYS.CAR_VALUE_DATABASE),
       entities: [Report, User],
-      synchronize: true,
       type: 'sqlite',
     }),
   ],

@@ -1,5 +1,6 @@
 import { Course as CourseModel } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
+import { formatList } from '@ethang/util-typescript';
 import { Dispatch, SetStateAction } from 'react';
 
 import styles from './course.module.css';
@@ -41,6 +42,16 @@ export function Course({
         tabIndex: 0,
       };
 
+  const getInstructorNames = (): string | undefined => {
+    if (Array.isArray(course.instructors)) {
+      return formatList(
+        course.instructors.map(instructor => {
+          return instructor.fullName;
+        })
+      );
+    }
+  };
+
   return (
     <div
       className={`${styles.CourseContainer} ${
@@ -59,6 +70,7 @@ export function Course({
           <div className={styles.Rating}>
             <span style={ratingStyles(course.rating)}>{course.rating}/5</span>
           </div>
+
           <div className={styles.ReviewUrl}>
             {course.ratingUrl && (
               <NextLink linkProperties={{ href: course.ratingUrl.href }}>
@@ -66,7 +78,10 @@ export function Course({
               </NextLink>
             )}
           </div>
-          <div className={styles.Summary}>{children}</div>
+          <div className={styles.Summary}>
+            <div>Instructors: {getInstructorNames()}</div>
+            {children}
+          </div>
           <div className={styles.CourseLinks}>
             {course.courseUrls.map(courseUrl => {
               return (

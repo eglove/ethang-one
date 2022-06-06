@@ -79,6 +79,12 @@ export const schoolImages = {
     url: 'https://res.cloudinary.com/eglove/image/upload/v1650668158/school/wes-bos.svg',
     width: 400,
   }),
+  youtube: new Image({
+    altText: 'YouTube',
+    height: 800,
+    url: 'https://res.cloudinary.com/eglove/image/upload/v1654548492/school/youtube.svg',
+    width: 1200,
+  }),
   ztm: new Image({
     altText: 'Zero To Mastery',
     height: 404,

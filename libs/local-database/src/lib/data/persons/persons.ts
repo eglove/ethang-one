@@ -69,6 +69,10 @@ export const persons = {
     firstName: 'Luis',
     lastName: 'Ramirez Jr.',
   }),
+  mariusEspejo: new Person({
+    firstName: 'Marius',
+    lastName: 'Espejo',
+  }),
   maximilianSchwarzmuller: new Person({
     firstName: 'Maximilian',
     lastName: 'Schwarzmüller',
