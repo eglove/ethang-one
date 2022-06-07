@@ -5,7 +5,6 @@ import {
   ProjectGraphDependency,
   ProjectGraphNode,
   readNxJson,
-  WorkspaceJsonConfiguration,
   workspaceRoot,
 } from '@nrwl/devkit';
 import {
@@ -19,7 +18,6 @@ import {
   CorePlugin,
   PluginCapabilities,
 } from '@nrwl/workspace/src/utilities/plugins/models';
-import { readWorkspaceJson } from 'nx/src/project-graph/file-utils';
 
 import { projectPlugins } from '../util/project-plugins';
 
@@ -35,11 +33,9 @@ export class NrwlWorker {
   private dependencies?: Record<string, ProjectGraphDependency[]>;
   private projectGraph?: ProjectGraph;
   private nxJson?: NxJsonConfiguration;
-  private workspaceJson?: WorkspaceJsonConfiguration;
 
   async setup(): Promise<void> {
     this.nxJson = readNxJson();
-    this.workspaceJson = readWorkspaceJson();
     this.projectGraph = await createProjectGraphAsync();
 
     if (typeof this.projectGraph !== 'undefined') {

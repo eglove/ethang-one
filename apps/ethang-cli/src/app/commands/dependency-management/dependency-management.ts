@@ -16,7 +16,9 @@ export const dependencyManagement = async (): Promise<void> => {
 
   let dependencies: string;
   if (installOption !== 'update' && installOption !== 'updateLatest') {
-    dependencies = await getInput('Enter space delimited dependencies:');
+    dependencies = await getInput(
+      'Enter space delimited dependencies (leave empty to install current package.json):'
+    );
   }
 
   await Pnpm.dependencyCommand({
