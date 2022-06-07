@@ -6,8 +6,22 @@ import {
   ProjectGraphNode,
   readNxJson,
   WorkspaceJsonConfiguration,
+  workspaceRoot,
 } from '@nrwl/devkit';
+import {
+  fetchCommunityPlugins,
+  fetchCorePlugins,
+  getInstalledPluginsFromPackageJson,
+  getPluginCapabilities,
+} from '@nrwl/workspace/src/utilities/plugins';
+import {
+  CommunityPlugin,
+  CorePlugin,
+  PluginCapabilities,
+} from '@nrwl/workspace/src/utilities/plugins/models';
 import { readWorkspaceJson } from 'nx/src/project-graph/file-utils';
+
+import { projectPlugins } from '../util/project-plugins';
 
 export enum ProjectType {
   app = 'app',
@@ -34,6 +48,14 @@ export class NrwlWorker {
     }
   }
 
+  async communityPlugins(): Promise<CommunityPlugin[]> {
+    return fetchCommunityPlugins();
+  }
+
+  corePlugins(): CorePlugin[] {
+    return fetchCorePlugins();
+  }
+
   getProjectTypes(type: ProjectType): ProjectGraphNode[] {
     if (typeof this.projectNodes !== 'undefined') {
       return this.projectNodes.filter(projectNode => {
@@ -42,6 +64,14 @@ export class NrwlWorker {
     }
 
     return [];
+  }
+
+  async installedPlugins(): Promise<Map<string, PluginCapabilities>> {
+    return getInstalledPluginsFromPackageJson(
+      workspaceRoot,
+      this.corePlugins(),
+      await this.communityPlugins()
+    );
   }
 
   findProject(projectName: string): ProjectGraphNode | undefined {
@@ -56,12 +86,25 @@ export class NrwlWorker {
     );
   }
 
-  projectGenerators(projectName: string): Record<string, string> | undefined {
-    const project = this.findProject(projectName);
+  projectCapabilities(projectName: string): PluginCapabilities | undefined {
+    const capabilities = getPluginCapabilities(
+      workspaceRoot,
+      projectPlugins[projectName]
+    );
 
-    if (typeof project !== 'undefined') {
-      return project.data.generators as Record<string, string>;
+    if (capabilities !== null) {
+      return capabilities;
     }
+  }
+
+  projectGenerators(projectName: string): string[] {
+    const capabilities = this.projectCapabilities(projectName);
+
+    if (typeof capabilities === 'undefined') {
+      return [];
+    }
+
+    return Object.keys(capabilities.generators);
   }
 
   projectNames(type?: ProjectType): string[] {

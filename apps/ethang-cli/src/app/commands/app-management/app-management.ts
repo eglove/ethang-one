@@ -1,34 +1,21 @@
-import { nrwlWorker, NxCommand, ProjectType } from '@ethang/nrwl-utils';
-
-import {
-  getChoice,
-  getChoices,
-  stringArrayToChoices,
-} from '../../util/commands';
+import { getChoice } from '../../util/commands';
+import { appGenerate } from './app-generate';
+import { appRun } from './app-run';
 
 export const appManagement = async (): Promise<void> => {
-  const nrwl = await nrwlWorker();
+  const appActionChoices = {
+    generate: 'Generate Script',
+    run: 'Run Script',
+  };
 
-  const projectChoices: Record<string, string> = {};
+  const actionChoice = await getChoice({
+    choices: appActionChoices,
+    message: 'Choose an Action',
+  });
 
-  for (const projectName of nrwl.projectNames(ProjectType.app)) {
-    projectChoices[projectName] = projectName;
+  if (actionChoice === appActionChoices.generate) {
+    await appGenerate();
+  } else if (actionChoice === appActionChoices.run) {
+    await appRun();
   }
-
-  const appChoices = await getChoices({
-    choices: projectChoices,
-    message: 'Choose an App',
-  });
-
-  const targetChoice = await getChoice({
-    choices: stringArrayToChoices(nrwl.projectsUniqueTargets(appChoices)),
-    message: 'Choose a Target',
-  });
-
-  const nxCommand = new NxCommand({
-    projectNames: appChoices,
-    target: targetChoice,
-  });
-
-  await nxCommand.runMany();
 };

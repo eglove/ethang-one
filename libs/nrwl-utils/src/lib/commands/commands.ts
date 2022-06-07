@@ -51,6 +51,20 @@ export class NxCommand implements NxCommandProperties {
     await this.runCommand(NxCommand.TEST_AFFECTED);
   }
 
+  async generate(
+    plugin: string,
+    generator: string,
+    additionalArguments?: string
+  ): Promise<void> {
+    let command = `npx --yes pnpm nx g ${plugin}:${generator}`;
+
+    if (typeof additionalArguments === 'string') {
+      command += ` ${additionalArguments}`;
+    }
+
+    await this.runCommand(command);
+  }
+
   async remove(): Promise<void> {
     if (typeof this.projectName !== 'string') {
       throw new TypeError('Must specify projectName');

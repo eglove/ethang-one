@@ -8,7 +8,7 @@ export interface ShellCallbacks {
   onCode?: (code: number) => void;
 }
 
-interface ShellParameters {
+export interface ShellParameters {
   command: string;
   callbacks?: ShellCallbacks;
   hideCommandPrintout?: boolean;
