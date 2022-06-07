@@ -15,7 +15,7 @@ interface DependencyCommand {
   type: keyof typeof dependencyInstallStrings;
 }
 
-const PNPM_INIT = 'npx --yes pnpm';
+export const DEPENDENCY_MANAGER_INIT = 'npx --yes pnpm';
 
 export const Pnpm = {
   async dependencyCommand({
@@ -38,7 +38,7 @@ export const Pnpm = {
 
     runShellAsync({
       callbacks,
-      command: `${PNPM_INIT} ${dependencyInstallStrings[type]} ${dependencyString}`,
+      command: `${DEPENDENCY_MANAGER_INIT} ${dependencyInstallStrings[type]} ${dependencyString}`,
     });
   },
 };

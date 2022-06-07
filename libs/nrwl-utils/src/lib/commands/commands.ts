@@ -1,4 +1,4 @@
-import { runShellAsync } from '@ethang/util-cli';
+import { DEPENDENCY_MANAGER_INIT, runShellAsync } from '@ethang/util-cli';
 
 interface NxCommandProperties {
   isDryRun?: boolean;
@@ -56,7 +56,7 @@ export class NxCommand implements NxCommandProperties {
     generator: string,
     additionalArguments?: string
   ): Promise<void> {
-    let command = `npx --yes pnpm nx g ${plugin}:${generator}`;
+    let command = `${DEPENDENCY_MANAGER_INIT} nx g ${plugin}:${generator}`;
 
     if (typeof additionalArguments === 'string') {
       command += ` ${additionalArguments}`;

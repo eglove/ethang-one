@@ -1,4 +1,8 @@
-import { runShellAsync, ShellParameters } from '@ethang/util-cli';
+import {
+  DEPENDENCY_MANAGER_INIT,
+  runShellAsync,
+  ShellParameters,
+} from '@ethang/util-cli';
 
 import { startCli } from '../../start-cli';
 import { getChoice } from '../../util/commands';
@@ -33,7 +37,7 @@ export const localManagement = async (): Promise<void> => {
     case choices.nxMigrate: {
       runShellAsync({
         ...defaultShellParameters,
-        command: 'npx --yes pnpm nx migrate latest',
+        command: `${DEPENDENCY_MANAGER_INIT} nx migrate latest`,
       });
       break;
     }

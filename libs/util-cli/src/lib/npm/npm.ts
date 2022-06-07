@@ -1,5 +1,7 @@
+import { DEPENDENCY_MANAGER_INIT } from '../package-management/pnpm';
+
 export const browsersListUpdate = (): string => {
-  return 'npx --yes pnpm browserslist --update-db';
+  return `${DEPENDENCY_MANAGER_INIT} browserslist --update-db`;
 };
 
 export const buildCrossEnvironmentCommand = (commands: string[]): string => {
