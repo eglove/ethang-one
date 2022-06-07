@@ -11,10 +11,9 @@ provider "digitalocean" {
   token = var.digital_ocean
 }
 
-
-resource "digitalocean_droplet" "ethang-website" {
+resource "digitalocean_droplet" "graphql-gateway" {
   image      = "ubuntu-20-04-x64"
-  name       = "ethang-website"
+  name       = "graphql-gateway"
   region     = "nyc1"
   size       = "s-2vcpu-4gb-intel"
   monitoring = true
@@ -22,18 +21,5 @@ resource "digitalocean_droplet" "ethang-website" {
 
 resource "digitalocean_domain" "ethang-dev" {
   name       = "ethang.dev"
-  ip_address = digitalocean_droplet.ethang-website.ipv4_address
-}
-
-resource "digitalocean_record" "ethang-dev-www" {
-  domain = digitalocean_domain.ethang-dev.id
-  name   = "www"
-  type   = "A"
-  value  = digitalocean_droplet.ethang-website.ipv4_address
-}
-
-resource "digitalocean_certificate" "ethang-cert" {
-  name    = "ethang-cert"
-  type    = "lets_encrypt"
-  domains = [digitalocean_domain.ethang-dev.name]
+  ip_address = digitalocean_droplet.graphql-gateway.ipv4_address
 }

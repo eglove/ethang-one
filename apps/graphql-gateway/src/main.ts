@@ -13,7 +13,7 @@ async function bootstrap(): Promise<void> {
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
 
-  const port = PORT.graphql;
+  const port = process.env.NODE_ENV === 'development' ? PORT.graphql : 80;
   await app.listen(port);
 
   Logger.log(
