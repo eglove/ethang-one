@@ -1,4 +1,4 @@
-import { ENV_KEYS, getConst, PORT } from '@ethang/node-environment';
+import { PORT } from '@ethang/node-environment';
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
@@ -13,7 +13,7 @@ async function bootstrap(): Promise<void> {
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
 
-  const port = getConst(ENV_KEYS.MODE) === 'development' ? PORT.graphql : 80;
+  const port = PORT.graphql;
   await app.listen(port);
 
   Logger.log(
