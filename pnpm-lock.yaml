@@ -31,9 +31,9 @@ specifiers:
   '@paljs/plugins': ^4.1.0
   '@prisma/client': ^3.15.0
   '@react-pdf/renderer': ^2.2.0
-  '@storybook/builder-webpack5': ~6.5.4
+  '@storybook/builder-webpack5': ~6.5.7
   '@storybook/core-server': 6.5.7
-  '@storybook/manager-webpack5': ~6.5.4
+  '@storybook/manager-webpack5': ~6.5.7
   '@testing-library/react': 13.3.0
   '@testing-library/react-hooks': 8.0.0
   '@types/cookie-session': ^2.0.44
@@ -3645,6 +3645,7 @@ packages:
       - webpack-dev-server
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
 
   /@nrwl/node/14.2.1_f368aed793314dccecd4588deadc0b6a:
     resolution: {integrity: sha512-Z3tCDHfbHn8dd2SPIxEtlZolW1MAsWPuSYXKIZA1QaCRzr3xfcvxuw9yqqLchkIPP7n0Mex9iSTcOArhCOmqDw==}
@@ -3846,7 +3847,7 @@ packages:
       babel-plugin-transform-typescript-metadata: 0.3.2
       browserslist: 4.20.4
       bytes: 3.1.2
-      caniuse-lite: 1.0.30001349
+      caniuse-lite: 1.0.30001350
       chalk: 4.1.0
       chokidar: 3.5.3
       copy-webpack-plugin: 9.1.0_webpack@5.73.0
@@ -7075,7 +7076,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001349
+      caniuse-lite: 1.0.30001350
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -7087,7 +7088,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001349
+      caniuse-lite: 1.0.30001350
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       picocolors: 0.2.1
@@ -7690,7 +7691,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001349
+      caniuse-lite: 1.0.30001350
       electron-to-chromium: 1.4.147
       escalade: 3.1.1
       node-releases: 2.0.5
@@ -7902,12 +7903,12 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001349
+      caniuse-lite: 1.0.30001350
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  /caniuse-lite/1.0.30001349:
-    resolution: {integrity: sha512-VFaWW3jeo6DLU5rwdiasosxhYSduJgSGil4cSyX3/85fbctlE58pXAkWyuRmVA0r2RxsOSVYUTZcySJ8WpbTxw==}
+  /caniuse-lite/1.0.30001350:
+    resolution: {integrity: sha512-NZBql38Pzd+rAu5SPXv+qmTWGQuFsRiemHCJCAPvkoDxWV19/xqL2YHF32fDJ9SDLdLqfax8+S0CO3ncDCp9Iw==}
 
   /canvg/3.0.10:
     resolution: {integrity: sha512-qwR2FRNO9NlzTeKIPIKpnTY6fqwuYSequ8Ru8c0YkYU7U0oW+hLUvWadLvAu1Rl72OMNiFhoLu4f8eUjQ7l/+Q==}
@@ -9322,7 +9323,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001349
+      caniuse-lite: 1.0.30001350
       css-rule-stream: 1.1.0
       duplexer2: 0.0.2
       ldjson-stream: 1.2.1
@@ -14678,7 +14679,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 12.1.6
-      caniuse-lite: 1.0.30001349
+      caniuse-lite: 1.0.30001350
       postcss: 8.4.5
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
