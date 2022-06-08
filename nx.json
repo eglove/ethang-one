@@ -3,9 +3,6 @@
   "affected": {
     "defaultBase": "master"
   },
-  "cli": {
-    "defaultCollection": "@nrwl/next"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -52,5 +49,6 @@
       }
     }
   },
-  "defaultProject": "website"
+  "defaultProject": "website",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json"
 }

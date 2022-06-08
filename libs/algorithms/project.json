@@ -1,17 +1,24 @@
 {
+  "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
   "sourceRoot": "libs/algorithms/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["libs/algorithms/**/*.ts"]
+        "lintFilePatterns": [
+          "libs/algorithms/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/algorithms"],
+      "outputs": [
+        "coverage/libs/algorithms"
+      ],
       "options": {
         "jestConfig": "libs/algorithms/jest.config.ts",
         "passWithNoTests": true
