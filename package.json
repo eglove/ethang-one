@@ -96,7 +96,7 @@
     "@nrwl/linter": "14.2.1",
     "@nrwl/nest": "14.2.1",
     "@nrwl/next": "14.2.1",
-    "@nrwl/node": "14.2.1",
+    "@nrwl/node": "14.2.2",
     "@nrwl/nx-cloud": "14.0.8",
     "@nrwl/react": "14.2.1",
     "@nrwl/storybook": "14.2.1",
