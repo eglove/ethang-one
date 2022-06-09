@@ -1,4 +1,5 @@
 import {
+  CircularProgressBarWithChildren,
   InputType,
   SimpleForm,
   simpleFormButtons,
@@ -7,7 +8,6 @@ import {
 import { ageFromBirthday, fetcher, JSON_HEADER } from '@ethang/util-typescript';
 import { TodaysCalories as TodaysCaloriesObject } from '@prisma/client';
 import { useEffect, useState } from 'react';
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 import useSWR from 'swr';
 
 import commonStyles from '../../styles/common.module.css';
@@ -103,7 +103,7 @@ export function Calories(): JSX.Element {
 
   return (
     <div style={{ width: '330px' }}>
-      <CircularProgressbarWithChildren
+      <CircularProgressBarWithChildren
         maxValue={calories}
         strokeWidth={3}
         value={data.currentCalories}
@@ -118,7 +118,7 @@ export function Calories(): JSX.Element {
           setFormState={setFormState}
         />
         <div>{Number(calories.toFixed(0)) - data.currentCalories} left</div>
-      </CircularProgressbarWithChildren>
+      </CircularProgressBarWithChildren>
     </div>
   );
 }
