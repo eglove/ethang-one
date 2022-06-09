@@ -1,5 +1,5 @@
 import { Container, NextLink } from '@ethang/react-components';
-import getYouTubeID from 'get-youtube-id';
+import { getYoutubeId } from '@ethang/util-typescript';
 import { useEffect, useState } from 'react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
@@ -71,7 +71,7 @@ export function ProductHuntLayout(): JSX.Element {
                 <div>
                   {typeof post.node.media[0].videoUrl === 'string' ? (
                     <LiteYouTubeEmbed
-                      id={getYouTubeID(post.node.media[0].videoUrl)}
+                      id={getYoutubeId({ url: post.node.media[0].videoUrl })}
                       title={post.node.name}
                     />
                   ) : (

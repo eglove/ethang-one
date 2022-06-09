@@ -1,8 +1,8 @@
 import { allImages } from '@ethang/local-database';
 import { Breadcrumbs, Container, NextLink } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
+import { getYoutubeId } from '@ethang/util-typescript';
 import { DiscussionEmbed } from 'disqus-react';
-import getYouTubeID from 'get-youtube-id';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { HeadTag } from '../components/common/head-tag/head-tag';
@@ -12,9 +12,9 @@ import { BASE_URL } from '../util/constants';
 
 function AboutMe(): JSX.Element {
   useKnuthPlassLineBreaks('p');
-  const cdcSystemsThinking = getYouTubeID(
-    'https://www.youtube.com/watch?v=Fo3ndxVOZEo'
-  );
+  const cdcSystemsThinking = getYoutubeId({
+    url: 'https://www.youtube.com/watch?v=Fo3ndxVOZEo',
+  });
 
   return (
     <Container>
