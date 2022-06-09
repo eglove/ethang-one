@@ -55,7 +55,7 @@ export class Hypher {
           for (const character of characters) {
             const codePoint = character.codePointAt(0);
 
-            if (typeof codePoint === 'number') {
+            if (typeof codePoint !== 'undefined') {
               if (typeof treeReference[codePoint] === 'undefined') {
                 treeReference[codePoint] = {};
               }

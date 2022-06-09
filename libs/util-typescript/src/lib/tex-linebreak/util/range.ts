@@ -39,7 +39,6 @@ export const textNodesInRange = (
         nodes.push(currentNode);
       }
 
-      // @ts-expect-error Next node may be null, use for while loop
       currentNode = nodeIter.nextNode() ?? undefined;
     }
   }
