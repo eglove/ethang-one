@@ -1,11 +1,8 @@
-type TreeType = {
-  [key: number]: TreeType;
+type Pattern = {
+  [key: number]: Pattern;
   _points?: number[];
-};
-
-interface Pattern {
   size?: string;
-}
+};
 
 export interface Language {
   id: string | string[];
@@ -38,8 +35,8 @@ export class Hypher {
   }
 
   // eslint-disable-next-line sonarjs/cognitive-complexity
-  createTrie(patternObject: Pattern): TreeType {
-    const tree: TreeType = {
+  createTrie(patternObject: Pattern): Pattern {
+    const tree: Pattern = {
       _points: [],
     };
 
@@ -53,7 +50,7 @@ export class Hypher {
         for (const pattern of patterns) {
           const characters = pattern.replace(/\d/g, '')?.split('');
           const points = pattern.split(/\D/);
-          let treeReference: TreeType = tree;
+          let treeReference: Pattern = tree;
 
           for (const character of characters) {
             const codePoint = character.codePointAt(0);
