@@ -1,6 +1,5 @@
 import { allImages, blogs } from '@ethang/local-database';
-import { NextLink } from '@ethang/react-components';
-import Gist from 'react-gist';
+import { GistEmbed, NextLink } from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
@@ -170,7 +169,7 @@ function MakingGraphqlBetter(): JSX.Element {
         very small and simple function to make it easy to use for all resolvers
         (info comes from every incoming Apollo query):
       </p>
-      <Gist id="d8aee0c454a3eb47f4b120cc94d718f1" />
+      <GistEmbed id="d8aee0c454a3eb47f4b120cc94d718f1" />
       <p>This will transform that select all SQL query into the following:</p>
       <strong>
         <code>select username from user where id = 123</code>
@@ -265,7 +264,7 @@ function MakingGraphqlBetter(): JSX.Element {
         where for the relationship. Altogether it would look something like
         this:
       </p>
-      <Gist id="fcd514f8c0fd18bc37ac1ebe24fbc6b3" />
+      <GistEmbed id="fcd514f8c0fd18bc37ac1ebe24fbc6b3" />
       <p>And your resolver might look something like this:</p>
       <SyntaxHighlighter language="typescript">
         {exampleResolver}
@@ -445,7 +444,7 @@ function MakingGraphqlBetter(): JSX.Element {
         This is the messy TypeScript confused function I currently use (totally
         functional and performant):
       </p>
-      <Gist id="cbbccae0bb0d2bfb3c1a729e7ab7b8ff" />
+      <GistEmbed id="cbbccae0bb0d2bfb3c1a729e7ab7b8ff" />
       <h2 id="conclusion">
         Last Words <NextLink linkProperties={{ href: '#top' }}>⤴</NextLink>
       </h2>

@@ -4,6 +4,7 @@ export * from './lib/button/button';
 export * from './lib/circular-progressbar/circular-progress-bar';
 export * from './lib/circular-progressbar/circular-progress-bar-with-children';
 export * from './lib/container/container';
+export * from './lib/gist-embed/gist-embed';
 export * from './lib/icon-component/icon';
 export * from './lib/icon-input/icon-input';
 export * from './lib/link-component/link-component';

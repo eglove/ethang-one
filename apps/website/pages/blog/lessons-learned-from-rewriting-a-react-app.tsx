@@ -1,6 +1,5 @@
 import { blogs } from '@ethang/local-database';
-import { NextLink } from '@ethang/react-components';
-import Gist from 'react-gist';
+import { GistEmbed, NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
 
@@ -115,9 +114,9 @@ function LessonsLearnedFromRewritingAReactApp(): JSX.Element {
         easier to read, created a pretty cool form generator using OOP style
         classes, and best of all, my Intellisense is totally superpowered.
       </p>
-      <Gist id="2d6a18bbcbb12bb92ae90e64d5ee4211" />
-      <Gist id="33750dba317c8f9a71070442aafe8b4c" />
-      <Gist id="88b4eecbf78f5fe9265654ec162d73ea" />
+      <GistEmbed id="2d6a18bbcbb12bb92ae90e64d5ee4211" />
+      <GistEmbed id="33750dba317c8f9a71070442aafe8b4c" />
+      <GistEmbed id="88b4eecbf78f5fe9265654ec162d73ea" />
       <h2>Don&apos;t Abstract Fetch</h2>
       <p>
         I&apos;m working with a lot of APIs. Twilio, Rocket Chat, FileCloud,
@@ -159,7 +158,7 @@ function LessonsLearnedFromRewritingAReactApp(): JSX.Element {
         My usePost hook works the same way, except instead of running as soon as
         url is available, it exports an execute function.
       </p>
-      <Gist id="664a4fbcef3375e832dab8a369dcf458" />
+      <GistEmbed id="664a4fbcef3375e832dab8a369dcf458" />
       <p>
         So what&apos;s the problem with this? Chaining requests is the problem.
         Let&apos;s say in order to create a group file share you have to login
@@ -182,7 +181,7 @@ function LessonsLearnedFromRewritingAReactApp(): JSX.Element {
         data of another useEffect as a dependency.)
       </p>
       <p>Here&apos;s what I found that works better:</p>
-      <Gist id="20fb9118495c713d678b6f38b7768216" />
+      <GistEmbed id="20fb9118495c713d678b6f38b7768216" />
       <p>
         TypeScript gives us the opportunity to build some good ol&apos; OOP
         classes. An object with methods, and an instantiation that can keep
@@ -395,7 +394,7 @@ function LessonsLearnedFromRewritingAReactApp(): JSX.Element {
         both the app and the integrations, we can start linking things together.
         Add it to the graph. For example:{' '}
       </p>
-      <Gist id="7d7b4748eca65c3cd2cb6a13757c1830" />
+      <GistEmbed id="7d7b4748eca65c3cd2cb6a13757c1830" />
       <p>
         Why not? Having a separate server that allows us to make these kinds of
         calls to basically abstract out interacting with data sources will be a

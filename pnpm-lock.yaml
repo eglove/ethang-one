@@ -110,7 +110,6 @@ specifiers:
   react: 18.1.0
   react-dom: 18.1.0
   react-feather: ^2.0.10
-  react-gist: ^1.2.4
   react-is: 18.1.0
   react-lite-youtube-embed: ^2.2.2
   react-ogp: ^0.0.3
@@ -192,7 +191,6 @@ dependencies:
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-feather: 2.0.10_react@18.1.0
-  react-gist: 1.2.4_react@18.1.0
   react-is: 18.1.0
   react-lite-youtube-embed: 2.2.2_react-dom@18.1.0+react@18.1.0
   react-ogp: 0.0.3_react@18.1.0
@@ -17366,14 +17364,6 @@ packages:
       react: '>=16.8.6'
     dependencies:
       prop-types: 15.8.1
-      react: 18.1.0
-    dev: false
-
-  /react-gist/1.2.4_react@18.1.0:
-    resolution: {integrity: sha512-uDgPJ08IJsl/7auK3CS53JKGC1P/X7tNCzo9k0r6D/5l+ilsxE1+SAaylJCh0aeyZoJOoxQikKU+MHsAvA9iFw==}
-    peerDependencies:
-      react: 0.14.x || ^15.0.0-rc || ^16.0.0-rc || ^17.0.0-rc
-    dependencies:
       react: 18.1.0
     dev: false
 
