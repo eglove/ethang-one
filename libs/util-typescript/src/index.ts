@@ -1,10 +1,10 @@
+export { knuthPlassLineBreaks } from './lib/tex-linebreak/knuth-plass-line-breaks';
 export * from './lib/util-array';
 export * from './lib/util-device';
 export * from './lib/util-http';
 export * from './lib/util-json';
 export * from './lib/util-object';
 export * from './lib/util-regex';
-export { knuthPlassLineBreaks } from './lib/util-string/knuth-plass-line-breaks';
 export * from './lib/util-string/util-string';
 export * from './lib/util-string/validate-email';
 export * from './lib/util-string/validate-ip';
