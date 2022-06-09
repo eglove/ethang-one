@@ -1,22 +1,10 @@
-// @ts-expect-error No types available
-import Hypher from 'hypher';
-
-// Type version of https://github.dev/robertknight/tex-linebreak/
-
-export interface Patterns {
-  id: string;
-  leftmin: number;
-  rightmin: number;
-  patterns: Record<string, string>;
-}
+import { Hypher, Language } from './hypher/hypher';
 
 export type HyphenateFunction = (word: string) => string[];
 
-export const createHyphenator = (patterns: Patterns): HyphenateFunction => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-assignment
+export const createHyphenator = (patterns: Language): HyphenateFunction => {
   const hypher = new Hypher(patterns);
   return (word: string) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    return hypher.hypenate(word) as string[];
+    return hypher.hyphenate(word);
   };
 };

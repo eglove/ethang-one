@@ -2,7 +2,7 @@ import { justifyContent } from './html';
 import { createHyphenator } from './hyphenate';
 
 const enUsPatterns = {
-  id: 'en-us',
+  id: ['en', 'en-us'],
   leftmin: 2,
   patterns: {
     10: 'se1mi6t5ic3tro1le1um5sa3par5iloli3gop1o1am1en3ta5bath3er1o1s3slova1kia3s2og1a1myo3no2t1o3nc2tro3me6c1cu2r1ance5noc3er1osth1o5gen1ih3i5pel1a4nfi6n3ites_ever5si5bs2s1a3chu1d1ri3pleg5_ta5pes1trproc3i3ty_s5sign5a3b3rab1o1loiitin5er5arwaste3w6a2mi1n2ut1erde3fin3itiquin5tes5svi1vip3a3r',

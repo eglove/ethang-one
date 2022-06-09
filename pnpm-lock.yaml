@@ -88,7 +88,6 @@ specifiers:
   firebase: ^9.8.2
   graphql: ^16.5.0
   graphql-type-json: ^0.3.2
-  hypher: ^0.2.5
   immer: ^9.0.14
   inquirer: ^8.2.4
   jasmine-marbles: ^0.9.2
@@ -180,7 +179,6 @@ dependencies:
   firebase: 9.8.2
   graphql: 16.5.0
   graphql-type-json: 0.3.2_graphql@16.5.0
-  hypher: 0.2.5
   immer: 9.0.14
   inquirer: 8.2.4
   jsonwebtoken: 8.5.1
@@ -12681,10 +12679,6 @@ packages:
 
   /hyphen/1.6.4:
     resolution: {integrity: sha512-nWwvXceFMAFIjkiRzqZMZSOa1LVngieSolnYIVKWSwmDwMSmdutjzqImmdbxe2eUCfX693fgrCgtPjbllqx1lA==}
-    dev: false
-
-  /hypher/0.2.5:
-    resolution: {integrity: sha512-kUTpuyzBWWDO2VakmjHC/cxesg4lKQP+Fdc+7lrK4yvjNjkV9vm5UTZMDAwOyyHTOpbkYrAMlNZHG61NnE9vYQ==}
     dev: false
 
   /iconv-lite/0.4.24:
