@@ -1,0 +1,50 @@
+.CircularProgressbar {
+  width: 100%;
+  vertical-align: middle;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+.CircularProgressbar .CircularProgressbarPath {
+  stroke: hsl(201deg 55% 51%);
+  stroke-linecap: round;
+  transition: none;
+}
+}
+
+.CircularProgressbar .CircularProgressbarPath {
+  stroke: hsl(201deg 55% 51%);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbarTrail {
+  stroke: hsl(0deg 0% 84%);
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbarText {
+  font-size: 20px;
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: hsl(201deg 55% 51%);
+}
+
+.CircularProgressbar .CircularProgressbarBackground {
+  fill: hsl(0deg 0% 84%);
+}
+
+.CircularProgressbar.CircularProgressbarInverted .CircularProgressbarBackground {
+  fill: hsl(201deg 55% 51%);
+}
+
+.CircularProgressbar.CircularProgressbarInverted .CircularProgressbarText {
+  fill: hsl(0deg 0% 100%);
+}
+
+.CircularProgressbar.CircularProgressbarInverted .CircularProgressbarPath {
+  stroke: hsl(0deg 0% 100%);
+}
+
+.CircularProgressbar.CircularProgressbarInverted .CircularProgressbarTrail {
+  stroke: transparent;
+}
