@@ -10,6 +10,7 @@ export * from './lib/icon-input/icon-input';
 export * from './lib/link-component/link-component';
 export * from './lib/next-link/next-link';
 export * from './lib/progress-bar/progress-bar';
+export * from './lib/react-to-pdf/react-to-pdf';
 export * from './lib/select/select';
 export * from './lib/simple-form/simple-form';
 export * from './lib/simple-form/simple-form-button';

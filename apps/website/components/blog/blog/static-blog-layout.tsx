@@ -8,7 +8,6 @@ import {
 import { DiscussionEmbed } from 'disqus-react';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import { OGP as Ogp } from 'react-ogp';
 import { JsonLd, jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema, Review } from 'schema-dts';
 
@@ -43,16 +42,7 @@ export function StaticBlogLayout({
 
   return (
     <Container>
-      <HeadTag title={blog.title}>
-        <Ogp
-          description={blog.description}
-          image={blog.featuredImage.url}
-          siteName="EthanG"
-          title={blog.title}
-          type="article"
-          url={`https://www.ethang.dev/blog/${blog.slug}`}
-        />
-      </HeadTag>
+      <HeadTag title={blog.title} />
       <Script
         {...jsonLdScriptProps<BlogSchema>({
           '@context': 'https://schema.org',

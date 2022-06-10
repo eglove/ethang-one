@@ -81,6 +81,7 @@ specifiers:
   eslint-plugin-simple-import-sort: ^7.0.0
   eslint-plugin-sonarjs: ^0.13.0
   eslint-plugin-sort-keys-fix: ^1.1.2
+  eslint-plugin-typescript-sort-keys: ^2.1.0
   eslint-plugin-unicorn: ^42.0.0
   eslint-plugin-unused-imports: ^2.0.0
   express: ^4.18.1
@@ -88,6 +89,7 @@ specifiers:
   firebase: ^9.8.3
   graphql: ^16.5.0
   graphql-type-json: ^0.3.2
+  html2canvas: ^1.4.1
   immer: ^9.0.14
   inquirer: ^8.2.4
   jasmine-marbles: ^0.9.2
@@ -95,6 +97,7 @@ specifiers:
   jest-config: 28.1.1
   jest-mock-extended: ^2.0.6
   jsonwebtoken: ^8.5.1
+  jspdf: ^2.5.1
   mobx: ^6.6.0
   mobx-react-lite: ^3.4.0
   ms: ^2.1.3
@@ -112,13 +115,11 @@ specifiers:
   react-feather: ^2.0.10
   react-is: 18.1.0
   react-lite-youtube-embed: ^2.2.2
-  react-ogp: ^0.0.3
   react-player: ^2.10.1
   react-router-dom: 6.3.0
   react-schemaorg: ^2.0.0
   react-syntax-highlighter: ^15.5.0
   react-test-renderer: 18.1.0
-  react-to-pdf: ^0.0.14
   recharts: ^2.1.10
   reflect-metadata: ^0.1.13
   regenerator-runtime: 0.13.9
@@ -177,9 +178,11 @@ dependencies:
   firebase: 9.8.3
   graphql: 16.5.0
   graphql-type-json: 0.3.2_graphql@16.5.0
+  html2canvas: 1.4.1
   immer: 9.0.14
   inquirer: 8.2.4
   jsonwebtoken: 8.5.1
+  jspdf: 2.5.1
   mobx: 6.6.0
   mobx-react-lite: 3.4.0_ca72120f84c69ebf01bb6728cc9f860c
   ms: 2.1.3
@@ -193,13 +196,11 @@ dependencies:
   react-feather: 2.0.10_react@18.1.0
   react-is: 18.1.0
   react-lite-youtube-embed: 2.2.2_react-dom@18.1.0+react@18.1.0
-  react-ogp: 0.0.3_react@18.1.0
   react-player: 2.10.1_react@18.1.0
   react-router-dom: 6.3.0_react-dom@18.1.0+react@18.1.0
   react-schemaorg: 2.0.0_7dc52079758f8d76232c632c68e60ef3
   react-syntax-highlighter: 15.5.0_react@18.1.0
   react-test-renderer: 18.1.0_react@18.1.0
-  react-to-pdf: 0.0.14_react-dom@18.1.0+react@18.1.0
   recharts: 2.1.10_28428ba0c391cf6cfa125a69ce03058f
   reflect-metadata: 0.1.13
   regenerator-runtime: 0.13.9
@@ -273,6 +274,7 @@ devDependencies:
   eslint-plugin-simple-import-sort: 7.0.0_eslint@8.17.0
   eslint-plugin-sonarjs: 0.13.0_eslint@8.17.0
   eslint-plugin-sort-keys-fix: 1.1.2
+  eslint-plugin-typescript-sort-keys: 2.1.0_043f48e0ee10c350c28cdede89899bc7
   eslint-plugin-unicorn: 42.0.0_eslint@8.17.0
   eslint-plugin-unused-imports: 2.0.0_9a6d5e20da74d2f5f72cc48add31d9de
   jasmine-marbles: 0.9.2_rxjs@7.5.5
@@ -7395,16 +7397,10 @@ packages:
       pascalcase: 0.1.1
     dev: false
 
-  /base64-arraybuffer/0.1.5:
-    resolution: {integrity: sha512-437oANT9tP582zZMwSvZGy2nmSeAb8DW2me3y+Uv1Wp2Rulr8Mqlyrv3E7MLxmsiaPSMMDmiDVzgE+e8zlMx9g==}
-    engines: {node: '>= 0.6.0'}
-    dev: false
-
   /base64-arraybuffer/1.0.2:
     resolution: {integrity: sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==}
     engines: {node: '>= 0.6.0'}
     dev: false
-    optional: true
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
@@ -8594,18 +8590,11 @@ packages:
     engines: {node: '>=12.22'}
     dev: true
 
-  /css-line-break/1.0.1:
-    resolution: {integrity: sha1-GfIGOjPpX7KDG4ZEbAuAwYivRQo=}
-    dependencies:
-      base64-arraybuffer: 0.1.5
-    dev: false
-
   /css-line-break/2.1.0:
     resolution: {integrity: sha512-FHcKFCZcAha3LwfVBhCQbW2nCNbkZXn7KVUJcsT5/P8YmfsVja0FMPJr0B903j/E69HUphKiV9iQArX8SDYA4w==}
     dependencies:
       utrie: 1.0.2
     dev: false
-    optional: true
 
   /css-loader/3.6.0_webpack@4.46.0:
     resolution: {integrity: sha512-M5lSukoWi1If8dhQAUCvj4H8vUt3vOnwbQBH9DdTm/s4Ym2B/3dPMtYZeJmq7Q3S3Pa+I94DcZ7pc9bP14cWIQ==}
@@ -10039,6 +10028,24 @@ packages:
       esutils: 2.0.3
       natural-compare: 1.4.0
       requireindex: 1.2.0
+    dev: true
+
+  /eslint-plugin-typescript-sort-keys/2.1.0_043f48e0ee10c350c28cdede89899bc7:
+    resolution: {integrity: sha512-ET7ABypdz19m47QnKynzNfWPi4CTNQ5jQQC1X5d0gojIwblkbGiCa5IilsqzBTmqxZ0yXDqKBO/GBkBFQCOFsg==}
+    engines: {node: 10 - 12 || >= 13.9}
+    peerDependencies:
+      '@typescript-eslint/parser': ^1 || ^2 || ^3 || ^4 || ^5
+      eslint: ^5 || ^6 || ^7 || ^8
+      typescript: ^3 || ^4
+    dependencies:
+      '@typescript-eslint/experimental-utils': 5.24.0_eslint@8.17.0+typescript@4.7.3
+      '@typescript-eslint/parser': 5.27.1_eslint@8.17.0+typescript@4.7.3
+      eslint: 8.17.0
+      json-schema: 0.4.0
+      natural-compare-lite: 1.4.0
+      typescript: 4.7.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eslint-plugin-unicorn/42.0.0_eslint@8.17.0:
@@ -11697,13 +11704,6 @@ packages:
       webpack: 5.73.0
     dev: false
 
-  /html2canvas/1.0.0-alpha.12:
-    resolution: {integrity: sha1-OxmS48mz9WBjw1/WIElPN+uohRM=}
-    engines: {node: '>=4.0.0'}
-    dependencies:
-      css-line-break: 1.0.1
-    dev: false
-
   /html2canvas/1.4.1:
     resolution: {integrity: sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==}
     engines: {node: '>=8.0.0'}
@@ -11712,7 +11712,6 @@ packages:
       css-line-break: 2.1.0
       text-segmentation: 1.0.3
     dev: false
-    optional: true
 
   /htmlparser2/6.1.0:
     resolution: {integrity: sha512-gyyPk6rgonLFEDGoeRgQNaEUvdJ4ktTmmUh/h2t7s+M8oPpIPxgNACWa+6ESR57kXstwqPiCut0V8NRpcwgU7A==}
@@ -14588,6 +14587,10 @@ packages:
     requiresBuild: true
     optional: true
 
+  /natural-compare-lite/1.4.0:
+    resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
+    dev: true
+
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -15436,7 +15439,7 @@ packages:
     resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
 
   /performance-now/2.1.0:
-    resolution: {integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=}
+    resolution: {integrity: sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow==}
 
   /picocolors/0.2.1:
     resolution: {integrity: sha512-cMlDqaLEqfSaW8Z7N5Jw+lyIW869EzT73/F5lhtY9cLGoVxSXznfgfXMO0Z5K0o0Q2TkTXq+0KFsdnSe3jDViA==}
@@ -16452,7 +16455,7 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
-      '@babel/runtime': 7.17.9
+      '@babel/runtime': 7.18.3
       react: 18.1.0
     dev: true
 
@@ -16490,14 +16493,6 @@ packages:
     dependencies:
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
-    dev: false
-
-  /react-ogp/0.0.3_react@18.1.0:
-    resolution: {integrity: sha512-+m5my7G6dxzN79e1e/M5VV2MmM2sXrTqs+hfL8sFHsjWn4PMv3P8eD/aMSHPibvp6BYsiFCeWMMSzcqUCIQr9w==}
-    peerDependencies:
-      react: '>=16'
-    dependencies:
-      react: 18.1.0
     dev: false
 
   /react-player/2.10.1_react@18.1.0:
@@ -16623,18 +16618,6 @@ packages:
       react-is: 18.1.0
       react-shallow-renderer: 16.15.0_react@18.1.0
       scheduler: 0.22.0
-
-  /react-to-pdf/0.0.14_react-dom@18.1.0+react@18.1.0:
-    resolution: {integrity: sha512-u4gwkV7Byr1uU3FgR5n99tufNgMVEYE3reyjNsYK3WuRReE1IqolYXzCoj3n/Xhk8KOFYSiS3V4xEaGFGR9H5Q==}
-    peerDependencies:
-      react: ^16.5.2
-      react-dom: ^16.5.2
-    dependencies:
-      html2canvas: 1.0.0-alpha.12
-      jspdf: 2.5.1
-      react: 18.1.0
-      react-dom: 18.1.0_react@18.1.0
-    dev: false
 
   /react-transition-group/2.9.0_react-dom@18.1.0+react@18.1.0:
     resolution: {integrity: sha512-+HzNTCHpeQyl4MJ/bdE0u6XRMe9+XG/+aL4mCxVN4DnPBQ0/5bfHWPDuOZUzYdMj94daZaZdCCc1Dzt9R/xSSg==}
@@ -17078,7 +17061,7 @@ packages:
     resolution: {integrity: sha512-V2hovdzFbOi77/WajaSMXk2OLm+xNIeQdMMuB7icj7bk6zi2F8GGAxigcnDFpJHbNyNcgyJDiP+8nOrY5cZGrA==}
 
   /rgbcolor/1.0.1:
-    resolution: {integrity: sha1-1lBezbMEplldom+ktDMHMGd1lF0=}
+    resolution: {integrity: sha512-9aZLIrhRaD97sgVhtJOW6ckOEh6/GnvQtdVNfdZ6s67+3/XwLS9lBcQYzEEhYVeUowN7pRzMLsyGhK2i/xvWbw==}
     engines: {node: '>= 0.8.15'}
     dev: false
     optional: true
@@ -18649,7 +18632,6 @@ packages:
     dependencies:
       utrie: 1.0.2
     dev: false
-    optional: true
 
   /text-table/0.2.0:
     resolution: {integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=}
@@ -19471,7 +19453,6 @@ packages:
     dependencies:
       base64-arraybuffer: 1.0.2
     dev: false
-    optional: true
 
   /uuid/3.4.0:
     resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}

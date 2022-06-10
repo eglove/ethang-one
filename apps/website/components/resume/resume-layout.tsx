@@ -1,7 +1,6 @@
-import { Button } from '@ethang/react-components';
+import { Button, ReactToPdf } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import { useRef } from 'react';
-import ReactToPdf from 'react-to-pdf';
 
 import { HeadTag } from '../common/head-tag/head-tag';
 import styles from './resume-layout.module.css';
@@ -14,11 +13,7 @@ export function ResumeLayout(): JSX.Element {
 
   useKnuthPlassLineBreaks('p');
 
-  const downloadPdf = ({
-    toPdf,
-  }: {
-    toPdf: () => void;
-  }): JSX.IntrinsicElements['div'] => {
+  const downloadPdf = ({ toPdf }: { toPdf: () => void }): JSX.Element => {
     return (
       <div className={styles.DownloadButtonContainer}>
         <Button
@@ -32,12 +27,11 @@ export function ResumeLayout(): JSX.Element {
 
   return (
     <>
-      <ReactToPdf
+      <ReactToPdf<JSX.Element, HTMLDivElement>
+        downloadContainer={downloadPdf}
         filename={`Ethan_Glover_Resume_${today}`}
-        targetRef={resumeElement}
-      >
-        {downloadPdf}
-      </ReactToPdf>
+        targetReference={resumeElement}
+      />
       <div className={styles.BorderContainer}>
         <div className={styles.ResumeContainer} ref={resumeElement}>
           <HeadTag title="Resume" />

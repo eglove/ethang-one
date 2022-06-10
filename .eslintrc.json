@@ -30,6 +30,7 @@
         "plugin:@nrwl/nx/typescript",
         "plugin:cypress/recommended",
         "xo-react/space",
+        "plugin:typescript-sort-keys/recommended",
         "plugin:sonarjs/recommended",
         "plugin:jsx-a11y/recommended",
         "prettier"
