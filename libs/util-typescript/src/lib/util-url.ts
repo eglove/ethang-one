@@ -37,3 +37,11 @@ export const getYoutubeId = ({
 
   return undefined;
 };
+
+export const isUrlSecure = (url: string): boolean => {
+  return url.includes('https://');
+};
+
+export const urlSecureVersion = (url: string): string => {
+  return isUrlSecure(url) ? url : url.replace('http://', 'https://');
+};
