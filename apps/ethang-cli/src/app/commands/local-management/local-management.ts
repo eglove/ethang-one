@@ -12,6 +12,7 @@ export const localManagement = async (): Promise<void> => {
     chocoUpdate: 'Choco Update All',
     nxMigrate: 'NX Migrate Latest',
     openWebstorm: 'Open EthanG-One In Webstorm',
+    prismaGenerate: 'Prisma Generate',
   };
 
   const choice = await getChoice({
@@ -46,6 +47,14 @@ export const localManagement = async (): Promise<void> => {
       runShellAsync({
         ...defaultShellParameters,
         command: 'webstorm . ',
+      });
+      break;
+    }
+
+    case choices.prismaGenerate: {
+      runShellAsync({
+        ...defaultShellParameters,
+        command: 'npx prisma generate',
       });
       break;
     }
