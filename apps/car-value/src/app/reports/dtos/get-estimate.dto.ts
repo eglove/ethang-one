@@ -1,4 +1,3 @@
-import { Transform } from 'class-transformer';
 import {
   IsLatitude,
   IsLongitude,
@@ -6,7 +5,8 @@ import {
   IsString,
   Max,
   Min,
-} from 'class-validator';
+} from '@nestjs/class-validator';
+import { Transform } from 'class-transformer';
 
 const parseNumber = ({ value }: { value: unknown }): number => {
   return Number(value);

@@ -5,7 +5,7 @@ import {
   IsString,
   Max,
   Min,
-} from 'class-validator';
+} from '@nestjs/class-validator';
 
 export class CreateReportDto {
   @IsLongitude()
