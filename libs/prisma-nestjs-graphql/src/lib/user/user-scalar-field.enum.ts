@@ -3,7 +3,8 @@ import { registerEnumType } from '@nestjs/graphql';
 export enum UserScalarFieldEnum {
     id = "id",
     email = "email",
-    password = "password"
+    password = "password",
+    role = "role"
 }
 
 

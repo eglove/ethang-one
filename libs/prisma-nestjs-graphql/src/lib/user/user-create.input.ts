@@ -12,4 +12,7 @@ export class UserCreateInput {
 
     @Field(() => String, {nullable:false})
     password!: string;
+
+    @Field(() => String, {nullable:false})
+    role!: string;
 }

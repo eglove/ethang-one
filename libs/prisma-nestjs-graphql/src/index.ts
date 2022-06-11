@@ -22,3 +22,7 @@ export * from './lib/unused-key/unused-key.model';
 export * from './lib/used-key/create-one-used-key.args';
 export * from './lib/used-key/delete-one-used-key.args';
 export * from './lib/used-key/used-key.model';
+export * from './lib/user/create-one-user.args';
+export * from './lib/user/find-unique-user.args';
+export * from './lib/user/user.model';
+export * from './lib/user/user-create.input';

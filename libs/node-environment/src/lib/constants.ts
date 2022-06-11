@@ -2,13 +2,13 @@ import { environmentVariablesDevelopment } from './environment-variables-develop
 import { environmentVariablesProduction } from './environment-variables-production';
 
 export enum ENV_KEYS {
-  MODE = 'MODE',
-  MY_ID = 'MY_ID',
+  ADMIN_EMAIL = 'ADMIN_EMAIL',
+  ADMIN_PASSWORD = 'ADMIN_PASSWORD',
   CAR_VALUE_DATABASE = 'CAR_VALUE_DATABASE',
   CRYPTO_TOKEN = 'CRYPTO_TOKEN',
   DATABASE_URL = 'DATABASE_URL',
-  ADMIN_EMAIL = 'ADMIN_EMAIL',
-  ADMIN_PASSWORD = 'ADMIN_PASSWORD',
+  MODE = 'MODE',
+  MY_ID = 'MY_ID',
 }
 
 export const getConst = (

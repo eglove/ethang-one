@@ -16,6 +16,9 @@ export class UserGroupBy {
     @Field(() => String, {nullable:false})
     password!: string;
 
+    @Field(() => String, {nullable:false})
+    role!: string;
+
     @Field(() => UserCountAggregate, {nullable:true})
     _count?: UserCountAggregate;
 

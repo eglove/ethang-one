@@ -10,6 +10,7 @@ import { PORT } from '@ethang/node-environment';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
+import { ToastContainer } from 'react-toastify';
 
 import { Page } from '../components/common/page/page';
 
@@ -23,15 +24,18 @@ Router.events.on('routeChangeError', () => {
   return NProgress.done();
 });
 
-function App({ Component, pageProps }: AppProps): JSX.Element {
-  // Local only
-  const apollo = new ApolloClientInit(
-    `http://localhost:${PORT.graphql}/graphql`,
-    {}
-  );
+// Local only
+const apollo = new ApolloClientInit(
+  `http://localhost:${PORT.graphql}/graphql`,
+  {}
+);
 
+export const apolloClient = apollo.client;
+
+function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ApolloProvider client={apollo.client}>
+      <ToastContainer />
       <Page>
         <Component {...pageProps} />
       </Page>

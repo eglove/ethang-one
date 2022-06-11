@@ -25,10 +25,14 @@ export const useLocalStorage = <ValueType>(
   });
 
   const setValue = (newValue: ValueType): void => {
-    try {
-      globalThis.localStorage?.setItem(keyName, serialize(newValue));
-    } catch {
-      throw new Error(`Failed to set ${keyName} in local storage.`);
+    if (typeof newValue === 'string') {
+      globalThis.localStorage?.setItem(keyName, newValue);
+    } else {
+      try {
+        globalThis.localStorage?.setItem(keyName, serialize(newValue));
+      } catch {
+        throw new Error(`Failed to set ${keyName} in local storage.`);
+      }
     }
 
     setStoredValue(newValue);

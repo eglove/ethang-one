@@ -13,4 +13,7 @@ export class User {
 
     @Field(() => String, {nullable:false})
     password!: string;
+
+    @Field(() => String, {nullable:false})
+    role!: string;
 }

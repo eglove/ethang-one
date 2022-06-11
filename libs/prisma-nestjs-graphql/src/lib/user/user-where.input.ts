@@ -22,4 +22,7 @@ export class UserWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     password?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
+    role?: StringFilter;
 }

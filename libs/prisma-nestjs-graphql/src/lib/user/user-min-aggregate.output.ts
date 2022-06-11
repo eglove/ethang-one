@@ -12,4 +12,7 @@ export class UserMinAggregate {
 
     @Field(() => String, {nullable:true})
     password?: string;
+
+    @Field(() => String, {nullable:true})
+    role?: string;
 }

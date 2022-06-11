@@ -16,3 +16,9 @@ export const FINANCE_RECORDS = gql`
     }
   }
 `;
+
+export const VALIDATE_USER = gql`
+  query ValidateUser($email: String!, $encryptedPassword: String!) {
+    validate(email: $email, encryptedPassword: $encryptedPassword)
+  }
+`;

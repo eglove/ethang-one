@@ -52,6 +52,13 @@ type UsedKey {
   ShortUrl: ShortUrl
 }
 
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  role: String!
+}
+
 type Query {
   habit(where: HabitWhereUniqueInput!): Habit
   habits(where: HabitWhereInput, orderBy: [HabitOrderByWithRelationInput!], cursor: HabitWhereUniqueInput, take: Int, skip: Int, distinct: [HabitScalarFieldEnum!]): [Habit]!
@@ -59,6 +66,9 @@ type Query {
   financeRecord(where: FinanceRecordWhereUniqueInput!): FinanceRecord
   financeRecords(where: FinanceRecordWhereInput, orderBy: [FinanceRecordOrderByWithRelationInput!], cursor: FinanceRecordWhereUniqueInput, take: Int, skip: Int, distinct: [FinanceRecordScalarFieldEnum!]): [FinanceRecord]!
   firstTodaysCalories(where: TodaysCaloriesWhereInput, orderBy: [TodaysCaloriesOrderByWithRelationInput!], cursor: TodaysCaloriesWhereUniqueInput, take: Int, skip: Int, distinct: [TodaysCaloriesScalarFieldEnum!]): TodaysCalories
+  findUser(where: UserWhereUniqueInput!): User
+  signin(email: String!, password: String!): String!
+  validate(email: String!, encryptedPassword: String!): Boolean!
 }
 
 input HabitWhereUniqueInput {
@@ -254,11 +264,18 @@ enum TodaysCaloriesScalarFieldEnum {
   weight
 }
 
+input UserWhereUniqueInput {
+  id: String
+  email: String
+  password: String
+}
+
 type Mutation {
   createHabit(data: HabitCreateInput!): Habit!
   updateHabit(data: HabitUpdateInput!, where: HabitWhereUniqueInput!): Habit!
   deleteUsedKey(where: UsedKeyWhereUniqueInput!): UnusedKey!
   createFinanceRecords(data: [FinanceRecordCreateManyInput!]!): AffectedRows!
+  signup(email: String!, password: String!): User!
 }
 
 input HabitCreateInput {
