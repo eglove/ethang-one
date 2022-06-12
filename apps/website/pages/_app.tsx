@@ -3,6 +3,7 @@ import '../../../styles/global.css';
 import '../../../styles/nprogress.css';
 import 'highlight.js/styles/github.css';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { ApolloProvider } from '@apollo/client';
 import { ApolloClientInit } from '@ethang/apollo';
