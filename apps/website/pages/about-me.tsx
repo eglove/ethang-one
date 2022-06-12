@@ -26,7 +26,7 @@ function AboutMe(): JSX.Element {
         ]}
       />
       <h1 id="aboutMe">About Me</h1>
-      <article style={{ columnWidth: '50ch' }}>
+      <article>
         <ul className={styles.toc}>
           <li>
             <NextLink linkProperties={{ href: '#systemsThinking' }}>
