@@ -9,6 +9,12 @@ export class PersonCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    createdAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    updatedAt!: number;
+
+    @Field(() => Int, {nullable:false})
     firstName!: number;
 
     @Field(() => Int, {nullable:false})

@@ -1,74 +1,57 @@
+import 'react-circular-progressbar/dist/styles.css';
+
+import { useMutation, useQuery } from '@apollo/client';
 import {
-  CircularProgressBarWithChildren,
   InputType,
   SimpleForm,
   simpleFormButtons,
   simpleFormInputs,
 } from '@ethang/react-components';
-import { ageFromBirthday, fetcher, JSON_HEADER } from '@ethang/util-typescript';
-import { TodaysCalories as TodaysCaloriesObject } from '@prisma/client';
-import { useEffect, useState } from 'react';
-import useSWR from 'swr';
+import { useContext, useEffect, useState } from 'react';
 
+import { DashboardContext } from '../../pages/dashboard';
 import commonStyles from '../../styles/common.module.css';
-import { API_TODAYS_CALORIES } from '../../util/constants';
+import { ADD_CALORIE, AddCalorie } from './graphql/queries/dashboard-mutations';
+import {
+  LAST_CALORIE_RECORD,
+  LastCalorieRecord,
+} from './graphql/queries/dashboard-queries';
 
 export function Calories(): JSX.Element {
-  const { data, mutate } = useSWR<TodaysCaloriesObject>(
-    API_TODAYS_CALORIES,
-    fetcher
-  );
-  const [isLoading, setIsLoading] = useState(false);
-  const [calories, setCalories] = useState<number>(0);
+  const dashboardState = useContext(DashboardContext);
+  const { data: queryData, loading: queryLoading } =
+    useQuery<LastCalorieRecord>(LAST_CALORIE_RECORD, {
+      fetchPolicy: 'cache-and-network',
+    });
+  const [addCalorie, { loading: mutationLoading }] =
+    useMutation<AddCalorie>(ADD_CALORIE);
+
   const [formState, setFormState] = useState({ AddCalories: 0, Weight: 0 });
 
   useEffect(() => {
-    if (typeof data === 'undefined') {
-      return;
+    if (typeof queryData !== 'undefined') {
+      setFormState(formState_ => {
+        return {
+          ...formState_,
+          Weight: queryData.calorieFirst.Person.weightLbs,
+        };
+      });
     }
-
-    setFormState(formState_ => {
-      return {
-        ...formState_,
-        Weight: data.weight,
-      };
-    });
-
-    const weightInKg = data.weight * 0.453_592;
-    const heightInCm = data.height * 2.54;
-    const age = ageFromBirthday(data.birthday);
-    setCalories(10 * weightInKg + 6.25 * heightInCm - 5 * age + 5);
-  }, [data]);
+  }, [queryData]);
 
   const onUpdate = async (): Promise<void> => {
-    setIsLoading(true);
     const roundedWeight = Number(Number(formState.Weight).toFixed(2));
-    const addedCalories = data.currentCalories + formState.AddCalories;
-    formState.AddCalories = 0;
 
-    await fetch(API_TODAYS_CALORIES, {
-      body: JSON.stringify({
-        currentCalories: addedCalories,
+    await addCalorie({
+      refetchQueries: [{ query: LAST_CALORIE_RECORD }],
+      variables: {
+        caloriesToAdd: formState.AddCalories,
+        userId: dashboardState.userId,
         weight: roundedWeight,
-      }),
-      headers: JSON_HEADER,
-      method: 'POST',
+      },
     });
-    await mutate();
-    setIsLoading(false);
-  };
 
-  const onReset = async (): Promise<void> => {
-    setIsLoading(true);
-    await fetch(API_TODAYS_CALORIES, {
-      body: JSON.stringify({
-        currentCalories: 0,
-      }),
-      headers: JSON_HEADER,
-      method: 'POST',
-    });
-    await mutate();
-    setIsLoading(false);
+    formState.AddCalories = 0;
   };
 
   const formInputs = simpleFormInputs([
@@ -85,40 +68,30 @@ export function Calories(): JSX.Element {
 
   const buttons = simpleFormButtons([
     {
-      name: 'Clear',
-      properties: {
-        onClick: onReset,
-      },
-    },
-    {
-      buttonText: isLoading ? 'Saving' : 'Save',
+      buttonText: queryLoading || mutationLoading ? 'Saving' : 'Save',
       name: 'Save',
       properties: { style: { marginLeft: '0.3rem' }, type: 'submit' },
     },
   ]);
 
-  if (typeof data === 'undefined') {
+  if (typeof queryData === 'undefined') {
     return null;
   }
 
   return (
     <div style={{ width: '330px' }}>
-      <CircularProgressBarWithChildren
-        maxValue={calories}
-        strokeWidth={3}
-        value={data.currentCalories}
-      >
-        <SimpleForm
-          buttons={buttons}
-          fieldsetProperties={{ disabled: isLoading }}
-          formProperties={{ className: commonStyles.Form }}
-          formState={formState}
-          inputs={formInputs}
-          postSubmitFunction={onUpdate}
-          setFormState={setFormState}
-        />
-        <div>{Number(calories.toFixed(0)) - data.currentCalories} left</div>
-      </CircularProgressBarWithChildren>
+      <SimpleForm
+        buttons={buttons}
+        fieldsetProperties={{ disabled: queryLoading || mutationLoading }}
+        formProperties={{ className: commonStyles.Form }}
+        formState={formState}
+        inputs={formInputs}
+        postSubmitFunction={onUpdate}
+        setFormState={setFormState}
+      />
+      <div style={{ fontWeight: 'bold' }}>
+        {queryData.calorieFirst.leftForToday} Left
+      </div>
     </div>
   );
 }

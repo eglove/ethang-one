@@ -1,13 +1,19 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
-import { CalorieUncheckedCreateNestedOneWithoutPersonInput } from '../calorie/calorie-unchecked-create-nested-one-without-person.input';
+import { CalorieRecordUncheckedCreateNestedManyWithoutPersonInput } from '../calorie-record/calorie-record-unchecked-create-nested-many-without-person.input';
 
 @InputType()
 export class PersonUncheckedCreateInput {
 
     @Field(() => String, {nullable:true})
     id?: string;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
     @Field(() => String, {nullable:false})
     firstName!: string;
@@ -27,6 +33,6 @@ export class PersonUncheckedCreateInput {
     @Field(() => String, {nullable:false})
     userId!: string;
 
-    @Field(() => CalorieUncheckedCreateNestedOneWithoutPersonInput, {nullable:true})
-    Calorie?: CalorieUncheckedCreateNestedOneWithoutPersonInput;
+    @Field(() => CalorieRecordUncheckedCreateNestedManyWithoutPersonInput, {nullable:true})
+    Calorie?: CalorieRecordUncheckedCreateNestedManyWithoutPersonInput;
 }

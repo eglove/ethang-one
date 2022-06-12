@@ -1,15 +1,7 @@
-import { Calorie, Person, User } from '@ethang/prisma-nestjs-graphql';
+import { Person, User } from '@ethang/prisma-nestjs-graphql';
 
 export const nestReturnBoolean = (): typeof Boolean => {
   return Boolean;
-};
-
-export const nestReturnCalorie = (): typeof Calorie => {
-  return Calorie;
-};
-
-export const nestReturnCalorieArray = (): Array<typeof Calorie> => {
-  return [Calorie];
 };
 
 export const nestReturnPerson = (): typeof Person => {

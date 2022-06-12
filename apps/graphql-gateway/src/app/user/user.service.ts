@@ -2,6 +2,7 @@ import { ENV_KEYS, getConst } from '@ethang/node-environment';
 import {
   CreateOneUserArgs,
   FindUniqueUserArgs,
+  UpdateOneUserArgs,
   User,
 } from '@ethang/prisma-nestjs-graphql';
 import { JwtToken } from '@ethang/types';
@@ -10,6 +11,7 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
 import jwt from 'jsonwebtoken';
 import {
   decryptWithSecret,
@@ -87,6 +89,16 @@ export class UserService {
         password: encrypted,
         role: 'guest',
       },
+    });
+  }
+
+  async update(
+    data: UpdateOneUserArgs,
+    select?: Prisma.UserSelect
+  ): Promise<Partial<User>> {
+    return this.prisma.user.update({
+      ...data,
+      select,
     });
   }
 

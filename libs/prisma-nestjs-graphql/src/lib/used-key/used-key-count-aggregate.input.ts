@@ -8,6 +8,12 @@ export class UsedKeyCountAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
     key?: true;
 
     @Field(() => Boolean, {nullable:true})

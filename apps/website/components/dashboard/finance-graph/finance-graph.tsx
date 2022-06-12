@@ -1,4 +1,3 @@
-import { URL_CONSTANTS } from '@ethang/node-environment';
 import { FinanceGraphData } from '@ethang/types';
 import { currencyFormat, fetcher, randomColor } from '@ethang/util-typescript';
 import {
@@ -13,10 +12,7 @@ import {
 import useSWR from 'swr';
 
 export function FinanceGraph(): JSX.Element {
-  const { data } = useSWR<FinanceGraphData>(
-    `${URL_CONSTANTS.gatewayApi}/finance-record/finance-records-in-last-year`,
-    fetcher
-  );
+  const { data } = useSWR<FinanceGraphData>(null, fetcher);
 
   const getStrokeColor = (itemKey: string): string => {
     if (itemKey === 'NetWorth') {

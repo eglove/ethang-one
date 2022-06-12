@@ -45,6 +45,7 @@ export class NestSelect {
       }
     }
 
+    delete select.__typename;
     return select;
   }
 }

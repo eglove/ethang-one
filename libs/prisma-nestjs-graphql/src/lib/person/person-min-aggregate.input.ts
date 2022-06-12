@@ -8,6 +8,12 @@ export class PersonMinAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
     firstName?: true;
 
     @Field(() => Boolean, {nullable:true})

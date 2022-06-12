@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import { CalorieRecord, Person } from '@ethang/prisma-nestjs-graphql';
 import { beforeMidnight } from '@ethang/util-typescript';
 
 export const allHabitsDefaultVariables = {
@@ -40,6 +41,23 @@ export const FINANCE_RECORDS = gql`
   query FinanceRecords($from: DateTime, $to: DateTime) {
     financeRecords(where: { recordedDate: { gte: $from, lte: $to } }) {
       accountName
+    }
+  }
+`;
+
+export type LastCalorieRecord = {
+  calorieFirst: Pick<CalorieRecord, 'calories' | 'leftForToday'> & {
+    Person: Pick<Person, 'weightLbs'>;
+  };
+};
+export const LAST_CALORIE_RECORD = gql`
+  query LastCalorieRecord {
+    calorieFirst(orderBy: { createdAt: desc }) {
+      calories
+      leftForToday
+      Person {
+        weightLbs
+      }
     }
   }
 `;

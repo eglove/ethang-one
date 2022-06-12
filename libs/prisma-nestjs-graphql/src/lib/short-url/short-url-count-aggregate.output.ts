@@ -9,6 +9,12 @@ export class ShortUrlCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    createdAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    updatedAt!: number;
+
+    @Field(() => Int, {nullable:false})
     originalUrl!: number;
 
     @Field(() => Int, {nullable:false})

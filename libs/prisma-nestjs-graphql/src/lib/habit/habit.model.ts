@@ -8,6 +8,12 @@ export class Habit {
     @Field(() => ID, {nullable:false})
     id!: string;
 
+    @Field(() => Date, {nullable:true})
+    createdAt!: Date | null;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt!: Date | null;
+
     @Field(() => String, {nullable:false})
     name!: string;
 

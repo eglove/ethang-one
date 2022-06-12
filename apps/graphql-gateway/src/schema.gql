@@ -2,24 +2,33 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type User {
-  id: ID!
-  email: String!
-  password: String!
-  role: String!
-  Person: Person
+type CalorieRecordCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  calories: Int!
+  leftForToday: Int!
+  personId: Int!
+  _all: Int!
 }
 
-type Person {
-  id: ID!
-  firstName: String!
-  lastName: String!
-  birthday: DateTime!
-  weightLbs: Float!
-  heightIn: Float!
-  User: User!
-  userId: String!
-  Calorie: Calorie
+type CalorieRecordAvgAggregate {
+  calories: Float
+  leftForToday: Float
+}
+
+type CalorieRecordSumAggregate {
+  calories: Int
+  leftForToday: Int
+}
+
+type CalorieRecordMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  calories: Int
+  leftForToday: Int
+  personId: String
 }
 
 """
@@ -27,58 +36,310 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
-type Calorie {
+type CalorieRecordMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  calories: Int
+  leftForToday: Int
+  personId: String
+}
+
+type User {
   id: ID!
-  currentCount: Int!
-  dailyCalories: Int!
-  deficit: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  password: String!
+  role: String!
+  Person: Person
+}
+
+type PersonCount {
+  Calorie: Int!
+}
+
+type Person {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  firstName: String!
+  lastName: String!
+  birthday: DateTime!
+  weightLbs: Float!
+  heightIn: Float!
+  User: User!
+  userId: String!
+  Calorie: [CalorieRecord!]
+  _count: PersonCount!
+}
+
+type CalorieRecord {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  calories: Int!
+  leftForToday: Int
   Person: Person!
   personId: String!
 }
 
+type FinanceRecordCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  accountName: Int!
+  currentValue: Int!
+  recordedDate: Int!
+  _all: Int!
+}
+
+type FinanceRecordAvgAggregate {
+  currentValue: Float
+}
+
+type FinanceRecordSumAggregate {
+  currentValue: Float
+}
+
+type FinanceRecordMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  accountName: String
+  currentValue: Float
+  recordedDate: DateTime
+}
+
+type FinanceRecordMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  accountName: String
+  currentValue: Float
+  recordedDate: DateTime
+}
+
 type FinanceRecord {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   accountName: String!
   currentValue: Float!
   recordedDate: DateTime!
 }
 
+type HabitCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  name: Int!
+  recurInterval: Int!
+  dueDate: Int!
+  _all: Int!
+}
+
+type HabitMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  recurInterval: String
+  dueDate: DateTime
+}
+
+type HabitMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  name: String
+  recurInterval: String
+  dueDate: DateTime
+}
+
 type Habit {
   id: ID!
+  createdAt: DateTime
+  updatedAt: DateTime
   name: String!
   recurInterval: String!
   dueDate: DateTime!
+}
+
+type PersonCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  firstName: Int!
+  lastName: Int!
+  birthday: Int!
+  weightLbs: Int!
+  heightIn: Int!
+  userId: Int!
+  _all: Int!
+}
+
+type PersonAvgAggregate {
+  weightLbs: Float
+  heightIn: Float
+}
+
+type PersonSumAggregate {
+  weightLbs: Float
+  heightIn: Float
+}
+
+type PersonMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  firstName: String
+  lastName: String
+  birthday: DateTime
+  weightLbs: Float
+  heightIn: Float
+  userId: String
+}
+
+type PersonMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  firstName: String
+  lastName: String
+  birthday: DateTime
+  weightLbs: Float
+  heightIn: Float
+  userId: String
 }
 
 type AffectedRows {
   count: Int!
 }
 
-type TodaysCalories {
-  id: ID!
-  birthday: DateTime!
-  currentCalories: Int!
-  height: Int!
-  weight: Float!
+type ShortUrlCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  originalUrl: Int!
+  usedKeyId: Int!
+  expirationDate: Int!
+  _all: Int!
 }
 
-type UnusedKey {
+type ShortUrlMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  originalUrl: String
+  usedKeyId: String
+  expirationDate: DateTime
+}
+
+type ShortUrlMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  originalUrl: String
+  usedKeyId: String
+  expirationDate: DateTime
+}
+
+type UsedKey {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   key: String!
+  ShortUrl: ShortUrl
 }
 
 type ShortUrl {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   originalUrl: String!
   usedKeyId: String!
   expirationDate: DateTime!
   shortUrlKey: UsedKey!
 }
 
-type UsedKey {
+type UnusedKeyCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  key: Int!
+  _all: Int!
+}
+
+type UnusedKeyMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  key: String
+}
+
+type UnusedKeyMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  key: String
+}
+
+type UnusedKey {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   key: String!
-  ShortUrl: ShortUrl
+}
+
+type UsedKeyCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  key: Int!
+  _all: Int!
+}
+
+type UsedKeyMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  key: String
+}
+
+type UsedKeyMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  key: String
+}
+
+type UserCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  email: Int!
+  password: Int!
+  role: Int!
+  _all: Int!
+}
+
+type UserMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  email: String
+  password: String
+  role: String
+}
+
+type UserMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  email: String
+  password: String
+  role: String
 }
 
 type Query {
@@ -87,12 +348,11 @@ type Query {
   getUnusedKey: UnusedKey
   financeRecord(where: FinanceRecordWhereUniqueInput!): FinanceRecord
   financeRecords(where: FinanceRecordWhereInput, orderBy: [FinanceRecordOrderByWithRelationInput!], cursor: FinanceRecordWhereUniqueInput, take: Int, skip: Int, distinct: [FinanceRecordScalarFieldEnum!]): [FinanceRecord]!
-  firstTodaysCalories(where: TodaysCaloriesWhereInput, orderBy: [TodaysCaloriesOrderByWithRelationInput!], cursor: TodaysCaloriesWhereUniqueInput, take: Int, skip: Int, distinct: [TodaysCaloriesScalarFieldEnum!]): TodaysCalories
-  findUser(where: UserWhereUniqueInput!): User
+  user(where: UserWhereUniqueInput!): User
   signin(email: String!, password: String!): String!
   validate(email: String!, encryptedPassword: String!, role: String): Boolean!
   persons(where: PersonWhereInput, orderBy: [PersonOrderByWithRelationInput!], cursor: PersonWhereUniqueInput, take: Int, skip: Int, distinct: [PersonScalarFieldEnum!]): [Person]!
-  calories(where: CalorieWhereInput, orderBy: [CalorieOrderByWithRelationInput!], cursor: CalorieWhereUniqueInput, take: Int, skip: Int, distinct: [CalorieScalarFieldEnum!]): [Calorie!]!
+  calorieFirst(where: CalorieRecordWhereInput, orderBy: [CalorieRecordOrderByWithRelationInput!], cursor: CalorieRecordWhereUniqueInput, take: Int, skip: Int, distinct: [CalorieRecordScalarFieldEnum!]): CalorieRecord!
 }
 
 input HabitWhereUniqueInput {
@@ -105,6 +365,8 @@ input HabitWhereInput {
   OR: [HabitWhereInput!]
   NOT: [HabitWhereInput!]
   id: StringFilter
+  createdAt: DateTimeNullableFilter
+  updatedAt: DateTimeNullableFilter
   name: StringFilter
   recurInterval: StringFilter
   dueDate: DateTimeFilter
@@ -144,6 +406,30 @@ input NestedStringFilter {
   not: NestedStringFilter
 }
 
+input DateTimeNullableFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeNullableFilter
+  isSet: Boolean
+}
+
+input NestedDateTimeNullableFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeNullableFilter
+  isSet: Boolean
+}
+
 input DateTimeFilter {
   equals: DateTime
   in: [DateTime!]
@@ -168,6 +454,8 @@ input NestedDateTimeFilter {
 
 input HabitOrderByWithRelationInput {
   id: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
   name: SortOrder
   recurInterval: SortOrder
   dueDate: SortOrder
@@ -180,6 +468,8 @@ enum SortOrder {
 
 enum HabitScalarFieldEnum {
   id
+  createdAt
+  updatedAt
   name
   recurInterval
   dueDate
@@ -194,6 +484,8 @@ input FinanceRecordWhereInput {
   OR: [FinanceRecordWhereInput!]
   NOT: [FinanceRecordWhereInput!]
   id: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
   accountName: StringFilter
   currentValue: FloatFilter
   recordedDate: DateTimeFilter
@@ -223,6 +515,8 @@ input NestedFloatFilter {
 
 input FinanceRecordOrderByWithRelationInput {
   id: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
   accountName: SortOrder
   currentValue: SortOrder
   recordedDate: SortOrder
@@ -230,20 +524,75 @@ input FinanceRecordOrderByWithRelationInput {
 
 enum FinanceRecordScalarFieldEnum {
   id
+  createdAt
+  updatedAt
   accountName
   currentValue
   recordedDate
 }
 
-input TodaysCaloriesWhereInput {
-  AND: [TodaysCaloriesWhereInput!]
-  OR: [TodaysCaloriesWhereInput!]
-  NOT: [TodaysCaloriesWhereInput!]
+input UserWhereUniqueInput {
+  id: String
+  email: String
+}
+
+input PersonWhereInput {
+  AND: [PersonWhereInput!]
+  OR: [PersonWhereInput!]
+  NOT: [PersonWhereInput!]
   id: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  firstName: StringFilter
+  lastName: StringFilter
   birthday: DateTimeFilter
-  currentCalories: IntFilter
-  height: IntFilter
-  weight: FloatFilter
+  weightLbs: FloatFilter
+  heightIn: FloatFilter
+  User: UserRelationFilter
+  userId: StringFilter
+  Calorie: CalorieRecordListRelationFilter
+}
+
+input UserRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  id: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  email: StringFilter
+  password: StringFilter
+  role: StringFilter
+  Person: PersonRelationFilter
+}
+
+input PersonRelationFilter {
+  is: PersonWhereInput
+  isNot: PersonWhereInput
+}
+
+input CalorieRecordListRelationFilter {
+  every: CalorieRecordWhereInput
+  some: CalorieRecordWhereInput
+  none: CalorieRecordWhereInput
+}
+
+input CalorieRecordWhereInput {
+  AND: [CalorieRecordWhereInput!]
+  OR: [CalorieRecordWhereInput!]
+  NOT: [CalorieRecordWhereInput!]
+  id: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  calories: IntFilter
+  leftForToday: IntNullableFilter
+  Person: PersonRelationFilter
+  personId: StringFilter
 }
 
 input IntFilter {
@@ -268,86 +617,34 @@ input NestedIntFilter {
   not: NestedIntFilter
 }
 
-input TodaysCaloriesOrderByWithRelationInput {
-  id: SortOrder
-  birthday: SortOrder
-  currentCalories: SortOrder
-  height: SortOrder
-  weight: SortOrder
+input IntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+  isSet: Boolean
 }
 
-input TodaysCaloriesWhereUniqueInput {
-  id: String
-}
-
-enum TodaysCaloriesScalarFieldEnum {
-  id
-  birthday
-  currentCalories
-  height
-  weight
-}
-
-input UserWhereUniqueInput {
-  id: String
-  email: String
-}
-
-input PersonWhereInput {
-  AND: [PersonWhereInput!]
-  OR: [PersonWhereInput!]
-  NOT: [PersonWhereInput!]
-  id: StringFilter
-  firstName: StringFilter
-  lastName: StringFilter
-  birthday: DateTimeFilter
-  weightLbs: FloatFilter
-  heightIn: FloatFilter
-  User: UserRelationFilter
-  userId: StringFilter
-  Calorie: CalorieRelationFilter
-}
-
-input UserRelationFilter {
-  is: UserWhereInput
-  isNot: UserWhereInput
-}
-
-input UserWhereInput {
-  AND: [UserWhereInput!]
-  OR: [UserWhereInput!]
-  NOT: [UserWhereInput!]
-  id: StringFilter
-  email: StringFilter
-  password: StringFilter
-  role: StringFilter
-  Person: PersonRelationFilter
-}
-
-input PersonRelationFilter {
-  is: PersonWhereInput
-  isNot: PersonWhereInput
-}
-
-input CalorieRelationFilter {
-  is: CalorieWhereInput
-  isNot: CalorieWhereInput
-}
-
-input CalorieWhereInput {
-  AND: [CalorieWhereInput!]
-  OR: [CalorieWhereInput!]
-  NOT: [CalorieWhereInput!]
-  id: StringFilter
-  currentCount: IntFilter
-  dailyCalories: IntFilter
-  deficit: IntFilter
-  Person: PersonRelationFilter
-  personId: StringFilter
+input NestedIntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+  isSet: Boolean
 }
 
 input PersonOrderByWithRelationInput {
   id: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
   firstName: SortOrder
   lastName: SortOrder
   birthday: SortOrder
@@ -355,24 +652,21 @@ input PersonOrderByWithRelationInput {
   heightIn: SortOrder
   User: UserOrderByWithRelationInput
   userId: SortOrder
-  Calorie: CalorieOrderByWithRelationInput
+  Calorie: CalorieRecordOrderByRelationAggregateInput
 }
 
 input UserOrderByWithRelationInput {
   id: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
   email: SortOrder
   password: SortOrder
   role: SortOrder
   Person: PersonOrderByWithRelationInput
 }
 
-input CalorieOrderByWithRelationInput {
-  id: SortOrder
-  currentCount: SortOrder
-  dailyCalories: SortOrder
-  deficit: SortOrder
-  Person: PersonOrderByWithRelationInput
-  personId: SortOrder
+input CalorieRecordOrderByRelationAggregateInput {
+  _count: SortOrder
 }
 
 input PersonWhereUniqueInput {
@@ -382,6 +676,8 @@ input PersonWhereUniqueInput {
 
 enum PersonScalarFieldEnum {
   id
+  createdAt
+  updatedAt
   firstName
   lastName
   birthday
@@ -390,16 +686,26 @@ enum PersonScalarFieldEnum {
   userId
 }
 
-input CalorieWhereUniqueInput {
-  id: String
-  personId: String
+input CalorieRecordOrderByWithRelationInput {
+  id: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  calories: SortOrder
+  leftForToday: SortOrder
+  Person: PersonOrderByWithRelationInput
+  personId: SortOrder
 }
 
-enum CalorieScalarFieldEnum {
+input CalorieRecordWhereUniqueInput {
+  id: String
+}
+
+enum CalorieRecordScalarFieldEnum {
   id
-  currentCount
-  dailyCalories
-  deficit
+  createdAt
+  updatedAt
+  calories
+  leftForToday
   personId
 }
 
@@ -409,21 +715,31 @@ type Mutation {
   deleteUsedKey(where: UsedKeyWhereUniqueInput!): UnusedKey!
   createFinanceRecords(data: [FinanceRecordCreateManyInput!]!): AffectedRows!
   signup(email: String!, password: String!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
   createPerson(data: PersonCreateInput!): Person!
-  createCalorie(data: CalorieCreateInput!): Calorie!
+  addCalorieRecord(userId: String!, caloriesToAdd: Float!, weight: Float): CalorieRecord!
 }
 
 input HabitCreateInput {
   id: String
+  createdAt: DateTime
+  updatedAt: DateTime
   name: String!
   recurInterval: String!
   dueDate: DateTime!
 }
 
 input HabitUpdateInput {
+  createdAt: NullableDateTimeFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   recurInterval: StringFieldUpdateOperationsInput
   dueDate: DateTimeFieldUpdateOperationsInput
+}
+
+input NullableDateTimeFieldUpdateOperationsInput {
+  set: DateTime
+  unset: Boolean
 }
 
 input StringFieldUpdateOperationsInput {
@@ -441,20 +757,189 @@ input UsedKeyWhereUniqueInput {
 
 input FinanceRecordCreateManyInput {
   id: String
+  createdAt: DateTime
+  updatedAt: DateTime
   accountName: String!
   currentValue: Float!
   recordedDate: DateTime!
 }
 
+input UserUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  role: StringFieldUpdateOperationsInput
+  Person: PersonUpdateOneWithoutUserInput
+}
+
+input PersonUpdateOneWithoutUserInput {
+  create: PersonCreateWithoutUserInput
+  connectOrCreate: PersonCreateOrConnectWithoutUserInput
+  upsert: PersonUpsertWithoutUserInput
+  disconnect: Boolean
+  delete: Boolean
+  connect: PersonWhereUniqueInput
+  update: PersonUpdateWithoutUserInput
+}
+
+input PersonCreateWithoutUserInput {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  firstName: String!
+  lastName: String!
+  birthday: DateTime!
+  weightLbs: Float!
+  heightIn: Float!
+  Calorie: CalorieRecordCreateNestedManyWithoutPersonInput
+}
+
+input CalorieRecordCreateNestedManyWithoutPersonInput {
+  create: [CalorieRecordCreateWithoutPersonInput!]
+  connectOrCreate: [CalorieRecordCreateOrConnectWithoutPersonInput!]
+  createMany: CalorieRecordCreateManyPersonInputEnvelope
+  connect: [CalorieRecordWhereUniqueInput!]
+}
+
+input CalorieRecordCreateWithoutPersonInput {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  calories: Int!
+  leftForToday: Int
+}
+
+input CalorieRecordCreateOrConnectWithoutPersonInput {
+  where: CalorieRecordWhereUniqueInput!
+  create: CalorieRecordCreateWithoutPersonInput!
+}
+
+input CalorieRecordCreateManyPersonInputEnvelope {
+  data: [CalorieRecordCreateManyPersonInput!]!
+}
+
+input CalorieRecordCreateManyPersonInput {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  calories: Int!
+  leftForToday: Int
+}
+
+input PersonCreateOrConnectWithoutUserInput {
+  where: PersonWhereUniqueInput!
+  create: PersonCreateWithoutUserInput!
+}
+
+input PersonUpsertWithoutUserInput {
+  update: PersonUpdateWithoutUserInput!
+  create: PersonCreateWithoutUserInput!
+}
+
+input PersonUpdateWithoutUserInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  firstName: StringFieldUpdateOperationsInput
+  lastName: StringFieldUpdateOperationsInput
+  birthday: DateTimeFieldUpdateOperationsInput
+  weightLbs: FloatFieldUpdateOperationsInput
+  heightIn: FloatFieldUpdateOperationsInput
+  Calorie: CalorieRecordUpdateManyWithoutPersonInput
+}
+
+input FloatFieldUpdateOperationsInput {
+  set: Float
+  increment: Float
+  decrement: Float
+  multiply: Float
+  divide: Float
+}
+
+input CalorieRecordUpdateManyWithoutPersonInput {
+  create: [CalorieRecordCreateWithoutPersonInput!]
+  connectOrCreate: [CalorieRecordCreateOrConnectWithoutPersonInput!]
+  upsert: [CalorieRecordUpsertWithWhereUniqueWithoutPersonInput!]
+  createMany: CalorieRecordCreateManyPersonInputEnvelope
+  set: [CalorieRecordWhereUniqueInput!]
+  disconnect: [CalorieRecordWhereUniqueInput!]
+  delete: [CalorieRecordWhereUniqueInput!]
+  connect: [CalorieRecordWhereUniqueInput!]
+  update: [CalorieRecordUpdateWithWhereUniqueWithoutPersonInput!]
+  updateMany: [CalorieRecordUpdateManyWithWhereWithoutPersonInput!]
+  deleteMany: [CalorieRecordScalarWhereInput!]
+}
+
+input CalorieRecordUpsertWithWhereUniqueWithoutPersonInput {
+  where: CalorieRecordWhereUniqueInput!
+  update: CalorieRecordUpdateWithoutPersonInput!
+  create: CalorieRecordCreateWithoutPersonInput!
+}
+
+input CalorieRecordUpdateWithoutPersonInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  calories: IntFieldUpdateOperationsInput
+  leftForToday: NullableIntFieldUpdateOperationsInput
+}
+
+input IntFieldUpdateOperationsInput {
+  set: Int
+  increment: Int
+  decrement: Int
+  multiply: Int
+  divide: Int
+}
+
+input NullableIntFieldUpdateOperationsInput {
+  set: Int
+  increment: Int
+  decrement: Int
+  multiply: Int
+  divide: Int
+  unset: Boolean
+}
+
+input CalorieRecordUpdateWithWhereUniqueWithoutPersonInput {
+  where: CalorieRecordWhereUniqueInput!
+  data: CalorieRecordUpdateWithoutPersonInput!
+}
+
+input CalorieRecordUpdateManyWithWhereWithoutPersonInput {
+  where: CalorieRecordScalarWhereInput!
+  data: CalorieRecordUpdateManyMutationInput!
+}
+
+input CalorieRecordScalarWhereInput {
+  AND: [CalorieRecordScalarWhereInput!]
+  OR: [CalorieRecordScalarWhereInput!]
+  NOT: [CalorieRecordScalarWhereInput!]
+  id: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  calories: IntFilter
+  leftForToday: IntNullableFilter
+  personId: StringFilter
+}
+
+input CalorieRecordUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  calories: IntFieldUpdateOperationsInput
+  leftForToday: NullableIntFieldUpdateOperationsInput
+}
+
 input PersonCreateInput {
   id: String
+  createdAt: DateTime
+  updatedAt: DateTime
   firstName: String!
   lastName: String!
   birthday: DateTime!
   weightLbs: Float!
   heightIn: Float!
   User: UserCreateNestedOneWithoutPersonInput!
-  Calorie: CalorieCreateNestedOneWithoutPersonInput
+  Calorie: CalorieRecordCreateNestedManyWithoutPersonInput
 }
 
 input UserCreateNestedOneWithoutPersonInput {
@@ -465,6 +950,8 @@ input UserCreateNestedOneWithoutPersonInput {
 
 input UserCreateWithoutPersonInput {
   id: String
+  createdAt: DateTime
+  updatedAt: DateTime
   email: String!
   password: String!
   role: String!
@@ -473,51 +960,4 @@ input UserCreateWithoutPersonInput {
 input UserCreateOrConnectWithoutPersonInput {
   where: UserWhereUniqueInput!
   create: UserCreateWithoutPersonInput!
-}
-
-input CalorieCreateNestedOneWithoutPersonInput {
-  create: CalorieCreateWithoutPersonInput
-  connectOrCreate: CalorieCreateOrConnectWithoutPersonInput
-  connect: CalorieWhereUniqueInput
-}
-
-input CalorieCreateWithoutPersonInput {
-  id: String
-  currentCount: Int
-  dailyCalories: Int
-  deficit: Int
-}
-
-input CalorieCreateOrConnectWithoutPersonInput {
-  where: CalorieWhereUniqueInput!
-  create: CalorieCreateWithoutPersonInput!
-}
-
-input CalorieCreateInput {
-  id: String
-  currentCount: Int
-  dailyCalories: Int
-  deficit: Int
-  Person: PersonCreateNestedOneWithoutCalorieInput!
-}
-
-input PersonCreateNestedOneWithoutCalorieInput {
-  create: PersonCreateWithoutCalorieInput
-  connectOrCreate: PersonCreateOrConnectWithoutCalorieInput
-  connect: PersonWhereUniqueInput
-}
-
-input PersonCreateWithoutCalorieInput {
-  id: String
-  firstName: String!
-  lastName: String!
-  birthday: DateTime!
-  weightLbs: Float!
-  heightIn: Float!
-  User: UserCreateNestedOneWithoutPersonInput!
-}
-
-input PersonCreateOrConnectWithoutCalorieInput {
-  where: PersonWhereUniqueInput!
-  create: PersonCreateWithoutCalorieInput!
 }

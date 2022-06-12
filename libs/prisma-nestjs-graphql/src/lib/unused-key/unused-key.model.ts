@@ -8,6 +8,12 @@ export class UnusedKey {
     @Field(() => ID, {nullable:false})
     id!: string;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+
     @Field(() => String, {nullable:false})
     key!: string;
 }

@@ -7,6 +7,7 @@ import { apolloClient } from '../../../pages/_app';
 import { VALIDATE_USER } from '../graphql/queries/dashboard-queries';
 
 export class Dashboard {
+  @observable userId?: string;
   @observable private _isLoggedIn: boolean;
 
   constructor() {
@@ -21,6 +22,7 @@ export class Dashboard {
 
     if (typeof token !== 'undefined') {
       const decoded = jwt.decode(token) as JwtToken | undefined;
+      this.userId = decoded.userId;
 
       if (!isNullOrUndefined<JwtToken>(decoded)) {
         const { data } = await apolloClient.query<{ validate: boolean }>({

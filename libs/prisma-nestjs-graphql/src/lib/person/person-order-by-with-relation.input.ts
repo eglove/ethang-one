@@ -2,13 +2,19 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { UserOrderByWithRelationInput } from '../user/user-order-by-with-relation.input';
-import { CalorieOrderByWithRelationInput } from '../calorie/calorie-order-by-with-relation.input';
+import { CalorieRecordOrderByRelationAggregateInput } from '../calorie-record/calorie-record-order-by-relation-aggregate.input';
 
 @InputType()
 export class PersonOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
     id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     firstName?: keyof typeof SortOrder;
@@ -31,6 +37,6 @@ export class PersonOrderByWithRelationInput {
     @Field(() => SortOrder, {nullable:true})
     userId?: keyof typeof SortOrder;
 
-    @Field(() => CalorieOrderByWithRelationInput, {nullable:true})
-    Calorie?: CalorieOrderByWithRelationInput;
+    @Field(() => CalorieRecordOrderByRelationAggregateInput, {nullable:true})
+    Calorie?: CalorieRecordOrderByRelationAggregateInput;
 }

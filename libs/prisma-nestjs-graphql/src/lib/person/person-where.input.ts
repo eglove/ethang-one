@@ -4,7 +4,7 @@ import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { FloatFilter } from '../prisma/float-filter.input';
 import { UserRelationFilter } from '../user/user-relation-filter.input';
-import { CalorieRelationFilter } from '../calorie/calorie-relation-filter.input';
+import { CalorieRecordListRelationFilter } from '../calorie-record/calorie-record-list-relation-filter.input';
 
 @InputType()
 export class PersonWhereInput {
@@ -20,6 +20,12 @@ export class PersonWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     id?: StringFilter;
+
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: DateTimeFilter;
+
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: DateTimeFilter;
 
     @Field(() => StringFilter, {nullable:true})
     firstName?: StringFilter;
@@ -42,6 +48,6 @@ export class PersonWhereInput {
     @Field(() => StringFilter, {nullable:true})
     userId?: StringFilter;
 
-    @Field(() => CalorieRelationFilter, {nullable:true})
-    Calorie?: CalorieRelationFilter;
+    @Field(() => CalorieRecordListRelationFilter, {nullable:true})
+    Calorie?: CalorieRecordListRelationFilter;
 }

@@ -9,6 +9,12 @@ export class ShortUrlMinOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     originalUrl?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

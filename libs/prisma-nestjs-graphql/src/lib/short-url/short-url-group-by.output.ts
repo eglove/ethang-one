@@ -10,6 +10,12 @@ export class ShortUrlGroupBy {
     @Field(() => String, {nullable:false})
     id!: string;
 
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date | string;
+
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date | string;
+
     @Field(() => String, {nullable:false})
     originalUrl!: string;
 

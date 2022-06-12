@@ -19,6 +19,12 @@ export class ShortUrlWhereInput {
     @Field(() => StringFilter, {nullable:true})
     id?: StringFilter;
 
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: DateTimeFilter;
+
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: DateTimeFilter;
+
     @Field(() => StringFilter, {nullable:true})
     originalUrl?: StringFilter;
 

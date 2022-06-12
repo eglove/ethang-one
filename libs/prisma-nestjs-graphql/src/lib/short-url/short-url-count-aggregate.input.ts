@@ -8,6 +8,12 @@ export class ShortUrlCountAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
     originalUrl?: true;
 
     @Field(() => Boolean, {nullable:true})

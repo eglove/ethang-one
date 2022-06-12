@@ -8,6 +8,12 @@ export class FinanceRecordCountAggregateInput {
     id?: true;
 
     @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
     accountName?: true;
 
     @Field(() => Boolean, {nullable:true})

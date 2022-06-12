@@ -2,13 +2,19 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { Float } from '@nestjs/graphql';
 import { UserCreateNestedOneWithoutPersonInput } from '../user/user-create-nested-one-without-person.input';
-import { CalorieCreateNestedOneWithoutPersonInput } from '../calorie/calorie-create-nested-one-without-person.input';
+import { CalorieRecordCreateNestedManyWithoutPersonInput } from '../calorie-record/calorie-record-create-nested-many-without-person.input';
 
 @InputType()
 export class PersonCreateInput {
 
     @Field(() => String, {nullable:true})
     id?: string;
+
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
 
     @Field(() => String, {nullable:false})
     firstName!: string;
@@ -28,6 +34,6 @@ export class PersonCreateInput {
     @Field(() => UserCreateNestedOneWithoutPersonInput, {nullable:false})
     User!: UserCreateNestedOneWithoutPersonInput;
 
-    @Field(() => CalorieCreateNestedOneWithoutPersonInput, {nullable:true})
-    Calorie?: CalorieCreateNestedOneWithoutPersonInput;
+    @Field(() => CalorieRecordCreateNestedManyWithoutPersonInput, {nullable:true})
+    Calorie?: CalorieRecordCreateNestedManyWithoutPersonInput;
 }

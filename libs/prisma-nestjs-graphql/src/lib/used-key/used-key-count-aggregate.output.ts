@@ -9,6 +9,12 @@ export class UsedKeyCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    createdAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    updatedAt!: number;
+
+    @Field(() => Int, {nullable:false})
     key!: number;
 
     @Field(() => Int, {nullable:false})

@@ -9,6 +9,12 @@ export class FinanceRecordMinOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    createdAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     accountName?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

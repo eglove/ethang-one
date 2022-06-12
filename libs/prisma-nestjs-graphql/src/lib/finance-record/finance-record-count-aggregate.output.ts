@@ -9,6 +9,12 @@ export class FinanceRecordCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    createdAt!: number;
+
+    @Field(() => Int, {nullable:false})
+    updatedAt!: number;
+
+    @Field(() => Int, {nullable:false})
     accountName!: number;
 
     @Field(() => Int, {nullable:false})
