@@ -1,5 +1,3 @@
-import { createCanvas } from 'canvas';
-
 class TextMetricsCache {
   private readonly _fonts: Map<Element, string>;
   private readonly _textWidths: Map<string, Map<string, number>>;
@@ -64,8 +62,9 @@ let measureContext: CanvasRenderingContext2D;
  */
 const measureText = (cssFont: string, text: string): number => {
   if (typeof measureContext === 'undefined') {
-    const canvas = createCanvas(0, 0);
-    measureContext = canvas.getContext('2d');
+    const canvas = document.createElement('canvas');
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    measureContext = canvas.getContext('2d')!;
   }
 
   // Capture as much of the style as possible. Note that some properties such
