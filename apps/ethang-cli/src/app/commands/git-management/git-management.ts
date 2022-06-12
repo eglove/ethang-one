@@ -41,6 +41,7 @@ export const gitManagement = async (): Promise<void> => {
       NxCommand.BUILD_AFFECTED,
       NxCommand.TEST_AFFECTED,
       NxCommand.E2E_AFFECTED,
+      'npx --yes snyk test',
       gitCommand.push(),
     ]);
   }

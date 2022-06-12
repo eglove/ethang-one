@@ -1,4 +1,6 @@
+import { isValidEmail } from '@ethang/util-typescript';
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -75,6 +77,10 @@ export class UsersController {
 
   @Get()
   async findAllUsers(@Query('email') email: string): Promise<User[]> {
+    if (!isValidEmail(email)) {
+      throw new BadRequestException('Invalid email.');
+    }
+
     return this.usersService.find(String(email));
   }
 
