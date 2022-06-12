@@ -7,8 +7,8 @@ import { BodyTwo } from './body-two';
 import { BodyZero } from './body-zero';
 
 interface AccessoriesLayoutProperties {
-  clothesColor: string;
   body: number;
+  clothesColor: string;
   skinColor: string;
 }
 

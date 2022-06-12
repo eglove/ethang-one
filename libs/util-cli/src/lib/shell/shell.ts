@@ -3,14 +3,14 @@ import { exec, spawn, SpawnOptions } from 'node:child_process';
 import { ShellColor } from './colors';
 
 export interface ShellCallbacks {
-  onStdout?: (stdout: string) => void;
-  onError?: (stderr: string) => void;
   onCode?: (code: number) => void;
+  onError?: (stderr: string) => void;
+  onStdout?: (stdout: string) => void;
 }
 
 export interface ShellParameters {
-  command: string;
   callbacks?: ShellCallbacks;
+  command: string;
   hideCommandPrintout?: boolean;
   spawnOptions?: SpawnOptions;
 }

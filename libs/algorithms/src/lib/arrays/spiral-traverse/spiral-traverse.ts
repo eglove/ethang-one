@@ -13,11 +13,11 @@ export const spiralTraverse = (array: number[][]): number[] => {
 
 type SpiralFill = {
   array: number[][];
-  startRow: number;
-  endRow: number;
-  startColumn: number;
   endColumn: number;
+  endRow: number;
   result: number[];
+  startColumn: number;
+  startRow: number;
 };
 
 const spiralFill = ({

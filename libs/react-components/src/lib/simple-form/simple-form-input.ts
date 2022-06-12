@@ -18,10 +18,10 @@ type FormInputConfig = {
   id?: string;
   inputProperties?: InputHTMLAttributes<HTMLInputElement>;
   inputType?: InputType;
-  name: string;
   label?: string;
   labelProperties?: LabelHTMLAttributes<HTMLLabelElement>;
   labelTextProperties?: HTMLAttributes<HTMLSpanElement>;
+  name: string;
   selectOptions?: SelectOption[];
 };
 

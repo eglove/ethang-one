@@ -28,6 +28,7 @@ export class Dashboard {
           variables: {
             email: decoded.userEmail,
             encryptedPassword: decoded.encrypted,
+            role: 'admin',
           },
         });
 

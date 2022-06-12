@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 interface ReactGistProperties {
-  id: string;
   file?: string;
+  id: string;
 }
 
 export function GistEmbed({ id, file }: ReactGistProperties): JSX.Element {

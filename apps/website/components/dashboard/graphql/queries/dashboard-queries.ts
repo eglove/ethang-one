@@ -1,10 +1,37 @@
 import { gql } from '@apollo/client';
+import { beforeMidnight } from '@ethang/util-typescript';
 
-export const DUE_HABITS = gql`
-  query DueHabits($dueDate: DateTime) {
-    habits(where: { dueDate: { lte: $dueDate } }) {
+export const allHabitsDefaultVariables = {
+  orderBy: {
+    name: 'asc',
+  },
+};
+
+export const dueHabitsDefaultVariables = {
+  dueDate: beforeMidnight(),
+  orderBy: { name: 'asc' },
+};
+
+export const ALL_HABITS = gql`
+  query AllHabits($orderBy: [HabitOrderByWithRelationInput!]) {
+    habits(orderBy: $orderBy) {
+      id
       name
       dueDate
+      recurInterval
+    }
+  }
+`;
+
+export const DUE_HABITS = gql`
+  query DueHabits(
+    $dueDate: DateTime
+    $orderBy: [HabitOrderByWithRelationInput!]
+  ) {
+    habits(orderBy: $orderBy, where: { dueDate: { lte: $dueDate } }) {
+      name
+      dueDate
+      recurInterval
     }
   }
 `;
@@ -18,7 +45,11 @@ export const FINANCE_RECORDS = gql`
 `;
 
 export const VALIDATE_USER = gql`
-  query ValidateUser($email: String!, $encryptedPassword: String!) {
-    validate(email: $email, encryptedPassword: $encryptedPassword)
+  query ValidateUser(
+    $email: String!
+    $encryptedPassword: String!
+    $role: String
+  ) {
+    validate(email: $email, encryptedPassword: $encryptedPassword, role: $role)
   }
 `;

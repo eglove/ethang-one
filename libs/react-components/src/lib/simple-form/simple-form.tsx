@@ -1,4 +1,5 @@
 import {
+  ButtonHTMLAttributes,
   ChangeEvent,
   Dispatch,
   FieldsetHTMLAttributes,
@@ -18,6 +19,7 @@ import { SimpleFormInput } from './simple-form-input';
 import { InputType } from './types';
 
 interface FormProperties<StateType> {
+  buttonContainerProperties?: ButtonHTMLAttributes<HTMLButtonElement>;
   buttons?: SimpleFormButton[];
   clearFormAfterSubmit?: boolean;
   fieldsetProperties?: FieldsetHTMLAttributes<HTMLFieldSetElement>;
@@ -153,13 +155,15 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
             </label>
           );
         })}
-        {reversedButtons?.map(button => {
-          return (
-            <button key={button.name} type="button" {...button.properties}>
-              {button.buttonText}
-            </button>
-          );
-        })}
+        <span {...formProperties.buttonContainerProperties}>
+          {reversedButtons?.map(button => {
+            return (
+              <button key={button.name} type="button" {...button.properties}>
+                {button.buttonText}
+              </button>
+            );
+          })}
+        </span>
       </fieldset>
     </form>
   );

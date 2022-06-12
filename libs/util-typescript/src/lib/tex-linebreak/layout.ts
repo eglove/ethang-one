@@ -16,28 +16,21 @@ export interface Box {
  * `Box`.
  */
 export interface Glue {
+  /** Maximum amount by which this space can shrink. */
+  shrink: number;
+  /** Maximum amount by which this space can grow. */
+  stretch: number;
   type: 'glue';
   /**
    * Preferred width of this space. Must be >= 0.
    */
   width: number;
-  /** Maximum amount by which this space can grow. */
-  stretch: number;
-  /** Maximum amount by which this space can shrink. */
-  shrink: number;
 }
 
 /**
  * An explicit candidate position for breaking a line.
  */
 export interface Penalty {
-  type: 'penalty';
-
-  /**
-   * Amount of space required for typeset content to be added (eg. a hyphen) if
-   * a line is broken here. Must be >= 0.
-   */
-  width: number;
   /**
    * The undesirability of breaking the line at this point.
    *
@@ -45,12 +38,19 @@ export interface Penalty {
    * respectively.
    */
   cost: number;
+
   /**
    * A hint used to prevent successive lines being broken with hyphens. The
    * layout algorithm will try to avoid successive lines being broken at flagged
    * `Penalty` items.
    */
   flagged: boolean;
+  type: 'penalty';
+  /**
+   * Amount of space required for typeset content to be added (eg. a hyphen) if
+   * a line is broken here. Must be >= 0.
+   */
+  width: number;
 }
 
 export type InputItem = Box | Penalty | Glue;
@@ -59,6 +59,21 @@ export type InputItem = Box | Penalty | Glue;
  * Parameters for the layout process.
  */
 export interface Options {
+  /**
+   * Penalty for significant differences in the tightness of adjacent lines.
+   */
+  adjacentLooseTightPenalty: number;
+
+  /**
+   * Penalty for consecutive hyphenated lines.
+   */
+  doubleHyphenPenalty: number;
+
+  /**
+   * The maximum adjustment ratio used for the initial line breaking attempt.
+   */
+  initialMaxAdjustmentRatio: number;
+
   /**
    * A factor indicating the maximum amount by which items in a line can be
    * spaced out by expanding `Glue` items.
@@ -72,21 +87,6 @@ export interface Options {
    * necessary.
    */
   maxAdjustmentRatio: number | undefined;
-
-  /**
-   * The maximum adjustment ratio used for the initial line breaking attempt.
-   */
-  initialMaxAdjustmentRatio: number;
-
-  /**
-   * Penalty for consecutive hyphenated lines.
-   */
-  doubleHyphenPenalty: number;
-
-  /**
-   * Penalty for significant differences in the tightness of adjacent lines.
-   */
-  adjacentLooseTightPenalty: number;
 }
 
 /**
@@ -160,18 +160,20 @@ export const breakLines = (
   );
 
   type Node = {
-    index: number; // Index in `items`.
-    line: number; // Line number.
+    // Line number.
     fitness: number;
-    // Sum of `width` up to first box or forced break after this break.
-    totalWidth: number;
-    // Sum of `stretch` up to first box or forced break after this break.
-    totalStretch: number;
-    // Sum of `shrink` up to first box or forced break after this break.
-    totalShrink: number;
+    index: number;
+    // Index in `items`.
+    line: number;
+    prev: undefined | Node;
     // Minimum sum of demerits up this break.
     totalDemerits: number;
-    prev: undefined | Node;
+    // Sum of `shrink` up to first box or forced break after this break.
+    totalShrink: number;
+    // Sum of `stretch` up to first box or forced break after this break.
+    totalStretch: number;
+    // Sum of `width` up to first box or forced break after this break.
+    totalWidth: number;
   };
 
   const active = new Set<Node>();
@@ -463,8 +465,6 @@ export interface PositionedItem {
   item: number;
   /** Index of the line on which the resulting item should appear. */
   line: number;
-  /** X offset of the item. */
-  xOffset: number;
   /**
    * Width which this item should be rendered with.
    *
@@ -472,6 +472,8 @@ export interface PositionedItem {
    * For glue items this will be the adjusted width.
    */
   width: number;
+  /** X offset of the item. */
+  xOffset: number;
 }
 
 /**

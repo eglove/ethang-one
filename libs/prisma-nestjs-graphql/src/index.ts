@@ -11,6 +11,7 @@ export * from './lib/habit/habit.model';
 export * from './lib/habit/habit-create.input';
 export * from './lib/habit/habit-update.input';
 export * from './lib/habit/habit-where.input';
+export * from './lib/habit/habit-where-unique.input';
 export * from './lib/habit/update-one-habit.args';
 export * from './lib/prisma/affected-rows.output';
 export * from './lib/todays-calories/find-first-todays-calories.args';

@@ -1,8 +1,8 @@
 interface GetYoutubeIdProperties {
-  url: string;
   options?: {
     fuzzy?: boolean;
   };
+  url: string;
 }
 
 export const getYoutubeId = ({

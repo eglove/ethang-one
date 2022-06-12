@@ -1,24 +1,33 @@
 import { useMutation } from '@apollo/client';
-import {
-  HabitUpdateInput,
-  HabitWhereInput,
-} from '@ethang/prisma-nestjs-graphql';
+import { HabitUpdateInput } from '@ethang/prisma-nestjs-graphql';
 import { Habit } from '@prisma/client';
+import ms from 'ms';
 import { ChangeEvent } from 'react';
 
 import { UPDATE_HABIT } from '../graphql/queries/dashboard-mutations';
+import {
+  DUE_HABITS,
+  dueHabitsDefaultVariables,
+} from '../graphql/queries/dashboard-queries';
 import styles from './habit.module.css';
 
 interface HabitListProperties {
-  data: Habit[];
+  habits: Habit[];
   isValidating: boolean;
 }
 
 export function HabitList({
-  data,
+  habits,
   isValidating,
 }: HabitListProperties): JSX.Element {
-  const [updateHabit] = useMutation(UPDATE_HABIT);
+  const [updateHabit] = useMutation(UPDATE_HABIT, {
+    refetchQueries: [
+      {
+        query: DUE_HABITS,
+        variables: dueHabitsDefaultVariables,
+      },
+    ],
+  });
 
   const handleEventComplete = async (
     event: ChangeEvent<HTMLInputElement>
@@ -29,9 +38,13 @@ export function HabitList({
       recurInterval: string;
     };
 
+    const updateTo = new Date(
+      Date.now() + ms(habit.recurInterval)
+    ).toISOString();
+
     const data: HabitUpdateInput = {
       dueDate: {
-        set: habit.dueDate,
+        set: updateTo,
       },
       name: {
         set: habit.name,
@@ -41,16 +54,12 @@ export function HabitList({
       },
     };
 
-    const where: HabitWhereInput = {
-      name: {
-        equals: habit.name,
-      },
-    };
-
     await updateHabit({
       variables: {
         data,
-        where,
+        where: {
+          name: habit.name,
+        },
       },
     });
   };
@@ -58,9 +67,9 @@ export function HabitList({
   return (
     <div>
       <div className={styles.DueHeader}>Due Today:</div>
-      {data?.length <= 0 && <p>All tasks complete!</p>}
-      {data?.length > 0 &&
-        data.map(habit => {
+      {habits?.length <= 0 && <p>All tasks complete!</p>}
+      {habits?.length > 0 &&
+        habits.map(habit => {
           return (
             <div key={habit.name}>
               <input
@@ -70,7 +79,9 @@ export function HabitList({
                 value={JSON.stringify(habit)}
                 onChange={handleEventComplete}
               />{' '}
-              <label htmlFor={habit.name}>{habit.name}</label>
+              <label htmlFor={habit.name}>
+                {habit.name} ({habit.recurInterval})
+              </label>
             </div>
           );
         })}

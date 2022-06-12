@@ -28,9 +28,10 @@ export class UserResolver {
   @Query(nestReturnBoolean)
   async validate(
     @Args('email') email: string,
-    @Args('encryptedPassword') encryptedPassword: string
+    @Args('encryptedPassword') encryptedPassword: string,
+    @Args('role', { nullable: true }) role?: string
   ): Promise<boolean> {
-    return this.userService.validate(email, encryptedPassword);
+    return this.userService.validate(email, encryptedPassword, role);
   }
 
   @Mutation(nestReturnUser)

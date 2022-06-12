@@ -10,13 +10,25 @@ import { useState } from 'react';
 
 import commonStyles from '../../../styles/common.module.css';
 import { CREATE_HABIT } from '../graphql/queries/dashboard-mutations';
+import {
+  ALL_HABITS,
+  allHabitsDefaultVariables,
+} from '../graphql/queries/dashboard-queries';
 
 interface AddHabitProperties {
-  isValidating: boolean;
+  habitsLoading: boolean;
 }
 
-export function AddHabit({ isValidating }: AddHabitProperties): JSX.Element {
-  const [createHabit] = useMutation(CREATE_HABIT);
+export function AddHabit({ habitsLoading }: AddHabitProperties): JSX.Element {
+  const [createHabit] = useMutation(CREATE_HABIT, {
+    refetchQueries: [
+      {
+        fetchPolicy: 'network-only',
+        query: ALL_HABITS,
+        variables: allHabitsDefaultVariables,
+      },
+    ],
+  });
 
   const [formState, setFormState] = useState({
     Name: '',
@@ -71,7 +83,7 @@ export function AddHabit({ isValidating }: AddHabitProperties): JSX.Element {
         postSubmitFunction={handleCreateHabit}
         setFormState={setFormState}
         fieldsetProperties={{
-          disabled: isValidating,
+          disabled: habitsLoading,
           style: {
             alignItems: 'flex-end',
             display: 'flex',

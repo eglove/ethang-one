@@ -1,8 +1,8 @@
 interface IImage {
   altText: string;
   height: number;
-  width: number;
   url: string;
+  width: number;
 }
 
 export class Image implements IImage {

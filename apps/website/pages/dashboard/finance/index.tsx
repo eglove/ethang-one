@@ -6,11 +6,14 @@ import {
   SimpleFormButton,
   SimpleFormInput,
 } from '@ethang/react-components';
-import { useState } from 'react';
+import { isBrowser } from '@ethang/util-typescript';
+import { useRouter } from 'next/router';
+import { useContext, useState } from 'react';
 
 import { HeadTag } from '../../../components/common/head-tag/head-tag';
 import { CREATE_FINANCE_RECORDS } from '../../../components/dashboard/graphql/queries/dashboard-mutations';
 import commonStyles from '../../../styles/common.module.css';
+import { DashboardContext } from '../index';
 
 export const Account = {
   CHASE_CC: 'ChaseCreditCard',
@@ -22,6 +25,9 @@ export const Account = {
 };
 
 function Finance(): JSX.Element {
+  const dashboardState = useContext(DashboardContext);
+  const router = useRouter();
+
   const [createFinanceRecords, { loading }] = useMutation(
     CREATE_FINANCE_RECORDS
   );
@@ -84,20 +90,26 @@ function Finance(): JSX.Element {
     });
   };
 
-  return (
-    <Container>
-      <HeadTag title="Finance Update" />
-      <div>Update Accounts</div>
-      <SimpleForm
-        buttons={buttons}
-        formProperties={{ className: commonStyles.Form }}
-        formState={formState}
-        inputs={formInputs}
-        postSubmitFunction={handleSubmit}
-        setFormState={setFormState}
-      />
-    </Container>
-  );
+  if (!dashboardState.isLoggedIn && isBrowser) {
+    router.push('/dashboard').catch((error: Error) => {
+      console.error(error);
+    });
+  } else {
+    return (
+      <Container>
+        <HeadTag title="Finance Update" />
+        <div>Update Accounts</div>
+        <SimpleForm
+          buttons={buttons}
+          formProperties={{ className: commonStyles.Form }}
+          formState={formState}
+          inputs={formInputs}
+          postSubmitFunction={handleSubmit}
+          setFormState={setFormState}
+        />
+      </Container>
+    );
+  }
 }
 
 export default Finance;

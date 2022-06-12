@@ -47,6 +47,11 @@ export const arrayOfDaysBetweenDays = ({
   return dateList;
 };
 
+export const beforeMidnight = (date = new Date()): number => {
+  date.setHours(24, 0, 0, 0);
+  return date.getTime() - 1;
+};
+
 export const convertTimeZone = (
   date: Date | string,
   tzString: string = new Intl.DateTimeFormat().resolvedOptions().timeZone
@@ -130,7 +135,6 @@ export const humanReadableLocalDateTime = (dateTime: Date | string): string => {
   };
 
   // @ts-expect-error Option values are correct
-
   return Intl.DateTimeFormat('en-US', options).format(
     convertTimeZone(dateTime)
   );

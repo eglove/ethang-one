@@ -13,9 +13,9 @@ import { textNodesInRange } from './util/range';
 const NODE_TAG = 'insertedByTexLinebreak';
 
 interface NodeOffset {
+  end: number;
   node: Node;
   start: number;
-  end: number;
 }
 
 type DOMBox = Box & NodeOffset;
@@ -357,9 +357,9 @@ export const unjustifyContent = (element: HTMLElement): void => {
 };
 
 interface ElementBreakpoints {
+  breakpoints: number[];
   el: HTMLElement;
   items: DOMItem[];
-  breakpoints: number[];
   lineWidth: number;
 }
 

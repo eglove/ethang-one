@@ -7,7 +7,6 @@ export * from './lib/container/container';
 export * from './lib/gist-embed/gist-embed';
 export * from './lib/icon-component/icon';
 export * from './lib/icon-input/icon-input';
-export * from './lib/link-component/link-component';
 export * from './lib/next-link/next-link';
 export * from './lib/progress-bar/progress-bar';
 export * from './lib/react-to-pdf/react-to-pdf';

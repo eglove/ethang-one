@@ -5,11 +5,11 @@ type Pattern = {
 };
 
 export interface Language {
-  id: string | string[];
   exceptions?: string;
+  id: string | string[];
   leftmin: number;
-  rightmin: number;
   patterns: Pattern;
+  rightmin: number;
 }
 
 export class Hypher {

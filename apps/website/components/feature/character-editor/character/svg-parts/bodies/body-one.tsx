@@ -1,6 +1,6 @@
 interface BodyOneProperties {
-  skinColor: string;
   clothesColor: string;
+  skinColor: string;
 }
 
 export function BodyOne({

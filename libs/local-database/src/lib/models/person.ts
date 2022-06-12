@@ -1,8 +1,8 @@
 interface IPerson {
   firstName: string;
-  lastName?: string;
-
   readonly fullName?: string;
+
+  lastName?: string;
 }
 
 export class Person implements IPerson {

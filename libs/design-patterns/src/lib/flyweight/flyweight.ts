@@ -26,10 +26,10 @@ const createBook = (author: string, isbn: string, title: string): Book => {
 
 interface AddBookProperties {
   author: string;
-  isbn: string;
-  title: string;
   availability: boolean;
+  isbn: string;
   sales: number;
+  title: string;
 }
 
 const addBook = (properties: AddBookProperties): Book => {

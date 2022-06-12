@@ -5,12 +5,12 @@ import { FacesLayout } from './svg-parts/faces/faces-layout';
 import { HeadsLayout } from './svg-parts/heads/heads-layout';
 
 interface CharacterProperties {
-  body: number;
-  head: number;
-  face: number;
   accessory: number;
-  skinColor: string;
+  body: number;
   clothesColor: string;
+  face: number;
+  head: number;
+  skinColor: string;
 }
 
 export function Character({

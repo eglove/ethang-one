@@ -6,10 +6,10 @@ import { ToggleButton } from '../toggle-button/toggle-button';
 import styles from './control-pane.module.css';
 
 interface ControlPaneProperties {
-  title: string;
-  options: CharacterOption[];
   currentOption: number | string;
   handleSelectOption: Dispatch<SetStateAction<string | number>>;
+  options: CharacterOption[];
+  title: string;
 }
 
 export function ControlPane(properties: ControlPaneProperties): JSX.Element {

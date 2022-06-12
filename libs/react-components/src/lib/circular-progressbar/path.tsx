@@ -12,8 +12,8 @@ interface PathProperties {
 }
 
 interface GetPathDescriptionProperties {
-  pathRadius: number;
   counterClockwise: boolean;
+  pathRadius: number;
 }
 
 interface GetDashStyleProperties {

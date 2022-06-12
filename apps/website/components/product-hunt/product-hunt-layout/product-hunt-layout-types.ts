@@ -11,11 +11,11 @@ export interface EdgesEntity {
 }
 
 export interface Node {
-  id: string;
-  name: string;
-  media: ProductMediaEntity[];
-  productLinks?: ProductLinksEntity[];
   description: string;
+  id: string;
+  media: ProductMediaEntity[];
+  name: string;
+  productLinks?: ProductLinksEntity[];
 }
 
 export interface ProductMediaEntity {

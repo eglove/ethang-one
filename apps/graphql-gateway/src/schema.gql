@@ -68,7 +68,7 @@ type Query {
   firstTodaysCalories(where: TodaysCaloriesWhereInput, orderBy: [TodaysCaloriesOrderByWithRelationInput!], cursor: TodaysCaloriesWhereUniqueInput, take: Int, skip: Int, distinct: [TodaysCaloriesScalarFieldEnum!]): TodaysCalories
   findUser(where: UserWhereUniqueInput!): User
   signin(email: String!, password: String!): String!
-  validate(email: String!, encryptedPassword: String!): Boolean!
+  validate(email: String!, encryptedPassword: String!, role: String): Boolean!
 }
 
 input HabitWhereUniqueInput {

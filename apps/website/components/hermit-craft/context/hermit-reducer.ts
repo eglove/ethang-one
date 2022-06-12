@@ -14,8 +14,8 @@ export enum HermitActionEnum {
 }
 
 export type HermitAction = {
-  type: HermitActionEnum;
   payload?: unknown;
+  type: HermitActionEnum;
 };
 
 export const hermitReducer = (
