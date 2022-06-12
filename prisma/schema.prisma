@@ -15,6 +15,15 @@ generator nestgraphql {
   output   = "../libs/prisma-nestjs-graphql/src/lib"
 }
 
+model Calorie {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  currentCount  Int    @default(0)
+  dailyCalories Int    @default(0)
+  deficit       Int    @default(0)
+  Person        Person @relation(fields: [personId], references: [id])
+  personId      String @unique @db.ObjectId
+}
+
 model FinanceRecord {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
   accountName  String
@@ -27,6 +36,18 @@ model Habit {
   name          String   @unique
   recurInterval String
   dueDate       DateTime
+}
+
+model Person {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName String
+  lastName  String
+  birthday  DateTime
+  weightLbs Float
+  heightIn  Float
+  User      User     @relation(fields: [userId], references: [id])
+  userId    String   @unique @db.ObjectId
+  Calorie   Calorie?
 }
 
 model ShortUrl {
@@ -57,8 +78,9 @@ model UsedKey {
 }
 
 model User {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  email    String @unique
-  password String @unique
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  email    String  @unique
+  password String
   role     String
+  Person   Person?
 }

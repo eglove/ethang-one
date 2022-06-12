@@ -84,6 +84,7 @@ specifiers:
   eslint-plugin-typescript-sort-keys: ^2.1.0
   eslint-plugin-unicorn: ^42.0.0
   eslint-plugin-unused-imports: ^2.0.0
+  export-files: ^3.0.2
   express: ^4.18.1
   fast-xml-parser: ^4.0.8
   firebase: ^9.8.3
@@ -174,6 +175,7 @@ dependencies:
   core-js: 3.22.8
   cross-fetch: 3.1.5
   disqus-react: 1.1.3_react-dom@18.1.0+react@18.1.0
+  export-files: 3.0.2
   express: 4.18.1
   fast-xml-parser: 4.0.8
   firebase: 9.8.3
@@ -10110,6 +10112,11 @@ packages:
       jest-message-util: 28.1.1
       jest-util: 28.1.1
     dev: true
+
+  /export-files/3.0.2:
+    resolution: {integrity: sha512-xMV1B1t2ku34MOBq1uCOGmAhEXgMyK1xIf/bbk75sNhmfy4F6IECZMyXoQKY4uXp7my+H1StUJEY9HMrCcY10g==}
+    engines: {node: '>=11'}
+    dev: false
 
   /express/4.18.1:
     resolution: {integrity: sha512-zZBcOX9TfehHQhtupq57OF8lFZ3UZi08Y97dwFCkD8p9d/d2Y3M+ykKcwaMDEL+4qyUolgBDX6AblpR3fL212Q==}

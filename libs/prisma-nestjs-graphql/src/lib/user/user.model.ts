@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
+import { Person } from '../person/person.model';
 
 @ObjectType()
 export class User {
@@ -16,4 +17,7 @@ export class User {
 
     @Field(() => String, {nullable:false})
     role!: string;
+
+    @Field(() => Person, {nullable:true})
+    Person?: Person | null;
 }

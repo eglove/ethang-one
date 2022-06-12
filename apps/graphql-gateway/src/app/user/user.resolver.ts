@@ -5,7 +5,7 @@ import {
   nestReturnBoolean,
   nestReturnString,
   nestReturnUser,
-} from '../util/nest-decorator';
+} from '../util/nest-decorator-returns';
 import { UserService } from './user.service';
 
 @Resolver()

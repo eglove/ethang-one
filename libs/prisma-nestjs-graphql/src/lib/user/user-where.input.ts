@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
+import { PersonRelationFilter } from '../person/person-relation-filter.input';
 
 @InputType()
 export class UserWhereInput {
@@ -25,4 +26,7 @@ export class UserWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     role?: StringFilter;
+
+    @Field(() => PersonRelationFilter, {nullable:true})
+    Person?: PersonRelationFilter;
 }

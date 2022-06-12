@@ -2,17 +2,46 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type FinanceRecord {
+type User {
   id: ID!
-  accountName: String!
-  currentValue: Float!
-  recordedDate: DateTime!
+  email: String!
+  password: String!
+  role: String!
+  Person: Person
+}
+
+type Person {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  birthday: DateTime!
+  weightLbs: Float!
+  heightIn: Float!
+  User: User!
+  userId: String!
+  Calorie: Calorie
 }
 
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
+
+type Calorie {
+  id: ID!
+  currentCount: Int!
+  dailyCalories: Int!
+  deficit: Int!
+  Person: Person!
+  personId: String!
+}
+
+type FinanceRecord {
+  id: ID!
+  accountName: String!
+  currentValue: Float!
+  recordedDate: DateTime!
+}
 
 type Habit {
   id: ID!
@@ -52,13 +81,6 @@ type UsedKey {
   ShortUrl: ShortUrl
 }
 
-type User {
-  id: ID!
-  email: String!
-  password: String!
-  role: String!
-}
-
 type Query {
   habit(where: HabitWhereUniqueInput!): Habit
   habits(where: HabitWhereInput, orderBy: [HabitOrderByWithRelationInput!], cursor: HabitWhereUniqueInput, take: Int, skip: Int, distinct: [HabitScalarFieldEnum!]): [Habit]!
@@ -69,6 +91,8 @@ type Query {
   findUser(where: UserWhereUniqueInput!): User
   signin(email: String!, password: String!): String!
   validate(email: String!, encryptedPassword: String!, role: String): Boolean!
+  persons(where: PersonWhereInput, orderBy: [PersonOrderByWithRelationInput!], cursor: PersonWhereUniqueInput, take: Int, skip: Int, distinct: [PersonScalarFieldEnum!]): [Person]!
+  calories(where: CalorieWhereInput, orderBy: [CalorieOrderByWithRelationInput!], cursor: CalorieWhereUniqueInput, take: Int, skip: Int, distinct: [CalorieScalarFieldEnum!]): [Calorie!]!
 }
 
 input HabitWhereUniqueInput {
@@ -267,7 +291,116 @@ enum TodaysCaloriesScalarFieldEnum {
 input UserWhereUniqueInput {
   id: String
   email: String
-  password: String
+}
+
+input PersonWhereInput {
+  AND: [PersonWhereInput!]
+  OR: [PersonWhereInput!]
+  NOT: [PersonWhereInput!]
+  id: StringFilter
+  firstName: StringFilter
+  lastName: StringFilter
+  birthday: DateTimeFilter
+  weightLbs: FloatFilter
+  heightIn: FloatFilter
+  User: UserRelationFilter
+  userId: StringFilter
+  Calorie: CalorieRelationFilter
+}
+
+input UserRelationFilter {
+  is: UserWhereInput
+  isNot: UserWhereInput
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  id: StringFilter
+  email: StringFilter
+  password: StringFilter
+  role: StringFilter
+  Person: PersonRelationFilter
+}
+
+input PersonRelationFilter {
+  is: PersonWhereInput
+  isNot: PersonWhereInput
+}
+
+input CalorieRelationFilter {
+  is: CalorieWhereInput
+  isNot: CalorieWhereInput
+}
+
+input CalorieWhereInput {
+  AND: [CalorieWhereInput!]
+  OR: [CalorieWhereInput!]
+  NOT: [CalorieWhereInput!]
+  id: StringFilter
+  currentCount: IntFilter
+  dailyCalories: IntFilter
+  deficit: IntFilter
+  Person: PersonRelationFilter
+  personId: StringFilter
+}
+
+input PersonOrderByWithRelationInput {
+  id: SortOrder
+  firstName: SortOrder
+  lastName: SortOrder
+  birthday: SortOrder
+  weightLbs: SortOrder
+  heightIn: SortOrder
+  User: UserOrderByWithRelationInput
+  userId: SortOrder
+  Calorie: CalorieOrderByWithRelationInput
+}
+
+input UserOrderByWithRelationInput {
+  id: SortOrder
+  email: SortOrder
+  password: SortOrder
+  role: SortOrder
+  Person: PersonOrderByWithRelationInput
+}
+
+input CalorieOrderByWithRelationInput {
+  id: SortOrder
+  currentCount: SortOrder
+  dailyCalories: SortOrder
+  deficit: SortOrder
+  Person: PersonOrderByWithRelationInput
+  personId: SortOrder
+}
+
+input PersonWhereUniqueInput {
+  id: String
+  userId: String
+}
+
+enum PersonScalarFieldEnum {
+  id
+  firstName
+  lastName
+  birthday
+  weightLbs
+  heightIn
+  userId
+}
+
+input CalorieWhereUniqueInput {
+  id: String
+  personId: String
+}
+
+enum CalorieScalarFieldEnum {
+  id
+  currentCount
+  dailyCalories
+  deficit
+  personId
 }
 
 type Mutation {
@@ -276,6 +409,8 @@ type Mutation {
   deleteUsedKey(where: UsedKeyWhereUniqueInput!): UnusedKey!
   createFinanceRecords(data: [FinanceRecordCreateManyInput!]!): AffectedRows!
   signup(email: String!, password: String!): User!
+  createPerson(data: PersonCreateInput!): Person!
+  createCalorie(data: CalorieCreateInput!): Calorie!
 }
 
 input HabitCreateInput {
@@ -309,4 +444,80 @@ input FinanceRecordCreateManyInput {
   accountName: String!
   currentValue: Float!
   recordedDate: DateTime!
+}
+
+input PersonCreateInput {
+  id: String
+  firstName: String!
+  lastName: String!
+  birthday: DateTime!
+  weightLbs: Float!
+  heightIn: Float!
+  User: UserCreateNestedOneWithoutPersonInput!
+  Calorie: CalorieCreateNestedOneWithoutPersonInput
+}
+
+input UserCreateNestedOneWithoutPersonInput {
+  create: UserCreateWithoutPersonInput
+  connectOrCreate: UserCreateOrConnectWithoutPersonInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutPersonInput {
+  id: String
+  email: String!
+  password: String!
+  role: String!
+}
+
+input UserCreateOrConnectWithoutPersonInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutPersonInput!
+}
+
+input CalorieCreateNestedOneWithoutPersonInput {
+  create: CalorieCreateWithoutPersonInput
+  connectOrCreate: CalorieCreateOrConnectWithoutPersonInput
+  connect: CalorieWhereUniqueInput
+}
+
+input CalorieCreateWithoutPersonInput {
+  id: String
+  currentCount: Int
+  dailyCalories: Int
+  deficit: Int
+}
+
+input CalorieCreateOrConnectWithoutPersonInput {
+  where: CalorieWhereUniqueInput!
+  create: CalorieCreateWithoutPersonInput!
+}
+
+input CalorieCreateInput {
+  id: String
+  currentCount: Int
+  dailyCalories: Int
+  deficit: Int
+  Person: PersonCreateNestedOneWithoutCalorieInput!
+}
+
+input PersonCreateNestedOneWithoutCalorieInput {
+  create: PersonCreateWithoutCalorieInput
+  connectOrCreate: PersonCreateOrConnectWithoutCalorieInput
+  connect: PersonWhereUniqueInput
+}
+
+input PersonCreateWithoutCalorieInput {
+  id: String
+  firstName: String!
+  lastName: String!
+  birthday: DateTime!
+  weightLbs: Float!
+  heightIn: Float!
+  User: UserCreateNestedOneWithoutPersonInput!
+}
+
+input PersonCreateOrConnectWithoutCalorieInput {
+  where: PersonWhereUniqueInput!
+  create: PersonCreateWithoutCalorieInput!
 }

@@ -1,3 +1,6 @@
+export * from './lib/calorie/calorie.model';
+export * from './lib/calorie/create-one-calorie.args';
+export * from './lib/calorie/find-many-calorie.args';
 export * from './lib/finance-record/create-many-finance-record.args';
 export * from './lib/finance-record/create-one-finance-record.args';
 export * from './lib/finance-record/finance-record.model';
@@ -13,6 +16,10 @@ export * from './lib/habit/habit-update.input';
 export * from './lib/habit/habit-where.input';
 export * from './lib/habit/habit-where-unique.input';
 export * from './lib/habit/update-one-habit.args';
+export * from './lib/person/create-one-person.args';
+export * from './lib/person/find-many-person.args';
+export * from './lib/person/person.model';
+export * from './lib/person/person-create.input';
 export * from './lib/prisma/affected-rows.output';
 export * from './lib/todays-calories/find-first-todays-calories.args';
 export * from './lib/todays-calories/todays-calories.model';
