@@ -9,6 +9,14 @@ import {
 import { startCli } from '../../start-cli';
 import { getChoice, getInput } from '../../util/commands';
 
+const preCommitCommands = [browsersListUpdate(), NxCommand.LINT_AFFECTED];
+const postCommitCommands = [
+  NxCommand.BUILD_AFFECTED,
+  NxCommand.TEST_AFFECTED,
+  NxCommand.E2E_AFFECTED,
+  'npx --yes snyk test',
+];
+
 export const gitManagement = async (): Promise<void> => {
   const choices = {
     addAllCommit: 'Add All and Commit',
@@ -26,8 +34,7 @@ export const gitManagement = async (): Promise<void> => {
 
     command = buildCrossEnvironmentCommand([
       gitCommand.add(),
-      browsersListUpdate(),
-      NxCommand.LINT_AFFECTED,
+      ...preCommitCommands,
       gitCommand.commit(`"${commitMessage}"`),
     ]);
   } else if (choice === choices.addAllCommitPush) {
@@ -35,13 +42,9 @@ export const gitManagement = async (): Promise<void> => {
 
     command = buildCrossEnvironmentCommand([
       gitCommand.add(),
-      browsersListUpdate(),
-      NxCommand.LINT_AFFECTED,
+      ...preCommitCommands,
       gitCommand.commit(`"${commitMessage}"`),
-      NxCommand.BUILD_AFFECTED,
-      NxCommand.TEST_AFFECTED,
-      NxCommand.E2E_AFFECTED,
-      'npx --yes snyk test',
+      ...postCommitCommands,
       gitCommand.push(),
     ]);
   }
