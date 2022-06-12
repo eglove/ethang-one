@@ -39,7 +39,7 @@ export const textNodesInRange = (
         nodes.push(currentNode);
       }
 
-      currentNode = nodeIter.nextNode() ?? undefined;
+      currentNode = nodeIter.nextNode() ?? new Node();
     }
   }
 
