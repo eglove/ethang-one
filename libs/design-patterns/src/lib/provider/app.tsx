@@ -13,11 +13,12 @@ const useDataContext = (): DataState => {
   return useContext(DataContext);
 };
 
-const DataProvider = ({
+function DataProvider({
   children,
 }: {
   children: JSX.Element | JSX.Element[];
-}): JSX.Element => {
+}): JSX.Element {
+  // eslint-disable-next-line react/hook-use-state
   const [, setName] = useState('Ethan');
 
   const changeName = (name: string): void => {
@@ -29,9 +30,9 @@ const DataProvider = ({
   }, []);
 
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
-};
+}
 
-export const App = (): JSX.Element => {
+export function App(): JSX.Element {
   return (
     <div>
       <DataProvider>
@@ -40,37 +41,37 @@ export const App = (): JSX.Element => {
       </DataProvider>
     </div>
   );
-};
+}
 
-const SideBar = (): JSX.Element => {
+function SideBar(): JSX.Element {
   return <List />;
-};
+}
 
-const List = (): JSX.Element => {
+function List(): JSX.Element {
   return <ListItem />;
-};
+}
 
-const Content = (): JSX.Element => {
+function Content(): JSX.Element {
   return (
     <div>
       <Header />
       <Text />
     </div>
   );
-};
+}
 
-const ListItem = (): JSX.Element => {
+function ListItem(): JSX.Element {
   const data = useDataContext();
 
   return <span>{data.listItem}</span>;
-};
+}
 
-const Text = (): JSX.Element => {
+function Text(): JSX.Element {
   const data = useDataContext();
   return <h1>{data.text}</h1>;
-};
+}
 
-const Header = (): JSX.Element => {
+function Header(): JSX.Element {
   const data = useDataContext();
   return <div>{data.title}</div>;
-};
+}

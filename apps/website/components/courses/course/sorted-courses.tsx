@@ -118,18 +118,18 @@ export function SortedCourses(): JSX.Element {
           job yet, this course will get you started on building out projects
           that will help you stand out. I don&apos;t necessarily recommend
           putting projects from a course in a portfolio. But the Web Projects
-          course will give you plenty of inspiration and walk though a lot of
+          course will give you plenty of inspiration and walk through a lot of
           things you can do with your already existing skills.
         </p>
       </GetCourseComponent>
       <GetCourseComponent course={courses.seoTrainingMasterclass}>
         <p>
           If you used the knowledge gained from JavaScript web projects to get a
-          portfolio setup, now is the time to learn how to get in front of as
-          many as possible. The SEO course will introduce you to the world of
-          web marketing and getting a web app attention. The SEO course itself
-          wasn&apos;t made for developers, but developers will find a lot of
-          value in going through it.
+          portfolio setup, now is the time to learn how to get it in front of as
+          many people as possible. The SEO course will introduce you to the
+          world of web marketing and getting a web app attention. The SEO course
+          itself wasn&apos;t made for developers, but developers will find a lot
+          of value in going through it.
         </p>
       </GetCourseComponent>
       <GetCourseComponent course={courses.codeAutomationWithGithub}>
@@ -195,7 +195,7 @@ export function SortedCourses(): JSX.Element {
         <p>
           All the parts of CSS you didn&apos;t know existed or didn&apos;t
           understand up until this point. In my opinion this course requires
-          some basic understanding of React, that&apos;s why we&apos;ve waiting
+          some basic understanding of React, that&apos;s why we&apos;ve waited
           so long to get to this. Previous courses would have given you a pretty
           decent working knowledge of CSS. But this gets much more in depth and
           perfectly fills the gaps that no other course does.
@@ -230,13 +230,13 @@ export function SortedCourses(): JSX.Element {
           Apollo Odyssey will cover using Apollo for GraphQL and schema first
           design in much greater detail than other courses have. Apollo Server
           and Apollo Client are a powerful combo that can serve as a very clean
-          state management system for your react apps.
+          state management system for your React apps.
         </p>
       </GetCourseComponent>
       <GetCourseComponent course={courses.testingWithCypress}>
         <p>
           Cypress is known as the best tool for E2E testing, and it&apos;s very
-          much worth knowing. Future version of Cypress will allow isolated
+          much worth knowing. Future versions of Cypress will allow isolated
           component tests which will make this already very powerful tool even
           more relevant.
         </p>
@@ -306,9 +306,9 @@ export function SortedCourses(): JSX.Element {
         <p>
           Monorepos are an extraordinary way to make code reusable across
           projects and to encourage composable design. As you build more apps,
-          you&apso;ll will love having this tool in your toolbox because it
-          speeds up your development time by 10x when you have a system of your
-          own custom libraries to work from.
+          you will love having this tool in your toolbox because it speeds up
+          your development time by 10x when you have a system of your own custom
+          libraries to work from.
         </p>
       </GetCourseComponent>
       <GetCourseComponent course={courses.webComponentsAndStencil}>

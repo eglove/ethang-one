@@ -1,6 +1,6 @@
 .BlogContent * {
     padding: var(--small-space);
-    color: #fff;
+    color: hsl(0deg 0% 100%);
     background: var(--primary-color);
     opacity: 80%;
 }

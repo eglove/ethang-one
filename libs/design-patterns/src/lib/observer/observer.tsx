@@ -35,7 +35,7 @@ const observable = new Observable();
 observable.subscribe(logger);
 observable.subscribe(toastify);
 
-const App = (): JSX.Element => {
+function App(): JSX.Element {
   // eslint-disable-next-line unicorn/consistent-function-scoping
   const handleClick = (): void => {
     observable.notify('User clicked button');
@@ -56,6 +56,6 @@ const App = (): JSX.Element => {
       </button>
     </div>
   );
-};
+}
 
 export default App;
