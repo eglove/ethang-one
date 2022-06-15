@@ -84,7 +84,7 @@
     "@babel/preset-env": "^7.18.2",
     "@nestjs/schematics": "^8.0.11",
     "@nestjs/testing": "^8.4.7",
-    "@nrwl/angular": "14.3.2",
+    "@nrwl/angular": "14.3.5",
     "@nrwl/cypress": "14.3.2",
     "@nrwl/devkit": "14.3.2",
     "@nrwl/eslint-plugin-nx": "14.3.2",
