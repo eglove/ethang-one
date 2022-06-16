@@ -20,6 +20,6 @@ resource "digitalocean_droplet" "graphql-gateway" {
 }
 
 resource "digitalocean_domain" "ethang-dev" {
-  name       = "ethang.dev"
+  name       = "ethang-one.dev"
   ip_address = digitalocean_droplet.graphql-gateway.ipv4_address
 }
