@@ -2,8 +2,8 @@ import { Image as ImageModel, technologyImages } from '@ethang/local-database';
 import { Container, NextLink } from '@ethang/react-components';
 import { shuffleArray } from '@ethang/util-typescript';
 
+import { NextImageComponent } from '../../../../libs/react-components/src/lib/next-image-component/next-image-component';
 import { HeadTag } from '../common/head-tag/head-tag';
-import { ImageComponent } from '../common/image-component/image-component';
 import styles from './home.module.css';
 
 export function HomeLayout(): JSX.Element | undefined {
@@ -28,7 +28,7 @@ export function HomeLayout(): JSX.Element | undefined {
 
             return (
               <div className={styles.LogoContainer} key={logo.url}>
-                <ImageComponent
+                <NextImageComponent
                   image={logo}
                   imageProperties={{ height: 100, width: 100 }}
                 />

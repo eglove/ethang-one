@@ -3,7 +3,7 @@ import { GistEmbed, NextLink } from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { ImageContainer } from '../../components/common/image-container/image-container';
+import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 import styles from '../../components/common/styles/common.module.css';
 
 function MakingGraphqlBetter(): JSX.Element {
@@ -352,19 +352,19 @@ function MakingGraphqlBetter(): JSX.Element {
         sites refers to a location and caseData refers to a support ticket. I
         used the following query:
       </p>
-      <ImageContainer image={allImages.blogImages.sitesCasedataQuery} />
+      <NextImageContainer image={allImages.blogImages.sitesCasedataQuery} />
       <p>
         Without optimizing for N+1 you get one query selecting all sites and a
         new query for each of those sites selecting all caseDatas. The generated
         SQL from prisma looks like this:
       </p>
-      <ImageContainer image={allImages.blogImages.siteCasedataUnresolved} />
+      <NextImageContainer image={allImages.blogImages.siteCasedataUnresolved} />
       <p>
         This query took about 6 seconds to complete. Here&apos;s what it looks
         like after using my <code>resolveFindMany()</code> function.
       </p>
-      <ImageContainer image={allImages.blogImages.sitesSqlResolved} />
-      <ImageContainer image={allImages.blogImages.caseDataResolved} />
+      <NextImageContainer image={allImages.blogImages.sitesSqlResolved} />
+      <NextImageContainer image={allImages.blogImages.caseDataResolved} />
       <p>
         Now, instead of hundreds of individual select statements we get three
         queries. The first is the same, we&apos;re basically just grabbing all

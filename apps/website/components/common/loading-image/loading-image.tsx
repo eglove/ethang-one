@@ -1,12 +1,12 @@
 import { allImages } from '@ethang/local-database';
 import { Container } from '@ethang/react-components';
 
-import { ImageComponent } from '../image-component/image-component';
+import { NextImageComponent } from '../../../../../libs/react-components/src/lib/next-image-component/next-image-component';
 
 export function LoadingImage(): JSX.Element {
   return (
     <Container>
-      <ImageComponent image={allImages.rootImages.loading} />
+      <NextImageComponent image={allImages.rootImages.loading} />
     </Container>
   );
 }

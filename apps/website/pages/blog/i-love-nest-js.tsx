@@ -3,7 +3,7 @@ import { allImages, blogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { ImageContainer } from '../../components/common/image-container/image-container';
+import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 function ILoveNestJs(): JSX.Element {
   return (
@@ -66,7 +66,7 @@ function ILoveNestJs(): JSX.Element {
         that thinks this syntax is awful? t.field? type: list(Account)? What is
         even &lsquo;t&rsquo;?
       </p>
-      <ImageContainer image={allImages.blogImages.nexusExample} />
+      <NextImageContainer image={allImages.blogImages.nexusExample} />
       <p>
         Sure it looks OK at first glance. And it generates the schema
         definitions for you! But I&apos;ve seen this in production at scale.
@@ -76,7 +76,7 @@ function ILoveNestJs(): JSX.Element {
         mess the second your complexity goes from 0 to 0.2.
       </p>
       <p>This, finally, is where NestJS comes in.</p>
-      <ImageContainer image={allImages.blogImages.nestjsGraphql} />
+      <NextImageContainer image={allImages.blogImages.nestjsGraphql} />
       <p>
         Simple, readable classes. If you&apos;re curious about what the
         &ldquo;habitService&rdquo; is, that&apos;s just where the actual logic

@@ -2,7 +2,7 @@ import { allImages, blogs } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { ImageContainer } from '../../components/common/image-container/image-container';
+import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 export function OnHostingStaticPages(): JSX.Element {
   return (
@@ -60,26 +60,26 @@ export function OnHostingStaticPages(): JSX.Element {
         First I set up TypeScript classes as &ldquo;Models&rdquo; to represent
         my data, I even created a singleton to represent me as an author:
       </p>
-      <ImageContainer image={allImages.blogImages.staticSiteModels} />
+      <NextImageContainer image={allImages.blogImages.staticSiteModels} />
       <p>
         With the models set up I can create an object dictionary with a slug as
         a key and metadata as the value. For reference I created an enum to
         represent the slug. This helps me keep slugs unique and gives me a short
         reference to each one.
       </p>
-      <ImageContainer image={allImages.blogImages.blogObject} />
+      <NextImageContainer image={allImages.blogImages.blogObject} />
       <p>
         From there, all I had to do was recreate a layout that accepts the slug
         as a prop and start writing the content as a child component.
       </p>
-      <ImageContainer image={allImages.blogImages.blogLayout} />
-      <ImageContainer image={allImages.blogImages.blogHtml} />
+      <NextImageContainer image={allImages.blogImages.blogLayout} />
+      <NextImageContainer image={allImages.blogImages.blogHtml} />
       <p>
         As to the question of how to get all blogs for the home page, it&apos;s
         as simple as using Object.getOwnPropertyNames on that enum I created
         before:
       </p>
-      <ImageContainer image={allImages.blogImages.blogPage} />
+      <NextImageContainer image={allImages.blogImages.blogPage} />
       <p>
         That&apos;s it, Emmet means I don&apos;t really have to write much HTML
         and ESLint/Prettier keeps me from having to deal with long lines.

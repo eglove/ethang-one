@@ -5,8 +5,8 @@ import { getYoutubeId } from '@ethang/util-typescript';
 import { DiscussionEmbed } from 'disqus-react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
+import { NextImageComponent } from '../../../libs/react-components/src/lib/next-image-component/next-image-component';
 import { HeadTag } from '../components/common/head-tag/head-tag';
-import { ImageComponent } from '../components/common/image-component/image-component';
 import styles from '../components/common/styles/common.module.css';
 import { BASE_URL } from '../util/constants';
 
@@ -76,7 +76,9 @@ function AboutMe(): JSX.Element {
           </b>
         </p>
         <div style={{ display: 'grid', placeItems: 'center' }}>
-          <ImageComponent image={allImages.blogImages.changeVsConsequence} />
+          <NextImageComponent
+            image={allImages.blogImages.changeVsConsequence}
+          />
         </div>
         <p>
           This is done by thinking about potential for code reuse (design and

@@ -1,7 +1,7 @@
 import { Blog, Image, persons } from '@ethang/local-database';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { ImageContainer } from '../../components/common/image-container/image-container';
+import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 const editPdfBlog = new Blog({
   authors: [persons.ethanGlover],
@@ -25,7 +25,7 @@ function EditPdfOfficeMobile(): JSX.Element {
       <p>
         This will put the file in the &ldquo;Download&rdquo; folder on Android.
       </p>
-      <ImageContainer
+      <NextImageContainer
         image={{
           altText: 'Download PDF from Gmail',
           height: 500,
@@ -36,7 +36,7 @@ function EditPdfOfficeMobile(): JSX.Element {
       <h2>Open the PDF in Office</h2>
       <ol>
         <li>Press the folder icon on the top right in the Office app.</li>
-        <ImageContainer
+        <NextImageContainer
           image={{
             altText: 'Press folder icon.',
             height: 500,
@@ -46,7 +46,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         />
         <li>
           Go to &ldquo;This Device&rdquo; to see all files saved on your phone.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Press This Device',
               height: 500,
@@ -57,7 +57,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         </li>
         <li>
           Go to &ldquo;Download&rdquo; to find the files you&apos;ve downloaded.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Press Download folder.',
               height: 500,
@@ -68,7 +68,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         </li>
         <li>
           Find the file you just downloaded and open it up.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Find file to open up.',
               height: 500,
@@ -82,7 +82,7 @@ function EditPdfOfficeMobile(): JSX.Element {
       <ol>
         <li>
           Once the file is open, press the options menu.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Office file options.',
               height: 500,
@@ -93,7 +93,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         </li>
         <li>
           Press the Convert to Word option.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Convert file to Word',
               height: 500,
@@ -104,7 +104,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         </li>
         <li>
           You can now zoom in and edit the file!
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Edit the file.',
               height: 500,
@@ -117,7 +117,7 @@ function EditPdfOfficeMobile(): JSX.Element {
           After you make your changes, open the options menu again and
           you&apos;ll have a few choices. (If you don&apos;t see the options
           menu, just scroll up.)
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Open options for Word document.',
               height: 500,
@@ -128,7 +128,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         </li>
         <li>
           You can share the file as PDF, save, print, etc.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Options for word document.',
               height: 500,
@@ -142,7 +142,7 @@ function EditPdfOfficeMobile(): JSX.Element {
           the document in the &ldquo;Documents&rdquo; folder.
           &ldquo;Download&rdquo; should be considered temporary, if you want to
           keep anything be sure to save it here.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Save as Documents',
               height: 500,
@@ -153,7 +153,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         </li>
         <li>
           You can then rename the file to whatever you like and save it.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'Rename file',
               height: 500,
@@ -165,7 +165,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         <li>
           Then, when you go back to your Home screen, you should see a list of
           files that you&apos;ve edited and saved.
-          <ImageContainer
+          <NextImageContainer
             image={{
               altText: 'List of files on Office homepage.',
               height: 500,

@@ -1,0 +1,22 @@
+.DefaultContainer {
+  display: grid;
+  place-items: center;
+}
+
+.SlideButtons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.TwoColumnCenter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+}
+
+.Key {
+  color: hsl(0deg 100% 50%);
+}

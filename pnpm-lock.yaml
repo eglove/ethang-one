@@ -122,6 +122,7 @@ specifiers:
   react-syntax-highlighter: ^15.5.0
   react-test-renderer: 18.2.0
   react-toastify: ^9.0.4
+  react-vertical-timeline-component: ^3.5.2
   recharts: ^2.1.10
   reflect-metadata: ^0.1.13
   regenerator-runtime: 0.13.9
@@ -205,6 +206,7 @@ dependencies:
   react-syntax-highlighter: 15.5.0_react@18.2.0
   react-test-renderer: 18.2.0_react@18.2.0
   react-toastify: 9.0.4_react-dom@18.2.0+react@18.2.0
+  react-vertical-timeline-component: 3.5.2_react@18.2.0
   recharts: 2.1.10_ae99d26bf538c96cd8f1c5ec503a2210
   reflect-metadata: 0.1.13
   regenerator-runtime: 0.13.9
@@ -3681,6 +3683,7 @@ packages:
       - webpack-dev-server
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
 
   /@nrwl/node/14.3.2_06de1c06df33b2b1a52e17fb969cadf0:
     resolution: {integrity: sha512-qb4dkl9uu6Fr3qdxhvsMpPynwlFbxpTbIAEnSrXk/lybAgHR89PyxbKmyGiOckD4036nrsM8Vl4Bc5sgdmfd9w==}
@@ -3880,7 +3883,7 @@ packages:
       babel-plugin-transform-typescript-metadata: 0.3.2
       browserslist: 4.20.4
       bytes: 3.1.2
-      caniuse-lite: 1.0.30001352
+      caniuse-lite: 1.0.30001354
       chalk: 4.1.0
       chokidar: 3.5.3
       copy-webpack-plugin: 9.1.0_webpack@5.73.0
@@ -6936,7 +6939,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001352
+      caniuse-lite: 1.0.30001354
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -6948,7 +6951,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001352
+      caniuse-lite: 1.0.30001354
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       picocolors: 0.2.1
@@ -7513,7 +7516,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001352
+      caniuse-lite: 1.0.30001354
       electron-to-chromium: 1.4.147
       escalade: 3.1.1
       node-releases: 2.0.5
@@ -7721,12 +7724,12 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001352
+      caniuse-lite: 1.0.30001354
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  /caniuse-lite/1.0.30001352:
-    resolution: {integrity: sha512-GUgH8w6YergqPQDGWhJGt8GDRnY0L/iJVQcU3eJ46GYf52R8tk0Wxp0PymuFVZboJYXGiCqwozAYZNRjVj6IcA==}
+  /caniuse-lite/1.0.30001354:
+    resolution: {integrity: sha512-mImKeCkyGDAHNywYFA4bqnLAzTUvVkqPvhY4DV47X+Gl2c5Z8c3KNETnXp14GQt11LvxE8AwjzGxJ+rsikiOzg==}
 
   /canvg/3.0.10:
     resolution: {integrity: sha512-qwR2FRNO9NlzTeKIPIKpnTY6fqwuYSequ8Ru8c0YkYU7U0oW+hLUvWadLvAu1Rl72OMNiFhoLu4f8eUjQ7l/+Q==}
@@ -9086,7 +9089,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001352
+      caniuse-lite: 1.0.30001354
       css-rule-stream: 1.1.0
       duplexer2: 0.0.2
       ldjson-stream: 1.2.1
@@ -14361,7 +14364,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 12.1.6
-      caniuse-lite: 1.0.30001352
+      caniuse-lite: 1.0.30001354
       postcss: 8.4.5
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -16175,6 +16178,14 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-intersection-observer/8.34.0_react@18.2.0:
+    resolution: {integrity: sha512-TYKh52Zc0Uptp5/b4N91XydfSGKubEhgZRtcg1rhTKABXijc4Sdr1uTp5lJ8TN27jwUsdXxjHXtHa0kPj704sw==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0|| ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -16332,6 +16343,17 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-lifecycles-compat: 3.0.4
+    dev: false
+
+  /react-vertical-timeline-component/3.5.2_react@18.2.0:
+    resolution: {integrity: sha512-Wcb85NUvmygLFF45bfxVGU4AyHOBjdQY9IqB8uLG1jXWvIthkQft1ZJOGirIlYHSYnDl9sOs8ItL1sNtqA7GUg==}
+    requiresBuild: true
+    dependencies:
+      classnames: 2.3.1
+      prop-types: 15.8.1
+      react-intersection-observer: 8.34.0_react@18.2.0
+    transitivePeerDependencies:
+      - react
     dev: false
 
   /react/18.2.0:

@@ -1,7 +1,7 @@
 import { allImages } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
 
-import { ImageComponent } from '../image-component/image-component';
+import { NextImageComponent } from '../../../../../libs/react-components/src/lib/next-image-component/next-image-component';
 import styles from './header.module.css';
 import { Navigation } from './navigation';
 
@@ -21,7 +21,7 @@ export function Header(): JSX.Element {
         </div>
         <div className={styles.SocialLinks}>
           <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
-            <ImageComponent
+            <NextImageComponent
               image={allImages.technologyImages.github}
               imageProperties={{ height: '40px', width: '40px' }}
             />
@@ -31,7 +31,7 @@ export function Header(): JSX.Element {
               href: 'https://www.linkedin.com/in/ethan-glover/',
             }}
           >
-            <ImageComponent
+            <NextImageComponent
               image={allImages.rootImages.linkedIn}
               imageProperties={{ height: '40px', width: '40px' }}
             />

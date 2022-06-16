@@ -3,7 +3,7 @@ import { Container, NextLink } from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { HeadTag } from '../../components/common/head-tag/head-tag';
-import { ImageContainer } from '../../components/common/image-container/image-container';
+import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 function Pastebin(): JSX.Element {
   const addPaste = `addPaste({
@@ -105,7 +105,7 @@ function Pastebin(): JSX.Element {
         optionally have a relationship to a user. Content will be stored as a
         separate object from the database.
       </p>
-      <ImageContainer image={allImages.diagramImages.pastebinTable} />
+      <NextImageContainer image={allImages.diagramImages.pastebinTable} />
       <h2>High Level Design</h2>
       <p>
         This service will need an application layer to server read adn write
@@ -114,7 +114,7 @@ function Pastebin(): JSX.Element {
         related to each paste and its user, while the other can store the paste
         contents with object storage like Amazon S3.
       </p>
-      <ImageContainer image={allImages.diagramImages.pastebinHighLevel} />
+      <NextImageContainer image={allImages.diagramImages.pastebinHighLevel} />
       <h2>Component Design</h2>
       <p>
         <strong>Application Layer:</strong> We can use the same Key Generation
@@ -141,7 +141,7 @@ function Pastebin(): JSX.Element {
         mentioned URL shortner. Such as DB Cleanup (expired pastes), data
         partitioning, cache, load balancers, security and permissions.
       </p>
-      <ImageContainer image={allImages.diagramImages.pastebinLayerDesign} />
+      <NextImageContainer image={allImages.diagramImages.pastebinLayerDesign} />
     </Container>
   );
 }

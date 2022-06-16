@@ -10,30 +10,30 @@
 }
 
 .ButtonElement:focus {
-  outline-color: var(--primary-color);
+  outline-color: hsl(207deg 94% 39%);
   outline-offset: 4px;
 }
 
 .Fill {
-  color: var(--white);
-  background-color: var(--primary-color);
+  color: hsl(0deg 0% 96%);
+  background-color: hsl(207deg 94% 39%);
 }
 
 .Outline {
-  color: var(--primary-color);
-  background-color: var(--white);
-  border-color: var(--primary-color);
+  color: hsl(207deg 94% 39%);
+  background-color: hsl(0deg 0% 96%);
+  border-color: hsl(207deg 94% 39%);
 }
 
 .Ghost {
-  color: var(--font-color);
-  background-color: var(--white);
+  color: hsl(0deg 0% 100%);
+  background-color: hsl(0deg 0% 96%);
 }
 
 .Ghost:hover, .Ghost:focus {
-  background-color: var(--dark-grey);
+  background-color: hsl(0deg 0% 83%);
 }
 
 .Ghost:focus {
-  outline-color: var(--dark-grey);
+  outline-color: hsl(0deg 0% 83%);
 }

@@ -6,7 +6,7 @@ interface ImageComponentProperties {
   imageProperties?: Partial<ImageProps>;
 }
 
-export function ImageComponent({
+export function NextImageComponent({
   image,
   imageProperties,
 }: ImageComponentProperties): JSX.Element {

@@ -3,7 +3,7 @@ import { Container } from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { HeadTag } from '../../components/common/head-tag/head-tag';
-import { ImageContainer } from '../../components/common/image-container/image-container';
+import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 function UrlShortner(): JSX.Element {
   const createUrlCode = `createUrl({
@@ -106,7 +106,7 @@ function UrlShortner(): JSX.Element {
         Each record stored will be very small and contain at most one
         relationship to an optional user.
       </p>
-      <ImageContainer image={allImages.diagramImages.shortenedUrl} />
+      <NextImageContainer image={allImages.diagramImages.shortenedUrl} />
       <p>
         Because there are no complex relationships and one table will be doing
         most of the work, a NoSQL DB such as DynamoDB is likely the best option.
@@ -136,7 +136,7 @@ function UrlShortner(): JSX.Element {
         exists. The URL shortner would simply pick key from the KGS and mark it
         as used.
       </p>
-      <ImageContainer image={allImages.diagramImages.keyGenerationService} />
+      <NextImageContainer image={allImages.diagramImages.keyGenerationService} />
       <p>
         If users specify custom keys for their URL they can be stored in used
         keys with a maximum length of 16 characters.
@@ -189,7 +189,7 @@ function UrlShortner(): JSX.Element {
           specified amount of time. (Such as the default expiration of 1 year.)
         </li>
       </ul>
-      <ImageContainer image={allImages.diagramImages.shortenedUrlSystem} />
+      <NextImageContainer image={allImages.diagramImages.shortenedUrlSystem} />
       <h2>Telemetry</h2>
       <p>
         Possible analytics worth tracking: country of visitor, data and time of

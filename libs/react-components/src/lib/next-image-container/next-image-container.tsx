@@ -1,8 +1,8 @@
 import { Image as ImageModel } from '@ethang/local-database';
 import { ImageProps } from 'next/image';
 
-import { ImageComponent } from '../image-component/image-component';
-import styles from './image-container.module.css';
+import { NextImageComponent } from '../next-image-component/next-image-component';
+import styles from './next-image-container.module.css';
 
 // Require alt
 interface ImagePropertiesRequired extends ImageProps {
@@ -14,13 +14,13 @@ interface ImageContainerProperties {
   imageProperties?: ImagePropertiesRequired;
 }
 
-export function ImageContainer({
+export function NextImageContainer({
   image,
   imageProperties,
 }: ImageContainerProperties): JSX.Element {
   return (
     <div className={styles.Center}>
-      <ImageComponent image={image} imageProperties={imageProperties} />
+      <NextImageComponent image={image} imageProperties={imageProperties} />
     </div>
   );
 }

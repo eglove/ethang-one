@@ -13,7 +13,7 @@ import { Blog as BlogSchema, Review } from 'schema-dts';
 
 import { BASE_URL } from '../../../util/constants';
 import { HeadTag } from '../../common/head-tag/head-tag';
-import { ImageContainer } from '../../common/image-container/image-container';
+import { NextImageContainer } from '../../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 import styles from './blog-layout.module.css';
 
 interface StaticBlogLayoutProperties {
@@ -101,7 +101,7 @@ export function StaticBlogLayout({
           )}`}</div>
         </div>
         <div>
-          <ImageContainer image={blog.featuredImage} />
+          <NextImageContainer image={blog.featuredImage} />
         </div>
       </div>
       <hr />
