@@ -1,9 +1,12 @@
 import { allImages } from '@ethang/local-database';
-import { Container, NextLink } from '@ethang/react-components';
+import {
+  Container,
+  NextImageContainer,
+  NextLink,
+} from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { HeadTag } from '../../components/common/head-tag/head-tag';
-import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 function Pastebin(): JSX.Element {
   const addPaste = `addPaste({

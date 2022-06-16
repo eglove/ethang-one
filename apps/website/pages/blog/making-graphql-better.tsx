@@ -1,9 +1,12 @@
 import { allImages, blogs } from '@ethang/local-database';
-import { GistEmbed, NextLink } from '@ethang/react-components';
+import {
+  GistEmbed,
+  NextImageContainer,
+  NextLink,
+} from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 import styles from '../../components/common/styles/common.module.css';
 
 function MakingGraphqlBetter(): JSX.Element {

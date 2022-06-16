@@ -1,8 +1,11 @@
 import { Image as ImageModel, technologyImages } from '@ethang/local-database';
-import { Container, NextLink } from '@ethang/react-components';
+import {
+  Container,
+  NextImageComponent,
+  NextLink,
+} from '@ethang/react-components';
 import { shuffleArray } from '@ethang/util-typescript';
 
-import { NextImageComponent } from '../../../../libs/react-components/src/lib/next-image-component/next-image-component';
 import { HeadTag } from '../common/head-tag/head-tag';
 import styles from './home.module.css';
 

@@ -1,7 +1,7 @@
 import { Blog, Image, persons } from '@ethang/local-database';
+import { NextImageContainer } from '@ethang/react-components';
 
 import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout';
-import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 const editPdfBlog = new Blog({
   authors: [persons.ethanGlover],

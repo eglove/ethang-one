@@ -1,5 +1,9 @@
 import { Blog, Course } from '@ethang/local-database';
-import { Breadcrumbs, Container } from '@ethang/react-components';
+import {
+  Breadcrumbs,
+  Container,
+  NextImageContainer,
+} from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import {
   formatList,
@@ -13,7 +17,6 @@ import { Blog as BlogSchema, Review } from 'schema-dts';
 
 import { BASE_URL } from '../../../util/constants';
 import { HeadTag } from '../../common/head-tag/head-tag';
-import { NextImageContainer } from '../../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 import styles from './blog-layout.module.css';
 
 interface StaticBlogLayoutProperties {

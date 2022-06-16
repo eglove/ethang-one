@@ -1,9 +1,8 @@
 import { allImages } from '@ethang/local-database';
-import { Container } from '@ethang/react-components';
+import { Container, NextImageContainer } from '@ethang/react-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
 import { HeadTag } from '../../components/common/head-tag/head-tag';
-import { NextImageContainer } from '../../../../libs/react-components/src/lib/next-image-container/next-image-container';
 
 function UrlShortner(): JSX.Element {
   const createUrlCode = `createUrl({
@@ -136,7 +135,9 @@ function UrlShortner(): JSX.Element {
         exists. The URL shortner would simply pick key from the KGS and mark it
         as used.
       </p>
-      <NextImageContainer image={allImages.diagramImages.keyGenerationService} />
+      <NextImageContainer
+        image={allImages.diagramImages.keyGenerationService}
+      />
       <p>
         If users specify custom keys for their URL they can be stored in used
         keys with a maximum length of 16 characters.

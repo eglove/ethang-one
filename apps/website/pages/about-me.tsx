@@ -1,11 +1,15 @@
 import { allImages } from '@ethang/local-database';
-import { Breadcrumbs, Container, NextLink } from '@ethang/react-components';
+import {
+  Breadcrumbs,
+  Container,
+  NextImageComponent,
+  NextLink,
+} from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import { getYoutubeId } from '@ethang/util-typescript';
 import { DiscussionEmbed } from 'disqus-react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
-import { NextImageComponent } from '../../../libs/react-components/src/lib/next-image-component/next-image-component';
 import { HeadTag } from '../components/common/head-tag/head-tag';
 import styles from '../components/common/styles/common.module.css';
 import { BASE_URL } from '../util/constants';

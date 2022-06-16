@@ -1,7 +1,6 @@
 import { allImages } from '@ethang/local-database';
-import { NextLink } from '@ethang/react-components';
+import { NextImageComponent, NextLink } from '@ethang/react-components';
 
-import { NextImageComponent } from '../../../../../libs/react-components/src/lib/next-image-component/next-image-component';
 import styles from './header.module.css';
 import { Navigation } from './navigation';
 
