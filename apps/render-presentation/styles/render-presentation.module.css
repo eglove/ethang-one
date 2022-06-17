@@ -32,3 +32,18 @@
   height: 200px;
   overflow: auto;
 }
+
+.SummaryGrid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1px;
+  border: 1px solid hsl(0deg 0% 0%);
+}
+
+.SummaryGrid div {
+  padding: 4px;
+  outline: 1px solid hsl(0deg 0% 0%);
+}
+
+
+

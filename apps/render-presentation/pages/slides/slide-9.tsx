@@ -2,12 +2,12 @@ import {
   PresentationWrapper,
   slideLink,
 } from '../../components/presentation-wrapper';
-import { Resumability } from '../../components/slides/resumability';
+import { ServerComponents } from '../../components/slides/server-components';
 
 export default function Slide9(): JSX.Element {
   return (
-    <PresentationWrapper previousSlide={slideLink(8)}>
-      <Resumability />
+    <PresentationWrapper nextSlide={slideLink(10)} previousSlide={slideLink(8)}>
+      <ServerComponents />
     </PresentationWrapper>
   );
 }
