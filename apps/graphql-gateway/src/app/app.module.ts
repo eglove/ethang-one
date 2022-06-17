@@ -14,6 +14,10 @@ import { UnusedKeyModule } from './unused-key/unused-key.module';
 import { UsedKeyModule } from './used-key/used-key.module';
 import { UserModule } from './user/user.module';
 import { UserService } from './user/user.service';
+import {
+  GraphQLContext,
+  validateGraphQlUserToken,
+} from './util/validate-graphql-token';
 
 @Module({
   controllers: [AppController],
@@ -23,6 +27,11 @@ import { UserService } from './user/user.service';
         process.cwd(),
         'apps/graphql-gateway/src/schema.gql'
       ),
+      context(context: GraphQLContext) {
+        const userSession = validateGraphQlUserToken(context);
+
+        return { ...context, userSession };
+      },
       cors: {
         origin: '*',
       },

@@ -5,6 +5,7 @@ export type FinanceGraphData = {
 
 export type JwtToken = {
   encrypted: string;
+  exp: number;
   iat: number;
   userEmail: string;
   userId: string;

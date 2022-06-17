@@ -1,4 +1,4 @@
-import { NextLink } from '@ethang/react-components';
+import { Button, NextLink } from '@ethang/react-components';
 import Head from 'next/head';
 import { HTMLAttributes, useRef } from 'react';
 
@@ -24,21 +24,32 @@ export function PresentationWrapper({
   const slideReference = useRef<HTMLDivElement>();
 
   return (
-    <div ref={slideReference}>
+    <div
+      ref={slideReference}
+      style={{
+        fontSize: '1.3rem',
+        lineHeight: '24px',
+        margin: 'auto',
+        maxWidth: '1000px',
+      }}
+    >
       <Head>
         <title>Render Patterns</title>
       </Head>
       <div className={`${styles.DefaultContainer}`} {...containerProperties}>
         {children}
       </div>
+      <div style={{ borderBottom: '1px solid black', margin: '1rem' }} />
       <div className={styles.SlideButtons}>
         {typeof previousSlide !== 'undefined' && (
           <NextLink linkProperties={{ href: previousSlide }}>
-            Previous Slide
+            <Button size="small" text="Previous Slide" />
           </NextLink>
         )}
         {typeof nextSlide !== 'undefined' && (
-          <NextLink linkProperties={{ href: nextSlide }}>Next Slide</NextLink>
+          <NextLink linkProperties={{ href: nextSlide }}>
+            <Button size="small" text="Next Slide" />
+          </NextLink>
         )}
       </div>
     </div>
