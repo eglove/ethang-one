@@ -6,11 +6,14 @@ import {
   User,
 } from '@ethang/prisma-nestjs-graphql';
 import { JwtToken } from '@ethang/types';
+import { isNullOrUndefined } from '@ethang/util-typescript';
 import {
   BadRequestException,
   Injectable,
   NotFoundException,
+  UnauthorizedException,
 } from '@nestjs/common';
+import { GqlContextType } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
 import jwt from 'jsonwebtoken';
 import {
@@ -36,6 +39,37 @@ export class UserService {
     }
 
     return user;
+  }
+
+  async validateGraphQlUserToken(context: GqlContextType): Promise<void> {
+    // @ts-expect-error This is there
+    const headerArray = context.req.rawHeaders as string[];
+    let token;
+
+    for (const [index, string] of headerArray.entries()) {
+      if (index !== headerArray.length - 2 && string === 'token') {
+        token = headerArray[index + 1];
+      }
+    }
+
+    if (typeof token === 'undefined') {
+      throw new UnauthorizedException();
+    }
+
+    const jwtToken = jwt.decode(token) as JwtToken;
+
+    if (isNullOrUndefined(jwtToken)) {
+      throw new UnauthorizedException();
+    }
+
+    const validated = await this.validate(
+      jwtToken.userEmail,
+      jwtToken.encrypted
+    );
+
+    if (!validated) {
+      throw new UnauthorizedException();
+    }
   }
 
   async signin(email: string, password: string): Promise<string> {
@@ -118,7 +152,7 @@ export class UserService {
     }
 
     if (typeof role === 'string' && role !== user.role) {
-      throw new BadRequestException('Access denied.');
+      throw new UnauthorizedException();
     }
 
     const cryptoBuffer = Buffer.from(getConst(ENV_KEYS.CRYPTO_TOKEN));
@@ -126,7 +160,7 @@ export class UserService {
     const storedPassword = decryptWithSecret(cryptoBuffer, user.password);
 
     if (requestPassword !== storedPassword) {
-      throw new BadRequestException('Access denied.');
+      throw new UnauthorizedException();
     }
 
     return true;

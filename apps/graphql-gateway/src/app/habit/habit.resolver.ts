@@ -46,36 +46,6 @@ export class HabitResolver {
 
   @Query(returnHabitArray, { nullable: 'items' })
   async habits(@Args() data?: FindManyHabitArguments): Promise<Habit[]> {
-    // const habits = await this.habitService.findMany({
-    //   where: {
-    //     createdAt: {
-    //       equals: undefined,
-    //     },
-    //     updatedAt: {
-    //       equals: undefined,
-    //     },
-    //   },
-    // });
-    //
-    // console.log(habits);
-    // const promises = [];
-    // for (const habit of habits) {
-    //   promises.push(
-    //     this.habitService.update({
-    //       data: {
-    //         createdAt: { set: new Date('2022-04-28').toISOString() },
-    //         updatedAt: { set: new Date('2022-04-28').toISOString() },
-    //       },
-    //       where: {
-    //         id: habit.id,
-    //       },
-    //     })
-    //   );
-    // }
-    //
-    // const done = await Promise.all(promises);
-    // console.log(done);
-
     return this.habitService.findMany(data);
   }
 }

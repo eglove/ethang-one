@@ -27,6 +27,7 @@ import { UserService } from './user/user.service';
         origin: '*',
       },
       driver: ApolloDriver,
+      introspection: process.env.NODE_ENV === 'development',
     }),
     HabitModule,
     UsedKeyModule,

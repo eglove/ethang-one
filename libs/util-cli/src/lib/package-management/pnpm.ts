@@ -15,7 +15,7 @@ interface DependencyCommand {
   type: keyof typeof dependencyInstallStrings;
 }
 
-export const DEPENDENCY_MANAGER_INIT = 'npx --yes pnpm';
+export const DEPENDENCY_MANAGER_INIT = 'pnpm';
 
 export const Pnpm = {
   async dependencyCommand({
