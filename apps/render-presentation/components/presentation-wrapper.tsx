@@ -27,10 +27,12 @@ export function PresentationWrapper({
     <div
       ref={slideReference}
       style={{
+        backgroundColor: 'hsl(0deg 0% 96%)',
         fontSize: '1.3rem',
         lineHeight: '24px',
         margin: 'auto',
         maxWidth: '1000px',
+        padding: '16px',
       }}
     >
       <Head>

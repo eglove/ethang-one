@@ -1,9 +1,9 @@
 import { allImages } from '@ethang/local-database';
 import { NextImageContainer } from '@ethang/react-components';
-import { randomBetween } from '@ethang/util-typescript';
+import { faker } from '@faker-js/faker';
 import { useEffect, useState } from 'react';
 
-export function Slide5RandomLoad({
+export function ClientSideRenderRandomLoad({
   content,
 }: {
   content: string;
@@ -13,7 +13,7 @@ export function Slide5RandomLoad({
   useEffect(() => {
     setInterval(() => {
       setIsLoading(false);
-    }, randomBetween(3000, 10_000));
+    }, faker.datatype.number({ max: 10_000, min: 3000 }));
 
     return () => {
       setIsLoading(true);

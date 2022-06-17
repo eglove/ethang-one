@@ -3,7 +3,6 @@ export * from './lib/util-array';
 export * from './lib/util-device';
 export * from './lib/util-http';
 export * from './lib/util-json';
-export * from './lib/util-number';
 export * from './lib/util-object';
 export * from './lib/util-regex';
 export * from './lib/util-string/util-string';

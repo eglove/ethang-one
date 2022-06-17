@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 import { useEffect, useState } from 'react';
 
 import styles from '../../styles/render-presentation.module.css';
-import { Slide5RandomLoad } from '../slide-5-random-load';
+import { ClientSideRenderRandomLoad } from '../client-side-render-random-load';
 
 const content = Array.from({ length: 6 }).fill(
   faker.lorem.paragraph()
@@ -90,7 +90,7 @@ export function ClientSideRendering(): JSX.Element {
         {content.map(item => {
           return (
             <div key={item}>
-              <Slide5RandomLoad content={item} />
+              <ClientSideRenderRandomLoad content={item} />
             </div>
           );
         })}

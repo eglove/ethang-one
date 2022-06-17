@@ -7,7 +7,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
       <Head>
         <title>Render Patterns</title>
       </Head>
-      <main className="app">
+      <main>
         <Component {...pageProps} />
       </main>
     </>
