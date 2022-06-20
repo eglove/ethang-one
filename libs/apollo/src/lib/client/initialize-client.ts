@@ -53,6 +53,7 @@ export class ApolloClientInit {
         return {
           headers: {
             ...JSON_HEADER,
+            token: localStorage.getItem('jwtToken'),
             ...headers,
           },
         };

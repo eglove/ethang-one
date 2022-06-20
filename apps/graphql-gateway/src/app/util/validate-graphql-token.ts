@@ -48,10 +48,6 @@ export const validateGraphQlUserToken = (
     throw new UnauthorizedException('Invalid token.');
   }
 
-  if (typeof jwtData.exp !== 'number' || jwtData.exp <= 0) {
-    throw new UnauthorizedException('Token expired.');
-  }
-
   return {
     ...jwtData,
     password: decryptWithSecret(
