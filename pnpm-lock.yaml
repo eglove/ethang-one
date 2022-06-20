@@ -3897,7 +3897,7 @@ packages:
       babel-plugin-transform-typescript-metadata: 0.3.2
       browserslist: 4.20.4
       bytes: 3.1.2
-      caniuse-lite: 1.0.30001355
+      caniuse-lite: 1.0.30001357
       chalk: 4.1.0
       chokidar: 3.5.3
       copy-webpack-plugin: 9.1.0_webpack@5.73.0
@@ -4548,7 +4548,7 @@ packages:
     dependencies:
       '@storybook/channels': 6.5.9
       '@storybook/client-logger': 6.5.9
-      core-js: 3.23.1
+      core-js: 3.23.2
       global: 4.4.0
       telejson: 6.0.8
     dev: false
@@ -6953,7 +6953,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001355
+      caniuse-lite: 1.0.30001357
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -6965,7 +6965,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001355
+      caniuse-lite: 1.0.30001357
       normalize-range: 0.1.2
       num2fraction: 1.2.2
       picocolors: 0.2.1
@@ -7530,7 +7530,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001355
+      caniuse-lite: 1.0.30001357
       electron-to-chromium: 1.4.147
       escalade: 3.1.1
       node-releases: 2.0.5
@@ -7738,12 +7738,12 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001355
+      caniuse-lite: 1.0.30001357
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  /caniuse-lite/1.0.30001355:
-    resolution: {integrity: sha512-Sd6pjJHF27LzCB7pT7qs+kuX2ndurzCzkpJl6Qct7LPSZ9jn0bkOA8mdgMgmqnQAWLVOOGjLpc+66V57eLtb1g==}
+  /caniuse-lite/1.0.30001357:
+    resolution: {integrity: sha512-b+KbWHdHePp+ZpNj+RDHFChZmuN+J5EvuQUlee9jOQIUAdhv9uvAZeEtUeLAknXbkiu1uxjQ9NLp1ie894CuWg==}
 
   /canvg/3.0.10:
     resolution: {integrity: sha512-qwR2FRNO9NlzTeKIPIKpnTY6fqwuYSequ8Ru8c0YkYU7U0oW+hLUvWadLvAu1Rl72OMNiFhoLu4f8eUjQ7l/+Q==}
@@ -7752,7 +7752,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.3
       '@types/raf': 3.4.0
-      core-js: 3.23.1
+      core-js: 3.23.2
       raf: 3.4.1
       regenerator-runtime: 0.13.9
       rgbcolor: 1.0.1
@@ -8283,6 +8283,11 @@ packages:
   /core-js/3.23.1:
     resolution: {integrity: sha512-wfMYHWi1WQjpgZNC9kAlN4ut04TM9fUTdi7CqIoTVM7yaiOUQTklOzfb+oWH3r9edQcT3F887swuVmxrV+CC8w==}
     requiresBuild: true
+
+  /core-js/3.23.2:
+    resolution: {integrity: sha512-ELJOWxNrJfOH/WK4VJ3Qd+fOqZuOuDNDJz0xG6Bt4mGg2eO/UT9CljCrbqDGovjLKUrGajEEBcoTOc0w+yBYeQ==}
+    requiresBuild: true
+    dev: false
 
   /core-js/3.6.5:
     resolution: {integrity: sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==}
@@ -9103,7 +9108,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.20.4
-      caniuse-lite: 1.0.30001355
+      caniuse-lite: 1.0.30001357
       css-rule-stream: 1.1.0
       duplexer2: 0.0.2
       ldjson-stream: 1.2.1
@@ -13284,7 +13289,7 @@ packages:
       fflate: 0.4.8
     optionalDependencies:
       canvg: 3.0.10
-      core-js: 3.23.1
+      core-js: 3.23.2
       dompurify: 2.3.8
       html2canvas: 1.4.1
     dev: false
@@ -13401,7 +13406,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.3
       app-root-dir: 1.0.2
-      core-js: 3.23.1
+      core-js: 3.23.2
       dotenv: 8.6.0
       dotenv-expand: 5.1.0
     dev: false
@@ -14383,7 +14388,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 12.1.6
-      caniuse-lite: 1.0.30001355
+      caniuse-lite: 1.0.30001357
       postcss: 8.4.5
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
