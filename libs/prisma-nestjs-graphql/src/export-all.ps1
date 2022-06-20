@@ -1,6 +1,6 @@
-$files = Get-ChildItem ./lib -Recurse -Filter *.ts
+$files = Get-ChildItem ./libs/prisma-nestjs-graphql/src/lib -Recurse -Filter *.ts
 
-Clear-Content ./index.ts
+Clear-Content ./libs/prisma-nestjs-graphql/src/index.ts
 foreach ($file in $files) {
   $directories = $file.FullName -split '\\'
 
@@ -22,5 +22,5 @@ foreach ($file in $files) {
 
   $exportString += "';"
 
-  Add-Content -Path ./index.ts $exportString.Replace('.ts', '')
+  Add-Content -Path ./libs/prisma-nestjs-graphql/src/index.ts $exportString.Replace('.ts', '')
 }

@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { ApolloProvider } from '@apollo/client';
 import { ApolloClientInit } from '@ethang/apollo';
-import { PORT } from '@ethang/node-environment';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
@@ -25,11 +24,7 @@ Router.events.on('routeChangeError', () => {
   return NProgress.done();
 });
 
-// Local only
-const apollo = new ApolloClientInit(
-  `http://localhost:${PORT.graphql}/graphql`,
-  {}
-);
+const apollo = new ApolloClientInit(`https://ethang-one.dev/graphql`);
 
 export const apolloClient = apollo.client;
 

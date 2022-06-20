@@ -1,5 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
+import { CompleteCourseCreateNestedManyWithoutUserInput } from '../complete-course/complete-course-create-nested-many-without-user.input';
 
 @InputType()
 export class UserCreateWithoutPersonInput {
@@ -21,4 +22,7 @@ export class UserCreateWithoutPersonInput {
 
     @Field(() => String, {nullable:false})
     role!: string;
+
+    @Field(() => CompleteCourseCreateNestedManyWithoutUserInput, {nullable:true})
+    CompleteCourse?: CompleteCourseCreateNestedManyWithoutUserInput;
 }

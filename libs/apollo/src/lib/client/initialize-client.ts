@@ -19,9 +19,11 @@ export class ApolloClientInit {
   private authLink?: ApolloLink;
   private errorLink?: ApolloLink;
   private httpLink?: HttpLink;
-  private readonly cacheConfig;
 
-  constructor(public baseUrl: string, cacheConfig: InMemoryCacheConfig) {
+  constructor(
+    public baseUrl: string,
+    private readonly cacheConfig?: InMemoryCacheConfig
+  ) {
     this.cacheConfig = cacheConfig;
     this.setup();
 

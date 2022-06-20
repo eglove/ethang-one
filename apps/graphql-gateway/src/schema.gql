@@ -45,6 +45,19 @@ type CalorieRecordMaxAggregate {
   personId: String
 }
 
+type CompleteCourse {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  title: String!
+  User: User!
+  userId: String!
+}
+
+type UserCount {
+  CompleteCourse: Int!
+}
+
 type User {
   id: ID!
   createdAt: DateTime!
@@ -53,6 +66,8 @@ type User {
   password: String!
   role: String!
   Person: Person
+  CompleteCourse: [CompleteCourse!]
+  _count: UserCount!
 }
 
 type PersonCount {
@@ -569,11 +584,30 @@ input UserWhereInput {
   password: StringFilter
   role: StringFilter
   Person: PersonRelationFilter
+  CompleteCourse: CompleteCourseListRelationFilter
 }
 
 input PersonRelationFilter {
   is: PersonWhereInput
   isNot: PersonWhereInput
+}
+
+input CompleteCourseListRelationFilter {
+  every: CompleteCourseWhereInput
+  some: CompleteCourseWhereInput
+  none: CompleteCourseWhereInput
+}
+
+input CompleteCourseWhereInput {
+  AND: [CompleteCourseWhereInput!]
+  OR: [CompleteCourseWhereInput!]
+  NOT: [CompleteCourseWhereInput!]
+  id: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  title: StringFilter
+  User: UserRelationFilter
+  userId: StringFilter
 }
 
 input CalorieRecordListRelationFilter {
@@ -663,6 +697,11 @@ input UserOrderByWithRelationInput {
   password: SortOrder
   role: SortOrder
   Person: PersonOrderByWithRelationInput
+  CompleteCourse: CompleteCourseOrderByRelationAggregateInput
+}
+
+input CompleteCourseOrderByRelationAggregateInput {
+  _count: SortOrder
 }
 
 input CalorieRecordOrderByRelationAggregateInput {
@@ -771,6 +810,7 @@ input UserUpdateInput {
   password: StringFieldUpdateOperationsInput
   role: StringFieldUpdateOperationsInput
   Person: PersonUpdateOneWithoutUserInput
+  CompleteCourse: CompleteCourseUpdateManyWithoutUserInput
 }
 
 input PersonUpdateOneWithoutUserInput {
@@ -929,6 +969,92 @@ input CalorieRecordUpdateManyMutationInput {
   leftForToday: NullableIntFieldUpdateOperationsInput
 }
 
+input CompleteCourseUpdateManyWithoutUserInput {
+  create: [CompleteCourseCreateWithoutUserInput!]
+  connectOrCreate: [CompleteCourseCreateOrConnectWithoutUserInput!]
+  upsert: [CompleteCourseUpsertWithWhereUniqueWithoutUserInput!]
+  createMany: CompleteCourseCreateManyUserInputEnvelope
+  set: [CompleteCourseWhereUniqueInput!]
+  disconnect: [CompleteCourseWhereUniqueInput!]
+  delete: [CompleteCourseWhereUniqueInput!]
+  connect: [CompleteCourseWhereUniqueInput!]
+  update: [CompleteCourseUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [CompleteCourseUpdateManyWithWhereWithoutUserInput!]
+  deleteMany: [CompleteCourseScalarWhereInput!]
+}
+
+input CompleteCourseCreateWithoutUserInput {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String!
+}
+
+input CompleteCourseCreateOrConnectWithoutUserInput {
+  where: CompleteCourseWhereUniqueInput!
+  create: CompleteCourseCreateWithoutUserInput!
+}
+
+input CompleteCourseWhereUniqueInput {
+  id: String
+  title_userId: CompleteCourseTitleUserIdCompoundUniqueInput
+}
+
+input CompleteCourseTitleUserIdCompoundUniqueInput {
+  title: String!
+  userId: String!
+}
+
+input CompleteCourseUpsertWithWhereUniqueWithoutUserInput {
+  where: CompleteCourseWhereUniqueInput!
+  update: CompleteCourseUpdateWithoutUserInput!
+  create: CompleteCourseCreateWithoutUserInput!
+}
+
+input CompleteCourseUpdateWithoutUserInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+}
+
+input CompleteCourseCreateManyUserInputEnvelope {
+  data: [CompleteCourseCreateManyUserInput!]!
+}
+
+input CompleteCourseCreateManyUserInput {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String!
+}
+
+input CompleteCourseUpdateWithWhereUniqueWithoutUserInput {
+  where: CompleteCourseWhereUniqueInput!
+  data: CompleteCourseUpdateWithoutUserInput!
+}
+
+input CompleteCourseUpdateManyWithWhereWithoutUserInput {
+  where: CompleteCourseScalarWhereInput!
+  data: CompleteCourseUpdateManyMutationInput!
+}
+
+input CompleteCourseScalarWhereInput {
+  AND: [CompleteCourseScalarWhereInput!]
+  OR: [CompleteCourseScalarWhereInput!]
+  NOT: [CompleteCourseScalarWhereInput!]
+  id: StringFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  title: StringFilter
+  userId: StringFilter
+}
+
+input CompleteCourseUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
+}
+
 input PersonCreateInput {
   id: String
   createdAt: DateTime
@@ -955,6 +1081,14 @@ input UserCreateWithoutPersonInput {
   email: String!
   password: String!
   role: String!
+  CompleteCourse: CompleteCourseCreateNestedManyWithoutUserInput
+}
+
+input CompleteCourseCreateNestedManyWithoutUserInput {
+  create: [CompleteCourseCreateWithoutUserInput!]
+  connectOrCreate: [CompleteCourseCreateOrConnectWithoutUserInput!]
+  createMany: CompleteCourseCreateManyUserInputEnvelope
+  connect: [CompleteCourseWhereUniqueInput!]
 }
 
 input UserCreateOrConnectWithoutPersonInput {

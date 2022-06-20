@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { prismaMock } from '../../../../../prisma/singleton';
+import { PersonService } from '../person/person.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { CalorieRecordResolver } from './calorie-record.resolver';
 import { CalorieRecordService } from './calorie-record.service';
@@ -13,6 +14,7 @@ describe('CalorieRecordResolver', () => {
       providers: [
         CalorieRecordResolver,
         CalorieRecordService,
+        PersonService,
         { provide: PrismaService, useValue: prismaMock },
       ],
     }).compile();
