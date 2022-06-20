@@ -8,21 +8,28 @@ export type GraphQLUserSession = JwtToken & { password: string };
 
 export type GraphQLContext = {
   req: {
+    body: {
+      operationName: string;
+      query: string;
+    };
+    headers: Record<string, string>;
     rawHeaders: string[];
   };
+};
+
+export const isSignInQuery = (query: string): boolean => {
+  return (
+    query.includes('query') &&
+    query.includes('signin') &&
+    query.includes('email') &&
+    query.includes('password')
+  );
 };
 
 export const validateGraphQlUserToken = (
   context: GraphQLContext
 ): GraphQLUserSession => {
-  const headerArray = context.req.rawHeaders;
-  let token;
-
-  for (const [index, string] of headerArray.entries()) {
-    if (index !== headerArray.length - 2 && string === 'token') {
-      token = headerArray[index + 1];
-    }
-  }
+  const { token } = context.req.headers;
 
   if (typeof token === 'undefined') {
     throw new UnauthorizedException();

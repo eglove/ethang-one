@@ -99,6 +99,31 @@ type CalorieRecord {
   personId: String!
 }
 
+type CompleteCourseCountAggregate {
+  id: Int!
+  createdAt: Int!
+  updatedAt: Int!
+  title: Int!
+  userId: Int!
+  _all: Int!
+}
+
+type CompleteCourseMinAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String
+  userId: String
+}
+
+type CompleteCourseMaxAggregate {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String
+  userId: String
+}
+
 type FinanceRecordCountAggregate {
   id: Int!
   createdAt: Int!

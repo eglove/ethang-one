@@ -24,6 +24,8 @@ Router.events.on('routeChangeError', () => {
   return NProgress.done();
 });
 
+// http://localhost:4201/graphql
+// https://ethang-one.dev/graphql
 const apollo = new ApolloClientInit(`https://ethang-one.dev/graphql`);
 
 export const apolloClient = apollo.client;
