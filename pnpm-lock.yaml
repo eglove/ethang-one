@@ -121,7 +121,7 @@ specifiers:
   react-schemaorg: ^2.0.0
   react-syntax-highlighter: ^15.5.0
   react-test-renderer: 18.2.0
-  react-toastify: ^9.0.4
+  react-toastify: ^9.0.5
   react-vertical-timeline-component: ^3.5.2
   recharts: ^2.1.10
   reflect-metadata: ^0.1.13
@@ -205,7 +205,7 @@ dependencies:
   react-schemaorg: 2.0.0_pjr6rryimpgjjyegrcinlhql5i
   react-syntax-highlighter: 15.5.0_react@18.2.0
   react-test-renderer: 18.2.0_react@18.2.0
-  react-toastify: 9.0.4_biqbaboplfbrettd7655fr4n2y
+  react-toastify: 9.0.5_biqbaboplfbrettd7655fr4n2y
   react-vertical-timeline-component: 3.5.2_react@18.2.0
   recharts: 2.1.10_v2m5e27vhdewzwhryxwfaorcca
   reflect-metadata: 0.1.13
@@ -16340,8 +16340,8 @@ packages:
       react-shallow-renderer: 16.15.0_react@18.2.0
       scheduler: 0.23.0
 
-  /react-toastify/9.0.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-MYmJ1V5F6DEU+TFxBb+pGGsveFPt4tjr4yK+TopXkU3sXPD9F2tFhX+G2HBLZpqObT2O6Z9jbXSg3JpaxuWtWw==}
+  /react-toastify/9.0.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-dszPCeQINY+Nm6HmsiAXT/7wsazPqv0S/RuhIYLAW+fTKcd3T1iRjZG0XqrN9nvAzqaE5J6uxMaiBrOevxjY8g==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
