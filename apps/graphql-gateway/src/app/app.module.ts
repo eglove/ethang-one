@@ -16,7 +16,6 @@ import { UserModule } from './user/user.module';
 import { UserService } from './user/user.service';
 import {
   GraphQLContext,
-  isSignInQuery,
   validateGraphQlUserToken,
 } from './util/validate-graphql-token';
 
@@ -29,13 +28,7 @@ import {
         'apps/graphql-gateway/src/schema.gql'
       ),
       context(context: GraphQLContext) {
-        let userSession;
-        if (
-          context.req.body.operationName !== 'IntrospectionQuery' &&
-          !isSignInQuery(context.req.body.query)
-        ) {
-          userSession = validateGraphQlUserToken(context);
-        }
+        const userSession = validateGraphQlUserToken(context);
 
         return { ...context, userSession };
       },

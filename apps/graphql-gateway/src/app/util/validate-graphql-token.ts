@@ -26,9 +26,24 @@ export const isSignInQuery = (query: string): boolean => {
   );
 };
 
+export const canSkipAuth = (context: GraphQLContext): boolean => {
+  if (
+    process.env.NODE_ENV === 'development' &&
+    context.req.body.operationName === 'IntrospectionQuery'
+  ) {
+    return true;
+  }
+
+  return isSignInQuery(context.req.body.query);
+};
+
 export const validateGraphQlUserToken = (
   context: GraphQLContext
-): GraphQLUserSession => {
+): GraphQLUserSession | undefined => {
+  if (canSkipAuth(context)) {
+    return;
+  }
+
   const { token } = context.req.headers;
 
   if (typeof token === 'undefined') {
