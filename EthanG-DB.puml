@@ -1,0 +1,163 @@
+@startuml
+
+Blog ||--o{ Image
+Course }|--|| CourseUrl
+Course ||--o{ Rating
+Course ||--o{ School
+CourseUrl ||--o{ School
+Person }o--o{ Course
+Person ||--o| User
+School ||--o{ Image
+ShortUrl ||--o| UsedKey
+User }o--|| CalorieRecord
+User }o--|| FinanceRecord
+User }o--|| Habit
+User }o--|| CompleteCourse
+User }o--|{ Blog
+
+enum Rating {
+  1
+  2
+  3
+  4
+  5
+}
+
+class Blog {
+  id String
+  authors User[]
+  createdAt DateTime
+  description String
+  featuredImage Image
+  slug String
+  title String
+  updatedAt DateTime
+}
+
+class CalorieRecord {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  calories Int
+  leftForToday Int?
+  user User
+  userId String
+}
+
+class CompleteCourse {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  title String
+  user User
+  userId String
+}
+
+class Course {
+  courseUrls CourseUrl[]
+  duration Float?
+  instructors Person[]?
+  rating Rating
+  ratingUrl String?
+  school School
+  title String
+  yearUpdated Int?
+}
+
+class CourseUrl {
+  school School
+  url String
+}
+
+class FinanceRecord {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  accountName String
+  currentValue Float
+  recordedDate DateTime
+  user User
+  userId String
+}
+
+class Habit {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  name String
+  recurInterval String
+  dueDate DateTime
+  user User
+  userId String
+}
+
+class Image {
+  altText String
+  height Int
+  url String
+  width String
+}
+
+class Person {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  firstName String
+  lastName String?
+  fullName String
+  birthday DateTime?
+  weightLbs Float?
+  heightIn Float?
+  user User
+  userId String
+}
+
+
+
+class School {
+  description String
+  image Image
+  name String
+  url String
+}
+
+class ShortUrl {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  originalUrl String
+  usedKeyId String
+  expirationDate DateTime
+  shortUrlKey UsedKey
+}
+
+class UnusedKey {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  key String
+}
+
+class UsedKey {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  key String
+  shortUrl ShortUrl?
+}
+
+class User {
+  id String
+  createdAt DateTime
+  updatedAt DateTime
+  email String
+  password String
+  role String
+  Person Person?
+  calorieRecords CalorieRecord[]
+  financeRecords FinanceRecord[]
+  habits Habit[]
+  completedCourses CompleteCourse[]
+}
+
+@enduml
