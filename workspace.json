@@ -13,7 +13,6 @@
     "prisma-nestjs-graphql": "libs/prisma-nestjs-graphql",
     "react-components": "libs/react-components",
     "react-hooks": "libs/react-hooks",
-    "render-presentation": "apps/render-presentation",
     "types": "libs/types",
     "util-cli": "libs/util-cli",
     "util-typescript": "libs/util-typescript",
