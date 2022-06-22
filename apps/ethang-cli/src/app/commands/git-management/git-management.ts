@@ -1,5 +1,6 @@
 import { NxCommand } from '@ethang/nrwl-utils';
 import {
+  browsersListLint,
   browsersListUpdate,
   buildCrossEnvironmentCommand,
   gitCommand,
