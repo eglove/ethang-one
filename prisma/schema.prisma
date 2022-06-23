@@ -68,29 +68,13 @@ model Person {
   Calorie   CalorieRecord[]
 }
 
-model ShortUrl {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  originalUrl    String   @unique
-  usedKeyId      String   @unique @db.ObjectId
-  expirationDate DateTime
-  shortUrlKey    UsedKey  @relation(fields: [usedKeyId], references: [id])
-}
-
-model UnusedKey {
+model ToReadLink {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  key       String   @unique
-}
-
-model UsedKey {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  key       String    @unique
-  ShortUrl  ShortUrl?
+  url       String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
 }
 
 model User {
@@ -100,6 +84,7 @@ model User {
   email          String           @unique
   password       String
   role           String
+  toReadLinks    ToReadLink[]
   Person         Person?
   CompleteCourse CompleteCourse[]
 }

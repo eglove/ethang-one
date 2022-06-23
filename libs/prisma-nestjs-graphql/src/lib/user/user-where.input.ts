@@ -2,6 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
+import { ToReadLinkListRelationFilter } from '../to-read-link/to-read-link-list-relation-filter.input';
 import { PersonRelationFilter } from '../person/person-relation-filter.input';
 import { CompleteCourseListRelationFilter } from '../complete-course/complete-course-list-relation-filter.input';
 
@@ -34,6 +35,9 @@ export class UserWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     role?: StringFilter;
+
+    @Field(() => ToReadLinkListRelationFilter, {nullable:true})
+    toReadLinks?: ToReadLinkListRelationFilter;
 
     @Field(() => PersonRelationFilter, {nullable:true})
     Person?: PersonRelationFilter;

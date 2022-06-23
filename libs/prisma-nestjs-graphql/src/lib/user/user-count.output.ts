@@ -6,5 +6,8 @@ import { Int } from '@nestjs/graphql';
 export class UserCount {
 
     @Field(() => Int, {nullable:false})
+    toReadLinks?: number;
+
+    @Field(() => Int, {nullable:false})
     CompleteCourse?: number;
 }

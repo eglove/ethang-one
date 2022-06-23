@@ -10,8 +10,7 @@ import { FinanceRecordModule } from './finance-record/finance-record.module';
 import { HabitModule } from './habit/habit.module';
 import { PersonModule } from './person/person.module';
 import { PrismaService } from './prisma/prisma.service';
-import { UnusedKeyModule } from './unused-key/unused-key.module';
-import { UsedKeyModule } from './used-key/used-key.module';
+import { ToReadLinkModule } from './to-read-link/to-read-link.module';
 import { UserModule } from './user/user.module';
 import { UserService } from './user/user.service';
 import {
@@ -39,12 +38,11 @@ import {
       introspection: process.env.NODE_ENV === 'development',
     }),
     HabitModule,
-    UsedKeyModule,
-    UnusedKeyModule,
     FinanceRecordModule,
     UserModule,
     PersonModule,
     CalorieRecordModule,
+    ToReadLinkModule,
   ],
   providers: [AppService, PrismaService, UserService],
 })

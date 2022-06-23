@@ -10,6 +10,8 @@
     "local-database": "libs/local-database",
     "node-environment": "libs/node-environment",
     "nrwl-utils": "libs/nrwl-utils",
+    "personal-dashboard": "apps/personal-dashboard",
+    "personal-dashboard-e2e": "apps/personal-dashboard-e2e",
     "prisma-nestjs-graphql": "libs/prisma-nestjs-graphql",
     "react-components": "libs/react-components",
     "react-hooks": "libs/react-hooks",

@@ -52,6 +52,16 @@ export const blogs = {
     title: 'Do You Have a Moment to Talk About Anki?',
     updatedAt: new Date('11/14/2021, 02:46 AM'),
   }),
+  howToMockPrismaWithNestJs: new Blog({
+    authors: [persons.ethanGlover],
+    createdAt: new Date('6/22/2022 07:06 PM'),
+    description:
+      'How to mock Prisma and write unit tests for your NestJS services.',
+    featuredImage: allImages.technologyImages.prisma,
+    slug: 'how-to-mock-prisma-with-nestjs',
+    title: 'How To Mock Prisma With NestJS',
+    updatedAt: new Date('6/22/2022 07:06 PM'),
+  }),
   iLoveNestJs: new Blog({
     authors: [persons.ethanGlover],
     createdAt: new Date('6/3/2022 1:16 PM'),

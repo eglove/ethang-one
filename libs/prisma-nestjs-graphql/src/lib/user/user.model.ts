@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { ObjectType } from '@nestjs/graphql';
 import { ID } from '@nestjs/graphql';
+import { ToReadLink } from '../to-read-link/to-read-link.model';
 import { Person } from '../person/person.model';
 import { CompleteCourse } from '../complete-course/complete-course.model';
 import { UserCount } from './user-count.output';
@@ -25,6 +26,9 @@ export class User {
 
     @Field(() => String, {nullable:false})
     role!: string;
+
+    @Field(() => [ToReadLink], {nullable:true})
+    toReadLinks?: Array<ToReadLink>;
 
     @Field(() => Person, {nullable:true})
     Person?: Person | null;
