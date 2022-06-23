@@ -11,11 +11,14 @@ import {
   UpdateOneToReadLinkArgs,
   UpsertOneToReadLinkArgs,
 } from '@ethang/prisma-nestjs-graphql';
-import { Injectable } from '@nestjs/common';
+import { isValidUrl } from '@ethang/util-typescript';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 
 import { PrismaService } from '../prisma/prisma.service';
 import { PrismaCrud } from '../util/interfaces';
+
+const invalidUrl = 'Invalid URL';
 
 @Injectable()
 export class ToReadLinkService
@@ -27,6 +30,10 @@ export class ToReadLinkService
     data: CreateOneToReadLinkArgs,
     select?: Prisma.ToReadLinkSelect
   ): Promise<Partial<ToReadLink>> {
+    if (!isValidUrl(data.data.url)) {
+      throw new BadRequestException(invalidUrl);
+    }
+
     return this.prisma.toReadLink.create({
       ...data,
       select,
@@ -36,6 +43,12 @@ export class ToReadLinkService
   async createMany(
     data: CreateManyToReadLinkArgs
   ): Promise<Prisma.BatchPayload> {
+    for (const datum of data.data) {
+      if (!isValidUrl(datum.url)) {
+        throw new BadRequestException(invalidUrl);
+      }
+    }
+
     return this.prisma.toReadLink.createMany(data);
   }
 
