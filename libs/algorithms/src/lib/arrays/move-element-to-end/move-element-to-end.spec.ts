@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import {
   moveElementToEnd,
   moveElementToEndOptimized,
@@ -14,22 +13,14 @@ const samples = [
 
 describe('move element to end', () => {
   it('should work with original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(moveElementToEnd(sample.array, sample.toMove)).toEqual(
         sample.expectedArray
       );
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 
   it('should work with the optimized implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
       // Get number of 'toMove' elements count
       let toMoveCount = 0;
@@ -39,9 +30,7 @@ describe('move element to end', () => {
         }
       }
 
-      const startTime = Date.now();
       const results = moveElementToEndOptimized(sample.array, sample.toMove);
-      times.push(Date.now() - startTime);
 
       const resultSlice = results.slice(
         results.length - (toMoveCount - 1),
@@ -50,7 +39,5 @@ describe('move element to end', () => {
 
       expect(resultSlice.length === toMoveCount);
     }
-
-    logAverageTime(times);
   });
 });

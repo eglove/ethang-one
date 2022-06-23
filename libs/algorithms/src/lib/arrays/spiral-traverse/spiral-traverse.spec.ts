@@ -1,17 +1,10 @@
-import { logAverageTime } from '../../util/test-util';
 import { spiralTraverse } from './spiral-traverse';
 
 describe('spiral traverse', () => {
   it('should work with original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(spiralTraverse(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

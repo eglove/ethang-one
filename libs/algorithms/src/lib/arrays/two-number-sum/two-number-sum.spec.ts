@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import { twoNumberSum, twoNumberSumSortFirst } from './two-number-sum';
 
 const numberSorter = (a: number, b: number): number => {
@@ -70,25 +69,15 @@ describe('two number sum', () => {
       },
     ];
 
-    const times = [];
-    const timesSort = [];
-
     for (const sample of samples) {
       sample.output.sort(numberSorter);
-      const startTime = Date.now();
       expect(
         twoNumberSum(sample.array, sample.targetSum)?.sort(numberSorter)
       ).toEqual(sample.output);
-      times.push(Date.now() - startTime);
 
-      const startTime2 = Date.now();
       expect(
         twoNumberSumSortFirst(sample.array, sample.targetSum).sort(numberSorter)
       ).toEqual(sample.output);
-      timesSort.push(Date.now() - startTime2);
     }
-
-    logAverageTime(times);
-    logAverageTime(timesSort);
   });
 });

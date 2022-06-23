@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import {
   sortedSquaredArray,
   sortedSquaredArrayOptimized,
@@ -77,26 +76,14 @@ const samples = [
 
 describe('sorted squared array', () => {
   it('should work with original attempt', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(sortedSquaredArray(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 
   it('should work with optimized attempt', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(sortedSquaredArrayOptimized(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });

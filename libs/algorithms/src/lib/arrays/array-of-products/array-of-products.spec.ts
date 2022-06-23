@@ -1,29 +1,16 @@
-import { logAverageTime } from '../../util/test-util';
 import { arrayOfProducts, arrayOfProductsOptimized } from './array-of-products';
 
 describe('array of products', () => {
   it('should work with the original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(arrayOfProducts(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 
   it('should work with the optimized implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(arrayOfProductsOptimized(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

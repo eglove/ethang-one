@@ -1,19 +1,12 @@
-import { logAverageTime } from '../../util/test-util';
 import { mergeOverlappingIntervals } from './mege-overlapping-intervals';
 
 describe('merge overlapping intervals', () => {
   it('should work with the original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(mergeOverlappingIntervals(sample.intervals)).toEqual(
         sample.result
       );
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

@@ -1,5 +1,6 @@
-import { Resolver } from "@nestjs/graphql";
-import { ToReadLinkService } from "./to-read-link.service";
+import { Resolver } from '@nestjs/graphql';
+
+import { ToReadLinkService } from './to-read-link.service';
 
 @Resolver()
 export class ToReadLinkResolver {

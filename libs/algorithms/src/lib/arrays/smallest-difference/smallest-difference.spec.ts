@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import { smallestDifference } from './smallest-difference';
 
 const samples = [
@@ -11,16 +10,10 @@ const samples = [
 
 describe('smallestDifference', () => {
   it('should work with the original solution', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(smallestDifference(sample.arrayOne, sample.arrayTwo)).toEqual(
         sample.output
       );
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });

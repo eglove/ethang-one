@@ -1,5 +1,4 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import { logAverageTime } from '../../util/test-util';
 import { tournamentWinner } from './tournament-winner';
 
 const samples = [
@@ -121,16 +120,10 @@ const samples = [
 
 describe('tournament winner', () => {
   it('should work with original attempt', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(tournamentWinner(sample.competitions, sample.results)).toEqual(
         sample.bestTeam
       );
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });

@@ -1,29 +1,16 @@
-import { logAverageTime } from '../../util/test-util';
 import { minRewards, minRewardsOptimized } from './min-rewards';
 
 describe('min rewards', () => {
   it('should work with the original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(minRewards(sample.scores)).toEqual(sample.expected);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 
   it('should work with the optimized implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(minRewardsOptimized(sample.scores)).toEqual(sample.expected);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

@@ -1,8 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { ToReadLinkResolver } from "./to-read-link.resolver";
-import { ToReadLinkService } from "./to-read-link.service";
+import { Test, TestingModule } from '@nestjs/testing';
 
-describe("ToReadLinkResolver", () => {
+import { ToReadLinkResolver } from './to-read-link.resolver';
+import { ToReadLinkService } from './to-read-link.service';
+
+describe('ToReadLinkResolver', () => {
   let resolver: ToReadLinkResolver;
 
   beforeEach(async () => {
@@ -13,7 +14,7 @@ describe("ToReadLinkResolver", () => {
     resolver = module.get<ToReadLinkResolver>(ToReadLinkResolver);
   });
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(resolver).toBeDefined();
   });
 });

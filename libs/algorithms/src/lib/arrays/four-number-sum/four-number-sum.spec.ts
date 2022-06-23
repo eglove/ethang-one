@@ -1,19 +1,12 @@
-import { logAverageTime } from '../../util/test-util';
 import { fourNumberSum } from './four-number-sum';
 
 describe('four number sum', () => {
   it('should work with the original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(fourNumberSum(sample.array, sample.targetSum)).toEqual(
         sample.result
       );
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

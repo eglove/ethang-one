@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import { isValidSubsequence } from './is-valid-subsequence';
 
 describe('validate subsequence', () => {
@@ -126,16 +125,10 @@ describe('validate subsequence', () => {
       },
     ];
 
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(isValidSubsequence(sample.array, sample.sequence)).toEqual(
         sample.result
       );
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });

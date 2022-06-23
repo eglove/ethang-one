@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import { isMonotonic } from './is-monotonic';
 
 const samples = [
@@ -82,14 +81,8 @@ const samples = [
 
 describe('is monotonic', () => {
   it('should work with original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(isMonotonic(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });

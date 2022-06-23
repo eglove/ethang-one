@@ -1,17 +1,10 @@
-import { logAverageTime } from '../../util/test-util';
 import { subarraySort } from './subarray-sort';
 
 describe('subarray sort', () => {
   it('should work with the original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(subarraySort(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

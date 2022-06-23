@@ -1,29 +1,16 @@
-import { logAverageTime } from '../../util/test-util';
 import { largestRange, largestRangeOptimized } from './largest-range';
 
 describe('largest range', () => {
   it('should work with the original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(largestRange(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 
   it('should work with the optimized implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(largestRangeOptimized(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

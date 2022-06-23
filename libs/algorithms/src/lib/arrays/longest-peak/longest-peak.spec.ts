@@ -1,17 +1,10 @@
-import { logAverageTime } from '../../util/test-util';
 import { longestPeak } from './longest-peak';
 
 describe('longest peak', () => {
   it('should work with the original implementation', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(longestPeak(sample.array)).toEqual(sample.result);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

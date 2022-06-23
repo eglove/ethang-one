@@ -1,17 +1,10 @@
-import { logAverageTime } from '../../util/test-util';
 import { zigzagTraverse } from './zigzag-traverse';
 
 describe('zigzag traverse', () => {
   it('should work', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(zigzagTraverse(sample.array)).toEqual(sample.expected);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
 

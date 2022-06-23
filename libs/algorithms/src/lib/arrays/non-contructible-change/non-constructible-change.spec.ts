@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import { nonConstructibleChange } from './non-constructible-change';
 
 const samples = [
@@ -58,14 +57,8 @@ const samples = [
 
 describe('nonConstructibleChange', () => {
   it('should work with the original solution', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(nonConstructibleChange(sample.coins)).toEqual(sample.output);
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });

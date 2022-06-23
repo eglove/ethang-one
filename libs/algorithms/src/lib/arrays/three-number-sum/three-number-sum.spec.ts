@@ -1,4 +1,3 @@
-import { logAverageTime } from '../../util/test-util';
 import { threeNumberSum } from './three-number-sum';
 
 const samples = [
@@ -93,16 +92,10 @@ const samples = [
 
 describe('threeNumberSum', () => {
   it('should work with the original solution', () => {
-    const times = [];
-
     for (const sample of samples) {
-      const startTime = Date.now();
       expect(threeNumberSum(sample.array, sample.targetSum)).toEqual(
         sample.output
       );
-      times.push(Date.now() - startTime);
     }
-
-    logAverageTime(times);
   });
 });
