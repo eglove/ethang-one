@@ -148,15 +148,17 @@ describe('ToReadLinkService', () => {
     });
   });
 
-  it('should delete a ToReadLink', () => {
-    const { createdAt, id, url, updatedAt, userId } = exampleToReadLink();
+  it('should delete a ToReadLink', async () => {
+    const link = exampleToReadLink();
 
-    prismaMock.toReadLink.delete.mockResolvedValue({
-      createdAt,
-      id,
-      updatedAt,
-      url,
-      userId,
-    });
+    prismaMock.toReadLink.delete.mockResolvedValue(link);
+
+    await expect(
+      service.delete({
+        where: {
+          id: link.id,
+        },
+      })
+    ).resolves.toEqual(link);
   });
 });
