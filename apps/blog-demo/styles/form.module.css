@@ -1,0 +1,29 @@
+.Form fieldset {
+  width: max-content;
+  border: none;
+}
+
+.Form label {
+  display: block;
+}
+
+.Form label span::after {
+  white-space: pre;
+  content: ": \a";
+}
+
+.Form input, .Form textarea {
+  padding: 0.3rem;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  caret-color: var(--primary-color);
+}
+
+.Form button {
+  float: right;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  background: var(--background-color);
+  border: 1px solid var(--primary-color);
+}
