@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ethang.iml" filepath="$PROJECT_DIR$/.idea/ethang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rails_devise.iml" filepath="$PROJECT_DIR$/.idea/modules/rails_devise.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rails_twittter.iml" filepath="$PROJECT_DIR$/.idea/modules/rails_twittter.iml" />
     </modules>
   </component>

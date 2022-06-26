@@ -6,20 +6,14 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/react-components/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["libs/react-components/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/react-components"
-      ],
+      "outputs": ["coverage/libs/react-components"],
       "options": {
         "jestConfig": "libs/react-components/jest.config.ts",
         "passWithNoTests": true

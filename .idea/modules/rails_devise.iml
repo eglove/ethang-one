@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="RailsFacetType" name="Ruby on Rails">
+      <configuration>
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_SUPPORT_REMOVED" VALUE="false" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_TESTS_SOURCES_PATCHED" VALUE="true" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$/../../apps/rails_devise" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../apps/rails_devise">
+      <sourceFolder url="file://$MODULE_DIR$/../../apps/rails_devise/features" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../apps/rails_devise/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../apps/rails_devise/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/.bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/public/packs" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/vendor/bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/vendor/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/log" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/public/system" />
+      <excludeFolder url="file://$MODULE_DIR$/../../apps/rails_devise/components" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="RModuleSettingsStorage">
+    <LOAD_PATH number="0" />
+    <I18N_FOLDERS number="1" string0="$MODULE_DIR$/../../apps/rails_devise/config/locales" />
+  </component>
+  <component name="RubyModuleProperties">
+    <option name="autoCreated" value="true" />
+  </component>
+</module>
