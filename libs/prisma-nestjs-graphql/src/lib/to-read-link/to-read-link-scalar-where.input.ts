@@ -25,6 +25,9 @@ export class ToReadLinkScalarWhereInput {
     updatedAt?: DateTimeFilter;
 
     @Field(() => StringFilter, {nullable:true})
+    title?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
     url?: StringFilter;
 
     @Field(() => StringFilter, {nullable:true})

@@ -15,6 +15,9 @@ export class ToReadLinkCountAggregate {
     updatedAt!: number;
 
     @Field(() => Int, {nullable:false})
+    title!: number;
+
+    @Field(() => Int, {nullable:false})
     url!: number;
 
     @Field(() => Int, {nullable:false})

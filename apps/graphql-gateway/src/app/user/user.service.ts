@@ -68,7 +68,7 @@ export class UserService {
     return jwt.sign(payload, getConst(ENV_KEYS.CRYPTO_TOKEN));
   }
 
-  async signup(email: string, password: string): Promise<User> {
+  async signup(email: string, password: string): Promise<string> {
     const users = await this.prisma.user.findMany({
       where: {
         email,
@@ -84,13 +84,21 @@ export class UserService {
       password
     );
 
-    return this.create({
+    const newUser = await this.create({
       data: {
         email,
         password: encrypted,
         role: 'guest',
       },
     });
+
+    const payload: Pick<JwtToken, 'encrypted' & 'userEmail' & 'userId'> = {
+      encrypted: newUser.password,
+      userEmail: newUser.email,
+      userId: newUser.id,
+    };
+
+    return jwt.sign(payload, getConst(ENV_KEYS.CRYPTO_TOKEN));
   }
 
   async update(

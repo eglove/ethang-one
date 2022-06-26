@@ -17,6 +17,9 @@ export class ToReadLinkGroupBy {
     updatedAt!: Date | string;
 
     @Field(() => String, {nullable:false})
+    title!: string;
+
+    @Field(() => String, {nullable:false})
     url!: string;
 
     @Field(() => String, {nullable:false})

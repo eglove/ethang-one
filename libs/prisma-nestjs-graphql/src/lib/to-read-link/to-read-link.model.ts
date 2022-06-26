@@ -16,6 +16,9 @@ export class ToReadLink {
     updatedAt!: Date;
 
     @Field(() => String, {nullable:false})
+    title!: string;
+
+    @Field(() => String, {nullable:false})
     url!: string;
 
     @Field(() => User, {nullable:false})

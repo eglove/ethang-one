@@ -8,7 +8,7 @@ import {
 } from '@ethang/react-components';
 import { useState } from 'react';
 
-import commonStyles from '../../../styles/common.module.css';
+import formStyles from '../../../../../styles/form.module.css';
 import { CREATE_HABIT } from '../graphql/queries/dashboard-mutations';
 import {
   ALL_HABITS,
@@ -91,7 +91,7 @@ export function AddHabit({ habitsLoading }: AddHabitProperties): JSX.Element {
           },
         }}
         formProperties={{
-          className: commonStyles.Form,
+          className: formStyles.Form,
         }}
       />
     </div>

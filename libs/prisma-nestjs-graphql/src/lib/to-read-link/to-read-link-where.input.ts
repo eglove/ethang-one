@@ -26,6 +26,9 @@ export class ToReadLinkWhereInput {
     updatedAt?: DateTimeFilter;
 
     @Field(() => StringFilter, {nullable:true})
+    title?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
     url?: StringFilter;
 
     @Field(() => UserRelationFilter, {nullable:true})

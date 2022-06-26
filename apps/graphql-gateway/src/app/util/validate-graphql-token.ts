@@ -15,12 +15,12 @@ export type GraphQLContext = {
     headers: Record<string, string>;
     rawHeaders: string[];
   };
+  userSession?: GraphQLUserSession;
 };
 
 export const isSignInQuery = (query: string): boolean => {
   return (
-    query.includes('query') &&
-    query.includes('signin') &&
+    (query.includes('signin') || query.includes('signup')) &&
     query.includes('email') &&
     query.includes('password')
   );

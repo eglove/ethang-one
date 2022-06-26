@@ -14,6 +14,9 @@ export class ToReadLinkMaxAggregate {
     updatedAt?: Date | string;
 
     @Field(() => String, {nullable:true})
+    title?: string;
+
+    @Field(() => String, {nullable:true})
     url?: string;
 
     @Field(() => String, {nullable:true})

@@ -13,5 +13,8 @@ export class ToReadLinkUncheckedUpdateManyWithoutToReadLinksInput {
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    title?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     url?: StringFieldUpdateOperationsInput;
 }

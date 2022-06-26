@@ -11,7 +11,7 @@ import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
-import commonStyles from '../../../styles/common.module.css';
+import formStyles from '../../../../../styles/form.module.css';
 import { SIGN_IN } from './queries/login-queries';
 
 export const Login = observer((): JSX.Element => {
@@ -78,7 +78,7 @@ export const Login = observer((): JSX.Element => {
           disabled: loading,
         }}
         formProperties={{
-          className: commonStyles.Form,
+          className: formStyles.Form,
         }}
         postSubmitFunction={async (): Promise<void> => {
           await login();

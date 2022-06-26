@@ -37,6 +37,7 @@ export const MockToReadLink = {
     const input: ToReadLinkCreateInput = {
       createdAt: today,
       id,
+      title: faker.datatype.string(),
       updatedAt: today,
       url: faker.internet.url(),
       user: {
@@ -50,6 +51,7 @@ export const MockToReadLink = {
     const output: ToReadLink = {
       createdAt: today,
       id,
+      title: input.title,
       updatedAt: today,
       url: input.url,
       userId: user.output.id,
@@ -58,6 +60,7 @@ export const MockToReadLink = {
     prismaMock.toReadLink.create.mockResolvedValue({
       createdAt: today,
       id,
+      title: input.title,
       updatedAt: today,
       url: input.url,
       userId: user.output.id,
@@ -78,6 +81,7 @@ export const MockToReadLink = {
     for (let index = 0; index < amount; index++) {
       input.push({
         id: faker.datatype.string(),
+        title: faker.datatype.string(),
         url: faker.internet.url(),
         userId: faker.datatype.string(),
         ...overwrites?.input,
@@ -262,10 +266,12 @@ export const MockToReadLink = {
   upsert(): InputOutput<UpsertOneToReadLinkArgs, ToReadLink> {
     const { output: user } = MockUser.create();
     const { output: link } = MockToReadLink.create();
+    const title = faker.datatype.string();
     const url = faker.internet.url();
 
     const input: UpsertOneToReadLinkArgs = {
       create: {
+        title,
         url,
         user: {
           connect: {

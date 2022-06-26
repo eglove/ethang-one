@@ -13,6 +13,7 @@ import {
   useState,
 } from 'react';
 
+import { Button } from '../button/button';
 import { Select } from '../select/select';
 import { SimpleFormButton } from './simple-form-button';
 import { SimpleFormInput } from './simple-form-input';
@@ -158,9 +159,12 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
         <span {...formProperties.buttonContainerProperties}>
           {reversedButtons?.map(button => {
             return (
-              <button key={button.name} type="button" {...button.properties}>
-                {button.buttonText}
-              </button>
+              <Button
+                buttonProperties={{ type: 'button', ...button.properties }}
+                key={button.name}
+                size="small"
+                text={button.buttonText}
+              />
             );
           })}
         </span>

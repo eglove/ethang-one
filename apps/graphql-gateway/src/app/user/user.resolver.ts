@@ -18,11 +18,11 @@ import { UserService } from './user.service';
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
-  @Mutation(nestReturnUser)
+  @Mutation(nestReturnString)
   async signup(
     @Args('email') email: string,
     @Args('password') password: string
-  ): Promise<User> {
+  ): Promise<string> {
     return this.userService.signup(email, password);
   }
 

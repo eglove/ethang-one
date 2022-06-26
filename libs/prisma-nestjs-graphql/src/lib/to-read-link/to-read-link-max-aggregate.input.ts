@@ -14,6 +14,9 @@ export class ToReadLinkMaxAggregateInput {
     updatedAt?: true;
 
     @Field(() => Boolean, {nullable:true})
+    title?: true;
+
+    @Field(() => Boolean, {nullable:true})
     url?: true;
 
     @Field(() => Boolean, {nullable:true})

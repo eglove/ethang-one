@@ -1,7 +1,8 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.MyReadingHeader {
+  text-align: center;
+}
+
+.AddLink {
+  display: grid;
+  place-items: center;
+}

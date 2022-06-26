@@ -16,6 +16,9 @@ export class ToReadLinkOrderByWithRelationInput {
     updatedAt?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    title?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     url?: keyof typeof SortOrder;
 
     @Field(() => UserOrderByWithRelationInput, {nullable:true})

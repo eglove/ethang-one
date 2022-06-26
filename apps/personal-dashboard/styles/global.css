@@ -1,9 +1,17 @@
 @import 'https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap';
 
 :root {
+  --background-color: hsl(207deg 94% 39%);
+  --error-color: hsl(0deg 93% 47%);
+  --primary-color: hsl(219deg 100% 58%);
   --box-shadow: hsl(0deg 0% 39% / 20%) 0 2px 8px 0;
 }
 
 html {
   font-family: Raleway, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  filter: brightness(70%);
 }

@@ -1,7 +1,7 @@
 .DashboardContainer {
   display: grid;
   grid-template-areas:
-  "Weather Reading"
+  "Reading Reading"
   "Health Finance"
   "Routine OnlineEducation";
   grid-template-columns: repeat(2, 1fr);
@@ -11,34 +11,34 @@
 .DashboardContainer > div {
   display: grid;
   place-items: center;
-  padding: 8px;
 }
 
-.Weather {
-  grid-area: Weather;
+.ButtonContainer {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  color: hsl(0deg 0% 100%);
+  background-color: var(--background-color);
+  border-color: var(--background-color);
 }
 
 .Reading {
   grid-area: Reading;
-  box-shadow: var(--box-shadow);
+  background-color: var(--background-color);
 }
 
 .Health {
   grid-area: Health;
-  box-shadow: var(--box-shadow);
 }
 
 .Finance {
   grid-area: Finance;
-  box-shadow: var(--box-shadow);
 }
 
 .Routine {
   grid-area: Routine;
-  box-shadow: var(--box-shadow);
 }
 
 .OnlineEducation {
   grid-area: OnlineEducation;
-  box-shadow: var(--box-shadow);
 }

@@ -7,6 +7,10 @@
   display: block;
 }
 
+.Form label + label {
+  margin-top: 16px;
+}
+
 .Form label span::after {
   white-space: pre;
   content: ": \a";

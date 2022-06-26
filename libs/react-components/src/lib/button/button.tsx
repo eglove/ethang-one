@@ -37,10 +37,12 @@ export function Button({
 
   return (
     <button
-      className={`${styles.ButtonElement} ${styles[variant]}`}
-      style={derivedStyles}
       type="button"
       {...buttonProperties}
+      style={{ ...derivedStyles, ...buttonProperties?.style }}
+      className={`${styles.ButtonElement} ${styles[variant]} ${
+        buttonProperties?.className ?? ''
+      }`}
     >
       {text}
     </button>

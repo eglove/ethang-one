@@ -10,9 +10,9 @@ import { isBrowser } from '@ethang/util-typescript';
 import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 
+import formStyles from '../../../../../styles/form.module.css';
 import { HeadTag } from '../../../components/common/head-tag/head-tag';
 import { CREATE_FINANCE_RECORDS } from '../../../components/dashboard/graphql/queries/dashboard-mutations';
-import commonStyles from '../../../styles/common.module.css';
 import { DashboardContext } from '../index';
 
 export const Account = {
@@ -101,7 +101,7 @@ function Finance(): JSX.Element {
         <div>Update Accounts</div>
         <SimpleForm
           buttons={buttons}
-          formProperties={{ className: commonStyles.Form }}
+          formProperties={{ className: formStyles.Form }}
           formState={formState}
           inputs={formInputs}
           postSubmitFunction={handleSubmit}

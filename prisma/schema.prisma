@@ -72,9 +72,12 @@ model ToReadLink {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  title     String
   url       String
   user      User     @relation(fields: [userId], references: [id])
   userId    String   @db.ObjectId
+
+  @@unique([url, userId])
 }
 
 model User {

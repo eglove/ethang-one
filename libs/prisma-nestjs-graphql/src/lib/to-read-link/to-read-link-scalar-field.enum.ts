@@ -4,6 +4,7 @@ export enum ToReadLinkScalarFieldEnum {
     id = "id",
     createdAt = "createdAt",
     updatedAt = "updatedAt",
+    title = "title",
     url = "url",
     userId = "userId"
 }

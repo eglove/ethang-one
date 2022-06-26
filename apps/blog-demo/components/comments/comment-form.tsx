@@ -8,8 +8,8 @@ import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
 import { useSWRConfig } from 'swr';
 
+import formStyles from '../../../../styles/form.module.css';
 import { API_ROOT } from '../../pages/_app';
-import formStyles from '../../styles/form.module.css';
 
 interface CommentFormProperties {
   blogId: number;

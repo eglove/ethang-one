@@ -7,7 +7,7 @@ import {
 import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
 
-import formStyles from '../../styles/form.module.css';
+import formStyles from '../../../../styles/form.module.css';
 import { RailsBlog } from './blogs-layout';
 
 interface BlogFormProperties {

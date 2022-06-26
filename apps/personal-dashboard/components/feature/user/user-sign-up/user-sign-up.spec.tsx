@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import { WeatherLayout } from './weather-layout';
+import UserSignUp from './user-sign-up';
 
-describe('Weather Layout', () => {
+describe('UserSignUp', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<WeatherLayout />);
+    const { baseElement } = render(<UserSignUp />);
     expect(baseElement).toBeTruthy();
   });
 });

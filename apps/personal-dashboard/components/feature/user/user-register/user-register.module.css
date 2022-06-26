@@ -1,0 +1,9 @@
+.UserAuthContainer {
+  display: grid;
+  place-items: center;
+}
+
+.SwitchFormLink {
+  cursor: pointer;
+  border-bottom: 1px solid;
+}

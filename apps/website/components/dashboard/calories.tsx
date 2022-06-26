@@ -9,8 +9,8 @@ import {
 } from '@ethang/react-components';
 import { useContext, useEffect, useState } from 'react';
 
+import formStyles from '../../../../styles/form.module.css';
 import { DashboardContext } from '../../pages/dashboard';
-import commonStyles from '../../styles/common.module.css';
 import { ADD_CALORIE, AddCalorie } from './graphql/queries/dashboard-mutations';
 import {
   LAST_CALORIE_RECORD,
@@ -83,7 +83,7 @@ export function Calories(): JSX.Element {
       <SimpleForm
         buttons={buttons}
         fieldsetProperties={{ disabled: queryLoading || mutationLoading }}
-        formProperties={{ className: commonStyles.Form }}
+        formProperties={{ className: formStyles.Form }}
         formState={formState}
         inputs={formInputs}
         postSubmitFunction={onUpdate}

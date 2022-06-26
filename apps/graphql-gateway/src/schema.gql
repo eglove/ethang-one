@@ -49,6 +49,7 @@ type ToReadLink {
   id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
+  title: String!
   url: String!
   user: User!
   userId: String!
@@ -318,6 +319,7 @@ type ToReadLinkCountAggregate {
   id: Int!
   createdAt: Int!
   updatedAt: Int!
+  title: Int!
   url: Int!
   userId: Int!
   _all: Int!
@@ -327,6 +329,7 @@ type ToReadLinkMinAggregate {
   id: String
   createdAt: DateTime
   updatedAt: DateTime
+  title: String
   url: String
   userId: String
 }
@@ -335,6 +338,7 @@ type ToReadLinkMaxAggregate {
   id: String
   createdAt: DateTime
   updatedAt: DateTime
+  title: String
   url: String
   userId: String
 }
@@ -421,6 +425,7 @@ type Query {
   validate(email: String!, encryptedPassword: String!, role: String): Boolean!
   persons(where: PersonWhereInput, orderBy: [PersonOrderByWithRelationInput!], cursor: PersonWhereUniqueInput, take: Int, skip: Int, distinct: [PersonScalarFieldEnum!]): [Person]!
   calorieFirst(where: CalorieRecordWhereInput, orderBy: [CalorieRecordOrderByWithRelationInput!], cursor: CalorieRecordWhereUniqueInput, take: Int, skip: Int, distinct: [CalorieRecordScalarFieldEnum!]): CalorieRecord!
+  toReadLinks(where: ToReadLinkWhereInput, orderBy: [ToReadLinkOrderByWithRelationInput!], cursor: ToReadLinkWhereUniqueInput, take: Int, skip: Int, distinct: [ToReadLinkScalarFieldEnum!]): [ToReadLink]!
 }
 
 input HabitWhereUniqueInput {
@@ -654,6 +659,7 @@ input ToReadLinkWhereInput {
   id: StringFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
+  title: StringFilter
   url: StringFilter
   user: UserRelationFilter
   userId: StringFilter
@@ -825,14 +831,45 @@ enum CalorieRecordScalarFieldEnum {
   personId
 }
 
+input ToReadLinkOrderByWithRelationInput {
+  id: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+  title: SortOrder
+  url: SortOrder
+  user: UserOrderByWithRelationInput
+  userId: SortOrder
+}
+
+input ToReadLinkWhereUniqueInput {
+  id: String
+  url_userId: ToReadLinkUrlUserIdCompoundUniqueInput
+}
+
+input ToReadLinkUrlUserIdCompoundUniqueInput {
+  url: String!
+  userId: String!
+}
+
+enum ToReadLinkScalarFieldEnum {
+  id
+  createdAt
+  updatedAt
+  title
+  url
+  userId
+}
+
 type Mutation {
   createHabit(data: HabitCreateInput!): Habit!
   updateHabit(data: HabitUpdateInput!, where: HabitWhereUniqueInput!): Habit!
   createFinanceRecords(data: [FinanceRecordCreateManyInput!]!): AffectedRows!
-  signup(email: String!, password: String!): User!
+  signup(email: String!, password: String!): String!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
   createPerson(data: PersonCreateInput!): Person!
   addCalorieRecord(userId: String!, caloriesToAdd: Float!, weight: Float): CalorieRecord!
+  createToReadLink(data: ToReadLinkCreateInput!): ToReadLink!
+  deleteReadLink(where: ToReadLinkWhereUniqueInput!): ToReadLink!
 }
 
 input HabitCreateInput {
@@ -903,16 +940,13 @@ input ToReadLinkCreateWithoutUserInput {
   id: String
   createdAt: DateTime
   updatedAt: DateTime
+  title: String!
   url: String!
 }
 
 input ToReadLinkCreateOrConnectWithoutUserInput {
   where: ToReadLinkWhereUniqueInput!
   create: ToReadLinkCreateWithoutUserInput!
-}
-
-input ToReadLinkWhereUniqueInput {
-  id: String
 }
 
 input ToReadLinkUpsertWithWhereUniqueWithoutUserInput {
@@ -924,6 +958,7 @@ input ToReadLinkUpsertWithWhereUniqueWithoutUserInput {
 input ToReadLinkUpdateWithoutUserInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
 }
 
@@ -935,6 +970,7 @@ input ToReadLinkCreateManyUserInput {
   id: String
   createdAt: DateTime
   updatedAt: DateTime
+  title: String!
   url: String!
 }
 
@@ -955,6 +991,7 @@ input ToReadLinkScalarWhereInput {
   id: StringFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
+  title: StringFilter
   url: StringFilter
   userId: StringFilter
 }
@@ -962,6 +999,7 @@ input ToReadLinkScalarWhereInput {
 input ToReadLinkUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+  title: StringFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
 }
 
@@ -1254,4 +1292,41 @@ input CompleteCourseCreateNestedManyWithoutUserInput {
 input UserCreateOrConnectWithoutPersonInput {
   where: UserWhereUniqueInput!
   create: UserCreateWithoutPersonInput!
+}
+
+input ToReadLinkCreateInput {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  title: String!
+  url: String!
+  user: UserCreateNestedOneWithoutToReadLinksInput!
+}
+
+input UserCreateNestedOneWithoutToReadLinksInput {
+  create: UserCreateWithoutToReadLinksInput
+  connectOrCreate: UserCreateOrConnectWithoutToReadLinksInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutToReadLinksInput {
+  id: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  email: String!
+  password: String!
+  role: String!
+  Person: PersonCreateNestedOneWithoutUserInput
+  CompleteCourse: CompleteCourseCreateNestedManyWithoutUserInput
+}
+
+input PersonCreateNestedOneWithoutUserInput {
+  create: PersonCreateWithoutUserInput
+  connectOrCreate: PersonCreateOrConnectWithoutUserInput
+  connect: PersonWhereUniqueInput
+}
+
+input UserCreateOrConnectWithoutToReadLinksInput {
+  where: UserWhereUniqueInput!
+  create: UserCreateWithoutToReadLinksInput!
 }
