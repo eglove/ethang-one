@@ -1,11 +1,10 @@
-/* eslint-disable */
 export default {
-  displayName: "blog-demo",
-  preset: "../../jest.preset.js",
+  coverageDirectory: '../../coverage/apps/blog-demo',
+  displayName: 'blog-demo',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  preset: '../../jest.preset.js',
   transform: {
-    "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "@nrwl/react/plugins/jest",
-    "^.+\\.[tj]sx?$": "babel-jest",
+    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
+    '^.+\\.[tj]sx?$': 'babel-jest',
   },
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
-  coverageDirectory: "../../coverage/apps/blog-demo",
 };

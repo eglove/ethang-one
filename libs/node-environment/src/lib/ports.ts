@@ -1,6 +1,6 @@
 export const PORT = {
-  carValue: 4202,
   blogDemo: 4207,
+  carValue: 4202,
   graphql: 4201,
   localManagement: 4204,
   localWebsocket: 4203,

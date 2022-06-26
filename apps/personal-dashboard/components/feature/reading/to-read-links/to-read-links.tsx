@@ -11,6 +11,7 @@ export function ToReadLinks(): JSX.Element {
     return null;
   }
 
+  // eslint-disable-next-line unused-imports/no-unused-vars,unicorn/consistent-function-scoping
   const handleChecked = (id: string, url: string): void => {
     const checkbox = document.querySelector(`#a${id}`);
     const checked = 'background-color: lightgrey;';

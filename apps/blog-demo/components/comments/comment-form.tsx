@@ -4,7 +4,6 @@ import {
   SimpleFormButton,
   SimpleFormInput,
 } from '@ethang/react-components';
-import { useRouter } from 'next/router';
 import { FormEvent, useState } from 'react';
 import { useSWRConfig } from 'swr';
 
@@ -35,7 +34,6 @@ export function CommentForm({
   postUrl,
   initialState = { Body: '', Commenter: '' },
 }: CommentFormProperties): JSX.Element {
-  const router = useRouter();
   const { mutate } = useSWRConfig();
   const [formState, setFormState] = useState(initialState);
 

@@ -4,7 +4,6 @@
     "algorithms": "libs/algorithms",
     "apollo": "libs/apollo",
     "blog-demo": "apps/blog-demo",
-    "blog-demo-e2e": "apps/blog-demo-e2e",
     "car-value": "apps/car-value",
     "design-patterns": "libs/design-patterns",
     "ethang-cli": "apps/ethang-cli",
