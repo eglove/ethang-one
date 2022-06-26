@@ -6,20 +6,14 @@
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "libs/react-hooks/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["libs/react-hooks/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/react-hooks"
-      ],
+      "outputs": ["coverage/libs/react-hooks"],
       "options": {
         "jestConfig": "libs/react-hooks/jest.config.ts",
         "passWithNoTests": true
