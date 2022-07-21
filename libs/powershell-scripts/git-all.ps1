@@ -10,32 +10,28 @@ if ($?)
   git commit -m "$commitMessage"
   npx nx affected --target=build --base=origin/master --head=HEAD
 } else {
-  git reset
-  Stop-Process
+  Break
 }
 
 if ($?)
 {
   npx nx affected --target=test --base=origin/master --head=HEAD
 } else {
-  git reset
-  Stop-Process
+  Break
 }
 
 if ($?)
 {
   npx nx affected --target=e2e --base=origin/master --head=HEAD
 } else {
-  git reset
-  Stop-Process
+  Break
 }
 
 if ($?)
 {
   npx --yes snyk test
 } else {
-  git reset
-  Stop-Process
+  Break
 }
 
-#git push
+git push
