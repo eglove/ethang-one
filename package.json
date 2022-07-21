@@ -25,6 +25,9 @@
     "@storybook/builder-webpack5": "6.5.9",
     "@storybook/core-server": "6.5.9",
     "@storybook/manager-webpack5": "6.5.9",
+    "@trpc/client": "^9.26.2",
+    "@trpc/react": "^9.26.2",
+    "@trpc/server": "^9.26.2",
     "apollo-server-express": "^3.10.0",
     "apollo3-cache-persist": "^0.14.1",
     "class-transformer": "^0.5.1",
@@ -58,6 +61,7 @@
     "react-is": "18.2.0",
     "react-lite-youtube-embed": "^2.2.2",
     "react-player": "^2.10.1",
+    "react-query": "3",
     "react-router-dom": "6.3.0",
     "react-schemaorg": "^2.0.0",
     "react-syntax-highlighter": "^15.5.0",
@@ -78,6 +82,7 @@
     "use-immer": "^0.7.0",
     "uuid": "^8.3.2",
     "validator": "^13.7.0",
+    "zod": "^3.17.9",
     "zone.js": "^0.11.6"
   },
   "devDependencies": {

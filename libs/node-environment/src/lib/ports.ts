@@ -1,11 +1,7 @@
 export const PORT = {
-  blogDemo: 4207,
   carValue: 4202,
   graphql: 4201,
-  localManagement: 4204,
-  localWebsocket: 4203,
-  personalDashboard: 4206,
-  renderPresentation: 4205,
+  trpc: 4208,
   website: 4200,
 };
 
