@@ -13,4 +13,6 @@ $?
 npx nx affected --target=e2e --base=origin/master --head=HEAD
 $?
 npx --yes snyk test
+$?
+Write-Host 'done'
 #git push
