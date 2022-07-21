@@ -4,9 +4,8 @@ services:
     env: node
     plan: starter
     buildCommand:
-      npm i -g pnpm nx
-      pnpm i -D &&
-      pnpm i -P &&
+      npx pnpm i -D &&
+      npx pnpm i -P &&
       npx prisma generate &&
       nx build website &&
       npx prisma db push
