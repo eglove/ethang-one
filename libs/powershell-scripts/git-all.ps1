@@ -13,19 +13,19 @@ if ($?) {
 }
 
 if ($?) {
-  npx nx affected --target=test --base=origin/master --head=HEAD
+#  npx nx affected --target=test --base=origin/master --head=HEAD
 } else {
   Break
 }
 
 if ($?) {
-  npx nx affected --target=e2e --base=origin/master --head=HEAD
+#  npx nx affected --target=e2e --base=origin/master --head=HEAD
 } else {
   Break
 }
 
 if ($?) {
-  npx --yes snyk test
+#  npx --yes snyk test
 } else {
   Break
 }
