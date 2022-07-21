@@ -3,8 +3,8 @@ import { InputType } from '@nestjs/graphql';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input';
-import { UserUpdateOneRequiredWithoutPersonInput } from '../user/user-update-one-required-without-person.input';
-import { CalorieRecordUpdateManyWithoutPersonInput } from '../calorie-record/calorie-record-update-many-without-person.input';
+import { UserUpdateOneRequiredWithoutPersonNestedInput } from '../user/user-update-one-required-without-person-nested.input';
+import { CalorieRecordUpdateManyWithoutPersonNestedInput } from '../calorie-record/calorie-record-update-many-without-person-nested.input';
 
 @InputType()
 export class PersonUpdateInput {
@@ -30,9 +30,9 @@ export class PersonUpdateInput {
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     heightIn?: FloatFieldUpdateOperationsInput;
 
-    @Field(() => UserUpdateOneRequiredWithoutPersonInput, {nullable:true})
-    User?: UserUpdateOneRequiredWithoutPersonInput;
+    @Field(() => UserUpdateOneRequiredWithoutPersonNestedInput, {nullable:true})
+    User?: UserUpdateOneRequiredWithoutPersonNestedInput;
 
-    @Field(() => CalorieRecordUpdateManyWithoutPersonInput, {nullable:true})
-    Calorie?: CalorieRecordUpdateManyWithoutPersonInput;
+    @Field(() => CalorieRecordUpdateManyWithoutPersonNestedInput, {nullable:true})
+    Calorie?: CalorieRecordUpdateManyWithoutPersonNestedInput;
 }

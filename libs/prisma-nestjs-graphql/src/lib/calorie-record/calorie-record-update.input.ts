@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input';
 import { NullableIntFieldUpdateOperationsInput } from '../prisma/nullable-int-field-update-operations.input';
-import { PersonUpdateOneRequiredWithoutCalorieInput } from '../person/person-update-one-required-without-calorie.input';
+import { PersonUpdateOneRequiredWithoutCalorieNestedInput } from '../person/person-update-one-required-without-calorie-nested.input';
 
 @InputType()
 export class CalorieRecordUpdateInput {
@@ -20,6 +20,6 @@ export class CalorieRecordUpdateInput {
     @Field(() => NullableIntFieldUpdateOperationsInput, {nullable:true})
     leftForToday?: NullableIntFieldUpdateOperationsInput;
 
-    @Field(() => PersonUpdateOneRequiredWithoutCalorieInput, {nullable:true})
-    Person?: PersonUpdateOneRequiredWithoutCalorieInput;
+    @Field(() => PersonUpdateOneRequiredWithoutCalorieNestedInput, {nullable:true})
+    Person?: PersonUpdateOneRequiredWithoutCalorieNestedInput;
 }

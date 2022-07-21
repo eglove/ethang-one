@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="363px" preserveAspectRatio="none" style="width:155px;height:363px;background:#FFFFFF;" version="1.1" viewBox="0 0 155 363" width="155px" zoomAndPan="magnify"><defs/><g><!--MD5=[b10028defc39ad0b2d4ef87d6dce10ee]
+class Paste--><g id="elem_Paste"><rect codeLine="2" fill="#F1F1F1" height="188.875" id="Paste" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="141" x="7" y="7"/><ellipse cx="55.25" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M57.25,19.5 Q57.4531,19 57.6875,18.75 Q57.9219,18.5 58.1875,18.5 Q58.6563,18.5 58.9531,18.7813 Q59.25,19.0625 59.25,19.7188 L59.25,21.2813 Q59.25,21.9375 58.9688,22.2188 Q58.6875,22.5 58.25,22.5 Q57.8594,22.5 57.6094,22.3281 Q57.3594,22.1563 57.25,21.7031 Q57.2031,21.3906 57.0313,21.2188 Q56.7188,20.8906 56.1563,20.7031 Q55.5938,20.5 55.0313,20.5 Q54.3281,20.5 53.7344,20.7813 Q53.1563,21.0625 52.7031,21.6875 Q52.25,22.3125 52.25,23.1719 L52.25,24.0938 Q52.25,25.125 53.0938,25.8125 Q53.9375,26.5 55.4375,26.5 Q56.3281,26.5 56.9531,26.2969 Q57.3125,26.1875 57.7188,25.8281 Q57.9844,25.625 58.125,25.5625 Q58.2656,25.5 58.4375,25.5 Q58.7656,25.5 59,25.7656 Q59.25,26.0156 59.25,26.375 Q59.25,26.7188 58.9063,27.125 Q58.4063,27.7188 57.6094,28.0469 Q56.5625,28.5 55.2813,28.5 Q53.7813,28.5 52.5781,27.9063 Q51.6094,27.4375 50.9219,26.4219 Q50.25,25.4063 50.25,24.2031 L50.25,23.1094 Q50.25,21.8594 50.8438,20.7656 Q51.4531,19.6719 52.5,19.0938 Q53.5625,18.5 54.75,18.5 Q55.4688,18.5 56.0938,18.75 Q56.7188,19 57.25,19.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="75.75" y="28.7285">Paste</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="147" y1="39" y2="39"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="13" y="57.5332">id: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116" x="13" y="75.1426">createdDate: Date</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="129" x="13" y="92.752">expirationDate: Date</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="13" y="110.3613">contentKey: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="13" y="127.9707">userId?: User</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="147" y1="135.0469" y2="135.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="13" y="153.5801">addPaste()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="66" x="13" y="171.1895">getPaste()</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="13" y="188.7988">deletePaste()</text></g><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><g id="elem_User"><rect codeLine="14" fill="#F1F1F1" height="100.8281" id="User" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="18.5" y="256"/><ellipse cx="59.15" cy="272" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M61.15,268.5 Q61.3531,268 61.5875,267.75 Q61.8219,267.5 62.0875,267.5 Q62.5563,267.5 62.8531,267.7813 Q63.15,268.0625 63.15,268.7188 L63.15,270.2813 Q63.15,270.9375 62.8688,271.2188 Q62.5875,271.5 62.15,271.5 Q61.7594,271.5 61.5094,271.3281 Q61.2594,271.1563 61.15,270.7031 Q61.1031,270.3906 60.9313,270.2188 Q60.6188,269.8906 60.0563,269.7031 Q59.4938,269.5 58.9313,269.5 Q58.2281,269.5 57.6344,269.7813 Q57.0563,270.0625 56.6031,270.6875 Q56.15,271.3125 56.15,272.1719 L56.15,273.0938 Q56.15,274.125 56.9938,274.8125 Q57.8375,275.5 59.3375,275.5 Q60.2281,275.5 60.8531,275.2969 Q61.2125,275.1875 61.6188,274.8281 Q61.8844,274.625 62.025,274.5625 Q62.1656,274.5 62.3375,274.5 Q62.6656,274.5 62.9,274.7656 Q63.15,275.0156 63.15,275.375 Q63.15,275.7188 62.8063,276.125 Q62.3063,276.7188 61.5094,277.0469 Q60.4625,277.5 59.1813,277.5 Q57.6813,277.5 56.4781,276.9063 Q55.5094,276.4375 54.8219,275.4219 Q54.15,274.4063 54.15,273.2031 L54.15,272.1094 Q54.15,270.8594 54.7438,269.7656 Q55.3531,268.6719 56.4,268.0938 Q57.4625,267.5 58.65,267.5 Q59.3688,267.5 59.9938,267.75 Q60.6188,268 61.15,268.5 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="78.85" y="277.7285">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="19.5" x2="135.5" y1="288" y2="288"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="24.5" y="306.5332">id: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="106" x="24.5" y="324.1426">username: string</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="24.5" y="341.752">email: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="19.5" x2="135.5" y1="348.8281" y2="348.8281"/></g><!--MD5=[1f64f192f4af7f39c30a78e57bc86c98]
+link Paste to User--><g id="link_Paste_User"><path codeLine="1" d="M77.5,204.49 C77.5,219.3 77.5,234.09 77.5,247.61 " fill="none" id="Paste-User" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="77.5" x2="83.5" y1="247.85" y2="255.85"/><line style="stroke:#181818;stroke-width:1.0;" x1="77.5" x2="71.5" y1="247.85" y2="255.85"/><line style="stroke:#181818;stroke-width:1.0;" x1="77.5" x2="77.5" y1="247.85" y2="255.85"/><ellipse cx="77.5" cy="241.85" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="77.5" x2="77.5" y1="207.28" y2="196.28"/><ellipse cx="77.5" cy="207.28" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1.0;"/><line style="stroke:#181818;stroke-width:1.0;" x1="73.5" x2="81.5" y1="200.28" y2="200.28"/></g><!--MD5=[2a04bc33597f6079b55159ed0a1b0d1e]
+@startuml
+Paste |o- -o{ User
+class Paste {
+  id: string
+  createdDate: Date
+  expirationDate: Date
+  contentKey: string
+  userId?: User
+
+  addPaste()
+  getPaste()
+  deletePaste()
+}
+
+class User {
+  id: string
+  username: string
+  email: string
+}
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 08:29:17 CDT 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

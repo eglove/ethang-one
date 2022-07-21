@@ -2,8 +2,8 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
-import { PersonUpdateOneWithoutUserInput } from '../person/person-update-one-without-user.input';
-import { CompleteCourseUpdateManyWithoutUserInput } from '../complete-course/complete-course-update-many-without-user.input';
+import { PersonUpdateOneWithoutUserNestedInput } from '../person/person-update-one-without-user-nested.input';
+import { CompleteCourseUpdateManyWithoutUserNestedInput } from '../complete-course/complete-course-update-many-without-user-nested.input';
 
 @InputType()
 export class UserUpdateWithoutToReadLinksInput {
@@ -23,9 +23,9 @@ export class UserUpdateWithoutToReadLinksInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     role?: StringFieldUpdateOperationsInput;
 
-    @Field(() => PersonUpdateOneWithoutUserInput, {nullable:true})
-    Person?: PersonUpdateOneWithoutUserInput;
+    @Field(() => PersonUpdateOneWithoutUserNestedInput, {nullable:true})
+    Person?: PersonUpdateOneWithoutUserNestedInput;
 
-    @Field(() => CompleteCourseUpdateManyWithoutUserInput, {nullable:true})
-    CompleteCourse?: CompleteCourseUpdateManyWithoutUserInput;
+    @Field(() => CompleteCourseUpdateManyWithoutUserNestedInput, {nullable:true})
+    CompleteCourse?: CompleteCourseUpdateManyWithoutUserNestedInput;
 }

@@ -10,6 +10,7 @@ import { ApolloClientInit } from '@ethang/apollo';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
+import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import { Page } from '../components/common/page/page';
@@ -32,12 +33,14 @@ export const apolloClient = apollo.client;
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ApolloProvider client={apollo.client}>
-      <ToastContainer />
-      <Page>
-        <Component {...pageProps} />
-      </Page>
-    </ApolloProvider>
+    <Suspense>
+      <ApolloProvider client={apollo.client}>
+        <ToastContainer />
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </ApolloProvider>
+    </Suspense>
   );
 }
 

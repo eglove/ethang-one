@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { FloatFieldUpdateOperationsInput } from '../prisma/float-field-update-operations.input';
-import { CalorieRecordUpdateManyWithoutPersonInput } from '../calorie-record/calorie-record-update-many-without-person.input';
+import { CalorieRecordUpdateManyWithoutPersonNestedInput } from '../calorie-record/calorie-record-update-many-without-person-nested.input';
 
 @InputType()
 export class PersonUpdateWithoutUserInput {
@@ -29,6 +29,6 @@ export class PersonUpdateWithoutUserInput {
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     heightIn?: FloatFieldUpdateOperationsInput;
 
-    @Field(() => CalorieRecordUpdateManyWithoutPersonInput, {nullable:true})
-    Calorie?: CalorieRecordUpdateManyWithoutPersonInput;
+    @Field(() => CalorieRecordUpdateManyWithoutPersonNestedInput, {nullable:true})
+    Calorie?: CalorieRecordUpdateManyWithoutPersonNestedInput;
 }
