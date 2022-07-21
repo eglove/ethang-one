@@ -5,10 +5,10 @@ export type ListCommandChoice = {
   label: string;
 };
 
-export interface GetChoiceParameters {
+export type GetChoiceParameters = {
   choices: Record<string, string>;
   message: string;
-}
+};
 
 export const stringArrayToChoices = (
   array: string[]
