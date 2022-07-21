@@ -7,7 +7,7 @@ services:
       npx pnpm i -D &&
       npx pnpm i -P &&
       npx prisma generate &&
-      npx nx build website &&
+      npx pnpm nx build website &&
       npx prisma db push
     startCommand: npx nx serve website
     envVars:
