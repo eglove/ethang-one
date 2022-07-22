@@ -13,6 +13,7 @@ import NProgress from 'nprogress';
 import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 
+import { withBlitz } from '../blitz-client';
 import { Page } from '../components/common/page/page';
 
 Router.events.on('routeChangeStart', () => {
@@ -44,4 +45,4 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   );
 }
 
-export default App;
+export default withBlitz(App);

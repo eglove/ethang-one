@@ -11,6 +11,8 @@
   "dependencies": {
     "@angular/core": "14.1.0",
     "@apollo/client": "^3.6.9",
+    "@blitzjs/next": "^2.0.0-alpha.57",
+    "@blitzjs/rpc": "^2.0.0-alpha.57",
     "@faker-js/faker": "^7.3.0",
     "@nestjs/apollo": "^10.0.19",
     "@nestjs/class-validator": "^0.13.4",
@@ -26,6 +28,7 @@
     "@storybook/manager-webpack5": "6.5.9",
     "apollo-server-express": "^3.10.0",
     "apollo3-cache-persist": "^0.14.1",
+    "blitz": "2.0.0-alpha.57",
     "class-transformer": "^0.5.1",
     "cookie-session": "^2.0.0",
     "core-js": "^3.23.5",
