@@ -7,15 +7,15 @@ const withNx = require('@nrwl/next/plugins/with-nx');
 const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,
-    domains: ['cdn.filestackcontent.com', 'disquscdn.com', 'rlcdn.com', 'res.cloudinary.com'],
-    formats: ['image/avif', 'image/webp'],
+    domains: ['cdn.filestackcontent.com', 'disquscdn.com', 'rlcdn.com'],
+    formats: ['image/avif', 'image/webp']
   },
   nx: {
     // Set this to true if you would like to to use SVGR
     // See: https://github.com/gregberge/svgr
     svgr: false
   },
-  reactStrictMode: true,
+  reactStrictMode: true
 };
 
 module.exports = withNx(nextConfig);

@@ -10,7 +10,7 @@ const editPdfBlog = new Blog({
   featuredImage: new Image({
     altText: 'Microsoft Office',
     height: 128,
-    url: 'https://res.cloudinary.com/eglove/image/upload/v1654520948/blog/microsoft-office.svg',
+    url: '/images/blog/microsoft-office.svg',
     width: 128,
   }),
   slug: 'edit-pdf-office-mobile',
@@ -29,7 +29,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         image={{
           altText: 'Download PDF from Gmail',
           height: 500,
-          url: 'https://res.cloudinary.com/eglove/image/upload/v1654522274/other/office-pdf-edit/download-from-gmail.png',
+          url: '/images/other/office-pdf-edit/download-from-gmail.png',
           width: 230.77,
         }}
       />
@@ -40,7 +40,7 @@ function EditPdfOfficeMobile(): JSX.Element {
           image={{
             altText: 'Press folder icon.',
             height: 500,
-            url: 'https://res.cloudinary.com/eglove/image/upload/v1654522726/other/office-pdf-edit/folder-icon-office.png',
+            url: '/images/other/office-pdf-edit/folder-icon-office.png',
             width: 230.77,
           }}
         />
@@ -50,7 +50,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Press This Device',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654522783/other/office-pdf-edit/office-this-device.png',
+              url: '/images/other/office-pdf-edit/office-this-device.png',
               width: 230.77,
             }}
           />
@@ -61,7 +61,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Press Download folder.',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654522907/other/office-pdf-edit/download-folder.png',
+              url: '/images/other/office-pdf-edit/download-folder.png',
               width: 230.77,
             }}
           />
@@ -72,7 +72,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Find file to open up.',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654523013/other/office-pdf-edit/open-file.png',
+              url: '/images/other/office-pdf-edit/open-file.png',
               width: 230.77,
             }}
           />
@@ -86,7 +86,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Office file options.',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654523258/other/office-pdf-edit/pdf-options.png',
+              url: '/images/other/office-pdf-edit/pdf-options.png',
               width: 230.77,
             }}
           />
@@ -97,7 +97,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Convert file to Word',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654523411/other/office-pdf-edit/convert-to-word.png',
+              url: '/images/other/office-pdf-edit/convert-to-word.png',
               width: 230.77,
             }}
           />
@@ -108,7 +108,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Edit the file.',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654523521/other/office-pdf-edit/hello-from-office.png',
+              url: '/images/other/office-pdf-edit/hello-from-office.png',
               width: 230.77,
             }}
           />
@@ -121,7 +121,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Open options for Word document.',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654523986/other/office-pdf-edit/open-word-options.png',
+              url: '/images/other/office-pdf-edit/open-word-options.png',
               width: 230.77,
             }}
           />
@@ -132,7 +132,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Options for word document.',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654523716/other/office-pdf-edit/word-options.png',
+              url: '/images/other/office-pdf-edit/word-options.png',
               width: 230.77,
             }}
           />
@@ -146,7 +146,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Save as Documents',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654524185/other/office-pdf-edit/save-as-document.png',
+              url: '/images/other/office-pdf-edit/save-as-document.png',
               width: 230.77,
             }}
           />
@@ -157,7 +157,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Rename file',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654524261/other/office-pdf-edit/save-as-resume.png',
+              url: '/images/other/office-pdf-edit/save-as-resume.png',
               width: 230.77,
             }}
           />
@@ -169,7 +169,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'List of files on Office homepage.',
               height: 500,
-              url: 'https://res.cloudinary.com/eglove/image/upload/v1654524394/other/office-pdf-edit/list-of-files.png',
+              url: '/images/other/office-pdf-edit/list-of-files.png',
               width: 230.77,
             }}
           />
