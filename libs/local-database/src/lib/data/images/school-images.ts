@@ -4,7 +4,7 @@ export const schoolImages = {
   academind: new Image({
     altText: 'Academind',
     height: 120,
-    url: '/images/school/academind.png',
+    url: 'https://i.imgur.com/SGvBO4O.png',
     width: 93,
   }),
   algoExpert: new Image({
@@ -34,7 +34,7 @@ export const schoolImages = {
   joshComeau: new Image({
     altText: 'Josh Comeau',
     height: 63,
-    url: '/images/school/josh-comeau.png',
+    url: 'https://i.imgur.com/gtlDWtM.png',
     width: 159,
   }),
   kodyTheKoala: new Image({
@@ -46,13 +46,13 @@ export const schoolImages = {
   levelUpTutorials: new Image({
     altText: 'Level Up Tutorials',
     height: 200,
-    url: '/images/school/level-up-tutorials.png',
+    url: 'https://i.imgur.com/tdBgVtB.png',
     width: 200,
   }),
   problemio: new Image({
     altText: 'Problemio',
     height: 43,
-    url: '/images/school/problemio.png',
+    url: 'https://i.imgur.com/emxWASl.png',
     width: 173,
   }),
   realToughCandy: new Image({
@@ -64,7 +64,7 @@ export const schoolImages = {
   totalSeminars: new Image({
     altText: 'Total Seminars',
     height: 1080,
-    url: '/images/school/total-seminars.png',
+    url: 'https://i.imgur.com/jU0CTdB.png',
     width: 947,
   }),
   udemy: new Image({

@@ -29,7 +29,7 @@ function EditPdfOfficeMobile(): JSX.Element {
         image={{
           altText: 'Download PDF from Gmail',
           height: 500,
-          url: '/images/other/office-pdf-edit/download-from-gmail.png',
+          url: 'https://i.imgur.com/IT33nA0.png',
           width: 230.77,
         }}
       />
@@ -40,7 +40,7 @@ function EditPdfOfficeMobile(): JSX.Element {
           image={{
             altText: 'Press folder icon.',
             height: 500,
-            url: '/images/other/office-pdf-edit/folder-icon-office.png',
+            url: 'https://i.imgur.com/krB2aiC.png',
             width: 230.77,
           }}
         />
@@ -50,7 +50,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Press This Device',
               height: 500,
-              url: '/images/other/office-pdf-edit/office-this-device.png',
+              url: 'https://i.imgur.com/3NWpmDy.png',
               width: 230.77,
             }}
           />
@@ -61,7 +61,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Press Download folder.',
               height: 500,
-              url: '/images/other/office-pdf-edit/download-folder.png',
+              url: 'https://i.imgur.com/4B1DCDj.png',
               width: 230.77,
             }}
           />
@@ -72,7 +72,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Find file to open up.',
               height: 500,
-              url: '/images/other/office-pdf-edit/open-file.png',
+              url: 'https://i.imgur.com/GfSh89H.png',
               width: 230.77,
             }}
           />
@@ -86,7 +86,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Office file options.',
               height: 500,
-              url: '/images/other/office-pdf-edit/pdf-options.png',
+              url: 'https://i.imgur.com/buJCVLp.png',
               width: 230.77,
             }}
           />
@@ -97,7 +97,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Convert file to Word',
               height: 500,
-              url: '/images/other/office-pdf-edit/convert-to-word.png',
+              url: 'https://i.imgur.com/trLGzlR.png',
               width: 230.77,
             }}
           />
@@ -108,7 +108,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Edit the file.',
               height: 500,
-              url: '/images/other/office-pdf-edit/hello-from-office.png',
+              url: 'https://i.imgur.com/pwe8vSL.png',
               width: 230.77,
             }}
           />
@@ -121,7 +121,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Open options for Word document.',
               height: 500,
-              url: '/images/other/office-pdf-edit/open-word-options.png',
+              url: 'https://i.imgur.com/ogR5xMw.png',
               width: 230.77,
             }}
           />
@@ -132,7 +132,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Options for word document.',
               height: 500,
-              url: '/images/other/office-pdf-edit/word-options.png',
+              url: 'https://i.imgur.com/slONqbY.png',
               width: 230.77,
             }}
           />
@@ -146,7 +146,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Save as Documents',
               height: 500,
-              url: '/images/other/office-pdf-edit/save-as-document.png',
+              url: 'https://i.imgur.com/D7MT7Zy.png',
               width: 230.77,
             }}
           />
@@ -157,7 +157,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'Rename file',
               height: 500,
-              url: '/images/other/office-pdf-edit/save-as-resume.png',
+              url: 'https://i.imgur.com/GLa9G8Y.png',
               width: 230.77,
             }}
           />
@@ -169,7 +169,7 @@ function EditPdfOfficeMobile(): JSX.Element {
             image={{
               altText: 'List of files on Office homepage.',
               height: 500,
-              url: '/images/other/office-pdf-edit/list-of-files.png',
+              url: 'https://i.imgur.com/HoFwXuz.png',
               width: 230.77,
             }}
           />

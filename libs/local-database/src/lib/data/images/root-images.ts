@@ -4,7 +4,7 @@ export const rootImages = {
   gmail: new Image({
     altText: 'GMail',
     height: 384,
-    url: '/images/gmail.png',
+    url: 'https://i.imgur.com/74J3VE9.png',
     width: 512,
   }),
   linkedIn: new Image({

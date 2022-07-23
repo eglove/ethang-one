@@ -340,7 +340,7 @@ export const technologyImages = {
   winscp: new Image({
     altText: 'WinSCP',
     height: 256,
-    url: '/images/technology/winscp.png',
+    url: 'https://i.imgur.com/KWdANAW.png',
     width: 256,
   }),
   yii: new Image({
