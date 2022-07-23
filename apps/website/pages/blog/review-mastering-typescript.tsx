@@ -30,33 +30,33 @@ function ReviewMasteringTypescript(): JSX.Element {
         }}
       />
       <p>
-        Colt Steele, as always is a great teacher. He is likely the most
-        approachable for beginners instructor I know. While I really like
+        Colt Steele is, as always, a great teacher. He is likely the most
+        approachable instructor I know for beginners. While I really like
         Stephen Griders&apos; TypeScript course due to its focus on design
         patterns, it never felt like a proper, easy introduction to TypeScript.
-        I think that&apos;s exactly what this course provides.
+        I think that&apos;s exactly what this course provides. But is it needed?
       </p>
       <p>
-        It introduces you to TypeScript as a language and how to use it. In some
-        ways, you could do this yourself after you&apos;ve learned JavaScript.
-        If you know JS well, do you really need a course to explain TS&apos;s
-        simple syntax? Likely, at this point, you&apos;re ok with referencing
-        documenation as you go. That&apos;s a question I&apos;ll leave up to
-        you.
+        This course introduces you to TypeScript as a language and how to use
+        it. And to be honest, you could do this yourself after you&apos;ve
+        learned JavaScript. If you know JS well, do you really need a course to
+        explain TS&apos;s simple syntax? Likely, at this point, you&apos;re ok
+        with referencing documenation as you go.
       </p>
       <p>
-        But Colt Steele&apos;s course is great as always, his delivery and
-        curriculum are easy to follow. My only small gripe with this course is I
-        feel like it could have gone more in depth. As mentioend before I&apos;m
-        not sure JavaScript developers need such a beginner level course on
-        TypeScript. And if you don&apos;t know JavaScript, you probably need to
-        start with it.
+        That&apos;s my only small gripe with this course. I feel like it could
+        have gone more in depth on how to REALLY take advantage of TS beyond
+        basic type safety. As mentioend before I&apos;m not sure JavaScript
+        developers need such a beginner level course on TypeScript. And if you
+        don&apos;t know JavaScript, you probably shouldn&apos;t start with
+        TypeScript.
       </p>
       <p>
         I feel like Colt had an opportunity to take things to a more advanced
-        level than most of his courses. Get into writing and reading complex
-        types. At the end of the day this is a very basic overview of types,
-        enums, classes and generics. Type safety to it&apos;s most basic level.
+        level than most of his courses. Maybe get into writing and reading
+        complex types. At the end of the day this is a very basic overview of
+        types, enums, classes and generics. Type safety to it&apos;s most basic
+        level.
       </p>
       <p>
         How do you add type definitions to a third party library that
