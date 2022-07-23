@@ -64,10 +64,6 @@ export const courseUrls = {
       'https://www.udemy.com/course/complete-react-developer-zero-to-mastery/'
     ),
   }),
-  udemyCompleteSqlAndDatabasesBootcamp: new CourseUrl({
-    school: schools.udemy,
-    url: new URL('https://zerotomastery.io/courses/sql-bootcamp/'),
-  }),
   udemyComptiaAPlusCore1: new CourseUrl({
     school: schools.udemy,
     url: new URL(
@@ -90,22 +86,10 @@ export const courseUrls = {
     school: schools.udemy,
     url: new URL('https://www.udemy.com/course/git-and-github-bootcamp/'),
   }),
-  udemyJavascriptAdvancedConcepts: new CourseUrl({
-    school: schools.udemy,
-    url: new URL(
-      'https://zerotomastery.io/courses/advanced-javascript-concepts/'
-    ),
-  }),
   udemyJavascriptWebProjects: new CourseUrl({
     school: schools.udemy,
     url: new URL(
       'https://www.udemy.com/course/javascript-web-projects-to-build-your-portfolio-resume/'
-    ),
-  }),
-  udemyLearningToLearn: new CourseUrl({
-    school: schools.udemy,
-    url: new URL(
-      'https://www.udemy.com/course/learning-to-learn-efficient-learning-zero-to-mastery'
     ),
   }),
   udemyNestJsCompleteDevelopersGuide: new CourseUrl({
@@ -176,9 +160,7 @@ export const courseUrls = {
   }),
   zeroToMasteryCompleteSqlDatabasesBootcamp: new CourseUrl({
     school: schools.zeroToMastery,
-    url: new URL(
-      'https://academy.zerotomastery.io/p/complete-sql-database-bootcamp-zero-to-mastery'
-    ),
+    url: new URL('https://zerotomastery.io/courses/sql-bootcamp/'),
   }),
   zeroToMasteryDevOpsBootcamp: new CourseUrl({
     school: schools.zeroToMastery,
@@ -193,7 +175,7 @@ export const courseUrls = {
   zeroToMasteryJavascriptAdvancedConcepts: new CourseUrl({
     school: schools.zeroToMastery,
     url: new URL(
-      'https://academy.zerotomastery.io/p/advanced-javascript-concepts'
+      'https://zerotomastery.io/courses/advanced-javascript-concepts/'
     ),
   }),
   zeroToMasteryJavascriptWebProjects: new CourseUrl({
@@ -203,10 +185,6 @@ export const courseUrls = {
   zeroToMasteryLearningToLearn: new CourseUrl({
     school: schools.zeroToMastery,
     url: new URL('https://zerotomastery.io/courses/learning-how-to-learn/'),
-  }),
-  zeroToMasteryTypescriptCompleteDevelopersGuide: new CourseUrl({
-    school: schools.zeroToMastery,
-    url: new URL('https://academy.zerotomastery.io/p/learn-typescript'),
   }),
   zeroToMasteryWebSecurityBugBounty: new CourseUrl({
     school: schools.zeroToMastery,

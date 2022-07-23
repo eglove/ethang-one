@@ -100,10 +100,7 @@ export const courses = {
     yearUpdated: 2022,
   }),
   completeSqlDatabasesBootcamp: new Course({
-    courseUrls: [
-      courseUrls.zeroToMasteryCompleteSqlDatabasesBootcamp,
-      courseUrls.udemyCompleteSqlAndDatabasesBootcamp,
-    ],
+    courseUrls: [courseUrls.zeroToMasteryCompleteSqlDatabasesBootcamp],
     duration: 24.27,
     instructors: [persons.moBinni],
     rating: 4,
@@ -189,10 +186,7 @@ export const courses = {
     yearUpdated: 2021,
   }),
   javascriptAdvancedConcepts: new Course({
-    courseUrls: [
-      courseUrls.zeroToMasteryJavascriptAdvancedConcepts,
-      courseUrls.udemyJavascriptAdvancedConcepts,
-    ],
+    courseUrls: [courseUrls.zeroToMasteryJavascriptAdvancedConcepts],
     duration: 25.28,
     instructors: [persons.andreiNeagoie],
     rating: 5,
@@ -213,10 +207,7 @@ export const courses = {
     yearUpdated: 2022,
   }),
   learningToLearn: new Course({
-    courseUrls: [
-      courseUrls.zeroToMasteryLearningToLearn,
-      courseUrls.udemyLearningToLearn,
-    ],
+    courseUrls: [courseUrls.zeroToMasteryLearningToLearn],
     duration: 5.317,
     instructors: [persons.andreiNeagoie],
     rating: 5,
@@ -298,10 +289,7 @@ export const courses = {
     yearUpdated: 2021,
   }),
   typescriptCompleteDevelopersGuide: new Course({
-    courseUrls: [
-      courseUrls.zeroToMasteryTypescriptCompleteDevelopersGuide,
-      courseUrls.udemyTypescriptCompleteDevelopersGuide,
-    ],
+    courseUrls: [courseUrls.udemyTypescriptCompleteDevelopersGuide],
     duration: 24.6,
     instructors: [persons.stephenGrider],
     rating: 5,

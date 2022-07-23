@@ -6,10 +6,10 @@ import { Course } from './course';
 
 export type CourseKey = keyof typeof courses;
 
-interface CourseComponentProperties {
+type CourseComponentProperties = {
   children?: JSX.Element | JSX.Element[];
   course: CourseModel;
-}
+};
 
 export function SortedCourses(): JSX.Element {
   useKnuthPlassLineBreaks('p');
