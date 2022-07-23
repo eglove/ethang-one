@@ -1,34 +1,49 @@
 import { Button, Container, ReactToPdf } from '@ethang/react-components';
-import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import {
+  Dispatch,
+  MutableRefObject,
+  SetStateAction,
+  useRef,
+  useState,
+} from 'react';
 
 import { HeadTag } from '../common/head-tag/head-tag';
 import styles from './presume-layout.module.css';
 
 export function PresumeLayout(): JSX.Element {
+  const [applyingFor, setApplyingFor] = useState('');
   const resumeElement = useRef<HTMLDivElement>();
   const coverLetterElement = useRef<HTMLDivElement>();
+
   const today = new Date().toLocaleDateString().replace(/\//g, '-');
 
-  const [applyingFor, setApplyingFor] = useState('');
+  return (
+    <PresumeView
+      applyingFor={applyingFor}
+      coverLetterElement={coverLetterElement}
+      resumeElement={resumeElement}
+      setApplyingFor={setApplyingFor}
+      today={today}
+    />
+  );
+}
 
-  useKnuthPlassLineBreaks('p');
+type PresumeViewProperties = {
+  applyingFor: string;
+  coverLetterElement: MutableRefObject<HTMLDivElement>;
+  resumeElement: MutableRefObject<HTMLDivElement>;
+  setApplyingFor: Dispatch<SetStateAction<string>>;
+  today: string;
+};
 
-  const downloadCoverLetter = ({
-    toPdf,
-  }: {
-    toPdf: () => void;
-  }): JSX.Element => {
-    return (
-      <Button
-        buttonProperties={{ onClick: toPdf }}
-        size="small"
-        text="Download Cover Letter"
-      />
-    );
-  };
-
+function PresumeView({
+  applyingFor,
+  coverLetterElement,
+  resumeElement,
+  setApplyingFor,
+  today,
+}: PresumeViewProperties): JSX.Element {
   const downloadResume = ({ toPdf }: { toPdf: () => void }): JSX.Element => {
     return (
       <Button
@@ -74,6 +89,7 @@ export function PresumeLayout(): JSX.Element {
                 style={{ height: '150px', position: 'relative', width: 'auto' }}
               >
                 <Image
+                  priority
                   alt="Percie Pelias"
                   layout="fill"
                   objectFit="contain"
