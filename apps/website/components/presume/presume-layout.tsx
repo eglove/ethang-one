@@ -60,6 +60,7 @@ function PresumeView({
         <label htmlFor="applyingFor">Position Applying For: </label>
         <input
           name="applyingFor"
+          style={{ fontSize: '1.3rem' }}
           type="text"
           value={applyingFor}
           onChange={(event): void => {

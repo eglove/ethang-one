@@ -42,6 +42,9 @@
       "@ethang/prisma": ["libs/prisma/src/index.ts"],
       "@ethang/react-components": ["libs/react-components/src/index.ts"],
       "@ethang/react-hooks": ["libs/react-hooks/src/index.ts"],
+      "@ethang/trussworks-components": [
+        "libs/trussworks-components/src/index.ts"
+      ],
       "@ethang/types": ["libs/types/src/index.ts"],
       "@ethang/util-cli": ["libs/util-cli/src/index.ts"],
       "@ethang/util-typescript": ["libs/util-typescript/src/index.ts"]

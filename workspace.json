@@ -10,6 +10,7 @@
     "nrwl-utils": "libs/nrwl-utils",
     "react-components": "libs/react-components",
     "react-hooks": "libs/react-hooks",
+    "trussworks-components": "libs/trussworks-components",
     "types": "libs/types",
     "util-cli": "libs/util-cli",
     "util-typescript": "libs/util-typescript",
