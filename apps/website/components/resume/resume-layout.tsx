@@ -30,7 +30,7 @@ export function ResumeLayout(): JSX.Element {
       <ReactToPdf<JSX.Element, HTMLDivElement>
         downloadContainer={downloadPdf}
         filename={`Ethan_Glover_Resume_${today}`}
-        targetReference={resumeElement}
+        targetReferences={[resumeElement]}
       />
       <div className={styles.BorderContainer}>
         <div className={styles.ResumeContainer} ref={resumeElement}>

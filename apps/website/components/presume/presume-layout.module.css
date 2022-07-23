@@ -1,0 +1,62 @@
+.FormContainer {
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.DownloadButtonContainer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.BorderContainer {
+  width: 210mm;
+  margin: auto;
+  border: 1px solid hsl(0deg 0% 0%);
+  border-bottom: none;
+}
+
+.PresumeContainer {
+  width: 210mm;
+  height: 297mm;
+  margin: auto;
+  overflow: hidden;
+  color: hsl(0deg 0% 0%);
+  background: hsl(0deg 0% 100%);
+  border-bottom: 1px solid hsl(0deg 0% 0%);
+}
+
+.PresumeHeader {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  padding: 1rem;
+  color: hsl(0deg 0% 100%);
+  background-color: hsl(196deg 100% 47%);
+}
+
+.PresumeHeader h1 {
+  margin-top: 0;
+}
+
+.PresumeItem {
+  display: grid;
+  grid-template-columns: 26% 1fr;
+  gap: 1rem;
+  align-self: start;
+  padding: 8px;
+}
+
+.PresumeItem h2 {
+  margin-top: 0;
+  color: hsl(196deg 100% 47%);
+}
+
+.PresumeItem p {
+  margin: 8px;
+}
+
+.PresumeCoverLetter {
+  padding: 1rem;
+}

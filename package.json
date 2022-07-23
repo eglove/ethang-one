@@ -23,6 +23,7 @@
     "@nestjs/typeorm": "^9.0.0",
     "@nrwl/next": "14.4.3",
     "@prisma/client": "^4.1.0",
+    "@react-pdf/renderer": "^2.3.0",
     "@storybook/builder-webpack5": "6.5.9",
     "@storybook/core-server": "6.5.9",
     "@storybook/manager-webpack5": "6.5.9",

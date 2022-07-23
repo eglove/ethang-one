@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="rails_twittter_sqllite" uuid="7f1f63b7-f6bf-4fd6-9358-a0d3b2fee65f">
-      <driver-ref>sqlite.xerial</driver-ref>
+    <data-source source="LOCAL" name="postgres@dpg-cbc9tbta4995moh5h980-a.oregon-postgres.render.com" uuid="ccaa9ea8-4e1b-4601-a1e0-7a672cd996e1">
+      <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/apps/rails_twittter/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://dpg-cbc9tbta4995moh5h980-a.oregon-postgres.render.com:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="development" uuid="e7706b69-cb49-450d-9223-40c188ef91a4">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/apps/rails_blog_api/db/development.sqlite3</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-      <libraries>
-        <library>
-          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.36.0.3/sqlite-jdbc-3.36.0.3.jar</url>
-        </library>
-      </libraries>
     </data-source>
   </component>
 </project>

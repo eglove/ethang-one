@@ -2,11 +2,11 @@ import html2canvas, { Options } from 'html2canvas';
 import JsPdf, { jsPDFOptions } from 'jspdf';
 import { MutableRefObject } from 'react';
 
-interface ReactToPdfDownloadContainerProperties {
+type ReactToPdfDownloadContainerProperties = {
   toPdf: () => Promise<void>;
-}
+};
 
-interface ReactToPdfProperties<ContainerType, TargetType> {
+type ReactToPdfProperties<ContainerType, TargetType> = {
   canvasOptions?: Partial<Options>;
   downloadContainer: (
     properties: ReactToPdfDownloadContainerProperties
@@ -16,10 +16,10 @@ interface ReactToPdfProperties<ContainerType, TargetType> {
   onComplete?: () => void;
   options?: Record<string, string>;
   scale?: number;
-  targetReference: MutableRefObject<TargetType>;
+  targetReferences: Array<MutableRefObject<TargetType>>;
   x?: number;
   y?: number;
-}
+};
 
 export function ReactToPdf<ContainerType, TargetType>({
   filename = 'download.pdf',
@@ -29,21 +29,32 @@ export function ReactToPdf<ContainerType, TargetType>({
   jsPdfOptions,
   downloadContainer,
   onComplete,
-  targetReference,
+  targetReferences,
 }: ReactToPdfProperties<ContainerType, TargetType>): ContainerType {
   const toPdf = async (): Promise<void> => {
-    if (typeof targetReference.current === 'undefined') {
-      throw new TypeError('Target reference must be defined.');
+    for (const targetReference of targetReferences) {
+      if (typeof targetReference.current === 'undefined') {
+        throw new TypeError('Target reference must be defined.');
+      }
     }
 
-    const canvasElement = await html2canvas(
-      targetReference.current as unknown as HTMLElement,
-      canvasOptions
-    );
-
-    const imageData = canvasElement.toDataURL();
     const pdf = new JsPdf(jsPdfOptions);
-    pdf.addImage(imageData, 'JPEG', x, y, 0, 0, undefined, 'SLOW');
+    for (const [index, targetReference] of targetReferences.entries()) {
+      // eslint-disable-next-line no-await-in-loop
+      const canvasElement = await html2canvas(
+        targetReference.current as unknown as HTMLElement,
+        canvasOptions
+      );
+
+      const imageData = canvasElement.toDataURL();
+
+      pdf.addImage(imageData, 'JPEG', x, y, 0, 0, undefined, 'SLOW');
+
+      if (index !== targetReferences.length - 1) {
+        pdf.addPage();
+      }
+    }
+
     pdf.save(filename);
 
     if (typeof onComplete !== 'undefined') {
