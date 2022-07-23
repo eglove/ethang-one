@@ -3,6 +3,7 @@ export * from './lib/use-async';
 export * from './lib/use-copy-clipboard';
 export * from './lib/use-debounce';
 export * from './lib/use-dimensions';
+export * from './lib/use-form';
 export * from './lib/use-fullscreen';
 export * from './lib/use-knuth-plass-line-breaks';
 export * from './lib/use-local-storage';
