@@ -278,6 +278,16 @@ export const blogs = {
     title: 'Review: Linux Command Line Bootcamp',
     updatedAt: new Date('03/12/2022, 05:22 PM'),
   }),
+  reviewMasteringTypeScript: new Blog({
+    authors: [persons.ethanGlover],
+    createdAt: new Date('07/23/2022, 05:33 PM'),
+    description:
+      "'Colt Steele's Mastering TypeScript is a nice, friendly interoduction to TypeScript that will get you started with everything you know to start building type safe JS.",
+    featuredImage: allImages.blogImages.masteringTypeScript,
+    slug: 'review-mastering-typescript',
+    title: 'Review: Mastering TypeScript',
+    updatedAt: new Date('07/23/2022, 05:33 PM'),
+  }),
   reviewMikeMeyersAPlus: new Blog({
     authors: [persons.ethanGlover],
     createdAt: new Date('3/24/2022, 11:06 AM'),

@@ -151,6 +151,12 @@ export const blogImages = {
     url: 'https://i.imgur.com/Wjk1GrE.png',
     width: 705,
   }),
+  masteringTypeScript: new Image({
+    altText: 'Mastering TypeScript home page',
+    height: 486,
+    url: 'https://i.imgur.com/m48X2Vk.png',
+    width: 1221,
+  }),
   microphone: new Image({
     altText: 'Microphone on stage',
     height: 427,
@@ -301,6 +307,12 @@ export const blogImages = {
     height: 354,
     url: 'https://i.imgur.com/U7dm4cB.png',
     width: 697,
+  }),
+  typescriptAdvancedType: new Image({
+    altText: 'TypeScript diff type',
+    height: 233,
+    url: 'https://i.imgur.com/6JZ7yaG.png',
+    width: 1018,
   }),
   webDeveloperBootcamp: new Image({
     altText: 'Colt Steele Web Developer Bootcamp',
