@@ -41,12 +41,12 @@ function ReviewMasteringTypescript(): JSX.Element {
         it. And to be honest, you could do this yourself after you&apos;ve
         learned JavaScript. If you know JS well, do you really need a course to
         explain TS&apos;s simple syntax? Likely, at this point, you&apos;re ok
-        with referencing documenation as you go.
+        with referencing documentation as you go.
       </p>
       <p>
         That&apos;s my only small gripe with this course. I feel like it could
         have gone more in depth on how to REALLY take advantage of TS beyond
-        basic type safety. As mentioend before I&apos;m not sure JavaScript
+        basic type safety. As mentioned before I&apos;m not sure JavaScript
         developers need such a beginner level course on TypeScript. And if you
         don&apos;t know JavaScript, you probably shouldn&apos;t start with
         TypeScript.
