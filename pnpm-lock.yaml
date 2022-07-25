@@ -5532,7 +5532,7 @@ packages:
     dependencies:
       '@storybook/channels': 6.5.9
       '@storybook/client-logger': 6.5.9
-      core-js: 3.23.5
+      core-js: 3.24.0
       global: 4.4.0
       telejson: 6.0.8
     dev: false
@@ -8989,7 +8989,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.9
       '@types/raf': 3.4.0
-      core-js: 3.23.5
+      core-js: 3.24.0
       raf: 3.4.1
       regenerator-runtime: 0.13.9
       rgbcolor: 1.0.1
@@ -9583,6 +9583,11 @@ packages:
   /core-js/3.23.5:
     resolution: {integrity: sha512-7Vh11tujtAZy82da4duVreQysIoO2EvVrur7y6IzZkH1IHPSekuDi8Vuw1+YKjkbfWLRD7Nc9ICQ/sIUDutcyg==}
     requiresBuild: true
+
+  /core-js/3.24.0:
+    resolution: {integrity: sha512-IeOyT8A6iK37Ep4kZDD423mpi6JfPRoPUdQwEWYiGolvn4o6j2diaRzNfDfpTdu3a5qMbrGUzKUpYpRY8jXCkQ==}
+    requiresBuild: true
+    dev: false
 
   /core-util-is/1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
@@ -12810,7 +12815,7 @@ packages:
       source-map: 0.6.1
       wordwrap: 1.0.0
     optionalDependencies:
-      uglify-js: 3.16.2
+      uglify-js: 3.16.3
     dev: false
 
   /hard-rejection/2.1.0:
@@ -15061,7 +15066,7 @@ packages:
       fflate: 0.4.8
     optionalDependencies:
       canvg: 3.0.10
-      core-js: 3.23.5
+      core-js: 3.24.0
       dompurify: 2.3.10
       html2canvas: 1.4.1
     dev: false
@@ -15173,7 +15178,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.18.9
       app-root-dir: 1.0.2
-      core-js: 3.23.5
+      core-js: 3.24.0
       dotenv: 8.6.0
       dotenv-expand: 5.1.0
     dev: false
@@ -21093,8 +21098,8 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  /uglify-js/3.16.2:
-    resolution: {integrity: sha512-AaQNokTNgExWrkEYA24BTNMSjyqEXPSfhqoS0AxmHkCJ4U+Dyy5AvbGV/sqxuxficEfGGoX3zWw9R7QpLFfEsg==}
+  /uglify-js/3.16.3:
+    resolution: {integrity: sha512-uVbFqx9vvLhQg0iBaau9Z75AxWJ8tqM9AV890dIZCLApF4rTcyHwmAvLeEdYRs+BzYWu8Iw81F79ah0EfTXbaw==}
     engines: {node: '>=0.8.0'}
     hasBin: true
     requiresBuild: true

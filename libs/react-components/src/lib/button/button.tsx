@@ -20,12 +20,12 @@ const SIZES = {
   },
 };
 
-interface ButtonProperties {
+type ButtonProperties = {
   buttonProperties?: ButtonHTMLAttributes<HTMLButtonElement>;
   size: keyof typeof SIZES;
   text: string;
   variant?: 'Fill' | 'Outline' | 'Ghost';
-}
+};
 
 export function Button({
   buttonProperties,

@@ -1,6 +1,6 @@
-import { Button } from '@ethang/react-components';
 import { Dispatch, SetStateAction } from 'react';
 
+import { Button } from '../../button/button';
 import styles from '../styles/pagination.module.css';
 
 type PaginationProperties = {
