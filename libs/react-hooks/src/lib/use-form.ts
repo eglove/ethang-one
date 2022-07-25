@@ -6,48 +6,6 @@ import {
   useState,
 } from 'react';
 
-type HandleInputChangeProperties<StateType> = {
-  event: ChangeEvent;
-  onChange?: (event: ChangeEvent) => void;
-  setFormState: Dispatch<SetStateAction<StateType>>;
-};
-
-export const handleInputChange = <StateType>(
-  properties: HandleInputChangeProperties<StateType>
-): void => {
-  const eventTarget = properties.event.target as unknown as {
-    checked?: boolean;
-    files: File[];
-    name: string;
-    type: string;
-    value: string | boolean | number | File;
-  };
-
-  let { value } = eventTarget;
-  const { checked, name, type, files } = eventTarget;
-
-  if (type === 'checkbox') {
-    value = checked ?? false;
-  }
-
-  if (type === 'number' && typeof value === 'string') {
-    value = Number.parseFloat(value.replaceAll(',', ''));
-  }
-
-  if (type === 'file') {
-    [value] = files;
-  }
-
-  properties.setFormState(formState_ => {
-    return {
-      ...formState_,
-      [name]: value,
-    };
-  });
-
-  properties?.onChange?.(properties.event);
-};
-
 export type UseFormProperties = {
   formActionAfterSubmit?: 'clear' | 'reset';
   onChange?: (event: ChangeEvent) => unknown;
@@ -88,11 +46,37 @@ export const useForm = <StateType>(
   };
 
   const handleChange = (event: ChangeEvent): void => {
-    handleInputChange({
-      event,
-      onChange: properties?.onChange,
-      setFormState,
+    const eventTarget = event.target as unknown as {
+      checked?: boolean;
+      files: File[];
+      name: string;
+      type: string;
+      value: string | boolean | number | File;
+    };
+
+    let { value } = eventTarget;
+    const { checked, name, type, files } = eventTarget;
+
+    if (type === 'checkbox' && typeof checked !== 'undefined') {
+      value = checked;
+    }
+
+    if (type === 'number' && typeof value === 'string') {
+      value = Number.parseFloat(value.replaceAll(',', ''));
+    }
+
+    if (type === 'file') {
+      [value] = files;
+    }
+
+    setFormState(formState_ => {
+      return {
+        ...formState_,
+        [name]: value,
+      };
     });
+
+    properties?.onChange?.(event);
   };
 
   const clearForm = (): void => {

@@ -19,18 +19,18 @@ import { SimpleFormButton } from './simple-form-button';
 import { SimpleFormInput } from './simple-form-input';
 import { InputType } from './types';
 
-interface FormProperties<StateType> {
+type FormProperties<StateType> = {
   buttonContainerProperties?: ButtonHTMLAttributes<HTMLButtonElement>;
   buttons?: SimpleFormButton[];
-  clearFormAfterSubmit?: boolean;
   fieldsetProperties?: FieldsetHTMLAttributes<HTMLFieldSetElement>;
   formProperties?: FormHTMLAttributes<HTMLFormElement>;
   formState: StateType;
   inputs?: SimpleFormInput[];
+  isClearingFormAfterSubmit?: boolean;
   onChangeFunction?: (event: ChangeEvent) => unknown;
   postSubmitFunction?: (...arguments_: unknown[]) => unknown;
   setFormState: Dispatch<SetStateAction<StateType>>;
-}
+};
 
 export function SimpleForm<StateType extends Record<string, unknown>>(
   formProperties: FormProperties<StateType>
@@ -74,7 +74,7 @@ export function SimpleForm<StateType extends Record<string, unknown>>(
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    if (formProperties.clearFormAfterSubmit === true) {
+    if (formProperties.isClearingFormAfterSubmit === true) {
       const blankState = Object.fromEntries(
         Object.entries(formProperties.formState).map(([key]) => {
           return [key, ''];
