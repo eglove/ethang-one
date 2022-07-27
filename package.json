@@ -30,7 +30,7 @@
     "@trussworks/react-uswds": "^3.1.0",
     "apollo-server-express": "^3.10.0",
     "apollo3-cache-persist": "^0.14.1",
-    "blitz": "2.0.0-alpha.57",
+    "blitz": "2.0.0-alpha.59",
     "class-transformer": "^0.5.1",
     "cookie-session": "^2.0.0",
     "core-js": "^3.23.5",
