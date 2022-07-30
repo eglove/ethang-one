@@ -6,7 +6,7 @@ import { StaticBlogLayout } from '../../components/blog/blog/static-blog-layout'
 function RecentCourseUpdates(): JSX.Element {
   return (
     <StaticBlogLayout blog={blogs.recentCourseUpdates}>
-      <h2>June 2022</h2>
+      <h2>August 2022</h2>
       <p>
         Every month changes to the{' '}
         <NextLink linkProperties={{ href: '/courses' }}>
@@ -16,8 +16,9 @@ function RecentCourseUpdates(): JSX.Element {
         through this course list, if you want to commit to the current version,
         you can{' '}
         <NextLink
+          isNewTab
           linkProperties={{
-            href: 'https://drive.google.com/file/d/1EZMNkMMsBJLpPsYuCU1XCmsJhcpH8Hkf/view?usp=sharing',
+            href: '/files/course-curriculum.pdf',
           }}
         >
           download this months list here
@@ -29,37 +30,34 @@ function RecentCourseUpdates(): JSX.Element {
       </p>
       <h2>Courses Added</h2>
       <p>
-        <strong>CSS for JavaScript Developers</strong>: I was very impressed by
-        this course and the level of detail it goes into CSS. I consider myself
-        able to get the job done with CSS. I know to keep it simple and scoped
-        and there&apos;s not much I can&apos;t do with it. But that doesn&apos;t
-        mean I had ever heard of margin collapse before. I definitely
-        didn&apos;t know layout algorithms were a thing. That explained so much
-        for me. I was a little disappointed by how each module followed the
-        same, uninteresting formula. You can{' '}
-        <NextLink
-          linkProperties={{ href: '/blog/review-css-javascript-developers' }}
-        >
-          read my full review here
-        </NextLink>
-        , but this is still the best course for CSS out there.
+        <strong>NestJS: The Complete Developer&apos;s Guide</strong>: Yes,
+        NestJS is a bad design system. It should not be used for the majority of
+        projects. I think most of the JavaScript community can understand this
+        perspective. The reason NestJS made it to my recommended list is because
+        after trying every possible solution to build a good GraphQL backend, I
+        found NestJS to be perfect for it. With this new use, NestJS became an
+        important tool in the toolbox. Just don&apos;t fall for the lure and
+        illusions of NestJS opinions being the only way to solve every problem.
+        Decorators and dependency injection are not useful concepts when you
+        stop to consider how JavaScript as a language works.
       </p>
       <p>
-        <strong>DevOps Bootcamp: Terraform</strong>: Terraform has to be one of
-        the cooler ways of managing cloud resources. Declarative markup to
-        deploy, destroy and manage resources on all the major cloud platforms,
-        and many others. The course is well presented, it will definitely get
-        you started and thinking about infrastructure as code.
+        <strong>NestJS GraphQL Tutorial</strong>: This quick and short YouTube
+        tutorial is the reason why I set out to learn NestJS. And the reason why
+        it&apos;s included in the recommended list. But because this is just a
+        short tutorial and not a full course on Nest, it&apos;s best to learn
+        Nest first before jumping into this.
       </p>
-      <h2>Courses Removed</h2>
+      <h2>Courses Moved</h2>
       <p>
-        <strong>Agile & Scrum for Product Owners</strong>: This course was only
-        removed because it&apos;s a near word for word copy of Scrum for
-        Beginners. When I initially looked at these two I thought they would be
-        very different, and continued to tell myself that when I originally
-        recommended both. But if I&apos;m being honest, you only need one. And
-        considering this list is for developers, you may as well go with the one
-        that seems to be titled more for developers.
+        <strong>Scrum for Beginners</strong>: This course moved up 5 positions
+        from being the last on the list, to coming after Web Components. There
+        are a couple of courses that are hard to place without them feeling like
+        extra tack ons. The Sysadmin course, for example, still feels a little
+        out of place to me. But that&apos;s not to say they don&apos;t teach
+        important things. I moved this course up to be before getting into more
+        DevOps heavy courses just to keep it from mixing into that category too
+        much.
       </p>
     </StaticBlogLayout>
   );

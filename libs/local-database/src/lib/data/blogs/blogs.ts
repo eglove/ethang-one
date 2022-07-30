@@ -188,7 +188,7 @@ export const blogs = {
     featuredImage: allImages.blogImages.theRecommendedCourses,
     slug: 'recent-course-updates',
     title: 'Recent Course Updates',
-    updatedAt: new Date('06/01/2022, 10:33 AM'),
+    updatedAt: new Date('07/30/2022, 12:28 PM'),
   }),
   reviewAccessibilityForEveryone: new Blog({
     authors: [persons.ethanGlover],

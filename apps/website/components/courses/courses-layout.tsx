@@ -23,11 +23,12 @@ export function CoursesLayout(): JSX.Element {
         <p>
           This page changes often, lock in your plan by{' '}
           <NextLink
+            isNewTab
             linkProperties={{
-              href: 'https://drive.google.com/file/d/1EZMNkMMsBJLpPsYuCU1XCmsJhcpH8Hkf/view?usp=sharing',
+              href: './files/course-curriculum.pdf',
             }}
           >
-            downloading the June 2022 snapshot
+            downloading the August 2022 snapshot
           </NextLink>{' '}
           (PDF).
         </p>
