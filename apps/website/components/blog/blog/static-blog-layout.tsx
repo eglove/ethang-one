@@ -9,14 +9,13 @@ import {
   formatList,
   humanReadableLocalDateTime,
 } from '@ethang/util-typescript';
-import { DiscussionEmbed } from 'disqus-react';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { JsonLd, jsonLdScriptProps } from 'react-schemaorg';
 import { Blog as BlogSchema, Review } from 'schema-dts';
 
-import { BASE_URL } from '../../../util/constants';
 import { HeadTag } from '../../common/head-tag/head-tag';
+import { DisqusEmbed } from '../../disqus/disqus-embed';
 import styles from './blog-layout.module.css';
 
 type StaticBlogLayoutProperties = {
@@ -112,14 +111,10 @@ export function StaticBlogLayout({
       </div>
       <hr />
       <article>{children}</article>
-      <DiscussionEmbed
-        shortname="ethang"
-        config={{
-          identifier: blog.slug,
-          language: 'en-US',
-          title: blog.title,
-          url: `${BASE_URL}/blog/${blog.slug}`,
-        }}
+      <DisqusEmbed
+        id={blog.slug}
+        title={blog.title}
+        url={`/blog/${blog.slug}`}
       />
     </Container>
   );

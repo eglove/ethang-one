@@ -6,12 +6,11 @@ import {
   NextLink,
 } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
-import { DiscussionEmbed } from 'disqus-react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 import { HeadTag } from '../components/common/head-tag/head-tag';
 import styles from '../components/common/styles/common.module.css';
-import { BASE_URL } from '../util/constants';
+import { DisqusEmbed } from '../components/disqus/disqus-embed';
 
 function AboutMe(): JSX.Element {
   useKnuthPlassLineBreaks('p');
@@ -223,15 +222,7 @@ function AboutMe(): JSX.Element {
           but understanding programming as a whole.
         </p>
       </article>
-      <DiscussionEmbed
-        shortname="ethang"
-        config={{
-          identifier: 'aboutMe',
-          language: 'en-US',
-          title: 'About Me',
-          url: `${BASE_URL}/about-me`,
-        }}
-      />
+      <DisqusEmbed id="aboutMe" title="About Me" url="/about-me" />
     </Container>
   );
 }

@@ -1,9 +1,8 @@
 import { Breadcrumbs, Container, NextLink } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
-import { DiscussionEmbed } from 'disqus-react';
 
-import { BASE_URL } from '../../util/constants';
 import { HeadTag } from '../common/head-tag/head-tag';
+import { DisqusEmbed } from '../disqus/disqus-embed';
 import { SortedCourses } from './course/sorted-courses';
 
 export function CoursesLayout(): JSX.Element {
@@ -42,15 +41,7 @@ export function CoursesLayout(): JSX.Element {
         </p>
         <SortedCourses />
       </div>
-      <DiscussionEmbed
-        shortname="ethang"
-        config={{
-          identifier: 'courses',
-          language: 'en-US',
-          title: 'Recommended Courses',
-          url: `${BASE_URL}/courses`,
-        }}
-      />
+      <DisqusEmbed id="courses" title="Recommended Courses" url="/courses" />
     </Container>
   );
 }

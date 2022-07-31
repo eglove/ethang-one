@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import { Page } from '../components/common/page/page';
@@ -27,15 +27,6 @@ Router.events.on('routeChangeError', () => {
 const queryClient = new QueryClient();
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const disqusRecommendations = document.querySelector(
-        '#disqus_recommendations'
-      );
-      disqusRecommendations?.remove();
-    }
-  }, []);
-
   return (
     <Suspense>
       <QueryClientProvider client={queryClient}>
