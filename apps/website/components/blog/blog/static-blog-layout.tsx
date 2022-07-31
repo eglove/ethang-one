@@ -117,6 +117,7 @@ export function StaticBlogLayout({
         config={{
           identifier: blog.slug,
           language: 'en-US',
+          title: blog.title,
           url: `${BASE_URL}/blog/${blog.slug}`,
         }}
       />

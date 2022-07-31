@@ -228,6 +228,7 @@ function AboutMe(): JSX.Element {
         config={{
           identifier: 'aboutMe',
           language: 'en-US',
+          title: 'About Me',
           url: `${BASE_URL}/about-me`,
         }}
       />

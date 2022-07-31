@@ -47,6 +47,7 @@ export function CoursesLayout(): JSX.Element {
         config={{
           identifier: 'courses',
           language: 'en-US',
+          title: 'Recommended Courses',
           url: `${BASE_URL}/courses`,
         }}
       />

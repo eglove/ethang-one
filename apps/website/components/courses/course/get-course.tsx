@@ -88,10 +88,6 @@ export function GetCourse({
     }
   );
 
-  if (isLoading && typeof course.udemyId !== 'undefined') {
-    return <span />;
-  }
-
   return (
     <Course
       course={courseState}
