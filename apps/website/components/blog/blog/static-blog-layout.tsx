@@ -19,11 +19,11 @@ import { BASE_URL } from '../../../util/constants';
 import { HeadTag } from '../../common/head-tag/head-tag';
 import styles from './blog-layout.module.css';
 
-interface StaticBlogLayoutProperties {
+type StaticBlogLayoutProperties = {
   blog: Blog;
   children: JSX.Element | JSX.Element[];
   courseReviewed?: Course;
-}
+};
 
 export function StaticBlogLayout({
   blog,
@@ -64,7 +64,10 @@ export function StaticBlogLayout({
           thumbnailUrl: `${blog.featuredImage.url}`,
         })}
       />
-      {typeof courseReviewed !== 'undefined' && (
+      {typeof courseReviewed === 'undefined' ? (
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <></>
+      ) : (
         <JsonLd<Review>
           item={{
             '@context': 'https://schema.org',
@@ -73,7 +76,7 @@ export function StaticBlogLayout({
               '@type': 'Person',
               name: blog.authors[0].fullName,
             },
-            creator: courseReviewed.instructors[0].fullName,
+            creator: courseReviewed.instructors?.[0].fullName,
             itemReviewed: {
               '@type': 'Course',
               image: blog.featuredImage.url,
