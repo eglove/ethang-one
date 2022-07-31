@@ -19,13 +19,17 @@ export function Header(): JSX.Element {
           <Navigation />
         </div>
         <div className={styles.SocialLinks}>
-          <NextLink linkProperties={{ href: 'https://github.com/eglove' }}>
+          <NextLink
+            isNewTab
+            linkProperties={{ href: 'https://github.com/eglove' }}
+          >
             <NextImageComponent
               image={allImages.technologyImages.github}
               imageProperties={{ height: '40px', width: '40px' }}
             />
           </NextLink>
           <NextLink
+            isNewTab
             linkProperties={{
               href: 'https://www.linkedin.com/in/ethan-glover/',
             }}
