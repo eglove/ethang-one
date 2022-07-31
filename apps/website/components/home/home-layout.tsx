@@ -1,4 +1,4 @@
-import { Image as ImageModel, technologyImages } from '@ethang/local-database';
+import { technologyImages } from '@ethang/local-database';
 import {
   Container,
   NextImageComponent,
@@ -27,7 +27,8 @@ export function HomeLayout(): JSX.Element | undefined {
         </p>
         <div className={styles.Logos}>
           {techImages?.map(imageKey => {
-            const logo = technologyImages[imageKey] as ImageModel;
+            const logo =
+              technologyImages[imageKey as keyof typeof technologyImages];
 
             return (
               <div className={styles.LogoContainer} key={logo.url}>

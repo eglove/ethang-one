@@ -13,8 +13,10 @@ import styles from './presume-layout.module.css';
 
 export function PresumeLayout(): JSX.Element {
   const [applyingFor, setApplyingFor] = useState('');
-  const resumeElement = useRef<HTMLDivElement>();
-  const coverLetterElement = useRef<HTMLDivElement>();
+  const resumeElement =
+    useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>;
+  const coverLetterElement =
+    useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>;
 
   const today = new Date().toLocaleDateString().replace(/\//g, '-');
 
