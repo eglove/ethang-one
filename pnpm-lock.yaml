@@ -40,6 +40,7 @@ specifiers:
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
   '@types/react-router-dom': 5.3.3
+  '@types/react-syntax-highlighter': ^15.5.4
   '@types/uuid': ^8.3.4
   '@types/validator': ^13.7.4
   '@typescript-eslint/eslint-plugin': 5.31.0
@@ -230,6 +231,7 @@ devDependencies:
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
   '@types/react-router-dom': 5.3.3
+  '@types/react-syntax-highlighter': 15.5.4
   '@types/uuid': 8.3.4
   '@types/validator': 13.7.4
   '@typescript-eslint/eslint-plugin': 5.31.0_d5zwcxr4bwkhmuo464cb3a2puu
@@ -5637,6 +5639,12 @@ packages:
     dependencies:
       '@types/react': 18.0.15
     dev: false
+
+  /@types/react-syntax-highlighter/15.5.4:
+    resolution: {integrity: sha512-GYXA4nRBG4jTGFfYMLO2/yuqyOyaQ415oeJWw6akE5gipOEsGhvXFvWhsctGVMHzAfRI7e/J0B9cpqrfMOwZhA==}
+    dependencies:
+      '@types/react': 18.0.15
+    dev: true
 
   /@types/react/18.0.15:
     resolution: {integrity: sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==}
