@@ -79,10 +79,14 @@ blockquote {
 }
 
 /* Override Google search styles */
+/* stylelint-disable */
 .gsc-control-cse {
-  /* stylelint-disable */
   border: none !important;
   background-color: var(--background-color) !important;
   margin: 0 1rem;
-  /* stylelint-enable */
 }
+
+#disqus_thread {
+  margin-top: 24px;
+}
+/* stylelint-enable */
