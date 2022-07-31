@@ -18,7 +18,7 @@ export function NextLink({
     isNewTab === true ? { rel: 'noreferrer', target: '_blank' } : {};
 
   return (
-    <Link href={linkProperties.href} prefetch={isNewTab !== true}>
+    <Link href={linkProperties.href}>
       {/* eslint-disable-next-line react/jsx-no-target-blank */}
       <a data-testid={testId} {...linkProperties} {...newTabAttributes}>
         {children}
