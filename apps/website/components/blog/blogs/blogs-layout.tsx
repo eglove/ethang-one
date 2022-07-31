@@ -1,4 +1,4 @@
-import { Blog, blogs as staticBlogs } from '@ethang/local-database';
+import { blogs as staticBlogs } from '@ethang/local-database';
 import { Breadcrumbs, NextLink } from '@ethang/react-components';
 import {
   formatList,
@@ -40,7 +40,7 @@ export function BlogsLayout(): JSX.Element {
         ]}
       />
       {sortedBlogKeys.map(key => {
-        const blog = staticBlogs[key] as Blog;
+        const blog = staticBlogs[key as keyof typeof staticBlogs];
         return (
           <div key={blog.title} style={{ height: '300px' }}>
             <NextLink

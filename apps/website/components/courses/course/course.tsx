@@ -16,8 +16,8 @@ import {
 type CourseProperties = {
   children?: JSX.Element | JSX.Element[];
   course: CourseModel;
-  openCourse: CourseKey;
-  setOpenCourse: Dispatch<SetStateAction<CourseKey>>;
+  openCourse?: CourseKey;
+  setOpenCourse: Dispatch<SetStateAction<CourseKey | undefined>>;
 };
 
 export function Course({

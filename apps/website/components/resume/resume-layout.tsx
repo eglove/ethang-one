@@ -1,6 +1,6 @@
 import { Button, ReactToPdf } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
-import { useRef } from 'react';
+import { MutableRefObject, useRef } from 'react';
 
 import { HeadTag } from '../common/head-tag/head-tag';
 import styles from './resume-layout.module.css';
@@ -8,7 +8,8 @@ import { ResumeMain } from './resume-main';
 import { ResumeSidebar } from './resume-sidebar';
 
 export function ResumeLayout(): JSX.Element {
-  const resumeElement = useRef<HTMLDivElement>();
+  const resumeElement =
+    useRef<HTMLDivElement>() as MutableRefObject<HTMLDivElement>;
   const today = new Date().toLocaleDateString().replace(/\//g, '-');
 
   useKnuthPlassLineBreaks('p');

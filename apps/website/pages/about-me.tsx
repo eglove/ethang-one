@@ -6,7 +6,6 @@ import {
   NextLink,
 } from '@ethang/react-components';
 import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
-import { getYoutubeId } from '@ethang/util-typescript';
 import { DiscussionEmbed } from 'disqus-react';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
@@ -16,9 +15,6 @@ import { BASE_URL } from '../util/constants';
 
 function AboutMe(): JSX.Element {
   useKnuthPlassLineBreaks('p');
-  const cdcSystemsThinking = getYoutubeId({
-    url: 'https://www.youtube.com/watch?v=Fo3ndxVOZEo',
-  });
 
   return (
     <Container>
@@ -93,7 +89,7 @@ function AboutMe(): JSX.Element {
           and should be done.
         </p>
         <LiteYouTubeEmbed
-          id={cdcSystemsThinking}
+          id="Fo3ndxVOZEo"
           title="The Value of Systems Thinking"
         />
         <h2 id="standardization">

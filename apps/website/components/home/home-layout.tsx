@@ -9,7 +9,7 @@ import { shuffleArray } from '@ethang/util-typescript';
 import { HeadTag } from '../common/head-tag/head-tag';
 import styles from './home.module.css';
 
-export function HomeLayout(): JSX.Element | undefined {
+export function HomeLayout(): JSX.Element {
   const techImages = shuffleArray(Object.keys(technologyImages));
 
   return (

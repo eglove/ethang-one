@@ -18,7 +18,7 @@ export const useDimensions = ({
   >(initialDimensions);
   const [element, setElement] = useState<Element | undefined>();
 
-  const reference = useCallback(newNode => {
+  const reference = useCallback((newNode: Element | undefined) => {
     setElement(newNode);
   }, []);
 

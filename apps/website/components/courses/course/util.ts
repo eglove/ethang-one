@@ -60,7 +60,7 @@ export const ratingStyles = (rating: 1 | 2 | 3 | 4 | 5): CSSProperties => {
   }
 };
 
-export const yearUpdatedStyles = (yearUpdated: number): CSSProperties => {
+export const yearUpdatedStyles = (yearUpdated?: number): CSSProperties => {
   const thisYear = new Date().getFullYear();
 
   switch (yearUpdated) {
