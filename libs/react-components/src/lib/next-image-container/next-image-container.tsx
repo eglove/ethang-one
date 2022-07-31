@@ -6,15 +6,15 @@ import { NextImageComponent } from '../next-image-component/next-image-component
 import styles from './next-image-container.module.css';
 
 // Require alt
-interface ImagePropertiesRequired extends ImageProps {
+type ImagePropertiesRequired = {
   alt: string;
-}
+} & ImageProps;
 
-interface ImageContainerProperties {
+type ImageContainerProperties = {
   containerProperties?: HTMLAttributes<HTMLDivElement>;
   image: ImageModel;
   imageProperties?: ImagePropertiesRequired;
-}
+};
 
 export function NextImageContainer({
   containerProperties,

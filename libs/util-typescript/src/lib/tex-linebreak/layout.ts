@@ -1,12 +1,12 @@
 /**
  * An object (eg. a word) to be typeset.
  */
-export interface Box {
+export type Box = {
   type: 'box';
 
   /** Amount of space required by this content. Must be >= 0. */
   width: number;
-}
+};
 
 /**
  * A space between `Box` items with a preferred width and some
@@ -15,7 +15,7 @@ export interface Box {
  * `Glue` items are also candidates for breakpoints if they immediately follow a
  * `Box`.
  */
-export interface Glue {
+export type Glue = {
   /** Maximum amount by which this space can shrink. */
   shrink: number;
   /** Maximum amount by which this space can grow. */
@@ -25,12 +25,12 @@ export interface Glue {
    * Preferred width of this space. Must be >= 0.
    */
   width: number;
-}
+};
 
 /**
  * An explicit candidate position for breaking a line.
  */
-export interface Penalty {
+export type Penalty = {
   /**
    * The undesirability of breaking the line at this point.
    *
@@ -51,14 +51,14 @@ export interface Penalty {
    * a line is broken here. Must be >= 0.
    */
   width: number;
-}
+};
 
 export type InputItem = Box | Penalty | Glue;
 
 /**
  * Parameters for the layout process.
  */
-export interface Options {
+export type Options = {
   /**
    * Penalty for significant differences in the tightness of adjacent lines.
    */
@@ -87,7 +87,7 @@ export interface Options {
    * necessary.
    */
   maxAdjustmentRatio: number | undefined;
-}
+};
 
 /**
  * Minimum cost for a breakpoint.
@@ -460,7 +460,7 @@ export const breakLines = (
   return output;
 };
 
-export interface PositionedItem {
+export type PositionedItem = {
   /** Index of the item. */
   item: number;
   /** Index of the line on which the resulting item should appear. */
@@ -474,7 +474,7 @@ export interface PositionedItem {
   width: number;
   /** X offset of the item. */
   xOffset: number;
-}
+};
 
 /**
  * Compute adjustment ratios for lines given a set of breakpoints.
@@ -535,9 +535,9 @@ export const adjustmentRatios = (
   return ratios;
 };
 
-export interface PositionOptions {
+export type PositionOptions = {
   includeGlue?: boolean;
-}
+};
 
 /**
  * Compute the positions at which to draw boxes forming a paragraph given a set

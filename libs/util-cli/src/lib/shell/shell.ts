@@ -2,18 +2,18 @@ import { exec, spawn, SpawnOptions } from 'node:child_process';
 
 import { ShellColor } from './colors';
 
-export interface ShellCallbacks {
+export type ShellCallbacks = {
   onCode?: (code: number) => void;
   onError?: (stderr: string) => void;
   onStdout?: (stdout: string) => void;
-}
+};
 
-export interface ShellParameters {
+export type ShellParameters = {
   callbacks?: ShellCallbacks;
   command: string;
   hideCommandPrintout?: boolean;
   spawnOptions?: SpawnOptions;
-}
+};
 
 const defaultSpawnOptions: SpawnOptions = {
   shell: true,

@@ -24,11 +24,11 @@ export const ageFromBirthday = (birthDay: DateObjectArgumentTypes): number => {
   return age;
 };
 
-interface IArrayOfDaysBetweenDays {
+type IArrayOfDaysBetweenDays = {
   endDate: DateObjectArgumentTypes;
   skip?: number;
   startDate: DateObjectArgumentTypes;
-}
+};
 export const arrayOfDaysBetweenDays = ({
   endDate,
   skip = 1,

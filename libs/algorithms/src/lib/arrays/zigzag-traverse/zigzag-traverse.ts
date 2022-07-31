@@ -1,17 +1,17 @@
-interface IMovement {
+type IMovement = {
   horizontalDirection?: 'left' | 'right';
   verticalDirection?: 'up' | 'down';
   zigZagState: ZigZagState;
-}
+};
 
-interface ZigZagState {
+type ZigZagState = {
   column: number;
   goingDown: boolean;
   height: number;
   result: number[];
   row: number;
   width: number;
-}
+};
 
 export const zigzagTraverse = (array: number[][]): number[] => {
   const zigZagState: ZigZagState = {

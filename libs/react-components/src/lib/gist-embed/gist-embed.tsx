@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 
-interface ReactGistProperties {
+type ReactGistProperties = {
   file?: string;
   id: string;
-}
+};
 
 export function GistEmbed({ id, file }: ReactGistProperties): JSX.Element {
   const iframeNode = useRef<HTMLIFrameElement>(null);

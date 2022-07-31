@@ -1,9 +1,9 @@
-interface GetYoutubeIdProperties {
+type GetYoutubeIdProperties = {
   options?: {
     fuzzy?: boolean;
   };
   url: string;
-}
+};
 
 export const getYoutubeId = ({
   url,

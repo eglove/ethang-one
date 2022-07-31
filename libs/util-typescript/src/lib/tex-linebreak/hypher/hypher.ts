@@ -4,13 +4,13 @@ type Pattern = {
   size?: string;
 };
 
-export interface Language {
+export type Language = {
   exceptions?: string;
   id: string | string[];
   leftmin: number;
   patterns: Pattern;
   rightmin: number;
-}
+};
 
 export class Hypher {
   exceptions: Record<string, RegExp | undefined>;

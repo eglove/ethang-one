@@ -25,10 +25,10 @@ const SIZES: Record<string, SizeType> = {
   },
 };
 
-interface ProgressBarProperties {
+type ProgressBarProperties = {
   size: keyof typeof SIZES;
   value: number;
-}
+};
 
 export function ProgressBar({
   size,

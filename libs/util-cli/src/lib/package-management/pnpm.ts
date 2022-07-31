@@ -8,12 +8,12 @@ export const dependencyInstallStrings = {
   updateLatest: 'up -i --latest',
 };
 
-interface DependencyCommand {
+type DependencyCommand = {
   callbacks?: ShellCallbacks;
   dependencies?: string | string[];
   dependencyDelimiter?: string;
   type: keyof typeof dependencyInstallStrings;
-}
+};
 
 export const DEPENDENCY_MANAGER_INIT = 'pnpm';
 

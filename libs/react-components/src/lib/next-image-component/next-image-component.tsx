@@ -1,10 +1,10 @@
 import { Image as ImageModel } from '@ethang/local-database';
 import Image, { ImageProps } from 'next/image';
 
-interface ImageComponentProperties {
+type ImageComponentProperties = {
   image: ImageModel;
   imageProperties?: Partial<ImageProps>;
-}
+};
 
 export function NextImageComponent({
   image,

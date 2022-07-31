@@ -1,9 +1,3 @@
-declare global {
-  interface Range {
-    intersectsNode(node: Node): boolean;
-  }
-}
-
 /**
  * Return a list of `Text` nodes in `range`.
  *

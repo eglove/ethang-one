@@ -1,13 +1,13 @@
 type Pairs = Record<number, Array<[number, number]>>;
 
-interface PushDifferenceToQuadrupletsProperties {
+type PushDifferenceToQuadrupletsProperties = {
   allPairSums: Pairs;
   array: number[];
   difference: number;
   index: number;
   index2: number;
   quadruplets: number[][];
-}
+};
 
 const pushDifferenceToQuadruplets = ({
   difference,

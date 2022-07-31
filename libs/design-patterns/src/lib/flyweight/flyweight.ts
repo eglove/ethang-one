@@ -6,7 +6,7 @@ export class Book {
   ) {}
 }
 
-const books: Map<string, Book> = new Map();
+const books = new Map<string, Book>();
 const bookList: Book[] = [];
 
 const createBook = (author: string, isbn: string, title: string): Book => {
@@ -24,13 +24,13 @@ const createBook = (author: string, isbn: string, title: string): Book => {
   return book;
 };
 
-interface AddBookProperties {
+type AddBookProperties = {
   author: string;
   availability: boolean;
   isbn: string;
   sales: number;
   title: string;
-}
+};
 
 const addBook = (properties: AddBookProperties): Book => {
   const book = {

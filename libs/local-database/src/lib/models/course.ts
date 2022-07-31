@@ -1,7 +1,7 @@
 import { Person } from './person';
 import { School } from './school';
 
-interface ICourse {
+type ICourse = {
   courseUrls: CourseUrl[];
   duration?: number;
   instructors?: Person[];
@@ -10,12 +10,12 @@ interface ICourse {
   school: School;
   title: string;
   yearUpdated?: number;
-}
+};
 
-interface ICourseUrl {
+type ICourseUrl = {
   school: School;
   url: URL;
-}
+};
 
 export class Course implements ICourse {
   courseUrls: CourseUrl[];

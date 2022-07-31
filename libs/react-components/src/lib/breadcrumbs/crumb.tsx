@@ -2,10 +2,10 @@ import { NextLink } from '../next-link/next-link';
 import { LinkProperties } from './breadcrumbs';
 import styles from './breadcrumbs.module.css';
 
-interface CrumbProperties {
+type CrumbProperties = {
   link: LinkProperties;
   position: number;
-}
+};
 
 export function Crumb({ link, position }: CrumbProperties): JSX.Element {
   return (

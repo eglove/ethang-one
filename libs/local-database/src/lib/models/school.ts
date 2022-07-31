@@ -1,11 +1,11 @@
 import { Image } from './image';
 
-interface ISchool {
+type ISchool = {
   description: string;
   image: Image;
   name: string;
   url: URL;
-}
+};
 
 export class School implements ISchool {
   description: string;

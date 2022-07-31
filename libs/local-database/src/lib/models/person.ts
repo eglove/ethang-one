@@ -1,9 +1,9 @@
-interface IPerson {
+type IPerson = {
   firstName: string;
   readonly fullName?: string;
 
   lastName?: string;
-}
+};
 
 export class Person implements IPerson {
   firstName: string;

@@ -4,10 +4,10 @@ import { Icon } from '../icon-component/icon';
 import { SelectOption } from '../simple-form/simple-form-input';
 import styles from './select.module.css';
 
-interface SelectProperties {
+type SelectProperties = {
   selectOptions?: SelectOption[];
   selectProperties?: SelectHTMLAttributes<HTMLSelectElement>;
-}
+};
 
 export function Select({
   selectOptions,

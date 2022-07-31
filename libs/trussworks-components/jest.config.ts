@@ -1,10 +1,9 @@
-/* eslint-disable */
 export default {
-  displayName: "trussworks-components",
-  preset: "../../jest.preset.js",
+  coverageDirectory: '../../coverage/libs/trussworks-components',
+  displayName: 'trussworks-components',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  preset: '../../jest.preset.js',
   transform: {
-    "^.+\\.[tj]sx?$": "babel-jest",
+    '^.+\\.[tj]sx?$': 'babel-jest',
   },
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
-  coverageDirectory: "../../coverage/libs/trussworks-components",
 };

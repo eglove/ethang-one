@@ -9,12 +9,12 @@ const icons = {
   search: Search,
 };
 
-interface IconProperties {
+type IconProperties = {
   containerProperties?: HTMLAttributes<HTMLDivElement>;
   id: keyof typeof icons;
   size: number;
   strokeWidth?: number;
-}
+};
 
 export function Icon({
   containerProperties,

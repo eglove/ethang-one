@@ -1,12 +1,12 @@
 import { DEPENDENCY_MANAGER_INIT, runShellAsync } from '@ethang/util-cli';
 
-interface NxCommandProperties {
+type NxCommandProperties = {
   isDryRun?: boolean;
   onClose?: () => Promise<void>;
   projectName?: string;
   projectNames?: string[];
   target?: string;
-}
+};
 
 export class NxCommand implements NxCommandProperties {
   static BUILD_AFFECTED =

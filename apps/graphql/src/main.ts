@@ -28,7 +28,7 @@ async function startServer(): Promise<void> {
   const httpServer = http.createServer(app);
 
   const server = new ApolloServer({
-    context() {
+    context(): Context {
       const prisma = new PrismaClient();
       return { prisma };
     },

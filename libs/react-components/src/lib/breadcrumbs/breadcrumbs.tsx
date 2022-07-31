@@ -9,9 +9,9 @@ export type LinkProperties = {
   label: string;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-interface BreadcrumbsProperties {
+type BreadcrumbsProperties = {
   links: LinkProperties[];
-}
+};
 
 export function Breadcrumbs({ links }: BreadcrumbsProperties): JSX.Element {
   return (

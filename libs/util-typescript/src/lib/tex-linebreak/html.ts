@@ -12,11 +12,11 @@ import { textNodesInRange } from './util/range';
 
 const NODE_TAG = 'insertedByTexLinebreak';
 
-interface NodeOffset {
+type NodeOffset = {
   end: number;
   node: Node;
   start: number;
-}
+};
 
 type DOMBox = Box & NodeOffset;
 type DOMGlue = Glue & NodeOffset;
@@ -356,12 +356,12 @@ export const unjustifyContent = (element: HTMLElement): void => {
   element.normalize();
 };
 
-interface ElementBreakpoints {
+type ElementBreakpoints = {
   breakpoints: number[];
   el: HTMLElement;
   items: DOMItem[];
   lineWidth: number;
-}
+};
 
 /**
  * Justify an existing paragraph.

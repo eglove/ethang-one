@@ -1,9 +1,9 @@
 import { HTMLAttributes, useEffect, useState } from 'react';
 
-interface VisuallyHiddenProperties {
+type VisuallyHiddenProperties = {
   children: JSX.Element | JSX.Element[] | string | number;
   divProperties?: HTMLAttributes<HTMLDivElement>;
-}
+};
 
 export function VisuallyHidden({
   children,

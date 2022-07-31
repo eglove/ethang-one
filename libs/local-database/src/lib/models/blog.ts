@@ -1,7 +1,7 @@
 import { Image } from './image';
 import { Person } from './person';
 
-interface IBlog {
+type IBlog = {
   authors: Person[];
   createdAt: Date;
   description: string;
@@ -9,7 +9,7 @@ interface IBlog {
   slug: string;
   title: string;
   updatedAt: Date;
-}
+};
 
 export class Blog implements IBlog {
   authors: Person[];

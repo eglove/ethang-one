@@ -19,12 +19,12 @@ const SIZES = {
   },
 };
 
-interface IconInputProperties {
+type IconInputProperties = {
   inputProperties: InputHTMLAttributes<HTMLInputElement>;
   label: string;
   size?: keyof typeof SIZES;
   width?: number;
-}
+};
 
 export function IconInput({
   label,
