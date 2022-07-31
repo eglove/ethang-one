@@ -60,7 +60,7 @@ export function GetCourse({
     }
   };
 
-  const { isLoading } = useQuery<CoursesDetail | undefined>(
+  useQuery<CoursesDetail | undefined>(
     [course.udemyId],
     handleGetCourseDetails,
     {
@@ -80,7 +80,6 @@ export function GetCourse({
 
                 return courseUrl;
               }),
-              title: data_.title,
             };
           });
         }
