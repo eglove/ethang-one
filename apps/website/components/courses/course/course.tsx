@@ -1,57 +1,25 @@
 import { Course as CourseModel } from '@ethang/local-database';
 import { NextLink } from '@ethang/react-components';
-import { formatList } from '@ethang/util-typescript';
-import { Dispatch, SetStateAction } from 'react';
 
 import styles from './course.module.css';
 import { CourseLink } from './course-link';
-import { CourseKey } from './sorted-courses';
-import {
-  closedTemplateAreas,
-  openTemplateAreas,
-  ratingStyles,
-  yearUpdatedStyles,
-} from './util';
+import { ratingStyles, yearUpdatedStyles } from './util';
 
 type CourseProperties = {
   children?: JSX.Element | JSX.Element[];
   course: CourseModel;
-  openCourse?: CourseKey;
-  setOpenCourse: Dispatch<SetStateAction<CourseKey | undefined>>;
+  getInstructorNames: () => string | undefined;
+  isOpen: boolean;
+  isOpenProperties: JSX.IntrinsicElements['div'];
 };
 
 export function Course({
   children,
   course,
-  openCourse,
-  setOpenCourse,
+  getInstructorNames,
+  isOpen,
+  isOpenProperties,
 }: CourseProperties): JSX.Element {
-  const isOpen = openCourse === course.title;
-
-  const handleTitleClick = (): void => {
-    setOpenCourse(course.title as CourseKey);
-  };
-
-  const isOpenProperties = isOpen
-    ? { style: { ...openTemplateAreas } }
-    : {
-        onClick: handleTitleClick,
-        onKeyDown: handleTitleClick,
-        role: 'button',
-        style: { cursor: 'pointer', ...closedTemplateAreas },
-        tabIndex: 0,
-      };
-
-  const getInstructorNames = (): string | undefined => {
-    if (Array.isArray(course.instructors)) {
-      return formatList(
-        course.instructors.map(instructor => {
-          return instructor.fullName;
-        })
-      );
-    }
-  };
-
   return (
     <div
       className={`${styles.CourseContainer} ${

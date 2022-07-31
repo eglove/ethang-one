@@ -70,6 +70,7 @@ export const courses = {
     rating: 5,
     school: schools.zeroToMastery,
     title: 'Complete Ethical Hacking Bootcamp',
+    udemyId: 3_291_970,
     yearUpdated: 2022,
   }),
   completeNodeDeveloper: new Course({
@@ -82,6 +83,7 @@ export const courses = {
     rating: 3,
     school: schools.zeroToMastery,
     title: 'Complete Node.js Developer',
+    udemyId: 1_430_746,
     yearUpdated: 2022,
   }),
   completeReactDeveloper: new Course({
@@ -97,6 +99,7 @@ export const courses = {
     ),
     school: schools.zeroToMastery,
     title: 'Complete React Developer',
+    udemyId: 2_365_628,
     yearUpdated: 2022,
   }),
   completeSqlDatabasesBootcamp: new Course({
@@ -116,6 +119,7 @@ export const courses = {
     ratingUrl: new URL('https://www.ethang.dev/blog/review-mike-meyers-a-plus'),
     school: schools.totalSeminars,
     title: 'CompTIA A+ Core 1',
+    udemyId: 2_359_992,
     yearUpdated: 2021,
   }),
   comptiaAPlusCore2: new Course({
@@ -125,6 +129,7 @@ export const courses = {
     rating: 5,
     school: schools.totalSeminars,
     title: 'CompTIA A+ Core 2',
+    udemyId: 2_360_064,
     yearUpdated: 2021,
   }),
   cssForJavascriptDevelopers: new Course({
@@ -163,6 +168,7 @@ export const courses = {
     rating: 5,
     school: schools.udemy,
     title: 'Docker and Kubernetes',
+    udemyId: 1_793_828,
     yearUpdated: 2022,
   }),
   epicReact: new Course({
@@ -183,6 +189,7 @@ export const courses = {
     ),
     school: schools.udemy,
     title: 'Git & Github Bootcamp',
+    udemyId: 3_792_262,
     yearUpdated: 2021,
   }),
   javascriptAdvancedConcepts: new Course({
@@ -204,6 +211,7 @@ export const courses = {
     rating: 5,
     school: schools.zeroToMastery,
     title: 'JavaScript Web Projects',
+    udemyId: 3_030_132,
     yearUpdated: 2022,
   }),
   learningToLearn: new Course({
@@ -223,6 +231,7 @@ export const courses = {
     rating: 4,
     school: schools.udemy,
     title: "NestJS: The Complete Developer's Guide",
+    udemyId: 4_174_580,
     yearUpdated: 2022,
   }),
   nestJsGraphqlTutorial: new Course({
@@ -244,6 +253,7 @@ export const courses = {
     ),
     school: schools.udemy,
     title: 'Postman: The Complete Guide',
+    udemyId: 1_265_410,
     yearUpdated: 2022,
   }),
   scaleReactDevelopmentWithNx: new Course({
@@ -262,6 +272,7 @@ export const courses = {
     rating: 5,
     school: schools.udemy,
     title: 'Scrum for Beginners',
+    udemyId: 1_850_902,
     yearUpdated: 2022,
   }),
   seoTrainingMasterclass: new Course({
@@ -274,6 +285,7 @@ export const courses = {
     ),
     school: schools.problemio,
     title: 'SEO Training Masterclass',
+    udemyId: 187_246,
     yearUpdated: 2022,
   }),
   testingWithCypress: new Course({
@@ -295,6 +307,7 @@ export const courses = {
     rating: 5,
     school: schools.udemy,
     title: "Typescript: The Complete Developer's Guide",
+    udemyId: 2_337_318,
     yearUpdated: 2022,
   }),
   webComponentsAndStencil: new Course({
@@ -304,6 +317,7 @@ export const courses = {
     rating: 3,
     school: schools.academind,
     title: 'Web Components & Stencil.js',
+    udemyId: 2_035_334,
     yearUpdated: 2021,
   }),
   webDeveloperBootcamp: new Course({
@@ -316,6 +330,7 @@ export const courses = {
     ),
     school: schools.udemy,
     title: 'Web Developer Bootcamp',
+    udemyId: 625_204,
     yearUpdated: 2022,
   }),
   webSecurityBugBounty: new Course({
@@ -328,6 +343,7 @@ export const courses = {
     rating: 5,
     school: schools.zeroToMastery,
     title: 'Web Security & Bug Bounty',
+    udemyId: 3_985_968,
     yearUpdated: 2022,
   }),
 };

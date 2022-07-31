@@ -8,7 +8,7 @@ type CourseLinkProperties = {
 export function CourseLink({ courseUrl }: CourseLinkProperties): JSX.Element {
   return (
     <div>
-      <NextLink linkProperties={{ href: courseUrl.url.href }}>
+      <NextLink isNewTab linkProperties={{ href: courseUrl.url.href }}>
         {courseUrl.school.name}
       </NextLink>
       &ensp;

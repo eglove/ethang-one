@@ -5,6 +5,7 @@ import 'highlight.js/styles/github.css';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
@@ -23,13 +24,17 @@ Router.events.on('routeChangeError', () => {
   return NProgress.done();
 });
 
+const queryClient = new QueryClient();
+
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Suspense>
-      <ToastContainer />
-      <Page>
-        <Component {...pageProps} />
-      </Page>
+      <QueryClientProvider client={queryClient}>
+        <ToastContainer />
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </QueryClientProvider>
     </Suspense>
   );
 }

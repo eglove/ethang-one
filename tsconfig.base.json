@@ -46,6 +46,7 @@
         "libs/trussworks-components/src/index.ts"
       ],
       "@ethang/types": ["libs/types/src/index.ts"],
+      "@ethang/udemy-api": ["libs/udemy-api/src/index.ts"],
       "@ethang/util-cli": ["libs/util-cli/src/index.ts"],
       "@ethang/util-typescript": ["libs/util-typescript/src/index.ts"]
     },

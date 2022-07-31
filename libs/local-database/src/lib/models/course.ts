@@ -1,7 +1,7 @@
 import { Person } from './person';
 import { School } from './school';
 
-type ICourse = {
+export class Course {
   courseUrls: CourseUrl[];
   duration?: number;
   instructors?: Person[];
@@ -9,25 +9,10 @@ type ICourse = {
   ratingUrl?: URL;
   school: School;
   title: string;
-  yearUpdated?: number;
-};
-
-type ICourseUrl = {
-  school: School;
-  url: URL;
-};
-
-export class Course implements ICourse {
-  courseUrls: CourseUrl[];
-  duration?: number;
-  instructors?: Person[];
-  rating: 1 | 2 | 3 | 4 | 5;
-  ratingUrl?: URL;
-  school: School;
-  title: string;
+  udemyId?: number;
   yearUpdated?: number;
 
-  constructor(parameters: ICourse) {
+  constructor(parameters: Course) {
     this.courseUrls = parameters.courseUrls;
     this.duration = parameters.duration;
     this.instructors = parameters.instructors;
@@ -35,15 +20,16 @@ export class Course implements ICourse {
     this.ratingUrl = parameters.ratingUrl;
     this.school = parameters.school;
     this.title = parameters.title;
+    this.udemyId = parameters.udemyId;
     this.yearUpdated = parameters.yearUpdated;
   }
 }
 
-export class CourseUrl implements ICourseUrl {
+export class CourseUrl {
   school: School;
   url: URL;
 
-  constructor(parameters: ICourseUrl) {
+  constructor(parameters: CourseUrl) {
     this.school = parameters.school;
     this.url = parameters.url;
   }
