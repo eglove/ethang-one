@@ -5,6 +5,7 @@
     "apollo": "libs/apollo",
     "design-patterns": "libs/design-patterns",
     "ethang-cli": "apps/ethang-cli",
+    "graphql": "apps/graphql",
     "local-database": "libs/local-database",
     "node-environment": "libs/node-environment",
     "nrwl-utils": "libs/nrwl-utils",

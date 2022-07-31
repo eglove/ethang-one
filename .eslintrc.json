@@ -46,6 +46,7 @@
         "project": "./tsconfig.base.json"
       },
       "rules": {
+        "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/dot-notation": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-namespace": "off",
