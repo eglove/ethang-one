@@ -8,10 +8,10 @@ import { HeadThree } from './head-three';
 import { HeadTwo } from './head-two';
 import { HeadZero } from './head-zero';
 
-interface AccessoriesLayoutProperties {
+type AccessoriesLayoutProperties = {
   head: number;
   skinColor: string;
-}
+};
 
 export function HeadsLayout({
   head,

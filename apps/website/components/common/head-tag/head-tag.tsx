@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
-interface HeadTagProperties {
+type HeadTagProperties = {
   children?: JSX.Element | JSX.Element[];
   title: string;
-}
+};
 
 export function HeadTag({ children, title }: HeadTagProperties): JSX.Element {
   return (

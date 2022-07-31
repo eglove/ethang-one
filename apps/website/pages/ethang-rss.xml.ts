@@ -6,7 +6,6 @@ const EthangRss = (): void => {
   // Will be created on server side render
 };
 
-// eslint-disable-next-line unicorn/prevent-abbreviations
 export const getServerSideProps = async ({
   res,
 }: {

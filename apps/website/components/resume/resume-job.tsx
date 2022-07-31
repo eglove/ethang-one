@@ -3,13 +3,13 @@ import { useKnuthPlassLineBreaks } from '@ethang/react-hooks';
 import { ResumeJobDetails } from './resume-job-details';
 import { ResumeJobHeading } from './resume-job-heading';
 
-interface ResumeJobProperties {
+type ResumeJobProperties = {
   company: string;
   dateRange: string;
   jobDetails: string[];
   jobTitle: string;
   location: string;
-}
+};
 
 export function ResumeJob({
   company,

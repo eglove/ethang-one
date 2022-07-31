@@ -1,29 +1,29 @@
-export interface ProductHuntData {
+export type ProductHuntData = {
   posts: Posts;
-}
+};
 
-export interface Posts {
+export type Posts = {
   edges?: EdgesEntity[];
-}
+};
 
-export interface EdgesEntity {
+export type EdgesEntity = {
   node: Node;
-}
+};
 
-export interface Node {
+export type Node = {
   description: string;
   id: string;
   media: ProductMediaEntity[];
   name: string;
   productLinks?: ProductLinksEntity[];
-}
+};
 
-export interface ProductMediaEntity {
+export type ProductMediaEntity = {
   url: string | undefined;
   videoUrl: string | undefined;
-}
+};
 
-export interface ProductLinksEntity {
+export type ProductLinksEntity = {
   type: string;
   url: string;
-}
+};

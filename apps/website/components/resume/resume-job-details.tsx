@@ -2,9 +2,9 @@ import { uuid } from '@ethang/util-typescript';
 
 import styles from './resume-layout.module.css';
 
-interface ResumeJobDetailsProperties {
+type ResumeJobDetailsProperties = {
   detailPoints: string[];
-}
+};
 
 export function ResumeJobDetails({
   detailPoints,

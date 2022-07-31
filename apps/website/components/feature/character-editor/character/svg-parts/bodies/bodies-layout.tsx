@@ -6,11 +6,11 @@ import { BodyThree } from './body-three';
 import { BodyTwo } from './body-two';
 import { BodyZero } from './body-zero';
 
-interface AccessoriesLayoutProperties {
+type AccessoriesLayoutProperties = {
   body: number;
   clothesColor: string;
   skinColor: string;
-}
+};
 
 export function BodiesLayout({
   clothesColor,

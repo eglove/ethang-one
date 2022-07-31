@@ -11,8 +11,12 @@ import styles from './blogs-layout.module.css';
 export function BlogsLayout(): JSX.Element {
   const sortedBlogKeys = Object.keys(staticBlogs).sort(
     (firstElement, secondElement) => {
-      const firstDate = new Date(staticBlogs[firstElement].updatedAt);
-      const secondDate = new Date(staticBlogs[secondElement].updatedAt);
+      const firstDate = new Date(
+        staticBlogs[firstElement as keyof typeof staticBlogs].updatedAt
+      );
+      const secondDate = new Date(
+        staticBlogs[secondElement as keyof typeof staticBlogs].updatedAt
+      );
 
       if (firstDate > secondDate) {
         return -1;

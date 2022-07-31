@@ -5,12 +5,12 @@ import { CharacterOption } from '../character-editor-layout/character-editor-lay
 import { ToggleButton } from '../toggle-button/toggle-button';
 import styles from './control-pane.module.css';
 
-interface ControlPaneProperties {
+type ControlPaneProperties = {
   currentOption: number | string;
   handleSelectOption: Dispatch<SetStateAction<string | number>>;
   options: CharacterOption[];
   title: string;
-}
+};
 
 export function ControlPane(properties: ControlPaneProperties): JSX.Element {
   return (

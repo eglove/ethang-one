@@ -1,11 +1,11 @@
 import { DataEntity } from '../types/hermit-craft-types';
 import { HermitState } from './hermit-state';
 
-export interface HermitStateProperties {
+export type HermitStateProperties = {
   availableStreams?: DataEntity[];
   currentlyWatching?: string;
   notCurrentlyWatching?: DataEntity[];
-}
+};
 
 export enum HermitActionEnum {
   availableStreams = 'availableStreams',

@@ -11,9 +11,9 @@
 export {};
 
 declare namespace Cypress {
-  interface Chainable {
+  type Chainable = {
     login(email: string, password: string): void;
-  }
+  };
 }
 //
 // -- This is a parent command --
@@ -32,13 +32,13 @@ declare namespace Cypress {
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-interface TestReviewArguments {
+type TestReviewArguments = {
   courseAuthor: string;
   courseName: string;
   courseUrl: string;
   rating: '1' | '2' | '3' | '4' | '5';
   reviewSlug: string;
-}
+};
 
 Cypress.Commands.add(
   // @ts-expect-error Custom command

@@ -13,12 +13,12 @@ import {
   yearUpdatedStyles,
 } from './util';
 
-interface CourseProperties {
+type CourseProperties = {
   children?: JSX.Element | JSX.Element[];
   course: CourseModel;
   openCourse: CourseKey;
   setOpenCourse: Dispatch<SetStateAction<CourseKey>>;
-}
+};
 
 export function Course({
   children,

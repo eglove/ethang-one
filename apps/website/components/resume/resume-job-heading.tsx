@@ -1,11 +1,11 @@
 import styles from './resume-layout.module.css';
 
-interface ResumeJobHeadingProperties {
+type ResumeJobHeadingProperties = {
   company: string;
   dateRange: string;
   jobTitle: string;
   location: string;
-}
+};
 
 export function ResumeJobHeading({
   company,

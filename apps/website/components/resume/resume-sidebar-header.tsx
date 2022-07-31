@@ -1,8 +1,8 @@
 import styles from './resume-layout.module.css';
 
-interface ResumeSidebarHeaderProperties {
+type ResumeSidebarHeaderProperties = {
   text: string;
-}
+};
 
 export function ResumeSidebarHeader({
   text,

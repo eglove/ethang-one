@@ -8,9 +8,9 @@ import { FaceThree } from './face-three';
 import { FaceTwo } from './face-two';
 import { FaceZero } from './face-zero';
 
-interface AccessoriesLayoutProperties {
+type AccessoriesLayoutProperties = {
   face: number;
-}
+};
 
 export function FacesLayout({
   face,

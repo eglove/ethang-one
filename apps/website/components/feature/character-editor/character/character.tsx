@@ -4,14 +4,14 @@ import { BodiesLayout } from './svg-parts/bodies/bodies-layout';
 import { FacesLayout } from './svg-parts/faces/faces-layout';
 import { HeadsLayout } from './svg-parts/heads/heads-layout';
 
-interface CharacterProperties {
+type CharacterProperties = {
   accessory: number;
   body: number;
   clothesColor: string;
   face: number;
   head: number;
   skinColor: string;
-}
+};
 
 export function Character({
   body,

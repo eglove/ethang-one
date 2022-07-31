@@ -1,6 +1,6 @@
-interface HeadZeroProperties {
+type HeadZeroProperties = {
   skinColor: string;
-}
+};
 
 export function HeadFour({ skinColor }: HeadZeroProperties): JSX.Element {
   return (

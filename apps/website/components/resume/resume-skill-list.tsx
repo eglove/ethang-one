@@ -1,8 +1,8 @@
 import styles from './resume-layout.module.css';
 
-interface ResumeSkillListProperties {
+type ResumeSkillListProperties = {
   skills: string[];
-}
+};
 
 export function ResumeSkillList({
   skills,

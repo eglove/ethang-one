@@ -1,7 +1,7 @@
-interface BodyOneProperties {
+type BodyOneProperties = {
   clothesColor: string;
   skinColor: string;
-}
+};
 
 export function BodySix({
   clothesColor,

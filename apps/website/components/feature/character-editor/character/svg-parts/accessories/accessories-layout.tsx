@@ -4,9 +4,9 @@ import { AccessoryOne } from './accessory-one';
 import { AccessoryThree } from './accessory-three';
 import { AccessoryTwo } from './accessory-two';
 
-interface AccessoriesLayoutProperties {
+type AccessoriesLayoutProperties = {
   accessory: number;
-}
+};
 
 export function AccessoriesLayout({
   accessory,

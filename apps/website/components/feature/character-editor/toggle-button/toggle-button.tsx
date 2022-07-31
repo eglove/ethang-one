@@ -2,13 +2,13 @@ import { ButtonHTMLAttributes } from 'react';
 
 import styles from './toggle-button.module.css';
 
-export interface ToggleButtonProperties {
+export type ToggleButtonProperties = {
   children: JSX.Element | JSX.Element[];
   color: string;
   delegated?: ButtonHTMLAttributes<HTMLButtonElement>;
   isSelected: boolean;
   label: string;
-}
+};
 
 export function ToggleButton({
   label,

@@ -7,9 +7,9 @@ import {
   HermitStateProperties,
 } from './hermit-reducer';
 
-interface HermitContextWrapperProperties {
+type HermitContextWrapperProperties = {
   children: JSX.Element | JSX.Element[];
-}
+};
 
 export const HermitStateContext = createContext<HermitStateProperties>({});
 HermitStateContext.displayName = 'HermitState';

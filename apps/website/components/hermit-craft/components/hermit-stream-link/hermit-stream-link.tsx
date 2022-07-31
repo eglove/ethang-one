@@ -3,9 +3,9 @@ import { HermitActionEnum } from '../../context/hermit-reducer';
 import { DataEntity } from '../../types/hermit-craft-types';
 import styles from './hermit-stream-link.module.css';
 
-interface HermitStreamLinkProperties {
+type HermitStreamLinkProperties = {
   hermitStream?: DataEntity;
-}
+};
 
 export function HermitStreamLink({
   hermitStream,

@@ -1,8 +1,8 @@
-export interface TwitchStreamDataByUserLogin {
+export type TwitchStreamDataByUserLogin = {
   data?: DataEntity[];
-}
+};
 
-export interface DataEntity {
+export type DataEntity = {
   game_id: string;
   game_name: string;
   id: string;
@@ -17,4 +17,4 @@ export interface DataEntity {
   user_login: string;
   user_name: string;
   viewer_count: number;
-}
+};
