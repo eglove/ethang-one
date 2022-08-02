@@ -79,7 +79,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
-    "@nrwl/angular": "14.5.1",
+    "@nrwl/angular": "14.5.2",
     "@nrwl/cypress": "14.5.1",
     "@nrwl/devkit": "14.5.1",
     "@nrwl/eslint-plugin-nx": "14.5.1",
